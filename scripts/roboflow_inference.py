@@ -1,21 +1,40 @@
+import argparse
 import json
 import os
-import sys
-from inference_sdk import InferenceHTTPClient, InferenceConfiguration
 
-MODEL_ID = "altayyar-0oflt-lafos-qqauz-ty5nh/1"
+from inference_sdk import InferenceConfiguration, InferenceHTTPClient
+
 API_URL = "https://serverless.roboflow.com"
+MODELS = {
+    "yolo": "altayyar-0oflt-lafos-qqauz-ty5nh/1",
+    "rfdetr": "altayyar-0oflt-lafos-qqauz/2",
+}
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Run inference against either Y-PPE Roboflow deployment."
+    )
+    parser.add_argument(
+        "image",
+        help="Path to the input image.",
+    )
+    parser.add_argument(
+        "--model",
+        choices=MODELS,
+        default="rfdetr",
+        help="Deployment to use: yolo or rfdetr (default: rfdetr).",
+    )
+    return parser.parse_args()
 
 
 def main() -> None:
-    if len(sys.argv) != 2:
-        raise SystemExit("Usage: python scripts/roboflow_inference.py path/to/image.jpg")
+    args = parse_args()
 
     api_key = os.getenv("ROBOFLOW_API_KEY")
     if not api_key:
         raise SystemExit("ROBOFLOW_API_KEY is not set.")
 
-    image_path = sys.argv[1]
     client = InferenceHTTPClient(
         api_url=API_URL,
         api_key=api_key,
@@ -23,8 +42,15 @@ def main() -> None:
         InferenceConfiguration(api_key_transport="header")
     )
 
-    result = client.infer(image_path, model_id=MODEL_ID)
-    print(json.dumps(result, indent=2))
+    model_id = MODELS[args.model]
+    result = client.infer(args.image, model_id=model_id)
+
+    output = {
+        "track": args.model,
+        "model_id": model_id,
+        "predictions": result,
+    }
+    print(json.dumps(output, indent=2))
 
 
 if __name__ == "__main__":
