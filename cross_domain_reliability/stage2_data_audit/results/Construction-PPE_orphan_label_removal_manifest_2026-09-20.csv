@@ -1,0 +1,11 @@
+split,label_file,reason
+train,image940(1).txt,orphan_label_no_matching_image
+train,image941(1).txt,orphan_label_no_matching_image
+train,image944(1).txt,orphan_label_no_matching_image
+train,image945(1).txt,orphan_label_no_matching_image
+train,image946(1).txt,orphan_label_no_matching_image
+train,image947(1).txt,orphan_label_no_matching_image
+train,image948(1).txt,orphan_label_no_matching_image
+train,image949(1).txt,orphan_label_no_matching_image
+train,image95(1).txt,orphan_label_no_matching_image
+train,image950(1).txt,orphan_label_no_matching_image
