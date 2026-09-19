@@ -1,0 +1,143 @@
+name: Construction-PPE Stage 2 Dataset Audit
+
+on:
+  workflow_dispatch:
+    inputs:
+      near_hash_distance:
+        description: dHash Hamming distance for near-duplicate candidates
+        required: true
+        default: "4"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install audit dependencies
+        run: pip install -r cross_domain_reliability/stage2_data_audit/requirements.txt
+
+      - name: Fetch pinned official Construction-PPE YAML
+        shell: bash
+        run: |
+          mkdir -p "${RUNNER_TEMP}/construction_ppe_stage2"
+          curl --fail --location --retry 3 \
+            -o "${RUNNER_TEMP}/construction_ppe_stage2/construction-ppe.yaml" \
+            "https://raw.githubusercontent.com/ultralytics/ultralytics/42044baf5eda3d52aa4bd7d8a098375d2c7fdad7/ultralytics/cfg/datasets/construction-ppe.yaml"
+          sha256sum "${RUNNER_TEMP}/construction_ppe_stage2/construction-ppe.yaml" > "${RUNNER_TEMP}/construction_ppe_stage2/official_yaml.sha256"
+
+      - name: Download official Construction-PPE archive
+        id: download
+        shell: bash
+        run: |
+          python cross_domain_reliability/stage2_data_audit/download_ultralytics_construction_ppe.py \
+            --out "${RUNNER_TEMP}/construction_ppe_stage2/download" \
+            --metadata-out "${RUNNER_TEMP}/construction_ppe_stage2/download_metadata.json"
+          DATASET_ROOT="$(python - <<'PY'
+          import json, os
+          p=os.path.join(os.environ['RUNNER_TEMP'],'construction_ppe_stage2','download_metadata.json')
+          print(json.load(open(p, encoding='utf-8'))['dataset_root'])
+          PY
+          )"
+          echo "dataset_root=${DATASET_ROOT}" >> "$GITHUB_OUTPUT"
+
+      - name: Run read-only core Stage 2 audit
+        id: audit
+        shell: bash
+        run: |
+          set +e
+          python cross_domain_reliability/stage2_data_audit/stage2_dataset_audit.py \
+            --dataset-name "Construction-PPE" \
+            --root "${{ steps.download.outputs.dataset_root }}" \
+            --data-yaml "${RUNNER_TEMP}/construction_ppe_stage2/construction-ppe.yaml" \
+            --splits "train,val,test" \
+            --near-hash-distance "${{ inputs.near_hash_distance }}" \
+            --out "${RUNNER_TEMP}/construction_ppe_stage2/audit"
+          CODE=$?
+          set -e
+          echo "exit_code=${CODE}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Detect explicit cross-split video source groups
+        id: source_groups
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          if [ -f "${RUNNER_TEMP}/construction_ppe_stage2/audit/image_manifest.json" ]; then
+            python cross_domain_reliability/stage2_data_audit/detect_source_group_leakage.py \
+              --image-manifest "${RUNNER_TEMP}/construction_ppe_stage2/audit/image_manifest.json" \
+              --out "${RUNNER_TEMP}/construction_ppe_stage2/source_groups"
+            CODE=$?
+          else
+            CODE=0
+          fi
+          set -e
+          echo "exit_code=${CODE}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Build visual/manual review bundle
+        if: always()
+        shell: bash
+        run: |
+          if [ -f "${RUNNER_TEMP}/construction_ppe_stage2/audit/issues.json" ]; then
+            python cross_domain_reliability/stage2_data_audit/build_visual_review_bundle.py \
+              --dataset-root "${{ steps.download.outputs.dataset_root }}" \
+              --issues "${RUNNER_TEMP}/construction_ppe_stage2/audit/issues.json" \
+              --splits "train,val,test" \
+              --out "${RUNNER_TEMP}/construction_ppe_stage2/visual_review"
+          fi
+
+      - name: Build near-identical box overlays
+        if: always()
+        shell: bash
+        run: |
+          if [ -s "${RUNNER_TEMP}/construction_ppe_stage2/visual_review/near_identical_boxes.csv" ]; then
+            python cross_domain_reliability/stage2_data_audit/build_near_box_overlays.py \
+              --dataset-root "${{ steps.download.outputs.dataset_root }}" \
+              --near-box-csv "${RUNNER_TEMP}/construction_ppe_stage2/visual_review/near_identical_boxes.csv" \
+              --data-yaml "${RUNNER_TEMP}/construction_ppe_stage2/construction-ppe.yaml" \
+              --out "${RUNNER_TEMP}/construction_ppe_stage2/near_box_review"
+          fi
+
+      - name: Upload complete audit artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage2-Construction-PPE-official
+          path: ${{ runner.temp }}/construction_ppe_stage2/**
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Write workflow summary
+        if: always()
+        shell: bash
+        run: |
+          echo "## Construction-PPE Stage 2 audit" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Official archive: Ultralytics assets v0.0.0 / construction-ppe.zip" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Official YAML pinned commit: 42044baf5eda3d52aa4bd7d8a098375d2c7fdad7" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Expected counts: train=1132, val=143, test=141" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Core audit exit code: ${{ steps.audit.outputs.exit_code }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Explicit video-group exit code: ${{ steps.source_groups.outputs.exit_code }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "No model training is performed by this workflow." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Enforce audit gate
+        if: always()
+        shell: bash
+        run: |
+          CORE="${{ steps.audit.outputs.exit_code }}"; CORE="${CORE:-0}"
+          SOURCE="${{ steps.source_groups.outputs.exit_code }}"; SOURCE="${SOURCE:-0}"
+          if [ "$CORE" != "0" ] || [ "$SOURCE" != "0" ]; then
+            echo "Construction-PPE Stage 2 gate failed (core=$CORE, source_group=$SOURCE)." >&2
+            exit 2
+          fi
