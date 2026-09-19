@@ -1,27 +1,72 @@
-# AI-Driven RF-DETR System for Real-Time PPE Monitoring in Construction Projects
+# Y-PPE Detection Research Repository
 
-**Researcher:** [EZZALDEEN NABIL GHALEB OBADI AL-TAYAR.]  
-**Degree:** Master's Thesis in Engineering Project Management  
-**Institution:** Taiz University, Republic of Yemen  
+**Researcher:** Ezzaldeen Nabil Ghaleb Obadi Al-Tayar  
+**Degree:** Master of Engineering Project Management  
+**Institution:** Taiz University, Republic of Yemen
 
----
+## Project Overview
 
-## 📌 Project Overview
-This repository serves as the digital footprint for my Master's thesis research. The study explores the application of Artificial Intelligence, specifically the **RF-DETR (Small)** transformer-based architecture, to optimize Personal Protective Equipment (PPE) compliance and contextual hazard monitoring in unstructured, low-resource development projects.
+This repository supports research on AI-assisted Personal Protective Equipment (PPE) compliance monitoring for construction and occupational-safety applications. The broader research direction investigates transformer-based detection, including RF-DETR, together with explainability and risk-management considerations.
 
-## 🛠️ The Y-PPE Dataset
-To address the domain shift and visual complexities of Yemeni worksites, this research introduces the localized **Y-PPE Dataset**. It features 17 distinct classes, integrating standard safety gear, explicit non-compliance categories, contextual hazards (children/animals), and culturally specific attire mapping (e.g., Abaya).
+## Y-PPE Dataset
 
-## 🚀 Interactive Model & API Access
-The pre-trained model, full dataset, and deployment API are hosted on **Roboflow Universe** for public access and interactive testing.
+The associated Y-PPE dataset contains 17 object-detection classes covering PPE, non-compliance categories, persons, contextual hazards, and related worksite objects.
 
-🔗 **[Click Here to Test the Model & Access the Dataset Live] (https://universe.roboflow.com/softyyemen/altayyar-0oflt-lafos-qqauz)**
+## Roboflow Universe
 
-Through the link above, you can:
-- Drag and drop images to test the model's inference in real-time.
-- Explore the annotated Y-PPE dataset.
-- Access API code snippets (Python, JavaScript, etc.) to integrate the model into your own systems.
+The current public Roboflow project is available here:
 
-## 📄 Citation
-If you find this model or the Y-PPE dataset useful for your research, please consider citing my thesis:
-> [AL-TAYYAR]., [E]. (2026). *[Enhancing Occupational Safety Monitoring and Risk Management through AI-Based Data Analysis]*. Master's Thesis, Taiz University, Yemen.# Y-PPE-Detection-RFDETR
+https://universe.roboflow.com/master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh
+
+**Roboflow project:** `altayyar-0oflt-lafos-qqauz-ty5nh`  
+**Published model version:** `altayyar-0oflt-lafos-qqauz-ty5nh/1`  
+**Task:** Object Detection  
+**Current hosted model:** YOLOv11 Medium
+
+> Important: the model currently published on Roboflow Universe is a YOLOv11m model. This repository's wider research direction includes RF-DETR; the two should not be reported as the same trained model unless an RF-DETR experiment has been separately trained and validated.
+
+## Run Roboflow Inference
+
+1. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+2. Set your Roboflow API key as an environment variable.
+
+Windows PowerShell:
+
+```powershell
+$env:ROBOFLOW_API_KEY="YOUR_PRIVATE_API_KEY"
+```
+
+Linux/macOS:
+
+```bash
+export ROBOFLOW_API_KEY="YOUR_PRIVATE_API_KEY"
+```
+
+3. Run inference:
+
+```bash
+python scripts/roboflow_inference.py path/to/image.jpg
+```
+
+## Download the Dataset
+
+After setting `ROBOFLOW_API_KEY`, run:
+
+```bash
+python scripts/download_dataset.py
+```
+
+The download script uses workspace `master-fylfq`, project `altayyar-0oflt-lafos-qqauz-ty5nh`, version `1`, and exports the dataset in YOLOv11 format.
+
+## Security
+
+Never commit Roboflow API keys, access tokens, passwords, or `.env` files to GitHub. Use environment variables or GitHub Actions secrets instead.
+
+## Citation
+
+When using the public Roboflow dataset/model, cite the Roboflow Universe project page and the relevant research publication/thesis as appropriate. Keep dataset, baseline-model, RF-DETR, and XAI results clearly separated in academic reporting.
