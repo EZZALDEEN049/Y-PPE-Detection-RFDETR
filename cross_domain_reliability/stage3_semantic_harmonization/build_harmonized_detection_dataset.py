@@ -5,7 +5,7 @@ The script never edits the source dataset. It:
 - reads native class order from data.yaml,
 - keeps only classes frozen in ontology_frozen_v1.yaml,
 - remaps them to canonical IDs 0..8,
-- converts YOLO polygon rows to enclosing axis-aligned YOLO boxes,
+- converts retained YOLO polygon rows to enclosing axis-aligned YOLO boxes,
 - copies every cleaned source image into standardized train/val/test layout,
 - writes empty label files when an image has no retained shared-class instance,
 - records counts and SHA256 fingerprints for reproducibility.
@@ -129,6 +129,7 @@ def main():
                     if fmt=='polygon': totals['polygon_rows_seen']+=1
                     if old_cls not in native_id_to_new:
                         totals['dropped_nonshared_rows']+=1
+                        if fmt=='polygon': totals['polygon_rows_dropped_nonshared']+=1
                         dropped_by_native[native_names[old_cls]]+=1
                         continue
                     new_cls=native_id_to_new[old_cls]
