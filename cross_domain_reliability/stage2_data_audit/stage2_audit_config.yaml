@@ -1,0 +1,124 @@
+stage: 2
+status: documentary_audit_complete_raw_audit_open
+
+principles:
+  - raw datasets remain read-only during audit
+  - do not invent numeric class-ID order from class names
+  - prefer each dataset's actual data.yaml for class ordering
+  - exact cross-split duplicates must be resolved before experiments
+  - perceptual near-duplicate hits are candidates requiring manual visual adjudication
+
+primary_datasets:
+  Y-PPE:
+    expected_original_images:
+      train: 1625
+      val: 468
+      test: 234
+      total: 2327
+    expected_instances:
+      train: 11897
+      val: 3492
+      test: 1131
+      total: 16520
+    expected_class_count: 17
+    expected_class_name_set:
+      - Persons
+      - Hard Hat
+      - Safety Boots
+      - Safety Vests
+      - No Gloves
+      - Gloves
+      - No Face Mask
+      - Pants
+      - No Safety Vest
+      - Goggles
+      - No Safety Boots
+      - No Safety Attire
+      - Animal
+      - Child
+      - Face Masks
+      - No Hard Hat
+      - Soft Hat
+    numeric_class_order: pending_verification_from_actual_data_yaml
+    raw_root_required: true
+    note: >-
+      The controlled research split is the original 1625/468/234 split.
+      A Roboflow export with 4875 training images reflects training-only Mosaic
+      expansion and must not be mistaken for the raw/original training split.
+
+  Construction-PPE:
+    expected_images:
+      train: 1132
+      val: 143
+      test: 141
+      total: 1416
+    expected_class_count: 11
+    expected_class_name_set:
+      - helmet
+      - gloves
+      - vest
+      - boots
+      - goggles
+      - none
+      - Person
+      - no_helmet
+      - no_goggle
+      - no_gloves
+      - no_boots
+    numeric_class_order: pending_verification_from_actual_data_yaml
+    raw_root_required: true
+
+secondary_dataset:
+  SH17:
+    expected_total_images: 8099
+    expected_total_instances: 75994
+    expected_class_count: 17
+    numeric_class_order: pending_verification_from_actual_source_files
+    raw_root_required: true
+    role: secondary robustness only
+
+harmonization_status:
+  primary_strict_9_class_mapping:
+    Persons: Person
+    Hard Hat: helmet
+    Gloves: gloves
+    Safety Vests: vest
+    Safety Boots: boots
+    Goggles: goggles
+    No Hard Hat: no_helmet
+    No Gloves: no_gloves
+    No Safety Boots: no_boots
+  excluded_from_primary_mapping:
+    - "Y-PPE No Safety Vest: Construction-PPE has no direct missing-vest class"
+    - "Construction-PPE no_goggle: Y-PPE has no direct matching violation label"
+    - "Construction-PPE none: no strict Y-PPE counterpart"
+
+leakage_checks:
+  - filename/stem overlap
+  - SHA-256 exact bytes
+  - decoded-pixel SHA-256
+  - dHash near-duplicate candidate screening
+  - source-URL overlap when source metadata are available
+  - site/video/project cluster overlap when grouping metadata are available
+
+near_duplicate_default_dhash_hamming_distance: 4
+
+manual_semantic_audit_required:
+  primary_violation_classes:
+    - "No Hard Hat <-> no_helmet"
+    - "No Gloves <-> no_gloves"
+    - "No Safety Boots <-> no_boots"
+  dimensions:
+    - object definition
+    - bounding-box target and geometry
+    - occlusion and visibility policy
+    - worn-versus-visible semantics
+    - unlabeled visible objects
+
+stage2_pass_requires:
+  - raw annotation audit passes for Y-PPE and Construction-PPE
+  - no unresolved exact cross-split duplicates
+  - near-duplicate candidates manually adjudicated
+  - primary-pair missing-PPE annotation geometry manually audited
+  - numeric class-ID order frozen from actual dataset metadata
+  - harmonized per-class split counts exported
