@@ -120,6 +120,25 @@ jobs:
           echo "exit_code=${CODE}" >> "$GITHUB_OUTPUT"
           exit 0
 
+      - name: Detect cross-split video source groups
+        id: source_groups
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          if [ -f "${RUNNER_TEMP}/stage2/audit/image_manifest.json" ]; then
+            python cross_domain_reliability/stage2_data_audit/detect_source_group_leakage.py \
+              --image-manifest "${RUNNER_TEMP}/stage2/audit/image_manifest.json" \
+              --out "${RUNNER_TEMP}/stage2/source_groups"
+            CODE=$?
+          else
+            echo "image_manifest.json unavailable; source-group check skipped."
+            CODE=0
+          fi
+          set -e
+          echo "exit_code=${CODE}" >> "$GITHUB_OUTPUT"
+          exit 0
+
       - name: Build compact audit overview
         if: always()
         shell: bash
@@ -160,6 +179,7 @@ jobs:
               'issue_counts_by_type': dict(sorted(counts.items())),
               'sample_issues_by_type': dict(samples),
               'audit_exit_code': int('${{ steps.audit.outputs.exit_code }}' or 0),
+              'source_group_exit_code': int('${{ steps.source_groups.outputs.exit_code }}' or 0),
           }
           out_path.write_text(json.dumps(overview, indent=2, ensure_ascii=False), encoding='utf-8')
           PY
@@ -178,6 +198,20 @@ jobs:
             echo "issues.json not available; visual review bundle skipped."
           fi
 
+      - name: Build near-identical box overlays
+        if: always()
+        shell: bash
+        run: |
+          if [ -f "${RUNNER_TEMP}/stage2/visual_review/near_identical_boxes.csv" ]; then
+            python cross_domain_reliability/stage2_data_audit/build_near_box_overlays.py \
+              --dataset-root "${{ steps.download.outputs.dataset_dir }}" \
+              --near-box-csv "${RUNNER_TEMP}/stage2/visual_review/near_identical_boxes.csv" \
+              --data-yaml "${{ steps.layout.outputs.data_yaml }}" \
+              --out "${RUNNER_TEMP}/stage2/near_box_review"
+          else
+            echo "near_identical_boxes.csv unavailable; overlay review skipped."
+          fi
+
       - name: Upload full audit outputs
         if: always()
         uses: actions/upload-artifact@v4
@@ -191,7 +225,9 @@ jobs:
             ${{ runner.temp }}/stage2/audit/issues.json
             ${{ runner.temp }}/stage2/audit/annotation_format_report.json
             ${{ runner.temp }}/stage2/audit_overview.json
+            ${{ runner.temp }}/stage2/source_groups/**
             ${{ runner.temp }}/stage2/visual_review/**
+            ${{ runner.temp }}/stage2/near_box_review/**
           if-no-files-found: warn
           retention-days: 30
 
@@ -205,18 +241,22 @@ jobs:
           echo "- Version: ${{ inputs.version }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Export: ${{ inputs.export_format }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Splits audited: ${{ steps.layout.outputs.splits }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Audit exit code: ${{ steps.audit.outputs.exit_code }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Core audit exit code: ${{ steps.audit.outputs.exit_code }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Source-group audit exit code: ${{ steps.source_groups.outputs.exit_code }}" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "Polygon/segmentation rows are normalized to enclosing detection boxes in a temporary read-only view before integrity checks." >> "$GITHUB_STEP_SUMMARY"
-          echo "The artifact also includes contact sheets and CSV manifests for manual near-duplicate and annotation-duplicate adjudication." >> "$GITHUB_STEP_SUMMARY"
-          echo "A non-zero audit exit code indicates critical integrity/leakage findings that must be resolved before experiments." >> "$GITHUB_STEP_SUMMARY"
+          echo "The artifact includes near-duplicate contact sheets, annotation-duplicate provenance, explicit cross-split video groups, and near-identical box overlays." >> "$GITHUB_STEP_SUMMARY"
+          echo "A non-zero core or source-group audit code indicates integrity/leakage findings that must be resolved before experiments." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Enforce audit gate
         if: always()
         shell: bash
         run: |
-          CODE="${{ steps.audit.outputs.exit_code }}"
-          if [ -n "$CODE" ] && [ "$CODE" != "0" ]; then
-            echo "Stage 2 audit found critical issues (exit code $CODE)." >&2
-            exit "$CODE"
+          CORE="${{ steps.audit.outputs.exit_code }}"
+          SOURCE="${{ steps.source_groups.outputs.exit_code }}"
+          CORE="${CORE:-0}"
+          SOURCE="${SOURCE:-0}"
+          if [ "$CORE" != "0" ] || [ "$SOURCE" != "0" ]; then
+            echo "Stage 2 audit gate failed (core=$CORE, source_group=$SOURCE)." >&2
+            exit 2
           fi
