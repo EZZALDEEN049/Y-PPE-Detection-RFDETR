@@ -22,6 +22,16 @@ Does in-domain performance remain reliable under unseen domain shift, and how mu
 - **Y-PPE** — Yemeni construction/development-project PPE dataset.
 - **Construction-PPE** — public construction PPE dataset used as the main external domain.
 
+### Y-PPE public Roboflow entry
+
+<a href="https://universe.roboflow.com/master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh">
+  <img src="https://app.roboflow.com/images/download-dataset-badge.svg" alt="Download Y-PPE Dataset from Roboflow" />
+</a>
+
+Public project: `master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh`
+
+Verified public dataset version used for the current audit workflow: **v1**. Roboflow reports **5,577 generated images** in this version: **4,875 train, 468 validation, and 234 test**, with Auto-Orient, stretch resize to 640×640, and training augmentation using 3 outputs per training example with Mosaic. Because the training split is augmented, this generated version must not be treated as the raw 2,327-image source corpus for source-level leakage assessment.
+
 ## Secondary robustness dataset
 
 - **SH17** — industrial/manufacturing PPE dataset. It is not treated as a construction dataset and is reserved for secondary robustness analysis.
