@@ -1,0 +1,32 @@
+# Raw datasets and archives
+datasets/
+raw_data/
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Secrets
+.env
+.env.*
+secrets/
+*api_key*
+*apikey*
+
+# Model weights
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Generated audit outputs
+stage2_data_audit/outputs/
+**/summary.json
+**/image_manifest.json
+**/issues.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
