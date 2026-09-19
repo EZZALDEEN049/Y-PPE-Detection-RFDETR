@@ -1,0 +1,100 @@
+stage: 3
+status: frozen_after_semantic_audit
+date: 2026-09-20
+principle: >-
+  Shared classes are retained only where object/state meaning and localization target are
+  sufficiently aligned across datasets. Name similarity alone is insufficient.
+locked_test_rule:
+  visual_audit_used_test_images: false
+  y_ppe_visual_splits: [train, valid]
+  construction_ppe_visual_splits: [train, val]
+normalization:
+  target_task: object_detection
+  y_ppe_polygon_policy: enclosing_axis_aligned_bbox
+  construction_ppe_polygon_policy: not_applicable
+  rationale: >-
+    The shared benchmark is bounding-box detection. Y-PPE polygon rows are deterministically
+    converted to their enclosing axis-aligned bounding boxes before class filtering/training;
+    source annotations remain unchanged.
+  domain_context_policy: >-
+    Standalone/product-style examples and non-work scenes are not silently removed solely to
+    make the domains look alike. They are documented as domain-composition shift unless a
+    separate prespecified contextual filtering experiment is introduced before test exposure.
+shared_classes:
+  - id: 0
+    canonical: person
+    y_name: Persons
+    c_name: Person
+    role: human
+    decision: ACCEPT_WITH_NORMALIZATION
+  - id: 1
+    canonical: helmet
+    y_name: Hard Hat
+    c_name: helmet
+    role: compliant_ppe
+    decision: ACCEPT_WITH_NORMALIZATION
+  - id: 2
+    canonical: gloves
+    y_name: Gloves
+    c_name: gloves
+    role: compliant_ppe
+    decision: ACCEPT_WITH_NORMALIZATION
+  - id: 3
+    canonical: vest
+    y_name: Safety Vests
+    c_name: vest
+    role: compliant_ppe
+    decision: ACCEPT_WITH_NORMALIZATION
+  - id: 4
+    canonical: boots
+    y_name: Safety Boots
+    c_name: boots
+    role: compliant_ppe
+    decision: ACCEPT_WITH_NORMALIZATION
+    wording_note: >-
+      Use canonical 'boots' in the benchmark because Construction-PPE does not establish
+      certification of every labeled boot as safety footwear.
+  - id: 5
+    canonical: goggles
+    y_name: Goggles
+    c_name: goggles
+    role: compliant_ppe
+    decision: ACCEPT_WITH_NORMALIZATION
+  - id: 6
+    canonical: no_helmet
+    y_name: No Hard Hat
+    c_name: no_helmet
+    role: ppe_negative_state
+    decision: ACCEPT_WITH_NORMALIZATION
+    definition: uncovered head/head region without detected helmet
+  - id: 7
+    canonical: no_gloves
+    y_name: No Gloves
+    c_name: no_gloves
+    role: ppe_negative_state
+    decision: ACCEPT
+    definition: bare/unprotected hand region without detected glove
+  - id: 8
+    canonical: no_boots
+    y_name: No Safety Boots
+    c_name: no_boots
+    role: ppe_negative_state
+    decision: ACCEPT_WITH_NORMALIZATION
+    definition: non-boot/non-safety-footwear or exposed-foot region
+excluded_from_shared_ontology:
+  - dataset: Y-PPE
+    class: No Safety Vest
+    reason: Construction-PPE has no direct no-vest class.
+  - dataset: Construction-PPE
+    class: no_goggle
+    reason: Y-PPE has no explicit No Goggles class.
+  - dataset: Construction-PPE
+    class: none
+    reason: No direct Y-PPE semantic equivalent.
+interpretation_guardrails:
+  - >-
+    no_helmet, no_gloves, and no_boots are visual PPE-negative states. Their presence does not,
+    by itself, prove that PPE was normatively required in that scene.
+  - >-
+    Safety-related false-negative reporting must distinguish dataset-defined PPE-negative labels
+    from externally validated task-specific safety violations.
