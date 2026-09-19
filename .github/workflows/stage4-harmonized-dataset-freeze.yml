@@ -1,0 +1,230 @@
+name: Stage 4 Harmonized Dataset Freeze
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install roboflow
+          pip install -r cross_domain_reliability/stage2_data_audit/requirements.txt
+
+      - name: Confirm Roboflow secret exists
+        shell: bash
+        run: |
+          test -n "${ROBOFLOW_API_KEY}" || { echo "ROBOFLOW_API_KEY is missing" >&2; exit 1; }
+
+      - name: Reconstruct clean Y-PPE v2
+        id: yclean
+        shell: bash
+        run: |
+          mkdir -p "${RUNNER_TEMP}/stage4/y_download" "${RUNNER_TEMP}/stage4/meta"
+          python cross_domain_reliability/stage2_data_audit/download_roboflow_dataset.py \
+            --workspace "master-fylfq" \
+            --project "altayyar-0oflt-lafos-qqauz-ty5nh" \
+            --version "2" \
+            --format "yolov11" \
+            --out "${RUNNER_TEMP}/stage4/y_download" \
+            --metadata-out "${RUNNER_TEMP}/stage4/meta/y_download_metadata.json"
+          Y_SRC="$(python - <<'PY'
+          import json, os
+          p=os.path.join(os.environ['RUNNER_TEMP'],'stage4','meta','y_download_metadata.json')
+          print(json.load(open(p,encoding='utf-8'))['dataset_location'])
+          PY
+          )"
+          python cross_domain_reliability/stage2_data_audit/apply_y_ppe_stage2_corrections.py \
+            --root "$Y_SRC" \
+            --out "${RUNNER_TEMP}/stage4/Y-PPE-clean" \
+            --file-manifest "cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_conservative_file_correction_manifest_2026-09-19.csv" \
+            --near-box-manifest "cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_near_box_removal_manifest_2026-09-19.csv" \
+            --expected-exclusions 39 \
+            --expected-exact-row-removals 68 \
+            --expected-near-box-removals 1 \
+            --summary-out "${RUNNER_TEMP}/stage4/meta/y_correction_summary.json"
+          Y_YAML="$(find "${RUNNER_TEMP}/stage4/Y-PPE-clean" -maxdepth 3 \( -name data.yaml -o -name dataset.yaml \) -print -quit)"
+          test -n "$Y_YAML"
+          echo "root=${RUNNER_TEMP}/stage4/Y-PPE-clean" >> "$GITHUB_OUTPUT"
+          echo "yaml=$Y_YAML" >> "$GITHUB_OUTPUT"
+
+      - name: Reconstruct clean Construction-PPE
+        id: cclean
+        shell: bash
+        run: |
+          mkdir -p "${RUNNER_TEMP}/stage4/c_download"
+          curl --fail --location --retry 3 \
+            -o "${RUNNER_TEMP}/stage4/meta/construction-ppe.yaml" \
+            "https://raw.githubusercontent.com/ultralytics/ultralytics/42044baf5eda3d52aa4bd7d8a098375d2c7fdad7/ultralytics/cfg/datasets/construction-ppe.yaml"
+          python cross_domain_reliability/stage2_data_audit/download_ultralytics_construction_ppe.py \
+            --out "${RUNNER_TEMP}/stage4/c_download" \
+            --metadata-out "${RUNNER_TEMP}/stage4/meta/c_download_metadata.json"
+          C_SRC="$(python - <<'PY'
+          import json, os
+          p=os.path.join(os.environ['RUNNER_TEMP'],'stage4','meta','c_download_metadata.json')
+          print(json.load(open(p,encoding='utf-8'))['dataset_root'])
+          PY
+          )"
+          python cross_domain_reliability/stage2_data_audit/apply_construction_ppe_stage2_corrections.py \
+            --root "$C_SRC" \
+            --out "${RUNNER_TEMP}/stage4/Construction-PPE-clean" \
+            --file-manifest "cross_domain_reliability/stage2_data_audit/results/Construction-PPE_conservative_file_correction_manifest_2026-09-20.csv" \
+            --orphan-label-manifest "cross_domain_reliability/stage2_data_audit/results/Construction-PPE_orphan_label_removal_manifest_2026-09-20.csv" \
+            --expected-exclusions 64 \
+            --expected-orphan-removals 10 \
+            --expected-exact-row-removals 1 \
+            --summary-out "${RUNNER_TEMP}/stage4/meta/c_correction_summary.json"
+          echo "root=${RUNNER_TEMP}/stage4/Construction-PPE-clean" >> "$GITHUB_OUTPUT"
+          echo "yaml=${RUNNER_TEMP}/stage4/meta/construction-ppe.yaml" >> "$GITHUB_OUTPUT"
+
+      - name: Build frozen nine-class Y-PPE derivative
+        shell: bash
+        run: |
+          python cross_domain_reliability/stage3_semantic_harmonization/build_harmonized_detection_dataset.py \
+            --root "${{ steps.yclean.outputs.root }}" \
+            --data-yaml "${{ steps.yclean.outputs.yaml }}" \
+            --ontology "cross_domain_reliability/stage3_semantic_harmonization/ontology_frozen_v1.yaml" \
+            --dataset-key "Y-PPE" \
+            --splits "train:train,valid:val,test:test" \
+            --out "${RUNNER_TEMP}/stage4/Y-PPE-h9" \
+            --summary-out "${RUNNER_TEMP}/stage4/meta/y_harmonization_summary.json"
+
+      - name: Build frozen nine-class Construction-PPE derivative
+        shell: bash
+        run: |
+          python cross_domain_reliability/stage3_semantic_harmonization/build_harmonized_detection_dataset.py \
+            --root "${{ steps.cclean.outputs.root }}" \
+            --data-yaml "${{ steps.cclean.outputs.yaml }}" \
+            --ontology "cross_domain_reliability/stage3_semantic_harmonization/ontology_frozen_v1.yaml" \
+            --dataset-key "Construction-PPE" \
+            --splits "train:train,val:val,test:test" \
+            --out "${RUNNER_TEMP}/stage4/Construction-PPE-h9" \
+            --summary-out "${RUNNER_TEMP}/stage4/meta/c_harmonization_summary.json"
+
+      - name: Audit harmonized Y-PPE derivative
+        id: yaudit
+        shell: bash
+        run: |
+          set +e
+          python cross_domain_reliability/stage2_data_audit/stage2_dataset_audit.py \
+            --dataset-name "Y-PPE-h9" \
+            --root "${RUNNER_TEMP}/stage4/Y-PPE-h9" \
+            --data-yaml "${RUNNER_TEMP}/stage4/Y-PPE-h9/data.yaml" \
+            --splits "train,val,test" \
+            --near-hash-distance "4" \
+            --out "${RUNNER_TEMP}/stage4/y_audit"
+          CODE=$?; set -e; echo "exit_code=${CODE}" >> "$GITHUB_OUTPUT"; exit 0
+
+      - name: Audit harmonized Construction-PPE derivative
+        id: caudit
+        shell: bash
+        run: |
+          set +e
+          python cross_domain_reliability/stage2_data_audit/stage2_dataset_audit.py \
+            --dataset-name "Construction-PPE-h9" \
+            --root "${RUNNER_TEMP}/stage4/Construction-PPE-h9" \
+            --data-yaml "${RUNNER_TEMP}/stage4/Construction-PPE-h9/data.yaml" \
+            --splits "train,val,test" \
+            --near-hash-distance "4" \
+            --out "${RUNNER_TEMP}/stage4/c_audit"
+          CODE=$?; set -e; echo "exit_code=${CODE}" >> "$GITHUB_OUTPUT"; exit 0
+
+      - name: Verify source-group independence after harmonization
+        id: groups
+        shell: bash
+        run: |
+          set +e
+          python cross_domain_reliability/stage2_data_audit/detect_source_group_leakage.py \
+            --image-manifest "${RUNNER_TEMP}/stage4/y_audit/image_manifest.json" \
+            --out "${RUNNER_TEMP}/stage4/y_groups"
+          YCODE=$?
+          python cross_domain_reliability/stage2_data_audit/detect_source_group_leakage.py \
+            --image-manifest "${RUNNER_TEMP}/stage4/c_audit/image_manifest.json" \
+            --out "${RUNNER_TEMP}/stage4/c_groups"
+          CCODE=$?
+          set -e
+          echo "y_code=${YCODE}" >> "$GITHUB_OUTPUT"
+          echo "c_code=${CCODE}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Enforce frozen ontology and split invariants
+        id: invariants
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os, sys
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'stage4'
+          y=json.loads((root/'meta'/'y_harmonization_summary.json').read_text())
+          c=json.loads((root/'meta'/'c_harmonization_summary.json').read_text())
+          exp_names=['person','helmet','gloves','vest','boots','goggles','no_helmet','no_gloves','no_boots']
+          assert y['canonical_names']==exp_names and c['canonical_names']==exp_names
+          assert {k:v['images'] for k,v in y['splits'].items()}=={'train':1595,'val':459,'test':234}
+          assert {k:v['images'] for k,v in c['splits'].items()}=={'train':1077,'val':134,'test':141}
+          assert y['totals'].get('polygon_rows_seen',0)==y['totals'].get('polygon_rows_converted',0)
+          assert c['totals'].get('polygon_rows_seen',0)==0
+          assert y['policy']['test_images_visually_opened'] is False and c['policy']['test_images_visually_opened'] is False
+          print('Stage 4 invariants passed.')
+          PY
+
+      - name: Upload freeze evidence only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage4-harmonized-dataset-freeze-evidence
+          path: |
+            ${{ runner.temp }}/stage4/meta/**
+            ${{ runner.temp }}/stage4/Y-PPE-h9/data.yaml
+            ${{ runner.temp }}/stage4/Y-PPE-h9/manifest.jsonl
+            ${{ runner.temp }}/stage4/Construction-PPE-h9/data.yaml
+            ${{ runner.temp }}/stage4/Construction-PPE-h9/manifest.jsonl
+            ${{ runner.temp }}/stage4/y_audit/summary.json
+            ${{ runner.temp }}/stage4/y_audit/issues.json
+            ${{ runner.temp }}/stage4/c_audit/summary.json
+            ${{ runner.temp }}/stage4/c_audit/issues.json
+            ${{ runner.temp }}/stage4/y_groups/**
+            ${{ runner.temp }}/stage4/c_groups/**
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Write workflow summary
+        if: always()
+        shell: bash
+        run: |
+          echo "## Stage 4 Harmonized Dataset Freeze" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Frozen ontology: 9 classes" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Y-PPE clean image counts preserved: 1595 / 459 / 234" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Construction-PPE clean image counts preserved: 1077 / 134 / 141" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Y-PPE polygons: deterministically converted to enclosing bounding boxes" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Test images are structurally hashed/audited but are not opened for visual adjudication" >> "$GITHUB_STEP_SUMMARY"
+          echo "- No model training is performed" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Enforce Stage 4 gate
+        if: always()
+        shell: bash
+        run: |
+          Y="${{ steps.yaudit.outputs.exit_code }}"; Y="${Y:-2}"
+          C="${{ steps.caudit.outputs.exit_code }}"; C="${C:-2}"
+          YG="${{ steps.groups.outputs.y_code }}"; YG="${YG:-2}"
+          CG="${{ steps.groups.outputs.c_code }}"; CG="${CG:-2}"
+          if [ "$Y" != "0" ] || [ "$C" != "0" ] || [ "$YG" != "0" ] || [ "$CG" != "0" ]; then
+            echo "Stage 4 gate failed: y=$Y c=$C yg=$YG cg=$CG" >&2
+            exit 2
+          fi
