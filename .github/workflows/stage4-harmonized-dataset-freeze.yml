@@ -169,7 +169,7 @@ jobs:
         shell: bash
         run: |
           python - <<'PY'
-          import json, os, sys
+          import json, os
           from pathlib import Path
           root=Path(os.environ['RUNNER_TEMP'])/'stage4'
           y=json.loads((root/'meta'/'y_harmonization_summary.json').read_text())
@@ -178,10 +178,15 @@ jobs:
           assert y['canonical_names']==exp_names and c['canonical_names']==exp_names
           assert {k:v['images'] for k,v in y['splits'].items()}=={'train':1595,'val':459,'test':234}
           assert {k:v['images'] for k,v in c['splits'].items()}=={'train':1077,'val':134,'test':141}
-          assert y['totals'].get('polygon_rows_seen',0)==y['totals'].get('polygon_rows_converted',0)
+          y_seen=y['totals'].get('polygon_rows_seen',0)
+          y_conv=y['totals'].get('polygon_rows_converted',0)
+          y_drop=y['totals'].get('polygon_rows_dropped_nonshared',0)
+          assert y_seen==y_conv+y_drop, (y_seen,y_conv,y_drop)
           assert c['totals'].get('polygon_rows_seen',0)==0
+          assert c['totals'].get('polygon_rows_converted',0)==0
+          assert c['totals'].get('polygon_rows_dropped_nonshared',0)==0
           assert y['policy']['test_images_visually_opened'] is False and c['policy']['test_images_visually_opened'] is False
-          print('Stage 4 invariants passed.')
+          print(f'Stage 4 invariants passed. Y-PPE polygons: seen={y_seen}, converted_retained={y_conv}, dropped_nonshared={y_drop}.')
           PY
 
       - name: Upload freeze evidence only
@@ -212,7 +217,7 @@ jobs:
           echo "- Frozen ontology: 9 classes" >> "$GITHUB_STEP_SUMMARY"
           echo "- Y-PPE clean image counts preserved: 1595 / 459 / 234" >> "$GITHUB_STEP_SUMMARY"
           echo "- Construction-PPE clean image counts preserved: 1077 / 134 / 141" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Y-PPE polygons: deterministically converted to enclosing bounding boxes" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Retained Y-PPE polygons are deterministically converted to enclosing bounding boxes; nonshared polygon rows are dropped with their nonshared classes and counted separately" >> "$GITHUB_STEP_SUMMARY"
           echo "- Test images are structurally hashed/audited but are not opened for visual adjudication" >> "$GITHUB_STEP_SUMMARY"
           echo "- No model training is performed" >> "$GITHUB_STEP_SUMMARY"
 
