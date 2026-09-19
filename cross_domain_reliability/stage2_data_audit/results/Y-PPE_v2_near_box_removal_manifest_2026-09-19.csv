@@ -1,0 +1,2 @@
+split,label_file,raw_row_to_remove,reason
+train,pos_653_jpg.rf.8c16d7079cfbe9908c89ade90470b71e.txt,15 0.5109375 0.496875 0.60859375 0.85625,visually_confirmed_same_object_duplicate_box_iou_0.996149
