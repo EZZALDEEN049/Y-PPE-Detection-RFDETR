@@ -6,39 +6,53 @@
 
 ## Project Overview
 
-This repository supports research on AI-assisted Personal Protective Equipment (PPE) compliance monitoring for construction and occupational-safety applications. The project uses a transformer-based RF-DETR object detector and supports the broader research direction of explainable AI and risk-aware safety monitoring.
+This repository supports comparative research on AI-assisted Personal Protective Equipment (PPE) compliance monitoring for construction and occupational-safety applications. Two Roboflow projects are intentionally retained because they represent separate trained-model tracks over the Y-PPE data: a YOLOv11 Medium track and an RF-DETR Small track.
 
-## Y-PPE Dataset
+## Y-PPE Data
 
-The associated Y-PPE dataset contains 17 object-detection classes covering PPE, non-compliance categories, persons, contextual hazards, and related worksite objects.
+Both public Roboflow projects expose 17 object-detection classes and currently report 5,577 images for the model-linked dataset version. The Universe overview shows 2,327 source images. Generated/versioned image counts must therefore be distinguished from original source-image counts in academic reporting.
 
-The Roboflow Universe overview contains 2,327 source images. Dataset Version 2 contains 5,577 generated images after preprocessing/augmentation, split into 4,875 training, 468 validation, and 234 test images.
+## Experimental Track A — YOLOv11 Medium
 
-## Roboflow Universe
+Public project:
+
+https://universe.roboflow.com/master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh
+
+- Workspace: `master-fylfq`
+- Project: `altayyar-0oflt-lafos-qqauz-ty5nh`
+- Model ID: `altayyar-0oflt-lafos-qqauz-ty5nh/1`
+- Dataset version: `1`
+- Architecture: YOLOv11 Object Detection (Medium)
+- Classes: 17
+- Roboflow overview metrics: mAP@50 92.2%, Precision 95.3%, Recall 87.2%
+
+## Experimental Track B — RF-DETR Small
 
 Public project:
 
 https://universe.roboflow.com/softyyemen/altayyar-0oflt-lafos-qqauz
 
-**Universe workspace:** `softyyemen`  
-**Roboflow project:** `altayyar-0oflt-lafos-qqauz`  
-**Published inference model:** `altayyar-0oflt-lafos-qqauz/2`  
-**Dataset version:** `2`  
-**Task:** Object Detection  
-**Hosted architecture:** RF-DETR (Small)  
-**Classes:** 17
+- Workspace: `softyyemen`
+- Project: `altayyar-0oflt-lafos-qqauz`
+- Model ID: `altayyar-0oflt-lafos-qqauz/2`
+- Dataset version: `2`
+- Architecture: RF-DETR (Small)
+- Classes: 17
+- Roboflow overview metrics: mAP@50 94.0%, Precision 94.4%, Recall 88.0%
 
-Roboflow currently reports 94.0% mAP@50, 94.4% precision, and 88.0% recall on the public project overview. Any metric used in a research paper should be tied explicitly to the relevant dataset version, split, and experiment record.
+## Important Research Note
 
-## Run Roboflow Inference
+The two links are deliberately preserved as separate trained-model experiments. Do not overwrite one with the other or report them as a single model. For a defensible head-to-head comparison, verify that train/validation/test splits, preprocessing, augmentation, evaluation thresholds, and metric definitions are identical. Roboflow overview metrics are recorded here as platform-reported values and should not automatically be treated as the final paper comparison table without that verification.
 
-1. Install dependencies:
+## Run Inference
+
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Set your Roboflow API key as an environment variable.
+Set your private Roboflow API key as an environment variable.
 
 Windows PowerShell:
 
@@ -52,28 +66,38 @@ Linux/macOS:
 export ROBOFLOW_API_KEY="YOUR_PRIVATE_API_KEY"
 ```
 
-3. Run inference:
+Run YOLOv11 inference:
 
 ```bash
-python scripts/roboflow_inference.py path/to/image.jpg
+python scripts/roboflow_inference.py --model yolo path/to/image.jpg
 ```
 
-The inference script calls the deployed RF-DETR (Small) model `altayyar-0oflt-lafos-qqauz/2` through Roboflow Serverless Inference.
-
-## Download the Dataset
-
-After setting `ROBOFLOW_API_KEY`, run:
+Run RF-DETR inference:
 
 ```bash
-python scripts/download_dataset.py
+python scripts/roboflow_inference.py --model rfdetr path/to/image.jpg
 ```
 
-The download script uses the public Universe workspace/project slug shown above and Dataset Version 2. The current export format remains YOLOv11 for interoperability; for local RF-DETR training, a COCO-format export is generally preferable and can be added as a separate training pipeline.
+## Download a Dataset Version
+
+YOLOv11-linked project:
+
+```bash
+python scripts/download_dataset.py --project yolo
+```
+
+RF-DETR-linked project:
+
+```bash
+python scripts/download_dataset.py --project rfdetr
+```
+
+The scripts keep the two Roboflow project identifiers separate so their provenance is preserved.
 
 ## Security
 
 Never commit Roboflow API keys, access tokens, passwords, or `.env` files to GitHub. Use environment variables or GitHub Actions secrets instead.
 
-## Citation
+## Citation and Reporting
 
-When using the public dataset/model, cite the Roboflow Universe project and the relevant thesis/publication. Keep source-image counts, generated dataset counts, model metrics, experimental splits, and XAI results explicitly separated in academic reporting.
+When reporting results, cite the exact Roboflow Universe project/model used and record the model ID, dataset version, split, preprocessing/augmentation settings, evaluation thresholds, and date of evaluation. Keep YOLOv11, RF-DETR, and any later XAI results as separate experimental records.
