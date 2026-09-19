@@ -39,12 +39,32 @@ primary_datasets:
       - Face Masks
       - No Hard Hat
       - Soft Hat
-    numeric_class_order: pending_verification_from_actual_data_yaml
+    numeric_class_order_status: verified_on_roboflow_v1_reverify_on_final_frozen_export
+    numeric_class_order_v1:
+      0: Animal
+      1: Child
+      2: Face Masks
+      3: Gloves
+      4: Goggles
+      5: Hard Hat
+      6: No Face Mask
+      7: No Gloves
+      8: No Hard Hat
+      9: No Safety Attire
+      10: No Safety Boots
+      11: No Safety Vest
+      12: Pants
+      13: Persons
+      14: Safety Boots
+      15: Safety Vests
+      16: Soft Hat
     raw_root_required: true
     note: >-
       The controlled research split is the original 1625/468/234 split.
       A Roboflow export with 4875 training images reflects training-only Mosaic
       expansion and must not be mistaken for the raw/original training split.
+      The v1 class order above came from the actual exported data.yaml, but the
+      final clean/frozen export must be checked again before experiments.
 
   Construction-PPE:
     expected_images:
@@ -65,7 +85,27 @@ primary_datasets:
       - no_goggle
       - no_gloves
       - no_boots
-    numeric_class_order: pending_verification_from_actual_data_yaml
+    numeric_class_order_status: verified_from_official_ultralytics_yaml
+    numeric_class_order_source:
+      repository: ultralytics/ultralytics
+      path: ultralytics/cfg/datasets/construction-ppe.yaml
+      pinned_commit: 42044baf5eda3d52aa4bd7d8a098375d2c7fdad7
+      verified_date: 2026-09-19
+    numeric_class_order:
+      0: helmet
+      1: gloves
+      2: vest
+      3: boots
+      4: goggles
+      5: none
+      6: Person
+      7: no_helmet
+      8: no_goggle
+      9: no_gloves
+      10: no_boots
+    documented_version: 1.0.0
+    documented_license: AGPL-3.0
+    official_archive: https://github.com/ultralytics/assets/releases/download/v0.0.0/construction-ppe.zip
     raw_root_required: true
 
 secondary_dataset:
