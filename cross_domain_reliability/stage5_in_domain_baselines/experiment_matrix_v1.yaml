@@ -1,0 +1,79 @@
+stage: 5
+name: harmonized_in_domain_baselines
+status: pre_execution
+
+ontology:
+  classes:
+    - person
+    - helmet
+    - gloves
+    - vest
+    - boots
+    - goggles
+    - no_helmet
+    - no_gloves
+    - no_boots
+
+frozen_datasets:
+  Y-PPE-h9:
+    fingerprint_sha256: db49295a0ef2c9eec73b14c620966ed00bf12dac253866b65bab9b50af9db896
+    train_images: 1595
+    val_images: 459
+    test_images: 234
+  Construction-PPE-h9:
+    fingerprint_sha256: bd706ae34aa77507f119a9a4d5cd443d4cb84ee6cd2020b9b8ee6e086350880e
+    train_images: 1077
+    val_images: 134
+    test_images: 141
+
+shared_controls:
+  epochs: 100
+  resolution: 640
+  seeds: [17, 42, 2026]
+  pretrained: true
+  early_stopping: false
+  offline_augmentation: false
+  stochastic_online_augmentation: false
+  primary_checkpoint_policy: final_epoch
+  test_for_tuning: false
+
+models:
+  yolo11m:
+    family: CNN_one_stage_detector
+    implementation: ultralytics
+    checkpoint: yolo11m.pt
+    optimizer_policy: framework_native_recorded
+    batch_size: null
+    grad_accum_steps: null
+    hardware_lock_required: true
+  rfdetr_small:
+    family: transformer_detector
+    implementation: rfdetr
+    model_class: RFDETRSmall
+    optimizer_policy: framework_native_recorded
+    use_ema: true
+    primary_final_weight_policy: null
+    batch_size: null
+    grad_accum_steps: null
+    hardware_lock_required: true
+
+runs:
+  - {run_id: Y_YOLO_s17, dataset: Y-PPE-h9, model: yolo11m, seed: 17}
+  - {run_id: Y_YOLO_s42, dataset: Y-PPE-h9, model: yolo11m, seed: 42}
+  - {run_id: Y_YOLO_s2026, dataset: Y-PPE-h9, model: yolo11m, seed: 2026}
+  - {run_id: Y_RFDETR_s17, dataset: Y-PPE-h9, model: rfdetr_small, seed: 17}
+  - {run_id: Y_RFDETR_s42, dataset: Y-PPE-h9, model: rfdetr_small, seed: 42}
+  - {run_id: Y_RFDETR_s2026, dataset: Y-PPE-h9, model: rfdetr_small, seed: 2026}
+  - {run_id: C_YOLO_s17, dataset: Construction-PPE-h9, model: yolo11m, seed: 17}
+  - {run_id: C_YOLO_s42, dataset: Construction-PPE-h9, model: yolo11m, seed: 42}
+  - {run_id: C_YOLO_s2026, dataset: Construction-PPE-h9, model: yolo11m, seed: 2026}
+  - {run_id: C_RFDETR_s17, dataset: Construction-PPE-h9, model: rfdetr_small, seed: 17}
+  - {run_id: C_RFDETR_s42, dataset: Construction-PPE-h9, model: rfdetr_small, seed: 42}
+  - {run_id: C_RFDETR_s2026, dataset: Construction-PPE-h9, model: rfdetr_small, seed: 2026}
+
+gates:
+  - dataset_fingerprint_match
+  - canonical_class_order_match
+  - gpu_execution_parameters_frozen_before_training
+  - no_test_tuning
+  - common_evaluator_frozen_before_zero_shot
