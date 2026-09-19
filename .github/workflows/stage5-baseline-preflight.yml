@@ -37,13 +37,12 @@ jobs:
         run: |
           mkdir -p "${RUNNER_TEMP}/stage5_preflight"
           python - <<'PY'
-          import inspect, json, platform
+          import inspect, json, os, platform
           from pathlib import Path
           import torch, yaml
           import ultralytics, rfdetr
           from rfdetr.config import RFDETRSmallConfig
           from rfdetr import RFDETRSmall
-          from ultralytics import YOLO
 
           cfg = yaml.safe_load(Path('cross_domain_reliability/stage5_in_domain_baselines/experiment_matrix_v1.yaml').read_text())
           assert cfg['shared_controls']['epochs'] == 100
@@ -59,8 +58,7 @@ jobs:
           assert 640 % block == 0
 
           train_sig = str(inspect.signature(RFDETRSmall.train))
-          required_tokens = ['dataset_dir', 'epochs', 'batch_size']
-          for token in required_tokens:
+          for token in ['dataset_dir', 'epochs', 'batch_size']:
               assert token in train_sig, (token, train_sig)
 
           report = {
@@ -80,7 +78,7 @@ jobs:
               'seeds': cfg['shared_controls']['seeds'],
               'note': 'This CI preflight performs no model training and no held-out test evaluation.'
           }
-          out = Path('${RUNNER_TEMP}')/'stage5_preflight'/'preflight_report.json'
+          out = Path(os.environ['RUNNER_TEMP'])/'stage5_preflight'/'preflight_report.json'
           out.write_text(json.dumps(report, indent=2), encoding='utf-8')
           print(json.dumps(report, indent=2))
           PY
