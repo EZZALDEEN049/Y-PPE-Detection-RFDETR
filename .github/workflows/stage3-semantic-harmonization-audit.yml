@@ -1,0 +1,156 @@
+name: Stage 3 Semantic Harmonization Audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  semantic_audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install roboflow
+          pip install -r cross_domain_reliability/stage2_data_audit/requirements.txt
+
+      - name: Confirm Roboflow secret exists
+        shell: bash
+        run: |
+          if [ -z "${ROBOFLOW_API_KEY}" ]; then
+            echo "ROBOFLOW_API_KEY GitHub Actions secret is missing." >&2
+            exit 1
+          fi
+
+      - name: Download and reconstruct clean Y-PPE v2
+        id: yclean
+        shell: bash
+        run: |
+          mkdir -p "${RUNNER_TEMP}/stage3/y_download" "${RUNNER_TEMP}/stage3/meta"
+          python cross_domain_reliability/stage2_data_audit/download_roboflow_dataset.py \
+            --workspace "master-fylfq" \
+            --project "altayyar-0oflt-lafos-qqauz-ty5nh" \
+            --version "2" \
+            --format "yolov11" \
+            --out "${RUNNER_TEMP}/stage3/y_download" \
+            --metadata-out "${RUNNER_TEMP}/stage3/meta/y_download_metadata.json"
+          Y_SRC="$(python - <<'PY'
+          import json, os
+          p=os.path.join(os.environ['RUNNER_TEMP'],'stage3','meta','y_download_metadata.json')
+          print(json.load(open(p,encoding='utf-8'))['dataset_location'])
+          PY
+          )"
+          python cross_domain_reliability/stage2_data_audit/apply_y_ppe_stage2_corrections.py \
+            --root "$Y_SRC" \
+            --out "${RUNNER_TEMP}/stage3/Y-PPE-clean" \
+            --file-manifest "cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_conservative_file_correction_manifest_2026-09-19.csv" \
+            --near-box-manifest "cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_near_box_removal_manifest_2026-09-19.csv" \
+            --expected-exclusions 39 \
+            --expected-exact-row-removals 68 \
+            --expected-near-box-removals 1 \
+            --summary-out "${RUNNER_TEMP}/stage3/meta/y_correction_summary.json"
+          Y_YAML="$(find "${RUNNER_TEMP}/stage3/Y-PPE-clean" -maxdepth 3 \( -name data.yaml -o -name dataset.yaml \) -print -quit)"
+          test -n "$Y_YAML"
+          echo "root=${RUNNER_TEMP}/stage3/Y-PPE-clean" >> "$GITHUB_OUTPUT"
+          echo "yaml=$Y_YAML" >> "$GITHUB_OUTPUT"
+
+      - name: Download and reconstruct clean Construction-PPE
+        id: cclean
+        shell: bash
+        run: |
+          mkdir -p "${RUNNER_TEMP}/stage3/c_download"
+          curl --fail --location --retry 3 \
+            -o "${RUNNER_TEMP}/stage3/meta/construction-ppe.yaml" \
+            "https://raw.githubusercontent.com/ultralytics/ultralytics/42044baf5eda3d52aa4bd7d8a098375d2c7fdad7/ultralytics/cfg/datasets/construction-ppe.yaml"
+          python cross_domain_reliability/stage2_data_audit/download_ultralytics_construction_ppe.py \
+            --out "${RUNNER_TEMP}/stage3/c_download" \
+            --metadata-out "${RUNNER_TEMP}/stage3/meta/c_download_metadata.json"
+          C_SRC="$(python - <<'PY'
+          import json, os
+          p=os.path.join(os.environ['RUNNER_TEMP'],'stage3','meta','c_download_metadata.json')
+          print(json.load(open(p,encoding='utf-8'))['dataset_root'])
+          PY
+          )"
+          python cross_domain_reliability/stage2_data_audit/apply_construction_ppe_stage2_corrections.py \
+            --root "$C_SRC" \
+            --out "${RUNNER_TEMP}/stage3/Construction-PPE-clean" \
+            --file-manifest "cross_domain_reliability/stage2_data_audit/results/Construction-PPE_conservative_file_correction_manifest_2026-09-20.csv" \
+            --orphan-label-manifest "cross_domain_reliability/stage2_data_audit/results/Construction-PPE_orphan_label_removal_manifest_2026-09-20.csv" \
+            --expected-exclusions 64 \
+            --expected-orphan-removals 10 \
+            --expected-exact-row-removals 1 \
+            --summary-out "${RUNNER_TEMP}/stage3/meta/c_correction_summary.json"
+          echo "root=${RUNNER_TEMP}/stage3/Construction-PPE-clean" >> "$GITHUB_OUTPUT"
+          echo "yaml=${RUNNER_TEMP}/stage3/meta/construction-ppe.yaml" >> "$GITHUB_OUTPUT"
+
+      - name: Build semantic harmonization evidence bundle
+        shell: bash
+        run: |
+          python cross_domain_reliability/stage3_semantic_harmonization/build_semantic_harmonization_bundle.py \
+            --y-root "${{ steps.yclean.outputs.root }}" \
+            --y-yaml "${{ steps.yclean.outputs.yaml }}" \
+            --c-root "${{ steps.cclean.outputs.root }}" \
+            --c-yaml "${{ steps.cclean.outputs.yaml }}" \
+            --ontology "cross_domain_reliability/stage3_semantic_harmonization/ontology_candidate.yaml" \
+            --out "${RUNNER_TEMP}/stage3/semantic_audit" \
+            --samples-per-dataset-class 6 \
+            --seed "stage3-v1"
+
+      - name: Enforce no-test-visual-exposure rule
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv, json, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'stage3'/'semantic_audit'
+          summary=json.loads((root/'bundle_summary.json').read_text())
+          if summary.get('shared_class_count') != 9 or summary.get('contact_sheets') != 9:
+              raise SystemExit('Expected nine shared-class audit sheets.')
+          if summary.get('test_split_visuals_included') is not False:
+              raise SystemExit('Test visual exposure flag is not false.')
+          bad=[]
+          with (root/'sample_manifest.csv').open(newline='',encoding='utf-8') as f:
+              for r in csv.DictReader(f):
+                  if r['split'].lower()=='test': bad.append(r)
+          if bad: raise SystemExit(f'Test samples entered semantic audit: {bad[:3]}')
+          print('Stage 3 evidence bundle passed structural and locked-test checks.')
+          PY
+
+      - name: Upload Stage 3 evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage3-semantic-harmonization-audit
+          path: |
+            ${{ runner.temp }}/stage3/semantic_audit/**
+            ${{ runner.temp }}/stage3/meta/y_download_metadata.json
+            ${{ runner.temp }}/stage3/meta/c_download_metadata.json
+            ${{ runner.temp }}/stage3/meta/y_correction_summary.json
+            ${{ runner.temp }}/stage3/meta/c_correction_summary.json
+            ${{ runner.temp }}/stage3/meta/construction-ppe.yaml
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Write workflow summary
+        shell: bash
+        run: |
+          echo "## Stage 3 Semantic Harmonization Audit" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Candidate shared classes: 9" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Deterministic visual samples: 6 per dataset per class" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Visual audit splits: Y-PPE train+valid; Construction-PPE train+val" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Target test images: NOT USED / remain locked" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Evidence: contact sheets + geometry summary + review template" >> "$GITHUB_STEP_SUMMARY"
+          echo "No model training is performed by this workflow." >> "$GITHUB_STEP_SUMMARY"
