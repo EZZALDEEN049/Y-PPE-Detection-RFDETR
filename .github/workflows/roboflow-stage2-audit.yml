@@ -164,6 +164,20 @@ jobs:
           out_path.write_text(json.dumps(overview, indent=2, ensure_ascii=False), encoding='utf-8')
           PY
 
+      - name: Build visual/manual adjudication bundle
+        if: always()
+        shell: bash
+        run: |
+          if [ -f "${RUNNER_TEMP}/stage2/audit/issues.json" ]; then
+            python cross_domain_reliability/stage2_data_audit/build_visual_review_bundle.py \
+              --dataset-root "${{ steps.download.outputs.dataset_dir }}" \
+              --issues "${RUNNER_TEMP}/stage2/audit/issues.json" \
+              --splits "${{ steps.layout.outputs.splits }}" \
+              --out "${RUNNER_TEMP}/stage2/visual_review"
+          else
+            echo "issues.json not available; visual review bundle skipped."
+          fi
+
       - name: Upload full audit outputs
         if: always()
         uses: actions/upload-artifact@v4
@@ -177,6 +191,7 @@ jobs:
             ${{ runner.temp }}/stage2/audit/issues.json
             ${{ runner.temp }}/stage2/audit/annotation_format_report.json
             ${{ runner.temp }}/stage2/audit_overview.json
+            ${{ runner.temp }}/stage2/visual_review/**
           if-no-files-found: warn
           retention-days: 30
 
@@ -193,6 +208,7 @@ jobs:
           echo "- Audit exit code: ${{ steps.audit.outputs.exit_code }}" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "Polygon/segmentation rows are normalized to enclosing detection boxes in a temporary read-only view before integrity checks." >> "$GITHUB_STEP_SUMMARY"
+          echo "The artifact also includes contact sheets and CSV manifests for manual near-duplicate and annotation-duplicate adjudication." >> "$GITHUB_STEP_SUMMARY"
           echo "A non-zero audit exit code indicates critical integrity/leakage findings that must be resolved before experiments." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Enforce audit gate
