@@ -1,0 +1,108 @@
+name: Stage 5 Baseline Training Preflight
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Stage 5 dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ultralytics
+          pip install "rfdetr[train]"
+          pip install PyYAML
+
+      - name: Compile Stage 5 scripts
+        run: |
+          python -m py_compile \
+            cross_domain_reliability/stage5_in_domain_baselines/train_yolo11m_baseline.py \
+            cross_domain_reliability/stage5_in_domain_baselines/train_rfdetr_small_baseline.py
+
+      - name: Validate frozen experiment protocol and current APIs
+        run: |
+          mkdir -p "${RUNNER_TEMP}/stage5_preflight"
+          python - <<'PY'
+          import inspect, json, platform
+          from pathlib import Path
+          import torch, yaml
+          import ultralytics, rfdetr
+          from rfdetr.config import RFDETRSmallConfig
+          from rfdetr import RFDETRSmall
+          from ultralytics import YOLO
+
+          cfg = yaml.safe_load(Path('cross_domain_reliability/stage5_in_domain_baselines/experiment_matrix_v1.yaml').read_text())
+          assert cfg['shared_controls']['epochs'] == 100
+          assert cfg['shared_controls']['resolution'] == 640
+          assert cfg['shared_controls']['seeds'] == [17, 42, 2026]
+          assert len(cfg['runs']) == 12
+          assert cfg['frozen_datasets']['Y-PPE-h9']['fingerprint_sha256'] == 'db49295a0ef2c9eec73b14c620966ed00bf12dac253866b65bab9b50af9db896'
+          assert cfg['frozen_datasets']['Construction-PPE-h9']['fingerprint_sha256'] == 'bd706ae34aa77507f119a9a4d5cd443d4cb84ee6cd2020b9b8ee6e086350880e'
+
+          small = RFDETRSmallConfig()
+          block = small.patch_size * small.num_windows
+          assert block == 32, block
+          assert 640 % block == 0
+
+          train_sig = str(inspect.signature(RFDETRSmall.train))
+          required_tokens = ['dataset_dir', 'epochs', 'batch_size']
+          for token in required_tokens:
+              assert token in train_sig, (token, train_sig)
+
+          report = {
+              'status': 'PASS',
+              'python': platform.python_version(),
+              'torch': torch.__version__,
+              'cuda_runtime': torch.version.cuda,
+              'cuda_available_on_ci': torch.cuda.is_available(),
+              'ultralytics': ultralytics.__version__,
+              'rfdetr': getattr(rfdetr, '__version__', 'unknown'),
+              'rfdetr_small_default_resolution': small.resolution,
+              'rfdetr_small_patch_size': small.patch_size,
+              'rfdetr_small_num_windows': small.num_windows,
+              'rfdetr_small_block_size': block,
+              'controlled_resolution_640_valid': True,
+              'experiment_runs': len(cfg['runs']),
+              'seeds': cfg['shared_controls']['seeds'],
+              'note': 'This CI preflight performs no model training and no held-out test evaluation.'
+          }
+          out = Path('${RUNNER_TEMP}')/'stage5_preflight'/'preflight_report.json'
+          out.write_text(json.dumps(report, indent=2), encoding='utf-8')
+          print(json.dumps(report, indent=2))
+          PY
+
+      - name: Capture installed packages
+        run: |
+          pip freeze > "${RUNNER_TEMP}/stage5_preflight/pip_freeze.txt"
+          git rev-parse HEAD > "${RUNNER_TEMP}/stage5_preflight/git_sha.txt"
+
+      - name: Upload preflight evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage5-baseline-preflight-evidence
+          path: ${{ runner.temp }}/stage5_preflight/**
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Write workflow summary
+        run: |
+          echo "## Stage 5 Baseline Training Preflight" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Training scripts compile" >> "$GITHUB_STEP_SUMMARY"
+          echo "- 12-run experiment matrix is frozen" >> "$GITHUB_STEP_SUMMARY"
+          echo "- RF-DETR Small controlled 640 resolution is structurally valid" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Current Ultralytics / RF-DETR / PyTorch versions captured in artifact" >> "$GITHUB_STEP_SUMMARY"
+          echo "- No training and no test evaluation performed" >> "$GITHUB_STEP_SUMMARY"
