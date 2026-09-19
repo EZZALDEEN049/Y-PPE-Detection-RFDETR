@@ -81,22 +81,42 @@ Every Stage 5 run record must contain these fingerprints. If a reconstructed der
 
 RF-DETR Small uses a detection block size of 32 (patch size 16 x two windows), so 640 is a valid controlled resolution.
 
+## Framework layout compatibility without scientific data change
+
+The Stage 4 frozen derivatives use an Ultralytics-style layout (`images/train`, `labels/train`, etc.). RF-DETR's YOLO loader expects a split-directory view such as `train/images`, `valid/images`, and `test/images`.
+
+Stage 5 therefore uses `make_rfdetr_yolo_view.py` to create a deterministic **layout-only compatibility view** for RF-DETR. The adapter:
+
+- preserves every image byte and label byte;
+- preserves split membership and class IDs;
+- copies the frozen `manifest.jsonl` byte-for-byte;
+- requires the original Stage 4 fingerprint before adapting;
+- requires the same fingerprint after adapting;
+- changes no annotation geometry or dataset content.
+
+This is an implementation compatibility layer, not a new dataset version and not a preprocessing transformation.
+
+`prepare_stage5_frozen_datasets.py` reconstructs both Stage 4 derivatives from their audited sources and correction manifests, checks the two frozen fingerprints, then creates the RF-DETR compatibility views. Raw datasets remain outside Git and the Roboflow API key is read only from the environment.
+
 ## Hardware-dependent parameters not yet frozen
 
-Physical batch size, gradient accumulation, worker count, AMP dtype, and exact GPU model are execution parameters. They must be chosen only after GPU preflight, then frozen per architecture before the first full run. They may not be changed between Y-PPE and Construction-PPE because of performance outcomes.
+Physical batch size, gradient accumulation, worker count, AMP dtype, exact GPU model, and final RF-DETR raw-vs-EMA weight policy are execution parameters. They must be chosen only after GPU preflight, then frozen per architecture before the first full run. They may not be changed between Y-PPE and Construction-PPE because of performance outcomes.
 
 The run manifest must record:
 
 - GPU model and VRAM
 - CUDA version
 - PyTorch version
-- package versions
+- Ultralytics and RF-DETR package versions
 - physical batch size
 - gradient accumulation
 - effective batch size
 - mixed-precision mode
+- RF-DETR final raw-vs-EMA weight policy
 - seed
 - wall-clock training time
+
+The Stage 5 CI preflight discovers and records the currently installed software versions. Exact package versions must then be pinned before the first full GPU training run; no training should start against floating package versions.
 
 ## Evaluation policy
 
