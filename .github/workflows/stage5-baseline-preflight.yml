@@ -32,7 +32,8 @@ jobs:
           python -m py_compile \
             cross_domain_reliability/stage5_in_domain_baselines/train_yolo11m_baseline.py \
             cross_domain_reliability/stage5_in_domain_baselines/train_rfdetr_small_baseline.py \
-            cross_domain_reliability/stage5_in_domain_baselines/make_rfdetr_yolo_view.py
+            cross_domain_reliability/stage5_in_domain_baselines/make_rfdetr_yolo_view.py \
+            cross_domain_reliability/stage5_in_domain_baselines/prepare_stage5_frozen_datasets.py
 
       - name: Validate frozen experiment protocol and current APIs
         run: |
@@ -143,7 +144,7 @@ jobs:
       - name: Write workflow summary
         run: |
           echo "## Stage 5 Baseline Training Preflight" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Training and layout-adapter scripts compile" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Training, dataset-materializer, and layout-adapter scripts compile" >> "$GITHUB_STEP_SUMMARY"
           echo "- 12-run experiment matrix is frozen" >> "$GITHUB_STEP_SUMMARY"
           echo "- RF-DETR Small controlled 640 resolution is structurally valid" >> "$GITHUB_STEP_SUMMARY"
           echo "- Stage-4-to-RF-DETR YOLO layout adapter is accepted by the installed RF-DETR package" >> "$GITHUB_STEP_SUMMARY"
