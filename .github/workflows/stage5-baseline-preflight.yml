@@ -31,18 +31,21 @@ jobs:
         run: |
           python -m py_compile \
             cross_domain_reliability/stage5_in_domain_baselines/train_yolo11m_baseline.py \
-            cross_domain_reliability/stage5_in_domain_baselines/train_rfdetr_small_baseline.py
+            cross_domain_reliability/stage5_in_domain_baselines/train_rfdetr_small_baseline.py \
+            cross_domain_reliability/stage5_in_domain_baselines/make_rfdetr_yolo_view.py
 
       - name: Validate frozen experiment protocol and current APIs
         run: |
           mkdir -p "${RUNNER_TEMP}/stage5_preflight"
           python - <<'PY'
-          import inspect, json, os, platform
+          import json, os, platform, subprocess, sys, tempfile
           from pathlib import Path
           import torch, yaml
+          from PIL import Image
           import ultralytics, rfdetr
-          from rfdetr.config import RFDETRSmallConfig
-          from rfdetr import RFDETRSmall
+          from ultralytics.cfg import DEFAULT_CFG_DICT
+          from rfdetr.config import RFDETRSmallConfig, TrainConfig
+          from rfdetr.datasets.yolo import is_valid_yolo_dataset
 
           cfg = yaml.safe_load(Path('cross_domain_reliability/stage5_in_domain_baselines/experiment_matrix_v1.yaml').read_text())
           assert cfg['shared_controls']['epochs'] == 100
@@ -57,9 +60,49 @@ jobs:
           assert block == 32, block
           assert 640 % block == 0
 
-          train_sig = str(inspect.signature(RFDETRSmall.train))
-          for token in ['dataset_dir', 'epochs', 'batch_size']:
-              assert token in train_sig, (token, train_sig)
+          rf_fields = set(TrainConfig.model_fields)
+          required_rf = {
+              'dataset_dir', 'epochs', 'batch_size', 'grad_accum_steps', 'aug_config',
+              'scale_jitter', 'early_stopping', 'run_test', 'seed', 'num_workers', 'use_ema'
+          }
+          missing_rf = sorted(required_rf - rf_fields)
+          assert not missing_rf, f'RF-DETR TrainConfig missing expected fields: {missing_rf}'
+
+          required_yolo = {
+              'epochs','imgsz','batch','device','workers','seed','deterministic','pretrained','patience',
+              'val','optimizer','hsv_h','hsv_s','hsv_v','degrees','translate','scale','shear','perspective',
+              'flipud','fliplr','bgr','mosaic','mixup','cutmix'
+          }
+          missing_yolo = sorted(required_yolo - set(DEFAULT_CFG_DICT))
+          assert not missing_yolo, f'Ultralytics config missing expected fields: {missing_yolo}'
+
+          # Regression guard: Stage 4 frozen derivatives use images/{split} + labels/{split}.
+          # Build a tiny synthetic Stage-4-style tree, adapt it, and require RF-DETR to accept the view.
+          with tempfile.TemporaryDirectory() as td:
+              td = Path(td)
+              src = td/'stage4_source'
+              names = ['person','helmet','gloves','vest','boots','goggles','no_helmet','no_gloves','no_boots']
+              for split in ('train','val','test'):
+                  (src/'images'/split).mkdir(parents=True, exist_ok=True)
+                  (src/'labels'/split).mkdir(parents=True, exist_ok=True)
+                  Image.new('RGB',(32,32),color=(255,255,255)).save(src/'images'/split/f'{split}.jpg')
+                  (src/'labels'/split/f'{split}.txt').write_text('0 0.5 0.5 0.5 0.5\n', encoding='utf-8')
+              (src/'data.yaml').write_text(yaml.safe_dump({
+                  'path':'.','train':'images/train','val':'images/val','test':'images/test','names':names,'nc':9
+              }, sort_keys=False), encoding='utf-8')
+              (src/'manifest.jsonl').write_text('{"synthetic":true}\n', encoding='utf-8')
+              import hashlib
+              fp = hashlib.sha256((src/'manifest.jsonl').read_bytes()).hexdigest()
+              adapted = td/'rfdetr_view'
+              subprocess.run([
+                  sys.executable,
+                  'cross_domain_reliability/stage5_in_domain_baselines/make_rfdetr_yolo_view.py',
+                  '--source-root', str(src), '--out', str(adapted), '--expected-fingerprint', fp
+              ], check=True)
+              assert is_valid_yolo_dataset(str(adapted)) is True
+              assert (adapted/'train'/'images'/'train.jpg').is_file()
+              assert (adapted/'valid'/'images'/'val.jpg').is_file()
+              assert (adapted/'test'/'images'/'test.jpg').is_file()
 
           report = {
               'status': 'PASS',
@@ -74,6 +117,7 @@ jobs:
               'rfdetr_small_num_windows': small.num_windows,
               'rfdetr_small_block_size': block,
               'controlled_resolution_640_valid': True,
+              'rfdetr_stage4_layout_adapter_validated': True,
               'experiment_runs': len(cfg['runs']),
               'seeds': cfg['shared_controls']['seeds'],
               'note': 'This CI preflight performs no model training and no held-out test evaluation.'
@@ -99,8 +143,9 @@ jobs:
       - name: Write workflow summary
         run: |
           echo "## Stage 5 Baseline Training Preflight" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Training scripts compile" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Training and layout-adapter scripts compile" >> "$GITHUB_STEP_SUMMARY"
           echo "- 12-run experiment matrix is frozen" >> "$GITHUB_STEP_SUMMARY"
           echo "- RF-DETR Small controlled 640 resolution is structurally valid" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Stage-4-to-RF-DETR YOLO layout adapter is accepted by the installed RF-DETR package" >> "$GITHUB_STEP_SUMMARY"
           echo "- Current Ultralytics / RF-DETR / PyTorch versions captured in artifact" >> "$GITHUB_STEP_SUMMARY"
           echo "- No training and no test evaluation performed" >> "$GITHUB_STEP_SUMMARY"
