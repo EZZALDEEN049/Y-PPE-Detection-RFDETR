@@ -40,9 +40,24 @@ https://universe.roboflow.com/softyyemen/altayyar-0oflt-lafos-qqauz
 - Classes: 17
 - Roboflow overview metrics: mAP@50 94.0%, Precision 94.4%, Recall 88.0%
 
+## Publicly Verified Dataset Configuration
+
+The public Roboflow dataset pages report the same configuration for both model-linked dataset versions:
+
+- Total generated images: 5,577
+- Train: 4,875 images (88%)
+- Validation: 468 images (8%)
+- Test: 234 images (4%)
+- Preprocessing: Auto-Orient applied
+- Resize: Stretch to 640 × 640
+- Augmentation outputs per training example: 3
+- Mosaic augmentation: applied
+
 ## Important Research Note
 
-The two links are deliberately preserved as separate trained-model experiments. Do not overwrite one with the other or report them as a single model. For a defensible head-to-head comparison, verify that train/validation/test splits, preprocessing, augmentation, evaluation thresholds, and metric definitions are identical. Roboflow overview metrics are recorded here as platform-reported values and should not automatically be treated as the final paper comparison table without that verification.
+The two links are deliberately preserved as separate trained-model experiments. Do not overwrite one with the other or report them as a single model. Matching split counts and preprocessing settings strongly improve comparability, but they do not by themselves prove that the exact same image files belong to each train/validation/test partition.
+
+For a defensible head-to-head comparison, verify split membership directly and use a common evaluation protocol. The detailed protocol is documented in `docs/comparison_protocol.md`.
 
 ## Run Inference
 
@@ -93,6 +108,20 @@ python scripts/download_dataset.py --project rfdetr
 ```
 
 The scripts keep the two Roboflow project identifiers separate so their provenance is preserved.
+
+## Verify Identical Train/Validation/Test Membership
+
+After exporting/downloading both dataset versions into separate directories, run:
+
+```bash
+python scripts/compare_splits.py path/to/yolo_dataset path/to/rfdetr_dataset
+```
+
+The script calculates SHA-256 hashes for image files in each split and reports the intersection and mismatch counts. A strict controlled comparison should show identical membership for train, validation, and test, or both models should be re-evaluated on one common held-out test set.
+
+## Metric Reporting Caution
+
+The RF-DETR Universe overview currently reports mAP@50 = 94.0%. A separate free-text project description mentions 96.2% mAP@50 on an independent test set. The 96.2% figure should not be used as the principal comparison result until its evaluation artifact, test set, and procedure are documented.
 
 ## Security
 
