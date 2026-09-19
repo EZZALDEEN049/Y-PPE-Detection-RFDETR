@@ -1,0 +1,184 @@
+name: Y-PPE v2 Clean Stage 2 Audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  clean_audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install roboflow
+          pip install -r cross_domain_reliability/stage2_data_audit/requirements.txt
+
+      - name: Confirm Roboflow secret exists
+        shell: bash
+        run: |
+          if [ -z "${ROBOFLOW_API_KEY}" ]; then
+            echo "ROBOFLOW_API_KEY GitHub Actions secret is missing." >&2
+            exit 1
+          fi
+
+      - name: Download Y-PPE Version 2
+        id: download
+        shell: bash
+        run: |
+          mkdir -p "${RUNNER_TEMP}/roboflow_downloads" "${RUNNER_TEMP}/clean_stage2"
+          python cross_domain_reliability/stage2_data_audit/download_roboflow_dataset.py \
+            --workspace "master-fylfq" \
+            --project "altayyar-0oflt-lafos-qqauz-ty5nh" \
+            --version "2" \
+            --format "yolov11" \
+            --out "${RUNNER_TEMP}/roboflow_downloads" \
+            --metadata-out "${RUNNER_TEMP}/clean_stage2/download_metadata.json"
+          DATASET_DIR="$(python - <<'PY'
+          import json, os
+          p=os.path.join(os.environ['RUNNER_TEMP'],'clean_stage2','download_metadata.json')
+          print(json.load(open(p, encoding='utf-8'))['dataset_location'])
+          PY
+          )"
+          echo "dataset_dir=${DATASET_DIR}" >> "$GITHUB_OUTPUT"
+
+      - name: Apply frozen conservative corrections
+        id: correct
+        shell: bash
+        run: |
+          python cross_domain_reliability/stage2_data_audit/apply_y_ppe_stage2_corrections.py \
+            --root "${{ steps.download.outputs.dataset_dir }}" \
+            --out "${RUNNER_TEMP}/Y-PPE-v2-clean" \
+            --file-manifest "cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_conservative_file_correction_manifest_2026-09-19.csv" \
+            --near-box-manifest "cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_near_box_removal_manifest_2026-09-19.csv" \
+            --expected-exclusions 39 \
+            --expected-exact-row-removals 68 \
+            --expected-near-box-removals 1 \
+            --summary-out "${RUNNER_TEMP}/clean_stage2/correction_summary.json"
+          echo "clean_root=${RUNNER_TEMP}/Y-PPE-v2-clean" >> "$GITHUB_OUTPUT"
+
+      - name: Locate clean metadata
+        id: layout
+        shell: bash
+        run: |
+          CLEAN_ROOT="${{ steps.correct.outputs.clean_root }}"
+          DATA_YAML="$(find "$CLEAN_ROOT" -maxdepth 3 \( -name data.yaml -o -name dataset.yaml \) -print -quit)"
+          if [ -z "$DATA_YAML" ]; then
+            echo "No data.yaml/dataset.yaml in clean derivative." >&2
+            exit 1
+          fi
+          cp "$DATA_YAML" "${RUNNER_TEMP}/clean_stage2/data.yaml"
+          echo "data_yaml=${DATA_YAML}" >> "$GITHUB_OUTPUT"
+
+      - name: Audit corrected derivative
+        id: audit
+        shell: bash
+        run: |
+          set +e
+          python cross_domain_reliability/stage2_data_audit/stage2_dataset_audit_mixed.py \
+            --dataset-name "Y-PPE-v2-clean" \
+            --root "${{ steps.correct.outputs.clean_root }}" \
+            --data-yaml "${{ steps.layout.outputs.data_yaml }}" \
+            --splits "train,valid,test" \
+            --near-hash-distance "4" \
+            --out "${RUNNER_TEMP}/clean_stage2/audit"
+          CODE=$?
+          set -e
+          echo "exit_code=${CODE}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Audit explicit video source groups
+        id: source_groups
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          if [ -f "${RUNNER_TEMP}/clean_stage2/audit/image_manifest.json" ]; then
+            python cross_domain_reliability/stage2_data_audit/detect_source_group_leakage.py \
+              --image-manifest "${RUNNER_TEMP}/clean_stage2/audit/image_manifest.json" \
+              --out "${RUNNER_TEMP}/clean_stage2/source_groups"
+            CODE=$?
+          else
+            CODE=2
+          fi
+          set -e
+          echo "exit_code=${CODE}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Build compact clean-audit overview
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from collections import Counter
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'clean_stage2'/'audit'
+          issues=json.loads((root/'issues.json').read_text()) if (root/'issues.json').exists() else []
+          summary=json.loads((root/'summary.json').read_text()) if (root/'summary.json').exists() else {}
+          counts=Counter(x.get('issue_type','unknown') for x in issues)
+          out={
+            'summary': summary,
+            'issue_count': len(issues),
+            'issue_counts_by_type': dict(sorted(counts.items())),
+            'core_audit_exit_code': int('${{ steps.audit.outputs.exit_code }}' or 0),
+            'source_group_exit_code': int('${{ steps.source_groups.outputs.exit_code }}' or 0),
+          }
+          (Path(os.environ['RUNNER_TEMP'])/'clean_stage2'/'clean_audit_overview.json').write_text(json.dumps(out,indent=2),encoding='utf-8')
+          PY
+
+      - name: Upload corrected audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: y-ppe-v2-clean-stage2-audit
+          path: |
+            ${{ runner.temp }}/clean_stage2/download_metadata.json
+            ${{ runner.temp }}/clean_stage2/data.yaml
+            ${{ runner.temp }}/clean_stage2/correction_summary.json
+            ${{ runner.temp }}/clean_stage2/clean_audit_overview.json
+            ${{ runner.temp }}/clean_stage2/audit/summary.json
+            ${{ runner.temp }}/clean_stage2/audit/image_manifest.json
+            ${{ runner.temp }}/clean_stage2/audit/issues.json
+            ${{ runner.temp }}/clean_stage2/audit/annotation_format_report.json
+            ${{ runner.temp }}/clean_stage2/source_groups/**
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Write summary
+        if: always()
+        shell: bash
+        run: |
+          echo "## Y-PPE v2 clean Stage 2 audit" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Base: Roboflow Version 2 (2,327 non-augmented source images)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Conservative source images excluded: 39" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Exact duplicate annotation rows removed before exclusions: 68" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Confirmed near-identical annotation row removed: 1" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Core clean-audit exit code: ${{ steps.audit.outputs.exit_code }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Source-group exit code: ${{ steps.source_groups.outputs.exit_code }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "The cleaned dataset is reconstructed ephemerally from immutable Version 2; raw images are not committed to GitHub." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Enforce clean audit gate
+        if: always()
+        shell: bash
+        run: |
+          CORE="${{ steps.audit.outputs.exit_code }}"; CORE="${CORE:-2}"
+          SOURCE="${{ steps.source_groups.outputs.exit_code }}"; SOURCE="${SOURCE:-2}"
+          if [ "$CORE" != "0" ] || [ "$SOURCE" != "0" ]; then
+            echo "Clean Stage 2 audit gate failed (core=$CORE, source_group=$SOURCE)." >&2
+            exit 2
+          fi
