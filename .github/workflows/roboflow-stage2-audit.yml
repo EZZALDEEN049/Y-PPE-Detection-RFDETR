@@ -99,6 +99,7 @@ jobs:
             SPLITS="train,val,test"
           fi
 
+          cp "$DATA_YAML" "${RUNNER_TEMP}/stage2/data.yaml"
           echo "data_yaml=${DATA_YAML}" >> "$GITHUB_OUTPUT"
           echo "splits=${SPLITS}" >> "$GITHUB_OUTPUT"
 
@@ -107,7 +108,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          python cross_domain_reliability/stage2_data_audit/stage2_dataset_audit.py \
+          python cross_domain_reliability/stage2_data_audit/stage2_dataset_audit_mixed.py \
             --dataset-name "${{ inputs.dataset_name }}" \
             --root "${{ steps.download.outputs.dataset_dir }}" \
             --data-yaml "${{ steps.layout.outputs.data_yaml }}" \
@@ -131,10 +132,12 @@ jobs:
           root = Path(os.environ['RUNNER_TEMP']) / 'stage2' / 'audit'
           issues_path = root / 'issues.json'
           summary_path = root / 'summary.json'
+          format_path = root / 'annotation_format_report.json'
           out_path = Path(os.environ['RUNNER_TEMP']) / 'stage2' / 'audit_overview.json'
 
           issues = json.loads(issues_path.read_text(encoding='utf-8')) if issues_path.exists() else []
           summary = json.loads(summary_path.read_text(encoding='utf-8')) if summary_path.exists() else {}
+          annotation_format = json.loads(format_path.read_text(encoding='utf-8')) if format_path.exists() else {}
           counts = Counter(x.get('issue_type','unknown') for x in issues)
           samples = defaultdict(list)
           for item in issues:
@@ -151,6 +154,7 @@ jobs:
           }
           overview = {
               'summary': summary,
+              'annotation_format': annotation_format,
               'issue_count': len(issues),
               'critical_issue_count': sum(v for k,v in counts.items() if k in critical_types),
               'issue_counts_by_type': dict(sorted(counts.items())),
@@ -167,9 +171,11 @@ jobs:
           name: stage2-${{ inputs.dataset_name }}-v${{ inputs.version }}
           path: |
             ${{ runner.temp }}/stage2/download_metadata.json
+            ${{ runner.temp }}/stage2/data.yaml
             ${{ runner.temp }}/stage2/audit/summary.json
             ${{ runner.temp }}/stage2/audit/image_manifest.json
             ${{ runner.temp }}/stage2/audit/issues.json
+            ${{ runner.temp }}/stage2/audit/annotation_format_report.json
             ${{ runner.temp }}/stage2/audit_overview.json
           if-no-files-found: warn
           retention-days: 30
@@ -186,7 +192,8 @@ jobs:
           echo "- Splits audited: ${{ steps.layout.outputs.splits }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Audit exit code: ${{ steps.audit.outputs.exit_code }}" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "The downloadable artifact contains the full JSON audit outputs. A non-zero audit exit code indicates critical integrity/leakage findings that must be resolved before experiments." >> "$GITHUB_STEP_SUMMARY"
+          echo "Polygon/segmentation rows are normalized to enclosing detection boxes in a temporary read-only view before integrity checks." >> "$GITHUB_STEP_SUMMARY"
+          echo "A non-zero audit exit code indicates critical integrity/leakage findings that must be resolved before experiments." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Enforce audit gate
         if: always()
