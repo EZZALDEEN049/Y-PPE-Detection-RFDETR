@@ -45,6 +45,7 @@ models:
     implementation: ultralytics
     checkpoint: yolo11m.pt
     optimizer_policy: framework_native_recorded
+    final_weight_policy: final_epoch_ema_last_pt
     batch_size: null
     grad_accum_steps: null
     hardware_lock_required: true
@@ -54,7 +55,7 @@ models:
     model_class: RFDETRSmall
     optimizer_policy: framework_native_recorded
     use_ema: true
-    primary_final_weight_policy: null
+    primary_final_weight_policy: final_epoch_ema_last_ema_pth
     batch_size: null
     grad_accum_steps: null
     hardware_lock_required: true
