@@ -1,0 +1,53 @@
+name: Stage 5 Self-Hosted GPU Hardware Preflight
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  gpu-hardware-preflight:
+    runs-on: [self-hosted, linux, x64, gpu, stage5]
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Verify NVIDIA GPU is visible
+        run: |
+          command -v nvidia-smi
+          nvidia-smi
+
+      - name: Run hardware-only preflight
+        env:
+          STAGE5_PREFLIGHT_OUT: ${{ runner.temp }}/stage5_gpu_hardware_preflight
+        run: |
+          python3 cross_domain_reliability/stage5_in_domain_baselines/gpu_hardware_preflight.py
+
+      - name: Capture runner identity
+        run: |
+          {
+            echo "RUNNER_NAME=${RUNNER_NAME}"
+            echo "RUNNER_OS=${RUNNER_OS}"
+            echo "RUNNER_ARCH=${RUNNER_ARCH}"
+            echo "GITHUB_SHA=${GITHUB_SHA}"
+          } > "${RUNNER_TEMP}/stage5_gpu_hardware_preflight/runner_identity.txt"
+
+      - name: Upload hardware preflight evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage5-self-hosted-gpu-hardware-preflight
+          path: ${{ runner.temp }}/stage5_gpu_hardware_preflight/**
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Write summary
+        run: |
+          echo "## Stage 5 Self-Hosted GPU Hardware Preflight" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Exactly one NVIDIA GPU visible" >> "$GITHUB_STEP_SUMMARY"
+          echo "- VRAM gate: >= 15000 MiB" >> "$GITHUB_STEP_SUMMARY"
+          echo "- No model training" >> "$GITHUB_STEP_SUMMARY"
+          echo "- No dataset or held-out test access" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Next gate after PASS: freeze software stack and probe batch/accumulation settings" >> "$GITHUB_STEP_SUMMARY"
