@@ -1,21 +1,25 @@
 # Stage 5 — Harmonized In-Domain Baseline Protocol v1
 
-**Status:** pre-execution protocol; full training is on scientific HOLD until Stage 4.5 label-completeness/background-policy closure. No Stage 5 model result exists yet.
+**Status:** pre-execution protocol; Stage 4.5 label-completeness/background-policy gate is closed. No Stage 5 model result exists yet.
 
-## Scientific prerequisite — Stage 4.5
+## Scientific prerequisite — Stage 4.5 (CLOSED)
 
-The frozen Stage 4 nine-class derivatives retain cleaned source images while dropping non-shared annotation rows. Before any full Stage 5 training, the Stage 4.5 label-completeness/background-policy audit must be closed. That audit checks whether excluded native annotations can leave visible retained-class objects unlabeled and therefore convert valid objects into false background.
+The original Stage 4 nine-class derivatives retained cleaned source images while dropping non-shared annotation rows. Stage 4.5 tested whether that policy could silently convert visible retained-class objects into false background.
 
-Stage 4.5 closure requires structural annotation analysis, train/validation-only visual adjudication, a predeclared annotation-only test policy without opening test pixels, and—if any membership or annotation changes are required—a new harmonized derivative and new fingerprints. The Stage 4 fingerprints below remain provisional Stage 5 inputs until that gate is closed.
+Stage 4.5 workflow run `35485667262` completed successfully. Its evidence artifact was `stage4-5-label-completeness-evidence` (`10597440734`, digest `sha256:086489f617e19c6483b3da5e7deb3f53acffb3701f279ffd835883fecf3b44ab`). Train/validation visual contact sheets were reviewed; held-out test image pixels were not opened for adjudication.
+
+A deterministic annotation-only whole-image correction policy was then frozen in `Stage4_5_adjudication_and_policy_2026-09-20.md`. The corrected harmonized derivatives were rebuilt automatically in workflow run `35486021600`, which completed successfully. Evidence artifact: `stage4-5-corrected-h9-freeze-evidence` (`10598145018`, digest `sha256:e10b77a262490550014808b38644e433529f4547884552af33b7be97a88c8e3f`).
+
+The correction changes dataset membership but does not relabel or infer annotations. Test membership is decided from annotation metadata only; no test visual adjudication or model output is used.
 
 ## Scientific objective
 
-Establish controlled in-domain reference performance for the accepted nine-class derivatives before any zero-shot cross-domain claim is made.
+Establish controlled in-domain reference performance for the corrected nine-class derivatives before any zero-shot cross-domain claim is made.
 
 Primary matrix:
 
-- Y-PPE-h9 train/val -> Y-PPE-h9 held-out test
-- Construction-PPE-h9 train/val -> Construction-PPE-h9 held-out test
+- Y-PPE-h9-v2 train/val -> Y-PPE-h9-v2 held-out test
+- Construction-PPE-h9-v2 train/val -> Construction-PPE-h9-v2 held-out test
 - Architecture A: Ultralytics YOLO11m
 - Architecture B: RF-DETR Small
 - Seeds: 17, 42, 2026
@@ -24,15 +28,39 @@ This creates 12 independent training runs (2 datasets x 2 architectures x 3 seed
 
 ## Frozen dataset identity
 
-Current Stage 4 Y-PPE-h9 fingerprint:
+### Y-PPE-h9-v2
 
-`db49295a0ef2c9eec73b14c620966ed00bf12dac253866b65bab9b50af9db896`
+Fingerprint:
 
-Current Stage 4 Construction-PPE-h9 fingerprint:
+`82669459c4c8b53535ee765321fa22277a1ef8d43695409ebb0d212764eb8b89`
 
-`bd706ae34aa77507f119a9a4d5cd443d4cb84ee6cd2020b9b8ee6e086350880e`
+Image counts:
 
-Every Stage 5 run record must contain the final accepted fingerprints after Stage 4.5 closure. If Stage 4.5 produces a corrected derivative, these fingerprints must be superseded rather than silently reused. If a reconstructed derivative does not reproduce its expected fingerprint, training must stop.
+- train: 1,340
+- validation: 385
+- test: 204
+
+Retained shared-class instances: 9,471.
+
+The Stage 4.5 policy removes 255/74/30 images from train/validation/test relative to the pre-Stage-4.5 clean source. Animal-only harmonized-empty images are retained as explicit negative images; other unsafe harmonized-empty images and images with critical unmatched excluded-class content are removed before harmonization.
+
+### Construction-PPE-h9-v2
+
+Fingerprint:
+
+`59469299ba67355dbcb0e725851f73d244a7ad6e93522d44601be3c8323d3c14`
+
+Image counts:
+
+- train: 1,046
+- validation: 132
+- test: 138
+
+Retained shared-class instances: 9,514.
+
+The Stage 4.5 policy removes 31/2/3 images from train/validation/test where unmatched `none` content or harmonized-empty membership could create false background.
+
+Every Stage 5 run record must contain these corrected fingerprints. If a reconstructed derivative does not reproduce its expected fingerprint, training must stop.
 
 ## Frozen class order
 
@@ -58,7 +86,7 @@ Every Stage 5 run record must contain the final accepted fingerprints after Stag
 - Validation data may be used for training monitoring only.
 - Primary reported checkpoint for architecture-to-architecture comparison: **final epoch checkpoint** after the fixed 100 epochs. This avoids framework-specific differences in "best checkpoint" selection rules.
 - Framework best-validation checkpoint may be retained as a clearly labelled sensitivity result, but it must not replace the fixed-epoch primary comparison.
-- No offline image augmentation is permitted. The final accepted harmonized image membership must be preserved.
+- No offline image augmentation is permitted. The corrected harmonized image membership must be preserved.
 - Stochastic online augmentation is disabled in the primary controlled comparison.
 - Held-out test metrics are computed only after the complete training run has finished and only with the frozen common evaluator.
 
@@ -89,20 +117,20 @@ RF-DETR Small uses a detection block size of 32 (patch size 16 x two windows), s
 
 ## Framework layout compatibility without scientific data change
 
-The Stage 4 harmonized derivatives use an Ultralytics-style layout (`images/train`, `labels/train`, etc.). RF-DETR's YOLO loader expects a split-directory view such as `train/images`, `valid/images`, and `test/images`.
+The corrected harmonized derivatives use an Ultralytics-style layout (`images/train`, `labels/train`, etc.). RF-DETR's YOLO loader expects a split-directory view such as `train/images`, `valid/images`, and `test/images`.
 
 Stage 5 therefore uses `make_rfdetr_yolo_view.py` to create a deterministic **layout-only compatibility view** for RF-DETR. The adapter:
 
 - preserves every image byte and label byte;
 - preserves split membership and class IDs;
 - copies the harmonized `manifest.jsonl` byte-for-byte;
-- requires the expected harmonized fingerprint before adapting;
+- requires the expected corrected fingerprint before adapting;
 - requires the same fingerprint after adapting;
 - changes no annotation geometry or dataset content.
 
 This is an implementation compatibility layer, not a new dataset version and not a preprocessing transformation.
 
-`prepare_stage5_frozen_datasets.py` is an execution candidate for reconstructing the harmonized derivatives from audited sources and correction manifests, checking fingerprints, and creating RF-DETR compatibility views. Its end-to-end reconstruction must itself pass on the actual execution environment before it is used for full training. Raw datasets remain outside Git and the Roboflow API key is read only from the environment.
+`prepare_stage5_frozen_datasets.py` must reconstruct the corrected Stage 4.5 derivatives, reproduce the two fingerprints above, and create RF-DETR compatibility views before full training. Raw datasets remain outside Git and the Roboflow API key is read only from the environment.
 
 ## Hardware-dependent parameters not yet frozen
 
@@ -145,12 +173,23 @@ Calibration, reliability, safety loss, LRP-style localization error, and target-
 
 For each dataset/model cell, report the three seed-level results and mean with dispersion. Do not treat the seeds as independent images. Later model-to-model significance comparisons on the same held-out test images must use paired image-level resampling; seed variability is reported separately.
 
+## Remaining gate before full Stage 5 training
+
+Stage 4.5 is closed. Full training may begin only after:
+
+1. `prepare_stage5_frozen_datasets.py` is updated and verified to reconstruct the corrected v2 derivatives and exact fingerprints;
+2. the actual Colab GPU hardware preflight is recorded;
+3. batch size, gradient accumulation, worker count, AMP mode, and RF-DETR final raw-vs-EMA policy are frozen;
+4. exact software versions are pinned;
+5. YOLO no-early-stop semantics are verified for the pinned Ultralytics version.
+
+Held-out test evaluation remains separately gated on freezing the common evaluator.
+
 ## Gate to Stage 6
 
 Zero-shot cross-domain evaluation must not begin until:
 
-1. Stage 4.5 is closed and the final accepted harmonized fingerprints are frozen;
-2. all four in-domain model/dataset cells have completed the prespecified seed runs or a documented compute limitation is declared before inspecting target-test results;
-3. run manifests are complete;
-4. checkpoint provenance is preserved;
-5. the common evaluator is frozen.
+1. all four in-domain model/dataset cells have completed the prespecified seed runs or a documented compute limitation is declared before inspecting target-test results;
+2. run manifests are complete;
+3. checkpoint provenance is preserved;
+4. the common evaluator is frozen.
