@@ -1,0 +1,8 @@
+# Stage 5 application-layer pins for Google Colab.
+# PyTorch/torchvision are intentionally not forced here until the actual Colab
+# CUDA runtime is recorded; after the first hardware preflight that compatible
+# torch stack is frozen separately for all 12 runs.
+ultralytics==8.4.156
+rfdetr[train]==1.10.1
+roboflow==1.5.0
+PyYAML==6.0.3
