@@ -17,6 +17,7 @@ from pathlib import Path
 
 import numpy as np
 import torch
+import yaml
 from ultralytics import YOLO, __version__ as ultralytics_version
 
 EXPECTED = {
@@ -83,6 +84,21 @@ def main() -> None:
     run_dir = out_root / run_id
     if run_dir.exists():
         raise SystemExit(f"Refusing to overwrite existing run directory: {run_dir}")
+    run_dir.mkdir(parents=True)
+
+    # Transport-only runtime YAML adapter:
+    # Stage 4.5 freezes data.yaml with path: ".". Ultralytics resolves an explicit
+    # relative `path` against its global datasets directory rather than against
+    # the YAML file's directory. In transient runtimes (e.g., Colab), that can
+    # point away from the verified frozen dataset. We therefore create a
+    # run-local YAML whose only semantic change is an absolute root path.
+    # Class order, split paths, image/label bytes, split membership, and the
+    # manifest fingerprint remain unchanged.
+    frozen_yaml_sha256 = sha256_file(data_yaml)
+    runtime_cfg = yaml.safe_load(data_yaml.read_text(encoding="utf-8"))
+    runtime_cfg["path"] = str(root)
+    runtime_yaml = run_dir / "data_runtime_absolute.yaml"
+    runtime_yaml.write_text(yaml.safe_dump(runtime_cfg, sort_keys=False), encoding="utf-8")
 
     meta = {
         "stage": 5,
@@ -90,6 +106,13 @@ def main() -> None:
         "run_id": run_id,
         "dataset": args.dataset,
         "dataset_fingerprint_sha256": fp,
+        "frozen_data_yaml_sha256": frozen_yaml_sha256,
+        "runtime_data_yaml": str(runtime_yaml),
+        "runtime_path_adapter_only": True,
+        "runtime_path_adapter_note": (
+            "Only data.yaml path was rewritten from relative '.' to the absolute verified dataset root; "
+            "class order, split membership, image/label bytes, and manifest fingerprint are unchanged."
+        ),
         "model": "YOLO11m",
         "pretrained_checkpoint": "yolo11m.pt",
         "seed": args.seed,
@@ -116,12 +139,11 @@ def main() -> None:
         "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
         "ultralytics": ultralytics_version,
     }
-    run_dir.mkdir(parents=True)
     (run_dir / "run_manifest_pre.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
 
     model = YOLO("yolo11m.pt")
     model.train(
-        data=str(data_yaml),
+        data=str(runtime_yaml),
         epochs=100,
         imgsz=640,
         batch=args.batch_size,
