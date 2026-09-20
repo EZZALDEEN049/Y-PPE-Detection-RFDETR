@@ -1,6 +1,6 @@
 stage: 5
 name: harmonized_in_domain_baselines
-status: pre_execution_stage4_5_closed
+status: pre_execution_stage4_5_closed_resource_policy_frozen
 
 ontology:
   classes:
@@ -38,6 +38,9 @@ shared_controls:
   stochastic_online_augmentation: false
   primary_checkpoint_policy: final_epoch
   test_for_tuning: false
+  execution_environment: google_colab_single_nvidia_gpu
+  minimum_vram_gib: 14.0
+  resource_selection_basis: hardware_feasibility_only_no_performance_tuning
 
 models:
   yolo11m:
@@ -46,8 +49,10 @@ models:
     checkpoint: yolo11m.pt
     optimizer_policy: framework_native_recorded
     final_weight_policy: final_epoch_ema_last_pt
-    batch_size: null
+    batch_size: 8
     grad_accum_steps: null
+    workers: 2
+    amp: true
     hardware_lock_required: true
   rfdetr_small:
     family: transformer_detector
@@ -56,8 +61,11 @@ models:
     optimizer_policy: framework_native_recorded
     use_ema: true
     primary_final_weight_policy: final_epoch_ema_last_ema_pth
-    batch_size: null
-    grad_accum_steps: null
+    batch_size: 1
+    grad_accum_steps: 16
+    effective_batch_size: 16
+    workers: 2
+    amp_dtype: fp16
     hardware_lock_required: true
 
 runs:
@@ -79,6 +87,7 @@ gates:
   - corrected_dataset_fingerprint_match
   - canonical_class_order_match
   - gpu_execution_parameters_frozen_before_training
+  - actual_gpu_identity_recorded_before_first_run
   - no_test_tuning
   - common_evaluator_frozen_before_any_held_out_test_metrics
   - common_evaluator_frozen_before_zero_shot
