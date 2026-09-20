@@ -2,6 +2,10 @@ name: Stage 5 Baseline Training Preflight
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/stage5-baseline-preflight.yml'
 
 permissions:
   contents: read
@@ -27,34 +31,55 @@ jobs:
           pip install "rfdetr[train]"
           pip install PyYAML
 
-      - name: Compile Stage 5 scripts
+      - name: Compile Stage 4.5 and Stage 5 scripts
         run: |
           python -m py_compile \
+            cross_domain_reliability/stage4_5_label_completeness/stage4_5_label_completeness_audit.py \
+            cross_domain_reliability/stage4_5_label_completeness/apply_stage4_5_exclusion_policy.py \
             cross_domain_reliability/stage5_in_domain_baselines/train_yolo11m_baseline.py \
             cross_domain_reliability/stage5_in_domain_baselines/train_rfdetr_small_baseline.py \
             cross_domain_reliability/stage5_in_domain_baselines/make_rfdetr_yolo_view.py \
             cross_domain_reliability/stage5_in_domain_baselines/prepare_stage5_frozen_datasets.py
 
-      - name: Validate frozen experiment protocol and current APIs
+      - name: Validate corrected experiment protocol and current APIs
         run: |
           mkdir -p "${RUNNER_TEMP}/stage5_preflight"
           python - <<'PY'
-          import json, os, platform, subprocess, sys, tempfile
+          import importlib.util
+          import json, math, os, platform, subprocess, sys, tempfile
           from pathlib import Path
           import torch, yaml
           from PIL import Image
           import ultralytics, rfdetr
           from ultralytics.cfg import DEFAULT_CFG_DICT
+          from ultralytics.utils.torch_utils import EarlyStopping
           from rfdetr.config import RFDETRSmallConfig, TrainConfig
           from rfdetr.datasets.yolo import is_valid_yolo_dataset
 
           cfg = yaml.safe_load(Path('cross_domain_reliability/stage5_in_domain_baselines/experiment_matrix_v1.yaml').read_text())
+          assert cfg['status'] == 'pre_execution_stage4_5_closed'
           assert cfg['shared_controls']['epochs'] == 100
           assert cfg['shared_controls']['resolution'] == 640
           assert cfg['shared_controls']['seeds'] == [17, 42, 2026]
           assert len(cfg['runs']) == 12
-          assert cfg['frozen_datasets']['Y-PPE-h9']['fingerprint_sha256'] == 'db49295a0ef2c9eec73b14c620966ed00bf12dac253866b65bab9b50af9db896'
-          assert cfg['frozen_datasets']['Construction-PPE-h9']['fingerprint_sha256'] == 'bd706ae34aa77507f119a9a4d5cd443d4cb84ee6cd2020b9b8ee6e086350880e'
+
+          yfp='82669459c4c8b53535ee765321fa22277a1ef8d43695409ebb0d212764eb8b89'
+          cfp='59469299ba67355dbcb0e725851f73d244a7ad6e93522d44601be3c8323d3c14'
+          assert cfg['frozen_datasets']['Y-PPE-h9-v2']['fingerprint_sha256'] == yfp
+          assert cfg['frozen_datasets']['Construction-PPE-h9-v2']['fingerprint_sha256'] == cfp
+          assert cfg['frozen_datasets']['Y-PPE-h9-v2']['train_images'] == 1340
+          assert cfg['frozen_datasets']['Y-PPE-h9-v2']['val_images'] == 385
+          assert cfg['frozen_datasets']['Y-PPE-h9-v2']['test_images'] == 204
+          assert cfg['frozen_datasets']['Construction-PPE-h9-v2']['train_images'] == 1046
+          assert cfg['frozen_datasets']['Construction-PPE-h9-v2']['val_images'] == 132
+          assert cfg['frozen_datasets']['Construction-PPE-h9-v2']['test_images'] == 138
+          assert all(r['dataset'] in {'Y-PPE-h9-v2','Construction-PPE-h9-v2'} for r in cfg['runs'])
+
+          # Materializer must carry exactly the same corrected fingerprints.
+          p=Path('cross_domain_reliability/stage5_in_domain_baselines/prepare_stage5_frozen_datasets.py')
+          spec=importlib.util.spec_from_file_location('stage5_materializer', p)
+          mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+          assert mod.EXPECTED == {'Y-PPE-h9-v2': yfp, 'Construction-PPE-h9-v2': cfp}
 
           small = RFDETRSmallConfig()
           block = small.patch_size * small.num_windows
@@ -77,8 +102,12 @@ jobs:
           missing_yolo = sorted(required_yolo - set(DEFAULT_CFG_DICT))
           assert not missing_yolo, f'Ultralytics config missing expected fields: {missing_yolo}'
 
-          # Regression guard: Stage 4 frozen derivatives use images/{split} + labels/{split}.
-          # Build a tiny synthetic Stage-4-style tree, adapt it, and require RF-DETR to accept the view.
+          # Ultralytics explicitly converts patience=0 to infinity, so early
+          # stopping is disabled while the fixed 100-epoch cap remains active.
+          stopper = EarlyStopping(patience=0)
+          assert math.isinf(stopper.patience), stopper.patience
+
+          # Regression guard for Stage-4-style layout -> RF-DETR layout-only adapter.
           with tempfile.TemporaryDirectory() as td:
               td = Path(td)
               src = td/'stage4_source'
@@ -107,18 +136,21 @@ jobs:
 
           report = {
               'status': 'PASS',
+              'stage4_5_closed': True,
+              'corrected_fingerprints': {'Y-PPE-h9-v2': yfp, 'Construction-PPE-h9-v2': cfp},
               'python': platform.python_version(),
               'torch': torch.__version__,
               'cuda_runtime': torch.version.cuda,
               'cuda_available_on_ci': torch.cuda.is_available(),
               'ultralytics': ultralytics.__version__,
               'rfdetr': getattr(rfdetr, '__version__', 'unknown'),
+              'yolo_patience_zero_disables_early_stop': True,
               'rfdetr_small_default_resolution': small.resolution,
               'rfdetr_small_patch_size': small.patch_size,
               'rfdetr_small_num_windows': small.num_windows,
               'rfdetr_small_block_size': block,
               'controlled_resolution_640_valid': True,
-              'rfdetr_stage4_layout_adapter_validated': True,
+              'rfdetr_layout_adapter_validated': True,
               'experiment_runs': len(cfg['runs']),
               'seeds': cfg['shared_controls']['seeds'],
               'note': 'This CI preflight performs no model training and no held-out test evaluation.'
@@ -144,9 +176,11 @@ jobs:
       - name: Write workflow summary
         run: |
           echo "## Stage 5 Baseline Training Preflight" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Training, dataset-materializer, and layout-adapter scripts compile" >> "$GITHUB_STEP_SUMMARY"
-          echo "- 12-run experiment matrix is frozen" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Stage 4.5 corrected fingerprints and split counts verified" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Stage 4.5 / Stage 5 scripts compile" >> "$GITHUB_STEP_SUMMARY"
+          echo "- 12-run corrected experiment matrix is frozen" >> "$GITHUB_STEP_SUMMARY"
+          echo "- YOLO patience=0 confirmed to disable early stopping in installed Ultralytics" >> "$GITHUB_STEP_SUMMARY"
           echo "- RF-DETR Small controlled 640 resolution is structurally valid" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Stage-4-to-RF-DETR YOLO layout adapter is accepted by the installed RF-DETR package" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Harmonized-to-RF-DETR layout adapter is accepted by installed RF-DETR" >> "$GITHUB_STEP_SUMMARY"
           echo "- Current Ultralytics / RF-DETR / PyTorch versions captured in artifact" >> "$GITHUB_STEP_SUMMARY"
-          echo "- No training and no test evaluation performed" >> "$GITHUB_STEP_SUMMARY"
+          echo "- No training and no held-out test evaluation performed" >> "$GITHUB_STEP_SUMMARY"
