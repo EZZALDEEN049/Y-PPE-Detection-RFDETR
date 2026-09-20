@@ -9,7 +9,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import os
 import platform
 import random
 import subprocess
@@ -21,8 +20,12 @@ import torch
 from ultralytics import YOLO, __version__ as ultralytics_version
 
 EXPECTED = {
-    "Y-PPE-h9": "db49295a0ef2c9eec73b14c620966ed00bf12dac253866b65bab9b50af9db896",
-    "Construction-PPE-h9": "bd706ae34aa77507f119a9a4d5cd443d4cb84ee6cd2020b9b8ee6e086350880e",
+    "Y-PPE-h9-v2": "82669459c4c8b53535ee765321fa22277a1ef8d43695409ebb0d212764eb8b89",
+    "Construction-PPE-h9-v2": "59469299ba67355dbcb0e725851f73d244a7ad6e93522d44601be3c8323d3c14",
+}
+RUN_PREFIX = {
+    "Y-PPE-h9-v2": "Y",
+    "Construction-PPE-h9-v2": "C",
 }
 
 
@@ -63,7 +66,7 @@ def main() -> None:
     manifest = root / "manifest.jsonl"
     data_yaml = root / "data.yaml"
     if not manifest.is_file() or not data_yaml.is_file():
-        raise SystemExit("dataset-root must contain manifest.jsonl and data.yaml from Stage 4")
+        raise SystemExit("dataset-root must contain corrected Stage 4.5 manifest.jsonl and data.yaml")
     fp = sha256_file(manifest)
     if fp != EXPECTED[args.dataset]:
         raise SystemExit(f"Frozen dataset fingerprint mismatch: got {fp}, expected {EXPECTED[args.dataset]}")
@@ -74,7 +77,7 @@ def main() -> None:
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(args.seed)
 
-    run_id = f"{args.dataset.replace('-h9','').replace('-','_')}_YOLO_s{args.seed}"
+    run_id = f"{RUN_PREFIX[args.dataset]}_YOLO_s{args.seed}"
     out_root = Path(args.output_root).resolve()
     out_root.mkdir(parents=True, exist_ok=True)
     run_dir = out_root / run_id
@@ -100,6 +103,7 @@ def main() -> None:
         "test_evaluation_performed": False,
         "stochastic_online_augmentation": False,
         "early_stopping": False,
+        "early_stopping_control": "patience=0; verified by Stage 5 preflight to map to infinity in installed Ultralytics",
         "optimizer_policy": "ultralytics_auto_record_from_logs",
         "started_at_utc": datetime.now(timezone.utc).isoformat(),
         "git_sha": git_sha(),
