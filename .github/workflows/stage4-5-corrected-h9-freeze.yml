@@ -1,0 +1,247 @@
+name: Stage 4.5 Corrected Harmonized Freeze
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/stage4-5-corrected-h9-freeze.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  freeze_corrected:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install roboflow
+          pip install -r cross_domain_reliability/stage2_data_audit/requirements.txt
+
+      - name: Confirm Roboflow secret exists
+        shell: bash
+        run: |
+          test -n "${ROBOFLOW_API_KEY}" || { echo "ROBOFLOW_API_KEY is missing" >&2; exit 1; }
+
+      - name: Reconstruct clean Y-PPE v2
+        id: yclean
+        shell: bash
+        run: |
+          mkdir -p "${RUNNER_TEMP}/stage45freeze/y_download" "${RUNNER_TEMP}/stage45freeze/meta"
+          python cross_domain_reliability/stage2_data_audit/download_roboflow_dataset.py \
+            --workspace "master-fylfq" \
+            --project "altayyar-0oflt-lafos-qqauz-ty5nh" \
+            --version 2 \
+            --format yolov11 \
+            --out "${RUNNER_TEMP}/stage45freeze/y_download" \
+            --metadata-out "${RUNNER_TEMP}/stage45freeze/meta/y_download.json"
+          Y_SRC="$(python - <<'PY'
+          import json, os
+          p=os.path.join(os.environ['RUNNER_TEMP'],'stage45freeze','meta','y_download.json')
+          print(json.load(open(p,encoding='utf-8'))['dataset_location'])
+          PY
+          )"
+          python cross_domain_reliability/stage2_data_audit/apply_y_ppe_stage2_corrections.py \
+            --root "$Y_SRC" \
+            --out "${RUNNER_TEMP}/stage45freeze/Y-PPE-clean" \
+            --file-manifest "cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_conservative_file_correction_manifest_2026-09-19.csv" \
+            --near-box-manifest "cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_near_box_removal_manifest_2026-09-19.csv" \
+            --expected-exclusions 39 \
+            --expected-exact-row-removals 68 \
+            --expected-near-box-removals 1 \
+            --summary-out "${RUNNER_TEMP}/stage45freeze/meta/y_stage2_correction.json"
+          Y_YAML="$(find "${RUNNER_TEMP}/stage45freeze/Y-PPE-clean" -maxdepth 3 \( -name data.yaml -o -name dataset.yaml \) -print -quit)"
+          test -n "$Y_YAML"
+          echo "yaml=$Y_YAML" >> "$GITHUB_OUTPUT"
+
+      - name: Reconstruct clean Construction-PPE
+        shell: bash
+        run: |
+          mkdir -p "${RUNNER_TEMP}/stage45freeze/c_download"
+          curl --fail --location --retry 3 \
+            -o "${RUNNER_TEMP}/stage45freeze/meta/construction-ppe.yaml" \
+            "https://raw.githubusercontent.com/ultralytics/ultralytics/42044baf5eda3d52aa4bd7d8a098375d2c7fdad7/ultralytics/cfg/datasets/construction-ppe.yaml"
+          python cross_domain_reliability/stage2_data_audit/download_ultralytics_construction_ppe.py \
+            --out "${RUNNER_TEMP}/stage45freeze/c_download" \
+            --metadata-out "${RUNNER_TEMP}/stage45freeze/meta/c_download.json"
+          C_SRC="$(python - <<'PY'
+          import json, os
+          p=os.path.join(os.environ['RUNNER_TEMP'],'stage45freeze','meta','c_download.json')
+          print(json.load(open(p,encoding='utf-8'))['dataset_root'])
+          PY
+          )"
+          python cross_domain_reliability/stage2_data_audit/apply_construction_ppe_stage2_corrections.py \
+            --root "$C_SRC" \
+            --out "${RUNNER_TEMP}/stage45freeze/Construction-PPE-clean" \
+            --file-manifest "cross_domain_reliability/stage2_data_audit/results/Construction-PPE_conservative_file_correction_manifest_2026-09-20.csv" \
+            --orphan-label-manifest "cross_domain_reliability/stage2_data_audit/results/Construction-PPE_orphan_label_removal_manifest_2026-09-20.csv" \
+            --expected-exclusions 64 \
+            --expected-orphan-removals 10 \
+            --expected-exact-row-removals 1 \
+            --summary-out "${RUNNER_TEMP}/stage45freeze/meta/c_stage2_correction.json"
+
+      - name: Regenerate Stage 4.5 structural evidence
+        shell: bash
+        run: |
+          python cross_domain_reliability/stage4_5_label_completeness/stage4_5_label_completeness_audit.py \
+            --dataset Y-PPE \
+            --root "${RUNNER_TEMP}/stage45freeze/Y-PPE-clean" \
+            --names-yaml "${{ steps.yclean.outputs.yaml }}" \
+            --splits "train:train,val:valid,test:test" \
+            --out "${RUNNER_TEMP}/stage45freeze/audit/Y-PPE"
+          python cross_domain_reliability/stage4_5_label_completeness/stage4_5_label_completeness_audit.py \
+            --dataset Construction-PPE \
+            --root "${RUNNER_TEMP}/stage45freeze/Construction-PPE-clean" \
+            --names-yaml "${RUNNER_TEMP}/stage45freeze/meta/construction-ppe.yaml" \
+            --splits "train:train,val:val,test:test" \
+            --out "${RUNNER_TEMP}/stage45freeze/audit/Construction-PPE"
+
+      - name: Apply frozen Y-PPE Stage 4.5 policy
+        shell: bash
+        run: |
+          python cross_domain_reliability/stage4_5_label_completeness/apply_stage4_5_exclusion_policy.py \
+            --dataset Y-PPE \
+            --root "${RUNNER_TEMP}/stage45freeze/Y-PPE-clean" \
+            --risk-csv "${RUNNER_TEMP}/stage45freeze/audit/Y-PPE/image_risk_table.csv" \
+            --out "${RUNNER_TEMP}/stage45freeze/Y-PPE-clean-stage45" \
+            --summary-out "${RUNNER_TEMP}/stage45freeze/meta/y_stage45_policy.json" \
+            --expected-train-removals 255 \
+            --expected-val-removals 74 \
+            --expected-test-removals 30
+
+      - name: Apply frozen Construction-PPE Stage 4.5 policy
+        shell: bash
+        run: |
+          python cross_domain_reliability/stage4_5_label_completeness/apply_stage4_5_exclusion_policy.py \
+            --dataset Construction-PPE \
+            --root "${RUNNER_TEMP}/stage45freeze/Construction-PPE-clean" \
+            --risk-csv "${RUNNER_TEMP}/stage45freeze/audit/Construction-PPE/image_risk_table.csv" \
+            --out "${RUNNER_TEMP}/stage45freeze/Construction-PPE-clean-stage45" \
+            --summary-out "${RUNNER_TEMP}/stage45freeze/meta/c_stage45_policy.json" \
+            --expected-train-removals 31 \
+            --expected-val-removals 2 \
+            --expected-test-removals 3
+
+      - name: Build corrected Y-PPE-h9-v2
+        shell: bash
+        run: |
+          python cross_domain_reliability/stage3_semantic_harmonization/build_harmonized_detection_dataset.py \
+            --root "${RUNNER_TEMP}/stage45freeze/Y-PPE-clean-stage45" \
+            --data-yaml "${RUNNER_TEMP}/stage45freeze/Y-PPE-clean-stage45/data.yaml" \
+            --ontology "cross_domain_reliability/stage3_semantic_harmonization/ontology_frozen_v1.yaml" \
+            --dataset-key Y-PPE \
+            --splits "train:train,valid:val,test:test" \
+            --out "${RUNNER_TEMP}/stage45freeze/Y-PPE-h9-v2" \
+            --summary-out "${RUNNER_TEMP}/stage45freeze/meta/y_h9_v2_summary.json"
+
+      - name: Build corrected Construction-PPE-h9-v2
+        shell: bash
+        run: |
+          python cross_domain_reliability/stage3_semantic_harmonization/build_harmonized_detection_dataset.py \
+            --root "${RUNNER_TEMP}/stage45freeze/Construction-PPE-clean-stage45" \
+            --data-yaml "${RUNNER_TEMP}/stage45freeze/meta/construction-ppe.yaml" \
+            --ontology "cross_domain_reliability/stage3_semantic_harmonization/ontology_frozen_v1.yaml" \
+            --dataset-key Construction-PPE \
+            --splits "train:train,val:val,test:test" \
+            --out "${RUNNER_TEMP}/stage45freeze/Construction-PPE-h9-v2" \
+            --summary-out "${RUNNER_TEMP}/stage45freeze/meta/c_h9_v2_summary.json"
+
+      - name: Enforce corrected derivative invariants
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'stage45freeze'/'meta'
+          y=json.load(open(root/'y_h9_v2_summary.json',encoding='utf-8'))
+          c=json.load(open(root/'c_h9_v2_summary.json',encoding='utf-8'))
+          names=['person','helmet','gloves','vest','boots','goggles','no_helmet','no_gloves','no_boots']
+          assert y['canonical_names']==names and c['canonical_names']==names
+          assert {k:v['images'] for k,v in y['splits'].items()}=={'train':1340,'val':385,'test':204}
+          assert {k:v['images'] for k,v in c['splits'].items()}=={'train':1046,'val':132,'test':138}
+          assert {k:v['retained_instances'] for k,v in y['splits'].items()}=={'train':6656,'val':2122,'test':693}
+          assert {k:v['retained_instances'] for k,v in c['splits'].items()}=={'train':7437,'val':971,'test':1106}
+          assert y['totals']['retained_rows']==9471
+          assert c['totals']['retained_rows']==9514
+          assert y['policy']['test_images_visually_opened'] is False
+          assert c['policy']['test_images_visually_opened'] is False
+          print('Y fingerprint:', y['dataset_fingerprint_sha256'])
+          print('C fingerprint:', c['dataset_fingerprint_sha256'])
+          print('Y retained by class:', y['retained_instances_by_canonical'])
+          print('C retained by class:', c['retained_instances_by_canonical'])
+          PY
+
+      - name: Verify corrected manifests and membership are deterministic
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'stage45freeze'
+          for ds in ['Y-PPE-h9-v2','Construction-PPE-h9-v2']:
+              p=root/ds/'manifest.jsonl'
+              rows=[json.loads(x) for x in p.read_text(encoding='utf-8').splitlines() if x.strip()]
+              keys=[(r['split'],r['image']) for r in rows]
+              assert len(keys)==len(set(keys)), ds
+              assert all(r['retained_instances']>=0 for r in rows)
+              print(ds, 'manifest rows=', len(rows))
+          PY
+
+      - name: Write workflow summary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'stage45freeze'/'meta'
+          y=json.load(open(root/'y_h9_v2_summary.json',encoding='utf-8'))
+          c=json.load(open(root/'c_h9_v2_summary.json',encoding='utf-8'))
+          out=Path(os.environ['GITHUB_STEP_SUMMARY'])
+          lines=[
+              '## Stage 4.5 Corrected Harmonized Freeze', '',
+              '- Frozen before Stage 5 training',
+              '- No model outputs used in membership correction',
+              '- Test membership decided from annotations only; no test visual adjudication', '',
+              '### Y-PPE-h9-v2',
+              f"- Images train/val/test: {y['splits']['train']['images']} / {y['splits']['val']['images']} / {y['splits']['test']['images']}",
+              f"- Retained instances: {y['totals']['retained_rows']}",
+              f"- Fingerprint: `{y['dataset_fingerprint_sha256']}`", '',
+              '### Construction-PPE-h9-v2',
+              f"- Images train/val/test: {c['splits']['train']['images']} / {c['splits']['val']['images']} / {c['splits']['test']['images']}",
+              f"- Retained instances: {c['totals']['retained_rows']}",
+              f"- Fingerprint: `{c['dataset_fingerprint_sha256']}`", '',
+              '**Stage 5 remains HOLD until these new fingerprints are written into the Stage 5 protocol and experiment matrix.**'
+          ]
+          out.write_text('\n'.join(lines),encoding='utf-8')
+          PY
+
+      - name: Upload corrected freeze evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage4-5-corrected-h9-freeze-evidence
+          path: |
+            ${{ runner.temp }}/stage45freeze/meta/**
+            ${{ runner.temp }}/stage45freeze/audit/Y-PPE/structural_summary.json
+            ${{ runner.temp }}/stage45freeze/audit/Y-PPE/image_risk_table.csv
+            ${{ runner.temp }}/stage45freeze/audit/Construction-PPE/structural_summary.json
+            ${{ runner.temp }}/stage45freeze/audit/Construction-PPE/image_risk_table.csv
+            ${{ runner.temp }}/stage45freeze/Y-PPE-h9-v2/data.yaml
+            ${{ runner.temp }}/stage45freeze/Y-PPE-h9-v2/manifest.jsonl
+            ${{ runner.temp }}/stage45freeze/Construction-PPE-h9-v2/data.yaml
+            ${{ runner.temp }}/stage45freeze/Construction-PPE-h9-v2/manifest.jsonl
+          if-no-files-found: error
+          retention-days: 30
