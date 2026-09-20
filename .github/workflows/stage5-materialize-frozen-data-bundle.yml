@@ -1,0 +1,100 @@
+name: Stage 5 Materialize Frozen Data Bundle
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'cross_domain_reliability/stage5_in_domain_baselines/materialize_bundle_trigger.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deterministic materialization dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install 'roboflow==1.5.0' 'Pillow==12.3.0' 'PyYAML==6.0.3'
+
+      - name: Confirm Roboflow secret exists
+        shell: bash
+        run: |
+          if [ -z "${ROBOFLOW_API_KEY}" ]; then
+            echo "ROBOFLOW_API_KEY GitHub Actions secret is missing." >&2
+            exit 1
+          fi
+
+      - name: Materialize exact Stage 4.5 frozen datasets
+        run: |
+          python cross_domain_reliability/stage5_in_domain_baselines/prepare_stage5_frozen_datasets.py \
+            --out-root "${RUNNER_TEMP}/stage5_frozen_data" \
+            --overwrite
+
+      - name: Verify exact fingerprints and split counts
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'stage5_frozen_data'
+          summary=json.loads((root/'meta/stage5_dataset_materialization_summary.json').read_text())
+          assert summary['status']=='PASS'
+          exp_fp={
+            'Y-PPE-h9-v2':'82c08766d5c5e50e93d41d21c4751fd686a3932ea6a8cb24ffd2838d9e30fba8',
+            'Construction-PPE-h9-v2':'59469299ba67355dbcb0e725851f73d244a7ad6e93522d44601be3c8323d3c14',
+          }
+          exp_counts={
+            'Y-PPE-h9-v2':{'train':1236,'val':356,'test':186},
+            'Construction-PPE-h9-v2':{'train':1046,'val':132,'test':138},
+          }
+          assert summary['frozen_fingerprints']==exp_fp
+          assert summary['frozen_counts']==exp_counts
+          for name, fp in exp_fp.items():
+            p=root/'h9_v2'/name/'manifest.jsonl'
+            got=hashlib.sha256(p.read_bytes()).hexdigest()
+            assert got==fp,(name,got,fp)
+          print(json.dumps(summary, indent=2))
+          PY
+
+      - name: Remove raw and intermediate data before upload
+        shell: bash
+        run: |
+          rm -rf "${RUNNER_TEMP}/stage5_frozen_data/downloads" \
+                 "${RUNNER_TEMP}/stage5_frozen_data/clean" \
+                 "${RUNNER_TEMP}/stage5_frozen_data/clean_stage45" \
+                 "${RUNNER_TEMP}/stage5_frozen_data/stage45_audit" \
+                 "${RUNNER_TEMP}/stage5_frozen_data/rfdetr_views"
+          find "${RUNNER_TEMP}/stage5_frozen_data/meta" -type f ! -name 'stage5_dataset_materialization_summary.json' -delete
+
+      - name: Upload frozen training-data bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage5-frozen-h9-v2-data-bundle
+          path: |
+            ${{ runner.temp }}/stage5_frozen_data/h9_v2/**
+            ${{ runner.temp }}/stage5_frozen_data/meta/stage5_dataset_materialization_summary.json
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
+
+      - name: Write summary
+        run: |
+          echo '## Stage 5 Frozen Data Bundle' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Built with the same deterministic Stage 4.5 reconstruction pipeline.' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Contains only final h9-v2 derivatives plus the materialization summary.' >> "$GITHUB_STEP_SUMMARY"
+          echo '- No model training or held-out test evaluation performed.' >> "$GITHUB_STEP_SUMMARY"
