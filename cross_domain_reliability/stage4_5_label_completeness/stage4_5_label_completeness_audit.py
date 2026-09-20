@@ -74,8 +74,10 @@ def load_names(path: Path | None, expected: list[str]) -> list[str]:
     if isinstance(names, dict):
         names = [names[i] if i in names else names[str(i)] for i in range(len(names))]
     names = [str(x) for x in names]
-    if names != expected:
-        raise SystemExit(f"Source class-order mismatch. Observed={names}; expected={expected}")
+    # The source YAML order defines the numeric YOLO class IDs and must be preserved.
+    # Validate class identity as a multiset, not against a thesis/report ordering.
+    if Counter(names) != Counter(expected):
+        raise SystemExit(f"Source class-set mismatch. Observed={names}; expected_classes={expected}")
     return names
 
 
