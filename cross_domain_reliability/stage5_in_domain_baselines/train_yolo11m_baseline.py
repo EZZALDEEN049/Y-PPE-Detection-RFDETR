@@ -51,7 +51,7 @@ def main() -> None:
     ap.add_argument("--seed", required=True, type=int, choices=[17, 42, 2026])
     ap.add_argument("--batch-size", required=True, type=int)
     ap.add_argument("--device", default="0")
-    ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--epochs", type=int, default=100)
     ap.add_argument("--imgsz", type=int, default=640)
     ap.add_argument("--output-root", required=True)
@@ -99,6 +99,8 @@ def main() -> None:
         "grad_accum_steps": None,
         "device_requested": args.device,
         "workers": args.workers,
+        "amp_enabled": True,
+        "precision_policy": "explicit Ultralytics CUDA AMP enabled",
         "primary_checkpoint_policy": "final_epoch",
         "test_evaluation_performed": False,
         "stochastic_online_augmentation": False,
@@ -128,6 +130,7 @@ def main() -> None:
         seed=args.seed,
         deterministic=True,
         pretrained=True,
+        amp=True,
         patience=0,
         val=True,
         optimizer="auto",
