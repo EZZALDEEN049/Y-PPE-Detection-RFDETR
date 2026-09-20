@@ -84,8 +84,8 @@ Every Stage 5 run record must contain these corrected fingerprints. If a reconst
 - Fixed seeds: **17, 42, 2026**.
 - No test image is used for hyperparameter selection, stopping, threshold selection, or checkpoint selection.
 - Validation data may be used for training monitoring only.
-- Primary reported checkpoint for architecture-to-architecture comparison: **final epoch checkpoint** after the fixed 100 epochs. This avoids framework-specific differences in "best checkpoint" selection rules.
-- Framework best-validation checkpoint may be retained as a clearly labelled sensitivity result, but it must not replace the fixed-epoch primary comparison.
+- Primary reported checkpoint for architecture-to-architecture comparison: **final-epoch EMA checkpoint** after the fixed 100 epochs. This avoids validation-selected "best checkpoint" bias while using the final EMA representation produced natively by both training frameworks.
+- Framework best-validation checkpoints may be retained as clearly labelled sensitivity results, but they must not replace the fixed-epoch primary comparison.
 - No offline image augmentation is permitted. The corrected harmonized image membership must be preserved.
 - Stochastic online augmentation is disabled in the primary controlled comparison.
 - Held-out test metrics are computed only after the complete training run has finished and only with the frozen common evaluator.
@@ -95,11 +95,12 @@ Every Stage 5 run record must contain these corrected fingerprints. If a reconst
 - pretrained checkpoint: `yolo11m.pt`
 - `imgsz=640`
 - `epochs=100`
-- `patience=0` in the current implementation candidate; exact no-early-stop behavior must be verified against the pinned Ultralytics version before the first full run
+- `patience=0`; Stage 5 preflight run `35486220628` verified against Ultralytics 8.4.156 that this maps to infinite patience and therefore disables early stopping
 - deterministic mode enabled
 - all configurable color/geometric/mix augmentations set to zero
 - no custom Albumentations augmentation stack
 - optimizer: framework training recipe, recorded verbatim in run metadata
+- primary fixed-epoch weights: final `last.pt`; Ultralytics checkpoints are serialized from the trainer EMA weights
 
 ### RF-DETR Small primary settings
 
@@ -110,8 +111,11 @@ Every Stage 5 run record must contain these corrected fingerprints. If a reconst
 - `early_stopping=False`
 - `aug_config={}`
 - `scale_jitter=False`
-- `use_ema=True` may remain enabled for training-state tracking, but the fixed-epoch primary result must explicitly state whether final raw or final EMA weights are evaluated; this choice must be locked before the first full training run and then held constant across both datasets and all seeds.
+- `use_ema=True`
+- primary fixed-epoch weights: final EMA checkpoint `last_ema.pth`
 - optimizer and scheduler: RF-DETR native fine-tuning recipe, recorded verbatim in run metadata
+
+The RF-DETR final-weight policy is frozen before the first full run. RF-DETR 1.10.1 explicitly writes `last_ema.pth` at fit end when EMA tracking is enabled, mirroring `last.pth` for the live model. This final-epoch EMA checkpoint is used rather than `checkpoint_best_total.pth`, because the latter is validation-selected and would violate the fixed-epoch primary comparison.
 
 RF-DETR Small uses a detection block size of 32 (patch size 16 x two windows), so 640 is a valid controlled resolution.
 
@@ -130,11 +134,11 @@ Stage 5 therefore uses `make_rfdetr_yolo_view.py` to create a deterministic **la
 
 This is an implementation compatibility layer, not a new dataset version and not a preprocessing transformation.
 
-`prepare_stage5_frozen_datasets.py` must reconstruct the corrected Stage 4.5 derivatives, reproduce the two fingerprints above, and create RF-DETR compatibility views before full training. Raw datasets remain outside Git and the Roboflow API key is read only from the environment.
+`prepare_stage5_frozen_datasets.py` has been updated to reconstruct the corrected Stage 4.5 derivatives, enforce the two fingerprints above, and create RF-DETR compatibility views. It must still complete end-to-end on the actual Colab execution environment before the first full training run. Raw datasets remain outside Git and the Roboflow API key is read only from the environment.
 
 ## Hardware-dependent parameters not yet frozen
 
-Physical batch size, gradient accumulation, worker count, AMP dtype, exact GPU model, and final RF-DETR raw-vs-EMA weight policy are execution parameters. They must be chosen only after GPU preflight, then frozen per architecture before the first full run. They may not be changed between Y-PPE and Construction-PPE because of performance outcomes.
+Physical batch size, gradient accumulation, worker count, AMP dtype, and exact GPU model are execution parameters. They must be chosen only after the actual Colab GPU preflight, then frozen per architecture before the first full run. They may not be changed between Y-PPE and Construction-PPE because of performance outcomes.
 
 The run manifest must record:
 
@@ -146,11 +150,11 @@ The run manifest must record:
 - gradient accumulation
 - effective batch size
 - mixed-precision mode
-- RF-DETR final raw-vs-EMA weight policy
+- final EMA checkpoint policy
 - seed
 - wall-clock training time
 
-The Stage 5 CI preflight discovers and records the currently installed software versions. Exact package versions must then be pinned before the first full GPU training run; no training should start against floating package versions.
+The corrected Stage 5 software/API preflight run `35486220628` passed. It verified the corrected dataset identities, the 12-run matrix, RF-DETR 640-pixel structural compatibility, RF-DETR layout adapter compatibility, and YOLO no-early-stop semantics. Exact application package versions are to be pinned for Colab; the Colab-compatible PyTorch/CUDA pair must be recorded from the actual GPU runtime rather than forced from the CPU-only GitHub runner.
 
 ## Evaluation policy
 
@@ -175,13 +179,12 @@ For each dataset/model cell, report the three seed-level results and mean with d
 
 ## Remaining gate before full Stage 5 training
 
-Stage 4.5 is closed. Full training may begin only after:
+Stage 4.5 is closed, the corrected fingerprints are frozen, YOLO early-stopping semantics are verified, and the RF-DETR final EMA policy is frozen. Full training may begin only after:
 
-1. `prepare_stage5_frozen_datasets.py` is updated and verified to reconstruct the corrected v2 derivatives and exact fingerprints;
-2. the actual Colab GPU hardware preflight is recorded;
-3. batch size, gradient accumulation, worker count, AMP mode, and RF-DETR final raw-vs-EMA policy are frozen;
-4. exact software versions are pinned;
-5. YOLO no-early-stop semantics are verified for the pinned Ultralytics version.
+1. `prepare_stage5_frozen_datasets.py` completes end-to-end on the actual Colab environment and reproduces both corrected fingerprints;
+2. the actual Colab GPU hardware/software preflight is recorded;
+3. physical batch size, RF-DETR gradient accumulation, worker count, and mixed-precision mode are frozen from a training-only resource preflight;
+4. Colab application package versions are pinned and recorded.
 
 Held-out test evaluation remains separately gated on freezing the common evaluator.
 
