@@ -1,0 +1,2 @@
+Trigger Stage 5 frozen h9-v2 data bundle materialization.
+Created after Stage 4.5 closure and before baseline training.
