@@ -2,8 +2,9 @@
 """Freeze Stage 5 execution parameters from an actual Colab GPU report.
 
 This script does not train a model and does not read held-out test images or metrics.
-The selection rule is deterministic and depends only on GPU VRAM and BF16 support.
-It exists to prevent performance-driven batch/precision changes after experiments start.
+The execution parameters are fixed in advance and the actual GPU is used only as a
+feasibility/identity gate. This prevents performance-driven resource changes after
+experiments start.
 """
 from __future__ import annotations
 
@@ -48,36 +49,28 @@ def main() -> None:
 
     if not gpu.get("cuda_available"):
         raise SystemExit("CUDA is not available; resource parameters cannot be frozen")
+    if int(gpu.get("gpu_count", 0)) != 1:
+        raise SystemExit(f"Exactly one GPU is required; found {gpu.get('gpu_count')}")
     if data.get("frozen_fingerprints") != EXPECTED_FINGERPRINTS:
         raise SystemExit("Corrected Stage 4.5 dataset fingerprints do not match the frozen Stage 5 identity")
 
     vram = float(gpu["vram_gib"])
-    if vram < 10.0:
-        raise SystemExit(f"GPU VRAM {vram:.2f} GiB is below the conservative Stage 5 minimum (10 GiB)")
-
-    # Deterministic conservative policy. No model metric or validation/test outcome is consulted.
-    # RF-DETR effective batch is fixed to 8 via gradient accumulation across all tiers.
-    if vram < 20.0:
-        yolo_batch = 4
-        rf_batch, rf_grad_accum = 1, 8
-    elif vram < 35.0:
-        yolo_batch = 8
-        rf_batch, rf_grad_accum = 2, 4
-    else:
-        yolo_batch = 16
-        rf_batch, rf_grad_accum = 4, 2
-
-    rf_amp_dtype = "bf16" if bool(gpu.get("bf16_supported")) else "fp16"
+    if vram < 14.0:
+        raise SystemExit(f"GPU VRAM {vram:.2f} GiB is below the conservative Stage 5 minimum (14 GiB)")
 
     report = {
-        "status": "RESOURCE_PARAMETERS_FROZEN",
+        "status": "FROZEN_BEFORE_TRAINING",
         "frozen_at_utc": datetime.now(timezone.utc).isoformat(),
-        "selection_policy": "stage5_colab_resource_policy_v1_vram_only_no_performance_tuning",
+        "selection_policy": "stage5_colab_resource_policy_v2_fixed_before_training_no_performance_tuning",
+        "selection_basis": "hardware feasibility and identity only; no model, validation, or held-out test performance inspected",
         "selection_inputs": {
             "gpu_model": gpu.get("gpu"),
+            "gpu_count": gpu.get("gpu_count"),
             "vram_gib": vram,
             "compute_capability": gpu.get("compute_capability"),
             "bf16_supported": bool(gpu.get("bf16_supported")),
+            "cuda_runtime": gpu.get("cuda_runtime"),
+            "cudnn": gpu.get("cudnn"),
         },
         "git_sha": git_sha(repo),
         "software": {
@@ -93,19 +86,24 @@ def main() -> None:
             "counts": data.get("frozen_counts"),
         },
         "yolo11m": {
-            "physical_batch_size": yolo_batch,
+            "physical_batch_size": 8,
+            "grad_accum_steps": None,
             "workers": 2,
             "amp": True,
             "precision_policy": "explicit Ultralytics CUDA AMP enabled",
-            "gradient_accumulation_control": "framework-native optimizer accumulation; do not change after first run",
+            "resolution": 640,
+            "epochs": 100,
+            "checkpoint_policy": "final_epoch_ema_last_pt",
         },
         "rfdetr_small": {
-            "physical_batch_size": rf_batch,
-            "grad_accum_steps": rf_grad_accum,
-            "effective_batch_size_single_gpu": rf_batch * rf_grad_accum,
+            "physical_batch_size": 1,
+            "grad_accum_steps": 16,
+            "effective_batch_size_single_gpu": 16,
             "workers": 2,
-            "amp_dtype": rf_amp_dtype,
+            "amp_dtype": "fp16",
             "use_ema": True,
+            "resolution": 640,
+            "epochs": 100,
             "primary_checkpoint": "last_ema.pth",
         },
         "scientific_guards": {
@@ -114,6 +112,8 @@ def main() -> None:
             "parameters_selected_from_model_performance": False,
             "same_parameters_per_architecture_across_both_datasets": True,
         },
+        "model_training_performed_before_freeze": False,
+        "held_out_test_evaluation_performed": False,
     }
 
     out = Path(args.out)
