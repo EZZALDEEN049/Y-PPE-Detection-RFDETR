@@ -35,13 +35,13 @@ jobs:
         run: |
           python -m py_compile \
             cross_domain_reliability/stage4_5_label_completeness/stage4_5_label_completeness_audit.py \
-            cross_domain_reliability/stage4_5_label_completeness/apply_stage4_5_exclusion_policy.py \
+            cross_domain_reliability/stage4_5_label_completeness/apply_stage4_5_conservative_filter.py \
             cross_domain_reliability/stage5_in_domain_baselines/train_yolo11m_baseline.py \
             cross_domain_reliability/stage5_in_domain_baselines/train_rfdetr_small_baseline.py \
             cross_domain_reliability/stage5_in_domain_baselines/make_rfdetr_yolo_view.py \
             cross_domain_reliability/stage5_in_domain_baselines/prepare_stage5_frozen_datasets.py
 
-      - name: Validate corrected experiment protocol and pinned APIs
+      - name: Validate final experiment protocol and pinned APIs
         run: |
           mkdir -p "${RUNNER_TEMP}/stage5_preflight"
           python - <<'PY'
@@ -51,136 +51,75 @@ jobs:
           from pathlib import Path
           import torch, yaml
           from PIL import Image
-          import ultralytics
           from ultralytics.cfg import DEFAULT_CFG_DICT
           from ultralytics.utils.torch_utils import EarlyStopping
           from rfdetr.config import RFDETRSmallConfig, TrainConfig
           from rfdetr.datasets.yolo import is_valid_yolo_dataset
 
           cfg_path=Path('cross_domain_reliability/stage5_in_domain_baselines/experiment_matrix_v1.yaml')
-          cfg = yaml.safe_load(cfg_path.read_text())
-          assert cfg['status'] == 'pre_execution_stage4_5_closed'
-          assert cfg['shared_controls']['epochs'] == 100
-          assert cfg['shared_controls']['resolution'] == 640
-          assert cfg['shared_controls']['seeds'] == [17, 42, 2026]
-          assert len(cfg['runs']) == 12
+          cfg=yaml.safe_load(cfg_path.read_text())
+          assert cfg['status']=='pre_execution_stage4_5_closed'
+          assert cfg['shared_controls']['epochs']==100
+          assert cfg['shared_controls']['resolution']==640
+          assert cfg['shared_controls']['seeds']==[17,42,2026]
+          assert len(cfg['runs'])==12
 
-          yfp='82669459c4c8b53535ee765321fa22277a1ef8d43695409ebb0d212764eb8b89'
+          yfp='82c08766d5c5e50e93d41d21c4751fd686a3932ea6a8cb24ffd2838d9e30fba8'
           cfp='59469299ba67355dbcb0e725851f73d244a7ad6e93522d44601be3c8323d3c14'
-          expected={'Y-PPE-h9-v2': yfp, 'Construction-PPE-h9-v2': cfp}
-          assert cfg['frozen_datasets']['Y-PPE-h9-v2']['fingerprint_sha256'] == yfp
-          assert cfg['frozen_datasets']['Construction-PPE-h9-v2']['fingerprint_sha256'] == cfp
-          assert cfg['frozen_datasets']['Y-PPE-h9-v2']['train_images'] == 1340
-          assert cfg['frozen_datasets']['Y-PPE-h9-v2']['val_images'] == 385
-          assert cfg['frozen_datasets']['Y-PPE-h9-v2']['test_images'] == 204
-          assert cfg['frozen_datasets']['Construction-PPE-h9-v2']['train_images'] == 1046
-          assert cfg['frozen_datasets']['Construction-PPE-h9-v2']['val_images'] == 132
-          assert cfg['frozen_datasets']['Construction-PPE-h9-v2']['test_images'] == 138
+          expected={'Y-PPE-h9-v2':yfp,'Construction-PPE-h9-v2':cfp}
+          assert cfg['frozen_datasets']['Y-PPE-h9-v2']['fingerprint_sha256']==yfp
+          assert cfg['frozen_datasets']['Construction-PPE-h9-v2']['fingerprint_sha256']==cfp
+          assert (cfg['frozen_datasets']['Y-PPE-h9-v2']['train_images'],cfg['frozen_datasets']['Y-PPE-h9-v2']['val_images'],cfg['frozen_datasets']['Y-PPE-h9-v2']['test_images'])==(1236,356,186)
+          assert (cfg['frozen_datasets']['Construction-PPE-h9-v2']['train_images'],cfg['frozen_datasets']['Construction-PPE-h9-v2']['val_images'],cfg['frozen_datasets']['Construction-PPE-h9-v2']['test_images'])==(1046,132,138)
           assert all(r['dataset'] in expected for r in cfg['runs'])
-          assert cfg['models']['yolo11m']['final_weight_policy'] == 'final_epoch_ema_last_pt'
-          assert cfg['models']['rfdetr_small']['primary_final_weight_policy'] == 'final_epoch_ema_last_ema_pth'
+          assert cfg['models']['yolo11m']['final_weight_policy']=='final_epoch_ema_last_pt'
+          assert cfg['models']['rfdetr_small']['primary_final_weight_policy']=='final_epoch_ema_last_ema_pth'
 
-          # Materializer and both trainers must carry the exact same corrected fingerprints.
           modules={}
-          for name, rel in {
-              'materializer':'prepare_stage5_frozen_datasets.py',
-              'yolo_trainer':'train_yolo11m_baseline.py',
-              'rfdetr_trainer':'train_rfdetr_small_baseline.py',
-          }.items():
+          for name,rel in {'materializer':'prepare_stage5_frozen_datasets.py','yolo_trainer':'train_yolo11m_baseline.py','rfdetr_trainer':'train_rfdetr_small_baseline.py'}.items():
               p=Path('cross_domain_reliability/stage5_in_domain_baselines')/rel
               spec=importlib.util.spec_from_file_location(name,p)
               mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
               modules[name]=mod
-              assert mod.EXPECTED == expected, (name, mod.EXPECTED)
-          assert modules['yolo_trainer'].RUN_PREFIX == {'Y-PPE-h9-v2':'Y','Construction-PPE-h9-v2':'C'}
-          assert modules['rfdetr_trainer'].RUN_PREFIX == {'Y-PPE-h9-v2':'Y','Construction-PPE-h9-v2':'C'}
+              assert mod.EXPECTED==expected,(name,mod.EXPECTED)
+          assert modules['materializer'].EXPECTED_COUNTS=={'Y-PPE-h9-v2':{'train':1236,'val':356,'test':186},'Construction-PPE-h9-v2':{'train':1046,'val':132,'test':138}}
+          assert modules['yolo_trainer'].RUN_PREFIX=={'Y-PPE-h9-v2':'Y','Construction-PPE-h9-v2':'C'}
+          assert modules['rfdetr_trainer'].RUN_PREFIX=={'Y-PPE-h9-v2':'Y','Construction-PPE-h9-v2':'C'}
 
-          # Exact application-layer pins.
-          assert md.version('ultralytics') == '8.4.156'
-          assert md.version('rfdetr') == '1.10.1'
-          assert md.version('roboflow') == '1.5.0'
-          assert md.version('PyYAML') == '6.0.3'
+          assert md.version('ultralytics')=='8.4.156'
+          assert md.version('rfdetr')=='1.10.1'
+          assert md.version('roboflow')=='1.5.0'
+          assert md.version('PyYAML')=='6.0.3'
 
-          small = RFDETRSmallConfig()
-          block = small.patch_size * small.num_windows
-          assert block == 32, block
-          assert 640 % block == 0
+          small=RFDETRSmallConfig(); block=small.patch_size*small.num_windows
+          assert block==32 and 640%block==0
+          rf_fields=set(TrainConfig.model_fields)
+          required_rf={'dataset_dir','epochs','batch_size','grad_accum_steps','aug_config','scale_jitter','early_stopping','run_test','seed','num_workers','use_ema'}
+          assert not sorted(required_rf-rf_fields)
+          required_yolo={'epochs','imgsz','batch','device','workers','seed','deterministic','pretrained','patience','val','optimizer','hsv_h','hsv_s','hsv_v','degrees','translate','scale','shear','perspective','flipud','fliplr','bgr','mosaic','mixup','cutmix'}
+          assert not sorted(required_yolo-set(DEFAULT_CFG_DICT))
+          stopper=EarlyStopping(patience=0); assert math.isinf(stopper.patience)
 
-          rf_fields = set(TrainConfig.model_fields)
-          required_rf = {
-              'dataset_dir', 'epochs', 'batch_size', 'grad_accum_steps', 'aug_config',
-              'scale_jitter', 'early_stopping', 'run_test', 'seed', 'num_workers', 'use_ema'
-          }
-          missing_rf = sorted(required_rf - rf_fields)
-          assert not missing_rf, f'RF-DETR TrainConfig missing expected fields: {missing_rf}'
-
-          required_yolo = {
-              'epochs','imgsz','batch','device','workers','seed','deterministic','pretrained','patience',
-              'val','optimizer','hsv_h','hsv_s','hsv_v','degrees','translate','scale','shear','perspective',
-              'flipud','fliplr','bgr','mosaic','mixup','cutmix'
-          }
-          missing_yolo = sorted(required_yolo - set(DEFAULT_CFG_DICT))
-          assert not missing_yolo, f'Ultralytics config missing expected fields: {missing_yolo}'
-
-          stopper = EarlyStopping(patience=0)
-          assert math.isinf(stopper.patience), stopper.patience
-
-          # RF-DETR 1.10.1 must expose the fit-end final EMA checkpoint implementation.
           import inspect
           from rfdetr.training.callbacks.best_model import BestModelCallback
-          fit_end_src=inspect.getsource(BestModelCallback.on_fit_end)
-          assert 'last_ema.pth' in fit_end_src
+          assert 'last_ema.pth' in inspect.getsource(BestModelCallback.on_fit_end)
 
-          # Regression guard for harmonized layout -> RF-DETR layout-only adapter.
           with tempfile.TemporaryDirectory() as td:
-              td = Path(td)
-              src = td/'stage4_source'
-              names = ['person','helmet','gloves','vest','boots','goggles','no_helmet','no_gloves','no_boots']
+              td=Path(td); src=td/'stage4_source'
+              names=['person','helmet','gloves','vest','boots','goggles','no_helmet','no_gloves','no_boots']
               for split in ('train','val','test'):
-                  (src/'images'/split).mkdir(parents=True, exist_ok=True)
-                  (src/'labels'/split).mkdir(parents=True, exist_ok=True)
+                  (src/'images'/split).mkdir(parents=True,exist_ok=True); (src/'labels'/split).mkdir(parents=True,exist_ok=True)
                   Image.new('RGB',(32,32),color=(255,255,255)).save(src/'images'/split/f'{split}.jpg')
-                  (src/'labels'/split/f'{split}.txt').write_text('0 0.5 0.5 0.5 0.5\n', encoding='utf-8')
-              (src/'data.yaml').write_text(yaml.safe_dump({
-                  'path':'.','train':'images/train','val':'images/val','test':'images/test','names':names,'nc':9
-              }, sort_keys=False), encoding='utf-8')
-              (src/'manifest.jsonl').write_text('{"synthetic":true}\n', encoding='utf-8')
+                  (src/'labels'/split/f'{split}.txt').write_text('0 0.5 0.5 0.5 0.5\n',encoding='utf-8')
+              (src/'data.yaml').write_text(yaml.safe_dump({'path':'.','train':'images/train','val':'images/val','test':'images/test','names':names,'nc':9},sort_keys=False),encoding='utf-8')
+              (src/'manifest.jsonl').write_text('{"synthetic":true}\n',encoding='utf-8')
               import hashlib
-              fp = hashlib.sha256((src/'manifest.jsonl').read_bytes()).hexdigest()
-              adapted = td/'rfdetr_view'
-              subprocess.run([
-                  sys.executable,
-                  'cross_domain_reliability/stage5_in_domain_baselines/make_rfdetr_yolo_view.py',
-                  '--source-root', str(src), '--out', str(adapted), '--expected-fingerprint', fp
-              ], check=True)
+              fp=hashlib.sha256((src/'manifest.jsonl').read_bytes()).hexdigest(); adapted=td/'rfdetr_view'
+              subprocess.run([sys.executable,'cross_domain_reliability/stage5_in_domain_baselines/make_rfdetr_yolo_view.py','--source-root',str(src),'--out',str(adapted),'--expected-fingerprint',fp],check=True)
               assert is_valid_yolo_dataset(str(adapted)) is True
 
-          report = {
-              'status': 'PASS',
-              'stage4_5_closed': True,
-              'corrected_fingerprints': expected,
-              'python': platform.python_version(),
-              'torch': torch.__version__,
-              'cuda_runtime': torch.version.cuda,
-              'cuda_available_on_ci': torch.cuda.is_available(),
-              'ultralytics': md.version('ultralytics'),
-              'rfdetr': md.version('rfdetr'),
-              'roboflow': md.version('roboflow'),
-              'PyYAML': md.version('PyYAML'),
-              'yolo_patience_zero_disables_early_stop': True,
-              'yolo_primary_final_weight_policy': 'final_epoch_ema_last_pt',
-              'rfdetr_primary_final_weight_policy': 'final_epoch_ema_last_ema_pth',
-              'rfdetr_last_ema_implementation_verified': True,
-              'rfdetr_small_block_size': block,
-              'controlled_resolution_640_valid': True,
-              'rfdetr_layout_adapter_validated': True,
-              'experiment_runs': len(cfg['runs']),
-              'seeds': cfg['shared_controls']['seeds'],
-              'note': 'No model training and no held-out test evaluation.'
-          }
-          out = Path(os.environ['RUNNER_TEMP'])/'stage5_preflight'/'preflight_report.json'
-          out.write_text(json.dumps(report, indent=2), encoding='utf-8')
-          print(json.dumps(report, indent=2))
+          report={'status':'PASS','stage4_5_closed':True,'stage4_5_freeze_run_id':35536050231,'corrected_fingerprints':expected,'corrected_counts':modules['materializer'].EXPECTED_COUNTS,'python':platform.python_version(),'torch':torch.__version__,'cuda_runtime':torch.version.cuda,'cuda_available_on_ci':torch.cuda.is_available(),'ultralytics':md.version('ultralytics'),'rfdetr':md.version('rfdetr'),'roboflow':md.version('roboflow'),'PyYAML':md.version('PyYAML'),'yolo_patience_zero_disables_early_stop':True,'yolo_primary_final_weight_policy':'final_epoch_ema_last_pt','rfdetr_primary_final_weight_policy':'final_epoch_ema_last_ema_pth','rfdetr_last_ema_implementation_verified':True,'rfdetr_small_block_size':block,'controlled_resolution_640_valid':True,'rfdetr_layout_adapter_validated':True,'experiment_runs':len(cfg['runs']),'seeds':cfg['shared_controls']['seeds'],'note':'No model training and no held-out test evaluation.'}
+          out=Path(os.environ['RUNNER_TEMP'])/'stage5_preflight'/'preflight_report.json'; out.write_text(json.dumps(report,indent=2),encoding='utf-8'); print(json.dumps(report,indent=2))
           PY
 
       - name: Capture installed packages
@@ -199,9 +138,9 @@ jobs:
       - name: Write workflow summary
         run: |
           echo "## Stage 5 Baseline Training Preflight" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Stage 4.5 corrected fingerprints and split counts verified" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Final conservative Stage 4.5 fingerprints and split counts verified" >> "$GITHUB_STEP_SUMMARY"
           echo "- Current Stage 4.5 / Stage 5 scripts compile" >> "$GITHUB_STEP_SUMMARY"
-          echo "- 12-run corrected experiment matrix is frozen" >> "$GITHUB_STEP_SUMMARY"
+          echo "- 12-run experiment matrix is aligned to freeze run 35536050231" >> "$GITHUB_STEP_SUMMARY"
           echo "- Application packages pinned: Ultralytics 8.4.156, RF-DETR 1.10.1, Roboflow 1.5.0, PyYAML 6.0.3" >> "$GITHUB_STEP_SUMMARY"
           echo "- YOLO patience=0 confirmed to disable early stopping" >> "$GITHUB_STEP_SUMMARY"
           echo "- Final EMA policies verified, including RF-DETR last_ema.pth" >> "$GITHUB_STEP_SUMMARY"
