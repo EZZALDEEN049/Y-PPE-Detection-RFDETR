@@ -1,10 +1,16 @@
 # Stage 5 — Harmonized In-Domain Baseline Protocol v1
 
-**Status:** pre-execution protocol; no Stage 5 model result exists yet.
+**Status:** pre-execution protocol; full training is on scientific HOLD until Stage 4.5 label-completeness/background-policy closure. No Stage 5 model result exists yet.
+
+## Scientific prerequisite — Stage 4.5
+
+The frozen Stage 4 nine-class derivatives retain cleaned source images while dropping non-shared annotation rows. Before any full Stage 5 training, the Stage 4.5 label-completeness/background-policy audit must be closed. That audit checks whether excluded native annotations can leave visible retained-class objects unlabeled and therefore convert valid objects into false background.
+
+Stage 4.5 closure requires structural annotation analysis, train/validation-only visual adjudication, a predeclared annotation-only test policy without opening test pixels, and—if any membership or annotation changes are required—a new harmonized derivative and new fingerprints. The Stage 4 fingerprints below remain provisional Stage 5 inputs until that gate is closed.
 
 ## Scientific objective
 
-Establish controlled in-domain reference performance for the frozen nine-class derivatives before any zero-shot cross-domain claim is made.
+Establish controlled in-domain reference performance for the accepted nine-class derivatives before any zero-shot cross-domain claim is made.
 
 Primary matrix:
 
@@ -18,15 +24,15 @@ This creates 12 independent training runs (2 datasets x 2 architectures x 3 seed
 
 ## Frozen dataset identity
 
-Y-PPE-h9 fingerprint:
+Current Stage 4 Y-PPE-h9 fingerprint:
 
 `db49295a0ef2c9eec73b14c620966ed00bf12dac253866b65bab9b50af9db896`
 
-Construction-PPE-h9 fingerprint:
+Current Stage 4 Construction-PPE-h9 fingerprint:
 
 `bd706ae34aa77507f119a9a4d5cd443d4cb84ee6cd2020b9b8ee6e086350880e`
 
-Every Stage 5 run record must contain these fingerprints. If a reconstructed derivative does not reproduce the expected fingerprint, training must stop.
+Every Stage 5 run record must contain the final accepted fingerprints after Stage 4.5 closure. If Stage 4.5 produces a corrected derivative, these fingerprints must be superseded rather than silently reused. If a reconstructed derivative does not reproduce its expected fingerprint, training must stop.
 
 ## Frozen class order
 
@@ -52,16 +58,16 @@ Every Stage 5 run record must contain these fingerprints. If a reconstructed der
 - Validation data may be used for training monitoring only.
 - Primary reported checkpoint for architecture-to-architecture comparison: **final epoch checkpoint** after the fixed 100 epochs. This avoids framework-specific differences in "best checkpoint" selection rules.
 - Framework best-validation checkpoint may be retained as a clearly labelled sensitivity result, but it must not replace the fixed-epoch primary comparison.
-- No offline image augmentation is permitted. The frozen Stage 4 image membership must be preserved.
+- No offline image augmentation is permitted. The final accepted harmonized image membership must be preserved.
 - Stochastic online augmentation is disabled in the primary controlled comparison.
-- Test evaluation is performed only after the complete training run has finished.
+- Held-out test metrics are computed only after the complete training run has finished and only with the frozen common evaluator.
 
 ### YOLO11m primary settings
 
 - pretrained checkpoint: `yolo11m.pt`
 - `imgsz=640`
 - `epochs=100`
-- `patience=0` to disable early stopping
+- `patience=0` in the current implementation candidate; exact no-early-stop behavior must be verified against the pinned Ultralytics version before the first full run
 - deterministic mode enabled
 - all configurable color/geometric/mix augmentations set to zero
 - no custom Albumentations augmentation stack
@@ -83,20 +89,20 @@ RF-DETR Small uses a detection block size of 32 (patch size 16 x two windows), s
 
 ## Framework layout compatibility without scientific data change
 
-The Stage 4 frozen derivatives use an Ultralytics-style layout (`images/train`, `labels/train`, etc.). RF-DETR's YOLO loader expects a split-directory view such as `train/images`, `valid/images`, and `test/images`.
+The Stage 4 harmonized derivatives use an Ultralytics-style layout (`images/train`, `labels/train`, etc.). RF-DETR's YOLO loader expects a split-directory view such as `train/images`, `valid/images`, and `test/images`.
 
 Stage 5 therefore uses `make_rfdetr_yolo_view.py` to create a deterministic **layout-only compatibility view** for RF-DETR. The adapter:
 
 - preserves every image byte and label byte;
 - preserves split membership and class IDs;
-- copies the frozen `manifest.jsonl` byte-for-byte;
-- requires the original Stage 4 fingerprint before adapting;
+- copies the harmonized `manifest.jsonl` byte-for-byte;
+- requires the expected harmonized fingerprint before adapting;
 - requires the same fingerprint after adapting;
 - changes no annotation geometry or dataset content.
 
 This is an implementation compatibility layer, not a new dataset version and not a preprocessing transformation.
 
-`prepare_stage5_frozen_datasets.py` reconstructs both Stage 4 derivatives from their audited sources and correction manifests, checks the two frozen fingerprints, then creates the RF-DETR compatibility views. Raw datasets remain outside Git and the Roboflow API key is read only from the environment.
+`prepare_stage5_frozen_datasets.py` is an execution candidate for reconstructing the harmonized derivatives from audited sources and correction manifests, checking fingerprints, and creating RF-DETR compatibility views. Its end-to-end reconstruction must itself pass on the actual execution environment before it is used for full training. Raw datasets remain outside Git and the Roboflow API key is read only from the environment.
 
 ## Hardware-dependent parameters not yet frozen
 
@@ -120,7 +126,7 @@ The Stage 5 CI preflight discovers and records the currently installed software 
 
 ## Evaluation policy
 
-Framework validation metrics may be used for training diagnostics only. The paper's final comparison will use one common post-training evaluator applied to predictions from both architectures.
+Framework validation metrics may be used for training diagnostics only. The paper's held-out test comparison will use one common post-training evaluator applied to predictions from both architectures. The common evaluator must be frozen **before any held-out test metric is computed**, not merely before Stage 6.
 
 Required final metrics include at least:
 
@@ -143,7 +149,8 @@ For each dataset/model cell, report the three seed-level results and mean with d
 
 Zero-shot cross-domain evaluation must not begin until:
 
-1. all four in-domain model/dataset cells have completed the prespecified seed runs or a documented compute limitation is declared before inspecting target-test results;
-2. run manifests are complete;
-3. checkpoint provenance is preserved;
-4. the common evaluator is frozen.
+1. Stage 4.5 is closed and the final accepted harmonized fingerprints are frozen;
+2. all four in-domain model/dataset cells have completed the prespecified seed runs or a documented compute limitation is declared before inspecting target-test results;
+3. run manifests are complete;
+4. checkpoint provenance is preserved;
+5. the common evaluator is frozen.
