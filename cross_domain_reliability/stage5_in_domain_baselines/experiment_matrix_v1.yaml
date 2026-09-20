@@ -1,6 +1,6 @@
 stage: 5
 name: harmonized_in_domain_baselines
-status: pre_execution
+status: pre_execution_hold_stage4_5
 
 ontology:
   classes:
@@ -72,8 +72,10 @@ runs:
   - {run_id: C_RFDETR_s2026, dataset: Construction-PPE-h9, model: rfdetr_small, seed: 2026}
 
 gates:
+  - stage4_5_label_completeness_closed_before_full_training
   - dataset_fingerprint_match
   - canonical_class_order_match
   - gpu_execution_parameters_frozen_before_training
   - no_test_tuning
+  - common_evaluator_frozen_before_any_held_out_test_metrics
   - common_evaluator_frozen_before_zero_shot
