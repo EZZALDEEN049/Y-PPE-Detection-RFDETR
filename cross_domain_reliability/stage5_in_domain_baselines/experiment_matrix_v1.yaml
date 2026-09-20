@@ -1,6 +1,6 @@
 stage: 5
 name: harmonized_in_domain_baselines
-status: pre_execution_stage4_5_closed_resource_policy_frozen
+status: pre_execution_stage4_5_closed
 
 ontology:
   classes:
