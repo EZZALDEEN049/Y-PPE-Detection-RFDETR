@@ -39,7 +39,8 @@ jobs:
             cross_domain_reliability/stage5_in_domain_baselines/train_yolo11m_baseline.py \
             cross_domain_reliability/stage5_in_domain_baselines/train_rfdetr_small_baseline.py \
             cross_domain_reliability/stage5_in_domain_baselines/make_rfdetr_yolo_view.py \
-            cross_domain_reliability/stage5_in_domain_baselines/prepare_stage5_frozen_datasets.py
+            cross_domain_reliability/stage5_in_domain_baselines/prepare_stage5_frozen_datasets.py \
+            cross_domain_reliability/stage5_in_domain_baselines/freeze_colab_resource_parameters.py
 
       - name: Validate final experiment protocol and pinned APIs
         run: |
@@ -76,13 +77,16 @@ jobs:
           assert cfg['models']['rfdetr_small']['primary_final_weight_policy']=='final_epoch_ema_last_ema_pth'
 
           modules={}
-          for name,rel in {'materializer':'prepare_stage5_frozen_datasets.py','yolo_trainer':'train_yolo11m_baseline.py','rfdetr_trainer':'train_rfdetr_small_baseline.py'}.items():
+          for name,rel in {'materializer':'prepare_stage5_frozen_datasets.py','yolo_trainer':'train_yolo11m_baseline.py','rfdetr_trainer':'train_rfdetr_small_baseline.py','resource_freezer':'freeze_colab_resource_parameters.py'}.items():
               p=Path('cross_domain_reliability/stage5_in_domain_baselines')/rel
               spec=importlib.util.spec_from_file_location(name,p)
               mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
               modules[name]=mod
-              assert mod.EXPECTED==expected,(name,mod.EXPECTED)
+          assert modules['materializer'].EXPECTED==expected
+          assert modules['resource_freezer'].EXPECTED_FINGERPRINTS==expected
           assert modules['materializer'].EXPECTED_COUNTS=={'Y-PPE-h9-v2':{'train':1236,'val':356,'test':186},'Construction-PPE-h9-v2':{'train':1046,'val':132,'test':138}}
+          assert modules['yolo_trainer'].EXPECTED==expected
+          assert modules['rfdetr_trainer'].EXPECTED==expected
           assert modules['yolo_trainer'].RUN_PREFIX=={'Y-PPE-h9-v2':'Y','Construction-PPE-h9-v2':'C'}
           assert modules['rfdetr_trainer'].RUN_PREFIX=={'Y-PPE-h9-v2':'Y','Construction-PPE-h9-v2':'C'}
 
@@ -94,9 +98,9 @@ jobs:
           small=RFDETRSmallConfig(); block=small.patch_size*small.num_windows
           assert block==32 and 640%block==0
           rf_fields=set(TrainConfig.model_fields)
-          required_rf={'dataset_dir','epochs','batch_size','grad_accum_steps','aug_config','scale_jitter','early_stopping','run_test','seed','num_workers','use_ema'}
+          required_rf={'dataset_dir','epochs','batch_size','grad_accum_steps','aug_config','scale_jitter','early_stopping','run_test','seed','num_workers','use_ema','amp_dtype'}
           assert not sorted(required_rf-rf_fields)
-          required_yolo={'epochs','imgsz','batch','device','workers','seed','deterministic','pretrained','patience','val','optimizer','hsv_h','hsv_s','hsv_v','degrees','translate','scale','shear','perspective','flipud','fliplr','bgr','mosaic','mixup','cutmix'}
+          required_yolo={'epochs','imgsz','batch','device','workers','seed','deterministic','pretrained','amp','patience','val','optimizer','hsv_h','hsv_s','hsv_v','degrees','translate','scale','shear','perspective','flipud','fliplr','bgr','mosaic','mixup','cutmix'}
           assert not sorted(required_yolo-set(DEFAULT_CFG_DICT))
           stopper=EarlyStopping(patience=0); assert math.isinf(stopper.patience)
 
@@ -118,7 +122,7 @@ jobs:
               subprocess.run([sys.executable,'cross_domain_reliability/stage5_in_domain_baselines/make_rfdetr_yolo_view.py','--source-root',str(src),'--out',str(adapted),'--expected-fingerprint',fp],check=True)
               assert is_valid_yolo_dataset(str(adapted)) is True
 
-          report={'status':'PASS','stage4_5_closed':True,'stage4_5_freeze_run_id':35536050231,'corrected_fingerprints':expected,'corrected_counts':modules['materializer'].EXPECTED_COUNTS,'python':platform.python_version(),'torch':torch.__version__,'cuda_runtime':torch.version.cuda,'cuda_available_on_ci':torch.cuda.is_available(),'ultralytics':md.version('ultralytics'),'rfdetr':md.version('rfdetr'),'roboflow':md.version('roboflow'),'PyYAML':md.version('PyYAML'),'yolo_patience_zero_disables_early_stop':True,'yolo_primary_final_weight_policy':'final_epoch_ema_last_pt','rfdetr_primary_final_weight_policy':'final_epoch_ema_last_ema_pth','rfdetr_last_ema_implementation_verified':True,'rfdetr_small_block_size':block,'controlled_resolution_640_valid':True,'rfdetr_layout_adapter_validated':True,'experiment_runs':len(cfg['runs']),'seeds':cfg['shared_controls']['seeds'],'note':'No model training and no held-out test evaluation.'}
+          report={'status':'PASS','stage4_5_closed':True,'stage4_5_freeze_run_id':35536050231,'corrected_fingerprints':expected,'corrected_counts':modules['materializer'].EXPECTED_COUNTS,'python':platform.python_version(),'torch':torch.__version__,'cuda_runtime':torch.version.cuda,'cuda_available_on_ci':torch.cuda.is_available(),'ultralytics':md.version('ultralytics'),'rfdetr':md.version('rfdetr'),'roboflow':md.version('roboflow'),'PyYAML':md.version('PyYAML'),'yolo_patience_zero_disables_early_stop':True,'yolo_explicit_amp_supported':True,'rfdetr_amp_dtype_supported':True,'yolo_primary_final_weight_policy':'final_epoch_ema_last_pt','rfdetr_primary_final_weight_policy':'final_epoch_ema_last_ema_pth','rfdetr_last_ema_implementation_verified':True,'rfdetr_small_block_size':block,'controlled_resolution_640_valid':True,'rfdetr_layout_adapter_validated':True,'resource_freezer_compiles':True,'experiment_runs':len(cfg['runs']),'seeds':cfg['shared_controls']['seeds'],'note':'No model training and no held-out test evaluation.'}
           out=Path(os.environ['RUNNER_TEMP'])/'stage5_preflight'/'preflight_report.json'; out.write_text(json.dumps(report,indent=2),encoding='utf-8'); print(json.dumps(report,indent=2))
           PY
 
@@ -140,6 +144,8 @@ jobs:
           echo "## Stage 5 Baseline Training Preflight" >> "$GITHUB_STEP_SUMMARY"
           echo "- Final conservative Stage 4.5 fingerprints and split counts verified" >> "$GITHUB_STEP_SUMMARY"
           echo "- Current Stage 4.5 / Stage 5 scripts compile" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Deterministic Colab resource-freeze script compiles" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Explicit YOLO AMP and RF-DETR amp_dtype APIs verified" >> "$GITHUB_STEP_SUMMARY"
           echo "- 12-run experiment matrix is aligned to freeze run 35536050231" >> "$GITHUB_STEP_SUMMARY"
           echo "- Application packages pinned: Ultralytics 8.4.156, RF-DETR 1.10.1, Roboflow 1.5.0, PyYAML 6.0.3" >> "$GITHUB_STEP_SUMMARY"
           echo "- YOLO patience=0 confirmed to disable early stopping" >> "$GITHUB_STEP_SUMMARY"
