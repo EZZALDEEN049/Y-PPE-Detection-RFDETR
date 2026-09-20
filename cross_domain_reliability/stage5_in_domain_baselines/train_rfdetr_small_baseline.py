@@ -53,8 +53,9 @@ def main() -> None:
     ap.add_argument("--seed", required=True, type=int, choices=[17, 42, 2026])
     ap.add_argument("--batch-size", required=True, type=int)
     ap.add_argument("--grad-accum-steps", required=True, type=int)
+    ap.add_argument("--amp-dtype", required=True, choices=["fp16", "bf16"])
     ap.add_argument("--device", default="cuda")
-    ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--epochs", type=int, default=100)
     ap.add_argument("--resolution", type=int, default=640)
     ap.add_argument("--output-root", required=True)
@@ -105,6 +106,7 @@ def main() -> None:
         "effective_batch_size_single_gpu": args.batch_size * args.grad_accum_steps,
         "device_requested": args.device,
         "workers": args.workers,
+        "amp_dtype": args.amp_dtype,
         "primary_checkpoint_policy": "final_epoch_ema",
         "primary_checkpoint_filename": "last_ema.pth",
         "test_evaluation_performed": False,
@@ -139,6 +141,7 @@ def main() -> None:
         scale_jitter=False,
         early_stopping=False,
         use_ema=True,
+        amp_dtype=args.amp_dtype,
         run_test=False,
         tensorboard=True,
     )
