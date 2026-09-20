@@ -1,6 +1,6 @@
 # Stage 4.5 — Label-Completeness and Background-Policy Audit
 
-**Status:** pre-execution scientific gate  
+**Status:** executed; conservative correction policy frozen; corrected v2 fingerprint run pending  
 **Applies before:** any full Stage 5 YOLO11m or RF-DETR Small training/evaluation
 
 ## Why this gate exists
@@ -26,10 +26,9 @@ The concrete risk is false-background / missing-ground-truth corruption. Example
 6. Structural matching for an excluded object to a candidate retained object is:
    - IoU >= 0.50, **or**
    - at least 80% of the excluded box area is contained in a candidate retained box.
-7. Every train/validation image that becomes harmonized-empty is visually reviewed.
-8. Every train/validation image containing a critical excluded object without a structural retained match is visually reviewed.
-9. Test risk is handled only through a policy declared from native annotation metadata, never by viewing test pixels or model outputs.
-10. If the audit leads to any split-membership or annotation change, Stage 4 is superseded by a **new harmonized derivative/version/fingerprint**. Existing Stage 4 fingerprints must not be silently reused.
+7. Train/validation images that become harmonized-empty or contain a critical unmatched excluded object are rendered for review.
+8. Test risk is handled only through a policy declared from native annotation metadata, never by viewing test pixels or model outputs.
+9. If the audit leads to any split-membership or annotation change, Stage 4 is superseded by a **new harmonized derivative/version/fingerprint**. Existing Stage 4 fingerprints must not be silently reused.
 
 ## Dataset-specific critical checks
 
@@ -51,28 +50,58 @@ Critical:
 Informational:
 - `no_goggle` -> `goggles`
 
-## Required outputs
+## Executed audit evidence
 
-For each dataset the audit produces:
+Successful run:
 
-- `structural_summary.json`
-- `image_risk_table.csv`
-- `excluded_shared_overlap_table.csv`
-- train/validation-only rendered review images
-- train/validation-only contact sheets
+- Run ID: `35485667262`
+- Artifact ID: `10597440734`
+- Artifact digest: `sha256:086489f617e19c6483b3da5e7deb3f53acffb3701f279ffd835883fecf3b44ab`
+- Test pixels opened: **false**
+- Model predictions used: **false**
 
-The summary must explicitly record `test_pixels_opened: false`.
+The audit generated the required structural summaries, per-image risk tables, excluded/shared overlap tables, and train/validation-only visual review panels.
+
+## Pre-training protocol amendment: conservative annotation-only membership rule
+
+After inspecting the structural output and targeted train/validation visual evidence, a stricter rule was frozen **before any Stage 5 model training or test prediction**. This rule supersedes the need for case-by-case visual adjudication of every flagged image:
+
+> Exclude an entire image if either (a) it becomes empty after nine-class harmonization, or (b) it contains at least one critical unmatched source annotation under the frozen structural match rule.
+
+The same deterministic rule is applied to train, validation, and test using native annotation metadata/geometry only. Therefore:
+
+- no test-image visual inspection is needed for membership decisions;
+- no model result can influence membership;
+- ambiguous images are removed rather than relabeled or silently treated as negative background.
+
+Expected frozen exclusions from the successful audit are:
+
+- Y-PPE: 510 total = 359 train + 103 validation + 48 test;
+- Construction-PPE: 36 total = 31 train + 2 validation + 3 test.
+
+The full rationale is recorded in `Stage4_5_conservative_adjudication_decision_2026-09-20.md`.
+
+## Required corrected outputs
+
+The correction/freeze workflow must produce:
+
+- annotation-only exclusion manifests for both datasets;
+- filtered native derivatives;
+- rebuilt nine-class harmonized derivatives;
+- zero harmonized-empty images after correction;
+- new SHA256 dataset fingerprints;
+- exact retained train/validation/test counts;
+- evidence that test pixels were not opened and predictions were not used.
 
 ## Decision gate
 
-Stage 4.5 is **not closed** merely because the script runs successfully.
+Stage 4.5 is closed only after:
 
-Closure requires:
+1. the conservative annotation-only rule is applied deterministically;
+2. expected exclusion counts are reproduced exactly;
+3. corrected harmonized derivatives are rebuilt;
+4. zero harmonized-empty images remain;
+5. new fingerprints/counts are frozen;
+6. Stage 5 experiment matrix and reconstruction pipeline are updated to those final fingerprints.
 
-1. structural output reviewed;
-2. train/validation visual panels adjudicated;
-3. a written test policy based only on pre-model native annotation metadata;
-4. any corrective derivative rebuilt and fingerprinted;
-5. Stage 5 experiment matrix updated to the final accepted fingerprints/counts.
-
-Until all five are complete, the Stage 5 full-training gate remains **HOLD**.
+Until all six are complete, the Stage 5 full-training gate remains **HOLD**.
