@@ -1,6 +1,6 @@
 stage: 5
 name: harmonized_in_domain_baselines
-status: pre_execution_hold_stage4_5
+status: pre_execution_stage4_5_closed
 
 ontology:
   classes:
@@ -15,16 +15,18 @@ ontology:
     - no_boots
 
 frozen_datasets:
-  Y-PPE-h9:
-    fingerprint_sha256: db49295a0ef2c9eec73b14c620966ed00bf12dac253866b65bab9b50af9db896
-    train_images: 1595
-    val_images: 459
-    test_images: 234
-  Construction-PPE-h9:
-    fingerprint_sha256: bd706ae34aa77507f119a9a4d5cd443d4cb84ee6cd2020b9b8ee6e086350880e
-    train_images: 1077
-    val_images: 134
-    test_images: 141
+  Y-PPE-h9-v2:
+    fingerprint_sha256: 82669459c4c8b53535ee765321fa22277a1ef8d43695409ebb0d212764eb8b89
+    train_images: 1340
+    val_images: 385
+    test_images: 204
+    retained_instances: 9471
+  Construction-PPE-h9-v2:
+    fingerprint_sha256: 59469299ba67355dbcb0e725851f73d244a7ad6e93522d44601be3c8323d3c14
+    train_images: 1046
+    val_images: 132
+    test_images: 138
+    retained_instances: 9514
 
 shared_controls:
   epochs: 100
@@ -58,22 +60,22 @@ models:
     hardware_lock_required: true
 
 runs:
-  - {run_id: Y_YOLO_s17, dataset: Y-PPE-h9, model: yolo11m, seed: 17}
-  - {run_id: Y_YOLO_s42, dataset: Y-PPE-h9, model: yolo11m, seed: 42}
-  - {run_id: Y_YOLO_s2026, dataset: Y-PPE-h9, model: yolo11m, seed: 2026}
-  - {run_id: Y_RFDETR_s17, dataset: Y-PPE-h9, model: rfdetr_small, seed: 17}
-  - {run_id: Y_RFDETR_s42, dataset: Y-PPE-h9, model: rfdetr_small, seed: 42}
-  - {run_id: Y_RFDETR_s2026, dataset: Y-PPE-h9, model: rfdetr_small, seed: 2026}
-  - {run_id: C_YOLO_s17, dataset: Construction-PPE-h9, model: yolo11m, seed: 17}
-  - {run_id: C_YOLO_s42, dataset: Construction-PPE-h9, model: yolo11m, seed: 42}
-  - {run_id: C_YOLO_s2026, dataset: Construction-PPE-h9, model: yolo11m, seed: 2026}
-  - {run_id: C_RFDETR_s17, dataset: Construction-PPE-h9, model: rfdetr_small, seed: 17}
-  - {run_id: C_RFDETR_s42, dataset: Construction-PPE-h9, model: rfdetr_small, seed: 42}
-  - {run_id: C_RFDETR_s2026, dataset: Construction-PPE-h9, model: rfdetr_small, seed: 2026}
+  - {run_id: Y_YOLO_s17, dataset: Y-PPE-h9-v2, model: yolo11m, seed: 17}
+  - {run_id: Y_YOLO_s42, dataset: Y-PPE-h9-v2, model: yolo11m, seed: 42}
+  - {run_id: Y_YOLO_s2026, dataset: Y-PPE-h9-v2, model: yolo11m, seed: 2026}
+  - {run_id: Y_RFDETR_s17, dataset: Y-PPE-h9-v2, model: rfdetr_small, seed: 17}
+  - {run_id: Y_RFDETR_s42, dataset: Y-PPE-h9-v2, model: rfdetr_small, seed: 42}
+  - {run_id: Y_RFDETR_s2026, dataset: Y-PPE-h9-v2, model: rfdetr_small, seed: 2026}
+  - {run_id: C_YOLO_s17, dataset: Construction-PPE-h9-v2, model: yolo11m, seed: 17}
+  - {run_id: C_YOLO_s42, dataset: Construction-PPE-h9-v2, model: yolo11m, seed: 42}
+  - {run_id: C_YOLO_s2026, dataset: Construction-PPE-h9-v2, model: yolo11m, seed: 2026}
+  - {run_id: C_RFDETR_s17, dataset: Construction-PPE-h9-v2, model: rfdetr_small, seed: 17}
+  - {run_id: C_RFDETR_s42, dataset: Construction-PPE-h9-v2, model: rfdetr_small, seed: 42}
+  - {run_id: C_RFDETR_s2026, dataset: Construction-PPE-h9-v2, model: rfdetr_small, seed: 2026}
 
 gates:
   - stage4_5_label_completeness_closed_before_full_training
-  - dataset_fingerprint_match
+  - corrected_dataset_fingerprint_match
   - canonical_class_order_match
   - gpu_execution_parameters_frozen_before_training
   - no_test_tuning
