@@ -2,6 +2,8 @@
 """Controlled Stage 5 RF-DETR Small trainer.
 
 Training only: held-out test evaluation is intentionally disabled.
+The primary fixed-epoch RF-DETR checkpoint is final EMA weights (`last_ema.pth`)
+under pinned RF-DETR 1.10.1. This policy is frozen before the first full run.
 """
 from __future__ import annotations
 
@@ -20,8 +22,12 @@ import rfdetr
 from rfdetr import RFDETRSmall
 
 EXPECTED = {
-    "Y-PPE-h9": "db49295a0ef2c9eec73b14c620966ed00bf12dac253866b65bab9b50af9db896",
-    "Construction-PPE-h9": "bd706ae34aa77507f119a9a4d5cd443d4cb84ee6cd2020b9b8ee6e086350880e",
+    "Y-PPE-h9-v2": "82669459c4c8b53535ee765321fa22277a1ef8d43695409ebb0d212764eb8b89",
+    "Construction-PPE-h9-v2": "59469299ba67355dbcb0e725851f73d244a7ad6e93522d44601be3c8323d3c14",
+}
+RUN_PREFIX = {
+    "Y-PPE-h9-v2": "Y",
+    "Construction-PPE-h9-v2": "C",
 }
 
 
@@ -65,7 +71,7 @@ def main() -> None:
     manifest = root / "manifest.jsonl"
     data_yaml = root / "data.yaml"
     if not manifest.is_file() or not data_yaml.is_file():
-        raise SystemExit("dataset-root must contain manifest.jsonl and data.yaml from Stage 4")
+        raise SystemExit("dataset-root must contain corrected Stage 4.5 manifest.jsonl and data.yaml")
     fp = sha256_file(manifest)
     if fp != EXPECTED[args.dataset]:
         raise SystemExit(f"Frozen dataset fingerprint mismatch: got {fp}, expected {EXPECTED[args.dataset]}")
@@ -76,7 +82,7 @@ def main() -> None:
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(args.seed)
 
-    run_id = f"{args.dataset.replace('-h9','').replace('-','_')}_RFDETR_s{args.seed}"
+    run_id = f"{RUN_PREFIX[args.dataset]}_RFDETR_s{args.seed}"
     out_root = Path(args.output_root).resolve()
     out_root.mkdir(parents=True, exist_ok=True)
     run_dir = out_root / run_id
@@ -99,7 +105,8 @@ def main() -> None:
         "effective_batch_size_single_gpu": args.batch_size * args.grad_accum_steps,
         "device_requested": args.device,
         "workers": args.workers,
-        "primary_checkpoint_policy": "final_epoch_weight_policy_to_be_locked_before_first_full_run",
+        "primary_checkpoint_policy": "final_epoch_ema",
+        "primary_checkpoint_filename": "last_ema.pth",
         "test_evaluation_performed": False,
         "stochastic_online_augmentation": False,
         "scale_jitter": False,
@@ -136,9 +143,17 @@ def main() -> None:
         tensorboard=True,
     )
 
+    primary = run_dir / "train" / "last_ema.pth"
+    if not primary.is_file():
+        raise SystemExit(
+            "RF-DETR training completed but frozen primary final-EMA checkpoint last_ema.pth was not produced"
+        )
+
     meta["status"] = "training_completed"
     meta["completed_at_utc"] = datetime.now(timezone.utc).isoformat()
     meta["test_evaluation_performed"] = False
+    meta["primary_checkpoint_exists"] = True
+    meta["primary_checkpoint_sha256"] = sha256_file(primary)
     (run_dir / "run_manifest_post.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
     print(json.dumps(meta, indent=2))
 
