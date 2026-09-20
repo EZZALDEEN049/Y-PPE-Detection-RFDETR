@@ -20,7 +20,7 @@ import torch
 from ultralytics import YOLO, __version__ as ultralytics_version
 
 EXPECTED = {
-    "Y-PPE-h9-v2": "82669459c4c8b53535ee765321fa22277a1ef8d43695409ebb0d212764eb8b89",
+    "Y-PPE-h9-v2": "82c08766d5c5e50e93d41d21c4751fd686a3932ea6a8cb24ffd2838d9e30fba8",
     "Construction-PPE-h9-v2": "59469299ba67355dbcb0e725851f73d244a7ad6e93522d44601be3c8323d3c14",
 }
 RUN_PREFIX = {
