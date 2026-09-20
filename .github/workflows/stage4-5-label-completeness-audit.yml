@@ -1,0 +1,171 @@
+name: Stage 4.5 Label-Completeness Audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install roboflow
+          pip install -r cross_domain_reliability/stage2_data_audit/requirements.txt
+
+      - name: Confirm Roboflow secret exists
+        shell: bash
+        run: |
+          if [ -z "${ROBOFLOW_API_KEY}" ]; then
+            echo "ROBOFLOW_API_KEY GitHub Actions secret is missing." >&2
+            exit 1
+          fi
+
+      - name: Download Y-PPE Version 2
+        shell: bash
+        run: |
+          mkdir -p "${RUNNER_TEMP}/stage45/meta" "${RUNNER_TEMP}/stage45/downloads"
+          python cross_domain_reliability/stage2_data_audit/download_roboflow_dataset.py \
+            --workspace "master-fylfq" \
+            --project "altayyar-0oflt-lafos-qqauz-ty5nh" \
+            --version 2 \
+            --format yolov11 \
+            --out "${RUNNER_TEMP}/stage45/downloads/y_ppe" \
+            --metadata-out "${RUNNER_TEMP}/stage45/meta/y_download.json"
+
+      - name: Apply frozen Y-PPE Stage 2 corrections
+        shell: bash
+        run: |
+          Y_SRC="$(python - <<'PY'
+          import json, os
+          p=os.path.join(os.environ['RUNNER_TEMP'],'stage45','meta','y_download.json')
+          print(json.load(open(p, encoding='utf-8'))['dataset_location'])
+          PY
+          )"
+          python cross_domain_reliability/stage2_data_audit/apply_y_ppe_stage2_corrections.py \
+            --root "${Y_SRC}" \
+            --out "${RUNNER_TEMP}/stage45/clean/Y-PPE" \
+            --file-manifest "cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_conservative_file_correction_manifest_2026-09-19.csv" \
+            --near-box-manifest "cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_near_box_removal_manifest_2026-09-19.csv" \
+            --expected-exclusions 39 \
+            --expected-exact-row-removals 68 \
+            --expected-near-box-removals 1 \
+            --summary-out "${RUNNER_TEMP}/stage45/meta/y_correction_summary.json"
+          Y_YAML="$(find "${RUNNER_TEMP}/stage45/clean/Y-PPE" -maxdepth 3 \( -name data.yaml -o -name dataset.yaml \) -print -quit)"
+          if [ -z "${Y_YAML}" ]; then
+            echo "Could not locate Y-PPE clean data.yaml" >&2
+            exit 1
+          fi
+          echo "Y_YAML=${Y_YAML}" >> "$GITHUB_ENV"
+
+      - name: Download pinned Construction-PPE
+        shell: bash
+        run: |
+          python cross_domain_reliability/stage2_data_audit/download_ultralytics_construction_ppe.py \
+            --out "${RUNNER_TEMP}/stage45/downloads/construction_ppe" \
+            --metadata-out "${RUNNER_TEMP}/stage45/meta/c_download.json"
+          curl -fsSL \
+            "https://raw.githubusercontent.com/ultralytics/ultralytics/42044baf5eda3d52aa4bd7d8a098375d2c7fdad7/ultralytics/cfg/datasets/construction-ppe.yaml" \
+            -o "${RUNNER_TEMP}/stage45/meta/construction-ppe.yaml"
+
+      - name: Apply frozen Construction-PPE Stage 2 corrections
+        shell: bash
+        run: |
+          C_SRC="$(python - <<'PY'
+          import json, os
+          p=os.path.join(os.environ['RUNNER_TEMP'],'stage45','meta','c_download.json')
+          print(json.load(open(p, encoding='utf-8'))['dataset_root'])
+          PY
+          )"
+          python cross_domain_reliability/stage2_data_audit/apply_construction_ppe_stage2_corrections.py \
+            --root "${C_SRC}" \
+            --out "${RUNNER_TEMP}/stage45/clean/Construction-PPE" \
+            --file-manifest "cross_domain_reliability/stage2_data_audit/results/Construction-PPE_conservative_file_correction_manifest_2026-09-20.csv" \
+            --orphan-label-manifest "cross_domain_reliability/stage2_data_audit/results/Construction-PPE_orphan_label_removal_manifest_2026-09-20.csv" \
+            --expected-exclusions 64 \
+            --expected-orphan-removals 10 \
+            --expected-exact-row-removals 1 \
+            --summary-out "${RUNNER_TEMP}/stage45/meta/c_correction_summary.json"
+
+      - name: Run Y-PPE Stage 4.5 audit
+        shell: bash
+        run: |
+          python cross_domain_reliability/stage4_5_label_completeness/stage4_5_label_completeness_audit.py \
+            --dataset "Y-PPE" \
+            --root "${RUNNER_TEMP}/stage45/clean/Y-PPE" \
+            --names-yaml "${Y_YAML}" \
+            --splits "train:train,val:valid,test:test" \
+            --out "${RUNNER_TEMP}/stage45/results/Y-PPE"
+
+      - name: Run Construction-PPE Stage 4.5 audit
+        shell: bash
+        run: |
+          python cross_domain_reliability/stage4_5_label_completeness/stage4_5_label_completeness_audit.py \
+            --dataset "Construction-PPE" \
+            --root "${RUNNER_TEMP}/stage45/clean/Construction-PPE" \
+            --names-yaml "${RUNNER_TEMP}/stage45/meta/construction-ppe.yaml" \
+            --splits "train:train,val:val,test:test" \
+            --out "${RUNNER_TEMP}/stage45/results/Construction-PPE"
+
+      - name: Verify no test pixels were opened by audit
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'stage45'/'results'
+          for ds in ['Y-PPE','Construction-PPE']:
+              s=json.load(open(root/ds/'structural_summary.json', encoding='utf-8'))
+              assert s['scientific_rule']['test_pixels_opened'] is False
+              assert s['scientific_rule']['dataset_modified'] is False
+              print(ds, 'test_pixels_opened=', s['scientific_rule']['test_pixels_opened'])
+          PY
+
+      - name: Write scientific summary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'stage45'/'results'
+          out=Path(os.environ['GITHUB_STEP_SUMMARY'])
+          lines=['## Stage 4.5 Label-Completeness Audit','',
+                 '- No model predictions used',
+                 '- Test image pixels not opened',
+                 '- Dataset membership/labels not modified by this audit','']
+          for ds in ['Y-PPE','Construction-PPE']:
+              s=json.load(open(root/ds/'structural_summary.json', encoding='utf-8'))
+              lines += [f'### {ds}',
+                        f"- Status: `{s['status']}`",
+                        f"- Critical unmatched images: {s['critical_unmatched_images_all_splits']}",
+                        f"- Train/val visual-review images: {s['train_val_visual_review_images']}",
+                        f"- Test structural-risk images: {s['test_structural_risk_images']}",
+                        f"- Contact sheets: {s['contact_sheet_count']}",'']
+          lines += ['**Stage 5 full training remains HOLD until manual adjudication and test-policy closure.**']
+          out.write_text('\n'.join(lines), encoding='utf-8')
+          PY
+
+      - name: Upload Stage 4.5 evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage4-5-label-completeness-evidence
+          path: |
+            ${{ runner.temp }}/stage45/results/**
+            ${{ runner.temp }}/stage45/meta/*_correction_summary.json
+          if-no-files-found: error
+          retention-days: 30
