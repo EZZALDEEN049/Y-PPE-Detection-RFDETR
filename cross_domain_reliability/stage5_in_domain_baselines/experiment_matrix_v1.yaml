@@ -16,10 +16,10 @@ ontology:
 
 frozen_datasets:
   Y-PPE-h9-v2:
-    fingerprint_sha256: 82669459c4c8b53535ee765321fa22277a1ef8d43695409ebb0d212764eb8b89
-    train_images: 1340
-    val_images: 385
-    test_images: 204
+    fingerprint_sha256: 82c08766d5c5e50e93d41d21c4751fd686a3932ea6a8cb24ffd2838d9e30fba8
+    train_images: 1236
+    val_images: 356
+    test_images: 186
     retained_instances: 9471
   Construction-PPE-h9-v2:
     fingerprint_sha256: 59469299ba67355dbcb0e725851f73d244a7ad6e93522d44601be3c8323d3c14
