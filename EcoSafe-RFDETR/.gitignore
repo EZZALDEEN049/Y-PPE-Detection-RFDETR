@@ -1,0 +1,42 @@
+# Raw datasets
+raw_data/
+external_data/
+datasets/
+
+# Images
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.webp
+*.tif
+*.tiff
+
+# Model weights / large artifacts
+*.pth
+*.pt
+*.onnx
+*.engine
+*.ckpt
+checkpoints/
+weights/
+
+# Runtime outputs
+runs/
+outputs/
+results/raw/
+logs/
+tensorboard/
+wandb/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
