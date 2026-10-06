@@ -1,0 +1,16 @@
+seed: 20260927
+primary_dataset: mendeley_ppe_v6
+classes: [Helmet, NoHelmet, NoVest, Vest]
+violation_classes: [NoHelmet, NoVest]
+models: [nano, medium, large]
+pilot:
+  epochs: 20
+  iou_threshold: 0.50
+  confidence_threshold: 0.05
+  warmup_images: 20
+  energy_repetitions: 3
+  power_sample_ms: 50
+  use_final_test: false
+decision:
+  delta_final: null
+  min_energy_saving_fraction_for_go: 0.10
