@@ -1,0 +1,10 @@
+experiment_id,stage,status,dataset,model_or_router,purpose,primary_metrics,test_set_used,notes
+E00,data_audit,planned,primary_public_dataset,none,lock dataset and detect duplicates,counts+hashes,false,
+E01,pilot,planned,development,RF-DETR Nano,low-cost baseline,violation_recall+j_per_frame,false,
+E02,pilot,planned,development,RF-DETR Medium,high-capacity pilot reference,violation_recall+j_per_frame,false,
+E03,pilot,conditional,development,RF-DETR Large,additional high-capacity reference,violation_recall+j_per_frame,false,run only if justified
+E04,router,blocked,development,confidence router,simple routing baseline,router_recall+energy,false,requires Pilot GO
+E05,router,blocked,development,EcoSafe router,proposed adaptive routing,violation_recall+j_per_frame+escalation_rate,false,requires Pilot GO
+E06,external,blocked,PPED,EcoSafe,controlled domain shift,violation_recall+OOD+energy,false,requires frozen router
+E07,external,blocked,CHVG,EcoSafe,external construction validation,shared-class metrics+energy,false,requires ontology mapping
+E08,final,blocked,held_out_test,frozen EcoSafe,confirmatory evaluation,all primary endpoints,true,open once only after freeze
