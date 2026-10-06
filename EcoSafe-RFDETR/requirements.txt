@@ -1,0 +1,14 @@
+rfdetr[train,loggers]>=1.10.1
+torch
+torchvision
+numpy
+pandas
+Pillow
+PyYAML
+imagehash
+pycocotools
+scikit-learn
+scipy
+matplotlib
+pynvml
+tqdm
