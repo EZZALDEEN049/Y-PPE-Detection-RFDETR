@@ -1,0 +1,48 @@
+name: EcoSafe GPU Pilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      dataset_dir:
+        description: 'Absolute dataset path on the self-hosted GPU runner'
+        required: true
+        type: string
+      output_dir:
+        description: 'Absolute output root on the self-hosted GPU runner'
+        required: true
+        type: string
+      variant:
+        description: 'RF-DETR variant for this run'
+        required: true
+        default: 'nano'
+        type: choice
+        options:
+          - nano
+          - medium
+          - large
+      epochs:
+        description: 'Pilot epochs'
+        required: true
+        default: '20'
+        type: string
+
+jobs:
+  pilot:
+    runs-on: [self-hosted, linux, x64, gpu]
+    timeout-minutes: 1440
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecosafe-rfdetr
+      - name: Record environment
+        run: |
+          mkdir -p "${{ inputs.output_dir }}"
+          python EcoSafe-RFDETR/scripts/00_system_check.py --out "${{ inputs.output_dir }}/system_${{ inputs.variant }}.json"
+      - name: Train RF-DETR pilot model
+        run: |
+          python EcoSafe-RFDETR/scripts/03_train_rfdetr.py \
+            --variant "${{ inputs.variant }}" \
+            --dataset "${{ inputs.dataset_dir }}" \
+            --output "${{ inputs.output_dir }}/${{ inputs.variant }}" \
+            --epochs "${{ inputs.epochs }}" \
+            --batch-size auto
