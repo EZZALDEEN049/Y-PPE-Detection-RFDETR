@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import gc
 import json
 import sys
 import traceback
@@ -239,32 +240,47 @@ def safe_prf(tp: int, fp: int, fn: int) -> Tuple[float, float, float]:
 
 def fixed_operating_point(
     model: YOLO, test_images: List[Path], device: str, imgsz: int,
-    conf: float, nms_iou: float, match_iou: float,
+    conf: float, nms_iou: float, match_iou: float, batch_size: int,
 ) -> dict:
+    """Evaluate the frozen operating point in bounded inference chunks.
+
+    Chunking is a memory-management implementation detail only. It does not
+    change the frozen confidence, IoU, image size, checkpoint, or test split.
+    """
     counts = defaultdict(lambda: {"tp": 0, "fp": 0, "fn": 0})
-    results = model.predict(
-        source=[str(p) for p in test_images],
-        conf=conf,
-        iou=nms_iou,
-        imgsz=imgsz,
-        device=device,
-        verbose=False,
-        stream=True,
-        augment=False,
-    )
-    for res in results:
-        h, w = res.orig_shape
-        ip = Path(res.path).resolve()
-        gt_cls, gt_boxes = load_gt_xyxy(label_path_for_image(ip), w, h)
-        if res.boxes is None or len(res.boxes) == 0:
-            pred_cls = np.empty((0,), dtype=int)
-            pred_boxes = np.empty((0, 4), dtype=float)
-            pred_conf = np.empty((0,), dtype=float)
-        else:
-            pred_cls = res.boxes.cls.detach().cpu().numpy().astype(int)
-            pred_boxes = res.boxes.xyxy.detach().cpu().numpy().astype(float)
-            pred_conf = res.boxes.conf.detach().cpu().numpy().astype(float)
-        update_counts(gt_cls, gt_boxes, pred_cls, pred_boxes, pred_conf, counts, match_iou)
+    if batch_size < 1:
+        raise ValueError("batch_size must be >= 1")
+
+    for start in range(0, len(test_images), batch_size):
+        chunk = test_images[start:start + batch_size]
+        results = model.predict(
+            source=[str(p) for p in chunk],
+            conf=conf,
+            iou=nms_iou,
+            imgsz=imgsz,
+            device=device,
+            verbose=False,
+            stream=True,
+            augment=False,
+        )
+        for res in results:
+            h, w = res.orig_shape
+            ip = Path(res.path).resolve()
+            gt_cls, gt_boxes = load_gt_xyxy(label_path_for_image(ip), w, h)
+            if res.boxes is None or len(res.boxes) == 0:
+                pred_cls = np.empty((0,), dtype=int)
+                pred_boxes = np.empty((0, 4), dtype=float)
+                pred_conf = np.empty((0,), dtype=float)
+            else:
+                pred_cls = res.boxes.cls.detach().cpu().numpy().astype(int)
+                pred_boxes = res.boxes.xyxy.detach().cpu().numpy().astype(float)
+                pred_conf = res.boxes.conf.detach().cpu().numpy().astype(float)
+            update_counts(gt_cls, gt_boxes, pred_cls, pred_boxes, pred_conf, counts, match_iou)
+
+        del results
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
 
     per_class = {}
     total = {"tp": 0, "fp": 0, "fn": 0}
@@ -400,9 +416,17 @@ def main() -> None:
             )
             print(f"[Stage6] AP evaluation complete: {eval_id}", flush=True)
             ap = metrics_to_dict(metrics)
+
+            # Release validator tensors/caches before the second inference pass.
+            del metrics
+            gc.collect()
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+
             print(f"[Stage6] START {eval_id}: fixed operating-point evaluation", flush=True)
             fixed = fixed_operating_point(
-                model, imgs, a.device, a.imgsz, a.operating_conf, a.nms_iou, a.match_iou
+                model, imgs, a.device, a.imgsz, a.operating_conf, a.nms_iou,
+                a.match_iou, a.batch
             )
             print(f"[Stage6] Fixed operating-point evaluation complete: {eval_id}", flush=True)
             record = {
