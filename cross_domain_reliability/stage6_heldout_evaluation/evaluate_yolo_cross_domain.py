@@ -440,6 +440,12 @@ def main() -> None:
                 "no_helmet_fn": fixed["per_class"]["no_helmet"]["fn"],
                 "no_gloves_fn": fixed["per_class"]["no_gloves"]["fn"],
                 "no_boots_fn": fixed["per_class"]["no_boots"]["fn"],
+                "no_helmet_recall": fixed["per_class"]["no_helmet"]["recall"],
+                "no_gloves_recall": fixed["per_class"]["no_gloves"]["recall"],
+                "no_boots_recall": fixed["per_class"]["no_boots"]["recall"],
+                "no_helmet_fnr": 1.0 - fixed["per_class"]["no_helmet"]["recall"],
+                "no_gloves_fnr": 1.0 - fixed["per_class"]["no_gloves"]["recall"],
+                "no_boots_fnr": 1.0 - fixed["per_class"]["no_boots"]["recall"],
             })
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
