@@ -8,11 +8,11 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
-import math
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, Iterable, List, Tuple
+from typing import Dict, List, Tuple
 
 import numpy as np
 import torch
@@ -55,7 +55,76 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--operating-conf", type=float, default=0.25)
     ap.add_argument("--nms-iou", type=float, default=0.70)
     ap.add_argument("--match-iou", type=float, default=0.50)
+    ap.add_argument("--preflight-only", action="store_true",
+                    help="Verify frozen inputs/checkpoints without touching held-out test inference.")
     return ap.parse_args()
+
+
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def write_runtime_yaml(source_yaml: Path, out_yaml: Path) -> Path:
+    """Write a path-only adapter YAML with absolute split paths.
+
+    Dataset bytes, labels, class order, and split membership are unchanged.
+    """
+    data = read_yaml(source_yaml)
+    root = Path(data.get("path", "."))
+    if not root.is_absolute():
+        root = (source_yaml.parent / root).resolve()
+    runtime = {
+        "path": str(root),
+        "train": str((root / data["train"]).resolve()) if not Path(data["train"]).is_absolute() else data["train"],
+        "val": str((root / data["val"]).resolve()) if not Path(data["val"]).is_absolute() else data["val"],
+        "test": str((root / data["test"]).resolve()) if not Path(data["test"]).is_absolute() else data["test"],
+        "names": CLASSES,
+        "nc": 9,
+    }
+    out_yaml.parent.mkdir(parents=True, exist_ok=True)
+    out_yaml.write_text(yaml.safe_dump(runtime, sort_keys=False), encoding="utf-8")
+    return out_yaml
+
+
+def validate_stage5_inputs(stage5_root: Path) -> dict:
+    expected_dataset = {"Y": "Y-PPE-h9-v2", "C": "Construction-PPE-h9-v2"}
+    verified = []
+    for run_id, train_domain, seed in RUNS:
+        run_dir = stage5_root / run_id
+        manifest = run_dir / "run_manifest_post.json"
+        weights = run_dir / "train" / "weights" / "last.pt"
+        if not manifest.is_file():
+            raise FileNotFoundError(f"Missing Stage 5 post manifest: {manifest}")
+        if not weights.is_file():
+            raise FileNotFoundError(f"Missing final-epoch checkpoint: {weights}")
+        meta = json.loads(manifest.read_text(encoding="utf-8"))
+        checks = {
+            "status": meta.get("status") == "training_completed",
+            "run_id": meta.get("run_id") == run_id,
+            "dataset": meta.get("dataset") == expected_dataset[train_domain],
+            "model": meta.get("model") == "YOLO11m",
+            "seed": int(meta.get("seed")) == seed,
+            "epochs": int(meta.get("epochs")) == 100,
+            "resolution": int(meta.get("resolution")) == 640,
+            "primary_checkpoint_policy": meta.get("primary_checkpoint_policy") == "final_epoch",
+            "heldout_not_used": meta.get("test_evaluation_performed") is False,
+        }
+        bad = [k for k, ok in checks.items() if not ok]
+        if bad:
+            raise RuntimeError(f"Stage 5 manifest validation failed for {run_id}: {bad}")
+        verified.append({
+            "run_id": run_id,
+            "train_domain": train_domain,
+            "seed": seed,
+            "checkpoint": str(weights.resolve()),
+            "checkpoint_size_bytes": weights.stat().st_size,
+            "manifest": str(manifest.resolve()),
+        })
+    return {"verified_runs": verified}
 
 
 def read_yaml(path: Path) -> dict:
@@ -238,15 +307,62 @@ def metrics_to_dict(metrics) -> dict:
 
 def main() -> None:
     a = parse_args()
+    a.stage5_root = a.stage5_root.resolve()
+    a.out = a.out.resolve()
     a.out.mkdir(parents=True, exist_ok=True)
     y_data, c_data = a.y_data.resolve(), a.c_data.resolve()
-    y_test, c_test = resolve_split(y_data), resolve_split(c_data)
+
+    # Pre-test integrity gate: verify frozen dataset fingerprints and all six completed runs.
+    y_manifest = y_data.parent / "manifest.jsonl"
+    c_manifest = c_data.parent / "manifest.jsonl"
+    if sha256_file(y_manifest) != Y_FP:
+        raise RuntimeError("Y-PPE-h9-v2 manifest fingerprint mismatch.")
+    if sha256_file(c_manifest) != C_FP:
+        raise RuntimeError("Construction-PPE-h9-v2 manifest fingerprint mismatch.")
+
+    runtime_dir = a.out / "_runtime_yaml"
+    y_runtime = write_runtime_yaml(y_data, runtime_dir / "Y-PPE-h9-v2_absolute.yaml")
+    c_runtime = write_runtime_yaml(c_data, runtime_dir / "Construction-PPE-h9-v2_absolute.yaml")
+    y_test, c_test = resolve_split(y_runtime), resolve_split(c_runtime)
+    y_images, c_images = image_files(y_test), image_files(c_test)
+    if len(y_images) != 186:
+        raise RuntimeError(f"Y-PPE held-out test count mismatch: expected 186, got {len(y_images)}")
+    if len(c_images) != 138:
+        raise RuntimeError(f"Construction-PPE held-out test count mismatch: expected 138, got {len(c_images)}")
+
+    preflight = validate_stage5_inputs(a.stage5_root)
+    preflight.update({
+        "status": "STAGE6_PREFLIGHT_PASS",
+        "heldout_evaluation_started": False,
+        "y_dataset_fingerprint": Y_FP,
+        "c_dataset_fingerprint": C_FP,
+        "y_test_images": len(y_images),
+        "c_test_images": len(c_images),
+        "runtime_yaml_note": "Absolute-path YAML adapters only; dataset bytes/classes/splits unchanged.",
+        "settings": {
+            "imgsz": a.imgsz,
+            "ap_conf": a.ap_conf,
+            "operating_conf": a.operating_conf,
+            "nms_iou": a.nms_iou,
+            "match_iou": a.match_iou,
+            "augmentation": False,
+        },
+    })
+    preflight_path = a.out / "stage6_preflight.json"
+    preflight_path.write_text(json.dumps(preflight, indent=2), encoding="utf-8")
+    print("STAGE6_PREFLIGHT_PASS")
+    print(preflight_path)
+    if a.preflight_only:
+        return
+
     tests = {
-        "Y": (y_data, image_files(y_test), "Y-PPE-h9-v2"),
-        "C": (c_data, image_files(c_test), "Construction-PPE-h9-v2"),
+        "Y": (y_runtime, y_images, "Y-PPE-h9-v2"),
+        "C": (c_runtime, c_images, "Construction-PPE-h9-v2"),
     }
-    if not tests["Y"][1] or not tests["C"][1]:
-        raise RuntimeError("One or both held-out test sets are empty.")
+
+    # From this line onward the held-out test evaluation begins.
+    preflight["heldout_evaluation_started"] = True
+    preflight_path.write_text(json.dumps(preflight, indent=2), encoding="utf-8")
 
     rows = []
     all_json = {}
