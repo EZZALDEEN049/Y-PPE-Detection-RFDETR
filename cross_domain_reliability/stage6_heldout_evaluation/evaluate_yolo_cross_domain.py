@@ -10,6 +10,8 @@ import argparse
 import csv
 import hashlib
 import json
+import sys
+import traceback
 from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List, Tuple
@@ -379,6 +381,7 @@ def main() -> None:
             out_dir = a.out / eval_id
             out_dir.mkdir(parents=True, exist_ok=True)
 
+            print(f"[Stage6] START {eval_id}: AP evaluation", flush=True)
             metrics = model.val(
                 data=str(data_yaml),
                 split="test",
@@ -395,10 +398,13 @@ def main() -> None:
                 name=eval_id,
                 exist_ok=True,
             )
+            print(f"[Stage6] AP evaluation complete: {eval_id}", flush=True)
             ap = metrics_to_dict(metrics)
+            print(f"[Stage6] START {eval_id}: fixed operating-point evaluation", flush=True)
             fixed = fixed_operating_point(
                 model, imgs, a.device, a.imgsz, a.operating_conf, a.nms_iou, a.match_iou
             )
+            print(f"[Stage6] Fixed operating-point evaluation complete: {eval_id}", flush=True)
             record = {
                 "eval_id": eval_id,
                 "run_id": run_id,
@@ -447,6 +453,7 @@ def main() -> None:
                 "no_gloves_fnr": 1.0 - fixed["per_class"]["no_gloves"]["recall"],
                 "no_boots_fnr": 1.0 - fixed["per_class"]["no_boots"]["recall"],
             })
+            print(f"[Stage6] COMPLETE {eval_id}", flush=True)
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
 
@@ -463,4 +470,26 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        tb = traceback.format_exc()
+        print(tb, file=sys.stderr, flush=True)
+        try:
+            if "--out" in sys.argv:
+                out_arg = Path(sys.argv[sys.argv.index("--out") + 1]).resolve()
+                out_arg.mkdir(parents=True, exist_ok=True)
+                (out_arg / "stage6_failure_traceback.txt").write_text(tb, encoding="utf-8")
+                failure = {
+                    "status": "STAGE6_EXECUTION_FAILED",
+                    "evaluation_settings_changed": False,
+                    "note": "Software execution failure only; frozen Stage 6 evaluation settings were not changed.",
+                    "argv": sys.argv,
+                    "traceback": tb,
+                }
+                (out_arg / "stage6_failure.json").write_text(
+                    json.dumps(failure, indent=2), encoding="utf-8"
+                )
+        except Exception:
+            print("WARNING: could not persist Stage 6 failure log", file=sys.stderr, flush=True)
+        raise
