@@ -26,7 +26,9 @@ Completed:
 - Stage 11B learnability-versus-transfer reinterpretation;
 - Stage 11C exact harmonization/filtering specification;
 - Stage 11E image-cluster bootstrap for safety-class outcomes;
-- Stage 11F literature/novelty reframing and figure-numbering correction.
+- Stage 11F literature/novelty reframing and figure-numbering correction;
+- Stage 11H verified literature expansion to 29 references;
+- Stage 11I ontology-consistent PPE-negative-state terminology.
 
 Still pending before submission:
 - Stage 11D best.pt checkpoint sensitivity GPU execution;
