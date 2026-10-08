@@ -1,30 +1,37 @@
 # Primary target journal: Automation in Construction
 
 ## Rationale
-The manuscript is framed as a construction-technology reliability/evaluation study. Its core contribution is a controlled computer-vision assessment for construction-site safety monitoring, including automated inspection, held-out domain transfer, and deployment-readiness evidence.
+The manuscript is framed as a construction-technology reliability and evaluation study focused on computer-vision PPE monitoring under external-domain shift.
 
-Primary target:
-**Automation in Construction (Elsevier)**
+Primary target: **Automation in Construction (Elsevier)**
 
-Recommended article type:
-**Original Research Article**
+Recommended article type: **Original Research Article**
 
 Recommended title:
 **Cross-Domain Reliability of YOLO11m for Safety-Critical PPE Monitoring: A Multi-Seed Bidirectional Evaluation**
 
-Backup journal:
-**Safety Science (Elsevier)**
-
-The backup is appropriate if the manuscript is reframed more strongly around occupational-safety decision risk, false negatives, and socio-technical deployment rather than construction automation.
+Backup journal: **Safety Science (Elsevier)**
 
 ## Submission positioning
-Do not sell the paper as a new detector.
-Sell it as:
-- a reliability evaluation study;
-- a frozen external-domain validation design;
-- a safety-critical false-negative study;
-- a reproducible multi-seed construction computer-vision benchmark.
+Position the paper as a deployment-oriented reliability evaluation that:
+- uses frozen bidirectional external-domain testing;
+- separates in-domain safety-class learnability from additional transfer degradation;
+- audits safety-critical false negatives across repeated seed realizations;
+- explicitly tests train-test dependence sensitivity;
+- provides a reproducible construction computer-vision benchmark.
 
 ## Current status
-Scientific core: complete.
-Submission blockers: final author list, funding, competing interests, CRediT contributions, and final confirmation of the ethics/image-use wording.
+Completed:
+- Stage 11A split-dependence audit and sensitivity evaluation;
+- Stage 11B learnability-versus-transfer reinterpretation;
+- Stage 11C exact harmonization/filtering specification;
+- Stage 11E image-cluster bootstrap for safety-class outcomes;
+- Stage 11F literature/novelty reframing and figure-numbering correction.
+
+Still pending before submission:
+- Stage 11D best.pt checkpoint sensitivity GPU execution;
+- Stage 11E2 image-level mAP50:95/domain-gap bootstrap GPU execution;
+- final immutable GitHub submission freeze/tag;
+- final confirmation of field-image redistribution/consent wording if separate documentation exists.
+
+No new training is required for the remaining scientific checks.
