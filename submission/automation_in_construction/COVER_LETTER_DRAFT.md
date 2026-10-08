@@ -10,12 +10,7 @@ The contribution is therefore not a new detector architecture. It is a reproduci
 
 The manuscript reports only the six fully completed YOLO11m runs; incomplete experiments from an earlier architecture-comparison plan are transparently excluded from all quantitative claims. No held-out test data were used for fine-tuning, checkpoint reselection, or threshold optimization.
 
-This is a single-author manuscript. I am the sole and corresponding author, and my contact email is azzaltayyar@gmail.com.
-
-[AUTHOR CONFIRMATION STILL REQUIRED BEFORE SUBMISSION]
-- Confirm that the manuscript is not under consideration elsewhere.
-- Confirm funding statement.
-- Confirm competing-interests statement.
+This is a single-author manuscript. I am the sole and corresponding author, and my contact email is azzaltayyar@gmail.com. This research received no external funding, I declare no competing interests, and the manuscript is not under consideration by another journal.
 
 Thank you for your consideration.
 
