@@ -8,7 +8,7 @@ This manifest resolves the manuscript/package numbering mismatch identified duri
 | Figure 2 | Fig2_semantic_harmonization | Nine-class source-to-canonical semantic harmonization and excluded source classes |
 | Figure 3 | Fig3_cross_domain_map5095 | In-domain versus cross-domain mAP50:95, mean ± SD across three seeds |
 | Figure 4 | Fig4_seed_level_domain_gaps | Seed-level mAP50:95 domain-generalization gaps |
-| Figure 5 | Fig5_safety_violation_recall | Safety-class recall at the frozen operating point |
+| Figure 5 | Fig5_ppe_negative_state_recall | PPE-negative-state recall at the frozen operating point |
 | Figure 6 | Fig6_consensus_false_negative_rate | Three-seed consensus false-negative rate for negative-state classes |
 
 ## Captions
@@ -21,6 +21,6 @@ This manifest resolves the manuscript/package numbering mismatch identified duri
 
 **Figure 4.** Seed-level mAP50:95 domain-generalization gaps, defined as in-domain minus cross-domain performance for the same source-domain seed.
 
-**Figure 5.** Mean recall for no_helmet, no_gloves, and no_boots at the frozen confidence threshold. The Construction-PPE-trained in-domain row is intentionally shown to distinguish class learnability failure from additional transfer degradation.
+**Figure 5.** Mean recall for the dataset-defined PPE-negative-state classes no_helmet, no_gloves, and no_boots at the frozen confidence threshold. The Construction-PPE-trained in-domain row is intentionally shown to distinguish class learnability failure from additional transfer degradation.
 
-**Figure 6.** Cross-domain consensus false-negative rates for explicit PPE-negative classes. Consensus means the ground-truth object was missed by all three seed realizations of the same architecture/protocol; it indicates persistence under training stochasticity, not independent replication.
+**Figure 6.** Cross-domain consensus false-negative rates for explicit PPE-negative-state classes. Consensus means the ground-truth object was missed by all three seed realizations of the same architecture/protocol; it indicates persistence under training stochasticity, not independent replication.
