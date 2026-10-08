@@ -50,7 +50,7 @@ def fig1_domain_map(group,out):
     ax.set_title("Cross-domain degradation across three seeds")
     ax.legend(frameon=False)
     ax.grid(axis="y",alpha=0.25)
-    save(fig,out/"Fig1_cross_domain_map5095.png")
+    save(fig,out/"Fig3_cross_domain_map5095.png")
 
 
 def fig2_seed_gaps(gaps,out):
@@ -63,7 +63,7 @@ def fig2_seed_gaps(gaps,out):
     ax.set_title("Seed-level domain-generalization gaps")
     ax.grid(axis="y",alpha=0.25)
     ax.legend(frameon=False)
-    save(fig,out/"Fig2_seed_level_domain_gaps.png")
+    save(fig,out/"Fig4_seed_level_domain_gaps.png")
 
 
 def fig3_safety_recall(group,out):
@@ -88,7 +88,7 @@ def fig3_safety_recall(group,out):
         for j in range(vals.shape[1]):
             ax.text(j,i,f"{vals[i,j]:.3f}",ha="center",va="center")
     fig.colorbar(im,ax=ax,label="Recall")
-    save(fig,out/"Fig3_safety_violation_recall.png")
+    save(fig,out/"Fig5_safety_violation_recall.png")
 
 
 def fig4_consensus(summary,out):
@@ -105,7 +105,7 @@ def fig4_consensus(summary,out):
     ax.set_title("Safety violations missed by all three source-domain seeds")
     ax.legend(frameon=False)
     ax.grid(axis="y",alpha=0.25)
-    save(fig,out/"Fig4_consensus_false_negative_rate.png")
+    save(fig,out/"Fig6_consensus_false_negative_rate.png")
 
 
 def main():
