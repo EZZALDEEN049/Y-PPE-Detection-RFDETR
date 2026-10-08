@@ -1,5 +1,5 @@
-Cross-domain PPE accuracy fell sharply in both transfer directions.
-Safety-violation misses were consistent across three independent seeds.
-No-boots violations had a 100% consensus miss rate after domain transfer.
-In-domain detection accuracy overstated cross-domain safety reliability.
-Frozen external-domain testing exposed deployment-critical failure modes.
+Cross-domain mAP50:95 fell sharply in both transfer directions.
+The domain gap persisted after train–test dependence sensitivity analysis.
+Y-PPE-trained safety-class recall deteriorated markedly after zero-shot transfer.
+Construction-PPE-trained violation classes were already near floor in-domain.
+Aggregate detection metrics can conceal distinct deployment-critical failure modes.
