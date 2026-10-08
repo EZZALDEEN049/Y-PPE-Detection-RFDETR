@@ -1,0 +1,52 @@
+{
+  "audit_version": "stage11_high_confidence_orb_ransac_v1",
+  "criterion": {
+    "orb_ransac_inliers_min": 100,
+    "inlier_ratio_min": 0.50,
+    "source_spatial_coverage_min": 0.05
+  },
+  "note": "Post-hoc image-similarity sensitivity rule. No model prediction or test metric used.",
+  "Construction-PPE-h9-v2": {
+    "original_test_n": 138,
+    "excluded_test_images": [
+      "image1003.jpg",
+      "image1009.jpg",
+      "image1019.jpg",
+      "image1023.jpg",
+      "image1074.jpg",
+      "image1076.jpg",
+      "image1088.jpg",
+      "image1089.jpg",
+      "image1111.jpg",
+      "image1114.jpg",
+      "image160.jpg",
+      "image40.jpg",
+      "image460.jpg",
+      "image63.jpg",
+      "image696.jpg",
+      "image708.jpg",
+      "image860.jpg",
+      "image913.jpg",
+      "image934.jpg",
+      "image935.jpg",
+      "image943.jpg",
+      "image956.jpg",
+      "image965.jpg",
+      "image98.jpg",
+      "image987.jpg"
+    ],
+    "leakage_safe_test_n": 113
+  },
+  "Y-PPE-h9-v2": {
+    "original_test_n": 186,
+    "excluded_test_images": [
+      "-10-_png_jpg.rf.c9bd68a975b7ef74c721237bc4e9e42b.jpg",
+      "-12-_png_jpg.rf.cf396c9678a9201d3db1ec3eccdf2232.jpg",
+      "-16-_png_jpg.rf.612bc01ead301221cc2906cfa209a632.jpg",
+      "-_-_jpg.rf.98a72390b5552192078c2928cef4fa65.jpg",
+      "14_jpg.rf.53fe6297c97c1b14a428520bc1f18b3d.jpg",
+      "527971533_122195189948320679_8719559365958577990_n_jpg.rf.e851697451e00294ab1afefc136c365d.jpg"
+    ],
+    "leakage_safe_test_n": 180
+  }
+}
