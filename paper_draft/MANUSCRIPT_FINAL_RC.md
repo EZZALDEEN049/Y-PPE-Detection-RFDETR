@@ -1,5 +1,9 @@
 # Cross-Domain Reliability of YOLO11m for Safety-Critical PPE Monitoring: A Multi-Seed Bidirectional Evaluation
 
+**Author:** Ezzaldeen Nabil Ghaleb Obadi Al-Tayar  
+**Affiliation:** Faculty of Engineering and Information Technology, Taiz University, Yemen  
+**Corresponding author:** azzaltayyar@gmail.com
+
 ## Abstract
 
 Computer-vision systems for personal protective equipment (PPE) monitoring are commonly evaluated within the same dataset used for model development, although real deployment requires reliability across sites, cameras, and visual domains. This study evaluates the cross-domain reliability of YOLO11m for safety-critical PPE monitoring using two harmonized nine-class construction datasets, Y-PPE-h9-v2 and Construction-PPE-h9-v2. Six completed models were analyzed: three independent random seeds per source domain (17, 42, and 2026). Each final-epoch checkpoint was evaluated on both the in-domain and alternate held-out test set under a protocol frozen before held-out evaluation, producing 12 evaluation cells without further training, adaptation, checkpoint reselection, or threshold tuning. Y-PPE-trained models achieved an in-domain mAP50:95 of 0.291 ± 0.007, decreasing to 0.121 ± 0.003 on Construction-PPE, a 58.4% relative loss. Construction-PPE-trained models decreased from 0.252 ± 0.004 in-domain to 0.082 ± 0.005 on Y-PPE, a 67.4% relative loss. Safety-critical violation classes were substantially less reliable than aggregate metrics suggested. Consensus false-negative analysis across all three seeds showed cross-domain miss rates of 83.8–92.9% for no_helmet, 92.2–96.6% for no_gloves, and 100% for no_boots in both transfer directions. Dataset diagnostics identified differences in class support, imbalance, and object-scale distributions, but these factors did not fully explain the observed failure. The findings show that acceptable in-domain object-detection performance is insufficient evidence of deployment readiness for safety monitoring and support the use of external-domain testing, multi-seed evaluation, and false-negative-oriented safety metrics before real-world deployment.
@@ -287,7 +291,7 @@ The experimental code, frozen protocols, dataset fingerprints, evaluation script
 
 **Competing interests:** [AUTHOR CONFIRMATION REQUIRED: insert the exact competing-interests statement.]
 
-**Author contributions:** [AUTHOR CONFIRMATION REQUIRED: insert the final author list and CRediT roles.]
+**Author contributions:** Ezzaldeen Nabil Ghaleb Obadi Al-Tayar: Conceptualization; Methodology; Software; Validation; Formal analysis; Investigation; Data curation; Writing - original draft; Writing - review and editing; Visualization; Project administration.
 
 **Ethics and image governance:** The Y-PPE corpus used secondary images originally captured during routine field monitoring in Yemeni development projects. The source study documents that acquisition occurred in the researcher's professional safety-monitoring context, that geographic and personal metadata were removed before analysis, and that the AI workflow was framed as a safety-management and decision-support tool rather than punitive surveillance. The source documentation reports alignment with Taiz University guidelines for responsible research. No formal ethics approval identifier is stated in the available source materials; one should not be added unless it exists.
 
