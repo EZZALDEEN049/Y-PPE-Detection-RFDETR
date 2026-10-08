@@ -83,12 +83,12 @@ def fig3_safety_recall(group,out):
     im=ax.imshow(vals,aspect="auto",vmin=0,vmax=max(0.4,float(vals.max())))
     ax.set_yticks(range(len(rows)),[r[0] for r in rows])
     ax.set_xticks(range(len(classes)),["no_helmet","no_gloves","no_boots"])
-    ax.set_title("Safety-violation recall at the frozen operating point")
+    ax.set_title("PPE-negative-state recall at the frozen operating point")
     for i in range(vals.shape[0]):
         for j in range(vals.shape[1]):
             ax.text(j,i,f"{vals[i,j]:.3f}",ha="center",va="center")
     fig.colorbar(im,ax=ax,label="Recall")
-    save(fig,out/"Fig5_safety_violation_recall.png")
+    save(fig,out/"Fig5_ppe_negative_state_recall.png")
 
 
 def fig4_consensus(summary,out):
@@ -102,7 +102,7 @@ def fig4_consensus(summary,out):
     ax.set_xticks(x,classes)
     ax.set_ylim(0,1.08)
     ax.set_ylabel("Consensus false-negative rate")
-    ax.set_title("Safety violations missed by all three source-domain seeds")
+    ax.set_title("Persistence of PPE-negative-state false negatives across seeds")
     ax.legend(frameon=False)
     ax.grid(axis="y",alpha=0.25)
     save(fig,out/"Fig6_consensus_false_negative_rate.png")
