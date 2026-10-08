@@ -17,13 +17,14 @@
 - [x] Stage 11E image-cluster bootstrap CIs for cross-domain safety outcomes
 - [x] Stage 11F expanded literature and novelty reframing
 - [x] Stage 11G submission-language and data-governance cleanup
+- [x] Stage 11H verified literature expansion to 29 references
 - [ ] Stage 11D best.pt checkpoint sensitivity — protocol/notebook frozen; GPU execution pending
 - [ ] Stage 11E2 image-level bootstrap CI for mAP50:95/domain gap — protocol/notebook frozen; GPU execution pending
 - [x] Publication tables
 - [x] Final figure numbering/caption manifest aligned (Figures 1–6)
 
 ## Editorial files prepared
-- [x] Current manuscript candidate: MANUSCRIPT_STAGE11G.md
+- [x] Current manuscript candidate: MANUSCRIPT_STAGE11H.md
 - [x] Revised highlights
 - [x] Revised cover-letter draft
 - [x] Expanded supplementary methods
