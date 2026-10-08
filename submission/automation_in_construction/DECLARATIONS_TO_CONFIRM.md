@@ -7,14 +7,10 @@
 # Author-controlled declarations still requiring confirmation
 
 ## Funding
-Choose the statement that is factually correct:
-- “This research received no external funding.”
-- OR insert the exact funder name, grant number, and role of the funder.
+**Confirmed:** This research received no external funding.
 
 ## Competing interests
-If factually correct:
-- “The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.”
-Otherwise disclose the actual conflict.
+**Confirmed:** The author declares that he has no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 
 ## Author contributions
 Single author confirmed. Proposed CRediT statement:
@@ -30,3 +26,7 @@ Do not add an IRB/ethics approval number unless one actually exists.
 
 ## Consent / redistribution
 Before submission, confirm whether a separate institutional permission, worker consent/waiver, or organizational authorization governs public redistribution of the primary field images. The current source materials document formal coordination with SFD and partner CSOs but do not provide a specific approval identifier.
+
+
+## Submission exclusivity
+**Confirmed:** The manuscript is not under consideration by another journal.
