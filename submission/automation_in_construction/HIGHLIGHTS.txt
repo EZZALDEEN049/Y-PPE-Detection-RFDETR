@@ -1,5 +1,5 @@
 Cross-domain mAP50:95 fell sharply in both transfer directions.
 The domain gap persisted after train–test dependence sensitivity analysis.
-Y-PPE-trained safety-class recall deteriorated markedly after zero-shot transfer.
-Construction-PPE-trained violation classes were already near floor in-domain.
+Y-PPE-trained PPE-negative-state recall deteriorated markedly after zero-shot transfer.
+Construction-PPE-trained PPE-negative-state classes were already near floor in-domain.
 Aggregate detection metrics can conceal distinct deployment-critical failure modes.
