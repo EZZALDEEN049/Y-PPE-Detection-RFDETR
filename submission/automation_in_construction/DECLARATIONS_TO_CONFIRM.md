@@ -1,3 +1,9 @@
+# Author and corresponding-author status
+
+**Confirmed sole author:** Ezzaldeen Nabil Ghaleb Obadi Al-Tayar  
+**Affiliation currently listed:** Faculty of Engineering and Information Technology, Taiz University, Yemen  
+**Corresponding email:** azzaltayyar@gmail.com
+
 # Author-controlled declarations still requiring confirmation
 
 ## Funding
@@ -11,20 +17,9 @@ If factually correct:
 Otherwise disclose the actual conflict.
 
 ## Author contributions
-The final CRediT statement cannot be completed until the final author list is confirmed.
-Suggested roles to allocate as applicable:
-- Conceptualization
-- Methodology
-- Software
-- Validation
-- Formal analysis
-- Investigation
-- Data curation
-- Writing - original draft
-- Writing - review and editing
-- Visualization
-- Supervision
-- Project administration
+Single author confirmed. Proposed CRediT statement:
+
+**Ezzaldeen Nabil Ghaleb Obadi Al-Tayar:** Conceptualization; Methodology; Software; Validation; Formal analysis; Investigation; Data curation; Writing - original draft; Writing - review and editing; Visualization; Project administration.
 
 ## Ethics / image-use statement supported by the thesis
 A source-supported draft is:
