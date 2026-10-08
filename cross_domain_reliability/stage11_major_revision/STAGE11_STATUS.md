@@ -8,6 +8,7 @@
 - Stage 11F: literature expansion, novelty reframing, and figure-numbering repair.
 - Stage 11G: data/code availability, image-governance wording, highlights, cover letter, and submission-positioning cleanup.
 - Stage 11H: verified literature deepening with construction-PPE, dataset-bias, domain-adaptation, and natural-shift references; reference list expanded to 29 sources.
+- Stage 11I: terminology aligned with the frozen ontology guardrail; no_helmet/no_gloves/no_boots are described as dataset-defined PPE-negative-state classes rather than automatically as normative safety violations.
 
 ## Pending inference-only checks
 1. Stage 11D: validation-selected best.pt checkpoint sensitivity.
@@ -20,6 +21,6 @@ Do **not** create the final immutable submission tag or final journal-upload pac
 
 ## Current manuscript
 Use:
-`paper_draft/MANUSCRIPT_STAGE11H.md`
+`paper_draft/MANUSCRIPT_STAGE11I.md`
 
 until the two pending inference-only checks are complete.
