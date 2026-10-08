@@ -18,13 +18,14 @@
 - [x] Stage 11F expanded literature and novelty reframing
 - [x] Stage 11G submission-language and data-governance cleanup
 - [x] Stage 11H verified literature expansion to 29 references
+- [x] Stage 11I ontology-consistent PPE-negative-state terminology across manuscript, highlights, cover letter, supplementary methods, and figure captions
 - [ ] Stage 11D best.pt checkpoint sensitivity — protocol/notebook frozen; GPU execution pending
 - [ ] Stage 11E2 image-level bootstrap CI for mAP50:95/domain gap — protocol/notebook frozen; GPU execution pending
 - [x] Publication tables
 - [x] Final figure numbering/caption manifest aligned (Figures 1–6)
 
 ## Editorial files prepared
-- [x] Current manuscript candidate: MANUSCRIPT_STAGE11H.md
+- [x] Current manuscript candidate: MANUSCRIPT_STAGE11I.md
 - [x] Revised highlights
 - [x] Revised cover-letter draft
 - [x] Expanded supplementary methods
