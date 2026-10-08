@@ -25,11 +25,11 @@
 - [x] Reproducibility manifest
 
 ## Must be author-confirmed before upload
-- [ ] Final author order and affiliations
-- [ ] Corresponding-author email
+- [x] Sole author confirmed: Ezzaldeen Nabil Ghaleb Obadi Al-Tayar; affiliation listed as Faculty of Engineering and Information Technology, Taiz University, Yemen
+- [x] Corresponding-author email confirmed: azzaltayyar@gmail.com
 - [ ] Funding statement
 - [ ] Competing-interests statement
-- [ ] CRediT author contributions
+- [x] Single-author CRediT contribution statement drafted
 - [ ] Exact consent/permission wording for public Y-PPE field images
 - [ ] Statement that the manuscript is not under consideration elsewhere
 
