@@ -287,9 +287,9 @@ The experimental code, frozen protocols, dataset fingerprints, evaluation script
 
 ## Declarations
 
-**Funding:** [AUTHOR CONFIRMATION REQUIRED: insert the exact funding statement. If no external funding was received, state this explicitly.]
+**Funding:** This research received no external funding.
 
-**Competing interests:** [AUTHOR CONFIRMATION REQUIRED: insert the exact competing-interests statement.]
+**Competing interests:** The author declares that he has no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 
 **Author contributions:** Ezzaldeen Nabil Ghaleb Obadi Al-Tayar: Conceptualization; Methodology; Software; Validation; Formal analysis; Investigation; Data curation; Writing - original draft; Writing - review and editing; Visualization; Project administration.
 
