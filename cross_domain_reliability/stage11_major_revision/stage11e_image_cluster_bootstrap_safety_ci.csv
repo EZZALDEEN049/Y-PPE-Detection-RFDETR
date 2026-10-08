@@ -1,0 +1,13 @@
+direction,class,metric,point_estimate,ci95_low,ci95_high,n_gt_objects,n_images_with_class,bootstrap_unit,bootstrap_reps,bootstrap_seed
+Y_to_C,no_helmet,consensus_fn_rate,0.8378378378378378,0.6944444444444444,0.9473684210526315,37,23,image,10000,20261009
+Y_to_C,no_helmet,mean_recall_across_3_seeds,0.11711711711711713,0.03622698785742264,0.22549019607843138,37,23,image,10000,20261009
+Y_to_C,no_gloves,consensus_fn_rate,0.9215686274509803,0.8478260869565217,0.9804015837104071,51,22,image,10000,20261009
+Y_to_C,no_gloves,mean_recall_across_3_seeds,0.0392156862745098,0.006535947712418301,0.08527131782945736,51,22,image,10000,20261009
+Y_to_C,no_boots,consensus_fn_rate,1,1,1,15,5,image,10000,20261009
+Y_to_C,no_boots,mean_recall_across_3_seeds,0,0,0,15,5,image,10000,20261009
+C_to_Y,no_helmet,consensus_fn_rate,0.9285714285714286,0.75,1,14,12,image,10000,20261009
+C_to_Y,no_helmet,mean_recall_across_3_seeds,0.023809523809523808,0,0.08333333333333333,14,12,image,10000,20261009
+C_to_Y,no_gloves,consensus_fn_rate,0.9659090909090909,0.9247311827956989,1,88,45,image,10000,20261009
+C_to_Y,no_gloves,mean_recall_across_3_seeds,0.015151515151515152,0,0.034364261168384876,88,45,image,10000,20261009
+C_to_Y,no_boots,consensus_fn_rate,1,1,1,30,15,image,10000,20261009
+C_to_Y,no_boots,mean_recall_across_3_seeds,0,0,0,30,15,image,10000,20261009
