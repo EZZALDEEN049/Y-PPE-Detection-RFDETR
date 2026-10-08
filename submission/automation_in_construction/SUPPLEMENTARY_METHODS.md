@@ -235,7 +235,7 @@ Each ground-truth object can therefore be matched at most once. Precision, recal
 
 ## S5. Consensus false-negative algorithm
 
-The qualitative safety audit reused the exact frozen operating point:
+The qualitative PPE-negative-state audit reused the exact frozen operating point:
 - confidence = 0.25;
 - NMS IoU = 0.70;
 - class-match IoU = 0.50;
@@ -280,7 +280,7 @@ Qualitative examples were selected deterministically by SHA-256 ordering of `ima
 
 The post-evaluation dataset diagnostic audit quantified:
 - class frequencies and imbalance;
-- safety-class support;
+- PPE-negative-state class support;
 - normalized bounding-box area;
 - study-specific size strata;
 - stored resolution/aspect ratio.
@@ -298,9 +298,9 @@ Two sensitivity subsets were frozen before re-evaluation:
 
 No retraining, threshold change, or checkpoint reselection was performed. Substantial aggregate cross-domain mAP50:95 gaps persisted under both scenarios.
 
-## S8. Image-cluster bootstrap for safety outcomes
+## S8. Image-cluster bootstrap for PPE-negative-state outcomes
 
-To avoid treating multiple objects from one image as independent observations, test images were the resampling unit. Within each transfer direction and safety class, images were sampled with replacement for 10,000 percentile-bootstrap replicates using deterministic seed 20261009. All objects belonging to a sampled image inherited the same sampling multiplicity.
+To avoid treating multiple objects from one image as independent observations, test images were the resampling unit. Within each transfer direction and PPE-negative-state class, images were sampled with replacement for 10,000 percentile-bootstrap replicates using deterministic seed 20261009. All objects belonging to a sampled image inherited the same sampling multiplicity.
 
 Intervals were calculated for:
 - class recall averaged over the three trained seed realizations;
