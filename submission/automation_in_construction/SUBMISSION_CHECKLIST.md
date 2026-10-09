@@ -19,13 +19,13 @@
 - [x] Stage 11G submission-language and data-governance cleanup
 - [x] Stage 11H verified literature expansion to 29 references
 - [x] Stage 11I ontology-consistent PPE-negative-state terminology across manuscript, highlights, cover letter, supplementary methods, and figure captions
-- [ ] Stage 11D best.pt checkpoint sensitivity — protocol/notebook frozen; GPU execution pending
-- [ ] Stage 11E2 image-level bootstrap CI for mAP50:95/domain gap — protocol/notebook frozen; GPU execution pending
+- [x] Stage 11D best.pt checkpoint sensitivity — completed across 12 held-out cells; no training/tuning
+- [ ] Stage 11E2 image-level bootstrap CI for mAP50:95/domain gap — optional pre-journal enhancement; not included in committee final
 - [x] Publication tables
 - [x] Final figure numbering/caption manifest aligned (Figures 1–6)
 
 ## Editorial files prepared
-- [x] Current manuscript candidate: MANUSCRIPT_STAGE11I.md
+- [x] Current manuscript candidate: MANUSCRIPT_STAGE12_Q1_COMMITTEE_FINAL.md
 - [x] Revised highlights
 - [x] Revised cover-letter draft
 - [x] Expanded supplementary methods
@@ -49,11 +49,12 @@
 - [x] Dataset SHA-256 fingerprints recorded
 - [x] Evaluation and analysis code retained
 - [x] Stage 11 revision branch retained
-- [ ] Execute Stage 11D and Stage 11E2
-- [ ] Integrate their results into final manuscript
+- [x] Execute Stage 11D
+- [ ] Execute Stage 11E2 only if required before journal upload
+- [x] Integrate Stage 11D results into committee-final manuscript
 - [ ] Create immutable final GitHub tag/release after those results
 - [ ] Add exact final commit/tag to Data and Code Availability
 - [ ] Optional: create Zenodo/OSF archival DOI if available
 
 ## Submission gate
-**HOLD** until Stage 11D and Stage 11E2 are complete and incorporated. No new training is required.
+**COMMITTEE REVIEW READY.** Journal-upload freeze remains conditional only on the committee decision about the optional Stage 11E2 image-level mAP bootstrap. No new training is required.
