@@ -100,7 +100,7 @@ Only completed YOLO11m runs were eligible. The six runs were:
 - C_YOLO_s42;
 - C_YOLO_s2026.
 
-All six runs followed the frozen Stage 5 YOLO11m protocol. Models were initialized from `yolo11m.pt` and trained for exactly 100 epochs at 640 × 640 resolution. The random seeds were 17, 42, and 2026 for each source domain. Physical batch size was 8, worker count was 2, CUDA automatic mixed precision was enabled, online stochastic augmentation was disabled for the primary controlled comparison, and early stopping was disabled. Training was executed on an NVIDIA Tesla T4 under Python 3.13.15, PyTorch 2.11.0+cu128, CUDA runtime 12.8, and Ultralytics 8.4.156.
+All six runs followed the frozen YOLO11m training protocol. Models were initialized from `yolo11m.pt` and trained for exactly 100 epochs at 640 × 640 resolution. The random seeds were 17, 42, and 2026 for each source domain. Physical batch size was 8, worker count was 2, CUDA automatic mixed precision was enabled, online stochastic augmentation was disabled for the primary controlled comparison, and early stopping was disabled. Training was executed on an NVIDIA Tesla T4 under Python 3.13.15, PyTorch 2.11.0+cu128, CUDA runtime 12.8, and Ultralytics 8.4.156.
 
 The frozen optimizer policy used Ultralytics `optimizer=auto` and recorded the resolved framework-native recipe in the training logs. Representative logs from both source domains resolved to AdamW with learning rate 0.000769, momentum 0.9, and weight decay 0.0005 for decayed weight groups.
 
@@ -110,7 +110,7 @@ These settings belong to the current nine-class cross-domain experiment and shou
 
 ### 2.4 Frozen held-out evaluation protocol
 
-The held-out protocol was frozen before any Stage 6 test evaluation. Evaluation used:
+The held-out protocol was frozen before any primary test evaluation. Evaluation used:
 
 - input resolution: 640;
 - no test-time augmentation;
@@ -171,7 +171,7 @@ For descriptive scale analysis, normalized box area was grouped into study-speci
 
 A qualitative failure audit was then performed at the same frozen fixed operating point. A consensus false negative was defined as a ground-truth PPE-negative-state object missed by all three independently trained source-domain seeds in the same transfer direction.
 
-To reduce cherry-picking risk, examples were selected deterministically rather than visually. The audit retained the same confidence, IoU, image resolution, and final-epoch checkpoint policy used in Stage 6. The audit was a post-evaluation diagnostic only. It was not used for model selection, checkpoint selection, threshold tuning, or quantitative re-estimation and therefore did not alter any Stage 6 result.
+To reduce cherry-picking risk, examples were selected deterministically rather than visually. The audit retained the same confidence, IoU, image resolution, and final-epoch checkpoint policy used in the primary held-out evaluation. The audit was a post-evaluation diagnostic only. It was not used for model selection, checkpoint selection, threshold tuning, or quantitative re-estimation and therefore did not alter any Stage 6 result.
 
 ### 2.9 Statistical position
 
@@ -304,7 +304,7 @@ Thus, scene dependence affected the magnitude of some in-domain estimates, parti
 
 ### 3.7 Validation-selected checkpoint sensitivity
 
-A separate prespecified sensitivity analysis evaluated the validation-selected `best.pt` checkpoint from each of the six completed Stage 5 runs under the unchanged Stage 6 held-out evaluation settings. No retraining, target-domain adaptation, threshold tuning, or test-informed checkpoint selection was performed.
+A separate prespecified sensitivity analysis evaluated the validation-selected `best.pt` checkpoint from each of the six completed training runs under the unchanged held-out evaluation settings. No retraining, target-domain adaptation, threshold tuning, or test-informed checkpoint selection was performed.
 
 For Y-PPE-trained models, mean in-domain mAP50:95 increased from 0.291 ± 0.007 with `last.pt` to 0.312 ± 0.006 with `best.pt`, while cross-domain Construction-PPE performance changed only from 0.121 ± 0.003 to 0.122 ± 0.002. The resulting `best.pt` domain gap was 0.191, corresponding to an approximately 61.0% relative reduction from in-domain performance. The seed-level `best.pt` gaps were 0.187, 0.197, and 0.188 for seeds 17, 42, and 2026, respectively.
 
@@ -323,7 +323,7 @@ The class-level safety interpretation was more checkpoint-sensitive than the agg
 
 ## 4. Discussion
 
-The results demonstrate a substantial distinction between in-domain PPE detection performance and cross-domain reliability under the evaluated training protocol. In the original held-out analysis, transfer to the alternate domain produced an approximately 0.17 absolute loss in mAP50:95 in both directions, and the sign of the gap was consistent across all three seed realizations. Two independent robustness checks strengthened this aggregate conclusion. First, the Stage 11A split-dependence sensitivity analysis preserved substantial gaps after removing confirmed near-duplicate derivatives and after conservative exclusion of high-confidence train-related test scenes. Second, validation-selected `best.pt` checkpoints also retained large gaps—0.191 for Y-PPE-trained models and 0.170 for Construction-PPE-trained models. The aggregate reliability result is therefore not specific to the final-epoch checkpoint policy or to the identified train–test dependence cases.
+The results demonstrate a substantial distinction between in-domain PPE detection performance and cross-domain reliability under the evaluated training protocol. In the original held-out analysis, transfer to the alternate domain produced an approximately 0.17 absolute loss in mAP50:95 in both directions, and the sign of the gap was consistent across all three seed realizations. Two independent robustness checks strengthened this aggregate conclusion. First, the split-dependence sensitivity analysis preserved substantial gaps after removing confirmed near-duplicate derivatives and after conservative exclusion of high-confidence train-related test scenes. Second, validation-selected `best.pt` checkpoints also retained large gaps—0.191 for Y-PPE-trained models and 0.170 for Construction-PPE-trained models. The aggregate reliability result is therefore not specific to the final-epoch checkpoint policy or to the identified train–test dependence cases.
 
 The class-level PPE-negative-state results are more nuanced than the aggregate mAP result. Under the primary final-epoch policy, Y-PPE-trained models had non-trivial in-domain recall for all three negative-state classes and then lost 0.193–0.367 recall after transfer, providing clear evidence of safety-relevant transfer degradation. Construction-PPE-trained final-epoch models were near floor in-domain, so the primary reverse-direction results alone could not cleanly separate poor class learnability from domain shift. The `best.pt` sensitivity analysis changed that interpretation for no_helmet and no_gloves: in-domain recall increased to 0.198 and 0.092, but cross-domain recall on Y-PPE remained 0.000 and 0.011. Thus, some reverse-direction class failure is checkpoint-policy sensitive and includes additional transfer loss when a stronger validation-selected checkpoint is used. In contrast, no_boots remained 0.000 in-domain and cross-domain under both checkpoint policies, indicating a persistent class-learnability failure for that category. The central safety lesson is therefore that aggregate metrics can conceal multiple failure modes, and class-level causal interpretation should not be generalized from a single checkpoint policy.
 
@@ -370,7 +370,7 @@ Class-level PPE-negative-state behavior was less uniform. Y-PPE-trained models s
 
 ## Data and Code Availability
 
-The experimental code, frozen protocols, dataset fingerprints, evaluation scripts, and analysis workflow are available in the public GitHub repository **EZZALDEEN049/Y-PPE-Detection-RFDETR** (https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR), with the Stage 11 revision maintained on the `stage11-major-revision` branch. The frozen Y-PPE-h9-v2 and Construction-PPE-h9-v2 manifest fingerprints are reported in Methods, and the Stage 4.5 exclusion manifests and reproducibility records are retained in the repository/workflow artifacts. The analysis code used for the final sensitivity runs is pinned to immutable Git commit `10e7b7e116288869647c61287d0c88056bf0a972`. The submitted manuscript and associated reproducibility files are preserved on the `submission-final-2026-10-09` branch. Source-image access remains subject to the licensing and governance terms of the originating datasets.
+The experimental code, frozen protocols, dataset fingerprints, evaluation scripts, and analysis workflow are available in the public GitHub repository **EZZALDEEN049/Y-PPE-Detection-RFDETR** (https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR), with the journal-facing package preserved on the `submission-final-2026-10-09` branch. The frozen Y-PPE-h9-v2 and Construction-PPE-h9-v2 manifest fingerprints are reported in Methods, and the harmonization/filtering exclusion manifests and reproducibility records are retained in the repository/workflow artifacts. The analysis code used for the final sensitivity runs is pinned to immutable Git commit `10e7b7e116288869647c61287d0c88056bf0a972`. The submitted manuscript and associated reproducibility files are preserved on the `submission-final-2026-10-09` branch. Source-image access remains subject to the licensing and governance terms of the originating datasets.
 
 ## Declarations
 
