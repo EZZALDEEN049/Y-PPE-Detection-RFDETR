@@ -310,7 +310,24 @@ These intervals quantify sampling uncertainty over the evaluated test images con
 
 A separate Stage 11E2 inference-only analysis is reserved for image-level bootstrap uncertainty of mAP50:95 and the mAP domain gap, because the original Stage 6 summary did not retain sufficient ranked per-image prediction statistics to reconstruct AP exactly.
 
-## S9. Reproducibility anchors
+## S9. Validation-selected checkpoint sensitivity
+
+A prespecified sensitivity analysis evaluated the validation-selected `best.pt` checkpoint from each completed run under the exact Stage 6 evaluation settings. The analysis comprised 12 held-out evaluation cells and performed no training, target-domain adaptation, threshold tuning, or test-informed checkpoint selection.
+
+| Training domain | Test domain | mAP50:95 mean ± SD | Recall mean ± SD | F1 mean ± SD | no_helmet recall | no_gloves recall | no_boots recall |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Y-PPE | Y-PPE | 0.312 ± 0.006 | 0.596 ± 0.030 | 0.682 ± 0.010 | 0.262 ± 0.149 | 0.458 ± 0.046 | 0.433 ± 0.067 |
+| Y-PPE | Construction-PPE | 0.122 ± 0.002 | 0.419 ± 0.018 | 0.507 ± 0.010 | 0.117 ± 0.041 | 0.046 ± 0.011 | 0.000 ± 0.000 |
+| Construction-PPE | Construction-PPE | 0.269 ± 0.002 | 0.694 ± 0.021 | 0.708 ± 0.010 | 0.198 ± 0.113 | 0.092 ± 0.060 | 0.000 ± 0.000 |
+| Construction-PPE | Y-PPE | 0.099 ± 0.005 | 0.344 ± 0.013 | 0.384 ± 0.014 | 0.000 ± 0.000 | 0.011 ± 0.000 | 0.000 ± 0.000 |
+
+The resulting mean mAP50:95 domain gaps were:
+- Y-PPE-trained: 0.191, approximately 61.0% relative;
+- Construction-PPE-trained: 0.170, approximately 63.3% relative.
+
+All six seed-level `best.pt` gaps remained positive. The sensitivity analysis therefore supports checkpoint robustness of the aggregate cross-domain degradation. Class-level negative-state behavior was more checkpoint-sensitive, especially for Construction-PPE no_helmet and no_gloves.
+
+## S10. Reproducibility anchors
 
 Final Stage 4.5 data identities:
 - Y-PPE-h9-v2: `82c08766d5c5e50e93d41d21c4751fd686a3932ea6a8cb24ffd2838d9e30fba8`
