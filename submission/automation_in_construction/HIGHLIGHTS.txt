@@ -1,5 +1,5 @@
-Cross-domain mAP50:95 fell sharply in both transfer directions.
-The aggregate gap persisted after split-dependence sensitivity analysis.
-Validation-selected best.pt checkpoints retained 61–63% relative mAP50:95 losses.
-Y-PPE-trained PPE-negative-state degradation remained strong across checkpoint policies.
-Class-level failure mechanisms were more checkpoint-sensitive than aggregate performance.
+Cross-domain accuracy fell sharply in both transfer directions.
+Split-dependence checks preserved large performance gaps.
+Selected checkpoints retained 61–63% relative performance losses.
+Safety-related class recall degraded strongly across domains.
+Class-level failure mechanisms were more checkpoint-sensitive than overall accuracy.
