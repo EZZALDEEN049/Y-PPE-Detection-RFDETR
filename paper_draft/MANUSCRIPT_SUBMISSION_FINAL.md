@@ -14,7 +14,7 @@ Computer-vision systems for personal protective equipment (PPE) monitoring are c
 
 Automated PPE monitoring is increasingly studied as a means of supporting occupational-safety supervision in construction environments. However, a model that performs well on a held-out subset drawn from the same dataset may still rely on dataset-specific visual regularities that do not transfer to a different construction site or data source.
 
-The deployment problem is therefore not only whether a detector achieves high in-domain accuracy, but whether safety-critical decisions remain reliable under domain shift. This distinction is especially important for non-compliance classes such as workers without helmets, gloves, or protective boots, where false negatives directly undermine the purpose of automated monitoring.
+The deployment problem is therefore not only whether a detector achieves high in-domain accuracy, but whether safety-critical decisions remain reliable under domain shift. This distinction is especially important for dataset-defined PPE-negative-state classes such as no_helmet, no_gloves, and no_boots, because missed detections can undermine monitoring in contexts where the relevant PPE is required.
 
 This study focuses on cross-domain reliability rather than architecture competition. Two harmonized nine-class PPE datasets are used in a bidirectional design. YOLO11m is trained independently on each source domain using three random seeds and is then evaluated both in-domain and on the alternate held-out domain. The study additionally separates aggregate detection performance from safety-critical PPE-negative-state reliability and performs a deterministic consensus-failure audit across seeds.
 
@@ -381,6 +381,10 @@ The experimental code, frozen protocols, dataset fingerprints, evaluation script
 **Author contributions:** Ezzaldeen Nabil Ghaleb Obadi Al-Tayar: Conceptualization; Methodology; Software; Validation; Formal analysis; Investigation; Data curation; Writing - original draft; Writing - review and editing; Visualization; Project administration.
 
 **Ethics and image governance:** The Y-PPE corpus used secondary images originally captured during routine field monitoring in Yemeni development projects. The source study documents that acquisition occurred in the researcher's professional safety-monitoring context, that geographic and personal metadata were removed before analysis, and that the AI workflow was framed as a safety-management and decision-support tool rather than punitive surveillance. The source documentation reports alignment with Taiz University guidelines for responsible research. No formal ethics approval identifier is stated in the available source materials. The public Y-PPE project page declares CC BY 4.0; that platform declaration is reported here without inferring a separate third-party redistribution authorization that is not documented in the available study records.
+
+## Declaration of generative AI and AI-assisted technologies in the writing process
+
+During the preparation of this work, the author used ChatGPT (OpenAI) to support language refinement and manuscript organization. The author reviewed and edited the content as needed and takes full responsibility for the content of the article.
 
 ## References
 
