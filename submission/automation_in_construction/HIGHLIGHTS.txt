@@ -1,5 +1,5 @@
 Cross-domain mAP50:95 fell sharply in both transfer directions.
-The domain gap persisted after train–test dependence sensitivity analysis.
-Y-PPE-trained PPE-negative-state recall deteriorated markedly after zero-shot transfer.
-Construction-PPE-trained PPE-negative-state classes were already near floor in-domain.
-Aggregate detection metrics can conceal distinct deployment-critical failure modes.
+The aggregate gap persisted after split-dependence sensitivity analysis.
+Validation-selected best.pt checkpoints retained 61–63% relative mAP50:95 losses.
+Y-PPE-trained PPE-negative-state degradation remained strong across checkpoint policies.
+Class-level failure mechanisms were more checkpoint-sensitive than aggregate performance.
