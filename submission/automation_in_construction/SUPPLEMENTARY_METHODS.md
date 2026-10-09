@@ -196,7 +196,7 @@ augmentations: []
 
 The same configuration was used for Y-PPE-h9-v2 and Construction-PPE-h9-v2 except for the dataset path, run output path, and seed. Because `optimizer=auto`, Ultralytics resolved the optimizer internally. Representative completed-run logs from both domains resolved to AdamW with learning rate 0.000769, momentum 0.9, and weight decay 0.0005 for decayed groups. These resolved values are reported as observed framework output rather than as manually imposed hyperparameters.
 
-The primary checkpoint policy was the final epoch `last.pt`. Validation-selected `best.pt` checkpoints were retained but excluded from the primary analysis; they are reserved for the preregistered Stage 11D sensitivity analysis.
+The primary checkpoint policy was the final epoch `last.pt`. Validation-selected `best.pt` checkpoints were retained but excluded from the primary analysis and were subsequently evaluated in the prespecified Stage 11D checkpoint-sensitivity analysis.
 
 ## S4. Held-out evaluation and matching algorithm
 
@@ -308,7 +308,7 @@ Intervals were calculated for:
 
 These intervals quantify sampling uncertainty over the evaluated test images conditional on the already trained models. They are not site-level population intervals and do not incorporate architecture uncertainty.
 
-A separate Stage 11E2 inference-only analysis is reserved for image-level bootstrap uncertainty of mAP50:95 and the mAP domain gap, because the original Stage 6 summary did not retain sufficient ranked per-image prediction statistics to reconstruct AP exactly.
+Image-level bootstrap uncertainty for mAP50:95 is not reported because the original Stage 6 summary did not retain sufficient ranked per-image prediction statistics to reconstruct AP exactly. No object-level approximation was substituted.
 
 ## S9. Validation-selected checkpoint sensitivity
 
@@ -345,4 +345,4 @@ Stage 6 evaluator code SHA:
 The public project repository is:
 - `https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR`
 
-The final submission will pin the exact immutable commit/tag after the remaining inference-only Stage 11D and Stage 11E2 checks are completed.
+The final sensitivity-analysis code is pinned to immutable Git commit `10e7b7e116288869647c61287d0c88056bf0a972`, and the journal-facing manuscript package is preserved on the `submission-final-2026-10-09` branch.
