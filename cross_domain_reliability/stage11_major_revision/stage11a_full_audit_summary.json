@@ -1,0 +1,14 @@
+{
+  "status": "STAGE11A_FULL_AUDIT_COMPLETE",
+  "exact_byte_duplicates": {"Y-PPE-h9-v2": 0, "Construction-PPE-h9-v2": 0},
+  "hash_candidates": {"Y-PPE-h9-v2": 16, "Construction-PPE-h9-v2": 91},
+  "high_confidence_geometric_test_dependence": {
+    "Construction-PPE-h9-v2": {"unique_test_images": 25, "train_related_unique": 23, "val_related_unique": 7},
+    "Y-PPE-h9-v2": {"unique_test_images": 6, "train_related_unique": 6, "val_related_unique": 1}
+  },
+  "manual_evidence_classification": {
+    "Construction-PPE-h9-v2": {"related_scene": 25},
+    "Y-PPE-h9-v2": {"near_duplicate": 4, "related_scene": 2}
+  },
+  "interpretation": "No exact byte-level duplication was found. Y-PPE contains a small number of visually confirmed near-duplicate derivatives across train/test, while both datasets contain scene-level dependence candidates. Construction-PPE evidence is conservatively classified as related-scene rather than confirmed near-duplicate."
+}

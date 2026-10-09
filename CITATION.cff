@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated manuscript and this software release."
+title: "Cross-Domain Reliability of YOLO11m for Safety-Critical PPE Monitoring"
+type: software
+authors:
+  - family-names: "Al-Tayar"
+    given-names: "Ezzaldeen Nabil Ghaleb Obadi"
+repository-code: "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR"
+license: "NOASSERTION"
+version: "stage11-major-revision"
+date-released: "2026-10-09"
