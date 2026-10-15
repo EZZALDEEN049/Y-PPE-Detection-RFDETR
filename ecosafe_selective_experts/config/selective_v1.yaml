@@ -1,0 +1,64 @@
+study: ecosafe_selective_experts_v1
+detector_retraining: false
+primary_checkpoint: last.pt
+sensitivity_checkpoint: best.pt
+seeds: [17, 42, 2026]
+
+domains:
+  y:
+    run_prefix: Y_YOLO_s
+    dataset: Y-PPE-h9-v2
+  c:
+    run_prefix: C_YOLO_s
+    dataset: Construction-PPE-h9-v2
+
+classes:
+  - person
+  - helmet
+  - gloves
+  - vest
+  - boots
+  - goggles
+  - no_helmet
+  - no_gloves
+  - no_boots
+
+safety_class_ids: [6, 7, 8]
+
+inference:
+  imgsz: 640
+  conf: 0.001
+  iou: 0.70
+
+matching:
+  class_aware: true
+  iou_threshold: 0.50
+
+routing:
+  primary_features:
+    - n_detections
+    - max_confidence
+    - mean_confidence
+    - min_confidence
+    - p10_confidence
+    - safety_max_confidence
+    - safety_detection_count
+  target: second_expert_recovers_primary_safety_fn
+  baselines:
+    - never_escalate
+    - always_escalate
+    - random
+    - raw_confidence
+    - logistic
+
+evaluation:
+  router_selection_split: development_only
+  heldout_test_for_tuning: false
+  primary_safety_metric: violation_recall
+  report:
+    - escalation_rate
+    - violation_recall
+    - safety_false_negatives
+    - precision
+    - f1
+    - proxy_expert_executions_per_image
