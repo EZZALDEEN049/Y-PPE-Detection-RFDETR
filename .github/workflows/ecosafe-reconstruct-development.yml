@@ -1,0 +1,83 @@
+name: EcoSafe reconstruct development splits
+
+on:
+  push:
+    branches: [ecosafe-selective-experts]
+    paths:
+      - '.github/workflows/ecosafe-reconstruct-development.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install reconstruction dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install roboflow
+          pip install -r cross_domain_reliability/stage2_data_audit/requirements.txt
+
+      - name: Verify source secret
+        shell: bash
+        run: |
+          test -n "${ROBOFLOW_API_KEY}" || { echo "ROBOFLOW_API_KEY missing" >&2; exit 1; }
+
+      - name: Reconstruct exact frozen Stage 5 datasets
+        run: |
+          python cross_domain_reliability/stage5_in_domain_baselines/prepare_stage5_frozen_datasets.py             --out-root "${RUNNER_TEMP}/ecosafe_dev"
+
+      - name: Verify frozen fingerprints and split counts
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'ecosafe_dev'/'h9_v2'
+          expected={
+            'Y-PPE-h9-v2': ('82c08766d5c5e50e93d41d21c4751fd686a3932ea6a8cb24ffd2838d9e30fba8', {'train':1236,'val':356,'test':186}),
+            'Construction-PPE-h9-v2': ('59469299ba67355dbcb0e725851f73d244a7ad6e93522d44601be3c8323d3c14', {'train':1046,'val':132,'test':138}),
+          }
+          for name,(digest,counts) in expected.items():
+            p=root/name/'manifest.jsonl'
+            got=hashlib.sha256(p.read_bytes()).hexdigest()
+            assert got==digest,(name,got,digest)
+            rows=[json.loads(x) for x in p.read_text(encoding='utf-8').splitlines() if x.strip()]
+            obs={s:sum(r['split']==s for r in rows) for s in ('train','val','test')}
+            assert obs==counts,(name,obs,counts)
+            print(name,'PASS',obs,got)
+          PY
+
+      - name: Stage validation-only development package
+        shell: bash
+        run: |
+          mkdir -p "${RUNNER_TEMP}/ecosafe_validation"
+          for DS in Y-PPE-h9-v2 Construction-PPE-h9-v2; do
+            SRC="${RUNNER_TEMP}/ecosafe_dev/h9_v2/${DS}"
+            DST="${RUNNER_TEMP}/ecosafe_validation/${DS}"
+            mkdir -p "${DST}/images" "${DST}/labels"
+            cp "${SRC}/data.yaml" "${DST}/data.yaml"
+            cp "${SRC}/manifest.jsonl" "${DST}/manifest.jsonl"
+            cp -r "${SRC}/images/val" "${DST}/images/val"
+            cp -r "${SRC}/labels/val" "${DST}/labels/val"
+          done
+          cp "${RUNNER_TEMP}/ecosafe_dev/meta/stage5_dataset_materialization_summary.json"              "${RUNNER_TEMP}/ecosafe_validation/stage5_dataset_materialization_summary.json"
+
+      - name: Upload validation-only artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ecosafe-frozen-validation-splits
+          path: ${{ runner.temp }}/ecosafe_validation/**
+          if-no-files-found: error
+          retention-days: 14
