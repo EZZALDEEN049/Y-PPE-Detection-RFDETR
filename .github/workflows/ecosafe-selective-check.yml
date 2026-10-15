@@ -1,0 +1,25 @@
+name: EcoSafe selective checks
+
+on:
+  push:
+    branches: [ecosafe-selective-experts]
+    paths:
+      - 'ecosafe_selective_experts/**'
+      - '.github/workflows/ecosafe-selective-check.yml'
+  workflow_dispatch:
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile selective scripts
+        run: python -m compileall -q ecosafe_selective_experts/scripts
+      - name: Validate config readability
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('ecosafe_selective_experts/config/selective_v1.yaml')
+          assert p.exists() and p.stat().st_size > 0
+          print('CONFIG_PRESENT')
+          PY
