@@ -1,0 +1,23 @@
+name: Fetch Ultralytics wheel
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ecosafe-selective-experts]
+    paths:
+      - '.github/workflows/fetch-ultralytics-wheel.yml'
+
+jobs:
+  wheel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download exact Ultralytics wheel
+        run: |
+          mkdir wheelhouse
+          python -m pip download --no-deps --only-binary=:all: ultralytics==8.4.156 -d wheelhouse
+          sha256sum wheelhouse/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ultralytics-8.4.156-wheel
+          path: wheelhouse/
+          if-no-files-found: error
