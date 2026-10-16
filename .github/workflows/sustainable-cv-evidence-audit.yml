@@ -23,6 +23,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Install ontology parser for new paired-export tests
+        run: python -m pip install 'PyYAML==6.0.3'
       - name: Validate evidence and claim gates
         working-directory: sustainable_cv_evidence_audit
         run: |
