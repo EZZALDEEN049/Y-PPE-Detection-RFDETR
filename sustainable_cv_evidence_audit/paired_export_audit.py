@@ -50,48 +50,74 @@ def locate_split_image_dir(root: Path, split: str) -> Path:
     return candidates[0]
 
 
-def canonical_label(path: Path, nc: int) -> str:
-    if not path.exists():
-        raise ValueError("Missing label file for a test image.")
+class LabelSchemaError(ValueError):
+    """Coded schema error, no file path or private row content."""
+    def __init__(self, code: str):
+        self.code = code
+        super().__init__(code)
+
+
+def canonical_label(path: Path, nc: int) -> tuple[str, Counter]:
     if not path.is_file():
-        raise ValueError("Label path is not a file.")
+        raise LabelSchemaError("label_file_absent")
     rows = []
-    for line in path.read_text(encoding="utf-8").splitlines():
+    kinds = Counter()
+    try:
+        lines = path.read_text(encoding="utf-8").splitlines()
+    except UnicodeError as exc:
+        raise LabelSchemaError("label_encoding_unreadable") from exc
+    for line in lines:
         tokens = line.split()
         if not tokens:
             continue
-        if len(tokens) != 5:
-            raise ValueError("Non-five-column YOLO detection row found.")
         if not tokens[0].isdigit() or not 0 <= int(tokens[0]) < nc:
-            raise ValueError("Class ID out of range.")
+            raise LabelSchemaError("invalid_class_id")
+        if len(tokens) == 5:
+            kind = "bbox"
+        elif len(tokens) >= 7 and len(tokens) % 2 == 1:
+            kind = "polygon"
+        else:
+            raise LabelSchemaError("unsupported_yolo_row_format")
         try:
-            coords = [Decimal(s) for s in tokens[1:]]
+            coords = [Decimal(x) for x in tokens[1:]]
         except InvalidOperation as exc:
-            raise ValueError("Non-numeric box coordinate.") from exc
-        if not all(c.is_finite() and 0 <= c <= 1 for c in coords):
-            raise ValueError("Nonfinite or out-of-range box coordinate.")
+            raise LabelSchemaError("non_numeric_coordinate") from exc
+        if not all(x.is_finite() and 0 <= x <= 1 for x in coords):
+            raise LabelSchemaError("coordinate_out_of_range")
+        if kind == "polygon":
+            xs, ys = coords[::2], coords[1::2]
+            left, right, top, bottom = min(xs), max(xs), min(ys), max(ys)
+            coords = [(left + right) / 2, (top + bottom) / 2, right - left, bottom - top]
         if coords[2] <= 0 or coords[3] <= 0:
-            raise ValueError("Zero-size annotation box.")
-        if coords[0] - coords[2] / 2 < 0 or coords[0] + coords[2] / 2 > 1:
-            raise ValueError("Box extends horizontally beyond image.")
-        if coords[1] - coords[3] / 2 < 0 or coords[1] + coords[3] / 2 > 1:
-            raise ValueError("Box extends vertically beyond image.")
-        rows.append((int(tokens[0]), *(str(c.normalize()) for c in coords)))
+            raise LabelSchemaError("degenerate_box")
+        if (coords[0] - coords[2] / 2 < 0 or coords[0] + coords[2] / 2 > 1 or
+            coords[1] - coords[3] / 2 < 0 or coords[1] + coords[3] / 2 > 1):
+            raise LabelSchemaError("box_outside_unit_image")
+        kinds[kind] += 1
+        rows.append((int(tokens[0]), *(str(x.normalize()) for x in coords)))
     rows.sort()
-    return hashlib.sha256(json.dumps(rows, separators=(",", ":")).encode()).hexdigest()
+    return hashlib.sha256(json.dumps(rows, separators=(",", ":")).encode()).hexdigest(), kinds
 
 
-def test_annotations(root: Path, files: dict[str, dict[str, str]], nc: int) -> dict:
+def test_annotations(root: Path, files: dict[str, dict[str, str]], nc: int):
     test_dir = locate_split_image_dir(root, "test")
     if test_dir.parent.name == "images":
         label_dir = root / "labels" / test_dir.name
     else:
         label_dir = test_dir.parent / "labels"
-    records = {}
+    records, errors, kinds = {}, Counter(), Counter()
     for rel, image_sha in files["test"].items():
-        label_sha = canonical_label(label_dir / Path(rel).with_suffix(".txt"), nc)
-        records.setdefault(image_sha, []).append(label_sha)
-    return {key: Counter(sigs) for key, sigs in records.items()}
+        try:
+            signature, observed = canonical_label(label_dir / Path(rel).with_suffix(".txt"), nc)
+        except LabelSchemaError as exc:
+            errors[exc.code] += 1
+            continue
+        except OSError:
+            errors["label_unreadable"] += 1
+            continue
+        records.setdefault(image_sha, []).append(signature)
+        kinds.update(observed)
+    return {h: Counter(sigs) for h, sigs in records.items()}, dict(sorted(errors.items())), dict(sorted(kinds.items()))
 
 
 def run(dataset_a: Path, dataset_b: Path, expected=(4875, 468, 234)) -> dict:
@@ -106,19 +132,25 @@ def run(dataset_a: Path, dataset_b: Path, expected=(4875, 468, 234)) -> dict:
     label_groups_compared = 0
     differing_annotation_groups = 0
     label_error_type = None
-    try:
-        # Only meaningful for matched class IDs; never silently align different classes.
-        if ontologies_same:
-            ann_a = test_annotations(dataset_a, files_a, len(names_a))
-            ann_b = test_annotations(dataset_b, files_b, len(names_b))
-            label_readable = True
-            common = ann_a.keys() & ann_b.keys()
-            label_groups_compared = len(common)
-            differing_annotation_groups = sum(ann_a[k] != ann_b[k] for k in common)
-            labels_agree_on_exact_images = bool(common) and differing_annotation_groups == 0
-    except (OSError, ValueError) as exc:
-        # No raw annotations or filenames in CI log or report.
-        label_error_type = type(exc).__name__
+    annotation_errors_a, annotation_errors_b = {}, {}
+    annotation_formats_a, annotation_formats_b = {}, {}
+    if ontologies_same:
+        ann_a, annotation_errors_a, annotation_formats_a = test_annotations(
+            dataset_a, files_a, len(names_a)
+        )
+        ann_b, annotation_errors_b, annotation_formats_b = test_annotations(
+            dataset_b, files_b, len(names_b)
+        )
+        label_readable = not annotation_errors_a and not annotation_errors_b
+        common = ann_a.keys() & ann_b.keys()
+        label_groups_compared = len(common)
+        differing_annotation_groups = sum(ann_a[k] != ann_b[k] for k in common)
+        labels_agree_on_exact_images = (
+            label_readable and bool(common) and differing_annotation_groups == 0
+            and base["identical_exported_byte_multisets_per_split"]["test"]
+        )
+        if not label_readable:
+            label_error_type = "LabelSchemaError"
     expected_counts = {split: n for split, n in zip(SPLITS, expected)}
     counts_expected_a = all(base["dataset_a"][s]["files"] == n for s, n in expected_counts.items())
     counts_expected_b = all(base["dataset_b"][s]["files"] == n for s, n in expected_counts.items())
@@ -135,6 +167,8 @@ def run(dataset_a: Path, dataset_b: Path, expected=(4875, 468, 234)) -> dict:
         "ontology_a_class_count": len(names_a),
         "ontology_b_class_count": len(names_b),
         "ontology_class_order_strings_identical": ontologies_same,
+        "identical_exported_byte_multisets_per_split": base["identical_exported_byte_multisets_per_split"],
+        "same_split_matching_byte_hash_counts": base["same_split_matching_byte_hash_counts"],
         "all_splits_exported_byte_multisets_identical": base["all_splits_exported_byte_multisets_identical"],
         "no_detected_exact_byte_cross_split_overlap": base["no_detected_exact_byte_cross_split_overlap"],
         "exact_byte_cross_split_overlap_counts": {
@@ -147,6 +181,10 @@ def run(dataset_a: Path, dataset_b: Path, expected=(4875, 468, 234)) -> dict:
         "matched_test_image_groups_with_annotation_comparison": label_groups_compared,
         "matched_test_image_groups_with_annotation_mismatch": differing_annotation_groups,
         "test_annotations_agree_for_matched_exported_image_bytes": labels_agree_on_exact_images,
+        "test_annotation_schema_error_counts_a": annotation_errors_a,
+        "test_annotation_schema_error_counts_b": annotation_errors_b,
+        "test_annotation_row_type_counts_a": annotation_formats_a,
+        "test_annotation_row_type_counts_b": annotation_formats_b,
         "heldout_annotation_parsing_error_type": label_error_type,
         "original_source_group_membership_verified": False,
         "common_prediction_evaluator_executed": False,
