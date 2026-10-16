@@ -60,6 +60,8 @@ optional operator-supplied original-source-ID crosswalks:
 For optional curated source identities, provide BOTH
 --source-map-a and --source-map-b CSV paths; see SPLIT_VALIDITY_GATE.md.
 
+The separate trained-weight readiness checklist is in MODEL_ACCESS_GATE.md.
+
 **Do not run on CI with actual private images.** Synthetic tests demonstrate
 tool behavior only, and no real split result has been computed. Matching
 exported image hashes do not establish original-image identity or identical
