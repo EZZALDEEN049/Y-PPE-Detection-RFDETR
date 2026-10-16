@@ -47,3 +47,21 @@ Read PROTOCOL.md and MANUSCRIPT_SKELETON.md. Existing cross-domain work in cross
 ## Reproducibility and security
 
 No private dataset images, inference API keys, model checkpoints, or credentials are required or committed. Raw Roboflow model overview results and current GitHub README are the provenance sources. Captured snapshot: 2026-10-16. Future data updates must preserve previous snapshots or specify their revision.
+
+## Stage 2: split integrity and provenance (CPU only)
+
+The separate split-integrity tool examines exported image-byte multisets
+(including duplicate multiplicities), exact-byte cross-split overlap, and
+optional operator-supplied original-source-ID crosswalks:
+
+    python split_integrity.py /private/export_yolo /private/export_rfdetr \
+      --output /private/reports/split_integrity.json
+
+For optional curated source identities, provide BOTH
+--source-map-a and --source-map-b CSV paths; see SPLIT_VALIDITY_GATE.md.
+
+**Do not run on CI with actual private images.** Synthetic tests demonstrate
+tool behavior only, and no real split result has been computed. Matching
+exported image hashes do not establish original-image identity or identical
+labeling; manually supplied source IDs remain unverified until audited.
+This tool does not modify model-performance evidence or establish deployability.
