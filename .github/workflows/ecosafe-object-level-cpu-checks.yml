@@ -5,11 +5,15 @@ on:
     paths:
       - "ecosafe_selective_experts/scripts/object_level_safety_oracle.py"
       - "ecosafe_selective_experts/scripts/test_object_level_safety_oracle.py"
+      - "ecosafe_selective_experts/scripts/08_export_validation_chunks.py"
+      - "ecosafe_selective_experts/scripts/test_export_validation_chunks.py"
       - ".github/workflows/ecosafe-object-level-cpu-checks.yml"
   pull_request:
     paths:
       - "ecosafe_selective_experts/scripts/object_level_safety_oracle.py"
       - "ecosafe_selective_experts/scripts/test_object_level_safety_oracle.py"
+      - "ecosafe_selective_experts/scripts/08_export_validation_chunks.py"
+      - "ecosafe_selective_experts/scripts/test_export_validation_chunks.py"
 permissions:
   contents: read
 jobs:
@@ -24,5 +28,5 @@ jobs:
       - name: Run synthetic object-level recovery checks
         run: |
           python -m unittest discover -s ecosafe_selective_experts/scripts \
-            -p 'test_object_level_safety_oracle.py' -v
-          python -m py_compile ecosafe_selective_experts/scripts/object_level_safety_oracle.py
+            -p 'test_*.py' -v
+          python -m py_compile ecosafe_selective_experts/scripts/object_level_safety_oracle.py ecosafe_selective_experts/scripts/08_export_validation_chunks.py
