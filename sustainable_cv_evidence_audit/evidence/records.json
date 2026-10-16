@@ -1,0 +1,81 @@
+{
+  "study_id": "sustainable_cv_ppe_two_track_evidence_audit_v0.1",
+  "evidence_snapshot_date": "2026-10-16",
+  "study_type": "retrospective_evidence_audit_not_new_training_or_inference_experiment",
+  "provenance_note": "Two existing independently hosted Roboflow project/model tracks; metrics copied from their public project overviews. Same split counts do not establish same split membership.",
+  "dataset_provenance": {
+    "original_source_images_reported": 2327,
+    "reported_generated_images_per_track": 5577,
+    "reported_train_count": 4875,
+    "reported_validation_count": 468,
+    "reported_test_count": 234,
+    "classes": 17,
+    "count_provenance": "Repository README; source-image count separately corroborated by Roboflow project overview",
+    "count_reference": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/blob/main/README.md",
+    "source_overlap_between_model_track_splits_verified": false
+  },
+  "comparison_controls": {
+    "identical_heldout_test_membership_verified": false,
+    "common_metric_evaluator_verified": false,
+    "common_inference_hardware_verified": false,
+    "controlled_power_measurements_available": false
+  },
+  "models": [
+    {
+      "model_id": "altayyar-0oflt-lafos-qqauz-ty5nh/1",
+      "architecture": "YOLO11m",
+      "dataset_version": "master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh/1",
+      "provenance_url": "https://universe.roboflow.com/master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh",
+      "metric_kind": "Roboflow public overview; evaluation protocol/split identity not independently verified",
+      "reported_metrics_pct": {
+        "map50": 92.2,
+        "precision": 95.3,
+        "recall": 87.2
+      },
+      "measured_resource_metrics": {
+        "latency_ms_p50": null,
+        "latency_ms_p95": null,
+        "energy_joules_per_image": null,
+        "peak_memory_mb": null,
+        "hardware_total_cost_usd": null
+      },
+      "deployment_metrics": {
+        "offline_inference_demonstrated": null,
+        "independent_field_test_demonstrated": null,
+        "critical_class_false_negative_rate": null
+      }
+    },
+    {
+      "model_id": "altayyar-0oflt-lafos-qqauz/2",
+      "architecture": "RF-DETR Small",
+      "dataset_version": "softyyemen/altayyar-0oflt-lafos-qqauz/2",
+      "provenance_url": "https://universe.roboflow.com/softyyemen/altayyar-0oflt-lafos-qqauz",
+      "metric_kind": "Roboflow public overview; evaluation protocol/split identity not independently verified",
+      "reported_metrics_pct": {
+        "map50": 94,
+        "precision": 94.4,
+        "recall": 88
+      },
+      "measured_resource_metrics": {
+        "latency_ms_p50": null,
+        "latency_ms_p95": null,
+        "energy_joules_per_image": null,
+        "peak_memory_mb": null,
+        "hardware_total_cost_usd": null
+      },
+      "deployment_metrics": {
+        "offline_inference_demonstrated": null,
+        "independent_field_test_demonstrated": null,
+        "critical_class_false_negative_rate": null
+      }
+    }
+  ],
+  "discordant_claims": [
+    {
+      "model_id": "altayyar-0oflt-lafos-qqauz/2",
+      "claim": "96.2% mAP@50 on independent test set in project description",
+      "status": "not independently linked to a verifiable common evaluator/test artifact",
+      "policy": "Do not substitute for the 94.0% public overview value or use for a controlled architectural comparison."
+    }
+  ]
+}
