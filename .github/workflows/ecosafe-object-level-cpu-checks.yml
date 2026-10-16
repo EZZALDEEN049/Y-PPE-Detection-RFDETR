@@ -1,0 +1,28 @@
+name: EcoSafe object-level recovery scientific gate (CPU)
+on:
+  push:
+    branches: [research/ecosafe-object-level-safety-gate-2026-10]
+    paths:
+      - "ecosafe_selective_experts/scripts/object_level_safety_oracle.py"
+      - "ecosafe_selective_experts/scripts/test_object_level_safety_oracle.py"
+      - ".github/workflows/ecosafe-object-level-cpu-checks.yml"
+  pull_request:
+    paths:
+      - "ecosafe_selective_experts/scripts/object_level_safety_oracle.py"
+      - "ecosafe_selective_experts/scripts/test_object_level_safety_oracle.py"
+permissions:
+  contents: read
+jobs:
+  safety-correction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run synthetic object-level recovery checks
+        run: |
+          python -m unittest discover -s ecosafe_selective_experts/scripts \
+            -p 'test_object_level_safety_oracle.py' -v
+          python -m py_compile ecosafe_selective_experts/scripts/object_level_safety_oracle.py
