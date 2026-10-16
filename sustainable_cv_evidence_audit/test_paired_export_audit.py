@@ -72,14 +72,30 @@ class PairedExportTests(unittest.TestCase):
         (self.b / "labels" / "test" / "test.txt").unlink()
         r = run(self.a, self.b)
         self.assertFalse(r["heldout_annotation_files_parsed_when_ontologies_same"])
-        self.assertEqual(r["heldout_annotation_parsing_error_type"], "ValueError")
+        self.assertEqual(r["heldout_annotation_parsing_error_type"], "LabelSchemaError")
         self.assertFalse(r["test_annotations_agree_for_matched_exported_image_bytes"])
 
     def test_invalid_class_id_fail_closed(self):
         (self.b / "labels" / "test" / "test.txt").write_text("17 0.5 0.5 0.3 0.3\n")
         r = run(self.a, self.b)
         self.assertFalse(r["heldout_annotation_files_parsed_when_ontologies_same"])
-        self.assertEqual(r["heldout_annotation_parsing_error_type"], "ValueError")
+        self.assertEqual(r["heldout_annotation_parsing_error_type"], "LabelSchemaError")
+
+    def test_polygon_rows_convert_to_enclosing_detection_boxes(self):
+        # Three vertices giving bbox center=.5,.5 width=.3 height=.3
+        polygon = "0 0.35 0.35 0.65 0.35 0.65 0.65 0.35 0.65\n"
+        (self.b / "labels" / "test" / "test.txt").write_text(polygon)
+        r = run(self.a, self.b)
+        self.assertEqual(r["test_annotation_row_type_counts_b"]["polygon"], 1)
+        self.assertTrue(r["test_annotations_agree_for_matched_exported_image_bytes"])
+
+    def test_annotation_error_is_counted_without_filename(self):
+        (self.b / "labels" / "test" / "test.txt").write_text(
+            "0 0.6 0.6 0.3 0.3\nbad_class 0.5 0.5 0.2 0.2\n"
+        )
+        r = run(self.a, self.b)
+        self.assertEqual(r["test_annotation_schema_error_counts_b"]["invalid_class_id"], 1)
+        self.assertEqual(r["matched_test_image_groups_with_annotation_comparison"], 0)
 
     def test_nc_mismatch_rejected(self):
         (self.a / "data.yaml").write_text("nc: 3\nnames: [person, helmet]\n")
