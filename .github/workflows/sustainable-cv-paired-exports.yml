@@ -1,0 +1,82 @@
+name: Sustainable CV paired exports (private download; aggregated audit)
+# Not a pull_request job: only controlled research-branch trigger push can use secret.
+on:
+  push:
+    branches: [research/sustainable-cv-evidence-audit-2026-10]
+    paths:
+      - ".github/triggers/sustainable-cv-paired-export-audit-v1.txt"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sustainable-cv-paired-exports-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  paired-export-audit:
+    if: github.repository == 'EZZALDEEN049/Y-PPE-Detection-RFDETR'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+    steps:
+      - name: Checkout research branch
+        uses: actions/checkout@v4
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check availability of secret without disclosing its contents
+        shell: bash
+        run: |
+          if [ -z "$ROBOFLOW_API_KEY" ]; then
+            echo "BLOCKED: required GitHub Actions ROBOFLOW_API_KEY secret unavailable."
+            exit 3
+          fi
+      - name: Install pinned downloader and ontology parser
+        run: python -m pip install 'roboflow==1.5.0' 'PyYAML==6.0.3'
+      - name: Privately download two exact pre-existing model-linked dataset versions
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/private/a" "$RUNNER_TEMP/private/b" "$RUNNER_TEMP/private/meta"
+          python cross_domain_reliability/stage2_data_audit/download_roboflow_dataset.py \
+            --workspace master-fylfq \
+            --project altayyar-0oflt-lafos-qqauz-ty5nh \
+            --version 1 \
+            --format yolov11 \
+            --out "$RUNNER_TEMP/private/a" \
+            --metadata-out "$RUNNER_TEMP/private/meta/a.json" \
+            > "$RUNNER_TEMP/private/meta/a-download.log" 2>&1 \
+            || { echo "BLOCKED: first dataset inaccessible; private logs NOT published."; exit 4; }
+          python cross_domain_reliability/stage2_data_audit/download_roboflow_dataset.py \
+            --workspace softyyemen \
+            --project altayyar-0oflt-lafos-qqauz \
+            --version 2 \
+            --format yolov11 \
+            --out "$RUNNER_TEMP/private/b" \
+            --metadata-out "$RUNNER_TEMP/private/meta/b.json" \
+            > "$RUNNER_TEMP/private/meta/b-download.log" 2>&1 \
+            || { echo "BLOCKED: second dataset inaccessible; private logs NOT published."; exit 4; }
+      - name: Compute anonymized paired split and test-annotation audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          A_DIR="$(python -c 'import json,sys; print(json.load(open(sys.argv[1],encoding="utf-8"))["dataset_location"])' "$RUNNER_TEMP/private/meta/a.json")"
+          B_DIR="$(python -c 'import json,sys; print(json.load(open(sys.argv[1],encoding="utf-8"))["dataset_location"])' "$RUNNER_TEMP/private/meta/b.json")"
+          mkdir -p "$RUNNER_TEMP/public-report"
+          python sustainable_cv_evidence_audit/paired_export_audit.py \
+            --dataset-a "$A_DIR" --dataset-b "$B_DIR" \
+            --output "$RUNNER_TEMP/public-report/aggregate_preflight.json"
+      - name: Publish ONLY aggregate report; no images or private metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: sustainable-cv-paired-export-aggregate-preflight
+          path: ${{ runner.temp }}/public-report/aggregate_preflight.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Document limits in job summary
+        shell: bash
+        run: |
+          echo "## Paired dataset audit: NO TRAINING" >> "$GITHUB_STEP_SUMMARY"
+          echo "Ephemeral downloads only. Uploaded aggregate counts/booleans, no images, labels, filenames, hashes, source IDs or API keys." >> "$GITHUB_STEP_SUMMARY"
+          echo "Matching exported bytes is not proof of original-source independence. No model inference, latency, energy or common evaluator." >> "$GITHUB_STEP_SUMMARY"

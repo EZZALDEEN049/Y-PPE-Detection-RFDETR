@@ -1,0 +1,38 @@
+name: Sustainable CV evidence audit (CPU only)
+on:
+  push:
+    branches:
+      - research/sustainable-cv-evidence-audit-2026-10
+    paths:
+      - "sustainable_cv_evidence_audit/**"
+      - ".github/workflows/sustainable-cv-evidence-audit.yml"
+  pull_request:
+    paths:
+      - "sustainable_cv_evidence_audit/**"
+      - ".github/workflows/sustainable-cv-evidence-audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install ontology parser for new paired-export tests
+        run: python -m pip install 'PyYAML==6.0.3'
+      - name: Validate evidence and claim gates
+        working-directory: sustainable_cv_evidence_audit
+        run: |
+          python -m unittest discover -s . -p 'test_*.py' -v
+          python audit.py --out-dir outputs
+      - name: Publish review artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sustainable-cv-evidence-audit
+          path: sustainable_cv_evidence_audit/outputs/*
+          retention-days: 30

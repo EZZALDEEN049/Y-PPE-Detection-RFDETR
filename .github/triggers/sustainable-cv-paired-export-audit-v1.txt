@@ -1,0 +1,6 @@
+Paired Y-PPE source-export integrity preflight trigger (2026-10-17).
+YOLO11m-linked Roboflow dataset master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh v1.
+RF-DETR Small-linked Roboflow dataset softyyemen/altayyar-0oflt-lafos-qqauz v2.
+No model training, no model inference, only anonymized counts and Boolean evidence.
+
+Second run 2026-10-17: source export integrity remains descriptive; annotation scanner now supports polygon rows and reports anonymized failure categories. No model training/inference.
