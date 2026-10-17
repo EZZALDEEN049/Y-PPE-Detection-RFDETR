@@ -13,6 +13,8 @@
 - [x] Primary-confidence-only cascade simulated against actual always-run-both NMS, not secondary-only prediction switching.
 - [x] best.pt source-domain checkpoint-policy sensitivity completed on both domains, all seeds, and kept separate from primary last.pt results; all 11,712 independent matching checks agreed at two cutoffs.
 - [x] best.pt exploratory routing compared against rate-matched random expected outcomes (not a sampled significance test).
+- [x] GT-privileged opportunity and primary-only rank feature comparison completed with full private chunk data locks and 56-test CPU CI; source-validation selection bias clearly marked.
+- [x] Development-only exact-hash and 64-bit dHash sensitivity audit completed; *independent capture groups remain unverified*.
 - [ ] An **independently justified absolute operational safety recall / permissible miss and FP cost** is documented. A relative non-inferiority to very low always-both recall is not enough.
 - [ ] Verified independent source/site grouping and population-level statistical uncertainty.
 - [ ] A robust, prespecified router significantly reduces secondary invocations while satisfying *both* absolute safety and acceptable FP burden on development data.
@@ -43,6 +45,18 @@ Exploratory best.pt confidence-only Y-primary cascade on Y validation invokes th
 **NO-GO remains for deployable PPE safety, operational energy/carbon savings, and a claim that the present selective router is superior.** A revised paper focused on checkpoint-selection sensitivity, domain-conditional safety failure modes and the limits of confidence-only cascades is scientifically possible if a novelty assessment and an independently pre-locked final test justify its claims.
 
 The two-domain observations are on separate frozen source distributions with different critical-class denominators and no verified independent site identifiers. Mean recall across the three repeated seeds is a *descriptive seed average on the same validation frames*, not a confidence interval for real-world worksites.
+
+## Additional GT-privileged routing-value gate (2026-10-18)
+
+A separate verified **retrospective** frame-level audit of the frozen best.pt predictions is now available in `results/BEST_PT_PRIVILEGED_ROUTING_OPPORTUNITY_2026-10-18.md`. For Construction-PPE validation with Construction as primary, only **7/132, 8/132 and 6/132** frames actually gained safety TPs under secondary invocation across seeds 17/42/2026; corresponding fixed-policy joint NMS matched **20, 47 and 27** GT objects. The privileged frame oracle's exact-GT selection could match **20, 48 and 27** at substantially fewer theoretical calls and fewer FPs, but this policy requires knowing the true labels at decision time and is **NOT OPERATIONAL OR DEPLOYABLE**.
+
+The original safety-only confidence uncertainty feature has retrospective AUC **0.063, 0.053 and 0.085** for recognizing positive-gain frames on Construction. Confidence uncertainty over all object classes improves the descriptive AUC to **0.865, 0.753 and 0.858**, but the positive support is just 6–8 frames per seed, the best.pt checkpoints were already source-validation-selected, and **no calibrated independent router** exists. These results establish a *candidate ranking hypothesis*, not a safety, energy or deployment finding.
+
+Y-PPE validation with Y as primary presents only **2/356, 3/356 and 1/356** positive-benefit frames on the best.pt sensitivity. With such rare positives, even a high ROC AUC would not, on its own, justify a practical router or an efficiency claim.
+
+An independent validation data audit (`results/FROZEN_STAGE5_VALIDATION_SIMILARITY_PREFLIGHT_2026-10-18.md`) found **zero identical exported image SHA groups** among validation images within/across either nine-class domain and zero exact train↔val SHA overlap within the original frozen manifests. Small candidate dHash near-similarity groups exist and remain unadjudicated. No independent site/camera/video capture IDs are established. This is **not proof of source-group independence** or independent test validity.
+
+**Publication decision unchanged:** GO for a scoped methodological **failure-mode and value-of-information audit** if related-work novelty is defensible, with clearly described GT oracle and selection bias. **NO-GO** for claiming a safe/sustainable selective PPE monitoring system; do not access final test merely to rescue a weak experimental claim. Prospectively predeclare a new target and threshold policy *without accessing test* if the research scope is deliberately changed.
 
 ## Scientific next decision — choose explicitly before accessing held-out tests
 
