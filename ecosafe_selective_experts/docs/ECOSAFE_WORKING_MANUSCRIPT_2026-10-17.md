@@ -1,6 +1,8 @@
-# EcoSafe Selective Experts: Domain-Conditioned Complementarity and Safety–Computation Tradeoffs in PPE Monitoring
+# When Does a Second Detector Help? Checkpoint-Sensitive Safety-Object Complementarity under PPE Domain Shift
 
-**Working manuscript — revised 2026-10-18**  
+*EcoSafe research track — revised working title for an evidence-based limits and failure-mode audit; not a novel field-ready routing-system claim.*
+
+**Working manuscript — evidence-scope revision 2026-10-18**  
 **Status:** DEVELOPMENT EVIDENCE ONLY. Not a peer-reviewed or submission-ready manuscript. All **six seed-by-domain expert pairs have now been evaluated on BOTH development validation domains, for BOTH the original last.pt protocol and the separately reported best.pt sensitivity**. Still outstanding: an independently justified absolute safety performance criterion, a frozen operational policy, held-out test, source-group-aware uncertainty, hardware energy benchmarking, novelty assessment and permissions.
 
 ## Abstract (provisional; not for journal submission)
@@ -16,6 +18,15 @@ A detector optimized on one PPE image source can behave very differently on anot
 > Given fixed, previously trained domain-specific experts, can a lightweight primary-only routing decision selectively invoke a second expert **on the frames where it is genuinely useful**, preserving a prespecified operational violation-detection standard with fewer second-expert executions than an always-both fusion reference?
 
 This question requires distinguishing an expert *switch* (discard primary outputs and use secondary instead) from actual dual-expert fusion. The original pilot controller conflated these policies; the correction and object-level matching algorithm are implemented and tested in the branch associated with this working manuscript.
+
+### Specific candidate contributions and scope
+
+1. We report **object-level, class-aware paired error complementarity** rather than interpreting a difference between per-image FN totals as recovered safety objects; this difference is observable in frozen YOLO11m predictions.
+2. We explicitly separate **true always-run-both fusion**, primary-only escalation, raw-concatenation oracle and GT-privileged frame-value audit. The latter gives a retrospective upper-bound diagnostic, not a deployable decision rule.
+3. We expose **checkpoint-policy interaction and false-alarm burden** across two fixed nine-class PPE domains and three originally trained seeds, reporting both negative and positive results without selecting a favorable seed or threshold from final test data.
+4. We critically analyze **why primary-only confidence is not automatically a reliable router signal** when the desired outcome is recovery of a missed critical-class bounding box, while documenting the very small positive-benefit sample and source-selection bias.
+
+These are proposed methodological and empirical distinctions, **not a formal novelty proof**. Conditional model cascades, object-detection confidence calibration and cross-site PPE detection have been studied previously. No energy reduction, deployable safety, external-site generalization or independent confirmatory result is claimed.
 
 ## 2. Study resources and methodology
 
@@ -44,6 +55,14 @@ Any logistic, calibrated or other learned lightweight router may be fitted only 
 A separate, GT-privileged **diagnostic**, which is expressly not a deployable router, is defined on frozen validation outputs. Let `TP_i(P)` be the matched critical GT count for the primary detector at frame `i`, and `TP_i(J)` the matched count after class-aware NMS of both detectors. The per-frame benefit `delta_i = TP_i(J)-TP_i(P)` is scored *after* inference with GT. Positive-benefit frames have `delta_i>0`; frames with `delta_i<0` reflect harmful operational fusion. A hypothetical GT oracle invokes the second expert only on positive-benefit frames and avoids applying destructive fusion on negative-benefit frames. The resulting recall versus number-of-invocations curve is an **unattainable information-theoretic diagnostic for the frozen model outputs**, not a claim about routing policy performance or measured energy.
 
 Two primary-only confidence signals are compared descriptively: `U_safety=1-max(confidence of safety-class predictions)` and `U_all=1-max(confidence of any predicted class)`, with a value of one if the selected prediction set is empty. Their tied-rank ROC AUC is computed for the retrospective per-frame positive-benefit label. The primary-only feature does not consult GT in deployment; the *label and AUC assessment* do. Small positive support, source-validation-selected best.pt weights, absence of source-site grouping and no held-out data preclude independent sensitivity, calibrated probabilities or prospective safety conclusions. Exact frozen dataset/chunk/model SHA checks are enforced and only nonidentifying aggregates leave private storage.
+
+### 2.6 Statistical design, leakage and physical resource measurement (draft)
+
+Model output is evaluated as class-aware, one-to-one *matched safety GT objects*, with per-frame pairing and explicit zeros for images with no detected objects. Fixed cutoffs are identified whenever reported. Differences between primary-only and joint policies should be computed **within the same original images**, with per-class denominators and FP/image shown alongside recall; raw GT objects are **not independent sampling units**. The six detector checkpoints are three repeated training seeds per source domain, not six independent sites. If an authorized source register establishes camera/site/sequence group IDs, a prespecified **group-cluster paired bootstrap** with whole-group resampling can estimate within-source uncertainty; without it, frame-level bootstrap is descriptive only and cannot establish independent-site generalization.
+
+A frozen nine-class validation manifest has exact original image/label hashes but lacks verified site, session and video IDs; a separate development-only duplicate and perceptual similarity screen reports candidate similarities, not proof of source independence. A protected source-group registry and rights/consent review are required before claims about new construction sites or accessing held-out test outcomes for validation of a new route. The exact statistical, provenance and preregistered-test draft are in `docs/STATISTICAL_AND_SOURCE_GROUP_ANALYSIS_PLAN_2026-10-18.md`, `docs/PRIVATE_CAPTURE_PROVENANCE_REQUEST_2026-10-18.md` and `docs/PROSPECTIVE_TEST_FREEZE_GATE_DRAFT_2026-10-18.md`.
+
+**Energy and carbon status:** only the *number* of conditional expert calls has been computed, not energy. Full-system calibrated external wall-power, matched workload, identical software/device, actual router/fusion overhead, repeated timed power/performance traces and end-to-end latency would be needed to claim Joules/image or lower energy. We created a **fail-closed external-trace postprocessing auditor**, not a physical power measurement, in `scripts/14_audit_measured_wall_power.py`, with a separate metrology plan in `docs/HARDWARE_WALL_ENERGY_BENCHMARK_PLAN_2026-10-18.md`. These provide no energy or CO2e outcomes until real authorized meter logs exist.
 
 ## 3. Results — development-only two-domain, three-seed evaluation
 
@@ -155,24 +174,44 @@ Across all three seeds under the **original last.pt checkpoint policy** at confi
 
 Most importantly, the extremely low measured critical-state recall on Construction-PPE illustrates why selective-inference non-inferiority alone could be misleading: preserving an inadequate reference system is not evidence of field readiness. Any final paper must report the absolute safety target, miss costs, alert burden, site governance, uncertainty and performance under source dependence. The new privileged-oracle analysis clarifies the decision: the extra expert provides rare, highly localized marginal safety matches, but current safety-only uncertainty ranks those frames poorly, and an apparent all-class confidence ranking benefit has not been calibrated or validated independently. Thus, given the now-complete development evidence, **NO-GO** is the appropriate current decision for claims that this exact fixed-checkpoint cascade is demonstrably safe, universally beneficial or energy-efficient. A modified hypothesis may be worth testing, but no post hoc test selection, silent model substitution or fabricated positive conclusion is acceptable.
 
-## 5. Mandatory work before a submission-ready paper
+### 4.1 Why the current evidence does not warrant a safety/energy claim
 
-- **Completed:** full two-domain, three-seed **last.pt and best.pt** development inference, class-specific object-level complementarity, false positives, verified coverage, and independent matching. Source-validation-selected best.pt is analyzed as a potentially optimistic sensitivity, not a new primary protocol.
-- **Outstanding:** establish source/scene dependence and define an independent, real-world absolute safety criterion before considering a revised gate.
-- Freeze the actual fusion operator and predeclare the cost/safety objective and margin using development-only evidence.
-- Test learned and non-learned routing against primary-only, secondary-only, always-joint, matched-rate random and upper-bound oracle controls.
-- Conduct the **first** final held-out test only after the policy is documented and locked; provide paired/clustered CIs.
-- Measure actual CPU/edge latency, RAM and instrumented J/image plus router overhead if claiming energy efficiency; report CO2e only with justified electricity factors and system boundaries.
-- Resolve data governance and publication image rights; perform novelty/literature verification, methods/reporting review and an independent Q1 peer-review checklist.
+The GT-privileged oracle's low theoretical second-call fraction is achieved by consulting labels unavailable to an operational router; it therefore cannot justify any performance/compute-saving or electrical saving percentage. Confidence-ranking AUC, especially with only 1–8 positive benefit frames per seed/condition, is a small-sample **development diagnostic**. Selection of best.pt weights on original source-domain validation further biases favorable sensitivity results. Excluding images without observed matches, changing thresholds after observing outcomes, using unverified site counts as independent samples, or reporting derived GPU-TDP energy would create invalid results.
 
-## 6. Targeted novelty and related-work positioning (non-systematic check)
+The present defensible message is a **conditional failure-mode and checkpoint-policy robustness audit**. It is not a randomized comparison of algorithms, a proven new method for safe routing or an independent sample of construction worksites. Detailed follow-up protocols exist to allow the research to proceed without leaking final test information into policy selection.
 
-*These citations are verified leads, not a completed systematic review or proof of Q1 novelty.* Pretrained conditional cascades and confidence-based escalation were already studied by Lebovitz et al. in TMLR 2023 [R1], so EcoSafe cannot claim to invent conditional model selection. Confidence tuning for model cascades has also been examined in prior work [R2], meaning that a basic confidence gate is not a new general method. A PPE benchmark explicitly includes cross-domain validation [R3], and a 2026 construction-object-detection study reports an alternative method reaching multi-site generalization without multi-model inference overhead [R4]. The defensible *candidate* distinction is a narrowly scoped **failure-mode, GT-privileged value-of-information and false-alert audit of frozen PPE violation detectors across checkpoint policies and two domains**, contingent upon external confirmation and a rigorous absolute-safety criterion; its novelty remains unverified.
+## 5. Submission-blocking research and documentation gates
 
-- [R1] Lebovitz, L., Cavigelli, L., Magno, M., and Müller, L. K. (2023). "Efficient Inference with Model Cascades." *Transactions on Machine Learning Research*. https://mlanthology.org/tmlr/2023/lebovitz2023tmlr-efficient/
-- [R2] Rabanser, S., et al. (2025). "I Know What I Don't Know: Improving Model Cascades Through Confidence Tuning." https://arxiv.org/abs/2502.19335 (check final publication venue before submission).
-- [R3] Mughees, A., et al. "SH17: A dataset for human safety and personal protective equipment detection in manufacturing industry." *Journal of Safety Science and Resilience*, 2025. https://doi.org/10.1016/j.jnlssr.2024.09.002 (verify complete author bibliographic metadata for manuscript references).
-- [R4] Seong, J., Kim, H.-S., and Jung, H.-J. (2026). "Improving cross-site generalization in construction object detection via hard negative mining." *Automation in Construction*, 182, 106761. https://doi.org/10.1016/j.autcon.2026.106761
+- **COMPLETE (development):** all 2 domains × 3 seeds × 2 checkpoint policies × 2 detector sources were evaluated on immutable validation images, with 68 synthetic CPU scientific/integrity tests and independent object matching. All existing primary `last.pt` comparisons remain primary evidence; `best.pt` source-validation selection is an expressly biased sensitivity.
+- **COMPLETE (documentation only):** narrowed literature map, draft inferential/statistical plan, original-capture provenance request, preliminary test-embargo checklist and hardware meter study specification. A wall-power trace *auditor* exists; it is NOT a measurement.
+- **BLOCKER:** original site/camera/recording provenance, image-family overlap across train/validation/test from an authorized source steward, independent capture groups, and permissions are unverified.
+- **BLOCKER:** externally justified **absolute** recall and false-alarm tolerances per critical PPE class and explicit intervention costs (not relative noninferiority to inadequate already-fused recall) have not been approved.
+- **BLOCKER:** an operational primary-only router must be prospectively defined, fitted/calibrated with development-only leakage safeguards, and compared with same-fusion always-both, each expert individually and rate-matched random policies before final test. Current tested confidence-only heuristics do not pass this gate.
+- **BLOCKER:** a fully locked independent held-out evaluation, statistical unit, prior checkpoint/threshold policy and a single primary outcome/hypothesis cannot be frozen without resolution of the earlier scientific conditions.
+- **BLOCKER:** full-system wall-power, RAM, matched per-frame end-to-end latency, router overhead, idle/loaded model costs and justified CO2 system boundary have not been physically measured. Neither fewer expert invocations nor the new meter-audit script supplies energy savings evidence.
+- **BLOCKER:** the complete literature review, manuscript novelty and submission rights/ethics declaration require independent academic/supervisor evaluation; do not equate passing CI or targeting a Q1 journal with acceptance/readiness.
+
+The correctly bounded next work item is to retrieve protected original capture-group provenance and external safety acceptance criteria, *not* to tune further on hidden test scores or to manufacture a green-computing benefit.
+
+## 6. Related work and narrower novelty positioning (targeted, not systematic)
+
+**Conditional cascades and uncertainty:** Lebovitz et al. [R1] already study efficient inference with cascades of existing models. Rabanser et al. [R2] examine confidence calibration and deferral. Pathiraja et al. [R5] demonstrate that confidence and localization calibration are themselves nontrivial in object detection, including under distribution shift. Thus neither model cascading, confidence-based early exit, nor calibration is claimed to have been invented here.
+
+**PPE and construction domain shift:** Ahmad and Rahimi [R3] introduced a separate **17-class** manufacturing PPE benchmark with cross-domain validation, so a multi-source PPE study is not intrinsically new. Seong et al. [R4] show cross-site construction detection improvements using hard-negative mining with a single-model inference architecture; their independently sampled source sites are not comparable to the two original EcoSafe export domains without verified site provenance. Our fixed-operating-point GT safety recall must never be numerically compared with their mAP or other detector tasks.
+
+**Leakage and deployment cost:** Barz and Denzler [R6] show that near-duplicate image leakage can distort nominal held-out estimates; our exact hashes and dHash preflight are not a complete substitute for original capture provenance. MLCommons [R7] provides guidance for physical whole-system power measurements, not an endorsement or certification of our (currently unexecuted) bench.
+
+**Candidate distinction, not confirmed novelty:** class-aware safety-object complementarity under checkpoint-policy changes, **GT-privileged per-frame value of a genuinely fused second expert**, negative confidence-only routing diagnostics, and false-alert accounting on frozen PPE monitoring frames. Claims of novel algorithms, independent site-generalization and sustainable deployment remain outside available evidence. A targeted literature map and open tasks are documented in `docs/LITERATURE_AND_NOVELTY_EVIDENCE_MAP_2026-10-18.md`; a complete database search and bibliographic review are still required.
+
+### References verified against publisher, conference or project sources (final journal formatting pending)
+
+- [R1] Lebovitz, L., Cavigelli, L., Magno, M. & Müller, L. K. (2023). *Efficient Inference with Model Cascades*. Transactions on Machine Learning Research. https://mlanthology.org/tmlr/2023/lebovitz2023tmlr-efficient/
+- [R2] Rabanser, S., Rauschmayr, N., Kulshrestha, A., Poklukar, P., Jitkrittum, W., Augenstein, S., Wang, C. & Tombari, F. (2025). *I Know What I Don't Know: Improving Model Cascades Through Confidence Tuning*. Google Research / preprint https://arxiv.org/abs/2502.19335 ; final formal venue should be checked.
+- [R3] Ahmad, H. M. & Rahimi, A. (2025). *SH17: A dataset for human safety and personal protective equipment detection in manufacturing industry*. Journal of Safety Science and Resilience, 6(2), 175–185. https://doi.org/10.1016/j.jnlssr.2024.09.002
+- [R4] Seong, J., Kim, H.-S. & Jung, H.-J. (2026). *Improving cross-site generalization in construction object detection via hard negative mining*. Automation in Construction, 182, 106761. https://doi.org/10.1016/j.autcon.2026.106761
+- [R5] Pathiraja, B., Gunawardhana, M. & Khan, M. H. (2023). *Multiclass Confidence and Localization Calibration for Object Detection*. Proceedings of CVPR, pp. 19734–19743. https://openaccess.thecvf.com/content/CVPR2023/html/Pathiraja_Multiclass_Confidence_and_Localization_Calibration_for_Object_Detection_CVPR_2023_paper.html
+- [R6] Barz, B. & Denzler, J. (2020). *Do We Train on Test Data? Purging CIFAR of Near-Duplicates*. Journal of Imaging, 6(6), 41. https://doi.org/10.3390/jimaging6060041
+- [R7] MLCommons (official policy). *MLPerf Inference Power Measurement Rules*. https://github.com/mlcommons/inference_policies/blob/master/power_measurement.adoc
 
 ## Publication integrity statement
 
