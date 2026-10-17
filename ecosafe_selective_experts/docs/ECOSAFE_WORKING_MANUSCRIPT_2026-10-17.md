@@ -1,7 +1,7 @@
 # EcoSafe Selective Experts: Domain-Conditioned Complementarity and Safety–Computation Tradeoffs in PPE Monitoring
 
 **Working manuscript — 2026-10-17**  
-**Status:** DEVELOPMENT EVIDENCE ONLY. Not a peer-reviewed or submission-ready manuscript. The held-out test, multiple-seed validation, uncertainty, resource benchmarking and publication permissions remain outstanding.
+**Status:** DEVELOPMENT EVIDENCE ONLY. Not a peer-reviewed or submission-ready manuscript. The held-out test, full **two-domain** multi-seed validation, source-group-aware uncertainty, resource benchmarking and publication permissions remain outstanding. All three seeds have now been evaluated on **Construction validation only**, while Y-PPE validation remains seed17-only.
 
 ## Abstract (provisional; not for journal submission)
 
@@ -57,6 +57,22 @@ These percentages are **NOT COCO mAP**, and the two domains have different denom
 Define the exploratory primary-only uncertainty score as `1 - maximum safety-class confidence`, set to 1 if no safety-class detection is produced, and escalate when score >=0.50. On Construction validation this escalated 75.0% of images with Y as primary, retaining only 9/98 safety matches versus 13/98 for always joint NMS. With Construction as primary it escalated 94.7% of images, retaining 13/98 matches. On Y validation, Y-primary escalation invoked the secondary in 79.5% of images without any safety recall gain above the single Y expert. With Construction as primary it invoked Y in 99.7% of images to retain the joint NMS recall.
 
 The simple confidence heuristic is therefore **not validated as an efficiency solution** under these settings. The scores and threshold are development-time diagnostics only, not a frozen optimal threshold or an energy benchmark.
+
+### 3.3 Construction validation reproducibility across all three training seeds
+
+Additional private, checksum-locked per-frame validation inference was completed for both source-domain experts at seeds **42 and 2026**. On the **same 132 Construction validation images** and 98 critical GT objects, all four models had full frame coverage. An independent NetworkX implementation confirmed all **1,056 per-frame policy-matching cardinalities** for these two additional seeds.
+
+| Seed | Y alone TP/98 | Construction alone TP/98 | Joint NMS TP/98 | Joint NMS false positives | Joint gain over best single |
+|---|---:|---:|---:|---:|---:|
+| 17 | 7 | 8 | 13 | 67 | +5 |
+| 42 | 9 | 5 | 13 | 68 | +4 |
+| 2026 | 8 | 7 | 14 | 74 | +6 |
+
+Joint NMS has a **descriptive** mean fixed-operating-point safety recall of **13.61%** across three training seeds (SD 0.59 percentage points). Mean joint precision is approximately **16.07%**. Despite repeated evidence of limited complementarity, these figures remain inadequate for a safety-critical deployment claim; only four no_boots GT objects exist in this validation domain, and the seed2026 joint NMS matched none of them. These are repeated models on **the same development images**, not three independent work sites or unbiased confirmatory tests.
+
+Image-level paired bootstrap sensitivity was also examined for two seeds; any such uncertainty intervals are conditional on treating exported frames as resampling units. Genuine site- or source-sequence-cluster intervals cannot be asserted without adjudicated provenance groups. The full development table and limitations are preserved in `results/CONSTRUCTION_THREE_SEED_VALIDATION_2026-10-17.md`.
+
+**The three-seed Construction results do not complete the proposed bidirectional selective-expert experiment.** The remaining Y-PPE validation runs for seeds 42 and 2026 and a pre-locked router protocol are still required before first access to final held-out tests.
 
 ## 4. Discussion (provisional)
 
