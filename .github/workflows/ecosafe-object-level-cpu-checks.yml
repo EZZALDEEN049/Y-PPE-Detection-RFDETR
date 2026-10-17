@@ -7,6 +7,8 @@ on:
       - "ecosafe_selective_experts/scripts/test_object_level_safety_oracle.py"
       - "ecosafe_selective_experts/scripts/08_export_validation_chunks.py"
       - "ecosafe_selective_experts/scripts/test_export_validation_chunks.py"
+      - "ecosafe_selective_experts/scripts/09_validation_fusion_report.py"
+      - "ecosafe_selective_experts/scripts/test_validation_fusion_report.py"
       - ".github/workflows/ecosafe-object-level-cpu-checks.yml"
   pull_request:
     paths:
@@ -14,6 +16,8 @@ on:
       - "ecosafe_selective_experts/scripts/test_object_level_safety_oracle.py"
       - "ecosafe_selective_experts/scripts/08_export_validation_chunks.py"
       - "ecosafe_selective_experts/scripts/test_export_validation_chunks.py"
+      - "ecosafe_selective_experts/scripts/09_validation_fusion_report.py"
+      - "ecosafe_selective_experts/scripts/test_validation_fusion_report.py"
 permissions:
   contents: read
 jobs:
@@ -29,4 +33,4 @@ jobs:
         run: |
           python -m unittest discover -s ecosafe_selective_experts/scripts \
             -p 'test_*.py' -v
-          python -m py_compile ecosafe_selective_experts/scripts/object_level_safety_oracle.py ecosafe_selective_experts/scripts/08_export_validation_chunks.py
+          python -m py_compile ecosafe_selective_experts/scripts/object_level_safety_oracle.py ecosafe_selective_experts/scripts/08_export_validation_chunks.py ecosafe_selective_experts/scripts/09_validation_fusion_report.py
