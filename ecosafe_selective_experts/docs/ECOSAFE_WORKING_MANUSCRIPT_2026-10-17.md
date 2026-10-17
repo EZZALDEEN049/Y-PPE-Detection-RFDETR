@@ -74,6 +74,12 @@ Image-level paired bootstrap sensitivity was also examined for two seeds; any su
 
 **The three-seed Construction results do not complete the proposed bidirectional selective-expert experiment.** The remaining Y-PPE validation runs for seeds 42 and 2026 and a pre-locked router protocol are still required before first access to final held-out tests.
 
+### 3.4 Sensitivity to operating confidence: same frozen predictions
+
+To evaluate whether extremely low fixed-operating-point recall might be explained solely by confidence 0.25, a retrospective four-threshold development grid (0.05, 0.10, 0.25 and 0.50) was applied to existing low-confidence exports. This is **exploratory and not a chosen final test threshold**. In Construction validation, decreasing confidence from 0.25 to 0.05 changed joint-NMS TP across seeds 17/42/2026 from **13/13/14** to **17/19/14**, while FP changed from **67/68/74** to **105/97/107**. Maximum observed joint recall across these tested settings was only **19.39%**, with substantial false-positive burden. Even a raw-concatenation matching oracle at 0.05 matched only 18, 19 and 15 of 98 safety objects, respectively. Thus within the examined thresholds a low cutoff does not provide a viable absolute safety result. Other thresholds, model checkpoints and operating conditions remain untested and cannot be ruled out.
+
+This sensitivity further narrows the legitimate contribution: at present the project documents the limits of pretrained multi-expert complementarity and computes descriptive call-rate tradeoffs, **not** a deployable safe and sustainable controller. Full threshold counts and cautions appear in `results/CONSTRUCTION_CONFIDENCE_SENSITIVITY_2026-10-17.md`.
+
 ## 4. Discussion (provisional)
 
 The presence of some complementary object-level detections on Construction-PPE but none on Y-PPE (at this operating point and seed) suggests that domain and directional asymmetry may dominate the practical value of an extra expert. It is inappropriate to infer unconditional safety gains from ensembling or sustainable-compute gains from invoking fewer networks.
