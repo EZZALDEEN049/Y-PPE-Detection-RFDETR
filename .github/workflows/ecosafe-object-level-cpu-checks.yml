@@ -15,6 +15,8 @@ on:
       - "ecosafe_selective_experts/scripts/12_best_validation_fusion_report.py"
       - "ecosafe_selective_experts/scripts/test_export_best_validation_chunks.py"
       - "ecosafe_selective_experts/scripts/test_best_validation_fusion_report.py"
+      - "ecosafe_selective_experts/scripts/13_best_validation_oracle_efficiency_gate.py"
+      - "ecosafe_selective_experts/scripts/test_best_validation_oracle_efficiency_gate.py"
       - ".github/workflows/ecosafe-object-level-cpu-checks.yml"
   pull_request:
     paths:
@@ -30,6 +32,8 @@ on:
       - "ecosafe_selective_experts/scripts/12_best_validation_fusion_report.py"
       - "ecosafe_selective_experts/scripts/test_export_best_validation_chunks.py"
       - "ecosafe_selective_experts/scripts/test_best_validation_fusion_report.py"
+      - "ecosafe_selective_experts/scripts/13_best_validation_oracle_efficiency_gate.py"
+      - "ecosafe_selective_experts/scripts/test_best_validation_oracle_efficiency_gate.py"
 permissions:
   contents: read
 jobs:
@@ -45,4 +49,4 @@ jobs:
         run: |
           python -m unittest discover -s ecosafe_selective_experts/scripts \
             -p 'test_*.py' -v
-          python -m py_compile ecosafe_selective_experts/scripts/object_level_safety_oracle.py ecosafe_selective_experts/scripts/08_export_validation_chunks.py ecosafe_selective_experts/scripts/09_validation_fusion_report.py ecosafe_selective_experts/scripts/10_validation_routing_frontier.py ecosafe_selective_experts/scripts/11_export_best_validation_chunks.py ecosafe_selective_experts/scripts/12_best_validation_fusion_report.py
+          python -m py_compile ecosafe_selective_experts/scripts/object_level_safety_oracle.py ecosafe_selective_experts/scripts/08_export_validation_chunks.py ecosafe_selective_experts/scripts/09_validation_fusion_report.py ecosafe_selective_experts/scripts/10_validation_routing_frontier.py ecosafe_selective_experts/scripts/11_export_best_validation_chunks.py ecosafe_selective_experts/scripts/12_best_validation_fusion_report.py ecosafe_selective_experts/scripts/13_best_validation_oracle_efficiency_gate.py
