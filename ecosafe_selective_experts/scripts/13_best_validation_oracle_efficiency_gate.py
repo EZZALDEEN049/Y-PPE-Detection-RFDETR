@@ -115,6 +115,28 @@ def summarise(frames):
     rate=len(useful)/n
     labels=[g>0 for g in gains]
     useful_set=set(useful)
+    # Five declared development diagnostic thresholds. No threshold fitting,
+    # downstream host action, or held-out test selection is implemented here.
+    fixed_grid={}
+    for signal in ("uncertainty_all","uncertainty_safety"):
+        trials=[]
+        for threshold in (0.0,0.25,0.5,0.75,1.0):
+            activated=[f[signal]>=threshold for f in frames]
+            calls=sum(activated)
+            observed_tp=sum(f["joint_tp"] if activate else f["primary_tp"]
+                            for activate,f in zip(activated,frames))
+            observed_fp=sum(f["joint_fp"] if activate else f["primary_fp"]
+                            for activate,f in zip(activated,frames))
+            expected=(1-calls/n)*primary+(calls/n)*joint
+            trials.append({
+                "threshold":threshold,
+                "secondary_invocations":calls,
+                "operational_tp":observed_tp,
+                "operational_fp":observed_fp,
+                "expected_random_tp_same_invocation_rate":expected,
+                "no_posthoc_threshold_selected":True
+            })
+        fixed_grid[signal]=trials
     return {
         "validation_frames":n, "critical_gt_objects":total_gt,
         "primary_tp":primary,"primary_fp":pfp,
@@ -141,6 +163,7 @@ def summarise(frames):
             "all_detection_confidence":auc_rank(labels,[f["uncertainty_all"] for f in frames]),
             "safety_only_confidence":auc_rank(labels,[f["uncertainty_safety"] for f in frames]),
         },
+        "fixed_development_only_signal_threshold_grid":fixed_grid,
         "roc_auc_has_no_final_calibration_or_test_generalization":True,
     }
 
