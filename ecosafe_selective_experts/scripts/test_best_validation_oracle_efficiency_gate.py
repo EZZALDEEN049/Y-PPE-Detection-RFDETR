@@ -76,6 +76,22 @@ class OpportunityTests(unittest.TestCase):
         self.assertEqual(r["privileged_gt_oracle"]["total_tp_by_only_escalating_positive_gain_frames"],3)
         self.assertEqual(r["privileged_gt_oracle"]["minimal_calls_to_match_total_always_joint_tp"],0)
 
+    def test_fixed_grid_zero_cutoff_equals_always_joint(self):
+        frames=[{"gt":2,"primary_tp":1,"joint_tp":2,"concat_upper_tp":2,
+                 "primary_fp":0,"joint_fp":3,
+                 "uncertainty_all":.3,"uncertainty_safety":.4},
+                {"gt":1,"primary_tp":1,"joint_tp":1,"concat_upper_tp":1,
+                 "primary_fp":0,"joint_fp":0,
+                 "uncertainty_all":.8,"uncertainty_safety":1.0}]
+        report=gate.summarise(frames)
+        for method in ("uncertainty_all","uncertainty_safety"):
+            grid=report["fixed_development_only_signal_threshold_grid"][method]
+            self.assertEqual([r["threshold"] for r in grid],[0.,.25,.5,.75,1.])
+            self.assertEqual(grid[0]["secondary_invocations"],2)
+            self.assertEqual(grid[0]["operational_tp"],report["always_joint_tp"])
+            self.assertEqual(grid[0]["operational_fp"],report["always_joint_fp"])
+            self.assertTrue(grid[0]["no_posthoc_threshold_selected"])
+
     def test_no_safety_gt_is_not_a_recall_benchmark(self):
         rows=[{"gt":0,"primary_tp":0,"joint_tp":0,"concat_upper_tp":0,
                "primary_fp":0,"joint_fp":0,"uncertainty_all":1,"uncertainty_safety":1}]
