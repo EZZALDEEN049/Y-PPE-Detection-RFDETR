@@ -1,11 +1,11 @@
 # EcoSafe Selective Experts: Domain-Conditioned Complementarity and Safety–Computation Tradeoffs in PPE Monitoring
 
-**Working manuscript — 2026-10-17**  
-**Status:** DEVELOPMENT EVIDENCE ONLY. Not a peer-reviewed or submission-ready manuscript. The held-out test, full **two-domain** multi-seed validation, source-group-aware uncertainty, resource benchmarking and publication permissions remain outstanding. All three seeds have now been evaluated on **Construction validation only**, while Y-PPE validation remains seed17-only.
+**Working manuscript — revised 2026-10-18**  
+**Status:** DEVELOPMENT EVIDENCE ONLY. Not a peer-reviewed or submission-ready manuscript. All **six seed-by-domain expert pairs have now been evaluated on BOTH development validation domains**. Still outstanding: an independently justified absolute safety performance criterion, a frozen operational policy, held-out test, source-group-aware uncertainty, hardware energy benchmarking, novelty assessment and permissions.
 
 ## Abstract (provisional; not for journal submission)
 
-Multi-expert personal protective equipment (PPE) monitoring may improve the detection of safety-critical violations when detectors trained on different construction-image domains make complementary errors. However, invoking a secondary detector on every image increases inference work and may introduce false alarms, while confidence-triggered selective invocation is beneficial only if the trigger identifies recoverable failures. We propose EcoSafe, a development-stage framework for testing the tradeoff between safety-object recall, false positives and secondary-detector invocation rate using pre-existing, fixed YOLO11m experts trained on Y-PPE and Construction-PPE. The design preserves three previously completed training seeds per source domain, locks final-epoch checkpoint identities and reserves held-out test images until router selection is frozen. A preliminary seed-17 analysis of two frozen development partitions reveals strong direction asymmetry: class-aware joint nonmaximum suppression increased matched critical-object detections from 8 to 13 on the 132-image Construction-PPE validation set (98 safety GT objects), but did not improve the Y-PPE-trained expert’s 106 of 345 matches on the 356-image Y-PPE validation set. The second expert also added false positives. Exploratory confidence-only routing generally failed to yield meaningful reductions in secondary invocations while preserving the weak always-both safety reference. These findings motivate a prespecified oracle-complementarity and absolute safety-threshold gate before any adaptive-routing or sustainability claim. No energy advantage, independent generalization gain or deployable safety adequacy is established.
+Selective activation of a second object detector is attractive for resource-constrained personal protective equipment (PPE) monitoring only if the detector contributes safety-critical object recoveries with acceptable false alarms. We evaluate this assumption for two previously trained YOLO11m domain-specific experts, reusing six frozen last-epoch checkpoints (three seeds per source domain) without detector retraining. Both experts were run on the complete, fingerprint-locked Y-PPE validation set (356 images, 345 annotated safety violations) and Construction-PPE validation set (132 images, 98 violations); final held-out tests were not accessed. Under a fixed confidence cutoff of 0.25, class-aware ground-truth matching at IoU 0.50 and joint class-aware NMS at IoU 0.70, the fused ensemble detected 106, 103 and 94 Y-PPE safety objects across seeds 17, 42 and 2026: **identical to the Y-trained expert alone** in all three seeds. In Construction-PPE, fusion detected 13, 13 and 14 of 98 objects, versus 8, 9 and 8 for the stronger single model in each seed, but introduced 67, 68 and 74 false detections. Exploratory confidence-only routing invoked the second expert in roughly four-fifths of Y-PPE validation images without additional safety-object recall. Lowering the detection threshold in retrospective checks did not resolve severe absolute-recall limitations on Construction validation. Thus the value of extra inference is markedly asymmetric between domains, and preserving a weak always-both reference is not evidence of safe operation. These are development-only diagnostic results, not deployment, statistical generalization, measured energy or carbon-savings claims. The original EcoSafe safety-and-efficiency claim remains **NO-GO** pending redesigned validation gates and independent confirmation.
 
 **Keywords (working):** PPE safety monitoring; selective inference; domain shift; expert complementarity; false negatives; resource-constrained computer vision.
 
@@ -39,7 +39,7 @@ The principal safety outcomes must include per-class counts, TP, FN, FP, fixed-p
 
 Any logistic, calibrated or other learned lightweight router may be fitted only on development data with out-of-fold/cross-fitted predictions, preferably accounting for source groups. Candidate reference policies and an externally justified absolute safety target must be frozen before test access. No held-out images, labels or results are admissible in feature selection, threshold selection or the decision to retain EcoSafe.
 
-## 3. Results — exploratory development analysis, seed 17 only
+## 3. Results — development-only two-domain, three-seed evaluation
 
 ### 3.1 Fixed-threshold violation recall and precision
 
@@ -72,7 +72,7 @@ Joint NMS has a **descriptive** mean fixed-operating-point safety recall of **13
 
 Image-level paired bootstrap sensitivity was also examined for two seeds; any such uncertainty intervals are conditional on treating exported frames as resampling units. Genuine site- or source-sequence-cluster intervals cannot be asserted without adjudicated provenance groups. The full development table and limitations are preserved in `results/CONSTRUCTION_THREE_SEED_VALIDATION_2026-10-17.md`.
 
-**The three-seed Construction results do not complete the proposed bidirectional selective-expert experiment.** The remaining Y-PPE validation runs for seeds 42 and 2026 and a pre-locked router protocol are still required before first access to final held-out tests.
+**The remaining Y-PPE validation runs were completed on 2026-10-18** and are documented in the next section. A pre-locked router protocol and independent absolute safety gate still precede any held-out test exposure.
 
 ### 3.4 Sensitivity to operating confidence: same frozen predictions
 
@@ -80,16 +80,32 @@ To evaluate whether extremely low fixed-operating-point recall might be explaine
 
 This sensitivity further narrows the legitimate contribution: at present the project documents the limits of pretrained multi-expert complementarity and computes descriptive call-rate tradeoffs, **not** a deployable safe and sustainable controller. Full threshold counts and cautions appear in `results/CONSTRUCTION_CONFIDENCE_SENSITIVITY_2026-10-17.md`.
 
+### 3.5 Y-PPE validation replication across three seeds (completed 2026-10-18)
+
+Both experts were evaluated on every one of the **356** frozen Y-PPE validation images, with **345** annotated critical objects (`no_helmet` 40, `no_gloves` 251, `no_boots` 54). Seed17 results previously archived were complemented by complete, checksum-verified seed42 and seed2026 runs (23 nonoverlapping inference chunks per model, verified zero-detection image coverage). A separate NetworkX maximum-bipartite-matching implementation agreed with all **2,848** safety matching cardinalities (356 images × four policies × two newly evaluated seeds). The earlier seed17 independent check agreed in another 1,424 comparisons.
+
+| Seed | Y expert safety TP / 345 | Construction expert TP / 345 | Joint-NMS TP / 345 | Y expert FP | Joint-NMS FP | Joint TP gain vs Y |
+|---|---:|---:|---:|---:|---:|---:|
+| 17 | 106 | 1 | 106 | 35 | 37 | **0** |
+| 42 | 103 | 2 | 103 | 31 | 33 | **0** |
+| 2026 | 94 | 2 | 94 | 33 | 33 | **0** |
+
+The raw concatenation matching oracle gives **106, 103 and 94** matched objects, respectively, also identical to the Y expert alone at this operating point. The descriptive three-seed mean fused recall on the same Y validation images is **29.28%**; no claim of independent-site inference or satisfactory occupational safety follows from this estimate. Importantly, none of the three fused models exhibits *any* observed extra safety true positives above Y alone, although fusion adds two false positives for two seeds. Individual Y-expert class-TP counts across seeds 17/42/2026 are: no_helmet **15/18/15** of 40, no_gloves **71/66/63** of 251, no_boots **20/19/16** of 54.
+
+For an exploratory primary-only uncertainty trigger at 0.50, Y-primary escalation occurred in **287/356 (80.62%)** frames for seed42 and **289/356 (81.18%)** for seed2026; neither yielded any additional safety TP relative to Y alone. In a secondary cutoff sensitivity at `conf=0.05`, seed42 fusion matches 115 of 345 (equal Y alone), whereas seed2026 fusion matches **113 vs Y-alone 111**, with 58 FP in either policy. At `conf=0.50`, seed42 fusion gains one TP over Y alone but has lower absolute TP count than at 0.25. Thus the zero marginal-gain finding is **specific to the main cutoff 0.25**, not a theorem covering all thresholds or hypothetical experts.
+
+An image-level paired bootstrap of newly evaluated seeds has a zero observed joint-minus-Y recall difference at the selected cutoff, but **cannot** provide source/site-generalizable confidence bounds: the frozen manifest contains no validated site/video/scene IDs. Full provenance, class totals, local runtime, cutoffs and explicit nonclaims are in `results/Y_PPE_THREE_SEED_VALIDATION_2026-10-18.md`.
+
 ## 4. Discussion (provisional)
 
-The presence of some complementary object-level detections on Construction-PPE but none on Y-PPE (at this operating point and seed) suggests that domain and directional asymmetry may dominate the practical value of an extra expert. It is inappropriate to infer unconditional safety gains from ensembling or sustainable-compute gains from invoking fewer networks.
+Across all three training seeds at the 0.25 evaluation confidence, limited complementary object-level detections on Construction validation contrast with zero additional matches on Y validation. Domain and directional asymmetry therefore dominate the measured development-set value of an extra expert. It is inappropriate to infer unconditional safety gains from ensembling or sustainable-compute gains from invoking fewer networks.
 
-Most importantly, the extremely low measured critical-state recall on Construction-PPE illustrates why selective-inference non-inferiority alone could be misleading: preserving an inadequate reference system is not evidence of field readiness. Any final paper must report the absolute safety target, miss costs, alert burden, site governance, uncertainty and performance under source dependence. If the multi-seed oracle gain remains near zero or selective routing cannot meet the safety gate at a materially lower invocation rate, the scientifically valid result is a **NO-GO** for the proposed cascade, not a manufactured positive contribution.
+Most importantly, the extremely low measured critical-state recall on Construction-PPE illustrates why selective-inference non-inferiority alone could be misleading: preserving an inadequate reference system is not evidence of field readiness. Any final paper must report the absolute safety target, miss costs, alert burden, site governance, uncertainty and performance under source dependence. Given the now-complete development evidence, **NO-GO** is the appropriate current decision for claims that this exact fixed-checkpoint cascade is demonstrably safe, universally beneficial or energy-efficient. A modified hypothesis may be worth testing, but no post hoc test selection, silent model substitution or fabricated positive conclusion is acceptable.
 
 ## 5. Mandatory work before a submission-ready paper
 
-- Finish development inference with all six immutable checkpoints across both validation domains.
-- Quantify object-level complementarity by seed/direction and class, verify complete frame coverage, handle rare-class support and source dependence.
+- **Completed:** development inference for all six immutable checkpoints across both validation domains; report object-level complementarity, class support, false positives and verified frame coverage.
+- **Outstanding:** establish source/scene dependence and define an independent, real-world absolute safety criterion before considering a revised gate.
 - Freeze the actual fusion operator and predeclare the cost/safety objective and margin using development-only evidence.
 - Test learned and non-learned routing against primary-only, secondary-only, always-joint, matched-rate random and upper-bound oracle controls.
 - Conduct the **first** final held-out test only after the policy is documented and locked; provide paired/clustered CIs.
