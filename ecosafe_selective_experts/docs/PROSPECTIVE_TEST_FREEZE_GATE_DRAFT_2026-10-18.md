@@ -24,6 +24,18 @@ The intended result may be *negative*; it is not a new domain-adaptation algorit
 - [ ] **Provenance-locked analysis release**: frozen git commit/tag, software versions, data/checkpoint fingerprints, hash-verified private predictions and all predeclared aggregate outputs. Code tests passing are necessary but do not by themselves establish scientific validity.
 - [ ] **Pre-test supervisor/author decision recorded** on whether to (A) pursue a negative/limits paper, (B) study a distinct revised detector family with new pre-registered evidence, or (C) stop the EcoSafe branch and submit the prior completed cross-domain reliability paper instead.
 
+## Documented scientific pre-work now completed (NOT evidence gate approval)
+
+As of 2026-10-18 the **design work** below has been completed without exposing held-out scores:
+
+- [x] A targeted source-verified (but non-systematic) competitor matrix now separates prior two-model cascades, calibration, PPE cross-domain detection, construction cross-site generalization and physical-power methodology from our narrow candidate contribution; see `docs/LITERATURE_AND_NOVELTY_EVIDENCE_MAP_2026-10-18.md`.
+- [x] A statistical/unit-of-analysis design has been written that explicitly forbids treating multiple detector seeds, GT boxes or correlated frames as independent source sites; see `docs/STATISTICAL_AND_SOURCE_GROUP_ANALYSIS_PLAN_2026-10-18.md`.
+- [x] A protected capture-site/camera/session mapping request exists with no fabricated group IDs and no public image metadata; see `docs/PRIVATE_CAPTURE_PROVENANCE_REQUEST_2026-10-18.md`.
+- [x] A matched full-system wall-meter protocol exists, with an offline physical-trace-only energy auditor and synthetic CPU test checks; see `docs/HARDWARE_WALL_ENERGY_BENCHMARK_PLAN_2026-10-18.md` and `scripts/14_audit_measured_wall_power.py`.
+- [x] The English working manuscript is reframed as a narrowly supported checkpoint-sensitive safety-object failure-mode / conditional-value audit with verified original-source references.
+
+**None of the above checks supplies a real capture-group map, an approved minimum safety standard, legal permission, final frozen operating policy, independent held-out result or measured Joules.** All corresponding authorization checkboxes in this file must remain unchecked until actual evidence is received.
+
 ## Why the present results do NOT unlock this gate
 
 The development best.pt sensitivity had fused safety-object recalls no greater than 38.84% on Y-PPE and 47.96% on Construction-PPE at confidence 0.25, often with many more FPs than TPs. A GT-privileged sparse-secondary-call oracle is not a practical router, and the most promising confidence ranking used only 6–8 positive-benefit Construction frames per seed. High ranking AUC with rare positives and model-selection optimism does not establish safe detection or meaningful energy reduction. These findings must be reported candidly; do not use the independent test to search for a favorable operating point.
