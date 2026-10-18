@@ -23,6 +23,8 @@ on:
       - "ecosafe_selective_experts/scripts/test_external_cohort_preflight.py"
       - "ecosafe_selective_experts/scripts/16_submission_quality_gate.py"
       - "ecosafe_selective_experts/scripts/test_submission_quality_gate.py"
+      - "ecosafe_selective_experts/scripts/17_public_yolo_source_label_audit.py"
+      - "ecosafe_selective_experts/scripts/test_public_yolo_source_label_audit.py"
       - "ecosafe_selective_experts/docs/ECOSAFE_WORKING_MANUSCRIPT_2026-10-17.md"
       - "ecosafe_selective_experts/submission/automation_in_construction/**"
       - "ecosafe_selective_experts/figures/**"
@@ -49,6 +51,8 @@ on:
       - "ecosafe_selective_experts/scripts/test_external_cohort_preflight.py"
       - "ecosafe_selective_experts/scripts/16_submission_quality_gate.py"
       - "ecosafe_selective_experts/scripts/test_submission_quality_gate.py"
+      - "ecosafe_selective_experts/scripts/17_public_yolo_source_label_audit.py"
+      - "ecosafe_selective_experts/scripts/test_public_yolo_source_label_audit.py"
       - "ecosafe_selective_experts/docs/ECOSAFE_WORKING_MANUSCRIPT_2026-10-17.md"
       - "ecosafe_selective_experts/submission/automation_in_construction/**"
       - "ecosafe_selective_experts/figures/**"
@@ -67,5 +71,5 @@ jobs:
         run: |
           python -m unittest discover -s ecosafe_selective_experts/scripts \
             -p 'test_*.py' -v
-          python -m py_compile ecosafe_selective_experts/scripts/object_level_safety_oracle.py ecosafe_selective_experts/scripts/08_export_validation_chunks.py ecosafe_selective_experts/scripts/09_validation_fusion_report.py ecosafe_selective_experts/scripts/10_validation_routing_frontier.py ecosafe_selective_experts/scripts/11_export_best_validation_chunks.py ecosafe_selective_experts/scripts/12_best_validation_fusion_report.py ecosafe_selective_experts/scripts/13_best_validation_oracle_efficiency_gate.py ecosafe_selective_experts/scripts/14_audit_measured_wall_power.py ecosafe_selective_experts/scripts/15_external_cohort_preflight.py ecosafe_selective_experts/scripts/16_submission_quality_gate.py
+          python -m py_compile ecosafe_selective_experts/scripts/object_level_safety_oracle.py ecosafe_selective_experts/scripts/08_export_validation_chunks.py ecosafe_selective_experts/scripts/09_validation_fusion_report.py ecosafe_selective_experts/scripts/10_validation_routing_frontier.py ecosafe_selective_experts/scripts/11_export_best_validation_chunks.py ecosafe_selective_experts/scripts/12_best_validation_fusion_report.py ecosafe_selective_experts/scripts/13_best_validation_oracle_efficiency_gate.py ecosafe_selective_experts/scripts/14_audit_measured_wall_power.py ecosafe_selective_experts/scripts/15_external_cohort_preflight.py ecosafe_selective_experts/scripts/16_submission_quality_gate.py ecosafe_selective_experts/scripts/17_public_yolo_source_label_audit.py
           python ecosafe_selective_experts/scripts/16_submission_quality_gate.py
