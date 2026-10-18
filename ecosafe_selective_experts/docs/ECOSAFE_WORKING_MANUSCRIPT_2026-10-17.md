@@ -190,6 +190,18 @@ The count of **additional unmatched safety detections for each additional matche
 
 These are **fixed-confidence evaluation false detections**, not verified real human-facing alarms, where alert smoothing and prevalence may alter false alert costs. This incremental ratio is descriptive; no occupational-safety authority has defined acceptable tradeoffs, and choosing an arbitrary utility weight retrospectively would manufacture a success claim. See `results/INCREMENTAL_SAFETY_FALSE_DETECTION_TRADEOFF_2026-10-18.md` for paired seedwise counts.
 
+### 3.10 Figures from fully audited development aggregate data
+
+**Figure 1 — Checkpoint policy shifts recall and false detections together.** The figure plots the class-aware safety-object joint-NMS recall (y-axis) and unmatched critical detections per 100 validation frames (x-axis) across three seeds per domain. Points linked by grey dashed lines use the *same seed* under last.pt and validation-selected best.pt. A greater detection percentage generally coincides with a greater false-detection burden, with substantially different tradeoffs across the two domains. All image frames are repeated across seeds; these plotted values are NOT independent site observations. Vector source: `figures/FIG1_CHECKPOINT_RECALL_FP_2026-10-18.svg`.
+
+![Figure 1: safety recall versus false detections across checkpoints and domains](../figures/FIG1_CHECKPOINT_RECALL_FP_2026-10-18.svg)
+
+**Figure 2 — The additional false-detection cost of expert fusion.** For the *best.pt* development sensitivity at confidence 0.25, the figure uses **the in-domain-trained single expert as primary** for each validation domain and plots `[FP(joint)-FP(primary)]/[TP(joint)-TP(primary)]` when the denominator is positive. It never reports a value for a zero-denominator row. Construction has approximately 11–19 additional unmatched detections per newly recovered critical GT object; Y-PPE ranges 2–15 across seeds. The plots report evaluation-level detected boxes, NOT human-facing workplace alerts or a physical/ethical harm ratio. Vector source: `figures/FIG2_INCREMENTAL_FP_PER_RECOVERED_GT_2026-10-18.svg`.
+
+![Figure 2: incremental false detection burden per recovered violation](../figures/FIG2_INCREMENTAL_FP_PER_RECOVERED_GT_2026-10-18.svg)
+
+Both figures are compiled **only from previously verified aggregate development comparisons**, with no new inference, original face/worker image visualization or held-out test. The corresponding numerators, denominators and methodology are documented in `results/INCREMENTAL_SAFETY_FALSE_DETECTION_TRADEOFF_2026-10-18.md`. Figure 1 uses fixed-confidence P/R object counting, not COCO mAP; neither figure measures power, latency, independently sampled site accuracy or carbon.
+
 ## 4. Discussion (provisional)
 
 Across all three seeds under the **original last.pt checkpoint policy** at confidence 0.25, limited complementary object-level detections on Construction validation contrast with zero additional matches on Y validation. The separately documented best.pt sensitivity does show additional object-level matches on Y validation (two, three and one across seeds), demonstrating **checkpoint-policy sensitivity**, not robust transfer or safety adequacy. Domain and directional asymmetry therefore dominate the measured development-set value of an extra expert. It is inappropriate to infer unconditional safety gains from ensembling or sustainable-compute gains from invoking fewer networks.
@@ -203,6 +215,8 @@ The GT-privileged oracle's low theoretical second-call fraction is achieved by c
 The present defensible message is a **conditional failure-mode and checkpoint-policy robustness audit**. It is not a randomized comparison of algorithms, a proven new method for safe routing or an independent sample of construction worksites. Detailed follow-up protocols exist to allow the research to proceed without leaking final test information into policy selection.
 
 **Research-to-research dependence warning:** The six models, frozen test subsets and some individual-expert last.pt/best.pt test outcomes were already analyzed in the previous cross-domain reliability paper (Stage 6). Thus reusing the same held-out images as the only "new independent test" for EcoSafe would not erase historical test knowledge. A new source-group-independent confirmation is preferred; otherwise any added same-test fusion result must be disclosed as secondary reuse, and the EcoSafe paper must contribute a genuinely distinct analysis without republishing the prior paper's mAP gap as a new result.
+
+The separate prospective external evaluation proposal in `docs/EXTERNAL_CONFIRMATION_DESCRIPTIVE_PROTOCOL_DRAFT_2026-10-18.md` freezes candidate *descriptive metric definitions only*, but does not authorize evaluating new images or claim an approved safety margin. A genuinely eligible source cohort with a reviewed `no_shoes`/protective-`no_boots` semantic map remains pending. The corresponding-author access request is saved as an **unsent Gmail draft**, not a completed acquisition.
 
 ## 5. Submission-blocking research and documentation gates
 
