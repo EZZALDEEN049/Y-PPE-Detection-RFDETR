@@ -1,0 +1,7 @@
+Highlights
+
+• Two PPE domains reveal checkpoint-sensitive gains from a second detector.
+• Safety-object recovery can increase alongside many more false detections.
+• Construction fusion adds 11–19 false detections per recovered violation.
+• Few frames benefit from escalation; confidence-only routing remains weak.
+• No tested cascade established adequate safety or measured energy savings.
