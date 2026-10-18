@@ -44,6 +44,12 @@ The study uses a **deterministic derivative** of the original releases. Original
 
 Original Stage 2 audits removed known exact/pixel duplicates, conservative near-duplicate source-family overlaps and explicit filename-derived video leakage groups. Those bounded audits **do not provide a complete per-image original worksite, camera or recording-session registry**; therefore this paper makes no independently sampled site-generalization claim. Complete source links, exclusions, split tables, fingerprints and historical audit evidence are in `docs/DATASET_SOURCE_LINEAGE_AND_TEST_SELECTION_2026-10-18.md`.
 
+### 2.1.2 Previously known individual-expert test performance: separating the two papers
+
+The same Stage 5 trained models and final fingerprinted test images have **already been used** in the separate *Cross-Domain Reliability of YOLO11m for Safety-Critical PPE Monitoring* project. Its frozen Stage 6 protocol generated 12 single-expert last.pt held-out cells (each of six models evaluated on both test domains). The previously completed committee manuscript reports those individual-expert test results and a separately declared test-set best.pt checkpoint sensitivity. Hence the original Stage 5 held-out split is **NOT a fresh untouched benchmark at the project level**, although no new EcoSafe dual-expert fusion/router policy performance has been measured on that test during the work reported here.
+
+To avoid duplicate publication or compromised confirmatory interpretation, we do **not** present any earlier Stage 6 detector-only test finding as a new EcoSafe experiment. A future novel fusion/router study would ideally be confirmed on a **new, genuinely source-group-independent dataset not examined in the prior paper**. If reusing the Stage 6 test images for extra fusion comparisons, those findings must be presented as **secondary analysis of a previously used benchmark**, with full disclosure of earlier access and prohibition on using the already-known individual detector scores to select a favorable new policy. Exact historical provenance and the pretraining annotation filter are recorded in `docs/HISTORICAL_STAGE6_TEST_REUSE_AND_INDEPENDENCE_2026-10-18.md`.
+
 ### 2.2 Primary, secondary and fusion policies
 
 For each seed and both primary directions, compare: (i) Y expert alone, (ii) Construction expert alone, (iii) always run both and merge with fixed class-aware NMS, (iv) a genuinely selective primary-first cascade that uses exactly the same merger **only upon escalation**, and (v) a raw-concatenation upper-bound matching oracle. The fifth policy is *not* deployable; it only upper-bounds matchable ground-truth objects using both prediction sets.
@@ -190,6 +196,8 @@ The GT-privileged oracle's low theoretical second-call fraction is achieved by c
 
 The present defensible message is a **conditional failure-mode and checkpoint-policy robustness audit**. It is not a randomized comparison of algorithms, a proven new method for safe routing or an independent sample of construction worksites. Detailed follow-up protocols exist to allow the research to proceed without leaking final test information into policy selection.
 
+**Research-to-research dependence warning:** The six models, frozen test subsets and some individual-expert last.pt/best.pt test outcomes were already analyzed in the previous cross-domain reliability paper (Stage 6). Thus reusing the same held-out images as the only "new independent test" for EcoSafe would not erase historical test knowledge. A new source-group-independent confirmation is preferred; otherwise any added same-test fusion result must be disclosed as secondary reuse, and the EcoSafe paper must contribute a genuinely distinct analysis without republishing the prior paper's mAP gap as a new result.
+
 ## 5. Submission-blocking research and documentation gates
 
 - **COMPLETE (development):** all 2 domains × 3 seeds × 2 checkpoint policies × 2 detector sources were evaluated on immutable validation images, with 68 synthetic CPU scientific/integrity tests and independent object matching. All existing primary `last.pt` comparisons remain primary evidence; `best.pt` source-validation selection is an expressly biased sensitivity.
@@ -197,7 +205,7 @@ The present defensible message is a **conditional failure-mode and checkpoint-po
 - **BLOCKER:** original site/camera/recording provenance, image-family overlap across train/validation/test from an authorized source steward, independent capture groups, and permissions are unverified.
 - **BLOCKER:** externally justified **absolute** recall and false-alarm tolerances per critical PPE class and explicit intervention costs (not relative noninferiority to inadequate already-fused recall) have not been approved.
 - **BLOCKER:** an operational primary-only router must be prospectively defined, fitted/calibrated with development-only leakage safeguards, and compared with same-fusion always-both, each expert individually and rate-matched random policies before final test. Current tested confidence-only heuristics do not pass this gate.
-- **BLOCKER:** a fully locked independent held-out evaluation, statistical unit, prior checkpoint/threshold policy and a single primary outcome/hypothesis cannot be frozen without resolution of the earlier scientific conditions.
+- **BLOCKER:** a new, source-group-independent confirmatory cohort **not previously used for Stage 6 test scoring**, or an explicitly disclosed SECONDARY analysis of the reused Stage 6 benchmark; a new policy and a single primary outcome/hypothesis must be locked before new scoring. Existing Stage 6 individual expert test metrics are NOT fresh independent evidence.
 - **BLOCKER:** full-system wall-power, RAM, matched per-frame end-to-end latency, router overhead, idle/loaded model costs and justified CO2 system boundary have not been physically measured. Neither fewer expert invocations nor the new meter-audit script supplies energy savings evidence.
 - **BLOCKER:** the complete literature review, manuscript novelty and submission rights/ethics declaration require independent academic/supervisor evaluation; do not equate passing CI or targeting a Q1 journal with acceptance/readiness.
 
@@ -224,6 +232,8 @@ The correctly bounded next work item is to retrieve protected original capture-g
 - [R7] MLCommons (official policy). *MLPerf Inference Power Measurement Rules*. https://github.com/mlcommons/inference_policies/blob/master/power_measurement.adoc
 
 **Historical test-processing transparency:** All negative/positive EcoSafe detector and router **performance claims in this working draft are development-only**. Stage 4.5 historically used test-source annotation metadata to select which frames enter the final fingerprinted test derivative *before the detectors were trained*. This is distinct from consulting any test score to design the current router, which has **not** occurred. Future articles must not call the final test set wholly "untouched" or representative of unfiltered original imagery.
+
+**Test reuse caveat:** Historical Stage 4.5 read native test annotation metadata for frozen pretraining label-based image selection, and a separate earlier Stage 6 paper already ran single-expert models on both resulting test splits. Neither should be concealed behind the phrase "wholly untouched held-out test." The present paper's NEW fusion/router experiments are validation-only, and fresh confirmation would require a new independent sample, or reuse must be transparently designated secondary.
 
 ## Publication integrity statement
 
