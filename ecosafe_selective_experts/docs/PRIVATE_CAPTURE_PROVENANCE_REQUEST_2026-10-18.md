@@ -10,6 +10,14 @@ The project researcher states that the dataset images are official/legitimate ma
 
 **A distinct statistical issue remains:** permitted research use does not identify original worksite/camera/session groups. A verified capture-family/source map is needed before claiming independent-site generalization or calculating site-cluster confidence intervals; exact hashes and dHash cannot establish those source groups.
 
+## Public dataset-source lineage found in pre-existing project records
+
+The originating **dataset products** are now documented: Y-PPE derives from Roboflow **ALTAYYAR Version 2** (`master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh`) and Construction-PPE from published **Ultralytics Construction-PPE v1.0.0**. Historical Stage 2 audits established and corrected certain exact/pixel, dHash source-family, and explicit same-video filename split overlaps. The final nine-class Stage 5 derivatives were fixed by pretraining Stage 4.5, which **also filtered 48/234 and 3/141 original clean-source test images based on native annotation metadata**. See `docs/DATASET_SOURCE_LINEAGE_AND_TEST_SELECTION_2026-10-18.md`.
+
+**Still missing is lower-level ORIGINAL CAPTURE provenance** (which construction site, which camera, which recording session, and which adjacent/augmented image family for each exported picture). In the final validation-only archive, only one Y-PPE image and zero Construction images have an explicit token recognizable by the existing media-filename parser. Failure to recover a media token is NOT evidence of a singleton independent worksite. Data source/publication and camera/site independence are different concepts.
+
+The public Construction-PPE dataset is documented under **AGPL-3.0** by Ultralytics. The original Y-PPE Version 1 export reported CC BY 4.0, but **the studied data came from Version 2**, so Version 2 redistribution conditions should be verified directly if publishing original pictures. User-confirmed ordinary academic research use remains acknowledged and does not need to be repeatedly questioned.
+
 ## Evidence needed from the dataset owner / field collection steward
 
 Provide, **in a privately stored and access-controlled table**, one row per original capture or exported image family. Recommended columns:
@@ -43,7 +51,8 @@ Anonymize site/camera keys *consistently* across splits; changing IDs for the sa
 
 | Responsible party | Requested evidence | Status (2026-10-18) |
 |---|---|---|
-| Dataset owner/collection steward | Source-worksite/session/sequence grouping plus split-independent hash/near-duplicate assessment | **PENDING; no authenticated group map found** |
+| Dataset origin and audited transformations | Roboflow ALTAYYAR Version 2 / Ultralytics Construction-PPE v1.0.0; historical split corrections and Stage 4.5 test-annotation filtering | **SOURCE DATASET IDENTITIES AND HISTORICAL AUDITS DOCUMENTED** |
+| Dataset owner/collection steward | **Per-image original worksite, camera, session and adjacent frame source-group IDs** (not just a source download URL) | **PENDING; no complete authenticated capture-group map found** |
 | Image research-use clarification | Project researcher confirms that the official images are routinely used for academic study and research | **RESEARCHER-REPORTED ALLOWED; independent documentation not reviewed** |
 | Institution/ethics or rights holder | Verify conditions for public reproduction/redistribution of original images and any separately required consent; avoid sharing images unless authorized | **NOT YET DOCUMENTED; distinct from ordinary academic analysis** |
 | Safety-domain supervisor or qualified reviewer | Externally justified minimum PPE violation recall per class and acceptable false-alert rate | **PENDING; do not invent target** |
