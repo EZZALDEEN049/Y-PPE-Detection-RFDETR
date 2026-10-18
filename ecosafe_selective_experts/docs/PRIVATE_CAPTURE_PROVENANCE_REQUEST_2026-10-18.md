@@ -2,6 +2,14 @@
 
 **Created 2026-10-18. Template only; NO original site/camera IDs were supplied, fabricated or committed.** Store the filled sensitive table in authorized PRIVATE institutional storage. Publish only aggregate counts and nonidentifying leakage risk summaries. The frozen Stage5 nine-class validation manifest lacks verified original site/recording grouping.
 
+## Research-use clarification received from project researcher (2026-10-18)
+
+The project researcher states that the dataset images are official/legitimate material routinely used for **academic study and research**, and reports no issue with their research use. This statement is recorded as a **researcher-supplied clarification**, not an independently reviewed license, institutional consent form, or public redistribution permission.
+
+**Practical consequence:** Do not treat a presumed prohibition on analyzing these images for research as a blocker. Continue permitted private academic analysis and publish nonidentifying aggregate statistics. Do not assert that the images themselves can be redistributed in public repositories, journal supplementary files or open benchmarks without checking the applicable source permissions.
+
+**A distinct statistical issue remains:** permitted research use does not identify original worksite/camera/session groups. A verified capture-family/source map is needed before claiming independent-site generalization or calculating site-cluster confidence intervals; exact hashes and dHash cannot establish those source groups.
+
 ## Evidence needed from the dataset owner / field collection steward
 
 Provide, **in a privately stored and access-controlled table**, one row per original capture or exported image family. Recommended columns:
@@ -36,7 +44,8 @@ Anonymize site/camera keys *consistently* across splits; changing IDs for the sa
 | Responsible party | Requested evidence | Status (2026-10-18) |
 |---|---|---|
 | Dataset owner/collection steward | Source-worksite/session/sequence grouping plus split-independent hash/near-duplicate assessment | **PENDING; no authenticated group map found** |
-| Institution/ethics or rights holder | Permission to analyze private test imagery and publish derived counts; consent/anonymization handling if applicable | **PENDING; never presumed** |
+| Image research-use clarification | Project researcher confirms that the official images are routinely used for academic study and research | **RESEARCHER-REPORTED ALLOWED; independent documentation not reviewed** |
+| Institution/ethics or rights holder | Verify conditions for public reproduction/redistribution of original images and any separately required consent; avoid sharing images unless authorized | **NOT YET DOCUMENTED; distinct from ordinary academic analysis** |
 | Safety-domain supervisor or qualified reviewer | Externally justified minimum PPE violation recall per class and acceptable false-alert rate | **PENDING; do not invent target** |
 | Research team | Exact frozen test plan, statistical family, code/data lock before first held-out performance access | **DRAFT, NOT APPROVED** |
 | Hardware measurement lead | Actual metered machine, software lock, trace acquisition/replicate plan | **PENDING; not measured** |
