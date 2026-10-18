@@ -1,0 +1,56 @@
+name: EcoSafe object-level recovery scientific gate (CPU)
+on:
+  push:
+    branches: [research/ecosafe-object-level-safety-gate-2026-10]
+    paths:
+      - "ecosafe_selective_experts/scripts/object_level_safety_oracle.py"
+      - "ecosafe_selective_experts/scripts/test_object_level_safety_oracle.py"
+      - "ecosafe_selective_experts/scripts/08_export_validation_chunks.py"
+      - "ecosafe_selective_experts/scripts/test_export_validation_chunks.py"
+      - "ecosafe_selective_experts/scripts/09_validation_fusion_report.py"
+      - "ecosafe_selective_experts/scripts/test_validation_fusion_report.py"
+      - "ecosafe_selective_experts/scripts/10_validation_routing_frontier.py"
+      - "ecosafe_selective_experts/scripts/test_validation_routing_frontier.py"
+      - "ecosafe_selective_experts/scripts/11_export_best_validation_chunks.py"
+      - "ecosafe_selective_experts/scripts/12_best_validation_fusion_report.py"
+      - "ecosafe_selective_experts/scripts/test_export_best_validation_chunks.py"
+      - "ecosafe_selective_experts/scripts/test_best_validation_fusion_report.py"
+      - "ecosafe_selective_experts/scripts/13_best_validation_oracle_efficiency_gate.py"
+      - "ecosafe_selective_experts/scripts/test_best_validation_oracle_efficiency_gate.py"
+      - "ecosafe_selective_experts/scripts/14_audit_measured_wall_power.py"
+      - "ecosafe_selective_experts/scripts/test_audit_measured_wall_power.py"
+      - ".github/workflows/ecosafe-object-level-cpu-checks.yml"
+  pull_request:
+    paths:
+      - "ecosafe_selective_experts/scripts/object_level_safety_oracle.py"
+      - "ecosafe_selective_experts/scripts/test_object_level_safety_oracle.py"
+      - "ecosafe_selective_experts/scripts/08_export_validation_chunks.py"
+      - "ecosafe_selective_experts/scripts/test_export_validation_chunks.py"
+      - "ecosafe_selective_experts/scripts/09_validation_fusion_report.py"
+      - "ecosafe_selective_experts/scripts/test_validation_fusion_report.py"
+      - "ecosafe_selective_experts/scripts/10_validation_routing_frontier.py"
+      - "ecosafe_selective_experts/scripts/test_validation_routing_frontier.py"
+      - "ecosafe_selective_experts/scripts/11_export_best_validation_chunks.py"
+      - "ecosafe_selective_experts/scripts/12_best_validation_fusion_report.py"
+      - "ecosafe_selective_experts/scripts/test_export_best_validation_chunks.py"
+      - "ecosafe_selective_experts/scripts/test_best_validation_fusion_report.py"
+      - "ecosafe_selective_experts/scripts/13_best_validation_oracle_efficiency_gate.py"
+      - "ecosafe_selective_experts/scripts/test_best_validation_oracle_efficiency_gate.py"
+      - "ecosafe_selective_experts/scripts/14_audit_measured_wall_power.py"
+      - "ecosafe_selective_experts/scripts/test_audit_measured_wall_power.py"
+permissions:
+  contents: read
+jobs:
+  safety-correction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run synthetic object-level recovery checks
+        run: |
+          python -m unittest discover -s ecosafe_selective_experts/scripts \
+            -p 'test_*.py' -v
+          python -m py_compile ecosafe_selective_experts/scripts/object_level_safety_oracle.py ecosafe_selective_experts/scripts/08_export_validation_chunks.py ecosafe_selective_experts/scripts/09_validation_fusion_report.py ecosafe_selective_experts/scripts/10_validation_routing_frontier.py ecosafe_selective_experts/scripts/11_export_best_validation_chunks.py ecosafe_selective_experts/scripts/12_best_validation_fusion_report.py ecosafe_selective_experts/scripts/13_best_validation_oracle_efficiency_gate.py ecosafe_selective_experts/scripts/14_audit_measured_wall_power.py
