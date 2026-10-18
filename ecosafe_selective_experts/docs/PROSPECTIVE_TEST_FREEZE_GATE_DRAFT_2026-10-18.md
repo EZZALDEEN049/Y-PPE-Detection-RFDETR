@@ -4,6 +4,14 @@
 
 **This is a prospective planning draft, NOT a retrospective pre-registration of the past development experiments.** No held-out model evaluation, **new test-label use for EcoSafe router design**, test-threshold tuning or score-based paper claim is authorized by the existence of this file. **Historical exception to an entirely untouched-test claim:** the fixed Stage 4.5 pretraining preprocessing rule DID parse native test-annotation metadata and remove 48 Y-PPE plus 3 Construction-PPE test frames before any Stage 5 training. That selection was not based on predictions or test performance; its resulting test population is conditional on label completeness. The current scientifically justified decision remains **NO-GO for deployable safety and energy savings claims**.
 
+## Historical test exposure — new clarification (2026-10-18)
+
+**The Stage 5 test images are NOT globally unseen to this wider research project.** The earlier cross-domain reliability study already performed Stage 6 detector-only evaluations of the same six YOLO11m models on both fixed test domains (12 `last.pt` model-domain cells), and its committee manuscript reports their outcomes, including subsequent `best.pt` test sensitivity. Thus the performance of the individual experts on these test sets is **previously known**, although no new EcoSafe joint NMS or router-policy test metric was generated in this branch.
+
+Before that, historical Stage 4.5 used *native source test annotations* for fixed, pretraining label-completeness filtering; its retained test derivative sizes are 186 Y-PPE and 138 Construction. These two disclosures jointly rule out the term "wholly untouched independent test" for these **already-used** images. See `docs/HISTORICAL_STAGE6_TEST_REUSE_AND_INDEPENDENCE_2026-10-18.md` and the earlier `paper_draft/MANUSCRIPT_STAGE12_Q1_COMMITTEE_FINAL.md`.
+
+**Change of protocol:** For genuinely **new confirmatory** inference evidence, require NEW source-group-independent evaluation images not in the old Stage 5/6 data, ethically and legally authorized, with policy and statistics frozen in advance. If restricted to the old frozen test split, any future EcoSafe fusion-policy assessment is a transparently described **secondary/reused benchmark evaluation** and cannot claim first-use test independence, novelty of the individual expert test results, or new-site generalization. The test-performance embargo still forbids further test-guided *new route threshold/seed/model selection*.
+
 ## Proposed publication claim, narrowly scoped
 
 Provisional candidate: **Checkpoint-policy sensitivity, sparse conditional value of a second expert and confidence-signal failure modes in critical PPE detection under domain shift.**
@@ -15,6 +23,7 @@ The intended result may be *negative*; it is not a new domain-adaptation algorit
 ## Mandatory authorization gates before first held-out run
 
 - [x] **Original source and derivative identity documented**: Roboflow ALTAYYAR Version 2 and official Ultralytics Construction-PPE v1.0.0, Stage 2, Stage 4 and historical label-based Stage 4.5 pretraining membership filtering; see `docs/DATASET_SOURCE_LINEAGE_AND_TEST_SELECTION_2026-10-18.md`. This is a source-record completion, not independent-site validation.
+- [ ] **Fresh independent confirmatory evaluation cohort available OR reuse expressly disclosed as secondary**: the historical Stage 6 results are already known, so the same test images cannot support a claim of previously unexamined independent confirmation. Source-group provenance still required.
 - [ ] **Independent source provenance verified**: evidence of worksite/recording/camera/session grouping and train/validation/test source independence for *both* nine-class frozen datasets. Hash and dHash preflights alone are insufficient.
 - [x] **Researcher clarification about academic image use recorded**: the project researcher states images are legitimate/official research materials routinely used for study. This is a self-report of research-use permissibility, not an independent license audit.
 - [ ] **Distinct public redistribution/figure permissions if original images are published**: review source license/consent and anonymization requirements before publishing originals or crops; aggregate-only research outputs are distinct from redistribution. Research-use clarification does not establish public-image reproduction rights.
@@ -52,6 +61,6 @@ The development best.pt sensitivity had fused safety-object recalls no greater t
 
 ## Explicit evaluation embargo
 
-**Held-out model-scoring status:** no new EcoSafe router/fusion **test performance evaluation** conducted. Historical Stage 4.5 processed native test-label metadata prior to training and removed predefined structurally nonharmonizable frames, so do NOT claim wholly untouched original test annotations. This draft does not authorize new test scores, labels or visual inspection for routing selection; it cannot be cited as a retroactive pre-registration of development choices.
+**EcoSafe-specific scoring status:** no new EcoSafe router/fusion **test performance evaluation** conducted in PR#16; however the **same individual models were previously test-scored in Stage 6**, so their original test baseline outcomes are already available. Historical Stage 4.5 processed native test-label metadata prior to training and removed predefined structurally nonharmonizable frames, so do NOT claim wholly untouched original test annotations. This draft does not authorize new test scores, labels or visual inspection for routing selection; it cannot be cited as a retroactive pre-registration of development choices.
 
 **Next safe action:** obtain original capture source-group/provenance information; review verified related work and define a defensible absolute safety metric. If the gate cannot be met, report the observed negative evidence as a scoped reproducibility/limitations study instead of fabricating a sustainable PPE system.
