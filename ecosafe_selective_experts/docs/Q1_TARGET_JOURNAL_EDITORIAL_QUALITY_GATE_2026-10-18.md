@@ -15,7 +15,7 @@
 
 ## Changes ACTUALLY implemented
 
-- [x] English working manuscript has a new **201-word**, single-paragraph, independently understandable, development-only abstract; no citations or unsupported hardware/test/generalization claims.
+- [x] English working manuscript has a new **216-word by the repository tokenizer (201 by whitespace tokenization)**, single-paragraph, independently understandable, development-only abstract; no citations or unsupported hardware/test/generalization claims.
 - [x] Six English indexing keywords, with journal-specific policy to be rechecked.
 - [x] Five highlights saved in `submission/automation_in_construction/HIGHLIGHTS_2026-10-18.txt`, lengths **73, 73, 72, 73, 73 characters** (text excluding bullet markers), all within Elsevier's 85-character advice.
 - [x] Two independent aggregate-only high-resolution vector figures with source-data captions and no person imagery; embedded in the manuscript.
