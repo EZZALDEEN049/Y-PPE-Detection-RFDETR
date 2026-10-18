@@ -2,6 +2,16 @@
 
 **2026-10-18 | Screening only. No new images retrieved, no original image bytes exposed, no model evaluation, no contacted author, and no independent performance claims.**
 
+## No-author-email discovery update (2026-10-18)
+
+**Correction to the earlier narrow search:** it is NOT true that a corresponding-author data request is the only source of datasets listing all three critical violation classes. Three public Roboflow Universe projects were independently located:
+
+- `1-500` (499 images, advertised classes `noboots`, `noglove`, `nohelmet`, public CC BY 4.0): https://universe.roboflow.com/my-workspace-adhtt/1-500-yqoby
+- `Small PPE Dataset` (150 images shown, advertised `No Safety Boots`, `No Safety Gloves`, `No Safety Helmet`, public CC BY 4.0): https://universe.roboflow.com/qsphere/small-ppe-dataset . Its model page also mentions a derived **390-image** variant; do not mistake augmented derivatives for 390 independent source images.
+- `Split 1 PPE DS` (5,494 images, `no-helmet`, `no-gloves`, **`no-shoes`**, public CC BY 4.0): https://universe.roboflow.com/ppe-7cs01/split-1-ppe-ds . `no-shoes` still requires strict semantic review before mapping to `no_boots`.
+
+The project publishers identify image count/classes/licenses **at the PAGE level only**; exact download access, underlying image originals, annotations, whether a rehosted source overlaps Stage 5/6, capture-site provenance and copyright owner rights remain unverified. **NO new external dataset archive has been retrieved and NO evaluation occurred.** A Roboflow account may be required for export. The recommended **no-email eligibility-first** route and negative-results manuscript fallback are in `docs/NO_EMAIL_PUBLIC_DATASET_ALTERNATIVES_2026-10-18.md`. The existing corresponding-author Gmail draft remains optional/UNSENT.
+
 ## Source candidates checked against the EXACT three safety-negative class ontology
 
 Research requires ground-truth object boxes directly annotating three compliance violations (`no_helmet`, `no_gloves`, `no_boots`) under geometry definitions compatible with the harmonized nine-class labels; an ordinary worn equipment box or person's bare hand is NOT silently a missing-equipment violation label. Publication license, independent original-capture families, permissions, model training source exclusion and adequate support per verified site all matter. Missing original-site metadata must not be replaced by arbitrary frame-level bootstrap groups.
