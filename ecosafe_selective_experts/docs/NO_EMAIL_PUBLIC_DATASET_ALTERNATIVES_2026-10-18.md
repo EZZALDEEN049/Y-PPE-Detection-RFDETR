@@ -32,6 +32,12 @@ Do not imply site-independent generalization, safe operation or measured energy/
 
 **Practical recommendation:** pursue Path A *screening of candidate data* while concurrently preparing Path B as the conservative fallback. Do NOT spend more CPU time training or measuring external performance until label rights/independence checks pass. The unsent message to a journal author may remain optional backup if source metadata are unavailable.
 
+## Implemented local public YOLO evidence audit (2026-10-18)
+
+The no-email route now includes `scripts/17_public_yolo_source_label_audit.py`, a standard-library-only PRIVATE export reader that verifies Roboflow YOLO `data.yaml` class-ID order, an explicitly researcher-reviewed three-class map, matching image and YOLO box label files, normalized bounding box geometry, class-specific GT support and exact-image hashes crossing candidate splits. It fails closed for `no_shoes` treated as `no_boots` without a separately justified ontology. It saves only anonymous counts with `independent_experiment_completed:false` and `human_worksite_groups_verified:false`. The matching **11 synthetic tests** passed in the repository CPU gate; these tests are not a real external study.
+
+Full private export instructions and a map template are in `docs/PUBLIC_ROBOFLOW_YOLO_IMPORT_AND_TEST_EMBARGO_2026-10-18.md`. Official Roboflow Python documentation confirms an account login or API credential is generally needed for an actual version export. A connected Google Drive search found no existing `1-500` or `small-ppe-dataset` export. Hence **no new image/label bytes were obtained, no author was contacted, no new detector score was computed**, and the original site-independence gate remains unpassed.
+
 ## Status / gates
 
 - [x] Three relevant freely listed datasets and their page-level licenses/classes were found.
