@@ -3,7 +3,7 @@
 
 ## Scientific status
 
-The 2026-10-17/18 last.pt and best.pt results are completed **development** diagnostics; their checkpoint/threshold/oracle results are exploratory and cannot be described as independent confirmatory tests or prospective pre-registration. Original validation n=356 Y-PPE images with 345 safety GT objects and n=132 Construction images with 98 safety GT objects. These are recurring image sets observed under three training seeds and two existing original checkpoint policies. **Six weights ≠ six independent target populations.** Original frozen manifests do not establish camera, capture session, worksite, sequence, identity or site group independence. No held-out test opened for new policy selection.
+The 2026-10-17/18 last.pt and best.pt results are completed **development** diagnostics; their checkpoint/threshold/oracle results are exploratory and cannot be described as independent confirmatory tests or prospective pre-registration. Original validation n=356 Y-PPE images with 345 safety GT objects and n=132 Construction images with 98 safety GT objects. These are recurring image sets observed under three training seeds and two existing original checkpoint policies. **Six weights ≠ six independent target populations.** Original frozen manifests do not establish camera, capture session, worksite, sequence, identity or site group independence. No held-out **model evaluation performance** was opened for new policy selection. **Historical Stage 4.5 did parse native test annotations to select the structurally harmonizable final test subset BEFORE training**, with no test-image visual adjudication or model predictions used for membership. See `docs/DATASET_SOURCE_LINEAGE_AND_TEST_SELECTION_2026-10-18.md`.
 
 ## Question hierarchy and null comparators
 
@@ -14,6 +14,12 @@ The 2026-10-17/18 last.pt and best.pt results are completed **development** diag
 **RQ3 (exploratory compute proxy):** For 0% escalation, always both (100%), development-only static confidence policies and mathematically matched-rate random-routing **expected** policies, how do recall and FP vary versus second-expert invocation fraction? Invocations are *not energy*.
 
 **No confirmatory claim for a new safe/sustainable router** unless an independently accepted absolute safety standard, source independence, a frozen prospective router and fully measured costs exist *before first final test access*.
+
+## Source-population conditioning and dataset selection sensitivity
+
+The two public/research source datasets are traceable to **Y-PPE ALTAYYAR Roboflow Version 2** and **official Ultralytics Construction-PPE v1.0.0**. They underwent Stage 2 cleanup, nine-class harmonization and a prior **annotation-only Stage 4.5 exclusion rule** that applied to train/validation/**test** based on harmonized emptiness or critically unmatched excluded-source labels. After Stage 2, the rule filtered **Y-PPE** (359 train, 103 validation, 48 test) and **Construction** (31 train, 2 validation, 3 test), leaving final 1,236/356/186 and 1,046/132/138. Hence the final test population is not the unmodified original publisher test; only *model-driven test performance* remains unexamined for current EcoSafe policy selection.
+
+The differential label-conditioned selection (Y validation 103/459=22.44%, Construction validation 2/134=1.49%) may change class frequencies, label completeness and task difficulty, **independently of model architecture**. There are no publicly verified denominators for per-class retained/excluded test objects appropriate for a post hoc original-population correction. Future paper conclusions must be **explicitly conditional on filtered nine-class Stage 5 samples**, and never extrapolated as estimates of PPE monitoring in all original source photographs, let alone new independent worksites. No attempt is authorized to restore excluded held-out images after observing test scores.
 
 ## Unit of analysis
 
