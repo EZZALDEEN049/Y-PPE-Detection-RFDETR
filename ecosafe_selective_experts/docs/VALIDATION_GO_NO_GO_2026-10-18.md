@@ -18,7 +18,7 @@
 - [ ] An **independently justified absolute operational safety recall / permissible miss and FP cost** is documented. A relative non-inferiority to very low always-both recall is not enough.
 - [ ] Verified independent source/site grouping and population-level statistical uncertainty.
 - [ ] A robust, prespecified router significantly reduces secondary invocations while satisfying *both* absolute safety and acceptable FP burden on development data.
-- [ ] A locked protocol tested once on untouched, site-independent held-out images, with paired uncertainty.
+- [ ] A prospectively locked protocol evaluated on a **NEW site-independent cohort not used in Stage 6**, with paired source-group uncertainty; or an expressly labeled secondary/reused benchmark without independent-confirmation claims.
 - [ ] Instrumented per-image energy, inference latency, memory and router overhead on fixed hardware; defensible carbon accounting if CO2e is claimed.
 - [ ] Public manuscript permissions, literature novelty verification, reporting and ethics/data-rights checklist closed.
 
@@ -57,6 +57,16 @@ Y-PPE validation with Y as primary presents only **2/356, 3/356 and 1/356** posi
 An independent validation data audit (`results/FROZEN_STAGE5_VALIDATION_SIMILARITY_PREFLIGHT_2026-10-18.md`) found **zero identical exported image SHA groups** among validation images within/across either nine-class domain and zero exact train↔val SHA overlap within the original frozen manifests. Small candidate dHash near-similarity groups exist and remain unadjudicated. No independent site/camera/video capture IDs are established. This is **not proof of source-group independence** or independent test validity.
 
 **Publication decision unchanged:** GO for a scoped methodological **failure-mode and value-of-information audit** if related-work novelty is defensible, with clearly described GT oracle and selection bias. **NO-GO** for claiming a safe/sustainable selective PPE monitoring system; do not access final test merely to rescue a weak experimental claim. Prospectively predeclare a new target and threshold policy *without accessing test* if the research scope is deliberately changed.
+
+## Original dataset lineage and already-used Stage 6 test status (2026-10-18)
+
+The original **downloaded dataset identities are known** from the prior repository code: Y-PPE is the Roboflow **ALTAYYAR Version 2** source and Construction-PPE is the official **Ultralytics Construction-PPE v1.0.0**. Source-level Stage 2 split/video/near-duplicate cleanup and Stage 4 nine-class harmonization preceded **Stage 4.5 label-completeness selection**. That last pretraining policy analyzed native **test annotation metadata**, excluding **48 Y-PPE and 3 Construction** clean-source test images and leaving final 186/138 test subsets. No test image pixels or model predictions were used to define the filter, but **original test-set membership was altered by source annotations**. The different conditioning rates require an explicit scope qualifier.
+
+More importantly, the *separate and earlier Stage 6 cross-domain reliability paper* already tested the same original six YOLO11m detectors on the **same Stage 5 final held-out splits**, 12 last.pt test cells with a later separately reported best.pt test sensitivity. Thus those earlier **individual detector test outcomes are known** to this research project; they cannot be called first-time independent EcoSafe findings.
+
+Current EcoSafe **new joint NMS, GT-privileged object recovery, confidence-only routing and best/last checkpoint comparisons on fused predictions remain validation-only**. There has been NO new EcoSafe fusion/route test run in this PR. **An actual NEW source-group-independent evaluation cohort is preferred for fresh confirmation**; otherwise additional fusion analysis on the old Stage 6 benchmark must be openly labeled a **secondary analysis of a previously scored test** and cannot support first-use-site-independent claims. Current checkpoint/safety/energy NO-GO remains in force.
+
+Source and evidence: `docs/DATASET_SOURCE_LINEAGE_AND_TEST_SELECTION_2026-10-18.md`, `docs/HISTORICAL_STAGE6_TEST_REUSE_AND_INDEPENDENCE_2026-10-18.md`, `cross_domain_reliability/stage6_heldout_evaluation/STAGE6_PROTOCOL_FROZEN.md`, and `paper_draft/MANUSCRIPT_STAGE12_Q1_COMMITTEE_FINAL.md`.
 
 ## Scientific next decision — choose explicitly before accessing held-out tests
 
