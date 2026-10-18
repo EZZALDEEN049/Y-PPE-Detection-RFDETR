@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="675" viewBox="0 0 1100 675" role="img" aria-labelledby="title description">
+<title id="title">Checkpoint policy changes safety recall versus false detections per 100 validation images</title>
+<desc id="description">Two facet scatter charts for Y-PPE and Construction-PPE comparing last.pt and best.pt for three seeds, fixed operating confidence .25 and IoU .50. Evaluation-only: no field safety or energy conclusions.</desc>
+<rect width="1100" height="675" fill="#ffffff"/>
+<text x="45" y="46" font-family="Arial,sans-serif" font-weight="700" font-size="25" fill="#17253d">Violation recall versus additional false-detection burden</text>
+<text x="45" y="75" font-family="Arial,sans-serif" font-size="15" fill="#475467">Development validation only · three frozen seeds · joint NMS · confidence 0.25 · class-matched IoU 0.50</text>
+<text x="95" y="136" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#17253d">Y-PPE (345 violation GT, 356 images)</text>
+<line x1="95" x2="497" y1="497" y2="497" stroke="#e7eaf0" stroke-width="1"/>
+<text x="82" y="502" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#475467">0</text>
+<line x1="95" x2="497" y1="423" y2="423" stroke="#e7eaf0" stroke-width="1"/>
+<text x="82" y="428" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#475467">10</text>
+<line x1="95" x2="497" y1="349" y2="349" stroke="#e7eaf0" stroke-width="1"/>
+<text x="82" y="354" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#475467">20</text>
+<line x1="95" x2="497" y1="275" y2="275" stroke="#e7eaf0" stroke-width="1"/>
+<text x="82" y="280" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#475467">30</text>
+<line x1="95" x2="497" y1="201" y2="201" stroke="#e7eaf0" stroke-width="1"/>
+<text x="82" y="206" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#475467">40</text>
+<text x="95" y="522" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#475467">0</text>
+<text x="209.85714285714283" y="522" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#475467">10</text>
+<text x="324.71428571428567" y="522" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#475467">20</text>
+<text x="439.57142857142856" y="522" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#475467">30</text>
+<line x1="95" y1="164" x2="95" y2="497" stroke="#a6adbb"/>
+<line x1="95" y1="497" x2="497" y2="497" stroke="#a6adbb"/>
+<text x="296" y="554" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#273647">False detections / 100 validation images</text>
+<text transform="translate(37 330.5) rotate(-90)" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#273647">Matched violation recall (%)</text>
+<line x1="214.3" y1="269.7" x2="269.2" y2="254.7" stroke="#b9bec9" stroke-width="2" stroke-dasharray="4 5"/>
+<line x1="201.5" y1="276.0" x2="333.8" y2="235.3" stroke="#b9bec9" stroke-width="2" stroke-dasharray="4 5"/>
+<line x1="201.5" y1="295.4" x2="443.5" y2="209.6" stroke="#b9bec9" stroke-width="2" stroke-dasharray="4 5"/>
+<circle cx="214.3" cy="269.7" r="8.2" fill="#2554a4" stroke="white" stroke-width="2"><title>Y-PPE seed 17, last.pt: recall 30.72%, 10.39 FP / 100 images</title></circle>
+<text x="225.3" y="256.7" font-size="12" font-family="Arial,sans-serif" fill="#17253d">17</text>
+<circle cx="201.5" cy="276.0" r="8.2" fill="#2554a4" stroke="white" stroke-width="2"><title>Y-PPE seed 42, last.pt: recall 29.86%, 9.27 FP / 100 images</title></circle>
+<text x="212.5" y="263.0" font-size="12" font-family="Arial,sans-serif" fill="#17253d">42</text>
+<circle cx="201.5" cy="295.4" r="8.2" fill="#2554a4" stroke="white" stroke-width="2"><title>Y-PPE seed 2026, last.pt: recall 27.25%, 9.27 FP / 100 images</title></circle>
+<text x="212.5" y="282.4" font-size="12" font-family="Arial,sans-serif" fill="#17253d">2026</text>
+<circle cx="269.2" cy="254.7" r="8.2" fill="#dc651b" stroke="white" stroke-width="2"><title>Y-PPE seed 17, best.pt: recall 32.75%, 15.17 FP / 100 images</title></circle>
+<text x="279.2" y="241.7" font-size="12" font-family="Arial,sans-serif" fill="#17253d">17</text>
+<circle cx="333.8" cy="235.3" r="8.2" fill="#dc651b" stroke="white" stroke-width="2"><title>Y-PPE seed 42, best.pt: recall 35.36%, 20.79 FP / 100 images</title></circle>
+<text x="343.8" y="222.3" font-size="12" font-family="Arial,sans-serif" fill="#17253d">42</text>
+<circle cx="443.5" cy="209.6" r="8.2" fill="#dc651b" stroke="white" stroke-width="2"><title>Y-PPE seed 2026, best.pt: recall 38.84%, 30.34 FP / 100 images</title></circle>
+<text x="453.5" y="196.6" font-size="12" font-family="Arial,sans-serif" fill="#17253d">2026</text>
+<text x="645" y="136" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#17253d">Construction-PPE (98 violation GT, 132 images)</text>
+<line x1="645" x2="1047" y1="497" y2="497" stroke="#e7eaf0" stroke-width="1"/>
+<text x="632" y="502" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#475467">0</text>
+<line x1="645" x2="1047" y1="436.45454545454544" y2="436.45454545454544" stroke="#e7eaf0" stroke-width="1"/>
+<text x="632" y="441.45454545454544" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#475467">10</text>
+<line x1="645" x2="1047" y1="375.9090909090909" y2="375.9090909090909" stroke="#e7eaf0" stroke-width="1"/>
+<text x="632" y="380.9090909090909" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#475467">20</text>
+<line x1="645" x2="1047" y1="315.3636363636364" y2="315.3636363636364" stroke="#e7eaf0" stroke-width="1"/>
+<text x="632" y="320.3636363636364" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#475467">30</text>
+<line x1="645" x2="1047" y1="254.8181818181818" y2="254.8181818181818" stroke="#e7eaf0" stroke-width="1"/>
+<text x="632" y="259.8181818181818" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#475467">40</text>
+<line x1="645" x2="1047" y1="194.2727272727273" y2="194.2727272727273" stroke="#e7eaf0" stroke-width="1"/>
+<text x="632" y="199.2727272727273" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#475467">50</text>
+<text x="645" y="522" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#475467">0</text>
+<text x="722.3076923076923" y="522" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#475467">25</text>
+<text x="799.6153846153846" y="522" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#475467">50</text>
+<text x="876.9230769230769" y="522" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#475467">75</text>
+<text x="954.2307692307693" y="522" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#475467">100</text>
+<text x="1031.5384615384614" y="522" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#475467">125</text>
+<line x1="645" y1="164" x2="645" y2="497" stroke="#a6adbb"/>
+<line x1="645" y1="497" x2="1047" y2="497" stroke="#a6adbb"/>
+<text x="846" y="554" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#273647">False detections / 100 validation images</text>
+<text transform="translate(587 330.5) rotate(-90)" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#273647">Matched violation recall (%)</text>
+<line x1="802.0" y1="416.7" x2="902.7" y2="373.4" stroke="#b9bec9" stroke-width="2" stroke-dasharray="4 5"/>
+<line x1="804.3" y1="416.7" x2="1012.8" y2="206.6" stroke="#b9bec9" stroke-width="2" stroke-dasharray="4 5"/>
+<line x1="818.4" y1="410.5" x2="991.7" y2="330.2" stroke="#b9bec9" stroke-width="2" stroke-dasharray="4 5"/>
+<circle cx="802.0" cy="416.7" r="8.2" fill="#2554a4" stroke="white" stroke-width="2"><title>Construction-PPE seed 17, last.pt: recall 13.27%, 50.76 FP / 100 images</title></circle>
+<text x="813.0" y="433.7" font-size="12" font-family="Arial,sans-serif" fill="#17253d">17</text>
+<circle cx="804.3" cy="416.7" r="8.2" fill="#2554a4" stroke="white" stroke-width="2"><title>Construction-PPE seed 42, last.pt: recall 13.27%, 51.52 FP / 100 images</title></circle>
+<text x="815.3" y="404.7" font-size="12" font-family="Arial,sans-serif" fill="#17253d">42</text>
+<circle cx="818.4" cy="410.5" r="8.2" fill="#2554a4" stroke="white" stroke-width="2"><title>Construction-PPE seed 2026, last.pt: recall 14.29%, 56.06 FP / 100 images</title></circle>
+<text x="829.4" y="397.5" font-size="12" font-family="Arial,sans-serif" fill="#17253d">2026</text>
+<circle cx="902.7" cy="373.4" r="8.2" fill="#dc651b" stroke="white" stroke-width="2"><title>Construction-PPE seed 17, best.pt: recall 20.41%, 83.33 FP / 100 images</title></circle>
+<text x="912.7" y="360.4" font-size="12" font-family="Arial,sans-serif" fill="#17253d">17</text>
+<circle cx="1012.8" cy="206.6" r="8.2" fill="#dc651b" stroke="white" stroke-width="2"><title>Construction-PPE seed 42, best.pt: recall 47.96%, 118.94 FP / 100 images</title></circle>
+<text x="1022.8" y="193.6" font-size="12" font-family="Arial,sans-serif" fill="#17253d">42</text>
+<circle cx="991.7" cy="330.2" r="8.2" fill="#dc651b" stroke="white" stroke-width="2"><title>Construction-PPE seed 2026, best.pt: recall 27.55%, 112.12 FP / 100 images</title></circle>
+<text x="1001.7" y="317.2" font-size="12" font-family="Arial,sans-serif" fill="#17253d">2026</text>
+<circle cx="85" cy="593" r="7" fill="#2554a4"/><text x="101" y="598" font-size="14" font-family="Arial,sans-serif" fill="#273647">original last.pt</text>
+<circle cx="268" cy="593" r="7" fill="#dc651b"/><text x="284" y="598" font-size="14" font-family="Arial,sans-serif" fill="#273647">validation-selected best.pt (optimism possible)</text>
+<text x="45" y="634" font-family="Arial,sans-serif" font-size="13" fill="#5a6473">Same frozen frames for every seed/variant within each panel. Connected points share seed; up-left is preferable.</text>
+<text x="45" y="654" font-family="Arial,sans-serif" font-size="13" fill="#5a6473">Counts are fixed-confidence object detections, NOT deployed alerts; no measured energy, site-independent inference or CO₂.</text>
+</svg>

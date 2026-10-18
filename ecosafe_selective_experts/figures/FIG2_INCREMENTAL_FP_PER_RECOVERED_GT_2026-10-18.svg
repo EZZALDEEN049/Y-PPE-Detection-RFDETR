@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="665" viewBox="0 0 1040 665" role="img" aria-labelledby="t d">
+<title id="t">Additional false detections per recovered safety violation from an in-domain primary</title>
+<desc id="d">Six validation groups (Y-PPE and Construction-PPE, three seeds), using best.pt joint class-aware NMS versus the trained-in-domain expert alone, cutoff 0.25. All data developmental and source-validation-selected.</desc>
+<rect width="1040" height="665" fill="#fff"/>
+<text x="35" y="45" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#17253d">How many extra false detections accompany one extra recovery?</text>
+<text x="35" y="73" font-family="Arial,sans-serif" font-size="14" fill="#475467">best.pt sensitivity · true joint NMS versus in-domain primary · fixed confidence 0.25</text>
+<line x1="250" y1="147" x2="250" y2="532" stroke="#e5e8ee"/><text x="250" y="555" text-anchor="middle" font-size="13" font-family="Arial,sans-serif" fill="#5f6876">0</text>
+<line x1="392.5" y1="147" x2="392.5" y2="532" stroke="#e5e8ee"/><text x="392.5" y="555" text-anchor="middle" font-size="13" font-family="Arial,sans-serif" fill="#5f6876">5</text>
+<line x1="535" y1="147" x2="535" y2="532" stroke="#e5e8ee"/><text x="535" y="555" text-anchor="middle" font-size="13" font-family="Arial,sans-serif" fill="#5f6876">10</text>
+<line x1="677.5" y1="147" x2="677.5" y2="532" stroke="#e5e8ee"/><text x="677.5" y="555" text-anchor="middle" font-size="13" font-family="Arial,sans-serif" fill="#5f6876">15</text>
+<line x1="820" y1="147" x2="820" y2="532" stroke="#e5e8ee"/><text x="820" y="555" text-anchor="middle" font-size="13" font-family="Arial,sans-serif" fill="#5f6876">20</text>
+<text x="535" y="587" text-anchor="middle" font-size="16" font-family="Arial,sans-serif" fill="#17253d">Unmatched additional detection boxes / additional true positive (ΔFP / ΔTP)</text>
+<text x="35" y="178" font-family="Arial,sans-serif" font-size="15" font-weight="600" fill="#263445">Y-PPE</text>
+<text x="220" y="178" text-anchor="end" font-family="Arial,sans-serif" font-size="14" fill="#5e6672">seed 17</text>
+<rect x="250" y="156" width="57.00" height="28" rx="3" fill="#2e62ae"/>
+<text x="319.00" y="175" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#263445">2.00  (+2 TP, +4 FP)</text>
+<text x="35" y="239" font-family="Arial,sans-serif" font-size="15" font-weight="600" fill="#263445">Y-PPE</text>
+<text x="220" y="239" text-anchor="end" font-family="Arial,sans-serif" font-size="14" fill="#5e6672">seed 42</text>
+<rect x="250" y="217" width="152.00" height="28" rx="3" fill="#2e62ae"/>
+<text x="414.00" y="236" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#263445">5.33  (+3 TP, +16 FP)</text>
+<text x="35" y="300" font-family="Arial,sans-serif" font-size="15" font-weight="600" fill="#263445">Y-PPE</text>
+<text x="220" y="300" text-anchor="end" font-family="Arial,sans-serif" font-size="14" fill="#5e6672">seed 2026</text>
+<rect x="250" y="278" width="427.50" height="28" rx="3" fill="#2e62ae"/>
+<text x="689.50" y="297" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#263445">15.00  (+1 TP, +15 FP)</text>
+<text x="35" y="361" font-family="Arial,sans-serif" font-size="15" font-weight="600" fill="#263445">Construction-PPE</text>
+<text x="220" y="361" text-anchor="end" font-family="Arial,sans-serif" font-size="14" fill="#5e6672">seed 17</text>
+<rect x="250" y="339" width="358.29" height="28" rx="3" fill="#d26f32"/>
+<text x="620.29" y="358" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#263445">12.57  (+7 TP, +88 FP)</text>
+<text x="35" y="422" font-family="Arial,sans-serif" font-size="15" font-weight="600" fill="#263445">Construction-PPE</text>
+<text x="220" y="422" text-anchor="end" font-family="Arial,sans-serif" font-size="14" fill="#5e6672">seed 42</text>
+<rect x="250" y="400" width="317.57" height="28" rx="3" fill="#d26f32"/>
+<text x="579.57" y="419" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#263445">11.14  (+7 TP, +78 FP)</text>
+<text x="35" y="483" font-family="Arial,sans-serif" font-size="15" font-weight="600" fill="#263445">Construction-PPE</text>
+<text x="220" y="483" text-anchor="end" font-family="Arial,sans-serif" font-size="14" fill="#5e6672">seed 2026</text>
+<rect x="250" y="461" width="532.00" height="28" rx="3" fill="#d26f32"/>
+<text x="794.00" y="480" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#263445">18.67  (+6 TP, +112 FP)</text>
+<text x="35" y="624" font-family="Arial,sans-serif" font-size="13" fill="#5f6876">Validation-only object matching, not real field alerts. FP burden has no approved occupational utility threshold.</text>
+<text x="35" y="644" font-family="Arial,sans-serif" font-size="13" fill="#5f6876">In-domain best.pt models were selected with source-validation feedback; bars are descriptive, not independent confirmation.</text>
+</svg>

@@ -1,0 +1,161 @@
+{
+  "status": "development-only fixed-confidence aggregate figure registry",
+  "independent_test": false,
+  "real_energy_measured": false,
+  "confidence": 0.25,
+  "gt_match_iou": 0.5,
+  "joint_nms_iou": 0.7,
+  "source_report_refs": [
+    "results/Y_PPE_THREE_SEED_VALIDATION_2026-10-18.md",
+    "results/CONSTRUCTION_THREE_SEED_VALIDATION_2026-10-17.md",
+    "results/BEST_PT_Y_PPE_THREE_SEEDS_VALIDATION_2026-10-18.md",
+    "results/BEST_PT_CONSTRUCTION_THREE_SEEDS_VALIDATION_2026-10-18.md",
+    "results/INCREMENTAL_SAFETY_FALSE_DETECTION_TRADEOFF_2026-10-18.md"
+  ],
+  "rows": [
+    {
+      "domain": "Y-PPE",
+      "seed": 17,
+      "checkpoint": "last.pt",
+      "frames": 356,
+      "critical_ground_truth_objects": 345,
+      "joint_true_positive_objects": 106,
+      "joint_false_detection_boxes": 37,
+      "recall_percent": 30.72,
+      "false_detections_per_100_frames": 10.39
+    },
+    {
+      "domain": "Y-PPE",
+      "seed": 17,
+      "checkpoint": "best.pt",
+      "frames": 356,
+      "critical_ground_truth_objects": 345,
+      "joint_true_positive_objects": 113,
+      "joint_false_detection_boxes": 54,
+      "in_domain_primary_tp": 111,
+      "in_domain_primary_fp": 50,
+      "recall_percent": 32.75,
+      "false_detections_per_100_frames": 15.17
+    },
+    {
+      "domain": "Y-PPE",
+      "seed": 42,
+      "checkpoint": "last.pt",
+      "frames": 356,
+      "critical_ground_truth_objects": 345,
+      "joint_true_positive_objects": 103,
+      "joint_false_detection_boxes": 33,
+      "recall_percent": 29.86,
+      "false_detections_per_100_frames": 9.27
+    },
+    {
+      "domain": "Y-PPE",
+      "seed": 42,
+      "checkpoint": "best.pt",
+      "frames": 356,
+      "critical_ground_truth_objects": 345,
+      "joint_true_positive_objects": 122,
+      "joint_false_detection_boxes": 74,
+      "in_domain_primary_tp": 119,
+      "in_domain_primary_fp": 58,
+      "recall_percent": 35.36,
+      "false_detections_per_100_frames": 20.79
+    },
+    {
+      "domain": "Y-PPE",
+      "seed": 2026,
+      "checkpoint": "last.pt",
+      "frames": 356,
+      "critical_ground_truth_objects": 345,
+      "joint_true_positive_objects": 94,
+      "joint_false_detection_boxes": 33,
+      "recall_percent": 27.25,
+      "false_detections_per_100_frames": 9.27
+    },
+    {
+      "domain": "Y-PPE",
+      "seed": 2026,
+      "checkpoint": "best.pt",
+      "frames": 356,
+      "critical_ground_truth_objects": 345,
+      "joint_true_positive_objects": 134,
+      "joint_false_detection_boxes": 108,
+      "in_domain_primary_tp": 133,
+      "in_domain_primary_fp": 93,
+      "recall_percent": 38.84,
+      "false_detections_per_100_frames": 30.34
+    },
+    {
+      "domain": "Construction-PPE",
+      "seed": 17,
+      "checkpoint": "last.pt",
+      "frames": 132,
+      "critical_ground_truth_objects": 98,
+      "joint_true_positive_objects": 13,
+      "joint_false_detection_boxes": 67,
+      "recall_percent": 13.27,
+      "false_detections_per_100_frames": 50.76
+    },
+    {
+      "domain": "Construction-PPE",
+      "seed": 17,
+      "checkpoint": "best.pt",
+      "frames": 132,
+      "critical_ground_truth_objects": 98,
+      "joint_true_positive_objects": 20,
+      "joint_false_detection_boxes": 110,
+      "in_domain_primary_tp": 13,
+      "in_domain_primary_fp": 22,
+      "recall_percent": 20.41,
+      "false_detections_per_100_frames": 83.33
+    },
+    {
+      "domain": "Construction-PPE",
+      "seed": 42,
+      "checkpoint": "last.pt",
+      "frames": 132,
+      "critical_ground_truth_objects": 98,
+      "joint_true_positive_objects": 13,
+      "joint_false_detection_boxes": 68,
+      "recall_percent": 13.27,
+      "false_detections_per_100_frames": 51.52
+    },
+    {
+      "domain": "Construction-PPE",
+      "seed": 42,
+      "checkpoint": "best.pt",
+      "frames": 132,
+      "critical_ground_truth_objects": 98,
+      "joint_true_positive_objects": 47,
+      "joint_false_detection_boxes": 157,
+      "in_domain_primary_tp": 40,
+      "in_domain_primary_fp": 79,
+      "recall_percent": 47.96,
+      "false_detections_per_100_frames": 118.94
+    },
+    {
+      "domain": "Construction-PPE",
+      "seed": 2026,
+      "checkpoint": "last.pt",
+      "frames": 132,
+      "critical_ground_truth_objects": 98,
+      "joint_true_positive_objects": 14,
+      "joint_false_detection_boxes": 74,
+      "recall_percent": 14.29,
+      "false_detections_per_100_frames": 56.06
+    },
+    {
+      "domain": "Construction-PPE",
+      "seed": 2026,
+      "checkpoint": "best.pt",
+      "frames": 132,
+      "critical_ground_truth_objects": 98,
+      "joint_true_positive_objects": 27,
+      "joint_false_detection_boxes": 148,
+      "in_domain_primary_tp": 21,
+      "in_domain_primary_fp": 36,
+      "recall_percent": 27.55,
+      "false_detections_per_100_frames": 112.12
+    }
+  ]
+}
