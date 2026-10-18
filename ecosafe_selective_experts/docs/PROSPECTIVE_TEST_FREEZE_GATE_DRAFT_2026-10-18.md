@@ -2,7 +2,7 @@
 
 **Written 2026-10-18, AFTER development validation and BEFORE final held-out test exposure.**
 
-**This is a prospective planning draft, NOT a retrospective pre-registration of the past development experiments.** No held-out model evaluation, test-label use, test-threshold tuning or score-based paper claim is authorized by the existence of this file. The current scientifically justified decision remains **NO-GO for deployable safety and energy savings claims**.
+**This is a prospective planning draft, NOT a retrospective pre-registration of the past development experiments.** No held-out model evaluation, **new test-label use for EcoSafe router design**, test-threshold tuning or score-based paper claim is authorized by the existence of this file. **Historical exception to an entirely untouched-test claim:** the fixed Stage 4.5 pretraining preprocessing rule DID parse native test-annotation metadata and remove 48 Y-PPE plus 3 Construction-PPE test frames before any Stage 5 training. That selection was not based on predictions or test performance; its resulting test population is conditional on label completeness. The current scientifically justified decision remains **NO-GO for deployable safety and energy savings claims**.
 
 ## Proposed publication claim, narrowly scoped
 
@@ -14,6 +14,7 @@ The intended result may be *negative*; it is not a new domain-adaptation algorit
 
 ## Mandatory authorization gates before first held-out run
 
+- [x] **Original source and derivative identity documented**: Roboflow ALTAYYAR Version 2 and official Ultralytics Construction-PPE v1.0.0, Stage 2, Stage 4 and historical label-based Stage 4.5 pretraining membership filtering; see `docs/DATASET_SOURCE_LINEAGE_AND_TEST_SELECTION_2026-10-18.md`. This is a source-record completion, not independent-site validation.
 - [ ] **Independent source provenance verified**: evidence of worksite/recording/camera/session grouping and train/validation/test source independence for *both* nine-class frozen datasets. Hash and dHash preflights alone are insufficient.
 - [x] **Researcher clarification about academic image use recorded**: the project researcher states images are legitimate/official research materials routinely used for study. This is a self-report of research-use permissibility, not an independent license audit.
 - [ ] **Distinct public redistribution/figure permissions if original images are published**: review source license/consent and anonymization requirements before publishing originals or crops; aggregate-only research outputs are distinct from redistribution. Research-use clarification does not establish public-image reproduction rights.
@@ -39,12 +40,18 @@ As of 2026-10-18 the **design work** below has been completed without exposing h
 
 **None of the above checks supplies a real capture-group map, an approved minimum safety standard, legal permission, final frozen operating policy, independent held-out result or measured Joules.** All corresponding authorization checkboxes in this file must remain unchecked until actual evidence is received.
 
+## Dataset population restriction and historical test annotation access (explicit)
+
+The two images sources are documented and usable as research inputs. Nevertheless, the final nine-class Stage 5 evaluation images **are NOT the unmodified publisher test splits**. Historical, pre-detector-training Stage 4.5 preprocessing used native train/validation/**test annotations** to exclude harmonized-empty or critically unmatched original-label images. It removed **48/234 Y-PPE** and **3/141 Construction** clean-source test images, leaving 186 and 138 final test images respectively. The original test image pixels were not opened for this exclusion policy and model performance did not influence the membership rule. This means the selection did not contaminate EcoSafe router development with test *performance*, but DOES condition the target test population on native annotation structure.
+
+The researcher reports these official images are suitable for ordinary research; public reprinting of raw photographs still requires source-specific rights confirmation. The historical audits cleared explicit cross-split media-token leakage and confirmed near-duplicate source-family pairs, but **did not supply camera/site/session identities for every frame**. The appropriate embargo is on **model-prediction-based test performance access before a policy freeze**, not a false claim that no test annotation metadata was ever processed in the history of these datasets.
+
 ## Why the present results do NOT unlock this gate
 
 The development best.pt sensitivity had fused safety-object recalls no greater than 38.84% on Y-PPE and 47.96% on Construction-PPE at confidence 0.25, often with many more FPs than TPs. A GT-privileged sparse-secondary-call oracle is not a practical router, and the most promising confidence ranking used only 6–8 positive-benefit Construction frames per seed. High ranking AUC with rare positives and model-selection optimism does not establish safe detection or meaningful energy reduction. These findings must be reported candidly; do not use the independent test to search for a favorable operating point.
 
 ## Explicit evaluation embargo
 
-**Held-out test status:** NOT OPENED for EcoSafe policy evaluation. This draft does not authorize running or retrieving test labels/images, does not freeze a positive selective-inference policy, and cannot be cited as a time-travel pre-registration of development choices.
+**Held-out model-scoring status:** no new EcoSafe router/fusion **test performance evaluation** conducted. Historical Stage 4.5 processed native test-label metadata prior to training and removed predefined structurally nonharmonizable frames, so do NOT claim wholly untouched original test annotations. This draft does not authorize new test scores, labels or visual inspection for routing selection; it cannot be cited as a retroactive pre-registration of development choices.
 
 **Next safe action:** obtain original capture source-group/provenance information; review verified related work and define a defensible absolute safety metric. If the gate cannot be met, report the observed negative evidence as a scoped reproducibility/limitations study instead of fabricating a sustainable PPE system.
