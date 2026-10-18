@@ -20,7 +20,7 @@ SPLITS={"train":"train","valid":"val","val":"val","test":"test"}
 
 
 def read_class_names(text):
-    match=re.search(r"(?m)^names\s*:\s*(.*)$",text)
+    match=re.search(r"(?m)^names[ \t]*:[ \t]*(.*)$",text)
     if not match:
         raise ValueError("Missing data.yaml names")
     raw=match.group(1).strip()
