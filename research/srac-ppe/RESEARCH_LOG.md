@@ -27,6 +27,7 @@ Append-only dated record. Each entry must distinguish actual verification, inher
 - Found and reproduced a `auto_clear_coverage` reporting bug (200% coverage with indeterminate GT included in numerator); patched an **unpublished local working copy** and added regression test: 15/15 unit tests passed. Canonical v2 ZIP remains untouched. See [code audit](CODE_AUDIT_2026-10-29.md).
 - Verified foundational and overlapping 2024–2026 papers at publishers; documented novelty collisions rather than asserting a novel risk theorem. See [novelty audit](NOVELTY_AUDIT.md).
 - Drafted [experiment protocol v0.2](EXPERIMENT_PROTOCOL.md) with frozen-model, label-meaning, independent-site, threshold selection and fair-baseline requirements.
+- Defined [annotation codebook v0.1](ANNOTATION_CODEBOOK.md) for context-dependent helmet mandates, head visibility, all GT workers and two-blind-annotator adjudication. **No actual field annotations performed.**
 - **Still not done:** independent RF-DETR inference, ground-truth PPE-required adjudication, calibrated worker scores, site-specific empirical risk bounds, main method/baseline experiments or final-result tables.
 
 ## Next entry
