@@ -30,5 +30,13 @@ Append-only dated record. Each entry must distinguish actual verification, inher
 - Defined [annotation codebook v0.1](ANNOTATION_CODEBOOK.md) for context-dependent helmet mandates, head visibility, all GT workers and two-blind-annotator adjudication. **No actual field annotations performed.**
 - **Still not done:** independent RF-DETR inference, ground-truth PPE-required adjudication, calibrated worker scores, site-specific empirical risk bounds, main method/baseline experiments or final-result tables.
 
+## 2026-10-29 — Second-pass pHash overlap, fail-closed split guard and extended tests
+- Computed 64-bit pHash for **all 1,778** decoded JPEGs of the nine-class ZIP, screened all cross-split pairs at Hamming <=4/6/8/10/12, and visually reviewed all 10 pairs at <=8. Confirmed **4 same-scene/same-product-image train-test pairs affecting 3 distinct test images**, plus **2 train-validation pairs affecting 2 distinct validation images**. Other lookalike product images were rejected as leakage claims. See [scene audit](SCENE_LEAKAGE_AUDIT_2026-10-29.md) and [quarantine candidates](QUARANTINE_CANDIDATES_2026-10-29.csv).
+- Three quarantined test image labels contain **zero `no_helmet` object annotations**; the total 14 test `no_helmet` annotations does not therefore change from excluding these three images, but remains unsuitable for worker-level risk guarantees.
+- Added [pHash screening script](tools/phash_overlap_audit.py) and [source-group overlap gate](tools/group_independence_gate.py), with **8 additional local unit tests** against intentionally overlapping/faulty manifests. Source-group metadata for the actual ZIP are still incomplete; a PASS based only on hashes would be unscientific.
+- Repaired coverage denominator in the **local working integration package** and added 5 regression tests: now **19/19 local package tests pass** (previously 14). Committed an [applyable patch](software/patches/0001-fix-coverage-denominator.patch); it is **not yet applied to the originally supplied ZIP**.
+- Added a privacy-safe GitHub Actions [quality-gates workflow](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/blob/main/.github/workflows/srac-ppe-static-checks.yml); **remote CI completion has not been verified**.
+- Unchanged blockers: no frozen-model inference on independent site data; no independent worker-level mandated-PPE labels; no final paper results.
+
 ## Next entry
 Record the next independently verified milestone, its reproducible command or provider experiment reference, dataset identity, date, and what remains unverified. Do not update the status simply because time has passed.
