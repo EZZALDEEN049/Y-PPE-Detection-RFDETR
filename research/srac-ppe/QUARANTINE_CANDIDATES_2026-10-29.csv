@@ -1,0 +1,7 @@
+split_a,image_a,split_b,image_b,phash_distance,visual_assessment,action,details
+train,train/images/-_-_jpg.rf.7c3e968c91bea489a0a799c2a75509cc.jpg,test,test/images/-_-_jpg.rf.98a72390b5552192078c2928cef4fa65.jpg,4,SAME_SCENE,QUARANTINE_TEST,Outdoor wall construction scene
+train,train/images/15_jpg.rf.94325a33e1c3b2ae3c43550193f8629b.jpg,test,test/images/14_jpg.rf.53fe6297c97c1b14a428520bc1f18b3d.jpg,6,SAME_SCENE,QUARANTINE_TEST,Worker at rock-pile site related view
+train,train/images/13_jpg.rf.ef89b931371417d7d8d311fa5d94578a.jpg,test,test/images/14_jpg.rf.53fe6297c97c1b14a428520bc1f18b3d.jpg,8,SAME_SCENE,QUARANTINE_TEST,Worker at rock-pile site related view
+train,train/images/-12-_png_jpg.rf.ae04a4307b81bc458ebdee5d84bba928.jpg,test,test/images/-12-_png_jpg.rf.cf396c9678a9201d3db1ec3eccdf2232.jpg,8,SAME_PRODUCT_PHOTO,QUARANTINE_TEST,Blue-black safety boot photograph shifted crop
+train,train/images/19_jpg.rf.d839f3d4c5b279702f567ae4dbbd296e.jpg,valid,valid/images/20_jpg.rf.7610adad809bd794aa1e32a1808c22c3.jpg,6,SAME_SCENE,QUARANTINE_VALID,Related frames of worker at outdoor site
+train,train/images/d3febe75f2cb4cb5875ff430dcdb2b95_jpg.rf.72cb471e6ee747fae426e65f94214ba4.jpg,valid,valid/images/d3febe75f2cb4cb5875ff430dcdb2b95_jpg.rf.86474858e6ac90c8d93f9b80651655d6.jpg,6,SAME_PRODUCT_PHOTO,QUARANTINE_VALID,Same boot product photo in two framings
