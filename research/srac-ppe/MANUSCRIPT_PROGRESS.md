@@ -1,0 +1,35 @@
+# Manuscript development and evidence checklist
+
+**As-of:** 2026-10-29. This document is a public **outline/status**, not the full unpublished manuscript.
+
+## Proposed title
+*Trustworthy and Risk-Aware Vision Transformers for PPE Compliance Monitoring Under Domain Shift and Limited Data*
+
+## Structured manuscript progress
+
+| Manuscript element | Current status | Acceptance condition before submission |
+|---|---|---|
+| Title, motivation, abstract | Proposed / draft | Rewrite abstract once actual empirical estimates exist |
+| Introduction and contribution hypotheses | Drafted | Verify narrow novelty claims against closest papers |
+| Critical related work | Preliminary | Complete citation/source/DOI checks and journal quartile evidence by year/category |
+| Formal problem: CLEAR/ALERT/REVIEW, FC/UC | Drafted | Validate label ontology, risk definitions, and independence assumptions |
+| Frozen RF-DETR pipeline and score mapping | Prototype/draft | Verified 17-class inference and worker association on real images |
+| Visibility/shift-aware evidence gate | Proposed | Independent gate validation and ablations |
+| Scarce-target-label calibration | Prototype, unit-tested | Real calibration, fixed thresholds, proper confidence correction |
+| Data provenance and split design | Partial audit | Independent site/acquisition grouping, leakage and permission review |
+| Baseline comparisons | Planned | Fair matched-review and matched-site experiments |
+| Results | **EMPTY / pending** | Verified experiment outputs with uncertainty estimates |
+| Discussion and limitations | Interpretive draft | Rewrite from actual results and failure cases |
+| Conclusion | Prospective draft | No empirical superiority claims before results |
+| Reproducibility / declarations | Partial | Code, exact model/dataset versions, checkpoints, ethics and permissions |
+
+## Research questions
+- RQ1: What happens to detection, decision calibration, and false-clearance risk under cross-dataset and independently verified cross-site shift?
+- RQ2: At matched human-review budgets, does the proposed selective policy reduce false clearance compared with strong baselines?
+- RQ3: What target-site violation-label budget supports prespecified risk thresholds, and when is the statistically justified action to abstain?
+- RQ4: Which components contribute under occlusion, low image quality, and rare violation classes?
+
+## Important scope distinction
+The existing Roboflow RF-DETR Small model has **17 original categories**. The checked Y-PPE-h9 archive has **nine harmonized categories** from a separate previous experimental track. The two are not equivalent to one newly trained nine-class RF-DETR system.
+
+The public manuscript state is: **methods-ready, empirical evidence pending**. Full draft, confidential materials and unpublished detailed wording are intentionally omitted from this public repository.
