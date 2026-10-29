@@ -130,3 +130,7 @@ Never commit Roboflow API keys, access tokens, passwords, or `.env` files to Git
 ## Citation and Reporting
 
 When reporting results, cite the exact Roboflow Universe project/model used and record the model ID, dataset version, split, preprocessing/augmentation settings, evaluation thresholds, and date of evaluation. Keep YOLOv11, RF-DETR, and any later XAI results as separate experimental records.
+
+## Current SRAC-PPE Research Progress
+
+The current **Trustworthy and Risk-Aware Vision Transformers for PPE Compliance Monitoring Under Domain Shift and Limited Data** project is tracked in [SRAC-PPE Research Progress Hub](research/srac-ppe/README.md). The canonical, dated status and remaining experimental gates are documented in [PROJECT.md](research/srac-ppe/PROJECT.md). This public tracking page does **not** include the full unpublished manuscript, private data, or model credentials.
