@@ -26,6 +26,11 @@
 - **Valid–test:** 2 screened pairs depict different goggle products or helmets of different colors; no match was confirmed visually.
 - Affected three distinct test image label files contain **0 `no_helmet` annotations**. The test has 14 such annotations overall, but that count is *not* an independent confirmed violation sample.
 
+## Quarantine sensitivity, **not a new official split**
+Preserving the source ZIP intact, the three visually related unique test images account for **15 object labels** (2 person, 2 helmet, 2 gloves, 2 vest, 6 boots, 1 goggles, 0 no_helmet). Excluding these three images *as a temporary sensitivity screen* changes the test denominator from **186 to 183 images**, and object-label count from **693 to 678**; test `no_helmet` remains **14 boxes in 12 images**, but their independence remains unproved.
+
+The two visually related unique validation images account for **8 object labels** (1 person, 1 helmet, 2 gloves, 1 vest, 3 boots, 0 no_helmet). Their temporary removal would change validation counts from **356 to 354 images** and **2,122 to 2,114 boxes**. **No adjusted evaluation was run.** Do not treat these screened candidates as a finalized versioned, leak-free dataset.
+
 ## Research consequence
 - The current 186-image test partition must **NOT** be described as fully independent of training or as proving cross-site generalization.
 - Temporarily quarantine the **3 identified test images** (and any further correlated source family images discovered later). Do **not** silently delete or rewrite the original frozen dataset or erase the original test reference.
