@@ -1,0 +1,109 @@
+--- a/srac_ppe/risk.py
++++ b/srac_ppe/risk.py
+@@ -13,6 +13,7 @@
+ from scipy.stats import beta
+ 
+ STATES = {"violation", "compliant", "indeterminate"}
++POLICY_STATES = {"REQUIRED", "NOT_REQUIRED", "UNKNOWN"}
+ OUTCOMES = {"CLEAR", "ALERT", "REVIEW", "UNDETECTED", "NOT_REQUIRED"}
+ 
+ 
+@@ -62,7 +63,7 @@
+ def normalize_rows(rows: Iterable[dict], split: str, require_unique_cluster: bool = False) -> list[dict]:
+     result, seen_ids, seen_clusters = [], set(), set()
+     required = {"site_id", "image_id", "worker_gt_id", "cluster_id", "gt_state",
+-                "ppe_required", "detected", "evidence_ok", "p_violation"}
++                "gt_ppe_required", "policy_helmet_requirement", "policy_source_id", "detected", "evidence_ok", "p_violation"}
+     for row_idx, row in enumerate(rows, start=2):
+         missing = required - row.keys()
+         if missing:
+@@ -72,7 +73,12 @@
+             raise ValueError(f"{split} row {row_idx}: empty provenance or ID")
+         if r["gt_state"] not in STATES:
+             raise ValueError(f"{split} row {row_idx}: invalid gt_state")
+-        r["ppe_required"] = _flag(r, "ppe_required")
++        r["gt_ppe_required"] = _flag(r, "gt_ppe_required")
++        r["policy_helmet_requirement"] = r["policy_helmet_requirement"].upper()
++        if r["policy_helmet_requirement"] not in POLICY_STATES:
++            raise ValueError(f"{split} row {row_idx}: invalid policy_helmet_requirement")
++        if r["policy_helmet_requirement"] != "UNKNOWN" and r["policy_source_id"].lower() in {"", "unknown", "none", "null"}:
++            raise ValueError(f"{split} row {row_idx}: required documented policy_source_id")
+         r["detected"] = _flag(r, "detected")
+         r["evidence_ok"] = _flag(r, "evidence_ok")
+         try:
+@@ -116,10 +122,14 @@
+ 
+ 
+ def decide(row: dict, clear_threshold: float | None, alert_threshold: float) -> str:
+-    if not row["ppe_required"]:
++    # Runtime path consumes only prospectively documented policy and observed model data.
++    # Both ground-truth state and ground-truth requirement are OFFLINE ONLY.
++    if row["policy_helmet_requirement"] == "NOT_REQUIRED":
+         return "NOT_REQUIRED"
+     if not row["detected"]:
+         return "UNDETECTED"
++    if row["policy_helmet_requirement"] == "UNKNOWN":
++        return "REVIEW"
+     if not row["evidence_ok"]:
+         return "REVIEW"
+     if clear_threshold is not None and row["p_violation"] <= clear_threshold:
+@@ -130,7 +140,7 @@
+ 
+ 
+ def _violations(rows):
+-    return [r for r in rows if r["ppe_required"] and r["gt_state"] == "violation"]
++    return [r for r in rows if r["gt_ppe_required"] and r["gt_state"] == "violation"]
+ 
+ 
+ def _outcome_counts(rows, threshold, alert_threshold):
+@@ -148,11 +158,11 @@
+         return {"selected_threshold": None, "status": "INSUFFICIENT_VIOLATION_CASES",
+                 "n_calibration_violations": 0, "bonferroni_tail": per_test_error,
+                 "grid": [], "reason": "No adjudicated violations; no site-specific certification."}
+-    eligible = [r for r in cal if r["ppe_required"] and r["gt_state"] != "indeterminate"]
++    eligible = [r for r in cal if r["gt_ppe_required"] and r["gt_state"] != "indeterminate"]
+     for tau in p.thresholds:
+         decisions_pos = [decide(r, tau, p.alert_threshold) for r in positive]
+         k_fc = sum(d == "CLEAR" for d in decisions_pos)
+-        k_unc = sum(d in {"CLEAR", "UNDETECTED"} for d in decisions_pos)
++        k_unc = sum(d in {"CLEAR", "UNDETECTED", "NOT_REQUIRED"} for d in decisions_pos)
+         ub_fc = upper_cp(k_fc, n_pos, per_test_error)
+         ub_unc = upper_cp(k_unc, n_pos, per_test_error)
+         coverage = (sum(decide(r, tau, p.alert_threshold) == "CLEAR" for r in eligible) /
+@@ -179,14 +189,20 @@
+     n = len(positives)
+     decisions = [decide(r, threshold, p.alert_threshold) for r in positives]
+     k_fc = sum(d == "CLEAR" for d in decisions)
+-    k_unc = sum(d in {"CLEAR", "UNDETECTED"} for d in decisions)
+-    negative = [r for r in test if r["ppe_required"] and r["gt_state"] == "compliant"]
++    k_unc = sum(d in {"CLEAR", "UNDETECTED", "NOT_REQUIRED"} for d in decisions)
++    negative = [r for r in test if r["gt_ppe_required"] and r["gt_state"] == "compliant"]
+     false_alert = sum(decide(r, threshold, p.alert_threshold) == "ALERT" for r in negative)
+-    known = [r for r in test if r["ppe_required"] and r["gt_state"] in {"compliant", "violation"}]
+-    indeterminate = [r for r in test if r["ppe_required"] and r["gt_state"] == "indeterminate"]
+-    not_required = [r for r in test if not r["ppe_required"]]
++    known = [r for r in test if r["gt_ppe_required"] and r["gt_state"] in {"compliant", "violation"}]
++    indeterminate = [r for r in test if r["gt_ppe_required"] and r["gt_state"] == "indeterminate"]
++    not_required = [r for r in test if not r["gt_ppe_required"]]
+     known_clear = sum(decide(r, threshold, p.alert_threshold) == "CLEAR" for r in known)
+     indeterminate_clear = sum(decide(r, threshold, p.alert_threshold) == "CLEAR" for r in indeterminate)
++    policy_unknown = sum(r["policy_helmet_requirement"] == "UNKNOWN" for r in test)
++    mismatched_policy = sum(
++        r["policy_helmet_requirement"] != "UNKNOWN" and
++        (r["policy_helmet_requirement"] == "REQUIRED") != r["gt_ppe_required"]
++        for r in test
++    )
+     return {"n_target_test_rows": len(test), "n_test_violations": n,
+             "n_test_compliant": len(negative), "outcome_counts": {q: all_counts.get(q, 0) for q in sorted(OUTCOMES)},
+             "false_clearance_count": k_fc,
+@@ -199,7 +215,9 @@
+             "n_test_required_known": len(known),
+             "n_test_required_indeterminate": len(indeterminate),
+             "n_test_not_required": len(not_required),
++            "n_policy_unknown": policy_unknown,
++            "n_policy_gt_requirement_disagreements": mismatched_policy,
+             "n_clear_required_known": known_clear,
+             "n_clear_required_indeterminate": indeterminate_clear,
+-            "detector_missed_gt_workers": sum(r["ppe_required"] and not r["detected"] for r in test),
++            "detector_missed_gt_workers": sum(r["gt_ppe_required"] and not r["detected"] for r in test),
+             "warning": "Descriptive test estimates; confirm site/cluster sampling and compute cluster-aware confidence intervals."}
