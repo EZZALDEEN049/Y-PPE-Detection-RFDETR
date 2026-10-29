@@ -27,6 +27,9 @@ auto_clear_coverage = known_clear / len(known) if known else None
 ```
 The same example now yields **1.0 (100%)** for *known labeled workers*, and the raw decision-count table can still report both CLEAR outcomes. The regression test verifies this.
 
+## Extended regression status
+After the originally documented 15 successful local tests, four further cases were added: (a) proper indeterminate denominator, (b) indeterminate-only coverage undefined, (c) FC/UC invariance to unknown-label rows, (d) no automatic CLEAR without a calibrated threshold; ground-truth-state decision invariance was also verified as a separate test. The revised local v2 package passed **19/19** unit tests. A [unified diff patch](software/patches/0001-fix-coverage-denominator.patch) was committed to GitHub, but the original v2 ZIP was **not modified**.
+
 ## Required follow-ups
 1. Transfer patch and regression test into the canonical execution package before any real evaluation.
 2. Include `n_known_test`, `n_indeterminate_test`, and outcome counts among indeterminate cases explicitly in reports.
