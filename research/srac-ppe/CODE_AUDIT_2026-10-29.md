@@ -35,6 +35,11 @@ The current prototype's `ppe_required` Boolean is consumed by **both** `decide()
 
 **Not fixed in original v2 ZIP or the published coverage patch.** A future schema must isolate `policy_helmet_requirement` (runtime, REQUIRED/NOT_REQUIRED/UNKNOWN) from `gt_helmet_requirement` (offline, independent), and route unknown rules to REVIEW. Freeze the policy source before inference and audit discrepancies between policy and GT. See [experiment protocol](EXPERIMENT_PROTOCOL.md). This is a gate before real-world risk claims.
 
+## Versioned policy/GT interface prototype, second local correction
+A further [research-only patch](software/patches/0002-separate-runtime-policy-and-ground-truth.patch), meant to be applied **after** patch 0001, splits `ppe_required` into a pre-inference `policy_helmet_requirement` + documented `policy_source_id` and an offline-only `gt_ppe_required`. It routes UNKNOWN policy to REVIEW and records policy/ground-truth disagreements. **The broader UC numerator is deliberately expanded to include an erroneous NOT_REQUIRED decision against a true violation**; the previous paper formulation omitted this possible failure mode.
+
+After five further regression cases, the **local patched integration package passed 24/24 software unit tests**. A patch dry-run against the expected base risk module succeeded. The unmodified distributed v2 ZIP was not replaced, and real RF-DETR, site-safety policy or risk calibration tests have not been performed. See [software migration notes](software/README.md).
+
 ## Required follow-ups
 1. Transfer patch and regression test into the canonical execution package before any real evaluation.
 2. Include `n_known_test`, `n_indeterminate_test`, and outcome counts among indeterminate cases explicitly in reports.
