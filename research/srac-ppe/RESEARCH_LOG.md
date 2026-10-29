@@ -8,7 +8,8 @@ Append-only dated record. Each entry must distinguish actual verification, inher
 - Re-ran tests from the SRAC-PPE frozen-model integration starter package using `python -m unittest discover -s tests -v`: **14 tests / 14 pass**.
 - Re-inspected the available harmonized nine-class Y-PPE ZIP: 1,236 train + 356 validation + 186 test images, corresponding annotation files, and `no_helmet` annotation counts 113/40/14.
 - Confirmed that the above are **software/data checks only**: no real independent RF-DETR test inference or new calibration outcome is claimed.
-- Initialized the public-safe, centralized [PROJECT.md](PROJECT.md), [MANUSCRIPT_PROGRESS.md](MANUSCRIPT_PROGRESS.md), and [SYNC_PROTOCOL.md](SYNC_PROTOCOL.md).
+- Initialized the public-safe, centralized [PROJECT.md](PROJECT.md), [MANUSCRIPT_PROGRESS.md](MANUSCRIPT_PROGRESS.md), and [SYNC_PROTOCOL.md](SYNC_PROTOCOL.md); linked the hub from the repository root README; read back all five hub files from GitHub.
+- Created and enabled a daily conditional ChatGPT automation for evidence-gated GitHub synchronization. Future execution and access are not yet independently verified.
 
 ## 2026-10-28 — Previous project session (historical log)
 - Updated an unpublished research draft to v3 with a frozen-model interface.
