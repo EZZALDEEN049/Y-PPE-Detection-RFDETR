@@ -42,5 +42,11 @@ Append-only dated record. Each entry must distinguish actual verification, inher
 - Reviewed original `srac_ppe/risk.py` and confirmed the same `ppe_required` field feeds inference policy logic and offline risk-denominator selection. Identified this as a **potential policy/GT label-leakage channel**, unless provenance proves the field was prospectively available.
 - Amended [EXPERIMENT_PROTOCOL.md](EXPERIMENT_PROTOCOL.md) with separated runtime policy and independent offline truth fields. No claim that the original risk software interface is now corrected.
 
+## 2026-10-29 — Corrected research-only runtime policy prototype
+- Added a second sequential [research patch](software/patches/0002-separate-runtime-policy-and-ground-truth.patch) to split deployable site safety rule `policy_helmet_requirement` (REQUIRED / NOT_REQUIRED / UNKNOWN), its `policy_source_id` and offline-only `gt_ppe_required` truth.
+- Found a further safety-measure blind spot: a **NOT_REQUIRED** decision on a truly violating worker would not be counted by the old UC definition. Expanded `UC` to count CLEAR, UNDETECTED and erroneous NOT_REQUIRED, while keeping FC as CLEAR only.
+- Added five local interface/regression tests: **24/24 tests of the research-only patched v2 integration prototype passed**. The original ZIP is unchanged; patch application was checked locally but not deployed into a production codebase.
+- Updated [experiment protocol](EXPERIMENT_PROTOCOL.md), [software notes](software/README.md) and manuscript section status. **No new real RF-DETR inference, calibrated worker probability, independent site labels or final risk result**.
+
 ## Next entry
 Record the next independently verified milestone, its reproducible command or provider experiment reference, dataset identity, date, and what remains unverified. Do not update the status simply because time has passed.
