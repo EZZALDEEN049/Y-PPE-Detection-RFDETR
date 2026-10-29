@@ -24,7 +24,8 @@ The paper is a **draft**, not an accepted/published article. Scientific novelty,
 - [tools/phash_overlap_audit.py](tools/phash_overlap_audit.py) — candidate perceptual-duplicate screening.
 - [tools/group_independence_gate.py](tools/group_independence_gate.py) — fail-closed source/session grouping integrity gate, with unit tests.
 - [NOVELTY_AUDIT.md](NOVELTY_AUDIT.md) — closest prior work and novelty collision points.
-- [CODE_AUDIT_2026-10-29.md](CODE_AUDIT_2026-10-29.md) — software metric bug, correction and test status.
+- [CODE_AUDIT_2026-10-29.md](CODE_AUDIT_2026-10-29.md) — software metric bug, policy/GT leakage, and tested research corrections.
+- [software/README.md](software/README.md) — sequential patch application, breaking schema change and revised uncontained-risk definition.
 - [tools/risk_budget.py](tools/risk_budget.py) — exact finite-sample planning calculator (not empirical performance).
 
 ## Frozen starting model
