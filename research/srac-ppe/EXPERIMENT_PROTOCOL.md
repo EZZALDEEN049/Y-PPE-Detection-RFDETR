@@ -20,6 +20,17 @@
 - If an external dataset has unknown actual site IDs, claim *cross-dataset* only.
 - Repeated workers/frames within a cluster do not constitute independent calibration trials. Enforce one prespecified violation sampling unit per independent cluster, or use a separately justified cluster-valid inference procedure.
 
+## B2. Strict anti-leakage interface contract (critical prerequisite)
+**Do not permit deployment-time decisions to read hidden evaluation labels.** The current prototype's boolean `ppe_required` serves double duty in decision routing and ground-truth risk denominators. This is valid only if it is supplied from a *prospectively available, independently documented safety policy*, not copied from an after-the-fact human annotation of whether the pictured worker was violating a rule.
+
+The next schema revision must separate:
+1. `policy_helmet_requirement` in {REQUIRED, NOT_REQUIRED, UNKNOWN}, available at runtime from a frozen site/task policy authority;
+2. `gt_helmet_requirement` in {REQUIRED, NOT_REQUIRED, UNKNOWN}, independently adjudicated for offline risk denominators;
+3. `gt_helmet_wearing`, `gt_state`, and `worker_gt_id`, **offline-only**;
+4. `detection/association/evidence/score`, runtime-only model outputs.
+
+The runtime decision must depend only on (1) and (4), never on (2) or (3). UNKNOWN policy must route to REVIEW, never CLEAR. Offline risk evaluation uses independent (2) and (3); policy-rule disagreements must be reported as an additional failure mechanism. No result from the current combined-boolean CSV interface should be characterized as prospective deployment performance without independent provenance proof of its policy fields.
+
 ## C. Frozen decision policy
 Outputs: **CLEAR**, **ALERT**, **REVIEW** for detected workers; **UNDETECTED** only in GT-based offline accounting.  
 Non-required PPE is **NOT_REQUIRED**; unknown mandate, conflicting evidence, insufficient visibility, or uncalibrated score must not be automatically CLEAR.
