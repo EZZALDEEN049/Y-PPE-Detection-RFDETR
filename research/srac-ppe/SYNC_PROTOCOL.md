@@ -34,4 +34,4 @@ Keep manuscript content and controlled datasets in authorized restricted storage
 ## Reproducibility gates
 A numerical result must state: source dataset/version, training split provenance, independent data/scene groups, detector/checkpoint version, thresholds, label ontology and PPE requirement, sample size (particularly true violations), calibration/test separation, seeds if applicable, confidence procedure, and code/commit/run identity.
 
-**No scheduled or event-driven syncing is active solely because these files exist.** Any recurring automation must be separately activated and verified.
+**Active scheduled check:** On 2026-10-29, the researcher-requested daily ChatGPT automation `مزامنة تقدم SRAC-PPE` was created and enabled (automation ID `6ae292cd4b0c81919eaad46af1b6faa1`). It checks for *new verified project evidence* and attempts GitHub updates only when there is a substantive change. It is not instant event streaming, and a scheduled run's ability to read future project context/perform writes must still be checked from its actual run logs. No progress means no new commit.
