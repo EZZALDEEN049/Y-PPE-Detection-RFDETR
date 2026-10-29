@@ -43,12 +43,12 @@ Earlier project-session visual inspection reported some cross-split related scen
 - No target worker-level labels, frozen RF-DETR inference or empirical risk-control results have been produced.
 
 ## 2C. Open deployment-knowledge issue
-- The existing prototype uses a shared `ppe_required` Boolean for runtime decisions and offline risk truth. This is **potential leakage if derived from retrospective GT**. The study now requires a [strict policy/GT separation](EXPERIMENT_PROTOCOL.md#b2-strict-anti-leakage-interface-contract-critical-prerequisite) and implementation before any deployment-facing evidence is accepted.
-- Unknown policy requirement must be reviewed, not silently coded `False` or treated as safe. The issue remains **OPEN**, separate from the now-fixed local numeric coverage bug.
+- The originally distributed v2 prototype uses a shared `ppe_required` Boolean for runtime decisions and offline risk truth. This is **potential leakage if derived from retrospective GT**. The study requires [strict policy/GT separation](EXPERIMENT_PROTOCOL.md#b2-strict-anti-leakage-interface-contract-critical-prerequisite). A [research-only patch](software/patches/0002-separate-runtime-policy-and-ground-truth.patch) and revised local tests now demonstrate this separation; **24 local unit tests pass, but archived v2 ZIP and data producers have not been migrated**, so the end-to-end gate remains OPEN.
+- Unknown policy requirement routes to REVIEW for detected workers, not silently to `False`. Erroneous `NOT_REQUIRED` on a true violation contributes to revised UC risk. The interface is locally prototyped and tested; full provenance and downstream compatibility remain **OPEN**.
 
 ## 3. Scientific definitions and guardrails
 - **FC risk:** `P(CLEAR | true violation requiring PPE)`.
-- **UC risk:** `P(CLEAR or UNDETECTED | true violation requiring PPE)`.
+- **UC risk (revised after policy/GT separation):** `P(CLEAR or UNDETECTED or erroneous NOT_REQUIRED | true violation requiring PPE)`.
 - **Risk-controlled decision:** fixed detector, score mapper, evidence gate and a pre-specified finite threshold grid; conservative upper confidence bounds on a separate target-domain risk-calibration set.
 - **Assumptions:** suitable independent acquisition units, accurate worker-level labels, correct PPE-required context, no calibration/test reuse and well-defined target population.
 - **No guarantee across sites** from a bound calibrated at one site. Two dataset sources do not automatically constitute verified independent construction sites.
