@@ -36,6 +36,12 @@ Earlier project-session visual inspection reported some cross-split related scen
 - [Prototype software audit](CODE_AUDIT_2026-10-29.md): corrected a reproduced CLEAR-coverage denominator error in a **local working copy** and passed **15/15** tests; originally distributed ZIP is **not yet patched**.
 - [Related-work collision audit](NOVELTY_AUDIT.md): identified direct 2024–2026 overlaps in uncertainty-aware PPE worker review, context-sensitive rules, detection calibration, cross-site generalization and general risk-control theory. Novelty requires strong empirical proof, not naming components.
 
+## 2B. New independently checked gates (2026-10-29, second-pass)
+- [Cross-split pHash + visual audit](SCENE_LEAKAGE_AUDIT_2026-10-29.md): 4 related train–test pairs, **3 unique test images**; 2 related train–valid pairs, **2 unique validation images**. The test/validation files are now listed in [quarantine candidate manifest](QUARANTINE_CANDIDATES_2026-10-29.csv) pending source-family adjudication; original ZIP must remain immutable. Candidate pHash pairs alone are not proof; these six were visually reviewed. This **reopens** the independence gate for the 1,778-image nine-class ZIP, without retroactively invalidating a separately frozen cleaned corpus.
+- [Group independence gate](tools/group_independence_gate.py) rejects cross-split acquisition group overlap, SHA-256 overlap and unknown provenance; **8 local synthetic tests passed**. A [GitHub Actions quality-gate workflow](../../.github/workflows/srac-ppe-static-checks.yml) was added (the actual remote run result has not yet been verified).
+- [Local risk code regression](CODE_AUDIT_2026-10-29.md): the corrected local v2 package now passes **19/19** unit tests. An [applyable patch](software/patches/0001-fix-coverage-denominator.patch) is committed, **but the original distributed ZIP remains unchanged**.
+- No target worker-level labels, frozen RF-DETR inference or empirical risk-control results have been produced.
+
 ## 3. Scientific definitions and guardrails
 - **FC risk:** `P(CLEAR | true violation requiring PPE)`.
 - **UC risk:** `P(CLEAR or UNDETECTED | true violation requiring PPE)`.
