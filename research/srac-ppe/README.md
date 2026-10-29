@@ -17,6 +17,7 @@ The paper is a **draft**, not an accepted/published article. Scientific novelty,
 - [RESEARCH_LOG.md](RESEARCH_LOG.md) — dated, evidence-qualified progress journal.
 - [SYNC_PROTOCOL.md](SYNC_PROTOCOL.md) — rules for future GitHub updates and safe publication.
 - [EXPERIMENT_PROTOCOL.md](EXPERIMENT_PROTOCOL.md) — prospective, not-yet-frozen experimental protocol.
+- [ANNOTATION_CODEBOOK.md](ANNOTATION_CODEBOOK.md) — worker/helmet mandate and independent ground-truth adjudication codebook.
 - [DATA_AUDIT_2026-10-29.md](DATA_AUDIT_2026-10-29.md) — verified image/annotation integrity summary and limitations.
 - [NOVELTY_AUDIT.md](NOVELTY_AUDIT.md) — closest prior work and novelty collision points.
 - [CODE_AUDIT_2026-10-29.md](CODE_AUDIT_2026-10-29.md) — software metric bug, correction and test status.
