@@ -30,6 +30,11 @@ The same example now yields **1.0 (100%)** for *known labeled workers*, and the 
 ## Extended regression status
 After the originally documented 15 successful local tests, four further cases were added: (a) proper indeterminate denominator, (b) indeterminate-only coverage undefined, (c) FC/UC invariance to unknown-label rows, (d) no automatic CLEAR without a calibrated threshold; ground-truth-state decision invariance was also verified as a separate test. The revised local v2 package passed **19/19** unit tests. A [unified diff patch](software/patches/0001-fix-coverage-denominator.patch) was committed to GitHub, but the original v2 ZIP was **not modified**.
 
+## Additional high-priority interface validity concern
+The current prototype's `ppe_required` Boolean is consumed by **both** `decide()` and the offline `_violations()` denominator. The prototype does not independently validate that this field is a *pre-inference available site policy* rather than a hidden ground-truth annotation. If supplied from retrospective annotations, reported accuracy and risk may be inflated through **policy-label leakage**, even though `decide()` is otherwise invariant to `gt_state`.
+
+**Not fixed in original v2 ZIP or the published coverage patch.** A future schema must isolate `policy_helmet_requirement` (runtime, REQUIRED/NOT_REQUIRED/UNKNOWN) from `gt_helmet_requirement` (offline, independent), and route unknown rules to REVIEW. Freeze the policy source before inference and audit discrepancies between policy and GT. See [experiment protocol](EXPERIMENT_PROTOCOL.md). This is a gate before real-world risk claims.
+
 ## Required follow-ups
 1. Transfer patch and regression test into the canonical execution package before any real evaluation.
 2. Include `n_known_test`, `n_indeterminate_test`, and outcome counts among indeterminate cases explicitly in reports.
