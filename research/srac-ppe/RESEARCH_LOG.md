@@ -38,5 +38,9 @@ Append-only dated record. Each entry must distinguish actual verification, inher
 - Added a privacy-safe GitHub Actions [quality-gates workflow](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/blob/main/.github/workflows/srac-ppe-static-checks.yml); **remote CI completion has not been verified**.
 - Unchanged blockers: no frozen-model inference on independent site data; no independent worker-level mandated-PPE labels; no final paper results.
 
+## 2026-10-29 — Anti-leakage policy schema finding
+- Reviewed original `srac_ppe/risk.py` and confirmed the same `ppe_required` field feeds inference policy logic and offline risk-denominator selection. Identified this as a **potential policy/GT label-leakage channel**, unless provenance proves the field was prospectively available.
+- Amended [EXPERIMENT_PROTOCOL.md](EXPERIMENT_PROTOCOL.md) with separated runtime policy and independent offline truth fields. No claim that the original risk software interface is now corrected.
+
 ## Next entry
 Record the next independently verified milestone, its reproducible command or provider experiment reference, dataset identity, date, and what remains unverified. Do not update the status simply because time has passed.
