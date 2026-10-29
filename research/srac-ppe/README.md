@@ -19,6 +19,10 @@ The paper is a **draft**, not an accepted/published article. Scientific novelty,
 - [EXPERIMENT_PROTOCOL.md](EXPERIMENT_PROTOCOL.md) — prospective, not-yet-frozen experimental protocol.
 - [ANNOTATION_CODEBOOK.md](ANNOTATION_CODEBOOK.md) — worker/helmet mandate and independent ground-truth adjudication codebook.
 - [DATA_AUDIT_2026-10-29.md](DATA_AUDIT_2026-10-29.md) — verified image/annotation integrity summary and limitations.
+- [SCENE_LEAKAGE_AUDIT_2026-10-29.md](SCENE_LEAKAGE_AUDIT_2026-10-29.md) — additional pHash + visually confirmed split-overlap audit.
+- [QUARANTINE_CANDIDATES_2026-10-29.csv](QUARANTINE_CANDIDATES_2026-10-29.csv) — reproducible candidate pairs for immutable split-quarantine.
+- [tools/phash_overlap_audit.py](tools/phash_overlap_audit.py) — candidate perceptual-duplicate screening.
+- [tools/group_independence_gate.py](tools/group_independence_gate.py) — fail-closed source/session grouping integrity gate, with unit tests.
 - [NOVELTY_AUDIT.md](NOVELTY_AUDIT.md) — closest prior work and novelty collision points.
 - [CODE_AUDIT_2026-10-29.md](CODE_AUDIT_2026-10-29.md) — software metric bug, correction and test status.
 - [tools/risk_budget.py](tools/risk_budget.py) — exact finite-sample planning calculator (not empirical performance).
