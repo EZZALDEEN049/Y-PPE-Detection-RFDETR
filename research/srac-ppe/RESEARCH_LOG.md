@@ -48,5 +48,10 @@ Append-only dated record. Each entry must distinguish actual verification, inher
 - Added five local interface/regression tests: **24/24 tests of the research-only patched v2 integration prototype passed**. The original ZIP is unchanged; patch application was checked locally but not deployed into a production codebase.
 - Updated [experiment protocol](EXPERIMENT_PROTOCOL.md), [software notes](software/README.md) and manuscript section status. **No new real RF-DETR inference, calibrated worker probability, independent site labels or final risk result**.
 
+## 2026-10-29 — Synthetic, end-to-end risk CLI integration check
+- Executed `python -m srac_ppe.cli` from the locally patched v3 prototype with an **independent synthetic** calibration/test CSV and frozen protocol config. Exit code **0**; a JSON report was parsed and its assertions passed.
+- Synthetic calibration: 120 independent violation clusters, with zero false CLEAR / missed cases, selected threshold 0.02 (under example config). Test: 1 true required-helmet violation but erroneous policy `NOT_REQUIRED`. Correct result: `false_clearance_count=0`, `uncontained_violation_count=1`, `n_policy_gt_requirement_disagreements=1`.
+- This confirms **interface integration on fabricated test fixtures only**. It is not a model measurement, not a validated 5% field-risk guarantee, and not an inference or deployment experiment.
+
 ## Next entry
 Record the next independently verified milestone, its reproducible command or provider experiment reference, dataset identity, date, and what remains unverified. Do not update the status simply because time has passed.
