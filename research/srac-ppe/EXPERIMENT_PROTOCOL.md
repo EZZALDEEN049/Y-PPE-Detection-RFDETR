@@ -37,9 +37,9 @@ Non-required PPE is **NOT_REQUIRED**; unknown mandate, conflicting evidence, ins
 
 Write `Y=1` for adjudicated true helmet-rule violation and `A=1` for helmet required.
 - `R_FC(t) = P[decision_t = CLEAR | Y=1, A=1]`
-- `R_UC(t) = P[decision_t in {CLEAR, UNDETECTED} | Y=1, A=1]`
+- `R_UC(t) = P[decision_t in {CLEAR, UNDETECTED, NOT_REQUIRED} | Y=1, A=1]`
 
-Caveat: `R_UC` measures *not automatically contained by the decision-routing interface*, not observed injury/hazard outcome. The offline evaluator knows which workers the detector missed; a deployed system may not.
+Caveat: `R_UC` measures *not automatically contained by the decision-routing interface*, not observed injury/hazard outcome. In the strict, revised policy/GT interface, an erroneous policy decision `NOT_REQUIRED` for a true helmet-rule violation is counted as uncontained; otherwise policy classification errors could artificially reduce risk. The offline evaluator knows which workers the detector missed; a deployed system may not.
 
 Prespecify clear-threshold grid (candidate): `[.02,.05,.10,.15,.20,.30,.40,.50,.60]`; alert threshold `.80`. The score must be a separately fitted, independently assessed worker-level signal, **not** raw Roboflow confidence or the uncalibrated `no-helmet confidence minus helmet confidence`. Freeze evidence gate, class association and mapping before risk calibration.
 
