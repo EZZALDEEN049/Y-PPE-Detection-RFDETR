@@ -19,6 +19,9 @@
 
 The test includes **14 no-helmet boxes in 12 images**, not 14 independent, adjudicated occupational PPE violations. `person` and `no_helmet` co-occur in all 12 of those test images, without proving unambiguous worker assignment or helmet-required context.
 
+## Update: more sensitive overlap audit
+The first-stage dHash<=4 screen is **not sufficient** to certify scene independence. A second pHash<=8 screening followed by visual review identified **four train–test related pairs (3 distinct test images)** and **two train–validation related pairs (2 distinct validation images)**. See [scene audit](SCENE_LEAKAGE_AUDIT_2026-10-29.md) and [candidate exclusion list](QUARANTINE_CANDIDATES_2026-10-29.csv). The split independence gate remains **OPEN**, and the ZIP remains unchanged.
+
 ## Geometric association feasibility, **GT-box-only diagnostic**
 Using a heuristic top-40%-of-person-bounding-box head ROI with ±5% padding, assigning each `no_helmet` box *center* to GT person boxes produced:
 - train: 107 unique / 4 unmatched / 2 overlapping multiple workers (113 boxes);
