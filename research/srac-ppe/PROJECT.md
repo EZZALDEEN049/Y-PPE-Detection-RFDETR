@@ -27,6 +27,14 @@ The 14 test no-helmet annotations are insufficient for a strong 5% worker-level 
 ### Prior audit caveat
 Earlier project-session visual inspection reported some cross-split related scenes and contextually ambiguous no-helmet images. Those observations should be independently reproduced, logged by acquisition group, and adjudicated before accepting this archive as an independent evaluation benchmark. Hash-unique images can still depict the same scene.
 
+## 2A. Newly verified audit and methodological readiness (2026-10-29)
+- [Dataset evidence audit](DATA_AUDIT_2026-10-29.md): full ZIP/manifest integrity checks passed for **1,778** image–label records; no exact-byte cross-split duplicates, **one within-training exact duplicate**, and two *unadjudicated* dHash<=4 train–validation candidate pairs. These checks do **not** prove source-scene independence.
+- Nine-class Y-PPE test has **14 no-helmet object annotations in 12 images**; this is not an independent-worker violation sample.
+- [Experimental protocol v0.2](EXPERIMENT_PROTOCOL.md): frozen decision ontology, independent sampling, fair matched-review baselines and risk endpoints are drafted **but not preregistered or empirically validated**.
+- [Finite-sample planning](tools/risk_budget.py): exact one-sided Clopper–Pearson / 2M Bonferroni feasibility requires **115** independent violations for zero FC errors at 5%, or **159** for one error, under the candidate protocol.
+- [Prototype software audit](CODE_AUDIT_2026-10-29.md): corrected a reproduced CLEAR-coverage denominator error in a **local working copy** and passed **15/15** tests; originally distributed ZIP is **not yet patched**.
+- [Related-work collision audit](NOVELTY_AUDIT.md): identified direct 2024–2026 overlaps in uncertainty-aware PPE worker review, context-sensitive rules, detection calibration, cross-site generalization and general risk-control theory. Novelty requires strong empirical proof, not naming components.
+
 ## 3. Scientific definitions and guardrails
 - **FC risk:** `P(CLEAR | true violation requiring PPE)`.
 - **UC risk:** `P(CLEAR or UNDETECTED | true violation requiring PPE)`.
