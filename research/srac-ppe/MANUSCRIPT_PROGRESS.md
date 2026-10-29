@@ -32,4 +32,10 @@
 ## Important scope distinction
 The existing Roboflow RF-DETR Small model has **17 original categories**. The checked Y-PPE-h9 archive has **nine harmonized categories** from a separate previous experimental track. The two are not equivalent to one newly trained nine-class RF-DETR system.
 
+## 2026-10-29 methodological audit
+- Strong 2026 overlaps established in [novelty audit](NOVELTY_AUDIT.md). Revise related-work comparison before empirical claims.
+- Exact sample feasibility and a strict matched-review baseline protocol drafted in [experiment protocol](EXPERIMENT_PROTOCOL.md); neither constitutes an empirical result.
+- [Data archive audit](DATA_AUDIT_2026-10-29.md) and [coverage metric bug reproduction](CODE_AUDIT_2026-10-29.md) added; the **v3 manuscript DOCX itself has not been revised by this GitHub-only update**.
+- Before results are entered, patch the canonical risk evaluation code and freeze a context-adjudicated independent worker-level dataset.
+
 The public manuscript state is: **methods-ready, empirical evidence pending**. Full draft, confidential materials and unpublished detailed wording are intentionally omitted from this public repository.
