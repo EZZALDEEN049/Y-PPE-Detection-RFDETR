@@ -40,6 +40,9 @@ A further [research-only patch](software/patches/0002-separate-runtime-policy-an
 
 After five further regression cases, the **local patched integration package passed 24/24 software unit tests**. A patch dry-run against the expected base risk module succeeded. The unmodified distributed v2 ZIP was not replaced, and real RF-DETR, site-safety policy or risk calibration tests have not been performed. See [software migration notes](software/README.md).
 
+## End-to-end CLI integration evidence (synthetic only)
+A local v3 prototype command-line run loaded 120 independent *synthetic* calibration violation records and a separate single-row *synthetic* test containing a true required-helmet violation but incorrect policy `NOT_REQUIRED`. The CLI exited successfully with a parsed report: calibration `SUPPORTED_UNDER_ASSUMPTIONS` (conditional on invented input validity), threshold `0.02`, test `false_clearance_count=0`, `uncontained_violation_count=1`, and policy/GT disagreement count `1`. Assertions passed. These are **software integration fixture values, not dataset/model empirical results**.
+
 ## Required follow-ups
 1. Transfer patch and regression test into the canonical execution package before any real evaluation.
 2. Include `n_known_test`, `n_indeterminate_test`, and outcome counts among indeterminate cases explicitly in reports.
