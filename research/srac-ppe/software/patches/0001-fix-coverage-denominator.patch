@@ -1,0 +1,26 @@
+--- a/srac_ppe/risk.py
++++ b/srac_ppe/risk.py
+@@ -183,6 +183,10 @@
+     negative = [r for r in test if r["ppe_required"] and r["gt_state"] == "compliant"]
+     false_alert = sum(decide(r, threshold, p.alert_threshold) == "ALERT" for r in negative)
+     known = [r for r in test if r["ppe_required"] and r["gt_state"] in {"compliant", "violation"}]
++    indeterminate = [r for r in test if r["ppe_required"] and r["gt_state"] == "indeterminate"]
++    not_required = [r for r in test if not r["ppe_required"]]
++    known_clear = sum(decide(r, threshold, p.alert_threshold) == "CLEAR" for r in known)
++    indeterminate_clear = sum(decide(r, threshold, p.alert_threshold) == "CLEAR" for r in indeterminate)
+     return {"n_target_test_rows": len(test), "n_test_violations": n,
+             "n_test_compliant": len(negative), "outcome_counts": {q: all_counts.get(q, 0) for q in sorted(OUTCOMES)},
+             "false_clearance_count": k_fc,
+@@ -191,6 +195,11 @@
+             "test_uncontained_risk": k_unc/n if n else None,
+             "false_alert_count": false_alert,
+             "test_false_alert_rate": false_alert/len(negative) if negative else None,
+-            "auto_clear_coverage": all_counts.get("CLEAR", 0)/len(known) if known else None,
++            "auto_clear_coverage": known_clear/len(known) if known else None,
++            "n_test_required_known": len(known),
++            "n_test_required_indeterminate": len(indeterminate),
++            "n_test_not_required": len(not_required),
++            "n_clear_required_known": known_clear,
++            "n_clear_required_indeterminate": indeterminate_clear,
+             "detector_missed_gt_workers": sum(r["ppe_required"] and not r["detected"] for r in test),
+             "warning": "Descriptive test estimates; confirm site/cluster sampling and compute cluster-aware confidence intervals."}
