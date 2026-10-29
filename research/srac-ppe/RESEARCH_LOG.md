@@ -20,5 +20,14 @@ Append-only dated record. Each entry must distinguish actual verification, inher
 - Repository documents prior harmonized datasets and a related YOLO11m cross-domain reliability study.
 - The earlier results may motivate hypotheses and supply methods/provenance, but cannot be represented as original SRAC-PPE experiment outputs.
 
+## 2026-10-29 — Independent archive, math, code and novelty audit
+- Rechecked the `Y-PPE-h9-v2_RFDETR_Roboflow.zip` image/label records (1,778 paired files), index SHA-256 and all per-file hashes; 0 exact-byte image cross-split duplicates, 1 within-training duplicate group. Reported object-label support and an explicitly limited 64-bit dHash screen. See [data audit](DATA_AUDIT_2026-10-29.md).
+- Analyzed ground-truth **box-center** association feasibility for no-helmet objects: train 107 unique / 4 unmatched / 2 ambiguous; valid 39/1/0; test 13/0/1. This is *not* inference performance.
+- Verified exact binomial case counts for k={0,1,2,3,5,10} using SciPy beta quantiles, and authored a generic [risk sample calculator](tools/risk_budget.py).
+- Found and reproduced a `auto_clear_coverage` reporting bug (200% coverage with indeterminate GT included in numerator); patched an **unpublished local working copy** and added regression test: 15/15 unit tests passed. Canonical v2 ZIP remains untouched. See [code audit](CODE_AUDIT_2026-10-29.md).
+- Verified foundational and overlapping 2024–2026 papers at publishers; documented novelty collisions rather than asserting a novel risk theorem. See [novelty audit](NOVELTY_AUDIT.md).
+- Drafted [experiment protocol v0.2](EXPERIMENT_PROTOCOL.md) with frozen-model, label-meaning, independent-site, threshold selection and fair-baseline requirements.
+- **Still not done:** independent RF-DETR inference, ground-truth PPE-required adjudication, calibrated worker scores, site-specific empirical risk bounds, main method/baseline experiments or final-result tables.
+
 ## Next entry
 Record the next independently verified milestone, its reproducible command or provider experiment reference, dataset identity, date, and what remains unverified. Do not update the status simply because time has passed.
