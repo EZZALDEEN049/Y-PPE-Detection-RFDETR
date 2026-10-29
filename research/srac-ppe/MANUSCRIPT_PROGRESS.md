@@ -32,6 +32,11 @@
 ## Important scope distinction
 The existing Roboflow RF-DETR Small model has **17 original categories**. The checked Y-PPE-h9 archive has **nine harmonized categories** from a separate previous experimental track. The two are not equivalent to one newly trained nine-class RF-DETR system.
 
+## Dataset scene overlap and protocol status update
+- Follow-up pHash+manual review confirmed related train/test and train/validation images in the separately packaged nine-class ZIP, so the independence gate is **OPEN**. Quarantine is documented; full source-family re-freezing is still pending.
+- [Split integrity gate](tools/group_independence_gate.py) and eight local synthetic tests have been added; no final field-site empirical tests have been completed.
+- Local corrected risk integration package passes 19/19 tests; the [public patch](software/patches/0001-fix-coverage-denominator.patch) is documented but not merged into the archived original ZIP.
+
 ## 2026-10-29 methodological audit
 - Strong 2026 overlaps established in [novelty audit](NOVELTY_AUDIT.md). Revise related-work comparison before empirical claims.
 - Exact sample feasibility and a strict matched-review baseline protocol drafted in [experiment protocol](EXPERIMENT_PROTOCOL.md); neither constitutes an empirical result.
