@@ -42,6 +42,10 @@ Earlier project-session visual inspection reported some cross-split related scen
 - [Local risk code regression](CODE_AUDIT_2026-10-29.md): the corrected local v2 package now passes **19/19** unit tests. An [applyable patch](software/patches/0001-fix-coverage-denominator.patch) is committed, **but the original distributed ZIP remains unchanged**.
 - No target worker-level labels, frozen RF-DETR inference or empirical risk-control results have been produced.
 
+## 2C. Open deployment-knowledge issue
+- The existing prototype uses a shared `ppe_required` Boolean for runtime decisions and offline risk truth. This is **potential leakage if derived from retrospective GT**. The study now requires a [strict policy/GT separation](EXPERIMENT_PROTOCOL.md#b2-strict-anti-leakage-interface-contract-critical-prerequisite) and implementation before any deployment-facing evidence is accepted.
+- Unknown policy requirement must be reviewed, not silently coded `False` or treated as safe. The issue remains **OPEN**, separate from the now-fixed local numeric coverage bug.
+
 ## 3. Scientific definitions and guardrails
 - **FC risk:** `P(CLEAR | true violation requiring PPE)`.
 - **UC risk:** `P(CLEAR or UNDETECTED | true violation requiring PPE)`.
