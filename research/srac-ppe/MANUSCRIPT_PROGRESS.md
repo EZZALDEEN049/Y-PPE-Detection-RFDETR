@@ -32,6 +32,11 @@
 ## Important scope distinction
 The existing Roboflow RF-DETR Small model has **17 original categories**. The checked Y-PPE-h9 archive has **nine harmonized categories** from a separate previous experimental track. The two are not equivalent to one newly trained nine-class RF-DETR system.
 
+## Subsequent methods change to incorporate into the manuscript
+- The formal **UC risk** definition is expanded to include an erroneous **NOT_REQUIRED** routing of a true required-helmet violation, alongside CLEAR and UNDETECTED. This prevents false comfort from wrong site-policy assumptions.
+- A versioned [research patch](software/patches/0002-separate-runtime-policy-and-ground-truth.patch) separates runtime site/task policy from independent GT labels and achieved **24/24 local tests** after patch 0001.
+- The **existing unpublished v3 DOCX has not been edited**. When editing it next, synchronize all equations, diagrams, evaluation counts, policy-unknown handling and software schema before journal submission.
+
 ## Dataset scene overlap and protocol status update
 - Follow-up pHash+manual review confirmed related train/test and train/validation images in the separately packaged nine-class ZIP, so the independence gate is **OPEN**. Quarantine is documented; full source-family re-freezing is still pending.
 - [Split integrity gate](tools/group_independence_gate.py) and eight local synthetic tests have been added; no final field-site empirical tests have been completed.
