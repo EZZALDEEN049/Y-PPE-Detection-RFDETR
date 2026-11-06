@@ -1,20 +1,17 @@
-# SEER-PPE progress — 2026-11-04 (master v0.3)
+# SEER-PPE active progress tracker — v0.4 (2026-11-06)
 
-| Step | State | Evidence / next action |
-|---|---|---|
-| 01 Foundation | Design complete | Thesis ch3, Y-PPE 2,327 originals / 17 classes, historical model identified |
-| 02 Hosted smoke and scaffold | Engineering complete | 3 existing Y-PPE hosted inferences, 23 synthetic module tests; not new benchmark |
-| 03 Independence and object identity code | Engineering complete | New SHA/source-group gate and detection-class/IoU matching; 17 new tests; 40/40 synthetic unit tests pass |
-| 04 Authoritative clean 17-class archive | OPEN | Obtain 2,288-image physical archive and verify image hashes + group provenance + visual near-duplicates |
-| 05 Human worker-level ground truth | OPEN | Double-annotate persons/PPE wearing/requirements, include missed workers |
-| 06 Local XAI | OPEN | Retrieve private checkpoint, verify checksum/class order and differentiated forward; hosted JSON is insufficient |
-| 07 Physical energy benchmark | OPEN | Record device, idle/warmup and actual watts; no real joules yet |
-| 08 Calibration and independent test | OPEN | Lock independent acquisition families and planned endpoints/constraints |
-| 09 Paper results/figures | OPEN | No new empirical SEER results; keep Results explicitly empty |
-| 10 Journal novelty audit/Q1 scope | OPEN | Full related-work matrix and specific journal/year/category validation |
+| Step | Deliverable | Verified status | Remaining gate |
+|---|---|---|---|
+| 01 | Research question and protocol | DESIGN COMPLETE | Novelty and journal confirmation |
+| 02 | ALTAYYAR hosted 17-class inference + routing prototype | ENGINEERING COMPLETE; 3 smoke images, 23 prior unit tests | Local gradient-XAI |
+| 03 | Image-independence and identity-matching utilities | ENGINEERING COMPLETE; 40 prior tests | Execute on actual clean17 files |
+| **04A** | Complete raw Roboflow original metadata audit | **DONE:** 2,327/2,327 IDs scanned, 31 cross-split filename groups, person/helmet support quantified | Filename flags need image review |
+| **04B** | Pilot review preparation | **DONE:** 30 dev images selected (16 train, 14 valid); 396 saved boxes geometry checked, 89 model-assisted metadata | Check clean17 membership and rights; blind A/B annotation |
+| **04C** | Physical clean17 archive frozen, SHA and site group independence | **OPEN:** prior CI reports 2,288 images; physical ZIP unavailable to hash | Acquire package, source groups, run audit |
+| 05 | Validated worker-level expert GT | OPEN, **0 adjudications** | Annotator A/B + expert reconcile |
+| 06 | Local detector XAI and fidelity | OPEN | Download/load exact checkpoint, differentiable forward |
+| 07 | Hardware electrical energy measurement | OPEN | Instrument device, capture watt traces |
+| 08 | Prespecified calibration and final test | OPEN | Lock source-independent final test after audit |
+| 09 | New empirical results/figures | NOT RUN | Real safe evaluation only |
 
-**Data separation:** 17-class Stage-2 cleaned 2,288 ≠ nine-class 1,778 (the latter had reopened 2026-10 cross-scene audit). Historical detector training used V2 5,577 processed images.
-
-**Development-exposed engineering IDs (cannot claim untouched final test):** `0it1WmTbAyqSVQrvVqz8`, `028d8mXwFsIucPHX2qeu`, `0ABzMrjnd6I0Ws6FH7qo`.
-
-Full protocol, code and tests stored in private Drive: https://drive.google.com/drive/folders/16VyV63PTd1nwf1P4GM0kV-bAlnLFlZxq
+**Current artifact:** `PHASE4_REPORT.md` and `evidence/PHASE4_INDEX_AUDIT_2026-11-06.json`; companion *private* 30-image pilot CSV queues. Do not commit image binaries or potential third-party photos to GitHub. Original dataset, its historical model and all prior papers remain unchanged.
