@@ -13,3 +13,10 @@
 
 ## v0.2 / v0.1 — 2026-11-04
 - Hosted model engineering smoke and initial paper protocol.
+
+## v0.5 — 2026-11-06
+- Reconstructed and audited clean 17-class Y-PPE images in GitHub Actions; run #42153641457 passed file integrity, retained only checksum/evidence artifacts, not raw image archive.
+- Fixed an audit-script error that initially rejected 436 valid polygon annotation rows; final result: 15,864 box + 436 polygon rows, zero invalid rows.
+- Prepared metadata-only 30-image clean-derivative candidate alignment (29 name+count unique, one one-row dedupe-consistent).
+- Started human-review **administrative handoff**: generated anonymized and separately shuffled A/B case queues and blank third-expert log; no human judgments yet.
+- Updated working manuscript with Phase5 Appendix B; no fabricated accuracy/XAI/energy results.
