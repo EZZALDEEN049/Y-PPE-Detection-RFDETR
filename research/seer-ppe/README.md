@@ -1,11 +1,9 @@
-# SEER-PPE research (current v0.3, 2026-11-04)
+# SEER-PPE cumulative research package v0.4 (6 November 2026)
 
-**Canonical evolving article:** [MANUSCRIPT_MASTER.md](MANUSCRIPT_MASTER.md). Do NOT treat this methods draft as published results.
+**Canonical working manuscript:** `MANUSCRIPT_MASTER.md` (Word mirror separately published).
 
-**Working document and code:** private Google Drive project folder: https://drive.google.com/drive/folders/16VyV63PTd1nwf1P4GM0kV-bAlnLFlZxq
+**Protocol:** `PROTOCOL_MASTER.md`. Latest executed data gate: `PHASE4_REPORT.md` and evidence JSON. Human labeling protocol: `ANNOTATION_REVIEW_PROTOCOL.md`.
 
-**Local complete snapshot v0.3:** the Drive folder includes `SEER_PPE_Research_v0.3.zip` (manuscript, protocol, annotation codebook, changelog, 40-tested Python package) and `SEER_PPE_Manuscript_Master_v0.3.docx`.
+**Private package only:** `review_internal/` has Roboflow IDs/file names, seeded candidate stratum and blank blinded-review templates; does not contain pictures, model weights or personally identifying visual annotations. Do not copy this folder to a public GitHub repository without reviewing photo/source permissions.
 
-**Protocol:** Y-PPE only, frozen ALTAYYAR 17-class baseline, safety-constrained explanation routing and **measured** energy; never mix previously published baseline metrics with SEER results.
-
-**Every new step:** update `MANUSCRIPT_MASTER.md`, the dated project archive/protocol, `PROGRESS.md` and `CHANGELOG.md`; run and record tests; never add unexecuted empirical claims. Keep historical datasets/model unchanged. Never commit signed weight links, weights, raw images, identifiable people or credentials.
+Version policy: every step updates the master manuscript, progress, changelog, evidence files, and corresponding cloud/git snapshots. **Do not treat historical model accuracy as new SEER-PPE results. Do not invent power measurements or adjudicated safety violations.**
