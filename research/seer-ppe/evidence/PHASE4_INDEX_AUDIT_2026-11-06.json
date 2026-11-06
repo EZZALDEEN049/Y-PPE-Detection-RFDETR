@@ -1,0 +1,96 @@
+{
+  "project": "SEER-PPE",
+  "version": "v0.4",
+  "audit_date": "2026-11-06",
+  "audit_scope": "live Roboflow original project metadata (not 17-class cleaned derivative binary) + read-only 30-image annotation geometry",
+  "source_project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "live_index": {
+    "unique_image_ids": 2327,
+    "total_records": 2327,
+    "split_counts": {
+      "train": 1625,
+      "valid": 468,
+      "test": 234
+    },
+    "people_annotated_image_counts": {
+      "train": 832,
+      "valid": 240,
+      "test": 104
+    },
+    "no_person_annotation_image_counts": {
+      "train": 793,
+      "valid": 228,
+      "test": 130
+    },
+    "no_hard_hat_annotated_image_counts": {
+      "train": 124,
+      "valid": 39,
+      "test": 16
+    },
+    "person_box_counts": {
+      "train": 1739,
+      "valid": 488,
+      "test": 147
+    },
+    "no_hard_hat_box_counts": {
+      "train": 181,
+      "valid": 56,
+      "test": 22
+    },
+    "min_image_side_below_320_counts": {
+      "train": 305,
+      "valid": 89,
+      "test": 45
+    },
+    "cross_split_exact_filename_groups": 31,
+    "cross_split_filename_groups_touching_test": 10,
+    "images_without_user_metadata": 2327,
+    "interpretation": "identical filename is a review flag, not proof of byte-identical or same-scene content; lack of Persons boxes does not prove no human is visible"
+  },
+  "prior_clean17_historical_reference": {
+    "image_count": 2288,
+    "object_count": 16300,
+    "split_counts": {
+      "train": 1595,
+      "valid": 459,
+      "test": 234
+    },
+    "source_exclusions": 39,
+    "exact_duplicate_label_rows_removed": 68,
+    "near_duplicate_label_rows_removed": 1,
+    "source": "GitHub archived Stage2 closure 2026-09-20; not binary reverified in 2026-11-06 session"
+  },
+  "pilot_sample": {
+    "candidate_image_count": 30,
+    "split_counts": {
+      "train": 16,
+      "valid": 14,
+      "test": 0
+    },
+    "sampling": "deterministic seeded class-based oversampling to collect difficult/negative development cases; NOT representative",
+    "sample_selection_source": "original Roboflow index",
+    "clean17_membership": "UNVERIFIED",
+    "reviewer_A_completed": 0,
+    "reviewer_B_completed": 0,
+    "adjudicated_workers": 0,
+    "raw_saved_annotation_boxes_inspected": 396,
+    "boxes_tagged_model_assisted_RFBoxPrompt_v1": 89,
+    "nonpositive_out_of_bounds_or_unreadable_boxes": 0
+  },
+  "gates": {
+    "original_index_read": "PASS_METADATA_ONLY",
+    "pilot_geometry": "PASS_30_IMAGES_ONLY",
+    "clean17_archive_bytes": "BLOCKED_NOT_AVAILABLE_IN_LOCAL_RUNTIME",
+    "source_group_independence": "OPEN_MISSING_ACQUISITION_GROUPS",
+    "image_perceptual_independence": "OPEN_NO_IMAGE_BINARY",
+    "worker_level_gt": "OPEN_NO_HUMAN_ADJUDICATION",
+    "rights_to_redistribute": "OPEN_IMAGE_LEVEL_RIGHTS_NOT_CLEARED",
+    "final_test_frozen": "NOT_YET"
+  },
+  "model_performance_claim": "NO NEW SEER PERFORMANCE MEASURED",
+  "energy_claim": "NO ENERGY MEASURED",
+  "reference_links": {
+    "stage2_close": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/blob/main/cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_clean_stage2_closure_2026-09-20.md",
+    "roboflow": "https://universe.roboflow.com/softyyemen/altayyar-0oflt-lafos-qqauz"
+  }
+}
