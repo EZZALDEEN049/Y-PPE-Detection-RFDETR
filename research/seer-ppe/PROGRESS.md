@@ -1,17 +1,18 @@
-# SEER-PPE active progress tracker — v0.4 (2026-11-06)
+# SEER-PPE cumulative progress — v0.5 (2026-11-06)
 
-| Step | Deliverable | Verified status | Remaining gate |
-|---|---|---|---|
-| 01 | Research question and protocol | DESIGN COMPLETE | Novelty and journal confirmation |
-| 02 | ALTAYYAR hosted 17-class inference + routing prototype | ENGINEERING COMPLETE; 3 smoke images, 23 prior unit tests | Local gradient-XAI |
-| 03 | Image-independence and identity-matching utilities | ENGINEERING COMPLETE; 40 prior tests | Execute on actual clean17 files |
-| **04A** | Complete raw Roboflow original metadata audit | **DONE:** 2,327/2,327 IDs scanned, 31 cross-split filename groups, person/helmet support quantified | Filename flags need image review |
-| **04B** | Pilot review preparation | **DONE:** 30 dev images selected (16 train, 14 valid); 396 saved boxes geometry checked, 89 model-assisted metadata | Check clean17 membership and rights; blind A/B annotation |
-| **04C** | Physical clean17 archive frozen, SHA and site group independence | **OPEN:** prior CI reports 2,288 images; physical ZIP unavailable to hash | Acquire package, source groups, run audit |
-| 05 | Validated worker-level expert GT | OPEN, **0 adjudications** | Annotator A/B + expert reconcile |
-| 06 | Local detector XAI and fidelity | OPEN | Download/load exact checkpoint, differentiable forward |
-| 07 | Hardware electrical energy measurement | OPEN | Instrument device, capture watt traces |
-| 08 | Prespecified calibration and final test | OPEN | Lock source-independent final test after audit |
-| 09 | New empirical results/figures | NOT RUN | Real safe evaluation only |
+| Gate | Evidence-backed state | Next action |
+|---|---|---|
+| 01 Research question and protocol | DESIGN COMPLETE | Close novelty and journal-target review |
+| 02 Existing ALTAYYAR hosted inference | ENGINEERING COMPLETE (3 smoke images) | Differentiable local XAI |
+| 03 Routing, identity matching, preflight utilities | ENGINEERING COMPLETE | Apply against accepted expert GT |
+| 04 Original Roboflow index | COMPLETE (2,327 image IDs) | Do not equate with cleaned archive |
+| **05A Clean17 reproducible reconstruction** | **PASS FILE INTEGRITY** — Actions run #42153641457, 2,288 images, 16,300 rows, 15,864 boxes, 436 polygons, zero byte/pixel duplicates across splits, 0 known video-group overlaps; 7 dHash candidates | Private permanent image archive still missing |
+| **05B 30 pilot matching** | 29 unique name+count candidates, 1 name-only with documented 1-box dedupe | Verify image identity/rights and acquisition families |
+| **05C Independent A/B human annotation** | Separate blind queues prepared; **A=0, B=0, adjudicated=0** | Obtain reviewers and authorized image access |
+| 06 Source group / dataset rights | OPEN | Document site/camera/video grouping and rights per sample |
+| 07 XAI faithfulness | NOT RUN | Load exact weights locally and generate object-matched explanations |
+| 08 Energy test | NOT RUN | Actual device/watts/joules trace |
+| 09 Risk calibration/final independent test | NOT RUN | Only after groups, GT and locked evaluation protocol |
+| 10 Journal manuscript Results | RESERVED / NO NEW RESULTS | Fill only after controlled experiments |
 
-**Current artifact:** `PHASE4_REPORT.md` and `evidence/PHASE4_INDEX_AUDIT_2026-11-06.json`; companion *private* 30-image pilot CSV queues. Do not commit image binaries or potential third-party photos to GitHub. Original dataset, its historical model and all prior papers remain unchanged.
+**Artifact:** private Google Drive project package plus GitHub `PHASE5_REPORT.md` and sanitized audit summary. The public repository does NOT contain raw images or private case lookup.
