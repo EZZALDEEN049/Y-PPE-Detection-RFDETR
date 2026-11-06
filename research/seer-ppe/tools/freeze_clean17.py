@@ -41,7 +41,7 @@ def locate(root,split):
 
 def audit(root,out, strict=True):
     root=Path(root).resolve();out=Path(out).resolve();out.mkdir(parents=True,exist_ok=True)
-    stats={}; rows=[]; issues=[]; names={}; bbox_total=0
+    stats={}; rows=[]; issues=[]; names={}; bbox_total=0; label_geometry=Counter()
     for split in EXPECTED:
         idir,ldir=locate(root,split)
         imgs=sorted(p for p in idir.iterdir() if p.is_file() and p.suffix.lower() in EXTENSIONS)
@@ -57,7 +57,18 @@ def audit(root,out, strict=True):
                 t=line.split()
                 try:
                     cid=int(t[0]); v=[float(x) for x in t[1:]]
-                    if len(v)!=4 or cid not in range(17) or not all(0<=z<=1 for z in v) or v[2]<=0 or v[3]<=0:raise ValueError()
+                    if cid not in range(17) or not all(-1e-8 <= z <= 1+1e-8 for z in v):raise ValueError()
+                    if len(v)==4:
+                        if v[2]<=0 or v[3]<=0:raise ValueError()
+                        label_geometry['bbox_xywh']+=1
+                    elif len(v)>=6 and len(v)%2==0:
+                        # Roboflow's YOLOv11 export mixes boxes with polygon vertex
+                        # sequences for segmentation-shaped annotations (not errors).
+                        # Preserve the polygons; do NOT silently convert to boxes.
+                        xs=v[::2];ys=v[1::2]
+                        if max(xs)-min(xs)<=0 or max(ys)-min(ys)<=0:raise ValueError()
+                        label_geometry['polygon_xy']+=1
+                    else:raise ValueError()
                 except (ValueError,IndexError):issues.append({'type':'bad_label','split':split,'file':lbl.name,'raw':line[:100]})
             bbox_total+=len(lines)
             data=img.read_bytes();sh=hashlib.sha256(data).hexdigest()
@@ -95,7 +106,7 @@ def audit(root,out, strict=True):
     with (out/'cross_split_dhash_review.csv').open('w',newline='',encoding='utf-8') as f:
         w=csv.DictWriter(f,fieldnames=['a_split','a_file','b_split','b_file','dhash_distance','status']);w.writeheader();w.writerows(candidates)
     status='PASS_FILE_INTEGRITY_ONLY' if not issues else 'FAIL_OR_REVIEW_REQUIRED'
-    summary={'project':'SEER-PPE','source':'master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh version 2 via historical correction script','status':status,'counts':stats,'objects':bbox_total,'independent_acquisition_groups':'NOT_ESTABLISHED','rights':'NOT_ESTABLISHED','human_double_review':'NOT_STARTED','known_video_groups_cross_split':known_violations,'cross_split_dhash_candidates':len(candidates),'issues':issues,'critical_problem_count':len(issues),'file_manifest_sha256':hashlib.sha256((out/'clean17_file_manifest.csv').read_bytes()).hexdigest(),'raw_images_not_committed':True}
+    summary={'project':'SEER-PPE','source':'master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh version 2 via historical correction script','status':status,'counts':stats,'objects':bbox_total,'annotation_geometry_types':dict(label_geometry),'independent_acquisition_groups':'NOT_ESTABLISHED','rights':'NOT_ESTABLISHED','human_double_review':'NOT_STARTED','known_video_groups_cross_split':known_violations,'cross_split_dhash_candidates':len(candidates),'issues':issues,'critical_problem_count':len(issues),'file_manifest_sha256':hashlib.sha256((out/'clean17_file_manifest.csv').read_bytes()).hexdigest(),'raw_images_not_committed':True}
     (out/'freeze_summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf8')
     return summary
 
