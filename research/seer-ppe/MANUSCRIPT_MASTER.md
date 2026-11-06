@@ -1,6 +1,6 @@
 # SEER-PPE: Safety-Constrained, Energy-Aware, and Evidence-Grounded Explainable Vision for Occupational Safety Monitoring
 
-**Working manuscript v0.3 — 4 November 2026**  
+**Working manuscript v0.4 — 6 November 2026**  
 **Article class:** original empirical research candidate | **Status:** Methods draft; **NOT a validated empirical article or Q1-ready**  
 **Data constraint:** original Y-PPE only; author-managed dataset and legacy ALTAYYAR 17-class RF-DETR Small checkpoint.  
 **Draft integrity statement:** all planned findings remain unmeasured; do not cite the old model's 96.22% historical mAP@50 as a new SEER-PPE achievement.
@@ -83,3 +83,12 @@ Y-PPE uses field images and supplementary third-party repository content. The au
 ## 7. Next canonical update target — v0.4
 
 Update **this same file** after actual 17-class cleaned archive/manifest verification and human annotation pilot. Populate Methods 3.1–3.2 with verified counts, report reviewer agreement and source-family sampling. Results remains explicitly empty until legitimate experiments. Amend `PROTOCOL_MASTER.md`, append `CHANGELOG.md`, and record evidence paths in `PROGRESS.md`.
+
+
+## Appendix A. Phase 4 Data Readiness and Adjudication Pilot — engineering evidence (6 November 2026)
+
+The full current Roboflow **original** Y-PPE metadata index was read: 2,327 unique image IDs across 1,625 train, 468 validation, and 234 original test. The original test contains 104 images with a `Persons` object label and only 16 images with a `No Hard Hat` object label; these are **not worker-level confirmed violations**. Thirty deterministically sampled development images (16 train, 14 validation) from five deliberately enriched strata were read at saved-annotation level. The 30 records contained 396 object boxes; all passed basic geometric bounds checks. Eighty-nine boxes included `RFBoxPrompt/v1` model-assistance metadata; the extent of any later human verification is unknown. No human adjudication has been conducted for SEER-PPE.
+
+The historical 2,288-image, 16,300-box 17-class corrected Y-PPE derivative remains the **candidate experimental archive** and is **not newly file-hash verified** in this phase; local binary access was unavailable. Thirty-one exact filename-string groups spanned raw dataset splits, including ten involving the original test split. Filename collisions are flags for inspection, not proof of scene leakage. Per-image source-family identifiers and source rights were absent from Roboflow's original image metadata, so true source-group independence cannot yet be certified. The 30-image stratified development review queue is provisional pending membership, rights, and source-family checks.
+
+No SEER-PPE empirical performance, worker-level risk, explanation-fidelity, or energy metric has been measured. The journal Results section remains reserved for correctly preregistered and actually completed experiments. See the versioned companion `PHASE4_REPORT.md`, `ANNOTATION_REVIEW_PROTOCOL.md`, and `evidence/PHASE4_INDEX_AUDIT_2026-11-06.json`.
