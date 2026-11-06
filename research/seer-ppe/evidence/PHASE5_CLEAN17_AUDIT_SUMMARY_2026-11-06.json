@@ -1,0 +1,55 @@
+{
+  "project": "SEER-PPE",
+  "version": "v0.5",
+  "date": "2026-11-06",
+  "evidence_type": "GITHUB_ACTIONS_VERIFIED_FILE_INTEGRITY",
+  "workflow_run_id": 42153641457,
+  "workflow_url": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/42153641457",
+  "source_project": "master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh",
+  "source_version": 2,
+  "cleaned_counts": {
+    "train": {
+      "images": 1595,
+      "objects": 11698
+    },
+    "valid": {
+      "images": 459,
+      "objects": 3471
+    },
+    "test": {
+      "images": 234,
+      "objects": 1131
+    },
+    "total": {
+      "images": 2288,
+      "objects": 16300
+    }
+  },
+  "annotation_format_counts": {
+    "boxes": 15864,
+    "polygons": 436
+  },
+  "bad_label_count": 0,
+  "cross_split_exact_file_or_pixel_duplicates": 0,
+  "known_video_families_cross_split": 0,
+  "visual_similarity_candidate_pairs": 7,
+  "full_acquisition_group_independence": "OPEN",
+  "rights_clearance": "OPEN",
+  "double_human_annotation_completed": 0,
+  "reference_manifest_sha256": "4b7c458d6895706e7bc0886619be9ea12964ff5a9ba51a41f8af297e88a48345",
+  "run_artifact_id": 13473273626,
+  "run_artifact_digest": "sha256:80c831c6ba9a1794cf8225387625980696f48b1d95712197a5a3757adba2f5b8",
+  "clean_image_archive_persisted": false,
+  "pilot": {
+    "cases": 30,
+    "unique_name_plus_label_count_candidates": 29,
+    "unique_name_plus_one_removed_duplicate_candidates": 1,
+    "pixel_identity_verified": 0,
+    "source_family_verified": 0
+  },
+  "warnings": [
+    "The historical test has been exposed during earlier engineering smoke tests; do not treat it as newly untouched final test.",
+    "The 7 perceptual candidates require separate human visual adjudication.",
+    "The clean derivative images were reconstructed in an ephemeral CI runner and were not uploaded to the public repository."
+  ]
+}
