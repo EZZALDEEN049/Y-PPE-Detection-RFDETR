@@ -1,9 +1,9 @@
-# SEER-PPE cumulative research package v0.4 (6 November 2026)
+# SEER-PPE research master — v0.5 (2026-11-06)
 
-**Canonical working manuscript:** `MANUSCRIPT_MASTER.md` (Word mirror separately published).
+Cumulative article: `MANUSCRIPT_MASTER.md`. Full Phase5 evidence: `PHASE5_REPORT.md` and `evidence/PHASE5_CLEAN17_AUDIT_SUMMARY_2026-11-06.json`. Human review handoff: `PHASE5_REVIEW_HANDOFF.md`.
 
-**Protocol:** `PROTOCOL_MASTER.md`. Latest executed data gate: `PHASE4_REPORT.md` and evidence JSON. Human labeling protocol: `ANNOTATION_REVIEW_PROTOCOL.md`.
+GitHub Actions reconstruction **passed file integrity** in run [#42153641457](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/42153641457); corrected image bytes were ephemeral on the runner, not permanently archived.
 
-**Private package only:** `review_internal/` has Roboflow IDs/file names, seeded candidate stratum and blank blinded-review templates; does not contain pictures, model weights or personally identifying visual annotations. Do not copy this folder to a public GitHub repository without reviewing photo/source permissions.
+Private datasets, review-image IDs/mappings, extracted checksum manifests, A/B unblinded identifiers, images, rights documents and weights are not committed to public GitHub. Google Drive private project folder is the full research package. Explicit source rights, nonoverlapping acquisition sites, human ground truth, local XAI and energy measurements are still OPEN.
 
-Version policy: every step updates the master manuscript, progress, changelog, evidence files, and corresponding cloud/git snapshots. **Do not treat historical model accuracy as new SEER-PPE results. Do not invent power measurements or adjudicated safety violations.**
+All next steps must update manuscript, progress, changelog and verification evidence; no previous IEEE results become new SEER-PPE results.
