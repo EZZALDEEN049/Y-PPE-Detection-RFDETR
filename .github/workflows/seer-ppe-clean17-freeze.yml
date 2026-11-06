@@ -1,0 +1,94 @@
+name: SEER-PPE clean17 candidate reconstruction audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - research/seer-ppe/FREEZE_REQUEST.md
+
+permissions:
+  contents: read
+
+jobs:
+  clean17_freeze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install declared analysis dependencies (no training)
+        run: |
+          python -m pip install --upgrade pip
+          pip install roboflow pillow numpy
+          pip install -r cross_domain_reliability/stage2_data_audit/requirements.txt
+      - name: Check existing Roboflow secret
+        run: |
+          test -n "$ROBOFLOW_API_KEY" || (echo 'ROBOFLOW_API_KEY not configured' >&2; exit 2)
+      - name: Download correct unaugmented cloned V2
+        id: src
+        run: |
+          mkdir -p "${RUNNER_TEMP}/source" "${RUNNER_TEMP}/audit"
+          python cross_domain_reliability/stage2_data_audit/download_roboflow_dataset.py \
+            --workspace master-fylfq \
+            --project altayyar-0oflt-lafos-qqauz-ty5nh \
+            --version 2 \
+            --format yolov11 \
+            --out "${RUNNER_TEMP}/source" \
+            --metadata-out "${RUNNER_TEMP}/audit/source_download.json"
+          DATASET_DIR="$(python -c 'import os,json; print(json.load(open(os.path.join(os.environ["RUNNER_TEMP"],"audit","source_download.json")))["dataset_location"])')"
+          echo "dataset_dir=${DATASET_DIR}" >> "$GITHUB_OUTPUT"
+      - name: Build clean 17-class derivative without modifying source
+        id: build
+        run: |
+          python cross_domain_reliability/stage2_data_audit/apply_y_ppe_stage2_corrections.py \
+            --root "${{ steps.src.outputs.dataset_dir }}" \
+            --out "${RUNNER_TEMP}/clean17" \
+            --file-manifest cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_conservative_file_correction_manifest_2026-09-19.csv \
+            --near-box-manifest cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_near_box_removal_manifest_2026-09-19.csv \
+            --expected-exclusions 39 \
+            --expected-exact-row-removals 68 \
+            --expected-near-box-removals 1 \
+            --summary-out "${RUNNER_TEMP}/audit/correction_summary.json"
+      - name: Run archived dataset leakage audit
+        id: oldaudit
+        run: |
+          YAML_PATH="$(find "${RUNNER_TEMP}/clean17" -maxdepth 3 \( -name data.yaml -o -name dataset.yaml \) -print -quit)"
+          test -n "$YAML_PATH"
+          python cross_domain_reliability/stage2_data_audit/stage2_dataset_audit_mixed.py \
+            --dataset-name Y-PPE-v2-clean \
+            --root "${RUNNER_TEMP}/clean17" \
+            --data-yaml "$YAML_PATH" \
+            --splits train,valid,test \
+            --near-hash-distance 4 \
+            --out "${RUNNER_TEMP}/audit/historical_gate"
+      - name: Run new SHA and pixel independent audit; create metadata manifest
+        id: newaudit
+        shell: bash
+        run: |
+          set +e
+          python research/seer-ppe/tools/freeze_clean17.py "${RUNNER_TEMP}/clean17" --out "${RUNNER_TEMP}/audit/phase5"
+          STATUS=$?
+          echo "exit_code=${STATUS}" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Upload audit evidence only (no image binaries)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-ppe-clean17-phase5-audit
+          path: |
+            ${{ runner.temp }}/audit/source_download.json
+            ${{ runner.temp }}/audit/correction_summary.json
+            ${{ runner.temp }}/audit/historical_gate/summary.json
+            ${{ runner.temp }}/audit/historical_gate/issues.json
+            ${{ runner.temp }}/audit/historical_gate/image_manifest.json
+            ${{ runner.temp }}/audit/phase5/*.json
+            ${{ runner.temp }}/audit/phase5/*.csv
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Enforce file-integrity-only gate (source provenance is separate)
+        run: |
+          test "${{ steps.newaudit.outputs.exit_code }}" = "0"
