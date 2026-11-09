@@ -20,3 +20,11 @@
 - Prepared metadata-only 30-image clean-derivative candidate alignment (29 name+count unique, one one-row dedupe-consistent).
 - Started human-review **administrative handoff**: generated anonymized and separately shuffled A/B case queues and blank third-expert log; no human judgments yet.
 - Updated working manuscript with Phase5 Appendix B; no fabricated accuracy/XAI/energy results.
+
+
+## v0.6 — 2026-11-10
+- Archived the real 2,288-image cleaned 17-class Y-PPE derivative in three private Drive segments and verified complete round-trip integrity against SHA256; GitHub raw image files remain uncommitted.
+- Added per-class support analysis for actual cleaned label files; 7 dHash candidate visual analyst decisions with expert confirmation pending; classified 30 development examples into work-plausible, product/non-work control and uncertain context.
+- Added target-preserving black-box occlusion XAI skeleton and instrumented hardware capability probe; increased synthetic unit test pass count to 56.
+- Updated master manuscript Methods/Results to include only verified descriptive data results, with risk, XAI and energy outcomes explicitly unmeasured.
+- Did not solicit human reviews, modify any source labels or datasets, start training, or assert regulatory compliance or energy savings.
