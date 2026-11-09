@@ -1,13 +1,13 @@
 # SEER-PPE: Safety-Constrained, Energy-Aware, and Evidence-Grounded Explainable Vision for Occupational Safety Monitoring
 
-**Working manuscript v0.5 — 6 November 2026**  
+**Working manuscript v0.6 — 10 November 2026**  
 **Article class:** original empirical research candidate | **Status:** Methods draft; **NOT a validated empirical article or Q1-ready**  
 **Data constraint:** original Y-PPE only; author-managed dataset and legacy ALTAYYAR 17-class RF-DETR Small checkpoint.  
-**Draft integrity statement:** all planned findings remain unmeasured; do not cite the old model's 96.22% historical mAP@50 as a new SEER-PPE achievement.
+**Draft integrity statement:** data integrity and analyst triage have been measured, but model-risk, explanation and energy claims remain unmeasured; do not cite the old model's 96.22% historical mAP@50 as a new SEER-PPE achievement.
 
 ## Abstract — structured proposal, NOT journal-ready results abstract
 
-**Background:** PPE object detectors have demonstrated high localization accuracy in construction imagery, but detection accuracy alone does not address the computational expense or faithfulness of explanations, the uncertainty surrounding worker-level PPE decisions, or the workload imposed by requests for human review. **Objective:** This work proposes SEER-PPE, a post-detection evidence-routing framework designed to evaluate whether additional explanation computation can be allocated selectively while preserving prespecified worker-level safety requirements and evidence fidelity. **Methods (planned):** The study uses the author-developed 17-class Y-PPE image collection, a previously trained RF-DETR Small baseline, independent worker-level annotations on Y-PPE images, matched-object perturbation tests for explanations, measured power traces on declared hardware, and source-group-independent split controls. Candidate policies include detector-only, explain-all, confidence-based explanation, matched-review routing, energy-only routing and a jointly constrained policy. **Results:** PENDING — NO SEER-PPE quantitative experimental results. Historical model metrics are described exclusively as prior evidence. **Conclusion:** The empirical contribution and any efficiency benefit will be determined after image-independence, human-annotation, local-XAI and energy-metering gates pass.
+**Background:** PPE object detectors have demonstrated high localization accuracy in construction imagery, but detection accuracy alone does not address the computational expense or faithfulness of explanations, the uncertainty surrounding worker-level PPE decisions, or the workload imposed by requests for human review. **Objective:** This work proposes SEER-PPE, a post-detection evidence-routing framework designed to evaluate whether additional explanation computation can be allocated selectively while preserving prespecified worker-level safety requirements and evidence fidelity. **Methods (planned):** The study uses the author-developed 17-class Y-PPE image collection, a previously trained RF-DETR Small baseline, independent worker-level annotations on Y-PPE images, matched-object perturbation tests for explanations, measured power traces on declared hardware, and source-group-independent split controls. Candidate policies include detector-only, explain-all, confidence-based explanation, matched-review routing, energy-only routing and a jointly constrained policy. **Results:** Descriptive data-integrity and analyst pilot-screening observations are reported; no new detector-risk, explanation-fidelity, energy or joint policy effectiveness results have been measured. Historical model metrics remain prior evidence only. **Conclusion:** The empirical contribution and any efficiency benefit will be determined after image-independence, human-annotation, local-XAI and energy-metering gates pass.
 
 **Keywords:** occupational safety; personal protective equipment; explainable AI; RF-DETR; energy-aware inference; computer vision; worker-level risk; Y-PPE.
 
@@ -64,13 +64,34 @@ Let `pi` select additional evidence computation conditional on runtime-visible f
 
 Compare against detector-only, explain-all, confidence-only explanation, matched-review budget, energy-only routing, and the full SEER policy. Keep detector weights, input population, hardware, and label policy consistent. Select method and thresholds on development/calibration splits only; perform locked final-test evaluation once. Report joules/image, joules/eligible worker, confidence intervals for worker risk with source-family dependence acknowledged, localization and target-matched behavioral faithfulness, review fraction and latency distributions.
 
-### 3.7 Engineering validation status as of v0.3
+### 3.7 Engineering validation status (updated in v0.6)
 
-Roboflow hosted inference succeeded on three existing Y-PPE images, solely as connectivity/output-shape proof. The historical test sample used in that pilot is now development-exposed and cannot constitute untouched final-test evidence. An authorized checkpoint URL was issued but the checkpoint has **not** been locally loaded and verified for gradients; the present container has CPU-only PyTorch. No energy sensor readings or independently adjudicated worker-level labels were generated. The Python research utilities have **40 passing synthetic unit tests**, including 17 newly added checks for split independence and target identity; such tests cannot establish research efficacy.
+Roboflow hosted inference succeeded on three existing Y-PPE images, solely as connectivity/output-shape proof. The historical test sample used in that pilot is now development-exposed and cannot constitute untouched final-test evidence. An authorized checkpoint URL was issued but the checkpoint has **not** been locally loaded and verified for gradients; the present container has CPU-only PyTorch. No energy sensor readings or independently adjudicated worker-level labels were generated. The Python research utilities have **56 passing synthetic unit tests**, including 17 newly added checks for split independence and target identity; such tests cannot establish research efficacy.
 
-## 4. Results — intentionally empty pending real evidence
+## 4. Results — descriptive data verification completed; model-risk/XAI/energy endpoints PENDING
 
-**PENDING — NO NEW SEER-PPE EMPIRICAL RESULTS.** Table R1: cleaned dataset and group-independence audit. R2: worker GT coverage/agreement. R3: explanation identity/fidelity vs baselines. R4: measured energy and latency with hardware scope. R5: final-test risk and selective coverage with uncertainty. Figure R1: experiment workflow. Figure R2: risk-energy frontier. Figure R3: target-matched explanation perturbation curves. All figures/results to be created only after corresponding experiments.
+### 4.1 Reconstructed dataset integrity (measured, descriptive evidence)
+
+The corrected 17-class Y-PPE image collection was reconstructed from the immutable clone, backed up into three private archive segments, downloaded again, reassembled, verified against SHA-256 digests, and extracted successfully. The internal archive contains 4,579 files totaling 127,166,577 bytes. The archive SHA-256 digest is `d47d9676b785a847ef1bcb8a871574815b0b67b967f9107680fb0b85b1a52d61`. The 7 low-distance cross-split image candidates were visually inspected by a single analyst and judged to depict different photos/objects; this does not establish independent acquisition groups or replace specialist review.
+
+| Split | Images | Object annotations | Images with `Persons` annotations | Images with `No Hard Hat` annotations |
+|:--|--:|--:|--:|--:|
+| Train | 1,595 | 11,698 | 820 | 121 |
+| Validation | 459 | 3,471 | 240 | 39 |
+| Historical test | 234 | 1,131 | 104 | 16 |
+| **Total** | **2,288** | **16,300** | **1,164** | **176** |
+
+The 16 historical-test images include 22 `No Hard Hat` object labels; they are **not** 22 independently confirmed worker violations. The table is descriptive dataset support, not held-out SEER effectiveness evidence.
+
+### 4.2 Analyst-only pilot eligibility screen (measured, NOT expert adjudication)
+
+All 30 previously prepared development images were visually reviewed at thumbnail level for **context triage only**. Fourteen had a visually plausible work-related scene, fourteen were clear product-only or non-work-context negative controls, and two could not be categorized confidently. **None** has a verified task PPE rule, expert worker-compliance ground truth, per-image redistribution clearance or two independent qualified safety reviews. This deliberately stratified pilot **cannot estimate prevalence** in Y-PPE.
+
+### 4.3 Safety/error, attribution-fidelity and energy results (PENDING)
+
+No measured SEER-PPE policy improvement, worker-level false-clearance/containment result, XAI behavioral faithfulness score, or actual joules per image exists at this time. The local runtime has CPU-only PyTorch without a readable system power sensor. The held model weights of the prior 9-class harmonized experiment are not a valid substitution for the exact 17-class ALTAYYAR model.
+
+Planned Table R2: human worker ground truth coverage and interrater agreement. R3: target-specific explanation fidelity and matched/lost target rates. R4: measured energy, latency and hardware scope. R5: source-family-independent final-test safety risk and selective coverage. Figures for R2–R5 remain ungenerated pending executed experiments.
 
 ## 5. Discussion — questions, not claimed findings
 
@@ -80,9 +101,9 @@ The eventual discussion will address whether routing demonstrably reduces additi
 
 Y-PPE uses field images and supplementary third-party repository content. The author owns their original compilation, annotations and original contributions subject to other parties' image rights; public image redistribution rights must be audited separately. Historic source attribution and permissions are not presently resolved at per-image level. An identifiable site/worker image is not published in this project package. No outside image corpus is added. Model and data licenses, dataset lineage, source-related leakage and protected evaluation data will be reported in any submission.
 
-## 7. Next canonical update target — v0.4
+## 7. Next canonical update target — v0.7
 
-Update **this same file** after actual 17-class cleaned archive/manifest verification and human annotation pilot. Populate Methods 3.1–3.2 with verified counts, report reviewer agreement and source-family sampling. Results remains explicitly empty until legitimate experiments. Amend `PROTOCOL_MASTER.md`, append `CHANGELOG.md`, and record evidence paths in `PROGRESS.md`.
+Continue on **this same file** after two independent qualified reviewers complete worker/task annotations, after source-family and rights checks, and after exact 17-class checkpoint local inference with a power sensor. Descriptive dataset results are present; do not fill worker-risk, XAI or energy tables until they are actually measured. Amend `PROTOCOL_MASTER.md`, append `CHANGELOG.md`, and record evidence paths in `PROGRESS.md`.
 
 
 ## Appendix A. Phase 4 Data Readiness and Adjudication Pilot — engineering evidence (6 November 2026)
@@ -101,3 +122,16 @@ The study's candidate 17-class Y-PPE v2 Clean derivative was freshly **reconstru
 The original pilot's 30 development images were aligned to cleaned-export filename candidates using split, normalized name and stored annotation-box counts. Twenty-nine yielded unique name-plus-count candidates; one uniquely matched name differed by exactly one object row (28 original vs. 27 clean) and the original saved annotation contains a duplicated same-label box. **All thirty links remain filename/label based and have NOT received original-to-clean pixel identity verification**. Reviewer A and B queues have been separately prepared and randomized without preloaded labels or model outputs. Human annotation and expert reconciliation remain at **zero completed records**, pending rights and source/identity clearance. The model's original historical reported 96.22% mAP50 remains a prior published result, not new SEER-PPE performance.
 
 **Artifact-provenance statement:** The temporary runner's corrected **image archive was not persistently saved**, while metadata/checksum manifests and analysis reports were retained (manifest SHA-256: `4b7c458d6895706e7bc0886619be9ea12964ff5a9ba51a41f8af297e88a48345`). A future securely stored archive must be compared against the file-hash manifest before being called the frozen dataset. Cross-site independence, reviewer-adjudicated worker truth, explainability fidelity and energy measurement remain **OPEN**. See `PHASE5_REPORT.md` and `evidence/PHASE5_CLEAN17_AUDIT_SUMMARY_2026-11-06.json`. No new safety or energy result is claimed.
+
+
+## Appendix C. Phase 6 restricted archive, image-screening and computational preflight (10 November 2026)
+
+The successful archive reconstruction was repeated for a private, lossless backup using the same unaugmented clone and frozen corrections. A deterministic ZIP was split into three segments and saved inside the author's restricted SEER-PPE Google Drive research folder, not committed to the public source repository. A second local round trip recovered all segments, checked every individual segment digest, checked the combined archive SHA-256, ran ZIP CRC verification and extracted all **4,579 files**. The full packed archive size was **127,166,577 bytes**. The primary file count is **2,288 images** with **16,300 annotations** and **17 classes**. Internal use does not imply rights to publish individual third-party images. The online GitHub Actions storage only acted as a temporary transfer mechanism.
+
+All **seven** cross-split dHash≤4 candidate pairs were inspected in a combined image review, showing visually different products/poses/objects. Each is recorded `ANALYST_VISUALLY_DISTINCT; INDEPENDENT_SOURCE_REVIEW_PENDING`. This single-assistant/analyst review is not independent expert double adjudication, and unseen source/video relationships beyond the known families remain unverified. The original cross-split byte- and pixel-exact audit still has zero matches.
+
+Of the **30 development images**, an explicitly provisional analyst screen found 14 plausible fieldwork scenes, 14 visually obvious product/non-work negative controls, and 2 uncertain contexts. These are not adjudicated worker/required-PPE labels, and cannot stand in for task-specific site requirements; every case remains an unaudited occupational safety decision. The negative controls are reserved for checking eligibility routing rather than forced to count as violations. In the cleaned archive, 29 pilot links have one filename+annotation-count candidate and one pilot link has a single duplicated annotation row removed; original-to-clean photographic identity still needs independent source confirmation.
+
+The engineering package now contains a model-agnostic per-target occlusion generator which re-runs a real predictor for each grid patch and distinguishes `MATCHED`, `LOST` and `AMBIGUOUS` instance identities. This generator has **not** produced a real 17-class ALTAYYAR explanation. The local hardware probe records PyTorch CPU-only, CUDA unavailable, no readable Intel RAPL readings and no NVML package; therefore measured electrical energy remains unavailable. The combined synthetic unit test suite passed **56/56**, including additional model-agnostic occlusion tests; synthetic unit tests are not model performance evidence.
+
+**Experimental integrity boundary:** This phase does not claim independent worker ground truth, certified policy compliance, quantified energy saving, actual visual explanation faithfulness or empirical Q1-level novelty. The next irreducible tasks require explicitly authorized human reviewers and their image access, independent site/task-policy information, the exact accessible 17-class checkpoint under a working local loader, and actual energy-metering hardware. All must precede any paper-wide claims of algorithmic superiority.
