@@ -1,18 +1,21 @@
-# SEER-PPE cumulative progress — v0.5 (2026-11-06)
+# SEER-PPE cumulative research progress — v0.6 (2026-11-10)
 
-| Gate | Evidence-backed state | Next action |
+| Phase | Outcome | Proof / blocker |
 |---|---|---|
-| 01 Research question and protocol | DESIGN COMPLETE | Close novelty and journal-target review |
-| 02 Existing ALTAYYAR hosted inference | ENGINEERING COMPLETE (3 smoke images) | Differentiable local XAI |
-| 03 Routing, identity matching, preflight utilities | ENGINEERING COMPLETE | Apply against accepted expert GT |
-| 04 Original Roboflow index | COMPLETE (2,327 image IDs) | Do not equate with cleaned archive |
-| **05A Clean17 reproducible reconstruction** | **PASS FILE INTEGRITY** — Actions run #42153641457, 2,288 images, 16,300 rows, 15,864 boxes, 436 polygons, zero byte/pixel duplicates across splits, 0 known video-group overlaps; 7 dHash candidates | Private permanent image archive still missing |
-| **05B 30 pilot matching** | 29 unique name+count candidates, 1 name-only with documented 1-box dedupe | Verify image identity/rights and acquisition families |
-| **05C Independent A/B human annotation** | Separate blind queues prepared; **A=0, B=0, adjudicated=0** | Obtain reviewers and authorized image access |
-| 06 Source group / dataset rights | OPEN | Document site/camera/video grouping and rights per sample |
-| 07 XAI faithfulness | NOT RUN | Load exact weights locally and generate object-matched explanations |
-| 08 Energy test | NOT RUN | Actual device/watts/joules trace |
-| 09 Risk calibration/final independent test | NOT RUN | Only after groups, GT and locked evaluation protocol |
-| 10 Journal manuscript Results | RESERVED / NO NEW RESULTS | Fill only after controlled experiments |
+| 1 Foundation | Done | Original thesis, 17-class Y-PPE, 4 author IEEE papers |
+| 2 Hosted RF-DETR engineering inference | Done for 3 development-exposed images | Not research benchmark |
+| 3 Candidate routing + scoring code | Done engineering | Synthetic tests only |
+| 4 Metadata index and reviewer queue | Done for sample; source family gate open | 30 sample images; rights unverified |
+| 5 Clean17 file-integrity reconstruction | PASS | Workflow 42153641457: 2,288 photos, 16,300 objects |
+| 6 Persistent private clean17 archive | PASS | Workflow 42711344988, restricted Drive chunked archive and independent full SHA check |
+| 6 Visual dHash candidate triage | Analyst-reviewed 7/7 distinct; expert/source gate OPEN | Non-independent visual analyst; cannot certify acquisition independence |
+| 6 Pilot contextual triage | Analyst-screened 30/30 | 14 work-plausible; 14 negative controls; 2 uncertain; not task policy verification |
+| 6 Local explanation harness | Code/test ready; exact model XAI OPEN | CPU only and exact 17-class checkpoint not locally loaded |
+| 6 Power metering | BLOCKED, not measured | No CUDA/RAPL/NVML, no joule measurements |
+| 6 Independent qualified A/B worker review | NOT STARTED | A=0/30, B=0/30, no task rules or verified image rights |
+| 7 Risk/energy baselines and locked evaluation | NOT STARTED | Requires independent GT, source-family groups, real model + power sensor |
+| 8 Publishable SEER manuscript | Methods + factual audit only | No policy-fidelity-energy numerical results, no Q1 submission |
 
-**Artifact:** private Google Drive project package plus GitHub `PHASE5_REPORT.md` and sanitized audit summary. The public repository does NOT contain raw images or private case lookup.
+**Cumulative engineering test count:** 56 passed. The draft has not fabricated research efficacy.
+**Next essential external inputs:** two qualified and authorized independent safety reviewers; source/image rights and acquisition grouping; exact accessible RF-DETR 17-class weights with executable local loader; instrumented hardware to measure watts; lock independent evaluation groups.
+**Primary manuscript:** `MANUSCRIPT_MASTER.md`; archival v0.6 package retained on the owner's Drive.
