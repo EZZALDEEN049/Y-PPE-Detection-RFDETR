@@ -1,0 +1,24 @@
+name: SEER-PPE tested engineering modules (no model training)
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synthetic_unit_tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install analysis dependencies
+        run: |
+          pip install numpy scipy pillow
+      - name: Run research engineering unit tests
+        working-directory: research/seer-ppe
+        run: |
+          PYTHONPATH=. python -m unittest discover -s tests -v
