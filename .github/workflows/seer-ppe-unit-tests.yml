@@ -1,4 +1,4 @@
-name: SEER-PPE tested engineering modules (no model training)
+name: SEER-PPE public engineering tests (no model training)
 on:
   push:
     paths:
@@ -7,7 +7,7 @@ on:
 permissions:
   contents: read
 jobs:
-  synthetic_unit_tests:
+  public_synthetic_unit_tests:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -18,7 +18,11 @@ jobs:
       - name: Install analysis dependencies
         run: |
           pip install numpy scipy pillow
-      - name: Run research engineering unit tests
+      - name: Run public-safe synthetic tests only (exclude private reviewer data fixtures)
         working-directory: research/seer-ppe
         run: |
-          PYTHONPATH=. python -m unittest discover -s tests -v
+          set -e
+          PYTHONPATH=. python -m unittest discover -s tests -p 'test_prototype.py' -v
+          PYTHONPATH=. python -m unittest discover -s tests -p 'test_phase3.py' -v
+          PYTHONPATH=. python -m unittest discover -s tests -p 'test_phase5.py' -v
+          PYTHONPATH=. python -m unittest discover -s tests -p 'test_phase6.py' -v
