@@ -1,0 +1,145 @@
+name: SEER-PPE restricted clean17 archive transfer
+on:
+  push:
+    paths:
+      - research/seer-ppe/VAULT_REQUEST.md
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  prepare_restricted_backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install image export dependencies; no training
+        run: |
+          pip install roboflow pillow
+      - name: Reconstruct cleaned source without modifying the source
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$ROBOFLOW_API_KEY"
+          mkdir -p "${RUNNER_TEMP}/source" "${RUNNER_TEMP}/vault"
+          python cross_domain_reliability/stage2_data_audit/download_roboflow_dataset.py \
+            --workspace master-fylfq --project altayyar-0oflt-lafos-qqauz-ty5nh --version 2 --format yolov11 \
+            --out "${RUNNER_TEMP}/source" --metadata-out "${RUNNER_TEMP}/vault/source.json"
+          DATASET_DIR="$(python -c 'import os,json; print(json.load(open(os.path.join(os.environ["RUNNER_TEMP"],"vault","source.json")))["dataset_location"])')"
+          python cross_domain_reliability/stage2_data_audit/apply_y_ppe_stage2_corrections.py \
+            --root "$DATASET_DIR" --out "${RUNNER_TEMP}/clean17" \
+            --file-manifest cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_conservative_file_correction_manifest_2026-09-19.csv \
+            --near-box-manifest cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_near_box_removal_manifest_2026-09-19.csv \
+            --expected-exclusions 39 --expected-exact-row-removals 68 --expected-near-box-removals 1 \
+            --summary-out "${RUNNER_TEMP}/vault/correction_summary.json"
+          python research/seer-ppe/tools/package_vault.py --clean-root "${RUNNER_TEMP}/clean17" --out "${RUNNER_TEMP}/vault" --chunk-mib 48
+      - name: Upload integrity metadata (no image bytes)
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-clean17-vault-metadata
+          path: |
+            ${{ runner.temp }}/vault/vault_manifest.json
+            ${{ runner.temp }}/vault/archive-sha256.txt
+            ${{ runner.temp }}/vault/correction_summary.json
+          retention-days: 7
+          if-no-files-found: error
+      - name: Transfer archive segment 00
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-clean17-vault-part_00
+          path: ${{ runner.temp }}/vault/Y-PPE-v2-Clean17-INTERNAL-RESEARCH.zip.part_00
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: ignore
+      - name: Transfer archive segment 01
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-clean17-vault-part_01
+          path: ${{ runner.temp }}/vault/Y-PPE-v2-Clean17-INTERNAL-RESEARCH.zip.part_01
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: ignore
+      - name: Transfer archive segment 02
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-clean17-vault-part_02
+          path: ${{ runner.temp }}/vault/Y-PPE-v2-Clean17-INTERNAL-RESEARCH.zip.part_02
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: ignore
+      - name: Transfer archive segment 03
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-clean17-vault-part_03
+          path: ${{ runner.temp }}/vault/Y-PPE-v2-Clean17-INTERNAL-RESEARCH.zip.part_03
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: ignore
+      - name: Transfer archive segment 04
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-clean17-vault-part_04
+          path: ${{ runner.temp }}/vault/Y-PPE-v2-Clean17-INTERNAL-RESEARCH.zip.part_04
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: ignore
+      - name: Transfer archive segment 05
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-clean17-vault-part_05
+          path: ${{ runner.temp }}/vault/Y-PPE-v2-Clean17-INTERNAL-RESEARCH.zip.part_05
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: ignore
+      - name: Transfer archive segment 06
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-clean17-vault-part_06
+          path: ${{ runner.temp }}/vault/Y-PPE-v2-Clean17-INTERNAL-RESEARCH.zip.part_06
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: ignore
+      - name: Transfer archive segment 07
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-clean17-vault-part_07
+          path: ${{ runner.temp }}/vault/Y-PPE-v2-Clean17-INTERNAL-RESEARCH.zip.part_07
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: ignore
+      - name: Transfer archive segment 08
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-clean17-vault-part_08
+          path: ${{ runner.temp }}/vault/Y-PPE-v2-Clean17-INTERNAL-RESEARCH.zip.part_08
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: ignore
+      - name: Transfer archive segment 09
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-clean17-vault-part_09
+          path: ${{ runner.temp }}/vault/Y-PPE-v2-Clean17-INTERNAL-RESEARCH.zip.part_09
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: ignore
+      - name: Transfer archive segment 10
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-clean17-vault-part_10
+          path: ${{ runner.temp }}/vault/Y-PPE-v2-Clean17-INTERNAL-RESEARCH.zip.part_10
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: ignore
+      - name: Transfer archive segment 11
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-clean17-vault-part_11
+          path: ${{ runner.temp }}/vault/Y-PPE-v2-Clean17-INTERNAL-RESEARCH.zip.part_11
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: ignore
