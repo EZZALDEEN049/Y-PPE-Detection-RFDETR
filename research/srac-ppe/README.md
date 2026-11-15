@@ -1,7 +1,7 @@
 # SRAC-PPE | Research progress hub
 
-**Updated:** 2026-10-29  
-**Status:** pre-experimental validation / independent worker-level evaluation pending  
+**Updated:** 2026-11-15  
+**Status:** exploratory cross-dataset image-level inference completed / independent worker-level risk evaluation pending  
 **Repository visibility:** PUBLIC — publishable research status only
 
 ## Research paper
@@ -13,6 +13,8 @@ The paper is a **draft**, not an accepted/published article. Scientific novelty,
 
 ## Project documents
 - [PROJECT.md](PROJECT.md) — canonical status, verified facts, limitations, next gates.
+- [PROGRESS_UPDATE_2026-11-15.md](PROGRESS_UPDATE_2026-11-15.md) — public-safe record of the 48-image cross-dataset inference probe, failure review, estimands and remaining gates.
+- [EXTERNAL_IMAGE_LEVEL_PROBE_SUMMARY_2026-11-15.csv](EXTERNAL_IMAGE_LEVEL_PROBE_SUMMARY_2026-11-15.csv) — aggregate, image-level counts by analysis cutoff; no image IDs.
 - [MANUSCRIPT_PROGRESS.md](MANUSCRIPT_PROGRESS.md) — current paper sections and submission-readiness gaps.
 - [RESEARCH_LOG.md](RESEARCH_LOG.md) — dated, evidence-qualified progress journal.
 - [SYNC_PROTOCOL.md](SYNC_PROTOCOL.md) — rules for future GitHub updates and safe publication.

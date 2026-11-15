@@ -41,6 +41,9 @@ Write `Y=1` for adjudicated true helmet-rule violation and `A=1` for helmet requ
 
 Caveat: `R_UC` measures *not automatically contained by the decision-routing interface*, not observed injury/hazard outcome. In the strict, revised policy/GT interface, an erroneous policy decision `NOT_REQUIRED` for a true helmet-rule violation is counted as uncontained; otherwise policy classification errors could artificially reduce risk. The offline evaluator knows which workers the detector missed; a deployed system may not.
 
+**Additional secondary estimand — accepted-CLEAR violation proportion.** Define `R_AC(t) = P(Y=1 | D_t = CLEAR)`, where `Y=1` denotes a true violation in a context where the helmet is required. This is the proportion of workers receiving CLEAR who are true violators. It is distinct from `R_FC(t)=P(D_t=CLEAR | Y=1)`; a bound on `R_FC` does not bound `R_AC`, because the latter also depends on violation prevalence and the composition of all CLEAR decisions. Estimate `R_AC` only on a representative all-worker target-test sample with complete worker inventory and independently adjudicated helmet requirement/wearing state. A stratified case-control sample or image-level object-label subset cannot estimate population `R_AC` or CLEAR precision. If representative sampling is unavailable, report `R_AC` as not estimable.
+
+
 Prespecify clear-threshold grid (candidate): `[.02,.05,.10,.15,.20,.30,.40,.50,.60]`; alert threshold `.80`. The score must be a separately fitted, independently assessed worker-level signal, **not** raw Roboflow confidence or the uncalibrated `no-helmet confidence minus helmet confidence`. Freeze evidence gate, class association and mapping before risk calibration.
 
 ## D. Simultaneous one-sided risk bounds
@@ -77,7 +80,7 @@ The rows are mathematical feasibility conditions, not an experimental performanc
 All baselines must be evaluated at comparable human-review budgets. Distinguish fairness in reviewing detected workers from safety on undetected GT workers.
 
 ## F. Metrics and statistics
-Primary: FC and UC risk on independent GT workers; CLEAR coverage; REVIEW rate; detection miss frequency. Secondary: false alert rate, violation recall, risk–coverage profiles, Brier/ECE **only for properly defined worker probabilities**, per-site breakdown, latency of **real measured** pipeline.
+Primary: FC and UC risk on independent GT workers; CLEAR coverage; REVIEW rate; detection miss frequency. Secondary: accepted-CLEAR violation proportion R_AC **only if a representative all-worker test sample is available**; false alert rate, violation recall, risk–coverage profiles, Brier/ECE **only for properly defined worker probabilities**, per-site breakdown, latency of **real measured** pipeline. If the sample design is stratified/case-control or the all-worker denominator is incomplete, report R_AC as not estimable.
 
 Report 95% uncertainty intervals for empirical test estimates, unit of independence, and paired/cluster-aware comparisons. For tiny samples report counts and `not estimable` rather than unsupported percentages or guarantees. Describe abstention, uncertain mandates, and detector misses.
 
