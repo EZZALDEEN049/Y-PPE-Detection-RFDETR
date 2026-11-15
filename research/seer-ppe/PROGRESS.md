@@ -1,4 +1,4 @@
-# SEER-PPE cumulative research progress — v0.6 (2026-11-10)
+# SEER-PPE cumulative research progress — v0.7 (2026-11-15)
 
 | Phase | Outcome | Proof / blocker |
 |---|---|---|
@@ -10,12 +10,12 @@
 | 6 Persistent private clean17 archive | PASS | Workflow 42711344988, restricted Drive chunked archive and independent full SHA check |
 | 6 Visual dHash candidate triage | Analyst-reviewed 7/7 distinct; expert/source gate OPEN | Non-independent visual analyst; cannot certify acquisition independence |
 | 6 Pilot contextual triage | Analyst-screened 30/30 | 14 work-plausible; 14 negative controls; 2 uncertain; not task policy verification |
-| 6 Local explanation harness | Code/test ready; exact model XAI OPEN | CPU only and exact 17-class checkpoint not locally loaded |
+| 6 Local explanation harness | Code/test ready; exact model XAI OPEN | Original Roboflow 17-class model verified, authorized temporary weights-download URL obtainable; original checkpoint not locally inspected or loaded |
 | 6 Power metering | BLOCKED, not measured | No CUDA/RAPL/NVML, no joule measurements |
-| 6 Independent qualified A/B worker review | NOT STARTED | A=0/30, B=0/30, no task rules or verified image rights |
-| 7 Risk/energy baselines and locked evaluation | NOT STARTED | Requires independent GT, source-family groups, real model + power sensor |
-| 8 Publishable SEER manuscript | Methods + factual audit only | No policy-fidelity-energy numerical results, no Q1 submission |
+| 6 Worker reference review | NEW DOCUMENTED SINGLE-CURATOR PLAN; not complete | Single-researcher review approved, no independent A/B validation, verified task/site PPE mandates still unavailable |
+| 7 Risk/energy baselines and locked evaluation | NOT STARTED | Requires defensible researcher-reference cases, source sensitivity, real original-model inference and sensor if Joules claimed |
+| 8 Research manuscript v0.7 | Methods consolidated through author Q39 | No new SEER worker-risk/faithfulness/energy numeric results, no claim of validated Q1-ready paper |
 
 **Cumulative engineering test count:** 56 passed. The draft has not fabricated research efficacy.
-**Next essential external inputs:** two qualified and authorized independent safety reviewers; source/image rights and acquisition grouping; exact accessible RF-DETR 17-class weights with executable local loader; instrumented hardware to measure watts; lock independent evaluation groups.
-**Primary manuscript:** `MANUSCRIPT_MASTER.md`; archival v0.6 package retained on the owner's Drive.
+**Next essential inputs:** original 17-class checkpoint bytes + hash + executable Colab loader; documented single-researcher worker and task-policy reference with adequate confirmed violations; source/rights manifest and similarity-group sensitivity; preregistered calibration/competitor/old-Test internal-evaluation plan; power sensor only if measured joules will be claimed. Roboflow original 17-class training and weights-download entitlement confirmed on 15 November 2026; weights and gradients not yet locally verified.
+**Primary working manuscript:** `MANUSCRIPT_MASTER.md` v0.7 and `PROTOCOL_MASTER.md` v0.7 on GitHub; archival v0.6 Word package remains on the owner's Drive and must not be described as automatically synchronized. Author's Q40 release-policy decision pending.
