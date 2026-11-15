@@ -91,4 +91,4 @@ RQ3: How many violation labels support target-site risk calibration? Computation
 RQ4: Which frozen components matter? Requires ablation on actual model predictions.
 
 ## H. Blocked but not preventing other work
-No independent inference response/verified frozen weights; incomplete worker-level PPE-required labels; incomplete cross-site provenance; external construction dataset access in runtime. Continue literature/ontology/mathematical/reproducibility work without treating these as completed.
+Public hosted image-level inference is now available, but independent worker-level evaluation remains absent; detector training-source overlap is unverified; worker-level PPE-required labels and cross-site provenance remain incomplete. Continue literature/ontology/mathematical/reproducibility work without treating the public image-level probe as completed risk validation.
