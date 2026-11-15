@@ -39,6 +39,6 @@ The paper is a **draft**, not an accepted/published article. Scientific novelty,
 **Do not** treat historical Roboflow metrics or the author's earlier cross-domain YOLO11m results as SRAC-PPE results. A separate harmonized nine-class dataset does not change the frozen model's original 17-class identity.
 
 ## Publication/sensitivity policy
-This public folder intentionally contains a status snapshot **rather than the full unpublished manuscript or field imagery**. No credentials, private dataset, unpublished result tables, image-level identities, or model weights are mirrored here.
+This public folder intentionally contains a status snapshot **rather than the full unpublished manuscript or field imagery**. No credentials, private datasets, detailed unpublished manuscript tables, image-level identities, or model weights are mirrored here.
 
 > Research synchronization means explicit verified updates to these files, not automatic streaming of ChatGPT conversation data. See [SYNC_PROTOCOL.md](SYNC_PROTOCOL.md).
