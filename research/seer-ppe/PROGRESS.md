@@ -1,11 +1,11 @@
-# SEER-PPE cumulative research progress — v0.7 (2026-11-15)
+# SEER-PPE cumulative research progress — v0.7 (updated 2026-11-17)
 
 | Phase | Outcome | Proof / blocker |
 |---|---|---|
 | 1 Foundation | Done | Original thesis, 17-class Y-PPE, 4 author IEEE papers |
 | 2 Hosted RF-DETR engineering inference | Done for 3 development-exposed images | Not research benchmark |
 | 3 Candidate routing + scoring code | Done engineering | Synthetic tests only |
-| 4 Metadata index and reviewer queue | Done for sample; source family gate open | 30 sample images; rights unverified |
+| 4 Metadata index and reviewer queue | Done for sample; source family gate open | 30 sample images; author rights self-attested for primary data, external imagery/privacy per file still unreviewed |
 | 5 Clean17 file-integrity reconstruction | PASS | Workflow 42153641457: 2,288 photos, 16,300 objects |
 | 6 Persistent private clean17 archive | PASS | Workflow 42711344988, restricted Drive chunked archive and independent full SHA check |
 | 6 Visual dHash candidate triage | Analyst-reviewed 7/7 distinct; expert/source gate OPEN | Non-independent visual analyst; cannot certify acquisition independence |
@@ -18,4 +18,4 @@
 
 **Cumulative engineering test count:** 56 passed. The draft has not fabricated research efficacy.
 **Next essential inputs:** original 17-class checkpoint bytes + hash + executable Colab loader; documented single-researcher worker and task-policy reference with adequate confirmed violations; source/rights manifest and similarity-group sensitivity; preregistered calibration/competitor/old-Test internal-evaluation plan; power sensor only if measured joules will be claimed. Roboflow original 17-class training and weights-download entitlement confirmed on 15 November 2026; weights and gradients not yet locally verified.
-**Primary working manuscript:** `MANUSCRIPT_MASTER.md` v0.7 and `PROTOCOL_MASTER.md` v0.7 on GitHub; archival v0.6 Word package remains on the owner's Drive and must not be described as automatically synchronized. Author's Q40 release-policy decision pending.
+**Primary working manuscript:** `MANUSCRIPT_MASTER.md` v0.7 and `PROTOCOL_MASTER.md` v0.7 on GitHub; archival v0.6 Word package remains on the owner's Drive and must not be described as automatically synchronized. **Q40:** Author self-attests full ownership and disposal rights over original Y-PPE primary data (17 November 2026); file-level public release tier, external-source image rights/privacy and model/Roboflow weight terms still require explicit handling. No publication/upload occurred as a result of the attestation.
