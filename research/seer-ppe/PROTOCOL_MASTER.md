@@ -1,6 +1,6 @@
 # SEER-PPE — experimental master protocol v0.7 (author decisions through Q39)
 
-**Revised:** 15 November 2026. **Status:** working, *not preregistered*, hypotheses and operational methods only. Historical Y-PPE Test was exposed during earlier dataset/model refinement. No newly independent holdout, new safety superiority result, XAI faithfulness result or joules measurement is claimed.
+**Revised:** 17 November 2026 (Q40 data ownership addendum). **Status:** working, *not preregistered*, hypotheses and operational methods only. Historical Y-PPE Test was exposed during earlier dataset/model refinement. No newly independent holdout, new safety superiority result, XAI faithfulness result or joules measurement is claimed.
 
 ## Research question and objective
 
@@ -61,7 +61,7 @@ Detector score calibration, worker-level correctness and risk-controlled/conform
 
 ## Audit trail, privacy and responsible release
 
-Per-case log with pseudonymous IDs, frozen-split/source-group/sha pointers, exact weight/config/environment versions, boxes/classes/confidence, wearer/equipment states, association candidates and margin, task-policy provenance, risk/uncertainty/review/XAI routing reasons, target perturbations and `LOST/AMBIGUOUS`, alerts/abstentions, queue completion status, costs, measured-or-simulated tags, and raw energy provenance if present. Keep image files, identity/provenance maps, ground-truth adjudication and runtime logs in separate permission-controlled stores; never feed post-hoc labels into routing. Publishing original photos or hosted model weights is not authorized merely by possessing a training artifact. **Release policy awaits author Q40 selection and rights audit.**
+Per-case log with pseudonymous IDs, frozen-split/source-group/sha pointers, exact weight/config/environment versions, boxes/classes/confidence, wearer/equipment states, association candidates and margin, task-policy provenance, risk/uncertainty/review/XAI routing reasons, target perturbations and `LOST/AMBIGUOUS`, alerts/abstentions, queue completion status, costs, measured-or-simulated tags, and raw energy provenance if present. Keep image files, identity/provenance maps, ground-truth adjudication and runtime logs in separate permission-controlled stores; never feed post-hoc labels into routing. **Author's Q40 declaration (17 November 2026):** The researcher affirms full ownership and disposition rights over the **primary Y-PPE research data**. Record this as author self-attestation, not independently verified chain of title. Original author-created images/annotations may be slated for public release at their discretion, subject to identifiable-person privacy requirements; distinguish any externally sourced or provenance-unknown photos before broader redistribution. The fine-tuned/original RF-DETR checkpoint and Roboflow service artifacts may carry platform-specific distribution conditions separate from image-data ownership. Q41 will define the public/private tier of each reproduction artifact. **No dataset, image or weight release has been performed by this protocol edit.**
 
 ## Evidence and open gates (15 November 2026)
 
