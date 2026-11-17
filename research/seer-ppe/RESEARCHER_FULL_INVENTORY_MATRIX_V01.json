@@ -311,7 +311,16 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's explicit Arabic correction in chat",
+                "confirmed_visual_state": "ABSENT",
+                "confirmation_scope": "VISUAL_STATE_PRELIMINARY",
+                "evidence_description": "Researcher reports no reflective vests on either worker; image low-resolution, not a policy judgment",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
+              }
             },
             {
               "ppe_type": "goggles",
@@ -320,7 +329,16 @@
               "status_source": "UNASSESSED_PLACEHOLDER",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's explicit Arabic correction in chat",
+                "confirmed_visual_state": "UNKNOWN",
+                "confirmation_scope": "VISUAL_STATE_PRELIMINARY",
+                "evidence_description": "Eyewear cannot be assessed owing to workers' head/body orientation",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
+              }
             },
             {
               "ppe_type": "face_mask",
@@ -411,7 +429,16 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's explicit Arabic correction in chat",
+                "confirmed_visual_state": "ABSENT",
+                "confirmation_scope": "VISUAL_STATE_PRELIMINARY",
+                "evidence_description": "Researcher reports no reflective vests on either worker; image low-resolution, not a policy judgment",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
+              }
             },
             {
               "ppe_type": "goggles",
@@ -420,7 +447,16 @@
               "status_source": "UNASSESSED_PLACEHOLDER",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's explicit Arabic correction in chat",
+                "confirmed_visual_state": "UNKNOWN",
+                "confirmation_scope": "VISUAL_STATE_PRELIMINARY",
+                "evidence_description": "Eyewear cannot be assessed owing to workers' head/body orientation",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
+              }
             },
             {
               "ppe_type": "face_mask",
@@ -858,6 +894,29 @@
         "case_complete": false,
         "policy_status": "POLICY_UNKNOWN",
         "footwear_links": "K/L/M remain UNKNOWN"
+      },
+      "researcher_scene_observations": {
+        "date": "2026-11-17",
+        "statement_source": "Explicit researcher correction in chat",
+        "reflective_vests": "RESEARCHER_REPORTS_NONE_ON_EITHER_PERSON",
+        "eyewear": "NOT_VISIBLE_DUE_TO_WORKER_POSE",
+        "safety_footwear": "RESEARCHER_REPORTS_SAFETY_FOOTWEAR_VISIBLE_IN_SCENE",
+        "footwear_protective_certification": "NOT_INDEPENDENTLY_VERIFIED",
+        "boots_item_to_person_association": "UNKNOWN_FOR_K_L_M",
+        "trousers": {
+          "P001": {
+            "state": "NOT_WORN_PER_RESEARCHER_REPORT",
+            "note": "Researcher identifies foreground worker as the one not wearing trousers; large wrapped/apron-like garment visible; not a PPE policy inference"
+          },
+          "P002": {
+            "state": "WORN_PER_RESEARCHER_REPORT",
+            "note": "Researcher identifies background worker as wearing trousers; different work-clothes context"
+          }
+        },
+        "scope": "RESEARCHER_PRELIMINARY_SCENE_OBSERVATIONS_NOT_APPROVED_PPE_GROUND_TRUTH",
+        "face_mask_states": "UNCHANGED_UNKNOWN",
+        "workplace_ppe_policy": "POLICY_UNKNOWN",
+        "complete_case_approved": false
       }
     },
     {
@@ -1693,6 +1752,8 @@
       "A",
       "B"
     ],
-    "researcher_preliminary_ppe_state_confirmations": 10
+    "researcher_preliminary_ppe_state_confirmations": 14,
+    "case_b_researcher_non_ppe_clothing_observation": "Front P001 no trousers, rear P002 trousers (researcher preliminary statement)",
+    "case_b_researcher_scene_footwear_presence": "Reported visible, individual K/L/M association unknown"
   }
 }
