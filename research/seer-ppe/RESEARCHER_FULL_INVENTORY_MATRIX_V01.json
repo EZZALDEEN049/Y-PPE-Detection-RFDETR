@@ -947,7 +947,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports a worn protective helmet on each of the four workers; no certification independently inspected.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             },
             {
               "ppe_type": "safety_vest",
@@ -956,7 +966,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports reflective vest worn by each of four workers, including partially visible clothing on P004.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             },
             {
               "ppe_type": "goggles",
@@ -983,7 +1003,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports glove wearing for all four workers; this does NOT identify owner of source glove annotation J/E012, retained UNKNOWN.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             },
             {
               "ppe_type": "safety_boot",
@@ -992,7 +1022,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": "No safety-footwear certification can be proved from these source images."
+              "safety_certification_note": "No safety-footwear certification can be proved from these source images.",
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports safety boots worn by all four workers; original image has lower-body occlusion and independent footwear certification cannot be verified from pixels alone.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             }
           ]
         },
@@ -1015,7 +1055,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports a worn protective helmet on each of the four workers; no certification independently inspected.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             },
             {
               "ppe_type": "safety_vest",
@@ -1024,7 +1074,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports reflective vest worn by each of four workers, including partially visible clothing on P004.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             },
             {
               "ppe_type": "goggles",
@@ -1051,7 +1111,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports glove wearing for all four workers; this does NOT identify owner of source glove annotation J/E012, retained UNKNOWN.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             },
             {
               "ppe_type": "safety_boot",
@@ -1060,7 +1130,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": "No safety-footwear certification can be proved from these source images."
+              "safety_certification_note": "No safety-footwear certification can be proved from these source images.",
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports safety boots worn by all four workers; original image has lower-body occlusion and independent footwear certification cannot be verified from pixels alone.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             }
           ]
         },
@@ -1083,7 +1163,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports a worn protective helmet on each of the four workers; no certification independently inspected.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             },
             {
               "ppe_type": "safety_vest",
@@ -1092,7 +1182,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports reflective vest worn by each of four workers, including partially visible clothing on P004.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             },
             {
               "ppe_type": "goggles",
@@ -1119,7 +1219,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports glove wearing for all four workers; this does NOT identify owner of source glove annotation J/E012, retained UNKNOWN.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             },
             {
               "ppe_type": "safety_boot",
@@ -1128,7 +1238,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": "No safety-footwear certification can be proved from these source images."
+              "safety_certification_note": "No safety-footwear certification can be proved from these source images.",
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports safety boots worn by all four workers; original image has lower-body occlusion and independent footwear certification cannot be verified from pixels alone.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             }
           ]
         },
@@ -1151,7 +1271,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports a worn protective helmet on each of the four workers; no certification independently inspected.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             },
             {
               "ppe_type": "safety_vest",
@@ -1160,7 +1290,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports reflective vest worn by each of four workers, including partially visible clothing on P004.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             },
             {
               "ppe_type": "goggles",
@@ -1187,7 +1327,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports glove wearing for all four workers; this does NOT identify owner of source glove annotation J/E012, retained UNKNOWN.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             },
             {
               "ppe_type": "safety_boot",
@@ -1196,7 +1346,17 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": "No safety-footwear certification can be proved from these source images."
+              "safety_certification_note": "No safety-footwear certification can be proved from these source images.",
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat statement: all four have helmets, reflective vests, gloves, safety footwear and traditional outer garments",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "RESEARCHER_REPORTED_PERSON_LEVEL_VISIBLE_EQUIPMENT",
+                "evidence_description": "Researcher reports safety boots worn by all four workers; original image has lower-body occlusion and independent footwear certification cannot be verified from pixels alone.",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false,
+                "independent_equipment_certification_verified": false
+              }
             }
           ]
         }
@@ -1668,6 +1828,30 @@
         "review_signoff_status": "PRELIMINARY_COUNT_CONFIRMATION",
         "whole_case_ground_truth_approved": false,
         "notes": "Confirmation of counts only; PPE-to-person association, per-PPE states, source rights and policy remain open"
+      },
+      "researcher_scene_observations": {
+        "source_statement_id": "2026-11-17-case-c-all-four-ppe-and-abaya",
+        "date": "2026-11-17",
+        "statement_source": "Researcher explicit Arabic declaration",
+        "statement_text": "جميعهم لديهم خوذات وسترات وقفازات واحذيه سلامه ولديهم لبس شعبي العباءه",
+        "case_person_count": 4,
+        "ppe_statuses_reported_for_each_person": {
+          "hard_hat": "PRESENT",
+          "safety_vest": "PRESENT",
+          "glove": "PRESENT",
+          "safety_boot": "PRESENT"
+        },
+        "traditional_outerwear_reported_for_all_four": true,
+        "traditional_outerwear_original_term": "العباءة",
+        "traditional_outerwear_is_PPE_compliance_label": false,
+        "researcher_claims_safety_footwear_visible": true,
+        "independent_footwear_safety_certification_verified": false,
+        "wearer_of_glove_J": "UNKNOWN",
+        "other_PPE_item_to_person_links": "NOT_HUMAN_ADJUDICATED",
+        "face_mask_and_eyewear_status": "UNCHANGED_UNKNOWN",
+        "worksite_policy_status": "POLICY_UNKNOWN",
+        "rights_and_privacy_status": "UNREVIEWED",
+        "complete_case_approved": false
       }
     },
     {
@@ -1750,10 +1934,13 @@
     "researcher_count_confirmation_scope": "Counts only, not independent expert annotation completeness or whole-case sign-off",
     "researcher_preliminary_ppe_confirmed_cases": [
       "A",
-      "B"
+      "B",
+      "C"
     ],
-    "researcher_preliminary_ppe_state_confirmations": 14,
+    "researcher_preliminary_ppe_state_confirmations": 30,
     "case_b_researcher_non_ppe_clothing_observation": "Front P001 no trousers, rear P002 trousers (researcher preliminary statement)",
-    "case_b_researcher_scene_footwear_presence": "Reported visible, individual K/L/M association unknown"
+    "case_b_researcher_scene_footwear_presence": "Reported visible, individual K/L/M association unknown",
+    "case_c_researcher_traditional_outerwear": "All four reported to wear traditional abaya; clothing context, not protective compliance verdict",
+    "case_c_glove_J_individual_owner": "UNKNOWN"
   }
 }
