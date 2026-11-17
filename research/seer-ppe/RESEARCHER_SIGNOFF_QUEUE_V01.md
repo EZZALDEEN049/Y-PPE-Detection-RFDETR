@@ -130,3 +130,19 @@ Researcher replied "تمام هي صح" when asked whether the listed Case A / i
 | Safety boots | `UNKNOWN` | Feet outside crop; safety-grade not established |
 
 Scope: preliminary researcher assessment of visual PPE states only; per-object wearer matching, rights/source family, person/PPE exhaustiveness, task PPE policy remain open. Keep `POLICY_UNKNOWN` and Roboflow Eval Case A `groundTruthState=incomplete` / `groundTruth={}` until complete evidence and sign-off.
+
+
+## Case B helmets and gloves — AI-only source-image recheck (2026-11-17)
+
+Read the actual existing Roboflow Train image `000760.jpg` (500×330) and six current old annotation boxes (`Hard Hat` 3/4; `Gloves` 6/7/9/A), using a validated read-only pass-through workflow. Findings below remain **AI-assisted proposals only**. The researcher has not yet explicitly confirmed helmet or glove states.
+
+| Worker | Helmet visual state (AI proposal) | Gloves visual state (AI proposal) | Evidence / scope |
+|---|---|---|---|
+| `P001` (foreground) | `PRESENT` | `PRESENT` | Blue helmet-like head protection worn, two yellow glove-like objects by raised hand and near torso; old boxes 3/6/7 are possible item associations, not approved human matches |
+| `P002` (background) | `PRESENT` | `UNKNOWN` | Blue/purple headgear visibly worn; old glove boxes 9/A at small, partially obscured hands are insufficient to confirm whether gloves are worn or attached |
+
+Old glove annotations `9/A` remain candidates in original source labels, **not established physical presence**. No certified PPE grade or documented task requirement is inferred. Existing researcher decisions on boots `K/L/M` are preserved as ownership `UNKNOWN` (no confirmed wearer), with boot safety certification `UNKNOWN`; do not change those on the basis of geometric proximity.
+
+**Researcher prompt (still unanswered):** Does the researcher agree with visual states `P001: helmet PRESENT, gloves PRESENT`; `P002: helmet PRESENT, gloves UNKNOWN`? Researcher can keep any state UNKNOWN, or correct it after inspecting the actual source image. Item-level source-box wearer mapping is a **separate** decision.
+
+**Case B sign-off:** `PENDING` — Source and person inventory, other PPE types, source family/rights/privacy, task mandate, and second-review remain incomplete. Roboflow Eval ground truth must remain empty / `incomplete`.
