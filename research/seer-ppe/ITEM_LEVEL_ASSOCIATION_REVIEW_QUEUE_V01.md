@@ -125,3 +125,6 @@ Old absence-like source markers: none.
 
 
 **Roboflow Case B import (2026-11-18):** The separate Eval Case B (revision 2) now holds **four human-approved item MATCHED associations** and **eight previously confirmed person-level visual-state entries**, still `incomplete`; physical item records `9/A/K/L/M` are excluded until identity and coverage are verifiable, while their **human-approved owner UNKNOWN** status remains explicit in GitHub. Source/privacy family and policy verification remain pending.
+
+
+**2026-11-18 focus on Case C source items:** See [Case C 13-item review packet](CASE_C_ITEM_LEVEL_HELMET_VEST_GLOVE_REVIEW_V01.md): 12 candidate links are AI-only until researcher approves, and original glove `J` remains prior researcher UNKNOWN (`person_id=null`). Revisit C `No Safety Boots` Q/R/S/T separately. No original training changes.
