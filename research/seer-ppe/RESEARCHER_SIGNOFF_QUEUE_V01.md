@@ -282,3 +282,10 @@ In direct response to the explicitly itemized question, the researcher said **"Ù
 **Reaffirmed/confirmed owner UNKNOWN:** Gloves `9/A` and Safety Boots `K/L/M` are all `UNKNOWN`, `person_id=null`. The original glove labels on small background boxes `9/A` do **not** establish that gloves can be reliably seen on P002; the researcher's person-level glove state for P002 remains `UNKNOWN`. Protective boot certification and per-boot ownership are unknown. Prior person-level notes (both reflective vests ABSENT, goggles UNKNOWN, masks UNKNOWN, scene-level footwear seen, trousers differences) remain unchanged.
 
 These decisions are **final for each specified item-owner link/unknown status only**, not whole Case B researcher ground truth or legal/privacy/source clearance. Safety site policy remains `POLICY_UNKNOWN`; no workplace violation inferred. Source label geometry, base model, annotations and splits unchanged. Full item packet: [Case B item-level helmet/glove review](CASE_B_ITEM_LEVEL_HELMET_GLOVE_REVIEW_V01.md).
+
+
+## Roboflow Case B partial researcher-approved association reference (2026-11-18)
+
+Case B in the separate Roboflow Eval Dataset was saved at **revision 2**, with four user-final `MATCHED` box-to-worker associations, two source person entries, four human-approved source PPE item candidates, eight human-confirmed visual PPE states, and eight `POLICY_UNKNOWN` task-mandate entries. The five old source boxes `9/A/K/L/M` remain human-confirmed **owner UNKNOWN**, documented in GitHub and not inserted as approved physical PPE items into Roboflow ground truth. The source class on `9/A` remains physically unconfirmed.
+
+**Readback verified** `groundTruthState=incomplete` and `source_review` unset; full task/context requirements, source rights and independent second pass are pending. Other cases were not changed, and the original data/model remain frozen.
