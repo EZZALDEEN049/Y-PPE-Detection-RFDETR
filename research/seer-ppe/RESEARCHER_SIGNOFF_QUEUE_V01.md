@@ -237,3 +237,23 @@ Native read-only Roboflow annotation boxes were checked against the evolving res
 **Next human item-level adjudication start:** Case A source boxes `1` (Safety Vests), `2` (Goggles), `3` (Hard Hat) were associated provisionally by AI with the one visible worker `P001`. Researcher has already confirmed the relevant **visual PPE states**, but **has not yet explicitly approved each old box's precise wearer**. Ask for a separate item-to-person judgment, with `UNKNOWN` still available. Document researcher decision as provisional until source/privacy/final-case approval.
 
 Keep original project annotations/model/splits and baseline Workflows unchanged; `0/4` Roboflow Eval Cases remain incomplete. No model correctness/performance/violation claims.
+
+
+## Case A — FINAL researcher visual and item-attribution approval (2026-11-17)
+
+**Researcher explicit final approval:** After being asked to approve original item-to-person links `1` (vest), `2` (goggles), `3` (hard hat) to Case A `P001`, the researcher answered **"نعم ويعتبر اعتماد نهاي للصورة الصورة ليس فيها قناع فقط اما الحالات الاخر غير ظاهرة لان الصورم مقصوصه"**. This constitutes **FINAL HUMAN APPROVAL FOR IMAGE A VISIBLE PERSON COUNT, THE THREE INDIVIDUAL ITEM-TO-P001 LINKS, AND SIX PPE VISUAL STATES**. Do not downgrade this to another *AI suggestion*.
+
+| Researcher-final finding | Value | Evidence boundary |
+|---|---|---|
+| Visible worker | `P001` only | 1 visible person |
+| Original source box `1` / vest `E001` | `MATCHED -> P001` | Researcher-final item linkage |
+| Original source box `2` / goggles `E002` | `MATCHED -> P001` | Researcher-final item linkage; product rating unknown |
+| Original source box `3` / hard hat `E003` | `MATCHED -> P001` | Researcher-final item linkage |
+| Face mask visual status | `ABSENT` | Nose/mouth uncovered; **NO violation inference** |
+| Gloves visual status | `UNKNOWN` | **Hands cropped out**; not absent |
+| Safety boots visual status | `UNKNOWN` | **Feet cropped out**; not absent |
+| Site/task mandate | `POLICY_UNKNOWN` | No independent site safety requirement provided |
+
+**Two distinct approval scopes:** (1) the researcher has **finally approved this image's visible semantics and three wearable-item wearer links**; (2) **research source-rights/privacy/source-family clearance, complete source documentation, independent second-pass checks and actual Eval Case readiness remain pending**. Consequently Roboflow Eval `groundTruthState` must remain `incomplete` until its separate required evidence gates are satisfied. The human's final visual approval should **not** be erased by this administrative/scientific readiness gate.
+
+The existing historical baseline training images, classes and boxes, splits, model weights and Workflows remain untouched. No measured PPE compliance, association accuracy, Validation/Test or product safety certification has been asserted.
