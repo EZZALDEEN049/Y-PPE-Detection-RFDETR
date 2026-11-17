@@ -160,3 +160,21 @@ The researcher explicitly replied **"صح كل شي"** to a narrowly scoped ques
 | `P002` background | Gloves | `UNKNOWN` | Low resolution and partly obscured hands |
 
 Preserve earlier researcher provisional person-association decisions: boots `K`, `L`, `M` are `UNKNOWN` with `person_id=null`; safety-boot protective grade `UNKNOWN`. Glove source annotations `9/A` remain historically unverified; their source boxes have **not** been matched or approved by the researcher. Remaining PPE types (vest, eyewear, face mask, boot state) and source rights/privacy/source-family checks still require review. Keep all workplace mandates at `POLICY_UNKNOWN`, and Case B in Roboflow at `groundTruth={}` / `incomplete`.
+
+
+## Case B — researcher clarification on vests, eyewear, boots and trousers (2026-11-17)
+
+**Direct researcher statement (Arabic):** "لا يوجد سترات عاكسه والنظرات غير لم تشاهد بسبب وضعية العاملين احذية السلامة موجوده احدكها يلبس بنطلون والاخر لا الذي هو الامامي".
+
+Interpretation bounded by what the researcher stated:
+
+| Image B observation | P001 foreground | P002 background | Research status |
+|---|---|---|---|
+| Reflective/safety vest | `ABSENT` | `ABSENT` | Researcher reports no reflective vests; still preliminary visual state, not violation |
+| Protective eyewear | `UNKNOWN` | `UNKNOWN` | Not discernible from worker postures |
+| Safety footwear | `UNKNOWN` at worker level | `UNKNOWN` at worker level | Researcher says safety footwear is visible **somewhere in image**; item ownership remains uncertain and no protective standard independently verified |
+| Trousers (not a PPE compliance outcome) | Researcher reports **not wearing trousers** | Researcher reports **wearing trousers** | Clothing context only, not a safety violation |
+
+**Preserved prior association statement:** Source old safety-boot boxes `K`, `L`, `M` all remain `UNKNOWN`, `person_id=null`. An image-level statement that boots are present does not establish which worker owns each item. Historical geometric matches are not approved labels. Source-model label `Safety Boots` is not an independently verified certification mark. Face-mask states are not addressed by this turn and remain `UNKNOWN` for both persons. The headgear/glove states already confirmed by the researcher remain P001 hard hat PRESENT, gloves PRESENT; P002 hard hat PRESENT, gloves UNKNOWN.
+
+**Remaining review:** old source annotation `Pants` is a garment-category context only; PPE source boxes must be matched separately to visible wearers; privacy/rights/source-family and workplace PPE policy remain unreviewed (`POLICY_UNKNOWN`). This chat response does **not** sign off all reference data. Keep Roboflow Eval Case B `groundTruth={}` and `groundTruthState=incomplete`.
