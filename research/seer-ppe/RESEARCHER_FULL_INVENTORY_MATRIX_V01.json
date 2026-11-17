@@ -998,6 +998,61 @@
         "face_mask_states": "UNCHANGED_UNKNOWN",
         "workplace_ppe_policy": "POLICY_UNKNOWN",
         "complete_case_approved": false
+      },
+      "researcher_item_linkage_review_packet": {
+        "file": "CASE_B_ITEM_LEVEL_HELMET_GLOVE_REVIEW_V01.md",
+        "date": "2026-11-17",
+        "item_boxes_reviewed": [
+          "3",
+          "4",
+          "6",
+          "7",
+          "9",
+          "A"
+        ],
+        "candidate_proposals": {
+          "3": {
+            "candidate_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P001",
+            "source": "AI_RECHECK_ONLY",
+            "researcher_item_level_approval": "PENDING"
+          },
+          "4": {
+            "candidate_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P002",
+            "source": "AI_RECHECK_ONLY",
+            "researcher_item_level_approval": "PENDING"
+          },
+          "6": {
+            "candidate_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P001",
+            "source": "AI_RECHECK_ONLY",
+            "researcher_item_level_approval": "PENDING"
+          },
+          "7": {
+            "candidate_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P001",
+            "source": "AI_RECHECK_ONLY",
+            "researcher_item_level_approval": "PENDING"
+          },
+          "9": {
+            "candidate_status": "UNKNOWN_CANDIDATE",
+            "candidate_person_id": null,
+            "source": "AI_RECHECK_ONLY",
+            "researcher_item_level_approval": "PENDING"
+          },
+          "A": {
+            "candidate_status": "UNKNOWN_CANDIDATE",
+            "candidate_person_id": null,
+            "source": "AI_RECHECK_ONLY",
+            "researcher_item_level_approval": "PENDING"
+          }
+        },
+        "confirmed_worker_level_helmet_glove_states_unchanged": true,
+        "boots_K_L_M_researcher_unknown_unchanged": true,
+        "source_project_annotations_changed": false,
+        "new_user_approval_this_turn": false,
+        "case_B_complete": false
       }
     },
     {
