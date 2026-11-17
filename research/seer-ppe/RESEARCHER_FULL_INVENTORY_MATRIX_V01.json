@@ -293,6 +293,15 @@
                 "proposed_visual_state": "PRESENT",
                 "approval_state": "AI_ONLY_HUMAN_CONFIRMATION_PENDING",
                 "policy_status": "POLICY_UNKNOWN"
+              },
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat reply 'صح كل شي' to exact four proposed Case B visual states",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "PERSON_PPE_VISUAL_STATE_ONLY",
+                "explanation": "Helmet-like headgear visible on head; no certification or mandatory site policy established",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
               }
             },
             {
@@ -336,6 +345,15 @@
                 "proposed_visual_state": "PRESENT",
                 "approval_state": "AI_ONLY_HUMAN_CONFIRMATION_PENDING",
                 "policy_status": "POLICY_UNKNOWN"
+              },
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat reply 'صح كل شي' to exact four proposed Case B visual states",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "PERSON_PPE_VISUAL_STATE_ONLY",
+                "explanation": "Visible yellow glove-like objects on foreground hands",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
               }
             },
             {
@@ -375,6 +393,15 @@
                 "proposed_visual_state": "PRESENT",
                 "approval_state": "AI_ONLY_HUMAN_CONFIRMATION_PENDING",
                 "policy_status": "POLICY_UNKNOWN"
+              },
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat reply 'صح كل شي' to exact four proposed Case B visual states",
+                "confirmed_visual_state": "PRESENT",
+                "confirmation_scope": "PERSON_PPE_VISUAL_STATE_ONLY",
+                "explanation": "Helmet-like headgear visible on head; no certification or mandatory site policy established",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
               }
             },
             {
@@ -418,6 +445,15 @@
                 "proposed_visual_state": "UNKNOWN",
                 "approval_state": "AI_ONLY_HUMAN_CONFIRMATION_PENDING",
                 "policy_status": "POLICY_UNKNOWN"
+              },
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher explicit chat reply 'صح كل شي' to exact four proposed Case B visual states",
+                "confirmed_visual_state": "UNKNOWN",
+                "confirmation_scope": "PERSON_PPE_VISUAL_STATE_ONLY",
+                "explanation": "Rear hands distant/partly obscured; glove wearing cannot be confirmed",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
               }
             },
             {
@@ -802,6 +838,26 @@
           "M"
         ],
         "notes": "The 500x330 image does not justify confirming rear-person glove wear or protective rating. No hard-hat/glove PPE-policy mandate is documented."
+      },
+      "researcher_helmet_glove_visual_statement": {
+        "date": "2026-11-17",
+        "source": "Researcher explicit affirmation of the four presented Case B states",
+        "confirmation_scope": "FOUR_WORKER_PPE_VISUAL_STATES_ONLY",
+        "confirmed_by_person": {
+          "P001": {
+            "hard_hat": "PRESENT",
+            "glove": "PRESENT"
+          },
+          "P002": {
+            "hard_hat": "PRESENT",
+            "glove": "UNKNOWN"
+          }
+        },
+        "all_original_annotations_validated": false,
+        "approved_box_to_person_associations": false,
+        "case_complete": false,
+        "policy_status": "POLICY_UNKNOWN",
+        "footwear_links": "K/L/M remain UNKNOWN"
       }
     },
     {
@@ -1634,8 +1690,9 @@
     },
     "researcher_count_confirmation_scope": "Counts only, not independent expert annotation completeness or whole-case sign-off",
     "researcher_preliminary_ppe_confirmed_cases": [
-      "A"
+      "A",
+      "B"
     ],
-    "researcher_preliminary_ppe_state_confirmations": 6
+    "researcher_preliminary_ppe_state_confirmations": 10
   }
 }
