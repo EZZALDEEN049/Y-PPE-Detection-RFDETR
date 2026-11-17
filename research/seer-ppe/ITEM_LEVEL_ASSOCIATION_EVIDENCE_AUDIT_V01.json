@@ -1,0 +1,1309 @@
+{
+  "schema_version": "seer-ppe/item-association-evidence-audit/v0.1",
+  "date": "2026-11-17",
+  "source_project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "eval_dataset_id": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+  "audit_status": "AI_ASSISTED_EVIDENCE_TRIAGE_ONLY_NOT_HUMAN_APPROVED_GOLD",
+  "source_provenance": "Native read-only original Roboflow boxes compared to previous item candidates and researcher's explicit chat statements; geometry is a triage feature not identity proof.",
+  "original_model_or_labels_modified": false,
+  "summary": {
+    "case_count": 4,
+    "annotated_physical_ppe_items": 26,
+    "physical_ppe_items_with_researcher_preliminary_owner_UNKNOWN": 5,
+    "ai_uncertain_items_without_human_item_adjudication": 2,
+    "ai_proposed_matches_not_independently_human_item_approved": 19,
+    "human_item_level_fully_verified": 0,
+    "annotated_absence_markers_not_physical_PPE": 14,
+    "case_C_No_Safety_Boots_legacy_markers": 4,
+    "case_B_no_safety_vest_legacy_markers": 2,
+    "geometric_center_outside_historical_ai_person": 0,
+    "person_counts_confirmed": {
+      "A": 1,
+      "B": 2,
+      "C": 4,
+      "D": 0
+    },
+    "source_rights_cleared": 0,
+    "completed_eval_cases": 0
+  },
+  "cases": [
+    {
+      "case_id": "A",
+      "filename": "image_604.jpg",
+      "source_image_id": "0jRe8fpRDE5fLgAJrYvT",
+      "old_annotation_valid": true,
+      "image_width": 1000,
+      "image_height": 667,
+      "original_box_count": 5,
+      "reviewed_person_count": 1,
+      "item_count": 3,
+      "items": [
+        {
+          "case_id": "A",
+          "filename": "image_604.jpg",
+          "source_image_id": "0jRe8fpRDE5fLgAJrYvT",
+          "item_id": "E001",
+          "old_source_annotation_id": "1",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "source_box_normalized": [
+            0.2445,
+            0.67691,
+            0.8825,
+            0.99925
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000002,
+          "box_center_inside_old_person_boxes": [
+            "P001"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "A",
+          "filename": "image_604.jpg",
+          "source_image_id": "0jRe8fpRDE5fLgAJrYvT",
+          "item_id": "E002",
+          "old_source_annotation_id": "2",
+          "source_class": "Goggles",
+          "ppe_type": "goggles",
+          "source_box_normalized": [
+            0.3475,
+            0.29235,
+            0.6015,
+            0.43778
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000004,
+          "box_center_inside_old_person_boxes": [
+            "P001"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "A",
+          "filename": "image_604.jpg",
+          "source_image_id": "0jRe8fpRDE5fLgAJrYvT",
+          "item_id": "E003",
+          "old_source_annotation_id": "3",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "source_box_normalized": [
+            0.30377,
+            0.00224,
+            0.72723,
+            0.36289
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000005,
+          "box_center_inside_old_person_boxes": [
+            "P001"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        }
+      ],
+      "absence_markers": [
+        {
+          "source_annotation_id": "5",
+          "source_class": "No Face Mask",
+          "source_box_cxcywh_pixels": [
+            483.18,
+            349.32,
+            195.45,
+            149.09
+          ],
+          "is_physical_PPE_item": false,
+          "researcher_counterevidence_status": "LEGACY_MARKER_CONSISTENT_WITH_PERSON_VISUAL_ABSENT_BUT_NOT_POLICY_EVIDENCE",
+          "do_not_treat_as_missing_PPE_or_violation": true
+        }
+      ],
+      "legacy_non_PPE_clothing_boxes": []
+    },
+    {
+      "case_id": "B",
+      "filename": "000760.jpg",
+      "source_image_id": "0xxsYWiz1FZBYERolu4z",
+      "old_annotation_valid": true,
+      "image_width": 500,
+      "image_height": 330,
+      "original_box_count": 15,
+      "reviewed_person_count": 2,
+      "item_count": 9,
+      "items": [
+        {
+          "case_id": "B",
+          "filename": "000760.jpg",
+          "source_image_id": "0xxsYWiz1FZBYERolu4z",
+          "item_id": "E001",
+          "old_source_annotation_id": "3",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "source_box_normalized": [
+            0.43253,
+            0.10182,
+            0.50839,
+            0.23406
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000002,
+          "box_center_inside_old_person_boxes": [
+            "P001"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001"
+          },
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "B",
+          "filename": "000760.jpg",
+          "source_image_id": "0xxsYWiz1FZBYERolu4z",
+          "item_id": "E002",
+          "old_source_annotation_id": "4",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "source_box_normalized": [
+            0.5935,
+            0.24448,
+            0.64282,
+            0.31333
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000005,
+          "box_center_inside_old_person_boxes": [
+            "P001",
+            "P002"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002"
+          },
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "B",
+          "filename": "000760.jpg",
+          "source_image_id": "0xxsYWiz1FZBYERolu4z",
+          "item_id": "E003",
+          "old_source_annotation_id": "6",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "source_box_normalized": [
+            0.45272,
+            0.39532,
+            0.51,
+            0.46486
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000004,
+          "box_center_inside_old_person_boxes": [
+            "P001"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001"
+          },
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "B",
+          "filename": "000760.jpg",
+          "source_image_id": "0xxsYWiz1FZBYERolu4z",
+          "item_id": "E004",
+          "old_source_annotation_id": "7",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "source_box_normalized": [
+            0.26,
+            0.15015,
+            0.32,
+            0.23348
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000005,
+          "box_center_inside_old_person_boxes": [
+            "P001"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001"
+          },
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "B",
+          "filename": "000760.jpg",
+          "source_image_id": "0xxsYWiz1FZBYERolu4z",
+          "item_id": "E005",
+          "old_source_annotation_id": "9",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "source_box_normalized": [
+            0.67957,
+            0.38271,
+            0.70811,
+            0.42371
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000002,
+          "box_center_inside_old_person_boxes": [
+            "P002"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_UNCERTAIN_NEEDS_HUMAN_ITEM_REVIEW",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": {
+            "status": "UNKNOWN_CANDIDATE",
+            "person_id": null
+          },
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "UNKNOWN",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [
+            "AI_SOURCE_RECHECK_COULD_NOT_CONFIRM_REAR_GLOVES",
+            "P002_GLOVE_VISUAL_UNKNOWN"
+          ],
+          "next_review_action": "Inspect actual item/hand and do not force an owner from old labels",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "B",
+          "filename": "000760.jpg",
+          "source_image_id": "0xxsYWiz1FZBYERolu4z",
+          "item_id": "E006",
+          "old_source_annotation_id": "A",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "source_box_normalized": [
+            0.66115,
+            0.50371,
+            0.68457,
+            0.53798
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000005,
+          "box_center_inside_old_person_boxes": [
+            "P002"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_UNCERTAIN_NEEDS_HUMAN_ITEM_REVIEW",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": {
+            "status": "UNKNOWN_CANDIDATE",
+            "person_id": null
+          },
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "UNKNOWN",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [
+            "AI_SOURCE_RECHECK_COULD_NOT_CONFIRM_REAR_GLOVES",
+            "P002_GLOVE_VISUAL_UNKNOWN"
+          ],
+          "next_review_action": "Inspect actual item/hand and do not force an owner from old labels",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "B",
+          "filename": "000760.jpg",
+          "source_image_id": "0xxsYWiz1FZBYERolu4z",
+          "item_id": "E007",
+          "old_source_annotation_id": "K",
+          "source_class": "Safety Boots",
+          "ppe_type": "safety_boot",
+          "source_box_normalized": [
+            0.69546,
+            0.74379,
+            0.7391,
+            0.80785
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000002,
+          "box_center_inside_old_person_boxes": [
+            "P002"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "UNKNOWN",
+            "person_id": null,
+            "source": "EXPLICIT_RESEARCHER_STATEMENT_PRELIMINARY"
+          },
+          "effective_item_level_disposition": "RESEARCHER_PRELIMINARY_UNKNOWN",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": null,
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [
+            "RESEARCHER_OWNER_UNKNOWN",
+            "SAFETY_GRADE_UNVERIFIED"
+          ],
+          "next_review_action": "Retain UNKNOWN person association unless independent evidence supports change",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "B",
+          "filename": "000760.jpg",
+          "source_image_id": "0xxsYWiz1FZBYERolu4z",
+          "item_id": "E008",
+          "old_source_annotation_id": "L",
+          "source_class": "Safety Boots",
+          "ppe_type": "safety_boot",
+          "source_box_normalized": [
+            0.54499,
+            0.82802,
+            0.59245,
+            0.89629
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000005,
+          "box_center_inside_old_person_boxes": [
+            "P001"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "UNKNOWN",
+            "person_id": null,
+            "source": "EXPLICIT_RESEARCHER_STATEMENT_PRELIMINARY"
+          },
+          "effective_item_level_disposition": "RESEARCHER_PRELIMINARY_UNKNOWN",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": null,
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [
+            "RESEARCHER_OWNER_UNKNOWN",
+            "SAFETY_GRADE_UNVERIFIED"
+          ],
+          "next_review_action": "Retain UNKNOWN person association unless independent evidence supports change",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "B",
+          "filename": "000760.jpg",
+          "source_image_id": "0xxsYWiz1FZBYERolu4z",
+          "item_id": "E009",
+          "old_source_annotation_id": "M",
+          "source_class": "Safety Boots",
+          "ppe_type": "safety_boot",
+          "source_box_normalized": [
+            0.40315,
+            0.82803,
+            0.46749,
+            0.89361
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000004,
+          "box_center_inside_old_person_boxes": [
+            "P001"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "UNKNOWN",
+            "person_id": null,
+            "source": "EXPLICIT_RESEARCHER_STATEMENT_PRELIMINARY"
+          },
+          "effective_item_level_disposition": "RESEARCHER_PRELIMINARY_UNKNOWN",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": null,
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [
+            "RESEARCHER_OWNER_UNKNOWN",
+            "SAFETY_GRADE_UNVERIFIED"
+          ],
+          "next_review_action": "Retain UNKNOWN person association unless independent evidence supports change",
+          "human_item_level_final_signoff": false
+        }
+      ],
+      "absence_markers": [
+        {
+          "source_annotation_id": "8",
+          "source_class": "No Safety Attire",
+          "source_box_cxcywh_pixels": [
+            264.55,
+            216.25,
+            91.82,
+            127.95
+          ],
+          "is_physical_PPE_item": false,
+          "researcher_counterevidence_status": "AMBIGUOUS_BROAD_LEGACY_ABSENCE_CLASS_NOT_ACTIONABLE_WITHOUT_POLICY",
+          "do_not_treat_as_missing_PPE_or_violation": true
+        },
+        {
+          "source_annotation_id": "N",
+          "source_class": "No Safety Vest",
+          "source_box_cxcywh_pixels": [
+            248.18,
+            106.88,
+            85.45,
+            57.39
+          ],
+          "is_physical_PPE_item": false,
+          "researcher_counterevidence_status": "LEGACY_MARKER_CONSISTENT_WITH_RESEARCHER_REPORTED_VEST_ABSENT_BUT_NOT_APPROVED_ITEM_TRUTH",
+          "do_not_treat_as_missing_PPE_or_violation": true
+        },
+        {
+          "source_annotation_id": "O",
+          "source_class": "No Safety Vest",
+          "source_box_cxcywh_pixels": [
+            321.36,
+            141.19,
+            28.18,
+            58.75
+          ],
+          "is_physical_PPE_item": false,
+          "researcher_counterevidence_status": "LEGACY_MARKER_CONSISTENT_WITH_RESEARCHER_REPORTED_VEST_ABSENT_BUT_NOT_APPROVED_ITEM_TRUTH",
+          "do_not_treat_as_missing_PPE_or_violation": true
+        }
+      ],
+      "legacy_non_PPE_clothing_boxes": [
+        {
+          "source_annotation_id": "5",
+          "class": "Pants",
+          "note": "Clothing context; researcher reports P002 wears trousers while P001 does not"
+        }
+      ]
+    },
+    {
+      "case_id": "C",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+      "old_annotation_valid": true,
+      "image_width": 2048,
+      "image_height": 1365,
+      "original_box_count": 27,
+      "reviewed_person_count": 4,
+      "item_count": 13,
+      "items": [
+        {
+          "case_id": "C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+          "item_id": "E001",
+          "old_source_annotation_id": "5",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "source_box_normalized": [
+            0.40332,
+            0.40733,
+            0.45313,
+            0.53407
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000005,
+          "box_center_inside_old_person_boxes": [
+            "P002"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+          "item_id": "E002",
+          "old_source_annotation_id": "6",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "source_box_normalized": [
+            0.26709,
+            0.40147,
+            0.30029,
+            0.46886
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000005,
+          "box_center_inside_old_person_boxes": [
+            "P001"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+          "item_id": "E003",
+          "old_source_annotation_id": "7",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "source_box_normalized": [
+            0.45801,
+            0.45788,
+            0.50928,
+            0.55824
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000005,
+          "box_center_inside_old_person_boxes": [
+            "P003"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P003",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+          "item_id": "E004",
+          "old_source_annotation_id": "8",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "source_box_normalized": [
+            0.63037,
+            0.56777,
+            0.66162,
+            0.61319
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000004,
+          "box_center_inside_old_person_boxes": [
+            "P004"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P004",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+          "item_id": "E005",
+          "old_source_annotation_id": "C",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "source_box_normalized": [
+            0.60742,
+            0.48938,
+            0.63428,
+            0.51355
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000003,
+          "box_center_inside_old_person_boxes": [
+            "P004"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P004",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+          "item_id": "E006",
+          "old_source_annotation_id": "D",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "source_box_normalized": [
+            0.50928,
+            0.44176,
+            0.53369,
+            0.48352
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000004,
+          "box_center_inside_old_person_boxes": [
+            "P003"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P003",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+          "item_id": "E007",
+          "old_source_annotation_id": "E",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "source_box_normalized": [
+            0.4248,
+            0.37509,
+            0.45264,
+            0.41172
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000005,
+          "box_center_inside_old_person_boxes": [
+            "P002"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+          "item_id": "E008",
+          "old_source_annotation_id": "F",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "source_box_normalized": [
+            0.2793,
+            0.37802,
+            0.29639,
+            0.39487
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000003,
+          "box_center_inside_old_person_boxes": [
+            "P001"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+          "item_id": "E009",
+          "old_source_annotation_id": "G",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "source_box_normalized": [
+            0.41602,
+            0.49744,
+            0.43457,
+            0.55018
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000004,
+          "box_center_inside_old_person_boxes": [
+            "P002"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+          "item_id": "E010",
+          "old_source_annotation_id": "H",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "source_box_normalized": [
+            0.2627,
+            0.46593,
+            0.27197,
+            0.49084
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000005,
+          "box_center_inside_old_person_boxes": [
+            "P001"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+          "item_id": "E011",
+          "old_source_annotation_id": "I",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "source_box_normalized": [
+            0.28809,
+            0.44249,
+            0.30176,
+            0.47326
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000004,
+          "box_center_inside_old_person_boxes": [
+            "P001"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+          "item_id": "E012",
+          "old_source_annotation_id": "J",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "source_box_normalized": [
+            0.55225,
+            0.54945,
+            0.58398,
+            0.56996
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000004,
+          "box_center_inside_old_person_boxes": [],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "UNKNOWN",
+            "person_id": null,
+            "source": "EXPLICIT_RESEARCHER_STATEMENT_PRELIMINARY"
+          },
+          "effective_item_level_disposition": "RESEARCHER_PRELIMINARY_UNKNOWN",
+          "legacy_ai_historical_candidate": {
+            "status": "AMBIGUOUS_CANDIDATE",
+            "person_id": null,
+            "alternatives": [
+              "P003",
+              "P004"
+            ]
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": null,
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [
+            "RESEARCHER_OWNER_UNKNOWN",
+            "BOX_CENTER_IN_PERSON_GAP_NEEDS_REVIEW"
+          ],
+          "next_review_action": "Retain UNKNOWN person association unless independent evidence supports change",
+          "human_item_level_final_signoff": false
+        },
+        {
+          "case_id": "C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+          "item_id": "E013",
+          "old_source_annotation_id": "K",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "source_box_normalized": [
+            0.49316,
+            0.52308,
+            0.53467,
+            0.5707
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000004,
+          "box_center_inside_old_person_boxes": [
+            "P003"
+          ],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "NOT_HUMAN_ADJUDICATED",
+            "person_id": null,
+            "source": "NO_RESEARCHER_DECISION"
+          },
+          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "legacy_ai_historical_candidate": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P003",
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [],
+          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
+          "human_item_level_final_signoff": false
+        }
+      ],
+      "absence_markers": [
+        {
+          "source_annotation_id": "9",
+          "source_class": "No Safety Attire",
+          "source_box_cxcywh_pixels": [
+            878,
+            804.5,
+            100,
+            163
+          ],
+          "is_physical_PPE_item": false,
+          "researcher_counterevidence_status": "AMBIGUOUS_BROAD_LEGACY_ABSENCE_CLASS_NOT_ACTIONABLE_WITHOUT_POLICY",
+          "do_not_treat_as_missing_PPE_or_violation": true
+        },
+        {
+          "source_annotation_id": "A",
+          "source_class": "No Safety Attire",
+          "source_box_cxcywh_pixels": [
+            590,
+            678.5,
+            80,
+            101
+          ],
+          "is_physical_PPE_item": false,
+          "researcher_counterevidence_status": "AMBIGUOUS_BROAD_LEGACY_ABSENCE_CLASS_NOT_ACTIONABLE_WITHOUT_POLICY",
+          "do_not_treat_as_missing_PPE_or_violation": true
+        },
+        {
+          "source_annotation_id": "M",
+          "source_class": "No Safety Attire",
+          "source_box_cxcywh_pixels": [
+            990.86,
+            779.62,
+            84.57,
+            121.52
+          ],
+          "is_physical_PPE_item": false,
+          "researcher_counterevidence_status": "AMBIGUOUS_BROAD_LEGACY_ABSENCE_CLASS_NOT_ACTIONABLE_WITHOUT_POLICY",
+          "do_not_treat_as_missing_PPE_or_violation": true
+        },
+        {
+          "source_annotation_id": "N",
+          "source_class": "No Safety Attire",
+          "source_box_cxcywh_pixels": [
+            1272.09,
+            821.2,
+            84.19,
+            127.55
+          ],
+          "is_physical_PPE_item": false,
+          "researcher_counterevidence_status": "AMBIGUOUS_BROAD_LEGACY_ABSENCE_CLASS_NOT_ACTIONABLE_WITHOUT_POLICY",
+          "do_not_treat_as_missing_PPE_or_violation": true
+        },
+        {
+          "source_annotation_id": "O",
+          "source_class": "No Face Mask",
+          "source_box_cxcywh_pixels": [
+            903.22,
+            583.71,
+            17.56,
+            17.81
+          ],
+          "is_physical_PPE_item": false,
+          "researcher_counterevidence_status": "LEGACY_ABSENCE_MARKER_WITH_RESEARCHER_VISUAL_UNKNOWN",
+          "do_not_treat_as_missing_PPE_or_violation": true
+        },
+        {
+          "source_annotation_id": "P",
+          "source_class": "No Face Mask",
+          "source_box_cxcywh_pixels": [
+            1065.59,
+            670.6,
+            28.81,
+            22.27
+          ],
+          "is_physical_PPE_item": false,
+          "researcher_counterevidence_status": "LEGACY_ABSENCE_MARKER_WITH_RESEARCHER_VISUAL_UNKNOWN",
+          "do_not_treat_as_missing_PPE_or_violation": true
+        },
+        {
+          "source_annotation_id": "Q",
+          "source_class": "No Safety Boots",
+          "source_box_cxcywh_pixels": [
+            1226.23,
+            848.99,
+            49.79,
+            60.38
+          ],
+          "is_physical_PPE_item": false,
+          "researcher_counterevidence_status": "LEGACY_ABSENCE_MARKER_CONFLICTS_WITH_RESEARCHER_REPORTED_BOOTS_PRESENT",
+          "do_not_treat_as_missing_PPE_or_violation": true
+        },
+        {
+          "source_annotation_id": "R",
+          "source_class": "No Safety Boots",
+          "source_box_cxcywh_pixels": [
+            996.07,
+            845.99,
+            44.13,
+            39.71
+          ],
+          "is_physical_PPE_item": false,
+          "researcher_counterevidence_status": "LEGACY_ABSENCE_MARKER_CONFLICTS_WITH_RESEARCHER_REPORTED_BOOTS_PRESENT",
+          "do_not_treat_as_missing_PPE_or_violation": true
+        },
+        {
+          "source_annotation_id": "S",
+          "source_class": "No Safety Boots",
+          "source_box_cxcywh_pixels": [
+            571.07,
+            733.99,
+            34.87,
+            25.79
+          ],
+          "is_physical_PPE_item": false,
+          "researcher_counterevidence_status": "LEGACY_ABSENCE_MARKER_CONFLICTS_WITH_RESEARCHER_REPORTED_BOOTS_PRESENT",
+          "do_not_treat_as_missing_PPE_or_violation": true
+        },
+        {
+          "source_annotation_id": "T",
+          "source_class": "No Safety Boots",
+          "source_box_cxcywh_pixels": [
+            601.71,
+            734.08,
+            21.59,
+            16.88
+          ],
+          "is_physical_PPE_item": false,
+          "researcher_counterevidence_status": "LEGACY_ABSENCE_MARKER_CONFLICTS_WITH_RESEARCHER_REPORTED_BOOTS_PRESENT",
+          "do_not_treat_as_missing_PPE_or_violation": true
+        }
+      ],
+      "legacy_non_PPE_clothing_boxes": []
+    },
+    {
+      "case_id": "D",
+      "filename": "h1.jpg",
+      "source_image_id": "0oVmRAxL0SM1PWqZCNyM",
+      "old_annotation_valid": true,
+      "image_width": 1000,
+      "image_height": 1000,
+      "original_box_count": 1,
+      "reviewed_person_count": 0,
+      "item_count": 1,
+      "items": [
+        {
+          "case_id": "D",
+          "filename": "h1.jpg",
+          "source_image_id": "0oVmRAxL0SM1PWqZCNyM",
+          "item_id": "E001",
+          "old_source_annotation_id": "1",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "source_box_normalized": [
+            0.036,
+            0.02,
+            0.98655,
+            0.68011
+          ],
+          "source_annotation_matches_inventory": true,
+          "source_annotation_geometry_max_delta": 0.000005,
+          "box_center_inside_old_person_boxes": [],
+          "centre_geometry_only_not_proof": true,
+          "researcher_preliminary_link": {
+            "status": "UNKNOWN",
+            "person_id": null,
+            "source": "EXPLICIT_RESEARCHER_CONFIRMATION_IMAGE_HAS_NO_PERSON"
+          },
+          "effective_item_level_disposition": "RESEARCHER_PRELIMINARY_UNKNOWN",
+          "legacy_ai_historical_candidate": {
+            "status": "UNKNOWN_CANDIDATE",
+            "person_id": null,
+            "alternatives": []
+          },
+          "subsequent_ai_source_recheck": null,
+          "researcher_person_visual_ppe_state_for_old_ai_candidate": null,
+          "physically_qualifying_safety_equipment_certification_verified": false,
+          "risk_flags": [
+            "NO_PERSON_VISIBLE",
+            "STANDALONE_EQUIPMENT_NOT_A_WORKER_VIOLATION"
+          ],
+          "next_review_action": "Retain UNKNOWN person association unless independent evidence supports change",
+          "human_item_level_final_signoff": false
+        }
+      ],
+      "absence_markers": [],
+      "legacy_non_PPE_clothing_boxes": []
+    }
+  ]
+}
