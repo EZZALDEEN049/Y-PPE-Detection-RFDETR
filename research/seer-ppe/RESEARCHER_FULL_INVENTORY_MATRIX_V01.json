@@ -286,7 +286,14 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "ai_helmet_glove_recheck": {
+                "date": "2026-11-17",
+                "observation": "VISIBLE_HELMET_LIKE_HEADGEAR",
+                "proposed_visual_state": "PRESENT",
+                "approval_state": "AI_ONLY_HUMAN_CONFIRMATION_PENDING",
+                "policy_status": "POLICY_UNKNOWN"
+              }
             },
             {
               "ppe_type": "safety_vest",
@@ -322,7 +329,14 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "ai_helmet_glove_recheck": {
+                "date": "2026-11-17",
+                "observation": "VISIBLE_GLOVE_LIKE_HAND_PROTECTION",
+                "proposed_visual_state": "PRESENT",
+                "approval_state": "AI_ONLY_HUMAN_CONFIRMATION_PENDING",
+                "policy_status": "POLICY_UNKNOWN"
+              }
             },
             {
               "ppe_type": "safety_boot",
@@ -354,7 +368,14 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "ai_helmet_glove_recheck": {
+                "date": "2026-11-17",
+                "observation": "VISIBLE_HELMET_LIKE_HEADGEAR",
+                "proposed_visual_state": "PRESENT",
+                "approval_state": "AI_ONLY_HUMAN_CONFIRMATION_PENDING",
+                "policy_status": "POLICY_UNKNOWN"
+              }
             },
             {
               "ppe_type": "safety_vest",
@@ -390,7 +411,14 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "ai_helmet_glove_recheck": {
+                "date": "2026-11-17",
+                "observation": "GLOVES_NOT_DETERMINABLE",
+                "proposed_visual_state": "UNKNOWN",
+                "approval_state": "AI_ONLY_HUMAN_CONFIRMATION_PENDING",
+                "policy_status": "POLICY_UNKNOWN"
+              }
             },
             {
               "ppe_type": "safety_boot",
@@ -431,7 +459,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_helmet_glove_recheck": {
+            "date": "2026-11-17",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_NOT_HUMAN_GROUND_TRUTH",
+            "status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P001",
+            "evidence": "Headgear visible on foreground person's head; blue helmet-like hard hat, safety standard not independently certified.",
+            "classification_certification_verified": false,
+            "approved_by_researcher": false
+          }
         },
         {
           "item_id": "E002",
@@ -457,7 +494,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_helmet_glove_recheck": {
+            "date": "2026-11-17",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_NOT_HUMAN_GROUND_TRUTH",
+            "status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P002",
+            "evidence": "Blue/purple headgear visible on smaller rear person's head; precise certified class unverified at low image resolution.",
+            "classification_certification_verified": false,
+            "approved_by_researcher": false
+          }
         },
         {
           "item_id": "E003",
@@ -483,7 +529,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_helmet_glove_recheck": {
+            "date": "2026-11-17",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_NOT_HUMAN_GROUND_TRUTH",
+            "status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P001",
+            "evidence": "Yellow glove-like material visible on foreground person's hand near mid-torso.",
+            "classification_certification_verified": false,
+            "approved_by_researcher": false
+          }
         },
         {
           "item_id": "E004",
@@ -509,7 +564,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_helmet_glove_recheck": {
+            "date": "2026-11-17",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_NOT_HUMAN_GROUND_TRUTH",
+            "status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P001",
+            "evidence": "Yellow glove-like material visible at the foreground person's raised hand beside vertical column.",
+            "classification_certification_verified": false,
+            "approved_by_researcher": false
+          }
         },
         {
           "item_id": "E005",
@@ -535,7 +599,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_helmet_glove_recheck": {
+            "date": "2026-11-17",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_NOT_HUMAN_GROUND_TRUTH",
+            "status": "UNKNOWN_CANDIDATE",
+            "candidate_person_id": null,
+            "evidence": "Old glove-labeled box near rear person's arm/hand; low resolution and partial occlusion prevent confidently confirming glove wear and ownership.",
+            "classification_certification_verified": false,
+            "approved_by_researcher": false
+          }
         },
         {
           "item_id": "E006",
@@ -561,7 +634,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_helmet_glove_recheck": {
+            "date": "2026-11-17",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_NOT_HUMAN_GROUND_TRUTH",
+            "status": "UNKNOWN_CANDIDATE",
+            "candidate_person_id": null,
+            "evidence": "Small glove-labeled box near rear person's body; low resolution/occlusion limits identifying wearer.",
+            "classification_certification_verified": false,
+            "approved_by_researcher": false
+          }
         },
         {
           "item_id": "E007",
@@ -687,6 +769,39 @@
         "review_signoff_status": "PRELIMINARY_COUNT_CONFIRMATION",
         "whole_case_ground_truth_approved": false,
         "notes": "Confirmation of counts only; PPE-to-person association, per-PPE states, source rights and policy remain open"
+      },
+      "recheck_helmet_glove_summary": {
+        "source_image": "Roboflow original image 000760.jpg",
+        "image_size_px": [
+          500,
+          330
+        ],
+        "visible_people_confirmed_by_researcher": 2,
+        "proposed_person_ppe_states": {
+          "P001": {
+            "hard_hat": "PRESENT",
+            "glove": "PRESENT"
+          },
+          "P002": {
+            "hard_hat": "PRESENT",
+            "glove": "UNKNOWN"
+          }
+        },
+        "source_items_reviewed": [
+          "3",
+          "4",
+          "6",
+          "7",
+          "9",
+          "A"
+        ],
+        "item_source_box_links_are_human_approved": false,
+        "researcher_previous_footwear_unknown_ids": [
+          "K",
+          "L",
+          "M"
+        ],
+        "notes": "The 500x330 image does not justify confirming rear-person glove wear or protective rating. No hard-hat/glove PPE-policy mandate is documented."
       }
     },
     {
