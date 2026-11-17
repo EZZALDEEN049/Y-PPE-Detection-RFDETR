@@ -25,8 +25,12 @@
 - Competing visually plausible person IDs: `P003` (bent-over third person from left) and `P004` (crouching far-right person). The object box lies in the gap between their *old* person boxes, so nearest-center / overlap alone is not dispositive.
 - Human instruction: zoom original region, trace red glove to cuff/sleeve/wrist and body; document anatomy and occlusion. Choose `MATCHED→P003`, `MATCHED→P004`, `AMBIGUOUS→[P003,P004]`, or `UNKNOWN`, with visual reason. **Do not auto-select a label from the pre-review suggestion.**
 
-**Researcher entry:** `J_status: __________`  `J_person_id_or_alternatives: __________`  
-`J_evidence: ______________________________________________________________`
+**Researcher preliminary declaration (2026-11-17, reported in chat; not final sign-off):** `J_status=UNKNOWN`, `J_person_id=null`, `alternatives_not_adjudicated`. The researcher states they **cannot confirm who wears glove J**. This is an explicit insufficient-evidence choice, **not** `AMBIGUOUS` adjudication and **not** evidence that either P003 or P004 is the wearer. The former AI suggestion `AMBIGUOUS_CANDIDATE` is retained in the historical pre-review as a proposal only and superseded for decision-making by this provisional `UNKNOWN` statement. No claim that the researcher inspected the original crop, identified sleeve/wrist continuity, or finished exhaustive image review is made.
+
+**Researcher entry:** `J_status: UNKNOWN (preliminary)`  `J_person_id_or_alternatives: NONE_CONFIRMED`  
+`J_evidence: Researcher unable to establish wearer identity; needs original-image zoom and anatomical trace. Not independently corroborated.`
+
+**Remaining review:** Check the source crop around [1131,750,1196,778] for cuff, wrist, sleeve continuity and any overlap/occlusion; keep `UNKNOWN` if insufficient. The rest of Case C, source/rights review, PPE per-person visual states, and second reviewer pass remain pending.
 
 ## Targeted unresolved check: boots (Case B)
 Source annotations `K`, `L`, `M` are old `Safety Boots` labels; geometries in a `500×330` image:
