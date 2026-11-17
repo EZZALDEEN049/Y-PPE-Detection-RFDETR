@@ -114,3 +114,19 @@ The researcher explicitly confirmed in chat: **"نعم صحيح كل شي A=1، 
 | D | `h1.jpg` | **0** | `COUNT_CONFIRMED` | `PENDING` |
 
 **Preserved researcher unknown decisions:** glove `C/J` and footwear `B/K,L,M` remain `UNKNOWN` in preliminary association, without confirmed wearer. Future human review still needs equipment presence/absence and owner adjudication, missed physical PPE, rights/privacy/source-family checks, documented task policy (default `POLICY_UNKNOWN`) and final case approval. Roboflow Eval Dataset remains `groundTruthState=incomplete`; do not promote only a count confirmation to a complete scientific benchmark.
+
+
+## Case A researcher confirmation of visible PPE observations (2026-11-17)
+
+Researcher replied "تمام هي صح" when asked whether the listed Case A / image_604.jpg / P001 observations were correct. This explicitly confirms ONLY six preliminary visual observations; it does not approve the complete ground-truth case or independently establish a PPE safety standard.
+
+| PPE type | Confirmed preliminary visual state | Caveat |
+|---|---|---|
+| Hard hat | `PRESENT` | Yellow hat visible; certification and task mandate unknown |
+| High-visibility vest | `PRESENT` | Vest visible; protective grade and mandate unverified |
+| Protective eyewear (source class Goggles) | `PRESENT` | Clear eyewear visible; specific rating unknown |
+| Face mask | `ABSENT` | Nose/mouth uncovered; this is NOT a policy-violation judgment |
+| Gloves | `UNKNOWN` | Hands outside crop |
+| Safety boots | `UNKNOWN` | Feet outside crop; safety-grade not established |
+
+Scope: preliminary researcher assessment of visual PPE states only; per-object wearer matching, rights/source family, person/PPE exhaustiveness, task PPE policy remain open. Keep `POLICY_UNKNOWN` and Roboflow Eval Case A `groundTruthState=incomplete` / `groundTruth={}` until complete evidence and sign-off.
