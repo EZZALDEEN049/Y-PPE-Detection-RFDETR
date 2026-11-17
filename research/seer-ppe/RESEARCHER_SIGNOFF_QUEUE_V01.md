@@ -224,3 +224,16 @@ No source `No Face Mask` annotation, lack of detection, or unseen eyes/mouth sha
 | PPE certification / worksite policy | `UNKNOWN` / `POLICY_UNKNOWN` | Image provides neither independent grade evidence nor site task rules |
 
 Original source annotations/training/model/splits are unchanged. Rights/privacy/source-family and final evidence review remain outstanding; Roboflow Eval Case D must remain `groundTruth={}` and `groundTruthState=incomplete`. **Do not increase the 38 person×PPE visual-state confirmations:** this image has zero people and only one individually acknowledged orphan equipment item.
+
+
+## Automated item-level geometry/semantic audit handoff (2026-11-17)
+
+Native read-only Roboflow annotation boxes were checked against the evolving researcher inventory matrix, producing two **non-gold reference artifacts**: [per-source-box review queue](ITEM_LEVEL_ASSOCIATION_REVIEW_QUEUE_V01.md) and [machine-readable audit](ITEM_LEVEL_ASSOCIATION_EVIDENCE_AUDIT_V01.json).
+
+**26 physical-PPE-labeled boxes** are classified as 19 historic unverified AI wearer candidates, 2 additional B rear-glove-box AI uncertainties (`9/A`), and 5 preliminary UNKNOWN wearer items (researcher B boots `K/L/M`, researcher C glove `J`, and researcher-confirmed standalone helmet D `1` with no depicted wearer). **Zero** item-level wearer relationships have independent explicit researcher approval at this stage.
+
+**14 negative / absence-like boxes** remain separate. Researcher reports boots on all four Case C workers but native old labels include `No Safety Boots` `Q/R/S/T` and **no positive Safety Boots boxes** in C. This is a source-label/evidence disagreement requiring item inspection, not automatic proof that either source or researcher is wrong. Likewise, the old broad `No Safety Attire` markers do not establish PPE-specific violations. Case B `No Safety Vest` labels agree with the user's initial absence observations but are not independently approved ground truth.
+
+**Next human item-level adjudication start:** Case A source boxes `1` (Safety Vests), `2` (Goggles), `3` (Hard Hat) were associated provisionally by AI with the one visible worker `P001`. Researcher has already confirmed the relevant **visual PPE states**, but **has not yet explicitly approved each old box's precise wearer**. Ask for a separate item-to-person judgment, with `UNKNOWN` still available. Document researcher decision as provisional until source/privacy/final-case approval.
+
+Keep original project annotations/model/splits and baseline Workflows unchanged; `0/4` Roboflow Eval Cases remain incomplete. No model correctness/performance/violation claims.
