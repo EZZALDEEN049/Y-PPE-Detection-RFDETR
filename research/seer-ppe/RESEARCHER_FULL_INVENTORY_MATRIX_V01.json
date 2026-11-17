@@ -600,10 +600,14 @@
             0.23406
           ],
           "provisional_association": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION",
-            "is_final": false
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "EXPLICIT_RESEARCHER_FINAL_ITEM_LINK_APPROVAL_2026-11-18",
+            "is_final": true,
+            "confirmation_scope": "ORIGINAL_BOX_TO_VISIBLE_WORKER_LINK_ONLY",
+            "approved_in_response_to": "Question listing 3→P001, 4→P002, 6→P001, 7→P001; user replied 'نعم اعتمد'",
+            "independent_safety_equipment_certification_verified": false,
+            "implies_whole_case_ground_truth_complete": false
           },
           "historic_ai_candidate": {
             "status": "MATCHED_CANDIDATE",
@@ -612,7 +616,7 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false,
+          "human_item_review_complete": true,
           "ai_helmet_glove_recheck": {
             "date": "2026-11-17",
             "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_NOT_HUMAN_GROUND_TRUTH",
@@ -621,7 +625,8 @@
             "evidence": "Headgear visible on foreground person's head; blue helmet-like hard hat, safety standard not independently certified.",
             "classification_certification_verified": false,
             "approved_by_researcher": false
-          }
+          },
+          "researcher_final_approval_date": "2026-11-18"
         },
         {
           "item_id": "E002",
@@ -635,10 +640,14 @@
             0.31333
           ],
           "provisional_association": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION",
-            "is_final": false
+            "status": "MATCHED",
+            "person_id": "P002",
+            "source": "EXPLICIT_RESEARCHER_FINAL_ITEM_LINK_APPROVAL_2026-11-18",
+            "is_final": true,
+            "confirmation_scope": "ORIGINAL_BOX_TO_VISIBLE_WORKER_LINK_ONLY",
+            "approved_in_response_to": "Question listing 3→P001, 4→P002, 6→P001, 7→P001; user replied 'نعم اعتمد'",
+            "independent_safety_equipment_certification_verified": false,
+            "implies_whole_case_ground_truth_complete": false
           },
           "historic_ai_candidate": {
             "status": "MATCHED_CANDIDATE",
@@ -647,7 +656,7 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false,
+          "human_item_review_complete": true,
           "ai_helmet_glove_recheck": {
             "date": "2026-11-17",
             "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_NOT_HUMAN_GROUND_TRUTH",
@@ -656,7 +665,8 @@
             "evidence": "Blue/purple headgear visible on smaller rear person's head; precise certified class unverified at low image resolution.",
             "classification_certification_verified": false,
             "approved_by_researcher": false
-          }
+          },
+          "researcher_final_approval_date": "2026-11-18"
         },
         {
           "item_id": "E003",
@@ -670,10 +680,14 @@
             0.46486
           ],
           "provisional_association": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION",
-            "is_final": false
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "EXPLICIT_RESEARCHER_FINAL_ITEM_LINK_APPROVAL_2026-11-18",
+            "is_final": true,
+            "confirmation_scope": "ORIGINAL_BOX_TO_VISIBLE_WORKER_LINK_ONLY",
+            "approved_in_response_to": "Question listing 3→P001, 4→P002, 6→P001, 7→P001; user replied 'نعم اعتمد'",
+            "independent_safety_equipment_certification_verified": false,
+            "implies_whole_case_ground_truth_complete": false
           },
           "historic_ai_candidate": {
             "status": "MATCHED_CANDIDATE",
@@ -682,7 +696,7 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false,
+          "human_item_review_complete": true,
           "ai_helmet_glove_recheck": {
             "date": "2026-11-17",
             "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_NOT_HUMAN_GROUND_TRUTH",
@@ -691,7 +705,8 @@
             "evidence": "Yellow glove-like material visible on foreground person's hand near mid-torso.",
             "classification_certification_verified": false,
             "approved_by_researcher": false
-          }
+          },
+          "researcher_final_approval_date": "2026-11-18"
         },
         {
           "item_id": "E004",
@@ -705,10 +720,14 @@
             0.23348
           ],
           "provisional_association": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION",
-            "is_final": false
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "EXPLICIT_RESEARCHER_FINAL_ITEM_LINK_APPROVAL_2026-11-18",
+            "is_final": true,
+            "confirmation_scope": "ORIGINAL_BOX_TO_VISIBLE_WORKER_LINK_ONLY",
+            "approved_in_response_to": "Question listing 3→P001, 4→P002, 6→P001, 7→P001; user replied 'نعم اعتمد'",
+            "independent_safety_equipment_certification_verified": false,
+            "implies_whole_case_ground_truth_complete": false
           },
           "historic_ai_candidate": {
             "status": "MATCHED_CANDIDATE",
@@ -717,7 +736,7 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false,
+          "human_item_review_complete": true,
           "ai_helmet_glove_recheck": {
             "date": "2026-11-17",
             "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_NOT_HUMAN_GROUND_TRUTH",
@@ -726,7 +745,8 @@
             "evidence": "Yellow glove-like material visible at the foreground person's raised hand beside vertical column.",
             "classification_certification_verified": false,
             "approved_by_researcher": false
-          }
+          },
+          "researcher_final_approval_date": "2026-11-18"
         },
         {
           "item_id": "E005",
@@ -740,10 +760,16 @@
             0.42371
           ],
           "provisional_association": {
-            "status": "NOT_HUMAN_ADJUDICATED",
+            "status": "UNKNOWN",
             "person_id": null,
-            "source": "NO_RESEARCHER_DECISION",
-            "is_final": false
+            "source": "EXPLICIT_RESEARCHER_UNKNOWN_ITEM_OWNER_2026-11-18",
+            "is_final": true,
+            "confirmation_scope": "ITEM_TO_PERSON_OWNERSHIP_UNKNOWN_ONLY",
+            "approved_in_response_to": "Researcher confirmed retaining old source boxes 9/A and K/L/M as UNKNOWN, responding 'نعم اعتمد'",
+            "actual_physical_PPE_item_presence_human_verified": false,
+            "protective_grade_independently_verified": false,
+            "subject_to_reconsideration_if_new_source_evidence": true,
+            "implies_whole_case_ground_truth_complete": false
           },
           "historic_ai_candidate": {
             "status": "MATCHED_CANDIDATE",
@@ -761,7 +787,8 @@
             "evidence": "Old glove-labeled box near rear person's arm/hand; low resolution and partial occlusion prevent confidently confirming glove wear and ownership.",
             "classification_certification_verified": false,
             "approved_by_researcher": false
-          }
+          },
+          "researcher_final_ownership_decision_date": "2026-11-18"
         },
         {
           "item_id": "E006",
@@ -775,10 +802,16 @@
             0.53798
           ],
           "provisional_association": {
-            "status": "NOT_HUMAN_ADJUDICATED",
+            "status": "UNKNOWN",
             "person_id": null,
-            "source": "NO_RESEARCHER_DECISION",
-            "is_final": false
+            "source": "EXPLICIT_RESEARCHER_UNKNOWN_ITEM_OWNER_2026-11-18",
+            "is_final": true,
+            "confirmation_scope": "ITEM_TO_PERSON_OWNERSHIP_UNKNOWN_ONLY",
+            "approved_in_response_to": "Researcher confirmed retaining old source boxes 9/A and K/L/M as UNKNOWN, responding 'نعم اعتمد'",
+            "actual_physical_PPE_item_presence_human_verified": false,
+            "protective_grade_independently_verified": false,
+            "subject_to_reconsideration_if_new_source_evidence": true,
+            "implies_whole_case_ground_truth_complete": false
           },
           "historic_ai_candidate": {
             "status": "MATCHED_CANDIDATE",
@@ -796,7 +829,8 @@
             "evidence": "Small glove-labeled box near rear person's body; low resolution/occlusion limits identifying wearer.",
             "classification_certification_verified": false,
             "approved_by_researcher": false
-          }
+          },
+          "researcher_final_ownership_decision_date": "2026-11-18"
         },
         {
           "item_id": "E007",
@@ -812,8 +846,14 @@
           "provisional_association": {
             "status": "UNKNOWN",
             "person_id": null,
-            "source": "EXPLICIT_RESEARCHER_STATEMENT_PRELIMINARY",
-            "is_final": false
+            "source": "RESEARCHER_REAFFIRMED_PREVIOUS_UNKNOWN_2026-11-18",
+            "is_final": true,
+            "confirmation_scope": "ITEM_TO_PERSON_OWNERSHIP_UNKNOWN_ONLY",
+            "approved_in_response_to": "Researcher confirmed retaining old source boxes 9/A and K/L/M as UNKNOWN, responding 'نعم اعتمد'",
+            "actual_physical_PPE_item_presence_human_verified": null,
+            "protective_grade_independently_verified": false,
+            "subject_to_reconsideration_if_new_source_evidence": true,
+            "implies_whole_case_ground_truth_complete": false
           },
           "historic_ai_candidate": {
             "status": "MATCHED_CANDIDATE",
@@ -822,7 +862,8 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": true,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "researcher_final_ownership_decision_date": "2026-11-18"
         },
         {
           "item_id": "E008",
@@ -838,8 +879,14 @@
           "provisional_association": {
             "status": "UNKNOWN",
             "person_id": null,
-            "source": "EXPLICIT_RESEARCHER_STATEMENT_PRELIMINARY",
-            "is_final": false
+            "source": "RESEARCHER_REAFFIRMED_PREVIOUS_UNKNOWN_2026-11-18",
+            "is_final": true,
+            "confirmation_scope": "ITEM_TO_PERSON_OWNERSHIP_UNKNOWN_ONLY",
+            "approved_in_response_to": "Researcher confirmed retaining old source boxes 9/A and K/L/M as UNKNOWN, responding 'نعم اعتمد'",
+            "actual_physical_PPE_item_presence_human_verified": null,
+            "protective_grade_independently_verified": false,
+            "subject_to_reconsideration_if_new_source_evidence": true,
+            "implies_whole_case_ground_truth_complete": false
           },
           "historic_ai_candidate": {
             "status": "MATCHED_CANDIDATE",
@@ -848,7 +895,8 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": true,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "researcher_final_ownership_decision_date": "2026-11-18"
         },
         {
           "item_id": "E009",
@@ -864,8 +912,14 @@
           "provisional_association": {
             "status": "UNKNOWN",
             "person_id": null,
-            "source": "EXPLICIT_RESEARCHER_STATEMENT_PRELIMINARY",
-            "is_final": false
+            "source": "RESEARCHER_REAFFIRMED_PREVIOUS_UNKNOWN_2026-11-18",
+            "is_final": true,
+            "confirmation_scope": "ITEM_TO_PERSON_OWNERSHIP_UNKNOWN_ONLY",
+            "approved_in_response_to": "Researcher confirmed retaining old source boxes 9/A and K/L/M as UNKNOWN, responding 'نعم اعتمد'",
+            "actual_physical_PPE_item_presence_human_verified": null,
+            "protective_grade_independently_verified": false,
+            "subject_to_reconsideration_if_new_source_evidence": true,
+            "implies_whole_case_ground_truth_complete": false
           },
           "historic_ai_candidate": {
             "status": "MATCHED_CANDIDATE",
@@ -874,7 +928,8 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": true,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "researcher_final_ownership_decision_date": "2026-11-18"
         }
       ],
       "absence_marker_boxes_not_evidence_of_absence": [
@@ -912,7 +967,7 @@
           "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
         }
       ],
-      "review_status": "PENDING_HUMAN_ADJUDICATION",
+      "review_status": "PARTIAL_HUMAN_ITEM_ATTRIBUTION_APPROVED_SOURCE_CLEARANCE_PENDING",
       "researcher_person_count_statement": {
         "recorded_date": "2026-11-17",
         "statement_source": "Explicit researcher confirmation in chat",
@@ -1052,7 +1107,47 @@
         "boots_K_L_M_researcher_unknown_unchanged": true,
         "source_project_annotations_changed": false,
         "new_user_approval_this_turn": false,
-        "case_B_complete": false
+        "case_B_complete": false,
+        "date_of_user_decision": "2026-11-18",
+        "human_approved_matched_links": [
+          {
+            "old_source_annotation_id": "3",
+            "person_id": "P001",
+            "status": "MATCHED",
+            "decision_scope": "FINAL_ITEM_OWNER_LINK"
+          },
+          {
+            "old_source_annotation_id": "4",
+            "person_id": "P002",
+            "status": "MATCHED",
+            "decision_scope": "FINAL_ITEM_OWNER_LINK"
+          },
+          {
+            "old_source_annotation_id": "6",
+            "person_id": "P001",
+            "status": "MATCHED",
+            "decision_scope": "FINAL_ITEM_OWNER_LINK"
+          },
+          {
+            "old_source_annotation_id": "7",
+            "person_id": "P001",
+            "status": "MATCHED",
+            "decision_scope": "FINAL_ITEM_OWNER_LINK"
+          }
+        ],
+        "researcher_approved_unknown_ownership": [
+          "9",
+          "A",
+          "K",
+          "L",
+          "M"
+        ],
+        "gloves_9_A_real_physical_item_verified": false,
+        "footwear_K_L_M_grade_verified": false,
+        "source_image_rights": "UNREVIEWED",
+        "task_site_requirements": "POLICY_UNKNOWN",
+        "review_state": "HUMAN_ITEM_LINKAGE_DECIDED_SOURCE_AND_CASE_REVIEW_PENDING",
+        "no_training_annotations_changed": true
       }
     },
     {
@@ -2168,7 +2263,7 @@
       "B:L",
       "B:M"
     ],
-    "approved_item_associations": 3,
+    "approved_item_associations": 7,
     "approved_human_cases": 0,
     "rights_reviewed_cases": 0,
     "note": "Counts are old box candidates and AI person inventory; uncounted missed items/people still possible.",
@@ -2201,6 +2296,15 @@
     "case_a_final_visual_approved": true,
     "case_a_source_rights_review_pending": true,
     "case_a_eval_ground_truth_partial_saved": true,
-    "case_a_eval_ground_truth_state": "incomplete"
+    "case_a_eval_ground_truth_state": "incomplete",
+    "case_b_final_confirmed_item_links": 4,
+    "case_b_human_confirmed_unknown_owner_ids": [
+      "9",
+      "A",
+      "K",
+      "L",
+      "M"
+    ],
+    "case_b_real_glove_presence_9_A_not_certified": true
   }
 }
