@@ -11,7 +11,8 @@
     "Boxes originate from original old Roboflow annotations and were not redrawn independently; counts were checked against the source images in an AI-assisted visual inspection.",
     "No claim that all objects are exhaustively inventoried or human-confirmed.",
     "MATCHED_CANDIDATE/AMBIGUOUS_CANDIDATE/UNKNOWN_CANDIDATE are review suggestions, NOT SEER-PPE algorithm outputs or human-labeled ground truth.",
-    "An absence-marker model class is not a physical PPE instance. A visible industrial boot does not establish safety certification."
+    "An absence-marker model class is not a physical PPE instance. A visible industrial boot does not establish safety certification.",
+    "Glove J / E012: researcher explicitly supplied a preliminary UNKNOWN decision on 2026-11-17, superseding the original AI ambiguous *suggestion* for current review decisions. Prior AI suggestion retained as historical unapproved trace; do not treat as approved ground truth."
   ],
   "images": [
     {
@@ -806,7 +807,17 @@
             "requires_visual_confirmation": true
           },
           "item_type_certainty": "CANDIDATE",
-          "human_verified": false
+          "human_verified": false,
+          "researcher_provisional_statement": {
+            "date": "2026-11-17",
+            "decision": "UNKNOWN",
+            "person_id": null,
+            "source": "Researcher explicit chat statement",
+            "reason": "Unable to confirm who wears glove J; no trace of glove to cuff/wrist/sleeve established by researcher",
+            "adjudication_status": "NOT_FINAL",
+            "needs_additional_evidence": true,
+            "ground_truth_approved": false
+          }
         },
         {
           "equipment_id": "E013",
