@@ -257,3 +257,10 @@ Keep original project annotations/model/splits and baseline Workflows unchanged;
 **Two distinct approval scopes:** (1) the researcher has **finally approved this image's visible semantics and three wearable-item wearer links**; (2) **research source-rights/privacy/source-family clearance, complete source documentation, independent second-pass checks and actual Eval Case readiness remain pending**. Consequently Roboflow Eval `groundTruthState` must remain `incomplete` until its separate required evidence gates are satisfied. The human's final visual approval should **not** be erased by this administrative/scientific readiness gate.
 
 The existing historical baseline training images, classes and boxes, splits, model weights and Workflows remain untouched. No measured PPE compliance, association accuracy, Validation/Test or product safety certification has been asserted.
+
+
+## Case A Roboflow Eval partial human-reviewed reference saved (2026-11-17)
+
+After the researcher's **final visual approval**, the **separate** Roboflow Eval Case `8f7cce94-d46e-4fac-9a0a-641bcd1f12c8` was updated atomically (revision `1 -> 2`) and re-read successfully. Stored typed ground-truth arrays: 1 `persons`, 3 `ppe_items`, 6 `worker_ppe_states`, 3 `associations` with status `MATCHED` and person `P001`, and 6 `task_mandates`, each `POLICY_UNKNOWN`. Worker PPE: hard hat/vest/goggles `PRESENT`, face mask `ABSENT`, gloves/boots `UNKNOWN` (hands/feet outside crop).
+
+**Critical:** this is a *partial, researcher-final visual and attribution reference*, not full ready-to-score Eval ground truth. The source-review label was **deliberately left unset**, because rights/privacy/source-family and second review remain pending. `groundTruthState=incomplete` retained. Other three cases B/C/D still have unapproved full ground truth. The result must not be used to claim scientific model performance or compliance.
