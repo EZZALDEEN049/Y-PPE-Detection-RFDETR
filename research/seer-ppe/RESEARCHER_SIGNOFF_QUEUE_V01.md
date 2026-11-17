@@ -143,6 +143,20 @@ Read the actual existing Roboflow Train image `000760.jpg` (500×330) and six cu
 
 Old glove annotations `9/A` remain candidates in original source labels, **not established physical presence**. No certified PPE grade or documented task requirement is inferred. Existing researcher decisions on boots `K/L/M` are preserved as ownership `UNKNOWN` (no confirmed wearer), with boot safety certification `UNKNOWN`; do not change those on the basis of geometric proximity.
 
-**Researcher prompt (still unanswered):** Does the researcher agree with visual states `P001: helmet PRESENT, gloves PRESENT`; `P002: helmet PRESENT, gloves UNKNOWN`? Researcher can keep any state UNKNOWN, or correct it after inspecting the actual source image. Item-level source-box wearer mapping is a **separate** decision.
+**Researcher prompt (subsequently answered; see confirmation below):** Does the researcher agree with visual states `P001: helmet PRESENT, gloves PRESENT`; `P002: helmet PRESENT, gloves UNKNOWN`? Researcher can keep any state UNKNOWN, or correct it after inspecting the actual source image. Item-level source-box wearer mapping is a **separate** decision.
 
 **Case B sign-off:** `PENDING` — Source and person inventory, other PPE types, source family/rights/privacy, task mandate, and second-review remain incomplete. Roboflow Eval ground truth must remain empty / `incomplete`.
+
+
+## Researcher confirmation of Case B helmet and glove visual states (2026-11-17)
+
+The researcher explicitly replied **"صح كل شي"** to a narrowly scoped question listing the following four Case B / `000760.jpg` visual states. This is the researcher's preliminary visual-state affirmation, **not** proof of source-box-to-person item associations, PPE certification, site mandate, or complete image ground truth.
+
+| Worker | PPE | Researcher-confirmed visual state | Evidence limit |
+|---|---|---|---|
+| `P001` foreground | Hard hat | `PRESENT` | Blue helmet-like headgear appears worn; safety certification not independently proved |
+| `P001` foreground | Gloves | `PRESENT` | Yellow glove-like hand protection appears visible |
+| `P002` background | Hard hat | `PRESENT` | Blue/purple helmet-like headgear appears worn |
+| `P002` background | Gloves | `UNKNOWN` | Low resolution and partly obscured hands |
+
+Preserve earlier researcher provisional person-association decisions: boots `K`, `L`, `M` are `UNKNOWN` with `person_id=null`; safety-boot protective grade `UNKNOWN`. Glove source annotations `9/A` remain historically unverified; their source boxes have **not** been matched or approved by the researcher. Remaining PPE types (vest, eyewear, face mask, boot state) and source rights/privacy/source-family checks still require review. Keep all workplace mandates at `POLICY_UNKNOWN`, and Case B in Roboflow at `groundTruth={}` / `incomplete`.
