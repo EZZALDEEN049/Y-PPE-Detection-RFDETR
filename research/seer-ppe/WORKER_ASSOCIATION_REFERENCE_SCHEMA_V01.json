@@ -1,0 +1,340 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SEER-PPE single-curator person/PPE human reference v0.1",
+  "description": "Research review schema. Do not populate from detector classes alone. Ground-truth complete only after visual adjudication.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "image_id",
+    "split",
+    "review_state",
+    "source_review",
+    "persons",
+    "ppe_items",
+    "worker_ppe_states",
+    "associations",
+    "task_mandates"
+  ],
+  "properties": {
+    "image_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "split": {
+      "enum": [
+        "train",
+        "valid",
+        "test"
+      ]
+    },
+    "review_state": {
+      "enum": [
+        "NOT_REVIEWED",
+        "IN_REVIEW",
+        "REVIEWED"
+      ]
+    },
+    "curator_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "review_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "ISO 8601 date/time of review, not automatic creation time"
+    },
+    "source_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "context_status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "UNREVIEWED",
+            "CLEARED",
+            "RESTRICTED"
+          ]
+        },
+        "context_status": {
+          "enum": [
+            "UNKNOWN",
+            "DOCUMENTED"
+          ]
+        },
+        "source_family": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rights_evidence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "privacy_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "task_site_context": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "persons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "bbox_xyxy_norm",
+          "visibility",
+          "evidence"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^P[0-9]{3,}$"
+          },
+          "bbox_xyxy_norm": {
+            "$ref": "#/$defs/bbox"
+          },
+          "visibility": {
+            "enum": [
+              "VISIBLE",
+              "PARTIAL",
+              "OCCLUDED",
+              "TRUNCATED",
+              "UNCERTAIN"
+            ]
+          },
+          "box_estimated": {
+            "type": "boolean"
+          },
+          "evidence": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ppe_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "ppe_type",
+          "bbox_xyxy_norm",
+          "evidence"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^E[0-9]{3,}$"
+          },
+          "ppe_type": {
+            "enum": [
+              "hard_hat",
+              "safety_vest",
+              "face_mask",
+              "goggles",
+              "glove",
+              "safety_boot",
+              "other"
+            ]
+          },
+          "side": {
+            "enum": [
+              "LEFT",
+              "RIGHT",
+              "BOTH",
+              "UNKNOWN",
+              "NOT_APPLICABLE"
+            ]
+          },
+          "bbox_xyxy_norm": {
+            "$ref": "#/$defs/bbox"
+          },
+          "detector_class": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidence": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "worker_ppe_states": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "person_id",
+          "ppe_type",
+          "visual_state",
+          "evidence"
+        ],
+        "properties": {
+          "person_id": {
+            "type": "string"
+          },
+          "ppe_type": {
+            "type": "string"
+          },
+          "side": {
+            "enum": [
+              "LEFT",
+              "RIGHT",
+              "BOTH",
+              "UNKNOWN",
+              "NOT_APPLICABLE"
+            ]
+          },
+          "visual_state": {
+            "enum": [
+              "PRESENT",
+              "ABSENT",
+              "UNKNOWN"
+            ]
+          },
+          "evidence": {
+            "type": "string"
+          },
+          "uncertainty_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "associations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "equipment_id",
+          "status",
+          "candidate_person_ids",
+          "basis"
+        ],
+        "properties": {
+          "equipment_id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "MATCHED",
+              "AMBIGUOUS",
+              "UNKNOWN"
+            ]
+          },
+          "person_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "candidate_person_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "basis": {
+            "type": "string"
+          },
+          "uncertainty_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "task_mandates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "person_id",
+          "ppe_type",
+          "mandate_status"
+        ],
+        "properties": {
+          "person_id": {
+            "type": "string"
+          },
+          "ppe_type": {
+            "type": "string"
+          },
+          "mandate_status": {
+            "enum": [
+              "REQUIRED",
+              "NOT_REQUIRED",
+              "POLICY_UNKNOWN"
+            ]
+          },
+          "policy_document": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "version_or_date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "applicability_evidence": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "review_notes": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "bbox": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "Normalized [xmin,ymin,xmax,ymax]; curator must additionally verify xmin<xmax and ymin<ymax."
+    }
+  }
+}
