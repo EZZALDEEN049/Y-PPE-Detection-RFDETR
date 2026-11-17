@@ -59,3 +59,20 @@ A truthful reviewer can decide some fields as `UNKNOWN` or `RESTRICTED`; exhaust
 Complete each case only after (a) actual independent researcher review, (b) signed adjudication and updated person/PPE inventories with evidence, (c) source rights/privacy checks or documented restrictions and exclusions as appropriate, (d) referential integrity, and (e) a second review pass. Do not type `complete` into the Eval Dataset on behalf of a reviewer. Post-sign-off, import the reviewed data into the **separate** Eval Dataset Cases, leaving original data untouched. v0.3 algorithm testing is **not authorized to claim accuracy** based on this unapproved queue.
 
 **Reference files:** [visual pre-review](WORKER_ASSOCIATION_VISUAL_PRE_REVIEW_V01.md), [item-level AI candidates](WORKER_ASSOCIATION_AI_VISUAL_PRE_REVIEW_V01.json), [human protocol](WORKER_ASSOCIATION_REFERENCE_PROTOCOL_V01.md).
+
+
+## AI source-image recheck of boots K, L, M (2026-11-17)
+
+**Source:** Verified raw `000760.jpg` (500×330 px) from the Roboflow original source image, displayed through a validated **read-only** inline pass-through Workflow. Checked against current original source annotation centers and extents. This is **AI-assisted preliminary visual/geometry evidence**, not an independent human review or safety certification inspection.
+
+| Original annotation ID | Original box `xyxy` pixels (approx.) | Proposed wearer | Visual/geometry observation | Equipment class certainty | Status |
+|---|---|---|---|---|---|
+| `K` | `[347.73,245.45,369.55,266.59]` | `P002` background worker | Box lies near the background worker's lower leg and shoe region, with limited detail from distance/occlusion | `UNKNOWN` (no safety-rating evidence) | `MATCHED_CANDIDATE` only; human check pending |
+| `L` | `[272.50,273.25,296.23,295.78]` | `P001` foreground worker | Box lies near the rightward foreground boot/foot region; shoe appears present, protection standard cannot be determined | `UNKNOWN` (no safety-rating evidence) | `MATCHED_CANDIDATE` only; human check pending |
+| `M` | `[201.58,273.25,233.75,294.89]` | `P001` foreground worker | Box lies near leftward foreground boot/foot region; shoe appears present, protection standard cannot be determined | `UNKNOWN` (no safety-rating evidence) | `MATCHED_CANDIDATE` only; human check pending |
+
+The association proposals use person/foot region proximity and coarse visual alignment. Because the original image is only 500×330, no footwear certification marks, toe protections or safety-standard conformance can be independently verified. The old dataset's `Safety Boots` label must **not** be treated as approved ground truth for certified safety footwear. No site/task footwear mandate is documented; `POLICY_UNKNOWN` remains.
+
+**Required researcher check before approval:** view the original, zoom each box, trace both feet of P001 and visible foot/feet of P002, confirm each item's wearer if possible, and record whether footwear is observable but safety-grade unknown. If a clear wearer still cannot be identified, choose `UNKNOWN` for the association too rather than accepting the AI proposal. Neither the K/L/M person matches nor the per-worker Safety Boots `PRESENT` state is signed off.
+
+**Review fields (not yet answered by researcher):** `K_person: ______`; `L_person: ______`; `M_person: ______`; `Safety-grade evidence: UNKNOWN unless independently supplied`; `Reviewer/date: ______`. Case B still `PENDING`, and the corresponding Roboflow Eval Case must remain `incomplete`.
