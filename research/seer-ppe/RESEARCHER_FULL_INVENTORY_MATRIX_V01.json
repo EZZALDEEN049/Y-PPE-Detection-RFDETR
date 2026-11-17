@@ -181,7 +181,17 @@
           "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
         }
       ],
-      "review_status": "PENDING_HUMAN_ADJUDICATION"
+      "review_status": "PENDING_HUMAN_ADJUDICATION",
+      "researcher_person_count_statement": {
+        "recorded_date": "2026-11-17",
+        "statement_source": "Explicit researcher confirmation in chat",
+        "confirmed_visible_person_count": 1,
+        "count_matches_ai_pre_review": true,
+        "decision_scope": "VISIBLE_PERSON_COUNT_ONLY",
+        "review_signoff_status": "PRELIMINARY_COUNT_CONFIRMATION",
+        "whole_case_ground_truth_approved": false,
+        "notes": "Confirmation of counts only; PPE-to-person association, per-PPE states, source rights and policy remain open"
+      }
     },
     {
       "case_id": "B",
@@ -602,7 +612,17 @@
           "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
         }
       ],
-      "review_status": "PENDING_HUMAN_ADJUDICATION"
+      "review_status": "PENDING_HUMAN_ADJUDICATION",
+      "researcher_person_count_statement": {
+        "recorded_date": "2026-11-17",
+        "statement_source": "Explicit researcher confirmation in chat",
+        "confirmed_visible_person_count": 2,
+        "count_matches_ai_pre_review": true,
+        "decision_scope": "VISIBLE_PERSON_COUNT_ONLY",
+        "review_signoff_status": "PRELIMINARY_COUNT_CONFIRMATION",
+        "whole_case_ground_truth_approved": false,
+        "notes": "Confirmation of counts only; PPE-to-person association, per-PPE states, source rights and policy remain open"
+      }
     },
     {
       "case_id": "C",
@@ -1343,7 +1363,17 @@
           "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
         }
       ],
-      "review_status": "PENDING_HUMAN_ADJUDICATION"
+      "review_status": "PENDING_HUMAN_ADJUDICATION",
+      "researcher_person_count_statement": {
+        "recorded_date": "2026-11-17",
+        "statement_source": "Explicit researcher confirmation in chat",
+        "confirmed_visible_person_count": 4,
+        "count_matches_ai_pre_review": true,
+        "decision_scope": "VISIBLE_PERSON_COUNT_ONLY",
+        "review_signoff_status": "PRELIMINARY_COUNT_CONFIRMATION",
+        "whole_case_ground_truth_approved": false,
+        "notes": "Confirmation of counts only; PPE-to-person association, per-PPE states, source rights and policy remain open"
+      }
     },
     {
       "case_id": "D",
@@ -1385,7 +1415,17 @@
         }
       ],
       "absence_marker_boxes_not_evidence_of_absence": [],
-      "review_status": "PENDING_HUMAN_ADJUDICATION"
+      "review_status": "PENDING_HUMAN_ADJUDICATION",
+      "researcher_person_count_statement": {
+        "recorded_date": "2026-11-17",
+        "statement_source": "Explicit researcher confirmation in chat",
+        "confirmed_visible_person_count": 0,
+        "count_matches_ai_pre_review": true,
+        "decision_scope": "VISIBLE_PERSON_COUNT_ONLY",
+        "review_signoff_status": "PRELIMINARY_COUNT_CONFIRMATION",
+        "whole_case_ground_truth_approved": false,
+        "notes": "Confirmation of counts only; PPE-to-person association, per-PPE states, source rights and policy remain open"
+      }
     }
   ],
   "audit": {
@@ -1403,6 +1443,15 @@
     "approved_item_associations": 0,
     "approved_human_cases": 0,
     "rights_reviewed_cases": 0,
-    "note": "Counts are old box candidates and AI person inventory; uncounted missed items/people still possible."
+    "note": "Counts are old box candidates and AI person inventory; uncounted missed items/people still possible.",
+    "researcher_confirmed_person_count_cases": 4,
+    "researcher_confirmed_visible_persons": 7,
+    "researcher_confirmed_counts": {
+      "A": 1,
+      "B": 2,
+      "C": 4,
+      "D": 0
+    },
+    "researcher_count_confirmation_scope": "Counts only, not independent expert annotation completeness or whole-case sign-off"
   }
 }
