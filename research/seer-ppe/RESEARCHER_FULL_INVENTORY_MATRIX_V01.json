@@ -985,7 +985,16 @@
               "status_source": "UNASSESSED_PLACEHOLDER",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's reply 'لم ترى' to question whether eye protection and masks were visually discernible for all four in Case C",
+                "confirmed_visual_state": "UNKNOWN",
+                "evidence_description": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence",
+                "confirmation_scope": "VISIBILITY_UNCERTAINTY_ONLY_NOT_PPE_ABSENCE",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
+              }
             },
             {
               "ppe_type": "face_mask",
@@ -994,7 +1003,16 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's reply 'لم ترى' to question whether eye protection and masks were visually discernible for all four in Case C",
+                "confirmed_visual_state": "UNKNOWN",
+                "evidence_description": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence",
+                "confirmation_scope": "VISIBILITY_UNCERTAINTY_ONLY_NOT_PPE_ABSENCE",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
+              }
             },
             {
               "ppe_type": "glove",
@@ -1093,7 +1111,16 @@
               "status_source": "UNASSESSED_PLACEHOLDER",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's reply 'لم ترى' to question whether eye protection and masks were visually discernible for all four in Case C",
+                "confirmed_visual_state": "UNKNOWN",
+                "evidence_description": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence",
+                "confirmation_scope": "VISIBILITY_UNCERTAINTY_ONLY_NOT_PPE_ABSENCE",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
+              }
             },
             {
               "ppe_type": "face_mask",
@@ -1102,7 +1129,16 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's reply 'لم ترى' to question whether eye protection and masks were visually discernible for all four in Case C",
+                "confirmed_visual_state": "UNKNOWN",
+                "evidence_description": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence",
+                "confirmation_scope": "VISIBILITY_UNCERTAINTY_ONLY_NOT_PPE_ABSENCE",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
+              }
             },
             {
               "ppe_type": "glove",
@@ -1201,7 +1237,16 @@
               "status_source": "UNASSESSED_PLACEHOLDER",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's reply 'لم ترى' to question whether eye protection and masks were visually discernible for all four in Case C",
+                "confirmed_visual_state": "UNKNOWN",
+                "evidence_description": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence",
+                "confirmation_scope": "VISIBILITY_UNCERTAINTY_ONLY_NOT_PPE_ABSENCE",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
+              }
             },
             {
               "ppe_type": "face_mask",
@@ -1210,7 +1255,16 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's reply 'لم ترى' to question whether eye protection and masks were visually discernible for all four in Case C",
+                "confirmed_visual_state": "UNKNOWN",
+                "evidence_description": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence",
+                "confirmation_scope": "VISIBILITY_UNCERTAINTY_ONLY_NOT_PPE_ABSENCE",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
+              }
             },
             {
               "ppe_type": "glove",
@@ -1309,7 +1363,16 @@
               "status_source": "UNASSESSED_PLACEHOLDER",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's reply 'لم ترى' to question whether eye protection and masks were visually discernible for all four in Case C",
+                "confirmed_visual_state": "UNKNOWN",
+                "evidence_description": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence",
+                "confirmation_scope": "VISIBILITY_UNCERTAINTY_ONLY_NOT_PPE_ABSENCE",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
+              }
             },
             {
               "ppe_type": "face_mask",
@@ -1318,7 +1381,16 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's reply 'لم ترى' to question whether eye protection and masks were visually discernible for all four in Case C",
+                "confirmed_visual_state": "UNKNOWN",
+                "evidence_description": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence",
+                "confirmation_scope": "VISIBILITY_UNCERTAINTY_ONLY_NOT_PPE_ABSENCE",
+                "final_case_signoff": false,
+                "approved_equipment_to_person_box_matching": false
+              }
             },
             {
               "ppe_type": "glove",
@@ -1848,10 +1920,20 @@
         "independent_footwear_safety_certification_verified": false,
         "wearer_of_glove_J": "UNKNOWN",
         "other_PPE_item_to_person_links": "NOT_HUMAN_ADJUDICATED",
-        "face_mask_and_eyewear_status": "UNCHANGED_UNKNOWN",
+        "face_mask_and_eyewear_status": "RESEARCHER_CONFIRMED_UNKNOWN_NOT_VISIBLE",
         "worksite_policy_status": "POLICY_UNKNOWN",
         "rights_and_privacy_status": "UNREVIEWED",
-        "complete_case_approved": false
+        "complete_case_approved": false,
+        "eyewear_mask_visibility_statement": {
+          "source_statement_id": "2026-11-17-case-c-unseen-eyewear-masks",
+          "date": "2026-11-17",
+          "source": "User's 'لم ترى' in response to whether goggles and masks could be seen for four workers",
+          "all_four_eye_protection": "UNKNOWN",
+          "all_four_face_masks": "UNKNOWN",
+          "rationale": "Not visibly discernible; cannot infer ABSENT from nonvisibility",
+          "independent_image_reinspection_claimed": false,
+          "final_case_approved": false
+        }
       }
     },
     {
@@ -1937,10 +2019,11 @@
       "B",
       "C"
     ],
-    "researcher_preliminary_ppe_state_confirmations": 30,
+    "researcher_preliminary_ppe_state_confirmations": 38,
     "case_b_researcher_non_ppe_clothing_observation": "Front P001 no trousers, rear P002 trousers (researcher preliminary statement)",
     "case_b_researcher_scene_footwear_presence": "Reported visible, individual K/L/M association unknown",
     "case_c_researcher_traditional_outerwear": "All four reported to wear traditional abaya; clothing context, not protective compliance verdict",
-    "case_c_glove_J_individual_owner": "UNKNOWN"
+    "case_c_glove_J_individual_owner": "UNKNOWN",
+    "case_c_eyewear_and_masks": "Researcher confirmed not visible => UNKNOWN in all 4 people, no ABSENT claim"
   }
 }
