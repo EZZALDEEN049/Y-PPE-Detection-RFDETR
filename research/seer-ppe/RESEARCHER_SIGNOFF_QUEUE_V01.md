@@ -209,3 +209,18 @@ Asked whether goggles and face masks can be clearly seen for all four Case C wor
 | `P004` | `UNKNOWN` | `UNKNOWN` | Neither item discernible enough to determine wear |
 
 No source `No Face Mask` annotation, lack of detection, or unseen eyes/mouth shall be converted into an `ABSENT` reference without direct anatomical evidence. Previous person-level helmet, vest, glove and boot observations remain in force, as does the researcher's `UNKNOWN` wearer decision for original glove `J` / `E012`. The four cases remain `incomplete` until source-rights/privacy, source-group and full item-association review and sign-off. `POLICY_UNKNOWN` unchanged.
+
+
+## Case D — researcher confirms standalone helmet and no visible worker (2026-11-17)
+
+**Researcher statement:** Answered **"نعم"** when asked whether Case D (`h1.jpg`) has only a standalone **yellow hard hat** and **zero visible people wearing it**. This is a preliminary researcher-confirmed image-content observation, not approval of complete ground truth.
+
+| Review component | Researcher preliminary result | Meaning |
+|---|---|---|
+| Visible persons | `0` | Previously confirmed in the 4-image person-count check |
+| Physical hard-hat instance | `1`, `PRESENT` as standalone item | Old positive source annotation ID `1`; not PPE being worn by an observed worker |
+| Wearer association | `UNKNOWN`, `person_id=null` | No visible person to attach the helmet to |
+| Worker PPE/compliance outcome | **Not applicable** | No missing-PPE or violation event inferred from a standalone helmet |
+| PPE certification / worksite policy | `UNKNOWN` / `POLICY_UNKNOWN` | Image provides neither independent grade evidence nor site task rules |
+
+Original source annotations/training/model/splits are unchanged. Rights/privacy/source-family and final evidence review remain outstanding; Roboflow Eval Case D must remain `groundTruth={}` and `groundTruthState=incomplete`. **Do not increase the 38 person×PPE visual-state confirmations:** this image has zero people and only one individually acknowledged orphan equipment item.
