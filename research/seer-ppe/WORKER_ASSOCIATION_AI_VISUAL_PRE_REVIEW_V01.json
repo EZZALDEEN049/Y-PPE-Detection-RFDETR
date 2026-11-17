@@ -13,7 +13,8 @@
     "MATCHED_CANDIDATE/AMBIGUOUS_CANDIDATE/UNKNOWN_CANDIDATE are review suggestions, NOT SEER-PPE algorithm outputs or human-labeled ground truth.",
     "An absence-marker model class is not a physical PPE instance. A visible industrial boot does not establish safety certification.",
     "Glove J / E012: researcher explicitly supplied a preliminary UNKNOWN decision on 2026-11-17, superseding the original AI ambiguous *suggestion* for current review decisions. Prior AI suggestion retained as historical unapproved trace; do not treat as approved ground truth.",
-    "Rechecked image B raw 500x330 source, old safety-boot annotation IDs K/L/M. All proposed wearer links are unapproved and boot safety grade remains UNKNOWN; inspect product/certification evidence before any safety-boot visual-state PRESENT decision."
+    "Rechecked image B raw 500x330 source, old safety-boot annotation IDs K/L/M. All proposed wearer links are unapproved and boot safety grade remains UNKNOWN; inspect product/certification evidence before any safety-boot visual-state PRESENT decision.",
+    "Case B K/L/M: researcher preliminary decision on 2026-11-17 is UNKNOWN for all three person associations and all safety-boot certification. Prior AI P002/P001/P001 geometric candidates remain only as historical unapproved suggestions; reviewer sign-off still missing."
   ],
   "images": [
     {
@@ -356,6 +357,18 @@
             "ppe_type_adjudication_status": "PENDING_HUMAN_VERIFICATION",
             "confidence_claim": "NONE",
             "ground_truth_approved": false
+          },
+          "researcher_provisional_statement": {
+            "date": "2026-11-17",
+            "source": "Explicit researcher chat statement",
+            "decision": "UNKNOWN",
+            "person_id": null,
+            "reason": "Researcher cannot confirm attribution of this footwear item to a visible person",
+            "safety_boot_certification_status": "UNKNOWN",
+            "policy_status": "POLICY_UNKNOWN",
+            "adjudication_status": "NOT_FINAL",
+            "needs_additional_evidence": true,
+            "ground_truth_approved": false
           }
         },
         {
@@ -386,6 +399,18 @@
             "ppe_type_adjudication_status": "PENDING_HUMAN_VERIFICATION",
             "confidence_claim": "NONE",
             "ground_truth_approved": false
+          },
+          "researcher_provisional_statement": {
+            "date": "2026-11-17",
+            "source": "Explicit researcher chat statement",
+            "decision": "UNKNOWN",
+            "person_id": null,
+            "reason": "Researcher cannot confirm attribution of this footwear item to a visible person",
+            "safety_boot_certification_status": "UNKNOWN",
+            "policy_status": "POLICY_UNKNOWN",
+            "adjudication_status": "NOT_FINAL",
+            "needs_additional_evidence": true,
+            "ground_truth_approved": false
           }
         },
         {
@@ -415,6 +440,18 @@
             "safety_boot_certification_status": "UNKNOWN",
             "ppe_type_adjudication_status": "PENDING_HUMAN_VERIFICATION",
             "confidence_claim": "NONE",
+            "ground_truth_approved": false
+          },
+          "researcher_provisional_statement": {
+            "date": "2026-11-17",
+            "source": "Explicit researcher chat statement",
+            "decision": "UNKNOWN",
+            "person_id": null,
+            "reason": "Researcher cannot confirm attribution of this footwear item to a visible person",
+            "safety_boot_certification_status": "UNKNOWN",
+            "policy_status": "POLICY_UNKNOWN",
+            "adjudication_status": "NOT_FINAL",
+            "needs_additional_evidence": true,
             "ground_truth_approved": false
           }
         }
