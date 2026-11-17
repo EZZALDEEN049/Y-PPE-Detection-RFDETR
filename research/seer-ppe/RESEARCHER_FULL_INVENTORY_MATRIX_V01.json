@@ -1148,6 +1148,37 @@
         "task_site_requirements": "POLICY_UNKNOWN",
         "review_state": "HUMAN_ITEM_LINKAGE_DECIDED_SOURCE_AND_CASE_REVIEW_PENDING",
         "no_training_annotations_changed": true
+      },
+      "roboflow_eval_ground_truth_import": {
+        "date": "2026-11-18",
+        "eval_dataset_id": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+        "case_id": "87b6cc58-43bd-4583-8b13-bd9b7413c03d",
+        "case_revision": 2,
+        "groundTruthState": "incomplete",
+        "saved_fields": [
+          "persons",
+          "ppe_items",
+          "worker_ppe_states",
+          "associations",
+          "task_mandates"
+        ],
+        "n_persons": 2,
+        "n_positive_item_boxes_with_human_verified_links": 4,
+        "n_human_verified_MATCHED_links": 4,
+        "n_researcher_confirmed_visual_states": 8,
+        "n_policy_unknown_rows": 8,
+        "excluded_pending_source_identification_and_item_coverage": [
+          "9",
+          "A",
+          "K",
+          "L",
+          "M"
+        ],
+        "explicit_unknown_ownership_decisions_stored_in_GitHub": true,
+        "omitted_source_review_due_unreviewed_rights_privacy_source_family": true,
+        "task_policy": "POLICY_UNKNOWN",
+        "no_complete_ground_truth_claim": true,
+        "original_training_dataset_model_untouched": true
       }
     },
     {
@@ -2305,6 +2336,9 @@
       "L",
       "M"
     ],
-    "case_b_real_glove_presence_9_A_not_certified": true
+    "case_b_real_glove_presence_9_A_not_certified": true,
+    "case_b_eval_ground_truth_partial_saved": true,
+    "case_b_eval_ground_truth_state": "incomplete",
+    "case_b_eval_ground_truth_revision": 2
   }
 }
