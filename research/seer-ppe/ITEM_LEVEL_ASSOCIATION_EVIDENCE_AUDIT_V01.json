@@ -37,7 +37,10 @@
     "human_item_level_final_signoff_definition": "Final for owner link only, including unresolved UNKNOWN; does not establish actual item identity, PPE grade, task policy or whole-case readiness.",
     "case_b_eval_ground_truth_partial_saved": true,
     "case_b_eval_ground_truth_state": "incomplete",
-    "case_b_eval_ground_truth_revision": 2
+    "case_b_eval_ground_truth_revision": 2,
+    "case_c_source_image_rechecked_2026_11_18": true,
+    "case_c_pending_ai_candidate_links": 12,
+    "case_c_J_researcher_preliminary_unknown_preserved": true
   },
   "cases": [
     {
@@ -744,7 +747,13 @@
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
           "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "human_item_level_final_signoff": false,
+          "ai_source_image_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "evidence": "High-visibility vest on second P002 torso",
+            "reviewer_type": "AI_ONLY"
+          }
         },
         {
           "case_id": "C",
@@ -782,7 +791,13 @@
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
           "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "human_item_level_final_signoff": false,
+          "ai_source_image_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "evidence": "High-visibility vest on far-left P001 torso",
+            "reviewer_type": "AI_ONLY"
+          }
         },
         {
           "case_id": "C",
@@ -820,7 +835,13 @@
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
           "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "human_item_level_final_signoff": false,
+          "ai_source_image_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P003",
+            "evidence": "High-visibility vest on third P003 torso",
+            "reviewer_type": "AI_ONLY"
+          }
         },
         {
           "case_id": "C",
@@ -858,7 +879,13 @@
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
           "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "human_item_level_final_signoff": false,
+          "ai_source_image_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P004",
+            "evidence": "Partial bright reflective vest segment on crouching P004 back/torso; full garment partially obscured",
+            "reviewer_type": "AI_ONLY"
+          }
         },
         {
           "case_id": "C",
@@ -896,7 +923,13 @@
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
           "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "human_item_level_final_signoff": false,
+          "ai_source_image_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P004",
+            "evidence": "Yellow hard hat on crouching far-right P004 head",
+            "reviewer_type": "AI_ONLY"
+          }
         },
         {
           "case_id": "C",
@@ -934,7 +967,13 @@
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
           "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "human_item_level_final_signoff": false,
+          "ai_source_image_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P003",
+            "evidence": "Yellow hard hat on leaning third P003 head",
+            "reviewer_type": "AI_ONLY"
+          }
         },
         {
           "case_id": "C",
@@ -972,7 +1011,13 @@
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
           "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "human_item_level_final_signoff": false,
+          "ai_source_image_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "evidence": "Yellow hard hat on second P002 head",
+            "reviewer_type": "AI_ONLY"
+          }
         },
         {
           "case_id": "C",
@@ -1010,7 +1055,13 @@
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
           "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "human_item_level_final_signoff": false,
+          "ai_source_image_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "evidence": "Yellow hard hat on far-left P001 head",
+            "reviewer_type": "AI_ONLY"
+          }
         },
         {
           "case_id": "C",
@@ -1048,7 +1099,13 @@
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
           "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "human_item_level_final_signoff": false,
+          "ai_source_image_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "evidence": "Red glove on second P002 hand",
+            "reviewer_type": "AI_ONLY"
+          }
         },
         {
           "case_id": "C",
@@ -1086,7 +1143,13 @@
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
           "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "human_item_level_final_signoff": false,
+          "ai_source_image_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "evidence": "Red glove near far-left P001 hand",
+            "reviewer_type": "AI_ONLY"
+          }
         },
         {
           "case_id": "C",
@@ -1124,7 +1187,13 @@
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
           "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "human_item_level_final_signoff": false,
+          "ai_source_image_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "evidence": "Red glove at far-left P001 other hand",
+            "reviewer_type": "AI_ONLY"
+          }
         },
         {
           "case_id": "C",
@@ -1166,7 +1235,12 @@
             "BOX_CENTER_IN_PERSON_GAP_NEEDS_REVIEW"
           ],
           "next_review_action": "Retain UNKNOWN person association unless independent evidence supports change",
-          "human_item_level_final_signoff": false
+          "human_item_level_final_signoff": false,
+          "ai_source_image_recheck": {
+            "status": "UNKNOWN_CANDIDATE",
+            "person_id": null,
+            "evidence": "Researcher's J owner UNKNOWN remains in force; extended arms overlap"
+          }
         },
         {
           "case_id": "C",
@@ -1204,7 +1278,13 @@
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
           "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "human_item_level_final_signoff": false,
+          "ai_source_image_recheck": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P003",
+            "evidence": "Red glove near third P003 hand; P003/P004 arm intersection requires extra attention",
+            "reviewer_type": "AI_ONLY"
+          }
         }
       ],
       "absence_markers": [
