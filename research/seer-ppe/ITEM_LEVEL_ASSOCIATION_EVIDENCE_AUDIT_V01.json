@@ -3,7 +3,7 @@
   "date": "2026-11-17",
   "source_project": "softyyemen/altayyar-0oflt-lafos-qqauz",
   "eval_dataset_id": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
-  "audit_status": "AI_ASSISTED_EVIDENCE_TRIAGE_ONLY_NOT_HUMAN_APPROVED_GOLD",
+  "audit_status": "MIXED: CASE_A_HUMAN_ITEM_APPROVED_OTHERS_AI_TRIAGE_ONLY_NOT_COMPLETE_EVAL_REFERENCE",
   "source_provenance": "Native read-only original Roboflow boxes compared to previous item candidates and researcher's explicit chat statements; geometry is a triage feature not identity proof.",
   "original_model_or_labels_modified": false,
   "summary": {
@@ -11,8 +11,8 @@
     "annotated_physical_ppe_items": 26,
     "physical_ppe_items_with_researcher_preliminary_owner_UNKNOWN": 5,
     "ai_uncertain_items_without_human_item_adjudication": 2,
-    "ai_proposed_matches_not_independently_human_item_approved": 19,
-    "human_item_level_fully_verified": 0,
+    "ai_proposed_matches_not_independently_human_item_approved": 16,
+    "human_item_level_fully_verified": 3,
     "annotated_absence_markers_not_physical_PPE": 14,
     "case_C_No_Safety_Boots_legacy_markers": 4,
     "case_B_no_safety_vest_legacy_markers": 2,
@@ -24,7 +24,9 @@
       "D": 0
     },
     "source_rights_cleared": 0,
-    "completed_eval_cases": 0
+    "completed_eval_cases": 0,
+    "researcher_final_visual_case_A": true,
+    "preserved_legacy_source_annotations": true
   },
   "cases": [
     {
@@ -63,7 +65,7 @@
             "person_id": null,
             "source": "NO_RESEARCHER_DECISION"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
@@ -73,8 +75,14 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "next_review_action": "Individual wearer linkage approved by researcher. Preserve link; verify source rights/privacy/family and perform case-level second pass before marking Roboflow Eval complete.",
+          "human_item_level_final_signoff": true,
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "EXPLICIT_RESEARCHER_FINAL_APPROVAL_2026-11-17",
+            "is_final": true
+          }
         },
         {
           "case_id": "A",
@@ -101,7 +109,7 @@
             "person_id": null,
             "source": "NO_RESEARCHER_DECISION"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
@@ -111,8 +119,14 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "next_review_action": "Individual wearer linkage approved by researcher. Preserve link; verify source rights/privacy/family and perform case-level second pass before marking Roboflow Eval complete.",
+          "human_item_level_final_signoff": true,
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "EXPLICIT_RESEARCHER_FINAL_APPROVAL_2026-11-17",
+            "is_final": true
+          }
         },
         {
           "case_id": "A",
@@ -139,7 +153,7 @@
             "person_id": null,
             "source": "NO_RESEARCHER_DECISION"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
@@ -149,8 +163,14 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "next_review_action": "Individual wearer linkage approved by researcher. Preserve link; verify source rights/privacy/family and perform case-level second pass before marking Roboflow Eval complete.",
+          "human_item_level_final_signoff": true,
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "EXPLICIT_RESEARCHER_FINAL_APPROVAL_2026-11-17",
+            "is_final": true
+          }
         }
       ],
       "absence_markers": [
