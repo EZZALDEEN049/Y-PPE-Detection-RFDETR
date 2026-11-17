@@ -3,16 +3,16 @@
   "date": "2026-11-17",
   "source_project": "softyyemen/altayyar-0oflt-lafos-qqauz",
   "eval_dataset_id": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
-  "audit_status": "MIXED: CASE_A_HUMAN_ITEM_APPROVED_OTHERS_AI_TRIAGE_ONLY_NOT_COMPLETE_EVAL_REFERENCE",
+  "audit_status": "MIXED: CASE_A_AND_B_LINKAGE_APPROVED_B_UNRESOLVED_OWNERSHIP_DOCUMENTED_OTHERS_NOT_REVIEWED",
   "source_provenance": "Native read-only original Roboflow boxes compared to previous item candidates and researcher's explicit chat statements; geometry is a triage feature not identity proof.",
   "original_model_or_labels_modified": false,
   "summary": {
     "case_count": 4,
     "annotated_physical_ppe_items": 26,
-    "physical_ppe_items_with_researcher_preliminary_owner_UNKNOWN": 5,
-    "ai_uncertain_items_without_human_item_adjudication": 2,
-    "ai_proposed_matches_not_independently_human_item_approved": 16,
-    "human_item_level_fully_verified": 3,
+    "physical_ppe_items_with_researcher_preliminary_owner_UNKNOWN": 2,
+    "ai_uncertain_items_without_human_item_adjudication": 0,
+    "ai_proposed_matches_not_independently_human_item_approved": 12,
+    "human_item_level_fully_verified": 7,
     "annotated_absence_markers_not_physical_PPE": 14,
     "case_C_No_Safety_Boots_legacy_markers": 4,
     "case_B_no_safety_vest_legacy_markers": 2,
@@ -29,7 +29,12 @@
     "preserved_legacy_source_annotations": true,
     "case_a_eval_ground_truth_partial_saved": true,
     "case_a_eval_ground_truth_state": "incomplete",
-    "case_a_eval_ground_truth_revision": 2
+    "case_a_eval_ground_truth_revision": 2,
+    "human_final_matched_ownership_links": 7,
+    "human_confirmed_unknown_owner_items": 5,
+    "researcher_provisional_unknown_owner_items": 2,
+    "total_items_reviewed_for_owner_decision": 12,
+    "human_item_level_final_signoff_definition": "Final for owner link only, including unresolved UNKNOWN; does not establish actual item identity, PPE grade, task policy or whole-case readiness."
   },
   "cases": [
     {
@@ -225,11 +230,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "RESEARCHER_FINAL_ITEM_LINK_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
@@ -242,8 +247,14 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "next_review_action": "Final box-to-visible-worker decision approved by researcher; preserve match. Do not infer safety grade/policy or full Eval readiness.",
+          "human_item_level_final_signoff": true,
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "RESEARCHER_FINAL_ITEM_LINK_2026-11-18",
+            "is_final": true
+          }
         },
         {
           "case_id": "B",
@@ -267,11 +278,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P002",
+            "source": "RESEARCHER_FINAL_ITEM_LINK_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P002",
@@ -284,8 +295,14 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "next_review_action": "Final box-to-visible-worker decision approved by researcher; preserve match. Do not infer safety grade/policy or full Eval readiness.",
+          "human_item_level_final_signoff": true,
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P002",
+            "source": "RESEARCHER_FINAL_ITEM_LINK_2026-11-18",
+            "is_final": true
+          }
         },
         {
           "case_id": "B",
@@ -308,11 +325,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "RESEARCHER_FINAL_ITEM_LINK_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
@@ -325,8 +342,14 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "next_review_action": "Final box-to-visible-worker decision approved by researcher; preserve match. Do not infer safety grade/policy or full Eval readiness.",
+          "human_item_level_final_signoff": true,
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "RESEARCHER_FINAL_ITEM_LINK_2026-11-18",
+            "is_final": true
+          }
         },
         {
           "case_id": "B",
@@ -349,11 +372,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "RESEARCHER_FINAL_ITEM_LINK_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
@@ -366,8 +389,14 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false
+          "next_review_action": "Final box-to-visible-worker decision approved by researcher; preserve match. Do not infer safety grade/policy or full Eval readiness.",
+          "human_item_level_final_signoff": true,
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "RESEARCHER_FINAL_ITEM_LINK_2026-11-18",
+            "is_final": true
+          }
         },
         {
           "case_id": "B",
@@ -390,11 +419,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
+            "status": "UNKNOWN",
             "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "source": "RESEARCHER_CONFIRMED_UNKNOWN_OWNER_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_UNCERTAIN_NEEDS_HUMAN_ITEM_REVIEW",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_UNKNOWN_OWNER",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P002",
@@ -410,8 +439,15 @@
             "AI_SOURCE_RECHECK_COULD_NOT_CONFIRM_REAR_GLOVES",
             "P002_GLOVE_VISUAL_UNKNOWN"
           ],
-          "next_review_action": "Inspect actual item/hand and do not force an owner from old labels",
-          "human_item_level_final_signoff": false
+          "next_review_action": "Researcher confirmed item-to-person owner UNKNOWN. Keep person_id null; verify whether source boxes 9/A depict physical gloves and safety boot certification separately if evidence becomes available.",
+          "human_item_level_final_signoff": true,
+          "researcher_final_link": {
+            "status": "UNKNOWN",
+            "person_id": null,
+            "source": "RESEARCHER_CONFIRMED_UNKNOWN_OWNER_2026-11-18",
+            "is_final": true
+          },
+          "physical_item_identity_verified_by_researcher": false
         },
         {
           "case_id": "B",
@@ -434,11 +470,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
+            "status": "UNKNOWN",
             "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "source": "RESEARCHER_CONFIRMED_UNKNOWN_OWNER_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_UNCERTAIN_NEEDS_HUMAN_ITEM_REVIEW",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_UNKNOWN_OWNER",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P002",
@@ -454,8 +490,15 @@
             "AI_SOURCE_RECHECK_COULD_NOT_CONFIRM_REAR_GLOVES",
             "P002_GLOVE_VISUAL_UNKNOWN"
           ],
-          "next_review_action": "Inspect actual item/hand and do not force an owner from old labels",
-          "human_item_level_final_signoff": false
+          "next_review_action": "Researcher confirmed item-to-person owner UNKNOWN. Keep person_id null; verify whether source boxes 9/A depict physical gloves and safety boot certification separately if evidence becomes available.",
+          "human_item_level_final_signoff": true,
+          "researcher_final_link": {
+            "status": "UNKNOWN",
+            "person_id": null,
+            "source": "RESEARCHER_CONFIRMED_UNKNOWN_OWNER_2026-11-18",
+            "is_final": true
+          },
+          "physical_item_identity_verified_by_researcher": false
         },
         {
           "case_id": "B",
@@ -480,9 +523,9 @@
           "researcher_preliminary_link": {
             "status": "UNKNOWN",
             "person_id": null,
-            "source": "EXPLICIT_RESEARCHER_STATEMENT_PRELIMINARY"
+            "source": "RESEARCHER_CONFIRMED_UNKNOWN_OWNER_2026-11-18"
           },
-          "effective_item_level_disposition": "RESEARCHER_PRELIMINARY_UNKNOWN",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_UNKNOWN_OWNER",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P002",
@@ -495,8 +538,15 @@
             "RESEARCHER_OWNER_UNKNOWN",
             "SAFETY_GRADE_UNVERIFIED"
           ],
-          "next_review_action": "Retain UNKNOWN person association unless independent evidence supports change",
-          "human_item_level_final_signoff": false
+          "next_review_action": "Researcher confirmed item-to-person owner UNKNOWN. Keep person_id null; verify whether source boxes 9/A depict physical gloves and safety boot certification separately if evidence becomes available.",
+          "human_item_level_final_signoff": true,
+          "researcher_final_link": {
+            "status": "UNKNOWN",
+            "person_id": null,
+            "source": "RESEARCHER_CONFIRMED_UNKNOWN_OWNER_2026-11-18",
+            "is_final": true
+          },
+          "physical_item_identity_verified_by_researcher": false
         },
         {
           "case_id": "B",
@@ -521,9 +571,9 @@
           "researcher_preliminary_link": {
             "status": "UNKNOWN",
             "person_id": null,
-            "source": "EXPLICIT_RESEARCHER_STATEMENT_PRELIMINARY"
+            "source": "RESEARCHER_CONFIRMED_UNKNOWN_OWNER_2026-11-18"
           },
-          "effective_item_level_disposition": "RESEARCHER_PRELIMINARY_UNKNOWN",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_UNKNOWN_OWNER",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
@@ -536,8 +586,15 @@
             "RESEARCHER_OWNER_UNKNOWN",
             "SAFETY_GRADE_UNVERIFIED"
           ],
-          "next_review_action": "Retain UNKNOWN person association unless independent evidence supports change",
-          "human_item_level_final_signoff": false
+          "next_review_action": "Researcher confirmed item-to-person owner UNKNOWN. Keep person_id null; verify whether source boxes 9/A depict physical gloves and safety boot certification separately if evidence becomes available.",
+          "human_item_level_final_signoff": true,
+          "researcher_final_link": {
+            "status": "UNKNOWN",
+            "person_id": null,
+            "source": "RESEARCHER_CONFIRMED_UNKNOWN_OWNER_2026-11-18",
+            "is_final": true
+          },
+          "physical_item_identity_verified_by_researcher": false
         },
         {
           "case_id": "B",
@@ -562,9 +619,9 @@
           "researcher_preliminary_link": {
             "status": "UNKNOWN",
             "person_id": null,
-            "source": "EXPLICIT_RESEARCHER_STATEMENT_PRELIMINARY"
+            "source": "RESEARCHER_CONFIRMED_UNKNOWN_OWNER_2026-11-18"
           },
-          "effective_item_level_disposition": "RESEARCHER_PRELIMINARY_UNKNOWN",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_UNKNOWN_OWNER",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
@@ -577,8 +634,15 @@
             "RESEARCHER_OWNER_UNKNOWN",
             "SAFETY_GRADE_UNVERIFIED"
           ],
-          "next_review_action": "Retain UNKNOWN person association unless independent evidence supports change",
-          "human_item_level_final_signoff": false
+          "next_review_action": "Researcher confirmed item-to-person owner UNKNOWN. Keep person_id null; verify whether source boxes 9/A depict physical gloves and safety boot certification separately if evidence becomes available.",
+          "human_item_level_final_signoff": true,
+          "researcher_final_link": {
+            "status": "UNKNOWN",
+            "person_id": null,
+            "source": "RESEARCHER_CONFIRMED_UNKNOWN_OWNER_2026-11-18",
+            "is_final": true
+          },
+          "physical_item_identity_verified_by_researcher": false
         }
       ],
       "absence_markers": [
