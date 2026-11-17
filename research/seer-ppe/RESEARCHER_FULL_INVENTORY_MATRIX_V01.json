@@ -15,7 +15,7 @@
       "split": "train",
       "raw_image_rights_clearance": "UNREVIEWED",
       "person_count_visual_ai_only": 1,
-      "person_inventory_exhaustive_human_verified": false,
+      "person_inventory_exhaustive_human_verified": true,
       "persons": [
         {
           "person_id": "P001",
@@ -27,7 +27,7 @@
             0.99999
           ],
           "candidate_description": "Single visible person, frontal upper-body view; actual scene/task requirement unknown.",
-          "human_person_inventory_verified": false,
+          "human_person_inventory_verified": true,
           "types": [
             {
               "ppe_type": "hard_hat",
@@ -41,9 +41,9 @@
                 "date": "2026-11-17",
                 "statement_source": "Researcher's explicit confirmation in chat",
                 "confirmed_visual_state": "PRESENT",
-                "evidence_description": "Yellow hard hat visibly worn; safety grade not certified",
-                "confirmation_scope": "VISUAL_STATE_ONLY",
-                "is_final_case_signoff": false
+                "evidence_description": "Yellow hard hat visibly worn by P001 (old source item box 3)",
+                "confirmation_scope": "FINAL_HUMAN_VISUAL_REVIEW_OF_CASE_A",
+                "is_final_case_signoff": true
               }
             },
             {
@@ -58,9 +58,9 @@
                 "date": "2026-11-17",
                 "statement_source": "Researcher's explicit confirmation in chat",
                 "confirmed_visual_state": "PRESENT",
-                "evidence_description": "High-visibility vest visibly worn; task mandate unknown",
-                "confirmation_scope": "VISUAL_STATE_ONLY",
-                "is_final_case_signoff": false
+                "evidence_description": "High-visibility vest visibly worn by P001 (old source item box 1)",
+                "confirmation_scope": "FINAL_HUMAN_VISUAL_REVIEW_OF_CASE_A",
+                "is_final_case_signoff": true
               }
             },
             {
@@ -75,9 +75,9 @@
                 "date": "2026-11-17",
                 "statement_source": "Researcher's explicit confirmation in chat",
                 "confirmed_visual_state": "PRESENT",
-                "evidence_description": "Clear protective eyewear visible; specific protective rating not certified",
-                "confirmation_scope": "VISUAL_STATE_ONLY",
-                "is_final_case_signoff": false
+                "evidence_description": "Visible eye protection worn by P001 (old source item box 2); product-grade unknown",
+                "confirmation_scope": "FINAL_HUMAN_VISUAL_REVIEW_OF_CASE_A",
+                "is_final_case_signoff": true
               }
             },
             {
@@ -92,9 +92,9 @@
                 "date": "2026-11-17",
                 "statement_source": "Researcher's explicit confirmation in chat",
                 "confirmed_visual_state": "ABSENT",
-                "evidence_description": "Uncovered nose and mouth; visual absence does not prove policy violation",
-                "confirmation_scope": "VISUAL_STATE_ONLY",
-                "is_final_case_signoff": false
+                "evidence_description": "Researcher explicitly confirms no face mask on visible nose/mouth; absence is visual, not a violation without documented task/site policy",
+                "confirmation_scope": "FINAL_HUMAN_VISUAL_REVIEW_OF_CASE_A",
+                "is_final_case_signoff": true
               }
             },
             {
@@ -109,9 +109,9 @@
                 "date": "2026-11-17",
                 "statement_source": "Researcher's explicit confirmation in chat",
                 "confirmed_visual_state": "UNKNOWN",
-                "evidence_description": "Hands cropped out; cannot determine glove state",
-                "confirmation_scope": "VISUAL_STATE_ONLY",
-                "is_final_case_signoff": false
+                "evidence_description": "Hands outside cropped source image; cannot infer worn/not worn",
+                "confirmation_scope": "FINAL_HUMAN_VISUAL_REVIEW_OF_CASE_A",
+                "is_final_case_signoff": true
               }
             },
             {
@@ -126,9 +126,9 @@
                 "date": "2026-11-17",
                 "statement_source": "Researcher's explicit confirmation in chat",
                 "confirmed_visual_state": "UNKNOWN",
-                "evidence_description": "Feet cropped out; cannot determine boot state",
-                "confirmation_scope": "VISUAL_STATE_ONLY",
-                "is_final_case_signoff": false
+                "evidence_description": "Feet outside cropped source image; cannot infer worn/not worn or safety certification",
+                "confirmation_scope": "FINAL_HUMAN_VISUAL_REVIEW_OF_CASE_A",
+                "is_final_case_signoff": true
               }
             }
           ]
@@ -149,10 +149,13 @@
             0.99925
           ],
           "provisional_association": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION",
-            "is_final": false
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "EXPLICIT_RESEARCHER_FINAL_APPROVAL_2026-11-17",
+            "is_final": true,
+            "decision_scope": "ITEM_TO_VISIBLE_PERSON_SEMANTIC_REVIEW",
+            "evidence": "Researcher explicitly approved source item boxes 1,2,3 to the lone visible person P001",
+            "not_independent_product_certification": true
           },
           "historic_ai_candidate": {
             "status": "MATCHED_CANDIDATE",
@@ -161,7 +164,8 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": true,
+          "researcher_final_approval_date": "2026-11-17"
         },
         {
           "item_id": "E002",
@@ -175,10 +179,13 @@
             0.43778
           ],
           "provisional_association": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION",
-            "is_final": false
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "EXPLICIT_RESEARCHER_FINAL_APPROVAL_2026-11-17",
+            "is_final": true,
+            "decision_scope": "ITEM_TO_VISIBLE_PERSON_SEMANTIC_REVIEW",
+            "evidence": "Researcher explicitly approved source item boxes 1,2,3 to the lone visible person P001",
+            "not_independent_product_certification": true
           },
           "historic_ai_candidate": {
             "status": "MATCHED_CANDIDATE",
@@ -187,7 +194,8 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": true,
+          "researcher_final_approval_date": "2026-11-17"
         },
         {
           "item_id": "E003",
@@ -201,10 +209,13 @@
             0.36289
           ],
           "provisional_association": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION",
-            "is_final": false
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "EXPLICIT_RESEARCHER_FINAL_APPROVAL_2026-11-17",
+            "is_final": true,
+            "decision_scope": "ITEM_TO_VISIBLE_PERSON_SEMANTIC_REVIEW",
+            "evidence": "Researcher explicitly approved source item boxes 1,2,3 to the lone visible person P001",
+            "not_independent_product_certification": true
           },
           "historic_ai_candidate": {
             "status": "MATCHED_CANDIDATE",
@@ -213,7 +224,8 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": true,
+          "researcher_final_approval_date": "2026-11-17"
         }
       ],
       "absence_marker_boxes_not_evidence_of_absence": [
@@ -229,21 +241,21 @@
           "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
         }
       ],
-      "review_status": "PENDING_HUMAN_ADJUDICATION",
+      "review_status": "FINAL_HUMAN_VISUAL_APPROVED_SOURCE_CLEARANCE_PENDING",
       "researcher_person_count_statement": {
         "recorded_date": "2026-11-17",
         "statement_source": "Explicit researcher confirmation in chat",
         "confirmed_visible_person_count": 1,
         "count_matches_ai_pre_review": true,
         "decision_scope": "VISIBLE_PERSON_COUNT_ONLY",
-        "review_signoff_status": "PRELIMINARY_COUNT_CONFIRMATION",
+        "review_signoff_status": "FINAL_VISIBLE_COUNT_APPROVED",
         "whole_case_ground_truth_approved": false,
         "notes": "Confirmation of counts only; PPE-to-person association, per-PPE states, source rights and policy remain open"
       },
       "researcher_ppe_visual_statement": {
         "date": "2026-11-17",
         "person_id": "P001",
-        "confirmation_scope": "SIX_PROPOSED_VISUAL_STATES_ONLY",
+        "confirmation_scope": "FINAL_HUMAN_VISUAL_REVIEW_OF_CASE_A",
         "confirmed_ppe_states": {
           "hard_hat": "PRESENT",
           "safety_vest": "PRESENT",
@@ -252,10 +264,56 @@
           "glove": "UNKNOWN",
           "safety_boot": "UNKNOWN"
         },
-        "case_signoff": "PENDING",
+        "case_signoff": "FINAL_VISUAL_ADJUDICATION_APPROVED_SOURCE_REVIEW_PENDING",
         "policy_status": "POLICY_UNKNOWN",
-        "equipment_object_association_approved": false,
+        "equipment_object_association_approved": true,
         "rights_review_status": "UNREVIEWED"
+      },
+      "researcher_final_visual_adjudication": {
+        "date": "2026-11-17",
+        "source": "Researcher explicit Arabic statement: 'نعم ويعتبر اعتماد نهاي للصورة الصورة ليس فيها قناع فقط اما الحالات الاخر غير ظاهرة لان الصورم مقصوصه'",
+        "item_links_approved_finally": [
+          {
+            "source_annotation_id": "1",
+            "item_id": "E001",
+            "ppe_type": "safety_vest",
+            "person_id": "P001",
+            "status": "MATCHED"
+          },
+          {
+            "source_annotation_id": "2",
+            "item_id": "E002",
+            "ppe_type": "goggles",
+            "person_id": "P001",
+            "status": "MATCHED"
+          },
+          {
+            "source_annotation_id": "3",
+            "item_id": "E003",
+            "ppe_type": "hard_hat",
+            "person_id": "P001",
+            "status": "MATCHED"
+          }
+        ],
+        "visible_persons": 1,
+        "person_id": "P001",
+        "worker_visual_states": {
+          "hard_hat": "PRESENT",
+          "safety_vest": "PRESENT",
+          "goggles": "PRESENT",
+          "face_mask": "ABSENT",
+          "glove": "UNKNOWN",
+          "safety_boot": "UNKNOWN"
+        },
+        "face_mask_absence_evidence": "Visible nose and mouth uncovered; researcher says no mask",
+        "glove_unknown_reason": "HANDS_CROPPED",
+        "boot_unknown_reason": "FEET_CROPPED",
+        "safety_grade_certification_status": "UNVERIFIED",
+        "task_site_policy": "POLICY_UNKNOWN",
+        "review_approval_status": "FINAL_FOR_VISIBLE_PERSON_ITEM_LINKS_AND_WORKER_VISUAL_STATES",
+        "broader_reference_status": "PENDING_RIGHTS_PRIVACY_SOURCE_FAMILY_AND_SECOND_PASS",
+        "Roboflow_ground_truth_state_required_until_clearance": "incomplete",
+        "claim_of_worker_noncompliance": false
       }
     },
     {
@@ -2032,7 +2090,7 @@
       "B:L",
       "B:M"
     ],
-    "approved_item_associations": 0,
+    "approved_item_associations": 3,
     "approved_human_cases": 0,
     "rights_reviewed_cases": 0,
     "note": "Counts are old box candidates and AI person inventory; uncounted missed items/people still possible.",
@@ -2058,6 +2116,11 @@
     "case_c_eyewear_and_masks": "Researcher confirmed not visible => UNKNOWN in all 4 people, no ABSENT claim",
     "case_d_researcher_confirmed_standalone_helmet": true,
     "case_d_researcher_confirmed_helmet_without_visible_person": true,
-    "case_d_association_unknown_reason": "NO_VISIBLE_PERSON"
+    "case_d_association_unknown_reason": "NO_VISIBLE_PERSON",
+    "final_researcher_visual_item_cases": [
+      "A"
+    ],
+    "case_a_final_visual_approved": true,
+    "case_a_source_rights_review_pending": true
   }
 }
