@@ -76,3 +76,18 @@ The association proposals use person/foot region proximity and coarse visual ali
 **Required researcher check before approval:** view the original, zoom each box, trace both feet of P001 and visible foot/feet of P002, confirm each item's wearer if possible, and record whether footwear is observable but safety-grade unknown. If a clear wearer still cannot be identified, choose `UNKNOWN` for the association too rather than accepting the AI proposal. Neither the K/L/M person matches nor the per-worker Safety Boots `PRESENT` state is signed off.
 
 **Review fields (not yet answered by researcher):** `K_person: ______`; `L_person: ______`; `M_person: ______`; `Safety-grade evidence: UNKNOWN unless independently supplied`; `Reviewer/date: ______`. Case B still `PENDING`, and the corresponding Roboflow Eval Case must remain `incomplete`.
+
+
+## Researcher preliminary decision — boots K, L, M (2026-11-17)
+
+**Source:** Explicit researcher statement in chat: “لا أستطيع تأكيد ارتباط الأحذية K وL وM بالأشخاص. أبقِ روابطها UNKNOWN وسجّل قراري كإفادة أولية.” The researcher cannot confirm which person wears each of the three items; this is an **initial decision**, not case-wide approval, and it does not establish that the original source image was re-reviewed by the researcher.
+
+| Annotation | Eval pre-review item ID | Researcher preliminary association | Confirmed wearer | Safety-grade status | Prior AI proposal, for historical trace only |
+|---|---|---|---|---|---|
+| `K` | `E007` | `UNKNOWN` | `null` | `UNKNOWN` | `P002 / MATCHED_CANDIDATE` — unapproved |
+| `L` | `E008` | `UNKNOWN` | `null` | `UNKNOWN` | `P001 / MATCHED_CANDIDATE` — unapproved |
+| `M` | `E009` | `UNKNOWN` | `null` | `UNKNOWN` | `P001 / MATCHED_CANDIDATE` — unapproved |
+
+**Interpretation:** `UNKNOWN` here means insufficient evidence to confirm wearer identity, **not** a verified `AMBIGUOUS` tie between specific workers, and not absence of PPE. Neither visual safety-class certification nor mandatory site/task PPE policy is verified. Keep `POLICY_UNKNOWN`. The current researcher statements supersede AI geometric matches for review decisions; do **not** claim three correct associations or per-worker PPE compliance.
+
+**Outstanding review for Case B:** Independently inspect the image and any missed persons/items, confirm or revise PPE visual states, record source/privacy/rights and source-family checks, supply reviewer evidence and review date, and perform final sign-off. This is not a complete human reference: Roboflow Eval Case B must remain `groundTruthState=incomplete` with no approved ground truth. Source labels/splits/model are untouched.
