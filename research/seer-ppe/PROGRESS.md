@@ -108,3 +108,6 @@ A **public JSON containing no source image pixels** was saved as [`WORKER_ASSOCI
 
 
 **Case C eyewear/face-mask visibility uncertainty confirmed (17 November 2026):** Researcher replied 'لم ترى' after being asked whether goggles and face masks are observable among the four workers in the Case C source image. Stored 8 person×PPE provisional visual states as `UNKNOWN` (four eye-protection and four face-mask states); nonvisibility is not proof of absence. Preserved original C/J glove owner `UNKNOWN`, prior visual PPE reports, and `POLICY_UNKNOWN`. Scientific ground truth remains incomplete (0/4 cases), no violation inference or original data/model changes.
+
+
+**Case D orphan helmet confirmed by researcher (17 November 2026):** Researcher answered `نعم` to the Case D image-content question: `h1.jpg` contains one standalone yellow hard hat and no visible worker wearing it. Source item `1` marked preliminary visually PRESENT as an **unworn object**, `person_id=null`, association `UNKNOWN` due to `NO_VISIBLE_PERSON`, not a worker violation/negative. 38 prior person×PPE provisional states remain unchanged because D has zero workers. Rights/privacy/source-family and final human reference gates remain open (0/4 complete); original data/model unchanged. See RESEARCHER_SIGNOFF_QUEUE_V01.md and RESEARCHER_FULL_INVENTORY_MATRIX_V01.json.
