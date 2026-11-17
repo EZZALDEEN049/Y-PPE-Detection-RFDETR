@@ -314,6 +314,29 @@
         "broader_reference_status": "PENDING_RIGHTS_PRIVACY_SOURCE_FAMILY_AND_SECOND_PASS",
         "Roboflow_ground_truth_state_required_until_clearance": "incomplete",
         "claim_of_worker_noncompliance": false
+      },
+      "roboflow_eval_ground_truth_import": {
+        "date": "2026-11-17",
+        "dataset_id": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+        "case_id": "8f7cce94-d46e-4fac-9a0a-641bcd1f12c8",
+        "case_revision": 2,
+        "state": "incomplete",
+        "saved_fields": [
+          "persons",
+          "ppe_items",
+          "worker_ppe_states",
+          "associations",
+          "task_mandates"
+        ],
+        "n_persons": 1,
+        "n_ppe_items": 3,
+        "n_worker_states": 6,
+        "n_matched_links": 3,
+        "n_policy_unknown": 6,
+        "missing_field_for_source_clearance": "source_review",
+        "rights_review": "UNREVIEWED",
+        "reason_incomplete": "Researcher-final visual items are approved; source rights/privacy/family and second-pass gate not finished",
+        "original_project_changed": false
       }
     },
     {
@@ -2121,6 +2144,8 @@
       "A"
     ],
     "case_a_final_visual_approved": true,
-    "case_a_source_rights_review_pending": true
+    "case_a_source_rights_review_pending": true,
+    "case_a_eval_ground_truth_partial_saved": true,
+    "case_a_eval_ground_truth_state": "incomplete"
   }
 }
