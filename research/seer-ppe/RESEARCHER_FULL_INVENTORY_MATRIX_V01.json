@@ -1722,7 +1722,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-18",
+            "candidate_association_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P002",
+            "evidence": "High-visibility vest on second P002 torso",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_ONLY",
+            "researcher_item_level_approved": false,
+            "safety_certification_verified": false
+          }
         },
         {
           "item_id": "E002",
@@ -1748,7 +1757,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-18",
+            "candidate_association_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P001",
+            "evidence": "High-visibility vest on far-left P001 torso",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_ONLY",
+            "researcher_item_level_approved": false,
+            "safety_certification_verified": false
+          }
         },
         {
           "item_id": "E003",
@@ -1774,7 +1792,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-18",
+            "candidate_association_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P003",
+            "evidence": "High-visibility vest on third P003 torso",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_ONLY",
+            "researcher_item_level_approved": false,
+            "safety_certification_verified": false
+          }
         },
         {
           "item_id": "E004",
@@ -1800,7 +1827,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-18",
+            "candidate_association_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P004",
+            "evidence": "Partial bright reflective vest segment on crouching P004 back/torso; full garment partially obscured",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_ONLY",
+            "researcher_item_level_approved": false,
+            "safety_certification_verified": false
+          }
         },
         {
           "item_id": "E005",
@@ -1826,7 +1862,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-18",
+            "candidate_association_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P004",
+            "evidence": "Yellow hard hat on crouching far-right P004 head",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_ONLY",
+            "researcher_item_level_approved": false,
+            "safety_certification_verified": false
+          }
         },
         {
           "item_id": "E006",
@@ -1852,7 +1897,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-18",
+            "candidate_association_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P003",
+            "evidence": "Yellow hard hat on leaning third P003 head",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_ONLY",
+            "researcher_item_level_approved": false,
+            "safety_certification_verified": false
+          }
         },
         {
           "item_id": "E007",
@@ -1878,7 +1932,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-18",
+            "candidate_association_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P002",
+            "evidence": "Yellow hard hat on second P002 head",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_ONLY",
+            "researcher_item_level_approved": false,
+            "safety_certification_verified": false
+          }
         },
         {
           "item_id": "E008",
@@ -1904,7 +1967,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-18",
+            "candidate_association_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P001",
+            "evidence": "Yellow hard hat on far-left P001 head",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_ONLY",
+            "researcher_item_level_approved": false,
+            "safety_certification_verified": false
+          }
         },
         {
           "item_id": "E009",
@@ -1930,7 +2002,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-18",
+            "candidate_association_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P002",
+            "evidence": "Red glove on second P002 hand",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_ONLY",
+            "researcher_item_level_approved": false,
+            "safety_certification_verified": false
+          }
         },
         {
           "item_id": "E010",
@@ -1956,7 +2037,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-18",
+            "candidate_association_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P001",
+            "evidence": "Red glove near far-left P001 hand",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_ONLY",
+            "researcher_item_level_approved": false,
+            "safety_certification_verified": false
+          }
         },
         {
           "item_id": "E011",
@@ -1982,7 +2072,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-18",
+            "candidate_association_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P001",
+            "evidence": "Red glove at far-left P001 other hand",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_ONLY",
+            "researcher_item_level_approved": false,
+            "safety_certification_verified": false
+          }
         },
         {
           "item_id": "E012",
@@ -2011,7 +2110,20 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-18",
+            "candidate_association_status": "UNKNOWN_CANDIDATE",
+            "candidate_person_id": null,
+            "old_hypothesis_alternatives": [
+              "P003",
+              "P004"
+            ],
+            "evidence": "Glove region near extended arms; ownership not resolvable reliably from image alone",
+            "researcher_preexisting_UNKNOWN_preserved": true,
+            "researcher_item_level_approved": false,
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_ONLY"
+          }
         },
         {
           "item_id": "E013",
@@ -2037,7 +2149,16 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-18",
+            "candidate_association_status": "MATCHED_CANDIDATE",
+            "candidate_person_id": "P003",
+            "evidence": "Red glove near third P003 hand; P003/P004 arm intersection requires extra attention",
+            "reviewer_type": "AI_SOURCE_IMAGE_REVIEW_ONLY",
+            "researcher_item_level_approved": false,
+            "safety_certification_verified": false
+          }
         }
       ],
       "absence_marker_boxes_not_evidence_of_absence": [
@@ -2196,6 +2317,38 @@
           "independent_image_reinspection_claimed": false,
           "final_case_approved": false
         }
+      },
+      "researcher_item_linkage_review_packet": {
+        "file": "CASE_C_ITEM_LEVEL_HELMET_VEST_GLOVE_REVIEW_V01.md",
+        "prepared_on": "2026-11-18",
+        "source_image_review_method": "ROBOFLOW_VALIDATED_READ_ONLY_INLINE_WORKFLOW_IMAGE_PASS_THROUGH",
+        "source_image_resolution": [
+          2048,
+          1365
+        ],
+        "item_boxes_reviewed": [
+          "5",
+          "6",
+          "7",
+          "8",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K"
+        ],
+        "ai_candidate_count": 12,
+        "original_source_J_unknown_preserved": true,
+        "researcher_final_matched_associations_for_C": 0,
+        "can_infer_worksite_compliance": false,
+        "permissions_rights_status": "UNREVIEWED",
+        "policy_status": "POLICY_UNKNOWN",
+        "no_training_model_changes": true,
+        "case_complete": false
       }
     },
     {
