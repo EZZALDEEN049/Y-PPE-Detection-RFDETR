@@ -178,3 +178,20 @@ Interpretation bounded by what the researcher stated:
 **Preserved prior association statement:** Source old safety-boot boxes `K`, `L`, `M` all remain `UNKNOWN`, `person_id=null`. An image-level statement that boots are present does not establish which worker owns each item. Historical geometric matches are not approved labels. Source-model label `Safety Boots` is not an independently verified certification mark. Face-mask states are not addressed by this turn and remain `UNKNOWN` for both persons. The headgear/glove states already confirmed by the researcher remain P001 hard hat PRESENT, gloves PRESENT; P002 hard hat PRESENT, gloves UNKNOWN.
 
 **Remaining review:** old source annotation `Pants` is a garment-category context only; PPE source boxes must be matched separately to visible wearers; privacy/rights/source-family and workplace PPE policy remain unreviewed (`POLICY_UNKNOWN`). This chat response does **not** sign off all reference data. Keep Roboflow Eval Case B `groundTruth={}` and `groundTruthState=incomplete`.
+
+
+## Case C — researcher reports all four workers' PPE and traditional abaya (2026-11-17)
+
+**Researcher statement (Arabic):** "جميعهم لديهم خوذات وسترات وقفازات واحذيه سلامه ولديهم لبس شعبي العباءه". This addresses **Case C** / `Kathiah Gets a Chance03.jpg` with four researcher-confirmed visible persons; it reports helmets, reflective vests, gloves, safety boots, and traditional abaya outerwear for **all four**.
+
+| Visible PPE / clothing | P001 | P002 | P003 | P004 | Research scope and limitation |
+|---|---|---|---|---|---|
+| Hard hat (visual) | `PRESENT` | `PRESENT` | `PRESENT` | `PRESENT` | Researcher person-level visual report; helmet certification not independently verified |
+| Reflective vest (visual) | `PRESENT` | `PRESENT` | `PRESENT` | `PRESENT` | Including vest of far-right P004, previously partial/AI-uncertain |
+| Gloves (person-level visual state) | `PRESENT` | `PRESENT` | `PRESENT` | `PRESENT` | Does NOT confirm who wears source glove annotation `J` |
+| Safety boots (researcher visual report) | `PRESENT` | `PRESENT` | `PRESENT` | `PRESENT` | Researcher reports boots; occlusion and actual protective certification remain unverified |
+| Traditional outerwear `العباءة` | reported worn | reported worn | reported worn | reported worn | Contextual garment; not a PPE item or violation by itself |
+
+**Critical preservation:** The earlier explicit researcher decision on glove `J` / `E012` remains `UNKNOWN` with `person_id=null`. Four workers reportedly wearing gloves does **not** prove which individual's glove is boxed by annotation `J`. Similarly the person-level boot report does not establish exact boot-object associations, independent footwear safety certification, or worker policy compliance. Eye protection and face-mask states are still `UNKNOWN` unless separately assessed. `POLICY_UNKNOWN` continues to apply without a documented task/site mandate.
+
+**Status:** preliminary researcher observations only; 16 person×PPE states reported for Case C (4 people × 4 types), no completed item-level association review, no rights/source-family evidence or final research approval. Case C Roboflow Eval `groundTruth={}` and `groundTruthState=incomplete` must be preserved, as must the original model, annotations and splits.
