@@ -9,14 +9,14 @@ Original Roboflow native annotation boxes (4 Train images) were checked against 
 | Audit category | Count | Interpretation |
 |---|---:|---|
 | Original source positive PPE boxes | **26** | Candidate physical items, not independent verified ground truth |
-| Researcher preliminary owner `UNKNOWN` or no visible wearer | **5** | B `K/L/M`, C `J`, D standalone `1` — remain unassigned |
-| Additional glove-box uncertainty identified by AI | **2** | B `9/A` — old `Gloves` labels do not prove rear gloves are worn |
-| Other historic AI candidate matches awaiting item-level human review | **16** | Case A three links now approved; these 16 are still AI-only |
+| Owner `UNKNOWN` (five final in B; two other prior provisional) | **7** | B `9/A/K/L/M`, C `J`, D standalone `1`; all remain unassigned |
+| B rear glove-box identity still unverified | **2** | `9/A` now have researcher-final `UNKNOWN` owner; whether physical gloves are visible is still unconfirmed |
+| Other historic AI candidate matches awaiting item-level human review | **12** | A three and B four matched links now final; remaining 12 are AI-only |
 | Old absence-like annotation boxes | **14** | Not physical PPE; not proof of noncompliance |
-| Approved box-to-worker attributions | **3** | Case A source boxes `1/2/3` -> `P001`, explicit researcher-final visual decision |
+| Approved box-to-worker attributions | **7** | Case A three plus Case B four box-owner matches explicitly approved |
 | Roboflow human-complete Eval Cases | **0/4** | Case A has typed partial adjudicated ground-truth arrays but remains `incomplete`; B/C/D have empty ground truth |
 
-The `5 + 2 + 16 + 3 = 26` categories are **item-level review routing states**, not measured model detection/association performance. The 38 previously affirmed person×PPE visual-state observations and one confirmed D standalone item remain separate. A positive item can be worn visually while its particular source annotation is not reliably attributable. Protective certification, where applicable, is not independently established by these pixels.
+The `7 UNKNOWN owner + 12 AI-only + 7 confirmed matched = 26` mutually exclusive owner-decision categories are **item-level review routing states**, not measured model detection/association performance. The 38 previously affirmed person×PPE visual-state observations and one confirmed D standalone item remain separate. A positive item can be worn visually while its particular source annotation is not reliably attributable. Protective certification, where applicable, is not independently established by these pixels.
 
 ## Item-by-item reviewer queue
 
@@ -36,19 +36,19 @@ Old absence-like source markers: `5` (No Face Mask).
 
 ### Case B — `000760.jpg`
 
-Two visible people; rear gloves and three boots need special review
+Two visible people; researcher-final box-owner matches on `3/4/6/7`; researcher-final UNKNOWN owner for `9/A/K/L/M` (source glove identity/boot grade remain unverified).
 
 | Old box | Equipment class | Historic AI wearer | Current item-level status | Reviewer focus |
 |---|---|---|---|---|
-| `3` / `E001` | Hard Hat | `P001` | `PENDING — AI candidate only` | Worker visual-state PRESENT; source box still unconfirmed |
-| `4` / `E002` | Hard Hat | `P002` | `PENDING — AI candidate only` | Worker visual-state PRESENT; source box still unconfirmed |
-| `6` / `E003` | Gloves | `P001` | `PENDING — AI candidate only` | Worker visual-state PRESENT; source box still unconfirmed |
-| `7` / `E004` | Gloves | `P001` | `PENDING — AI candidate only` | Worker visual-state PRESENT; source box still unconfirmed |
-| `9` / `E005` | Gloves | `P002` | `UNKNOWN? — AI source recheck` | Rear worker hand small/occluded; review and allow UNKNOWN — AI_SOURCE_RECHECK_COULD_NOT_CONFIRM_REAR_GLOVES, P002_GLOVE_VISUAL_UNKNOWN |
-| `A` / `E006` | Gloves | `P002` | `UNKNOWN? — AI source recheck` | Rear worker hand small/occluded; review and allow UNKNOWN — AI_SOURCE_RECHECK_COULD_NOT_CONFIRM_REAR_GLOVES, P002_GLOVE_VISUAL_UNKNOWN |
-| `K` / `E007` | Safety Boots | `P002` | `UNKNOWN — researcher/no wearer` | Preserve prior researcher UNKNOWN; do not force MATCHED — RESEARCHER_OWNER_UNKNOWN, SAFETY_GRADE_UNVERIFIED |
-| `L` / `E008` | Safety Boots | `P001` | `UNKNOWN — researcher/no wearer` | Preserve prior researcher UNKNOWN; do not force MATCHED — RESEARCHER_OWNER_UNKNOWN, SAFETY_GRADE_UNVERIFIED |
-| `M` / `E009` | Safety Boots | `P001` | `UNKNOWN — researcher/no wearer` | Preserve prior researcher UNKNOWN; do not force MATCHED — RESEARCHER_OWNER_UNKNOWN, SAFETY_GRADE_UNVERIFIED |
+| `3` / `E001` | Hard Hat | `P001` | `MATCHED → P001 — researcher final` | Researcher-approved item attribution; source rights/policy remain open |
+| `4` / `E002` | Hard Hat | `P002` | `MATCHED → P002 — researcher final` | Researcher-approved item attribution; source rights/policy remain open |
+| `6` / `E003` | Gloves | `P001` | `MATCHED → P001 — researcher final` | Researcher-approved item attribution; source rights/policy remain open |
+| `7` / `E004` | Gloves | `P001` | `MATCHED → P001 — researcher final` | Researcher-approved item attribution; source rights/policy remain open |
+| `9` / `E005` | Gloves | `P002` | `UNKNOWN — researcher final owner status` | The item owner is unknown; old source glove identity is not independently verified |
+| `A` / `E006` | Gloves | `P002` | `UNKNOWN — researcher final owner status` | The item owner is unknown; old source glove identity is not independently verified |
+| `K` / `E007` | Safety Boots | `P002` | `UNKNOWN — researcher re-affirmed` | Item owner not identified; safety-boot certification unknown |
+| `L` / `E008` | Safety Boots | `P001` | `UNKNOWN — researcher re-affirmed` | Item owner not identified; safety-boot certification unknown |
+| `M` / `E009` | Safety Boots | `P001` | `UNKNOWN — researcher re-affirmed` | Item owner not identified; safety-boot certification unknown |
 
 Old absence-like source markers: `8` (No Safety Attire); `N` (No Safety Vest); `O` (No Safety Vest).
 
@@ -102,8 +102,8 @@ Old absence-like source markers: none.
 
 ## What remains before a real Eval ground-truth reference
 
-1. For each of the **16 remaining historic AI matches** (excluding Case A `1/2/3`, which the researcher has now finally approved), independently identify the visible body wearer *and original item box*; request the researcher's explicit per-item approval, correction, or `UNKNOWN`. The four images' previous worker-level present/absent reports do not suffice as box-level matches.
-2. Resolve, or explicitly retain, the **seven review-priority uncertain items** (B `9/A`, B `K/L/M`, C `J`, D `1`). Prior researcher's `UNKNOWN` remains the operative preliminary decision for B `K/L/M`, C `J`, and D unworn item; B `9/A` remain AI-only uncertainties.
+1. For each of the **12 remaining historic AI matches** (excluding final Case A `1/2/3` and Case B `3/4/6/7`), independently identify the visible body wearer *and original item box*; request the researcher's explicit per-item approval, correction, or `UNKNOWN`. The four images' previous worker-level present/absent reports do not suffice as box-level matches.
+2. Preserve final researcher `UNKNOWN` box-owner status for B `9/A/K/L/M`; C `J` and D stand-alone `1` retain prior provisional unknown ownership. Review *identity* of B `9/A` glove-like boxes separately; no forced match.
 3. Revisit the **14 absence-like markers** separately from positive PPE. For C, compare the four `No Safety Boots` and four broad `No Safety Attire` markers with actual visible PPE, and document what each old class intended.
 4. Exhaustively look for *unboxed physical PPE*: most notably footwear of all four workers as reported by the researcher in C despite **zero positive `Safety Boots` source boxes**. Do not invent box coordinates or create training annotations.
 5. Before setting `groundTruthState=complete`, finish item coverage, source rights/privacy/source family, documented worksite task mandates (or explicit `POLICY_UNKNOWN`), independent review pass and case-level researcher approval in the **separate Roboflow Eval Dataset** only.
@@ -119,3 +119,6 @@ Old absence-like source markers: none.
 
 
 **Focused Case B item attribution review:** The source image, original pixel boxes and researcher's earlier PPE visual-state assertions are documented in [CASE_B_ITEM_LEVEL_HELMET_GLOVE_REVIEW_V01.md](CASE_B_ITEM_LEVEL_HELMET_GLOVE_REVIEW_V01.md). Researcher box-level decisions are still pending: 3→P001, 4→P002, 6→P001, 7→P001 are AI candidate links; 9/A remain AI unknown candidates, and boots K/L/M remain researcher UNKNOWN. No added gold labels or source edits.
+
+
+**2026-11-18 Case B researcher-final ownership decisions:** `3→P001`, `4→P002`, `6→P001`, `7→P001` are final MATCHED item-owner links; `9/A/K/L/M` are final owner UNKNOWN, `person_id=null`. Exact physical status of B `9/A` remains uncertain, distinct from owner unknown. Case B still incomplete in Roboflow until source/rights/second-pass gates. See [dedicated Case B packet](CASE_B_ITEM_LEVEL_HELMET_GLOVE_REVIEW_V01.md).
