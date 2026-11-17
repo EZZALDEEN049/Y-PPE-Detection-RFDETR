@@ -116,3 +116,6 @@ Old absence-like source markers: none.
 **2026-11-17 follow-up:** Researcher has finally approved Case A links `1/2/3` to `P001` and the associated six visible PPE states (mask ABSENT; gloves/boots UNKNOWN due crop). The A source-rights/second-review gate still prevents fully complete Roboflow reference. See [the updated researcher sign-off](RESEARCHER_SIGNOFF_QUEUE_V01.md).
 
 **Roboflow separate Eval update:** Case A revision 2 contains one researcher-approved person, three item links `MATCHED`, six visual PPE states and six `POLICY_UNKNOWN` mandates. `source_review` remains unfilled and `groundTruthState=incomplete`. This supersedes older notes that Case A still has empty ground truth.
+
+
+**Focused Case B item attribution review:** The source image, original pixel boxes and researcher's earlier PPE visual-state assertions are documented in [CASE_B_ITEM_LEVEL_HELMET_GLOVE_REVIEW_V01.md](CASE_B_ITEM_LEVEL_HELMET_GLOVE_REVIEW_V01.md). Researcher box-level decisions are still pending: 3→P001, 4→P002, 6→P001, 7→P001 are AI candidate links; 9/A remain AI unknown candidates, and boots K/L/M remain researcher UNKNOWN. No added gold labels or source edits.
