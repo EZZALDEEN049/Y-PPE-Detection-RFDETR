@@ -100,3 +100,17 @@ Read-only Roboflow source-image review has now yielded a **six-PPE-type per visi
 For **each** row the researcher should verify person completeness (including missed figures), item class and physical visibility, visually owned wearers, separately visual `PRESENT / ABSENT / UNKNOWN`, task PPE mandate and source rights/privacy. No generated `P?`/`A?` code can be copied as approved truth merely because it is in the matrix. Case A has hands/feet outside crop; Case B has small/distant P002, old glove annotations and unconfirmed footwear ownership; Case C has a partial vest on P004 and red glove J unresolved; Case D has no visible persons and an unworn hard hat.
 
 **Status remains PENDING for 4/4 cases.** Researcher preliminary ownership `UNKNOWN` for B/K/L/M and C/J is preserved, as are unapproved historic AI geometric candidates. No original annotation saves, no model changes, no per-worker compliance judgment, no Validation/Test inference and no new training occurred.
+
+
+## Researcher confirmation of visible-person counts (2026-11-17)
+
+The researcher explicitly confirmed in chat: **"نعم صحيح كل شي A=1، B=2، C=4، D=0"**, in direct response to the question whether the four images' visible-person counts are correct. Scope of the answer is **person-count confirmation**; it does **not** constitute approval of all PPE inventory, equipment ownership, worker PPE visual states, completeness of source provenance, workplace mandates, or independent image annotation review.
+
+| Case | Filename | Researcher-confirmed visible-person count | Count review | Complete reference sign-off |
+|---|---|---:|---|---|
+| A | `image_604.jpg` | **1** | `COUNT_CONFIRMED` | `PENDING` |
+| B | `000760.jpg` | **2** | `COUNT_CONFIRMED` | `PENDING` |
+| C | `Kathiah Gets a Chance03.jpg` | **4** | `COUNT_CONFIRMED` | `PENDING` |
+| D | `h1.jpg` | **0** | `COUNT_CONFIRMED` | `PENDING` |
+
+**Preserved researcher unknown decisions:** glove `C/J` and footwear `B/K,L,M` remain `UNKNOWN` in preliminary association, without confirmed wearer. Future human review still needs equipment presence/absence and owner adjudication, missed physical PPE, rights/privacy/source-family checks, documented task policy (default `POLICY_UNKNOWN`) and final case approval. Roboflow Eval Dataset remains `groundTruthState=incomplete`; do not promote only a count confirmation to a complete scientific benchmark.
