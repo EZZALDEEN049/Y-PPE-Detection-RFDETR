@@ -52,3 +52,12 @@ Even with person-item approval, **separate Roboflow Eval Case B remains `incompl
 | Safety Boots `K/L/M` | `UNKNOWN`, `person_id=null` | Reaffirmed prior decision; boot safety grade not independently verified |
 
 **Explicit boundaries:** The four `MATCHED` links are now **researcher-final person-item decisions**, not AI proposals. All five `UNKNOWN` decisions are human-confirmed **ownership status only** and do **not** certify that the old source boxes depict safety-standard PPE. P002 person-level gloves remain `UNKNOWN`; no overwrite of worker PPE states or original training labels. Source rights, privacy, source-family identity, task mandates, full item coverage and independent second-pass review remain open. Roboflow Eval Case B is still `incomplete`.
+
+
+## Case B partial approved item reference saved to separate Roboflow Eval (2026-11-18)
+
+After explicit researcher item-owner approval, the separate Roboflow Eval Case `87b6cc58-43bd-4583-8b13-bd9b7413c03d` was updated atomically to **revision 2** and read back. It contains **2 person entries, 4 source PPE item records, 4 approved MATCHED associations**, **8 previously researcher-confirmed worker×PPE visual-state entries** (helmets/vests/gloves/eyewear), and **8 `POLICY_UNKNOWN` task-mandate entries**. No other person-level visual states were promoted to reviewed ground truth.
+
+Five original item boxes `9/A/K/L/M` are **excluded from this positive-item Eval subset pending physical item identity/completeness review**, even though **their person-owner UNKNOWN decisions are now explicitly human-confirmed and retained in GitHub**. This prevents claiming the old `Gloves` annotations on `9/A` or the safety certification of boot boxes are independently proven.
+
+`source_review` is deliberately absent while rights/privacy/source-family are unreviewed. Roboflow `groundTruthState=incomplete`, dataset totals **0/4 complete**. The original training annotations, image splits, model weights and baseline Workflow were not edited.
