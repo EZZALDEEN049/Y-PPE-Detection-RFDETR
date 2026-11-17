@@ -264,3 +264,12 @@ The existing historical baseline training images, classes and boxes, splits, mod
 After the researcher's **final visual approval**, the **separate** Roboflow Eval Case `8f7cce94-d46e-4fac-9a0a-641bcd1f12c8` was updated atomically (revision `1 -> 2`) and re-read successfully. Stored typed ground-truth arrays: 1 `persons`, 3 `ppe_items`, 6 `worker_ppe_states`, 3 `associations` with status `MATCHED` and person `P001`, and 6 `task_mandates`, each `POLICY_UNKNOWN`. Worker PPE: hard hat/vest/goggles `PRESENT`, face mask `ABSENT`, gloves/boots `UNKNOWN` (hands/feet outside crop).
 
 **Critical:** this is a *partial, researcher-final visual and attribution reference*, not full ready-to-score Eval ground truth. The source-review label was **deliberately left unset**, because rights/privacy/source-family and second review remain pending. `groundTruthState=incomplete` retained. Other three cases B/C/D still have unapproved full ground truth. The result must not be used to claim scientific model performance or compliance.
+
+
+## Case B original-box helmet/glove wearer adjudication packet (2026-11-17)
+
+The requested **item-level helmet and glove audit** was performed using the read-only original image plus original Roboflow 500×330 saved box coordinates. Full [Case B wearer-review packet](CASE_B_ITEM_LEVEL_HELMET_GLOVE_REVIEW_V01.md) lists each box, evidence and limits.
+
+**AI-only candidate links (not researcher-final approval):** `Hard Hat 3→P001`, `Hard Hat 4→P002`, `Gloves 6→P001`, `Gloves 7→P001`; rear `Gloves 9/A` are `UNKNOWN_CANDIDATE` from the current AI source-image review, not verified physical glove ownership. Earlier confirmed **worker-level** visual states stay unchanged: P001 helmet/gloves PRESENT, P002 helmet PRESENT/gloves UNKNOWN.
+
+The researcher's previous **boot person-ownership decisions B/K,L,M remain UNKNOWN** (`person_id=null`) and are not reopened. Researcher has not yet given **any box-level final match approval for Case B**; its separate Roboflow Eval `groundTruth={}` / `incomplete` status is preserved. Do not promote proposals to gold or amend training annotations.
