@@ -1,0 +1,1140 @@
+{
+  "schema_version": "seer-ppe/ai-visual-pre-review/v1",
+  "date": "2026-11-17",
+  "reviewer_type": "AI_VISUAL_ANALYST_NOT_INDEPENDENT_HUMAN",
+  "review_status": "PROVISIONAL_ONLY_DO_NOT_USE_AS_GROUND_TRUTH",
+  "workflow_eval_dataset": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+  "ground_truth_cases_intentionally_left_incomplete": true,
+  "source_pixel_policy": "No image pixels included in this public JSON; source images remain in Roboflow",
+  "policy_status": "POLICY_UNKNOWN",
+  "notes": [
+    "Boxes originate from original old Roboflow annotations and were not redrawn independently; counts were checked against the source images in an AI-assisted visual inspection.",
+    "No claim that all objects are exhaustively inventoried or human-confirmed.",
+    "MATCHED_CANDIDATE/AMBIGUOUS_CANDIDATE/UNKNOWN_CANDIDATE are review suggestions, NOT SEER-PPE algorithm outputs or human-labeled ground truth.",
+    "An absence-marker model class is not a physical PPE instance. A visible industrial boot does not establish safety certification."
+  ],
+  "images": [
+    {
+      "case_key": "A",
+      "image_id": "0jRe8fpRDE5fLgAJrYvT",
+      "filename": "image_604.jpg",
+      "split": "train",
+      "width": 1000,
+      "height": 667,
+      "visible_person_count_ai_observed": 1,
+      "original_annotated_person_count": 1,
+      "observations": "One visible upper-body person; yellow hard hat worn, transparent safety glasses worn, fluorescent yellow high-visibility vest worn, nose and mouth visibly uncovered. Hands and feet out of frame.",
+      "source_rights_status": "UNREVIEWED",
+      "task_site_policy": "POLICY_UNKNOWN",
+      "persons": [
+        {
+          "person_id": "P001",
+          "origin_annotation_id": "4",
+          "bbox_xyxy_norm": [
+            0.22992,
+            0.00681,
+            0.88783,
+            0.99999
+          ],
+          "visibility_note": "Single visible person, frontal upper-body view; actual scene/task requirement unknown.",
+          "human_verified": false
+        }
+      ],
+      "physical_ppe_candidates": [
+        {
+          "equipment_id": "E001",
+          "source_annotation_id": "1",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "bbox_xyxy_norm": [
+            0.2445,
+            0.67691,
+            0.8825,
+            0.99925
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E002",
+          "source_annotation_id": "2",
+          "source_class": "Goggles",
+          "ppe_type": "goggles",
+          "bbox_xyxy_norm": [
+            0.3475,
+            0.29235,
+            0.6015,
+            0.43778
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E003",
+          "source_annotation_id": "3",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "bbox_xyxy_norm": [
+            0.30377,
+            0.00224,
+            0.72723,
+            0.36289
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        }
+      ],
+      "absence_marker_annotations_excluded_from_ppe_inventory": [
+        {
+          "annotation_id": "5",
+          "source_class": "No Face Mask",
+          "bbox_xyxy_norm": [
+            0.38546,
+            0.41196,
+            0.58091,
+            0.63548
+          ],
+          "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
+        }
+      ],
+      "worker_ppe_state_proposals": [
+        {
+          "person_id": "P001",
+          "ppe_type": "hard_hat",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "Yellow hard hat visibly worn",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "goggles",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "Transparent protective eyewear visibly worn",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_vest",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "High-visibility vest visibly worn",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "face_mask",
+          "proposed_visual_state": "ABSENT",
+          "ai_visual_evidence": "Nose and mouth uncovered in visible face",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "glove",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Hands not visible in crop",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_boot",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Feet not visible in crop",
+          "reviewer_signoff_required": true
+        }
+      ],
+      "review_needed": [
+        "Human source-image inspection before accepting any proposed person/item association",
+        "Inspect occluded/missed people beyond original labels",
+        "Check PPE-type ambiguity and left/right paired items",
+        "Document source rights, privacy, source-family identity and site/task mandate",
+        "Keep Roboflow Eval Case incomplete until a researcher signs off"
+      ]
+    },
+    {
+      "case_key": "B",
+      "image_id": "0xxsYWiz1FZBYERolu4z",
+      "filename": "000760.jpg",
+      "split": "train",
+      "width": 500,
+      "height": 330,
+      "visible_person_count_ai_observed": 2,
+      "original_annotated_person_count": 2,
+      "observations": "Two people visibly working; foreground left and background right. Both have helmet-like head protection and gloves are suggested by visible bright gloves. Footwear is visible but safety-standard rating cannot be inferred; body/clothing partly obstructed. Low source resolution.",
+      "source_rights_status": "UNREVIEWED",
+      "task_site_policy": "POLICY_UNKNOWN",
+      "persons": [
+        {
+          "person_id": "P001",
+          "origin_annotation_id": "1",
+          "bbox_xyxy_norm": [
+            0.25916,
+            0.09545,
+            0.64124,
+            0.89667
+          ],
+          "visibility_note": "Foreground left worker, slightly bent forward; raised arm and gloves visible. Face down/hidden.",
+          "human_verified": false
+        },
+        {
+          "person_id": "P002",
+          "origin_annotation_id": "2",
+          "bbox_xyxy_norm": [
+            0.59045,
+            0.24691,
+            0.73083,
+            0.78958
+          ],
+          "visibility_note": "Background right worker, small and partially occluded; helmet-like object visible; torso/hand detail limited.",
+          "human_verified": false
+        }
+      ],
+      "physical_ppe_candidates": [
+        {
+          "equipment_id": "E001",
+          "source_annotation_id": "3",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "bbox_xyxy_norm": [
+            0.43253,
+            0.10182,
+            0.50839,
+            0.23406
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E002",
+          "source_annotation_id": "4",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "bbox_xyxy_norm": [
+            0.5935,
+            0.24448,
+            0.64282,
+            0.31333
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E003",
+          "source_annotation_id": "6",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "bbox_xyxy_norm": [
+            0.45272,
+            0.39532,
+            0.51,
+            0.46486
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E004",
+          "source_annotation_id": "7",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "bbox_xyxy_norm": [
+            0.26,
+            0.15015,
+            0.32,
+            0.23348
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E005",
+          "source_annotation_id": "9",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "bbox_xyxy_norm": [
+            0.67957,
+            0.38271,
+            0.70811,
+            0.42371
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E006",
+          "source_annotation_id": "A",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "bbox_xyxy_norm": [
+            0.66115,
+            0.50371,
+            0.68457,
+            0.53798
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E007",
+          "source_annotation_id": "K",
+          "source_class": "Safety Boots",
+          "ppe_type": "safety_boot",
+          "bbox_xyxy_norm": [
+            0.69546,
+            0.74379,
+            0.7391,
+            0.80785
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "SAFETY_RATING_UNVERIFIED",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E008",
+          "source_annotation_id": "L",
+          "source_class": "Safety Boots",
+          "ppe_type": "safety_boot",
+          "bbox_xyxy_norm": [
+            0.54499,
+            0.82802,
+            0.59245,
+            0.89629
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "SAFETY_RATING_UNVERIFIED",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E009",
+          "source_annotation_id": "M",
+          "source_class": "Safety Boots",
+          "ppe_type": "safety_boot",
+          "bbox_xyxy_norm": [
+            0.40315,
+            0.82803,
+            0.46749,
+            0.89361
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "SAFETY_RATING_UNVERIFIED",
+          "human_verified": false
+        }
+      ],
+      "absence_marker_annotations_excluded_from_ppe_inventory": [
+        {
+          "annotation_id": "8",
+          "source_class": "No Safety Attire",
+          "bbox_xyxy_norm": [
+            0.43728,
+            0.46144,
+            0.62092,
+            0.84917
+          ],
+          "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
+        },
+        {
+          "annotation_id": "N",
+          "source_class": "No Safety Vest",
+          "bbox_xyxy_norm": [
+            0.41091,
+            0.23692,
+            0.58181,
+            0.41083
+          ],
+          "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
+        },
+        {
+          "annotation_id": "O",
+          "source_class": "No Safety Vest",
+          "bbox_xyxy_norm": [
+            0.61454,
+            0.33883,
+            0.6709,
+            0.51686
+          ],
+          "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
+        }
+      ],
+      "worker_ppe_state_proposals": [
+        {
+          "person_id": "P001",
+          "ppe_type": "hard_hat",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "Blue helmet-looking hard hat worn; confirm item design on original image",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "glove",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "Bright work glove on visible hands",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_vest",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "No obvious reflective vest but cloth/apron and viewpoint limit reliable absence adjudication",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_boot",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Footwear visible; protective safety certification cannot be inferred",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "face_mask",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Nose and mouth not reliably visible",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "hard_hat",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "Blue/purple helmet-looking protective headgear visible on head",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "glove",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Possible work gloves but small/distant hand region",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "safety_vest",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Torso partly obstructed and too small to confidently adjudicate",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "safety_boot",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Footwear classification/visible coverage insufficient",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "face_mask",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Distant/obscured face",
+          "reviewer_signoff_required": true
+        }
+      ],
+      "review_needed": [
+        "Human source-image inspection before accepting any proposed person/item association",
+        "Inspect occluded/missed people beyond original labels",
+        "Check PPE-type ambiguity and left/right paired items",
+        "Document source rights, privacy, source-family identity and site/task mandate",
+        "Keep Roboflow Eval Case incomplete until a researcher signs off"
+      ]
+    },
+    {
+      "case_key": "C",
+      "image_id": "0jGu9euJp1MbvkLtfBcs",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "split": "train",
+      "width": 2048,
+      "height": 1365,
+      "visible_person_count_ai_observed": 4,
+      "original_annotated_person_count": 4,
+      "observations": "Four visible people working outdoors. Yellow hard hats on all four. Reflective vests or partial reflective patches appear, but the far-right crouching person's vest extent is unclear. Gloves visible; assignment of a red glove between third and fourth people warrants independent visual adjudication. Faces/feet partly covered.",
+      "source_rights_status": "UNREVIEWED",
+      "task_site_policy": "POLICY_UNKNOWN",
+      "persons": [
+        {
+          "person_id": "P001",
+          "origin_annotation_id": "4",
+          "bbox_xyxy_norm": [
+            0.24658,
+            0.33187,
+            0.32666,
+            0.5766
+          ],
+          "visibility_note": "Far-left standing person, partial rear/side view near wall; bright reflective vest and yellow helmet, red gloves possible.",
+          "human_verified": false
+        },
+        {
+          "person_id": "P002",
+          "origin_annotation_id": "3",
+          "bbox_xyxy_norm": [
+            0.39673,
+            0.34836,
+            0.47314,
+            0.66896
+          ],
+          "visibility_note": "Second-from-left standing person; bright reflective vest, helmet, red glove(s), lower garment obscures footwear.",
+          "human_verified": false
+        },
+        {
+          "person_id": "P003",
+          "origin_annotation_id": "2",
+          "bbox_xyxy_norm": [
+            0.44971,
+            0.40879,
+            0.54932,
+            0.63671
+          ],
+          "visibility_note": "Third person leaning forward; bright reflective vest, helmet, hand near work area; glove association requires attention.",
+          "human_verified": false
+        },
+        {
+          "person_id": "P004",
+          "origin_annotation_id": "1",
+          "bbox_xyxy_norm": [
+            0.58838,
+            0.4674,
+            0.69385,
+            0.67043
+          ],
+          "visibility_note": "Far-right crouching person; yellow helmet, small bright reflective segment on back; left arm extended toward central activity and glove assignment partly ambiguous.",
+          "human_verified": false
+        }
+      ],
+      "physical_ppe_candidates": [
+        {
+          "equipment_id": "E001",
+          "source_annotation_id": "5",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "bbox_xyxy_norm": [
+            0.40332,
+            0.40733,
+            0.45313,
+            0.53407
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E002",
+          "source_annotation_id": "6",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "bbox_xyxy_norm": [
+            0.26709,
+            0.40147,
+            0.30029,
+            0.46886
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E003",
+          "source_annotation_id": "7",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "bbox_xyxy_norm": [
+            0.45801,
+            0.45788,
+            0.50928,
+            0.55824
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P003",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E004",
+          "source_annotation_id": "8",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "bbox_xyxy_norm": [
+            0.63037,
+            0.56777,
+            0.66162,
+            0.61319
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P004",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E005",
+          "source_annotation_id": "C",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "bbox_xyxy_norm": [
+            0.60742,
+            0.48938,
+            0.63428,
+            0.51355
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P004",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E006",
+          "source_annotation_id": "D",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "bbox_xyxy_norm": [
+            0.50928,
+            0.44176,
+            0.53369,
+            0.48352
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P003",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E007",
+          "source_annotation_id": "E",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "bbox_xyxy_norm": [
+            0.4248,
+            0.37509,
+            0.45264,
+            0.41172
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E008",
+          "source_annotation_id": "F",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "bbox_xyxy_norm": [
+            0.2793,
+            0.37802,
+            0.29639,
+            0.39487
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E009",
+          "source_annotation_id": "G",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "bbox_xyxy_norm": [
+            0.41602,
+            0.49744,
+            0.43457,
+            0.55018
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P002",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E010",
+          "source_annotation_id": "H",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "bbox_xyxy_norm": [
+            0.2627,
+            0.46593,
+            0.27197,
+            0.49084
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E011",
+          "source_annotation_id": "I",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "bbox_xyxy_norm": [
+            0.28809,
+            0.44249,
+            0.30176,
+            0.47326
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P001",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E012",
+          "source_annotation_id": "J",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "bbox_xyxy_norm": [
+            0.55225,
+            0.54945,
+            0.58398,
+            0.56996
+          ],
+          "review_suggestion": {
+            "status": "AMBIGUOUS_CANDIDATE",
+            "person_id": null,
+            "alternatives": [
+              "P003",
+              "P004"
+            ],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        },
+        {
+          "equipment_id": "E013",
+          "source_annotation_id": "K",
+          "source_class": "Gloves",
+          "ppe_type": "glove",
+          "bbox_xyxy_norm": [
+            0.49316,
+            0.52308,
+            0.53467,
+            0.5707
+          ],
+          "review_suggestion": {
+            "status": "MATCHED_CANDIDATE",
+            "person_id": "P003",
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        }
+      ],
+      "absence_marker_annotations_excluded_from_ppe_inventory": [
+        {
+          "annotation_id": "9",
+          "source_class": "No Safety Attire",
+          "bbox_xyxy_norm": [
+            0.4043,
+            0.52967,
+            0.45313,
+            0.64908
+          ],
+          "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
+        },
+        {
+          "annotation_id": "A",
+          "source_class": "No Safety Attire",
+          "bbox_xyxy_norm": [
+            0.26855,
+            0.46007,
+            0.30762,
+            0.53407
+          ],
+          "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
+        },
+        {
+          "annotation_id": "M",
+          "source_class": "No Safety Attire",
+          "bbox_xyxy_norm": [
+            0.46317,
+            0.52664,
+            0.50447,
+            0.61566
+          ],
+          "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
+        },
+        {
+          "annotation_id": "N",
+          "source_class": "No Safety Attire",
+          "bbox_xyxy_norm": [
+            0.60058,
+            0.55489,
+            0.64169,
+            0.64833
+          ],
+          "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
+        },
+        {
+          "annotation_id": "O",
+          "source_class": "No Face Mask",
+          "bbox_xyxy_norm": [
+            0.43674,
+            0.4211,
+            0.44531,
+            0.43415
+          ],
+          "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
+        },
+        {
+          "annotation_id": "P",
+          "source_class": "No Face Mask",
+          "bbox_xyxy_norm": [
+            0.51327,
+            0.48312,
+            0.52734,
+            0.49944
+          ],
+          "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
+        },
+        {
+          "annotation_id": "Q",
+          "source_class": "No Safety Boots",
+          "bbox_xyxy_norm": [
+            0.58659,
+            0.59985,
+            0.6109,
+            0.64409
+          ],
+          "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
+        },
+        {
+          "annotation_id": "R",
+          "source_class": "No Safety Boots",
+          "bbox_xyxy_norm": [
+            0.47559,
+            0.60523,
+            0.49714,
+            0.63432
+          ],
+          "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
+        },
+        {
+          "annotation_id": "S",
+          "source_class": "No Safety Boots",
+          "bbox_xyxy_norm": [
+            0.27033,
+            0.52827,
+            0.28736,
+            0.54717
+          ],
+          "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
+        },
+        {
+          "annotation_id": "T",
+          "source_class": "No Safety Boots",
+          "bbox_xyxy_norm": [
+            0.28853,
+            0.5316,
+            0.29907,
+            0.54397
+          ],
+          "warning": "MODEL_ANNOTATION_ONLY_NOT_PROOF_OF_PHYSICAL_ABSENCE"
+        }
+      ],
+      "worker_ppe_state_proposals": [
+        {
+          "person_id": "P001",
+          "ppe_type": "hard_hat",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "Yellow protective helmet visibly worn",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_vest",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "Fluorescent reflective vest visible",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "glove",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "Red glove(s) appear on arm/hand region",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "face_mask",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Face not clearly visible; do not treat No Face Mask marker as proof",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_boot",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Footwear partly hidden and protection level unverified",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "hard_hat",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "Yellow protective helmet visibly worn",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "safety_vest",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "Fluorescent reflective vest visible",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "glove",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "Red glove(s) appear on hands",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "face_mask",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Face occluded/too small",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "safety_boot",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Footwear covered by lower clothing",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "hard_hat",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "Yellow protective helmet visibly worn",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "safety_vest",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "Reflective vest clearly visible at torso",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "glove",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Some red glove evidence near hands; one glove location may overlap neighboring person",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "face_mask",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Face pointed downward or covered",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "safety_boot",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Footwear not reliably shown",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "hard_hat",
+          "proposed_visual_state": "PRESENT",
+          "ai_visual_evidence": "Yellow protective helmet visibly worn",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "safety_vest",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Only partial bright reflective patch visible; cannot confirm a full safety vest",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "glove",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Ambiguous left-extending arm/glove near P003; require wearer tracing",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "face_mask",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Face covered/turned away",
+          "reviewer_signoff_required": true
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "safety_boot",
+          "proposed_visual_state": "UNKNOWN",
+          "ai_visual_evidence": "Footwear obscured by crouched posture",
+          "reviewer_signoff_required": true
+        }
+      ],
+      "review_needed": [
+        "Human source-image inspection before accepting any proposed person/item association",
+        "Inspect occluded/missed people beyond original labels",
+        "Check PPE-type ambiguity and left/right paired items",
+        "Document source rights, privacy, source-family identity and site/task mandate",
+        "Keep Roboflow Eval Case incomplete until a researcher signs off"
+      ]
+    },
+    {
+      "case_key": "D",
+      "image_id": "0oVmRAxL0SM1PWqZCNyM",
+      "filename": "h1.jpg",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "visible_person_count_ai_observed": 0,
+      "original_annotated_person_count": 0,
+      "observations": "Isolated yellow hard hat on white background. No person visible in the source image. The item is not being worn; association to any person must remain UNKNOWN (not a violation).",
+      "source_rights_status": "UNREVIEWED",
+      "task_site_policy": "POLICY_UNKNOWN",
+      "persons": [],
+      "physical_ppe_candidates": [
+        {
+          "equipment_id": "E001",
+          "source_annotation_id": "1",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "bbox_xyxy_norm": [
+            0.036,
+            0.02,
+            0.98655,
+            0.68011
+          ],
+          "review_suggestion": {
+            "status": "UNKNOWN_CANDIDATE",
+            "person_id": null,
+            "alternatives": [],
+            "requires_visual_confirmation": true
+          },
+          "item_type_certainty": "CANDIDATE",
+          "human_verified": false
+        }
+      ],
+      "absence_marker_annotations_excluded_from_ppe_inventory": [],
+      "worker_ppe_state_proposals": [],
+      "review_needed": [
+        "Human source-image inspection before accepting any proposed person/item association",
+        "Inspect occluded/missed people beyond original labels",
+        "Check PPE-type ambiguity and left/right paired items",
+        "Document source rights, privacy, source-family identity and site/task mandate",
+        "Keep Roboflow Eval Case incomplete until a researcher signs off"
+      ]
+    }
+  ]
+}
