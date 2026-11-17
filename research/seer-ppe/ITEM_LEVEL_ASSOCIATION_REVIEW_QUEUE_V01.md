@@ -11,12 +11,12 @@ Original Roboflow native annotation boxes (4 Train images) were checked against 
 | Original source positive PPE boxes | **26** | Candidate physical items, not independent verified ground truth |
 | Researcher preliminary owner `UNKNOWN` or no visible wearer | **5** | B `K/L/M`, C `J`, D standalone `1` — remain unassigned |
 | Additional glove-box uncertainty identified by AI | **2** | B `9/A` — old `Gloves` labels do not prove rear gloves are worn |
-| Other historic AI candidate matches awaiting item-level human review | **19** | Do not automatically promote to `MATCHED` |
+| Other historic AI candidate matches awaiting item-level human review | **16** | Case A three links now approved; these 16 are still AI-only |
 | Old absence-like annotation boxes | **14** | Not physical PPE; not proof of noncompliance |
-| Approved box-to-worker attributions | **0** | Person-level visual confirmation is a **different variable** |
+| Approved box-to-worker attributions | **3** | Case A source boxes `1/2/3` -> `P001`, explicit researcher-final visual decision |
 | Roboflow human-complete Eval Cases | **0/4** | Cases remain `groundTruth={}` / `incomplete` |
 
-The `5 + 2 + 19 = 26` categories are **item-level review routing states**, not measured model detection/association performance. The 38 previously affirmed person×PPE visual-state observations and one confirmed D standalone item remain separate. A positive item can be worn visually while its particular source annotation is not reliably attributable. Protective certification, where applicable, is not independently established by these pixels.
+The `5 + 2 + 16 + 3 = 26` categories are **item-level review routing states**, not measured model detection/association performance. The 38 previously affirmed person×PPE visual-state observations and one confirmed D standalone item remain separate. A positive item can be worn visually while its particular source annotation is not reliably attributable. Protective certification, where applicable, is not independently established by these pixels.
 
 ## Item-by-item reviewer queue
 
@@ -24,13 +24,13 @@ Columns: **old box** = ID in original Roboflow training source; **historic AI ta
 
 ### Case A — `image_604.jpg`
 
-One visible person; wearer of each old boxed item still requires explicit item-level review
+One visible person; **researcher has finally approved original boxes 1/2/3 as MATCHED to P001**. Rights/privacy/source-family and second-pass checks remain open.
 
 | Old box | Equipment class | Historic AI wearer | Current item-level status | Reviewer focus |
 |---|---|---|---|---|
-| `1` / `E001` | Safety Vests | `P001` | `PENDING — AI candidate only` | Worker visual-state PRESENT; source box still unconfirmed |
-| `2` / `E002` | Goggles | `P001` | `PENDING — AI candidate only` | Worker visual-state PRESENT; source box still unconfirmed |
-| `3` / `E003` | Hard Hat | `P001` | `PENDING — AI candidate only` | Worker visual-state PRESENT; source box still unconfirmed |
+| `1` / `E001` | Safety Vests | `P001` | `MATCHED — researcher final` | Individual item wearer approved; source clearance remains open |
+| `2` / `E002` | Goggles | `P001` | `MATCHED — researcher final` | Individual item wearer approved; product rating remains unknown |
+| `3` / `E003` | Hard Hat | `P001` | `MATCHED — researcher final` | Individual item wearer approved; source clearance remains open |
 
 Old absence-like source markers: `5` (No Face Mask).
 
@@ -102,7 +102,7 @@ Old absence-like source markers: none.
 
 ## What remains before a real Eval ground-truth reference
 
-1. For each of the **19 historic AI matches**, independently identify the visible body wearer *and original item box*; request the researcher's explicit per-item approval, correction, or `UNKNOWN`. The four images' previous worker-level present/absent reports do not suffice as box-level matches.
+1. For each of the **16 remaining historic AI matches** (excluding Case A `1/2/3`, which the researcher has now finally approved), independently identify the visible body wearer *and original item box*; request the researcher's explicit per-item approval, correction, or `UNKNOWN`. The four images' previous worker-level present/absent reports do not suffice as box-level matches.
 2. Resolve, or explicitly retain, the **seven review-priority uncertain items** (B `9/A`, B `K/L/M`, C `J`, D `1`). Prior researcher's `UNKNOWN` remains the operative preliminary decision for B `K/L/M`, C `J`, and D unworn item; B `9/A` remain AI-only uncertainties.
 3. Revisit the **14 absence-like markers** separately from positive PPE. For C, compare the four `No Safety Boots` and four broad `No Safety Attire` markers with actual visible PPE, and document what each old class intended.
 4. Exhaustively look for *unboxed physical PPE*: most notably footwear of all four workers as reported by the researcher in C despite **zero positive `Safety Boots` source boxes**. Do not invent box coordinates or create training annotations.
@@ -111,3 +111,6 @@ Old absence-like source markers: none.
 ## Supporting machine-readable audit
 
 [`ITEM_LEVEL_ASSOCIATION_EVIDENCE_AUDIT_V01.json`](ITEM_LEVEL_ASSOCIATION_EVIDENCE_AUDIT_V01.json) includes 26 item records (original annotation ID/normalized coordinates, historic candidate, researcher preliminary decision, a geometry-only check, source annotation match, and next review action) plus the 14 negative-marker records. Center containment is geometry only: it cannot prove ownership, especially for reaching, occluded or truncated body parts.
+
+
+**2026-11-17 follow-up:** Researcher has finally approved Case A links `1/2/3` to `P001` and the associated six visible PPE states (mask ABSENT; gloves/boots UNKNOWN due crop). The A source-rights/second-review gate still prevents fully complete Roboflow reference. See [the updated researcher sign-off](RESEARCHER_SIGNOFF_QUEUE_V01.md).
