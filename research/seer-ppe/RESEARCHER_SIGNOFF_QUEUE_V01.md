@@ -195,3 +195,17 @@ Interpretation bounded by what the researcher stated:
 **Critical preservation:** The earlier explicit researcher decision on glove `J` / `E012` remains `UNKNOWN` with `person_id=null`. Four workers reportedly wearing gloves does **not** prove which individual's glove is boxed by annotation `J`. Similarly the person-level boot report does not establish exact boot-object associations, independent footwear safety certification, or worker policy compliance. Eye protection and face-mask states are still `UNKNOWN` unless separately assessed. `POLICY_UNKNOWN` continues to apply without a documented task/site mandate.
 
 **Status:** preliminary researcher observations only; 16 person×PPE states reported for Case C (4 people × 4 types), no completed item-level association review, no rights/source-family evidence or final research approval. Case C Roboflow Eval `groundTruth={}` and `groundTruthState=incomplete` must be preserved, as must the original model, annotations and splits.
+
+
+## Case C — non-visible eyewear and face masks (researcher confirmation, 2026-11-17)
+
+Asked whether goggles and face masks can be clearly seen for all four Case C workers or should remain UNKNOWN because of worker poses and partially obscured faces. The researcher answered **"لم ترى"** (not visible). This is an explicit **visual non-observability statement**, NOT confirmation of absence.
+
+| Worker | Eyewear | Face mask | Interpretation |
+|---|---|---|---|
+| `P001` | `UNKNOWN` | `UNKNOWN` | Neither item discernible enough to determine wear |
+| `P002` | `UNKNOWN` | `UNKNOWN` | Neither item discernible enough to determine wear |
+| `P003` | `UNKNOWN` | `UNKNOWN` | Neither item discernible enough to determine wear |
+| `P004` | `UNKNOWN` | `UNKNOWN` | Neither item discernible enough to determine wear |
+
+No source `No Face Mask` annotation, lack of detection, or unseen eyes/mouth shall be converted into an `ABSENT` reference without direct anatomical evidence. Previous person-level helmet, vest, glove and boot observations remain in force, as does the researcher's `UNKNOWN` wearer decision for original glove `J` / `E012`. The four cases remain `incomplete` until source-rights/privacy, source-group and full item-association review and sign-off. `POLICY_UNKNOWN` unchanged.
