@@ -273,3 +273,12 @@ The requested **item-level helmet and glove audit** was performed using the read
 **AI-only candidate links (not researcher-final approval):** `Hard Hat 3→P001`, `Hard Hat 4→P002`, `Gloves 6→P001`, `Gloves 7→P001`; rear `Gloves 9/A` are `UNKNOWN_CANDIDATE` from the current AI source-image review, not verified physical glove ownership. Earlier confirmed **worker-level** visual states stay unchanged: P001 helmet/gloves PRESENT, P002 helmet PRESENT/gloves UNKNOWN.
 
 The researcher's previous **boot person-ownership decisions B/K,L,M remain UNKNOWN** (`person_id=null`) and are not reopened. Researcher has not yet given **any box-level final match approval for Case B**; its separate Roboflow Eval `groundTruth={}` / `incomplete` status is preserved. Do not promote proposals to gold or amend training annotations.
+
+
+## Case B final researcher item-link decisions (2026-11-18)
+
+In direct response to the explicitly itemized question, the researcher said **"نعم اعتمد"**. **Final approved original source box → visible worker associations:** `3 (Hard Hat) → P001`, `4 (Hard Hat) → P002`, `6 (Gloves) → P001`, `7 (Gloves) → P001`.
+
+**Reaffirmed/confirmed owner UNKNOWN:** Gloves `9/A` and Safety Boots `K/L/M` are all `UNKNOWN`, `person_id=null`. The original glove labels on small background boxes `9/A` do **not** establish that gloves can be reliably seen on P002; the researcher's person-level glove state for P002 remains `UNKNOWN`. Protective boot certification and per-boot ownership are unknown. Prior person-level notes (both reflective vests ABSENT, goggles UNKNOWN, masks UNKNOWN, scene-level footwear seen, trousers differences) remain unchanged.
+
+These decisions are **final for each specified item-owner link/unknown status only**, not whole Case B researcher ground truth or legal/privacy/source clearance. Safety site policy remains `POLICY_UNKNOWN`; no workplace violation inferred. Source label geometry, base model, annotations and splits unchanged. Full item packet: [Case B item-level helmet/glove review](CASE_B_ITEM_LEVEL_HELMET_GLOVE_REVIEW_V01.md).
