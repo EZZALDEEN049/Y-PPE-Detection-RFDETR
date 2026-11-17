@@ -1960,10 +1960,11 @@
             0.68011
           ],
           "provisional_association": {
-            "status": "NOT_HUMAN_ADJUDICATED",
+            "status": "UNKNOWN",
             "person_id": null,
-            "source": "NO_RESEARCHER_DECISION",
-            "is_final": false
+            "source": "EXPLICIT_RESEARCHER_CONFIRMATION_IMAGE_HAS_NO_PERSON",
+            "is_final": false,
+            "reason": "Standalone helmet; no visible person to associate it with"
           },
           "historic_ai_candidate": {
             "status": "UNKNOWN_CANDIDATE",
@@ -1972,7 +1973,19 @@
             "requires_visual_confirmation": true
           },
           "unverified_safety_qualification": false,
-          "human_item_review_complete": false
+          "human_item_review_complete": false,
+          "researcher_provisional_visual_statement": {
+            "date": "2026-11-17",
+            "source": "Researcher explicit yes to a single yellow unworn helmet, no people visible",
+            "item_visible": "PRESENT",
+            "item_color": "YELLOW",
+            "item_worn_by_visible_person": false,
+            "human_item_appearance_confirmed_preliminarily": true,
+            "protective_certification_verified": false,
+            "item_person_association": "UNKNOWN",
+            "violation_label": "NOT_APPLICABLE_NO_PERSON",
+            "fully_approved_ground_truth": false
+          }
         }
       ],
       "absence_marker_boxes_not_evidence_of_absence": [],
@@ -1986,6 +1999,24 @@
         "review_signoff_status": "PRELIMINARY_COUNT_CONFIRMATION",
         "whole_case_ground_truth_approved": false,
         "notes": "Confirmation of counts only; PPE-to-person association, per-PPE states, source rights and policy remain open"
+      },
+      "researcher_scene_observations": {
+        "statement_id": "2026-11-17-case-d-one-unworn-yellow-hard-hat-no-people",
+        "date": "2026-11-17",
+        "source": "Researcher said نعم in direct reply to question about a standalone yellow helmet and no worker wearing it",
+        "visible_persons": 0,
+        "stand_alone_yellow_hard_hat_count": 1,
+        "item_appearance": "yellow hard hat on plain background, not worn",
+        "original_source_annotation_id": "1",
+        "owner_status": "UNKNOWN",
+        "owner_person_id": null,
+        "rationale": "No worker appears in image; physically impossible to infer a depicted wearer",
+        "is_worker_ppe_violation": false,
+        "compliance_claim": "NONE",
+        "certification_claim": "NONE",
+        "review_scope": "PRELIMINARY_IMAGE_CONTENT_CONFIRMATION_ONLY",
+        "source_privacy_rights_review": "UNREVIEWED",
+        "final_case_approved": false
       }
     }
   ],
@@ -2024,6 +2055,9 @@
     "case_b_researcher_scene_footwear_presence": "Reported visible, individual K/L/M association unknown",
     "case_c_researcher_traditional_outerwear": "All four reported to wear traditional abaya; clothing context, not protective compliance verdict",
     "case_c_glove_J_individual_owner": "UNKNOWN",
-    "case_c_eyewear_and_masks": "Researcher confirmed not visible => UNKNOWN in all 4 people, no ABSENT claim"
+    "case_c_eyewear_and_masks": "Researcher confirmed not visible => UNKNOWN in all 4 people, no ABSENT claim",
+    "case_d_researcher_confirmed_standalone_helmet": true,
+    "case_d_researcher_confirmed_helmet_without_visible_person": true,
+    "case_d_association_unknown_reason": "NO_VISIBLE_PERSON"
   }
 }
