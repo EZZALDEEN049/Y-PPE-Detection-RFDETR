@@ -12,7 +12,8 @@
     "No claim that all objects are exhaustively inventoried or human-confirmed.",
     "MATCHED_CANDIDATE/AMBIGUOUS_CANDIDATE/UNKNOWN_CANDIDATE are review suggestions, NOT SEER-PPE algorithm outputs or human-labeled ground truth.",
     "An absence-marker model class is not a physical PPE instance. A visible industrial boot does not establish safety certification.",
-    "Glove J / E012: researcher explicitly supplied a preliminary UNKNOWN decision on 2026-11-17, superseding the original AI ambiguous *suggestion* for current review decisions. Prior AI suggestion retained as historical unapproved trace; do not treat as approved ground truth."
+    "Glove J / E012: researcher explicitly supplied a preliminary UNKNOWN decision on 2026-11-17, superseding the original AI ambiguous *suggestion* for current review decisions. Prior AI suggestion retained as historical unapproved trace; do not treat as approved ground truth.",
+    "Rechecked image B raw 500x330 source, old safety-boot annotation IDs K/L/M. All proposed wearer links are unapproved and boot safety grade remains UNKNOWN; inspect product/certification evidence before any safety-boot visual-state PRESENT decision."
   ],
   "images": [
     {
@@ -345,7 +346,17 @@
             "requires_visual_confirmation": true
           },
           "item_type_certainty": "SAFETY_RATING_UNVERIFIED",
-          "human_verified": false
+          "human_verified": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-17",
+            "source": "Original Roboflow image 000760.jpg (500x330), read-only visual check",
+            "wearer_inference_status": "PROVISIONAL_GEOMETRY_AND_VISUAL_ALIGNMENT",
+            "visual_evidence": "Small rear footwear region visually aligned to background person P002. Toe and protective construction not resolvable.",
+            "safety_boot_certification_status": "UNKNOWN",
+            "ppe_type_adjudication_status": "PENDING_HUMAN_VERIFICATION",
+            "confidence_claim": "NONE",
+            "ground_truth_approved": false
+          }
         },
         {
           "equipment_id": "E008",
@@ -365,7 +376,17 @@
             "requires_visual_confirmation": true
           },
           "item_type_certainty": "SAFETY_RATING_UNVERIFIED",
-          "human_verified": false
+          "human_verified": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-17",
+            "source": "Original Roboflow image 000760.jpg (500x330), read-only visual check",
+            "wearer_inference_status": "PROVISIONAL_GEOMETRY_AND_VISUAL_ALIGNMENT",
+            "visual_evidence": "Foreground worker rightward foot region appears shod; footwear protection rating not resolvable.",
+            "safety_boot_certification_status": "UNKNOWN",
+            "ppe_type_adjudication_status": "PENDING_HUMAN_VERIFICATION",
+            "confidence_claim": "NONE",
+            "ground_truth_approved": false
+          }
         },
         {
           "equipment_id": "E009",
@@ -385,7 +406,17 @@
             "requires_visual_confirmation": true
           },
           "item_type_certainty": "SAFETY_RATING_UNVERIFIED",
-          "human_verified": false
+          "human_verified": false,
+          "ai_source_image_recheck": {
+            "date": "2026-11-17",
+            "source": "Original Roboflow image 000760.jpg (500x330), read-only visual check",
+            "wearer_inference_status": "PROVISIONAL_GEOMETRY_AND_VISUAL_ALIGNMENT",
+            "visual_evidence": "Foreground worker leftward foot region appears shod; footwear protection rating not resolvable.",
+            "safety_boot_certification_status": "UNKNOWN",
+            "ppe_type_adjudication_status": "PENDING_HUMAN_VERIFICATION",
+            "confidence_claim": "NONE",
+            "ground_truth_approved": false
+          }
         }
       ],
       "absence_marker_annotations_excluded_from_ppe_inventory": [
