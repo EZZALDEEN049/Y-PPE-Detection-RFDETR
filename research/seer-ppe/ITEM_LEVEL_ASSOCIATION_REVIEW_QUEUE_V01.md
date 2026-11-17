@@ -1,6 +1,6 @@
 # SEER-PPE — item-level attribution and legacy-label integrity audit v0.1
 
-**Date:** 2026-11-17 | **Type:** AI-assisted read-only evidence triage, **not human-approved reference or scientific accuracy**.
+**Date:** 2026-11-17 | **Type:** Initially AI-assisted evidence triage; Case A now has explicit final human visual/item approval; the other item links are **not** approved. No scientific accuracy result.
 
 ## Verified inputs and scope
 
@@ -14,7 +14,7 @@ Original Roboflow native annotation boxes (4 Train images) were checked against 
 | Other historic AI candidate matches awaiting item-level human review | **16** | Case A three links now approved; these 16 are still AI-only |
 | Old absence-like annotation boxes | **14** | Not physical PPE; not proof of noncompliance |
 | Approved box-to-worker attributions | **3** | Case A source boxes `1/2/3` -> `P001`, explicit researcher-final visual decision |
-| Roboflow human-complete Eval Cases | **0/4** | Cases remain `groundTruth={}` / `incomplete` |
+| Roboflow human-complete Eval Cases | **0/4** | Case A has typed partial adjudicated ground-truth arrays but remains `incomplete`; B/C/D have empty ground truth |
 
 The `5 + 2 + 16 + 3 = 26` categories are **item-level review routing states**, not measured model detection/association performance. The 38 previously affirmed person×PPE visual-state observations and one confirmed D standalone item remain separate. A positive item can be worn visually while its particular source annotation is not reliably attributable. Protective certification, where applicable, is not independently established by these pixels.
 
@@ -114,3 +114,5 @@ Old absence-like source markers: none.
 
 
 **2026-11-17 follow-up:** Researcher has finally approved Case A links `1/2/3` to `P001` and the associated six visible PPE states (mask ABSENT; gloves/boots UNKNOWN due crop). The A source-rights/second-review gate still prevents fully complete Roboflow reference. See [the updated researcher sign-off](RESEARCHER_SIGNOFF_QUEUE_V01.md).
+
+**Roboflow separate Eval update:** Case A revision 2 contains one researcher-approved person, three item links `MATCHED`, six visual PPE states and six `POLICY_UNKNOWN` mandates. `source_review` remains unfilled and `groundTruthState=incomplete`. This supersedes older notes that Case A still has empty ground truth.
