@@ -102,10 +102,10 @@ Old absence-like source markers: none.
 
 ## What remains before a real Eval ground-truth reference
 
-1. For each of the **19 historic AI matches**, independently identify the visible body wearer *and original item box*; request the researcher's explicit per-item approval, correction, or `UNKNOWN`. The six images' previous worker-level present/absent reports do not suffice as box-level matches.
+1. For each of the **19 historic AI matches**, independently identify the visible body wearer *and original item box*; request the researcher's explicit per-item approval, correction, or `UNKNOWN`. The four images' previous worker-level present/absent reports do not suffice as box-level matches.
 2. Resolve, or explicitly retain, the **seven review-priority uncertain items** (B `9/A`, B `K/L/M`, C `J`, D `1`). Prior researcher's `UNKNOWN` remains the operative preliminary decision for B `K/L/M`, C `J`, and D unworn item; B `9/A` remain AI-only uncertainties.
 3. Revisit the **14 absence-like markers** separately from positive PPE. For C, compare the four `No Safety Boots` and four broad `No Safety Attire` markers with actual visible PPE, and document what each old class intended.
-4. Exhaustively look for *unboxed physical PPE*: most notably the four pairs of boots the researcher reports in C despite **zero positive `Safety Boots` source boxes**. Do not invent box coordinates or create training annotations.
+4. Exhaustively look for *unboxed physical PPE*: most notably footwear of all four workers as reported by the researcher in C despite **zero positive `Safety Boots` source boxes**. Do not invent box coordinates or create training annotations.
 5. Before setting `groundTruthState=complete`, finish item coverage, source rights/privacy/source family, documented worksite task mandates (or explicit `POLICY_UNKNOWN`), independent review pass and case-level researcher approval in the **separate Roboflow Eval Dataset** only.
 
 ## Supporting machine-readable audit
