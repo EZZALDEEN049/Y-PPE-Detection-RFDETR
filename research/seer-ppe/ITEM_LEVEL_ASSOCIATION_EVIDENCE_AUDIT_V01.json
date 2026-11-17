@@ -26,7 +26,10 @@
     "source_rights_cleared": 0,
     "completed_eval_cases": 0,
     "researcher_final_visual_case_A": true,
-    "preserved_legacy_source_annotations": true
+    "preserved_legacy_source_annotations": true,
+    "case_a_eval_ground_truth_partial_saved": true,
+    "case_a_eval_ground_truth_state": "incomplete",
+    "case_a_eval_ground_truth_revision": 2
   },
   "cases": [
     {
