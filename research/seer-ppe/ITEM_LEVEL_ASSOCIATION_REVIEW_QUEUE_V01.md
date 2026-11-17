@@ -122,3 +122,6 @@ Old absence-like source markers: none.
 
 
 **2026-11-18 Case B researcher-final ownership decisions:** `3→P001`, `4→P002`, `6→P001`, `7→P001` are final MATCHED item-owner links; `9/A/K/L/M` are final owner UNKNOWN, `person_id=null`. Exact physical status of B `9/A` remains uncertain, distinct from owner unknown. Case B still incomplete in Roboflow until source/rights/second-pass gates. See [dedicated Case B packet](CASE_B_ITEM_LEVEL_HELMET_GLOVE_REVIEW_V01.md).
+
+
+**Roboflow Case B import (2026-11-18):** The separate Eval Case B (revision 2) now holds **four human-approved item MATCHED associations** and **eight previously confirmed person-level visual-state entries**, still `incomplete`; physical item records `9/A/K/L/M` are excluded until identity and coverage are verifiable, while their **human-approved owner UNKNOWN** status remains explicit in GitHub. Source/privacy family and policy verification remain pending.
