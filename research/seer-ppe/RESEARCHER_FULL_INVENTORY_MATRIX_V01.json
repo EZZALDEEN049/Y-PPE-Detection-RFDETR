@@ -36,7 +36,15 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's explicit confirmation in chat",
+                "confirmed_visual_state": "PRESENT",
+                "evidence_description": "Yellow hard hat visibly worn; safety grade not certified",
+                "confirmation_scope": "VISUAL_STATE_ONLY",
+                "is_final_case_signoff": false
+              }
             },
             {
               "ppe_type": "safety_vest",
@@ -45,7 +53,15 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's explicit confirmation in chat",
+                "confirmed_visual_state": "PRESENT",
+                "evidence_description": "High-visibility vest visibly worn; task mandate unknown",
+                "confirmation_scope": "VISUAL_STATE_ONLY",
+                "is_final_case_signoff": false
+              }
             },
             {
               "ppe_type": "goggles",
@@ -54,7 +70,15 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's explicit confirmation in chat",
+                "confirmed_visual_state": "PRESENT",
+                "evidence_description": "Clear protective eyewear visible; specific protective rating not certified",
+                "confirmation_scope": "VISUAL_STATE_ONLY",
+                "is_final_case_signoff": false
+              }
             },
             {
               "ppe_type": "face_mask",
@@ -63,7 +87,15 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's explicit confirmation in chat",
+                "confirmed_visual_state": "ABSENT",
+                "evidence_description": "Uncovered nose and mouth; visual absence does not prove policy violation",
+                "confirmation_scope": "VISUAL_STATE_ONLY",
+                "is_final_case_signoff": false
+              }
             },
             {
               "ppe_type": "glove",
@@ -72,7 +104,15 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": null
+              "safety_certification_note": null,
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's explicit confirmation in chat",
+                "confirmed_visual_state": "UNKNOWN",
+                "evidence_description": "Hands cropped out; cannot determine glove state",
+                "confirmation_scope": "VISUAL_STATE_ONLY",
+                "is_final_case_signoff": false
+              }
             },
             {
               "ppe_type": "safety_boot",
@@ -81,7 +121,15 @@
               "status_source": "AI_PRE_REVIEW",
               "requires_researcher_review": true,
               "policy_status": "POLICY_UNKNOWN",
-              "safety_certification_note": "No safety-footwear certification can be proved from these source images."
+              "safety_certification_note": "No safety-footwear certification can be proved from these source images.",
+              "researcher_visual_statement": {
+                "date": "2026-11-17",
+                "statement_source": "Researcher's explicit confirmation in chat",
+                "confirmed_visual_state": "UNKNOWN",
+                "evidence_description": "Feet cropped out; cannot determine boot state",
+                "confirmation_scope": "VISUAL_STATE_ONLY",
+                "is_final_case_signoff": false
+              }
             }
           ]
         }
@@ -191,6 +239,23 @@
         "review_signoff_status": "PRELIMINARY_COUNT_CONFIRMATION",
         "whole_case_ground_truth_approved": false,
         "notes": "Confirmation of counts only; PPE-to-person association, per-PPE states, source rights and policy remain open"
+      },
+      "researcher_ppe_visual_statement": {
+        "date": "2026-11-17",
+        "person_id": "P001",
+        "confirmation_scope": "SIX_PROPOSED_VISUAL_STATES_ONLY",
+        "confirmed_ppe_states": {
+          "hard_hat": "PRESENT",
+          "safety_vest": "PRESENT",
+          "goggles": "PRESENT",
+          "face_mask": "ABSENT",
+          "glove": "UNKNOWN",
+          "safety_boot": "UNKNOWN"
+        },
+        "case_signoff": "PENDING",
+        "policy_status": "POLICY_UNKNOWN",
+        "equipment_object_association_approved": false,
+        "rights_review_status": "UNREVIEWED"
       }
     },
     {
@@ -1452,6 +1517,10 @@
       "C": 4,
       "D": 0
     },
-    "researcher_count_confirmation_scope": "Counts only, not independent expert annotation completeness or whole-case sign-off"
+    "researcher_count_confirmation_scope": "Counts only, not independent expert annotation completeness or whole-case sign-off",
+    "researcher_preliminary_ppe_confirmed_cases": [
+      "A"
+    ],
+    "researcher_preliminary_ppe_state_confirmations": 6
   }
 }
