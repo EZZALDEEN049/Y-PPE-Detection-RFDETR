@@ -34,7 +34,10 @@
     "human_confirmed_unknown_owner_items": 5,
     "researcher_provisional_unknown_owner_items": 2,
     "total_items_reviewed_for_owner_decision": 12,
-    "human_item_level_final_signoff_definition": "Final for owner link only, including unresolved UNKNOWN; does not establish actual item identity, PPE grade, task policy or whole-case readiness."
+    "human_item_level_final_signoff_definition": "Final for owner link only, including unresolved UNKNOWN; does not establish actual item identity, PPE grade, task policy or whole-case readiness.",
+    "case_b_eval_ground_truth_partial_saved": true,
+    "case_b_eval_ground_truth_state": "incomplete",
+    "case_b_eval_ground_truth_revision": 2
   },
   "cases": [
     {
