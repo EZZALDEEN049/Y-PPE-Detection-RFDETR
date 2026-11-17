@@ -96,3 +96,6 @@ A **public JSON containing no source image pixels** was saved as [`WORKER_ASSOCI
 
 
 **Case B helmet/glove AI-only recheck (17 November 2026):** Source image 000760.jpg (500×330), previous annotations re-read. Visually proposed: front worker P001 hard hat PRESENT, gloves PRESENT (old boxes 3/6/7); rear worker P002 hard hat PRESENT, gloves UNKNOWN due distance/partial occlusion (old boxes 4/9/A). These are AI-only, NOT researcher-confirmed or wearer matches; specific certified PPE grade and task mandate remain unknown. Researcher's prior footwear K/L/M association UNKNOWN decisions unchanged. See RESEARCHER_FULL_INVENTORY_MATRIX_V01.json and RESEARCHER_SIGNOFF_QUEUE_V01.md. Case B and all other Eval Cases remain incomplete, original dataset/model unchanged.
+
+
+**Case B four preliminary PPE visual states confirmed by researcher (17 November 2026):** In direct answer to the itemized image B question, researcher wrote "صح كل شي". Confirmed visual states only: P001 hard hat PRESENT, gloves PRESENT; P002 hard hat PRESENT, gloves UNKNOWN. Earlier geometric box-owner guesses are not ground truth; boot K/L/M person-associations UNKNOWN remain unchanged. Certification and task policy remain unverified (POLICY_UNKNOWN), full case/rights review pending, Roboflow Eval Case incomplete. See RESEARCHER_SIGNOFF_QUEUE_V01.md and RESEARCHER_FULL_INVENTORY_MATRIX_V01.json.
