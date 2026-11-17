@@ -289,3 +289,14 @@ These decisions are **final for each specified item-owner link/unknown status on
 Case B in the separate Roboflow Eval Dataset was saved at **revision 2**, with four user-final `MATCHED` box-to-worker associations, two source person entries, four human-approved source PPE item candidates, eight human-confirmed visual PPE states, and eight `POLICY_UNKNOWN` task-mandate entries. The five old source boxes `9/A/K/L/M` remain human-confirmed **owner UNKNOWN**, documented in GitHub and not inserted as approved physical PPE items into Roboflow ground truth. The source class on `9/A` remains physically unconfirmed.
 
 **Readback verified** `groundTruthState=incomplete` and `source_review` unset; full task/context requirements, source rights and independent second pass are pending. Other cases were not changed, and the original data/model remain frozen.
+
+
+## Case C original-box helmet/vest/glove review packet (2026-11-18)
+
+Read the original C source image (2048×1365) read-only and reconciled 13 positive PPE boxes against the four workers. Created [Case C item-level review packet](CASE_C_ITEM_LEVEL_HELMET_VEST_GLOVE_REVIEW_V01.md).
+
+**AI-only proposed owner links — NOT researcher-final:** hats `F→P001`, `E→P002`, `D→P003`, `C→P004`; reflective vests `6→P001`, `5→P002`, `7→P003`, `8→P004` (P004 garment partly obscured); gloves `H/I→P001`, `G→P002`, `K→P003`. Source glove `J` remains researcher's preliminary `UNKNOWN`, `person_id=null`. No new human signoff has been given for the other 12 box links.
+
+Researcher already reports four people wearing helmets, vests, gloves, boots and traditional `العباءة`. Original source has four `No Safety Boots` boxes `Q/R/S/T` but zero positive boot boxes; this is a review priority, not an automatic false-negative or violation finding. Eye protection and masks remain `UNKNOWN`; site policy `POLICY_UNKNOWN`, rights/privacy/source family `UNREVIEWED`.
+
+Roboflow Eval Case C remains `groundTruthState=incomplete` / `groundTruth={}`. No original annotations, splits, model or base Workflow changed.
