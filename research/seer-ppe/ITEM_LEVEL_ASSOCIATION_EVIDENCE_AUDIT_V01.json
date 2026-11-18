@@ -45,7 +45,23 @@
     "case_c_J_human_final_unknown_owner": true,
     "case_c_eval_ground_truth_partial_saved": true,
     "case_c_eval_ground_truth_state": "incomplete",
-    "case_c_eval_ground_truth_revision": 4
+    "case_c_eval_ground_truth_revision": 4,
+    "case_c_original_No_Safety_Boots_marker_audit_2026_11_18": true,
+    "case_c_No_Safety_Boots_legacy_markers": 4,
+    "case_c_legacy_boot_marker_semantic_discrepancy_status": "OPEN",
+    "case_c_boot_marker_centre_mapping": {
+      "P001": [
+        "S",
+        "T"
+      ],
+      "P002": [],
+      "P003": [
+        "R"
+      ],
+      "P004": [
+        "Q"
+      ]
+    }
   },
   "cases": [
     {
@@ -1461,7 +1477,24 @@
           ],
           "is_physical_PPE_item": false,
           "researcher_counterevidence_status": "LEGACY_ABSENCE_MARKER_CONFLICTS_WITH_RESEARCHER_REPORTED_BOOTS_PRESENT",
-          "do_not_treat_as_missing_PPE_or_violation": true
+          "do_not_treat_as_missing_PPE_or_violation": true,
+          "independent_read_only_source_audit": {
+            "date": "2026-11-18",
+            "normalized_box_xyxy": [
+              0.58659,
+              0.59985,
+              0.6109,
+              0.64409
+            ],
+            "bbox_centre_geometry_only": [
+              "P004"
+            ],
+            "original_class_correctness": "UNADJUDICATED",
+            "relationship_to_researcher_worker_boot_presence": "EVIDENCE_CONFLICT_OPEN",
+            "physical_item_or_compliance_proof": false,
+            "review_report": "CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.json",
+            "no_training_label_change": true
+          }
         },
         {
           "source_annotation_id": "R",
@@ -1474,7 +1507,24 @@
           ],
           "is_physical_PPE_item": false,
           "researcher_counterevidence_status": "LEGACY_ABSENCE_MARKER_CONFLICTS_WITH_RESEARCHER_REPORTED_BOOTS_PRESENT",
-          "do_not_treat_as_missing_PPE_or_violation": true
+          "do_not_treat_as_missing_PPE_or_violation": true,
+          "independent_read_only_source_audit": {
+            "date": "2026-11-18",
+            "normalized_box_xyxy": [
+              0.47559,
+              0.60523,
+              0.49714,
+              0.63432
+            ],
+            "bbox_centre_geometry_only": [
+              "P003"
+            ],
+            "original_class_correctness": "UNADJUDICATED",
+            "relationship_to_researcher_worker_boot_presence": "EVIDENCE_CONFLICT_OPEN",
+            "physical_item_or_compliance_proof": false,
+            "review_report": "CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.json",
+            "no_training_label_change": true
+          }
         },
         {
           "source_annotation_id": "S",
@@ -1487,7 +1537,24 @@
           ],
           "is_physical_PPE_item": false,
           "researcher_counterevidence_status": "LEGACY_ABSENCE_MARKER_CONFLICTS_WITH_RESEARCHER_REPORTED_BOOTS_PRESENT",
-          "do_not_treat_as_missing_PPE_or_violation": true
+          "do_not_treat_as_missing_PPE_or_violation": true,
+          "independent_read_only_source_audit": {
+            "date": "2026-11-18",
+            "normalized_box_xyxy": [
+              0.27033,
+              0.52827,
+              0.28736,
+              0.54717
+            ],
+            "bbox_centre_geometry_only": [
+              "P001"
+            ],
+            "original_class_correctness": "UNADJUDICATED",
+            "relationship_to_researcher_worker_boot_presence": "EVIDENCE_CONFLICT_OPEN",
+            "physical_item_or_compliance_proof": false,
+            "review_report": "CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.json",
+            "no_training_label_change": true
+          }
         },
         {
           "source_annotation_id": "T",
@@ -1500,7 +1567,24 @@
           ],
           "is_physical_PPE_item": false,
           "researcher_counterevidence_status": "LEGACY_ABSENCE_MARKER_CONFLICTS_WITH_RESEARCHER_REPORTED_BOOTS_PRESENT",
-          "do_not_treat_as_missing_PPE_or_violation": true
+          "do_not_treat_as_missing_PPE_or_violation": true,
+          "independent_read_only_source_audit": {
+            "date": "2026-11-18",
+            "normalized_box_xyxy": [
+              0.28853,
+              0.5316,
+              0.29907,
+              0.54397
+            ],
+            "bbox_centre_geometry_only": [
+              "P001"
+            ],
+            "original_class_correctness": "UNADJUDICATED",
+            "relationship_to_researcher_worker_boot_presence": "EVIDENCE_CONFLICT_OPEN",
+            "physical_item_or_compliance_proof": false,
+            "review_report": "CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.json",
+            "no_training_label_change": true
+          }
         }
       ],
       "legacy_non_PPE_clothing_boxes": []
