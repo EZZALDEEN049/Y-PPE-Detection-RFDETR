@@ -1,0 +1,1016 @@
+{
+  "schema_version": "seer-ppe/valid-glove-crowding-stress-read-only/v0.1",
+  "date": "2026-11-18",
+  "algorithm": "association_geometry_prototype.mjs v0.2, score threshold 0.57/margin 0.12, anatomy count warning flags only",
+  "candidate_image_split": "valid",
+  "source_boxes": "ORIGINAL_NATIVE_NOT_HUMAN_VERIFIED",
+  "ground_truth_human_verification": "NOT_PERFORMED",
+  "data_usage": "engineering_stress_only_no_accuracy_or_training",
+  "images": [
+    {
+      "image_id": "7S0Ibkum2sYEViDZmsPu",
+      "filename": "000348.jpg",
+      "split": "valid",
+      "native_person_box_count": 3,
+      "positive_source_boxes": 14,
+      "proposals_count": 14,
+      "unknown_count": 0,
+      "owner_unknown_items": [],
+      "capacity_review_flags": [],
+      "legacy_absence_marker_excluded": 1,
+      "other_source_classes_excluded": 3,
+      "proposals": [
+        {
+          "original_box_id": "1",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P001",
+          "abstention_reason": null,
+          "geometry_score": 0.9862,
+          "margin_between_top_two": 0.8273
+        },
+        {
+          "original_box_id": "2",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.799,
+          "margin_between_top_two": 0.4787
+        },
+        {
+          "original_box_id": "6",
+          "ppe_type": "safety_vest",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P001",
+          "abstention_reason": null,
+          "geometry_score": 0.9458,
+          "margin_between_top_two": 0.6658
+        },
+        {
+          "original_box_id": "7",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P003",
+          "abstention_reason": null,
+          "geometry_score": 0.9497,
+          "margin_between_top_two": 0.7198
+        },
+        {
+          "original_box_id": "8",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P001",
+          "abstention_reason": null,
+          "geometry_score": 0.901,
+          "margin_between_top_two": 0.621
+        },
+        {
+          "original_box_id": "9",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.941,
+          "margin_between_top_two": 0.661
+        },
+        {
+          "original_box_id": "B",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P003",
+          "abstention_reason": null,
+          "geometry_score": 0.8754,
+          "margin_between_top_two": 0.5954
+        },
+        {
+          "original_box_id": "D",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.8532,
+          "margin_between_top_two": 0.5732
+        },
+        {
+          "original_box_id": "E",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P003",
+          "abstention_reason": null,
+          "geometry_score": 0.8886,
+          "margin_between_top_two": 0.6524
+        },
+        {
+          "original_box_id": "G",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.9651,
+          "margin_between_top_two": 0.6851
+        },
+        {
+          "original_box_id": "H",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P003",
+          "abstention_reason": null,
+          "geometry_score": 0.8515,
+          "margin_between_top_two": 0.5715
+        },
+        {
+          "original_box_id": "I",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P001",
+          "abstention_reason": null,
+          "geometry_score": 0.6805,
+          "margin_between_top_two": 0.3312
+        },
+        {
+          "original_box_id": "K",
+          "ppe_type": "safety_vest",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.9495,
+          "margin_between_top_two": 0.6695
+        },
+        {
+          "original_box_id": "L",
+          "ppe_type": "safety_vest",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P003",
+          "abstention_reason": null,
+          "geometry_score": 0.9644,
+          "margin_between_top_two": 0.6844
+        }
+      ]
+    },
+    {
+      "image_id": "6dS5GWe0FQFcHsczFn4Z",
+      "filename": "66632025_3399093130116859_3245569625806602240_n.jpg",
+      "split": "valid",
+      "native_person_box_count": 12,
+      "positive_source_boxes": 76,
+      "proposals_count": 69,
+      "unknown_count": 7,
+      "owner_unknown_items": [
+        {
+          "original_box_id": "X",
+          "ppe_type": "glove",
+          "status": "UNKNOWN",
+          "candidate_person_id": null,
+          "abstention_reason": "COMPETING_PERSONS",
+          "geometry_score": 0.8008,
+          "margin_between_top_two": 0.0392
+        },
+        {
+          "original_box_id": "Y",
+          "ppe_type": "glove",
+          "status": "UNKNOWN",
+          "candidate_person_id": null,
+          "abstention_reason": "COMPETING_PERSONS",
+          "geometry_score": 0.8172,
+          "margin_between_top_two": 0.0359
+        },
+        {
+          "original_box_id": "c",
+          "ppe_type": "glove",
+          "status": "UNKNOWN",
+          "candidate_person_id": null,
+          "abstention_reason": "COMPETING_PERSONS",
+          "geometry_score": 0.827,
+          "margin_between_top_two": 0.1151
+        },
+        {
+          "original_box_id": "l",
+          "ppe_type": "safety_boot",
+          "status": "UNKNOWN",
+          "candidate_person_id": null,
+          "abstention_reason": "COMPETING_PERSONS",
+          "geometry_score": 0.8258,
+          "margin_between_top_two": 0.0758
+        },
+        {
+          "original_box_id": "t",
+          "ppe_type": "safety_boot",
+          "status": "UNKNOWN",
+          "candidate_person_id": null,
+          "abstention_reason": "WEAK_GEOMETRY",
+          "geometry_score": 0.566,
+          "margin_between_top_two": 0.286
+        },
+        {
+          "original_box_id": "19",
+          "ppe_type": "safety_boot",
+          "status": "UNKNOWN",
+          "candidate_person_id": null,
+          "abstention_reason": "COMPETING_PERSONS",
+          "geometry_score": 0.7609,
+          "margin_between_top_two": 0.0453
+        },
+        {
+          "original_box_id": "1D",
+          "ppe_type": "safety_boot",
+          "status": "UNKNOWN",
+          "candidate_person_id": null,
+          "abstention_reason": "WEAK_GEOMETRY",
+          "geometry_score": 0.5028,
+          "margin_between_top_two": 0.2228
+        }
+      ],
+      "capacity_review_flags": [
+        {
+          "person_id": "P007",
+          "ppe_type": "face_mask",
+          "proposed_box_ids": [
+            "1",
+            "8"
+          ],
+          "num": 2,
+          "suggested_anatomical_capacity": 1,
+          "review_only": true
+        },
+        {
+          "person_id": "P005",
+          "ppe_type": "face_mask",
+          "proposed_box_ids": [
+            "3",
+            "B"
+          ],
+          "num": 2,
+          "suggested_anatomical_capacity": 1,
+          "review_only": true
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "face_mask",
+          "proposed_box_ids": [
+            "4",
+            "7"
+          ],
+          "num": 2,
+          "suggested_anatomical_capacity": 1,
+          "review_only": true
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "face_mask",
+          "proposed_box_ids": [
+            "5",
+            "C"
+          ],
+          "num": 2,
+          "suggested_anatomical_capacity": 1,
+          "review_only": true
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "face_mask",
+          "proposed_box_ids": [
+            "6",
+            "9"
+          ],
+          "num": 2,
+          "suggested_anatomical_capacity": 1,
+          "review_only": true
+        },
+        {
+          "person_id": "P006",
+          "ppe_type": "hard_hat",
+          "proposed_box_ids": [
+            "R",
+            "e"
+          ],
+          "num": 2,
+          "suggested_anatomical_capacity": 1,
+          "review_only": true
+        },
+        {
+          "person_id": "P011",
+          "ppe_type": "glove",
+          "proposed_box_ids": [
+            "V",
+            "f",
+            "1R"
+          ],
+          "num": 3,
+          "suggested_anatomical_capacity": 2,
+          "review_only": true
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "glove",
+          "proposed_box_ids": [
+            "h",
+            "j",
+            "p",
+            "1Z"
+          ],
+          "num": 4,
+          "suggested_anatomical_capacity": 2,
+          "review_only": true
+        }
+      ],
+      "legacy_absence_marker_excluded": 28,
+      "other_source_classes_excluded": 1,
+      "proposals": [
+        {
+          "original_box_id": "1",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P007",
+          "abstention_reason": null,
+          "geometry_score": 0.9968,
+          "margin_between_top_two": 0.7168
+        },
+        {
+          "original_box_id": "2",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P006",
+          "abstention_reason": null,
+          "geometry_score": 0.9995,
+          "margin_between_top_two": 0.7159
+        },
+        {
+          "original_box_id": "3",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P005",
+          "abstention_reason": null,
+          "geometry_score": 0.9948,
+          "margin_between_top_two": 0.7148
+        },
+        {
+          "original_box_id": "4",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P004",
+          "abstention_reason": null,
+          "geometry_score": 0.9842,
+          "margin_between_top_two": 0.6959
+        },
+        {
+          "original_box_id": "5",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.9849,
+          "margin_between_top_two": 0.7049
+        },
+        {
+          "original_box_id": "6",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P001",
+          "abstention_reason": null,
+          "geometry_score": 0.9378,
+          "margin_between_top_two": 0.6578
+        },
+        {
+          "original_box_id": "7",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P004",
+          "abstention_reason": null,
+          "geometry_score": 0.9797,
+          "margin_between_top_two": 0.687
+        },
+        {
+          "original_box_id": "8",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P007",
+          "abstention_reason": null,
+          "geometry_score": 1,
+          "margin_between_top_two": 0.72
+        },
+        {
+          "original_box_id": "9",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P001",
+          "abstention_reason": null,
+          "geometry_score": 0.9414,
+          "margin_between_top_two": 0.6614
+        },
+        {
+          "original_box_id": "B",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P005",
+          "abstention_reason": null,
+          "geometry_score": 0.9942,
+          "margin_between_top_two": 0.7142
+        },
+        {
+          "original_box_id": "C",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.9855,
+          "margin_between_top_two": 0.7055
+        },
+        {
+          "original_box_id": "D",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P008",
+          "abstention_reason": null,
+          "geometry_score": 0.9877,
+          "margin_between_top_two": 0.694
+        },
+        {
+          "original_box_id": "E",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P011",
+          "abstention_reason": null,
+          "geometry_score": 0.9911,
+          "margin_between_top_two": 0.7111
+        },
+        {
+          "original_box_id": "F",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P012",
+          "abstention_reason": null,
+          "geometry_score": 0.8955,
+          "margin_between_top_two": 0.6155
+        },
+        {
+          "original_box_id": "G",
+          "ppe_type": "face_mask",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P010",
+          "abstention_reason": null,
+          "geometry_score": 0.9902,
+          "margin_between_top_two": 0.7102
+        },
+        {
+          "original_box_id": "H",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P009",
+          "abstention_reason": null,
+          "geometry_score": 0.9694,
+          "margin_between_top_two": 0.6894
+        },
+        {
+          "original_box_id": "I",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P011",
+          "abstention_reason": null,
+          "geometry_score": 0.9844,
+          "margin_between_top_two": 0.7044
+        },
+        {
+          "original_box_id": "J",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P005",
+          "abstention_reason": null,
+          "geometry_score": 0.9942,
+          "margin_between_top_two": 0.7142
+        },
+        {
+          "original_box_id": "K",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P007",
+          "abstention_reason": null,
+          "geometry_score": 0.9577,
+          "margin_between_top_two": 0.6777
+        },
+        {
+          "original_box_id": "L",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.9873,
+          "margin_between_top_two": 0.7073
+        },
+        {
+          "original_box_id": "M",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P012",
+          "abstention_reason": null,
+          "geometry_score": 0.9077,
+          "margin_between_top_two": 0.6277
+        },
+        {
+          "original_box_id": "N",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P008",
+          "abstention_reason": null,
+          "geometry_score": 0.9877,
+          "margin_between_top_two": 0.694
+        },
+        {
+          "original_box_id": "O",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P004",
+          "abstention_reason": null,
+          "geometry_score": 0.9653,
+          "margin_between_top_two": 0.6437
+        },
+        {
+          "original_box_id": "P",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P003",
+          "abstention_reason": null,
+          "geometry_score": 0.9959,
+          "margin_between_top_two": 0.6712
+        },
+        {
+          "original_box_id": "Q",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P001",
+          "abstention_reason": null,
+          "geometry_score": 0.9838,
+          "margin_between_top_two": 0.7038
+        },
+        {
+          "original_box_id": "R",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P006",
+          "abstention_reason": null,
+          "geometry_score": 0.998,
+          "margin_between_top_two": 0.7131
+        },
+        {
+          "original_box_id": "S",
+          "ppe_type": "safety_vest",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P010",
+          "abstention_reason": null,
+          "geometry_score": 0.9804,
+          "margin_between_top_two": 0.7004
+        },
+        {
+          "original_box_id": "T",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P010",
+          "abstention_reason": null,
+          "geometry_score": 0.9782,
+          "margin_between_top_two": 0.6982
+        },
+        {
+          "original_box_id": "V",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P011",
+          "abstention_reason": null,
+          "geometry_score": 0.8795,
+          "margin_between_top_two": 0.5995
+        },
+        {
+          "original_box_id": "W",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P006",
+          "abstention_reason": null,
+          "geometry_score": 0.8677,
+          "margin_between_top_two": 0.392
+        },
+        {
+          "original_box_id": "X",
+          "ppe_type": "glove",
+          "status": "UNKNOWN",
+          "candidate_person_id": null,
+          "abstention_reason": "COMPETING_PERSONS",
+          "geometry_score": 0.8008,
+          "margin_between_top_two": 0.0392
+        },
+        {
+          "original_box_id": "Y",
+          "ppe_type": "glove",
+          "status": "UNKNOWN",
+          "candidate_person_id": null,
+          "abstention_reason": "COMPETING_PERSONS",
+          "geometry_score": 0.8172,
+          "margin_between_top_two": 0.0359
+        },
+        {
+          "original_box_id": "Z",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P008",
+          "abstention_reason": null,
+          "geometry_score": 0.8922,
+          "margin_between_top_two": 0.5091
+        },
+        {
+          "original_box_id": "a",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P007",
+          "abstention_reason": null,
+          "geometry_score": 0.8024,
+          "margin_between_top_two": 0.3058
+        },
+        {
+          "original_box_id": "b",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P001",
+          "abstention_reason": null,
+          "geometry_score": 0.8173,
+          "margin_between_top_two": 0.4742
+        },
+        {
+          "original_box_id": "c",
+          "ppe_type": "glove",
+          "status": "UNKNOWN",
+          "candidate_person_id": null,
+          "abstention_reason": "COMPETING_PERSONS",
+          "geometry_score": 0.827,
+          "margin_between_top_two": 0.1151
+        },
+        {
+          "original_box_id": "d",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P003",
+          "abstention_reason": null,
+          "geometry_score": 0.8377,
+          "margin_between_top_two": 0.1536
+        },
+        {
+          "original_box_id": "e",
+          "ppe_type": "hard_hat",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P006",
+          "abstention_reason": null,
+          "geometry_score": 0.9967,
+          "margin_between_top_two": 0.7106
+        },
+        {
+          "original_box_id": "f",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P011",
+          "abstention_reason": null,
+          "geometry_score": 0.7772,
+          "margin_between_top_two": 0.269
+        },
+        {
+          "original_box_id": "g",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.9063,
+          "margin_between_top_two": 0.6263
+        },
+        {
+          "original_box_id": "h",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.7685,
+          "margin_between_top_two": 0.421
+        },
+        {
+          "original_box_id": "i",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.8816,
+          "margin_between_top_two": 0.5983
+        },
+        {
+          "original_box_id": "j",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.8177,
+          "margin_between_top_two": 0.415
+        },
+        {
+          "original_box_id": "l",
+          "ppe_type": "safety_boot",
+          "status": "UNKNOWN",
+          "candidate_person_id": null,
+          "abstention_reason": "COMPETING_PERSONS",
+          "geometry_score": 0.8258,
+          "margin_between_top_two": 0.0758
+        },
+        {
+          "original_box_id": "m",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P005",
+          "abstention_reason": null,
+          "geometry_score": 0.9247,
+          "margin_between_top_two": 0.6223
+        },
+        {
+          "original_box_id": "n",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P004",
+          "abstention_reason": null,
+          "geometry_score": 0.8528,
+          "margin_between_top_two": 0.1647
+        },
+        {
+          "original_box_id": "o",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P004",
+          "abstention_reason": null,
+          "geometry_score": 0.9461,
+          "margin_between_top_two": 0.6545
+        },
+        {
+          "original_box_id": "p",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.76,
+          "margin_between_top_two": 0.3076
+        },
+        {
+          "original_box_id": "r",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P008",
+          "abstention_reason": null,
+          "geometry_score": 0.9015,
+          "margin_between_top_two": 0.5713
+        },
+        {
+          "original_box_id": "s",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P003",
+          "abstention_reason": null,
+          "geometry_score": 0.937,
+          "margin_between_top_two": 0.5645
+        },
+        {
+          "original_box_id": "t",
+          "ppe_type": "safety_boot",
+          "status": "UNKNOWN",
+          "candidate_person_id": null,
+          "abstention_reason": "WEAK_GEOMETRY",
+          "geometry_score": 0.566,
+          "margin_between_top_two": 0.286
+        },
+        {
+          "original_box_id": "u",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P007",
+          "abstention_reason": null,
+          "geometry_score": 0.9122,
+          "margin_between_top_two": 0.5969
+        },
+        {
+          "original_box_id": "y",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P006",
+          "abstention_reason": null,
+          "geometry_score": 0.865,
+          "margin_between_top_two": 0.2125
+        },
+        {
+          "original_box_id": "z",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P006",
+          "abstention_reason": null,
+          "geometry_score": 0.9284,
+          "margin_between_top_two": 0.608
+        },
+        {
+          "original_box_id": "12",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P011",
+          "abstention_reason": null,
+          "geometry_score": 0.839,
+          "margin_between_top_two": 0.559
+        },
+        {
+          "original_box_id": "13",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P008",
+          "abstention_reason": null,
+          "geometry_score": 0.9179,
+          "margin_between_top_two": 0.5894
+        },
+        {
+          "original_box_id": "17",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P011",
+          "abstention_reason": null,
+          "geometry_score": 0.8669,
+          "margin_between_top_two": 0.5869
+        },
+        {
+          "original_box_id": "19",
+          "ppe_type": "safety_boot",
+          "status": "UNKNOWN",
+          "candidate_person_id": null,
+          "abstention_reason": "COMPETING_PERSONS",
+          "geometry_score": 0.7609,
+          "margin_between_top_two": 0.0453
+        },
+        {
+          "original_box_id": "1A",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P003",
+          "abstention_reason": null,
+          "geometry_score": 0.9437,
+          "margin_between_top_two": 0.6637
+        },
+        {
+          "original_box_id": "1B",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P007",
+          "abstention_reason": null,
+          "geometry_score": 0.8698,
+          "margin_between_top_two": 0.5615
+        },
+        {
+          "original_box_id": "1D",
+          "ppe_type": "safety_boot",
+          "status": "UNKNOWN",
+          "candidate_person_id": null,
+          "abstention_reason": "WEAK_GEOMETRY",
+          "geometry_score": 0.5028,
+          "margin_between_top_two": 0.2228
+        },
+        {
+          "original_box_id": "1G",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P010",
+          "abstention_reason": null,
+          "geometry_score": 0.8382,
+          "margin_between_top_two": 0.6509
+        },
+        {
+          "original_box_id": "1I",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P001",
+          "abstention_reason": null,
+          "geometry_score": 0.6526,
+          "margin_between_top_two": 0.3726
+        },
+        {
+          "original_box_id": "1J",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P010",
+          "abstention_reason": null,
+          "geometry_score": 0.9166,
+          "margin_between_top_two": 0.7283
+        },
+        {
+          "original_box_id": "1M",
+          "ppe_type": "safety_boot",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P012",
+          "abstention_reason": null,
+          "geometry_score": 0.9488,
+          "margin_between_top_two": 0.6279
+        },
+        {
+          "original_box_id": "1P",
+          "ppe_type": "goggles",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P003",
+          "abstention_reason": null,
+          "geometry_score": 0.9854,
+          "margin_between_top_two": 0.6908
+        },
+        {
+          "original_box_id": "1R",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P011",
+          "abstention_reason": null,
+          "geometry_score": 0.9264,
+          "margin_between_top_two": 0.6464
+        },
+        {
+          "original_box_id": "1S",
+          "ppe_type": "goggles",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P009",
+          "abstention_reason": null,
+          "geometry_score": 0.9716,
+          "margin_between_top_two": 0.6916
+        },
+        {
+          "original_box_id": "1U",
+          "ppe_type": "goggles",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P007",
+          "abstention_reason": null,
+          "geometry_score": 0.9782,
+          "margin_between_top_two": 0.6982
+        },
+        {
+          "original_box_id": "1V",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P010",
+          "abstention_reason": null,
+          "geometry_score": 0.8283,
+          "margin_between_top_two": 0.5483
+        },
+        {
+          "original_box_id": "1W",
+          "ppe_type": "goggles",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.9745,
+          "margin_between_top_two": 0.6945
+        },
+        {
+          "original_box_id": "1Y",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P007",
+          "abstention_reason": null,
+          "geometry_score": 0.865,
+          "margin_between_top_two": 0.4992
+        },
+        {
+          "original_box_id": "1Z",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P002",
+          "abstention_reason": null,
+          "geometry_score": 0.7216,
+          "margin_between_top_two": 0.2147
+        },
+        {
+          "original_box_id": "1a",
+          "ppe_type": "goggles",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P004",
+          "abstention_reason": null,
+          "geometry_score": 0.9713,
+          "margin_between_top_two": 0.6705
+        },
+        {
+          "original_box_id": "1c",
+          "ppe_type": "goggles",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P006",
+          "abstention_reason": null,
+          "geometry_score": 0.9958,
+          "margin_between_top_two": 0.7158
+        },
+        {
+          "original_box_id": "1d",
+          "ppe_type": "glove",
+          "status": "MATCHED_CANDIDATE",
+          "candidate_person_id": "P010",
+          "abstention_reason": null,
+          "geometry_score": 0.7,
+          "margin_between_top_two": 0.3851
+        }
+      ]
+    }
+  ],
+  "source_model_weights_images_splits_annotations_unchanged": true,
+  "test_split_touched_for_prototype": false,
+  "scoring_permitted": false,
+  "limitations": [
+    "High geometric scores are not calibrated probabilities and can be wrong with touching people.",
+    "Anatomical count warnings are heuristics, not proof of duplicated source boxes.",
+    "Gloves and boots can be occluded/held; observed counts per person may not match simple two-pair cap.",
+    "Reference individual person count and source boxes have not been independently adjudicated."
+  ]
+}
