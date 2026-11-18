@@ -13,11 +13,12 @@
     "subject": "طلب توضيح حقوق استخدام صور «Kathiah Gets a Chance» في بحث أكاديمي",
     "body": "السادة/ إدارة مشروع الأشغال العامة (PWP) المحترمون،\nالسلام عليكم ورحمة الله وبركاته،\n\nأعمل على بحث أكاديمي حول تحليل الظهور البصري لمعدات الوقاية الشخصية في صور مشروعات العمل. أثناء تدقيق منشأ إحدى الصور في مجموعة بيانات بحثية، عثرنا على ثلاث صور منشورة على موقعكم ضمن خبر «Kathiah Gets a Chance»، تحمل أسماء الملفات:\nKathiah Gets a Chance01.jpg\nKathiah Gets a Chance02.jpg\nKathiah Gets a Chance03.jpg\n\nرابط الخبر: https://www.pwpyemen.org/index.php/en/media-center-en/news/558-kathiah-gets-a-chance\n\nنرجو منكم التكرم بتوضيح النقاط التالية، أو إحالة الطلب إلى صاحب الحقوق المختص:\n1. من المصوّر أو صاحب حقوق النشر الأصلي لهذه الصور؟ وهل تمتلك جهة PWP صلاحية الترخيص بإعادة استخدامها؟\n2. هل يُسمح بإدراج الصور أو مقتطفات منها في رسالة ماجستير ودراسات أو عروض علمية، وما شروط النَّسب أو الإحالة أو التعديل؟\n3. هل يوجد إذن صالح لاستخدام الصور في مجموعة بيانات للتعلم الآلي، ولتدريب النماذج، ولإعادة توزيع الصور أو النسخ المشتقة عبر مستودعات أو منصات عامة؟ يرجى التمييز بين الاستخدام الداخلي والنشر العام.\n4. ما المتطلبات الخاصة بخصوصية الأشخاص الظاهرين في الصور، وأي موافقات أو قيود نشر ينبغي مراعاتها؟ لا نطلب أسماء العاملين أو معلوماتهم الشخصية.\n5. هل تتوافر وثيقة رسمية لمتطلبات معدات الوقاية في أنشطة النقد مقابل العمل المرتبطة بهذا المشروع في صنعاء القديمة، وبخاصة متطلبات الأحذية، أم يجب الرجوع إلى وثيقة مشروع محددة؟\n\nلن نفترض أن مجرد نشر الصور على الموقع يجيز نسخها أو إعادة استخدامها؛ ونرغب في حفظ توضيحكم أو موافقتكم كتابةً ضمن سجل الأدلة البحثية.\n\nمع خالص الشكر والتقدير،\nباحث في رسالة ماجستير حول تحليل معدات الوقاية الشخصية\nبيانات التواصل: [يُكملها الباحث قبل الإرسال]",
     "recipient_email": "pwp-yem@y.net.ye",
-    "status": "PREPARED_NOT_SENT",
+    "status": "PREPARED_NOT_SENT_SUPERSEDED_BY_RESEARCHER_ORIGINAL_CAPTURE_ATTESTATION",
     "sent_at": null,
     "reply_at": null,
     "attachments": [],
-    "photo_pixels_attached": false
+    "photo_pixels_attached": false,
+    "sending_recommendation": "DO_NOT_SEND_UNMODIFIED; old first-contact draft incorrectly assumed unknown photographer. First check researcher original files and any work/project rights arrangement. If needed ask publisher only about publication authorization and reuse/consent, not photographers identity as unknown."
   },
   "annotation_curator_request": {
     "draft": "الموضوع: استفسار عن دليل وسم الفئة No Safety Boots ومصدر صور ALTAYYAR\n\nمرحبًا،\nأجري تدقيقًا بحثيًا لتعليقات مشروع ALTAYYAR في Roboflow، وأحتاج تعريفًا أصليًا موثقًا للفئة `No Safety Boots`: هل وُضعت عندما لا يرتدي الشخص حذاءً، أم عندما يظهر حذاء غير مطابق لمواصفات الحماية، أم عند عدم ظهور القدم، أم وفق اصطلاح آخر؟\n\nيرجى -إن توافر- تقديم تعريفات الفئات ودليل الوسم أو تعليمات المراجعين الأصلية، ومعلومات المشروع الذي نُسخ منه هذا العمل، ومصدر صور `Kathiah Gets a Chance01/02/03.jpg`، وأساس إتاحة الصور بموجب ترخيص `CC BY 4.0` في المجموعة المنشورة.\n\nلدينا تعليقات قديمة Q/R/S/T باسم `No Safety Boots` في الصورة 03، لكنها لا تمثل علاقة واحدة لكل عامل، ولا يوجد صندوق `Safety Boots` موجب في الصورة. نحتاج إلى فهم الاصطلاح الأصلي قبل إصدار أي حكم بصحة الوسم أو تعديله.\n\nشكرًا لتعاونكم.",
@@ -34,13 +35,13 @@
     "individual_PPE_mandate_status": "POLICY_UNKNOWN"
   },
   "rights_gate": {
-    "photographer": "UNKNOWN",
+    "photographer": "RESEARCHER_SELF_REPORTED_CASE_C_PHOTOGRAPHER",
     "underlying_permission": "UNVERIFIED",
     "thesis_reproduction": "UNVERIFIED",
     "dataset_redistribution": "UNVERIFIED",
     "training_model_use": "UNVERIFIED",
     "person_consent_privacy": "UNVERIFIED",
-    "overall": "PENDING"
+    "overall": "ORIGINAL_CAPTURE_SELF_ATTESTED_EMPLOYER_PROJECT_AND_REUSE_RIGHTS_TO_VERIFY"
   },
   "second_reviewer": {
     "assigned": false,
@@ -49,5 +50,31 @@
   },
   "original_source_data_or_labels_mutated": false,
   "user_approved_links_preserved": 19,
-  "eval_completed_cases": 0
+  "eval_completed_cases": 0,
+  "researcher_direct_original_capture_attestation": {
+    "statement_date": "2026-11-18",
+    "provenance_type": "DIRECT_FIRST_PERSON_RESEARCHER_ATTESTATION_UNINDEPENDENTLY_VERIFIED",
+    "statement_text_ar": "شوووف انا اعمل في مشارع هذه ولي كا مهندس ميداني وانا من جمعت وانا اللي صورت الصورة  اثناء العمل في  المشاريع الميدانيه",
+    "statement_subject": "Case C photo under current discussion",
+    "researcher_field_role": "FIELD_ENGINEER_ON_THE_PROJECTS_PER_SELF_REPORT",
+    "photographer": "RESEARCHER_SELF_REPORTED",
+    "image_collection": "RESEARCHER_SELF_REPORTED_FIELD_COLLECTION",
+    "photo_captured_during": "FIELD_PROJECT_WORK_PER_RESEARCHER",
+    "claimed_scope": "CASE_C_ONLY_UNTIL_RESEARCHER_CLARIFIES_OTHER_IMAGES",
+    "public_article_host": "Public Works Project (PWP), Yemen",
+    "publication_host_is_not_automatic_original_photographer": true,
+    "employment_relationship_to_PWP": "NOT_SPECIFIED",
+    "independent_authentication": "NOT_PERFORMED",
+    "assignment_of_copyright_under_employer_or_project_contract": "NOT_DETERMINED",
+    "workers_privacy_basis": "NOT_ASSESSED",
+    "rights_to_thesis_display": "NOT_YET_FORMALLY_DETERMINED",
+    "public_dataset_redistribution_permission": "NOT_YET_FORMALLY_DETERMINED",
+    "evidence_to_collect_if_available": [
+      "Original full-resolution photo file and non-sensitive file properties/EXIF (avoid publicly sharing coordinates or identities)",
+      "Project documentation of field engineer's image collection role if applicable",
+      "Employer/project agreement or authorization defining publication/reuse rights where applicable",
+      "Appropriate privacy and institutional ethics authorization for showing identifiable people"
+    ],
+    "no_claim_of_permission_or_ownership_auto_granted": true
+  }
 }
