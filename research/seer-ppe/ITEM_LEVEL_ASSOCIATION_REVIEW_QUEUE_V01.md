@@ -137,3 +137,8 @@ Old absence-like source markers: none.
 
 
 **2026-11-18 completed read-only C Q/R/S/T discrepancy inspection:** Geometry and source-level limitations documented in [Case C boot-label audit](CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.md) and [JSON record](CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.json). Mapping by old bbox centre only: Q P004, R P003, S/T P001, none P002. Source has no positive Safety Boots boxes. **Semantic correctness is OPEN**, not human-adjudicated error or compliance failure; researcher worker boot PRESENT reports and all source boxes preserved. Next priority: original labeling guide, independent close-crop and source/rights verification.
+
+
+**2026-11-18 Q/R/S/T provenance and crop follow-up:**
+
+See [source-class and foot-region crop review](CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.md) plus [JSON](CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.json). Native cropped pixels were inspected and original project/job/class metadata checked: **no authoritative definition** of `No Safety Boots` was found. Q/R shoe-like partial regions cannot establish certified safety footwear; S/T remain visually indeterminate. Researcher states, individual equipment links and ground-truth readiness not changed; original labeling conflict still OPEN.
