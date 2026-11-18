@@ -1,0 +1,212 @@
+{
+  "schema_version": "seer_ppe_valid_split_family_gate_v0.1",
+  "date": "2026-11-18",
+  "project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "model_unchanged": "altayyar-0oflt-lafos-qqauz/2",
+  "status": "PRE_SCORING_TRIAGE_ONLY__NO_DUPLICATE_PROVEN__NO_METRICS",
+  "interpretation": "Same filename stem and semantic-nearest-image results are candidate-family evidence, not pixel duplicate or source-scene identity proof. Roboflow similarity scores are not calibrated probabilities.",
+  "groups": [
+    {
+      "stem": "IMG-20250416-WA*",
+      "returned": 30,
+      "total": 30,
+      "splits": {
+        "train": 25,
+        "valid": 4,
+        "test": 1,
+        "other": 0
+      },
+      "candidate": "IMG-20250416-WA0063.jpg",
+      "nearest_cross_split": [
+        {
+          "id": "KrfW3xD7Vvxy6r6wISkv",
+          "filename": "IMG-20250416-WA0067.jpg",
+          "split": "train",
+          "similarity_rank_score": 1.9072044
+        },
+        {
+          "id": "H1KOFc0NQZnWRHJNcHPc",
+          "filename": "IMG-20250416-WA0066(1).jpg",
+          "split": "train",
+          "similarity_rank_score": 1.8336227
+        },
+        {
+          "id": "FZOVAaPg6OZlAJa2gTzE",
+          "filename": "IMG-20250416-WA0062.jpg",
+          "split": "train",
+          "similarity_rank_score": 1.8268555
+        }
+      ],
+      "review_flag": "CROSS_SPLIT_FILENAME_AND_SEMANTIC_CANDIDATE"
+    },
+    {
+      "stem": "worker wearing mask_*",
+      "returned": 20,
+      "total": 20,
+      "splits": {
+        "train": 15,
+        "valid": 3,
+        "test": 2,
+        "other": 0
+      },
+      "candidate": "worker wearing mask_322.jpg",
+      "nearest_cross_split": [
+        {
+          "id": "bzGmI84cgljDL44GkhOr",
+          "filename": "worker wearing mask_259.jpg",
+          "split": "test",
+          "similarity_rank_score": 1.9239764
+        },
+        {
+          "id": "hnv5r5zAvrgjfxTQOsq2",
+          "filename": "image_252.jpg",
+          "split": "train",
+          "similarity_rank_score": 1.9129803
+        },
+        {
+          "id": "ENLLJDhiIanpUYvOuqVm",
+          "filename": "image_1168.jpg",
+          "split": "train",
+          "similarity_rank_score": 1.902409
+        }
+      ],
+      "review_flag": "CROSS_SPLIT_FILENAME_AND_SEMANTIC_CANDIDATE"
+    }
+  ],
+  "candidates": [
+    {
+      "image_id": "07BnOpgFJyNaOhuzvh5i",
+      "filename": "image_1282.jpg",
+      "expected_split": "valid",
+      "annotation_valid": true,
+      "dimensions": {
+        "width": 1000,
+        "height": 667
+      },
+      "source_annotation_class_counts": {
+        "Hard Hat": 2,
+        "Goggles": 1,
+        "Safety Vests": 2,
+        "Persons": 2,
+        "Pants": 2,
+        "No Face Mask": 2,
+        "No Gloves": 2
+      },
+      "source_annotation_person_count": 2,
+      "decision": "HOLD_FOR_VISUAL_GROUP_AND_HUMAN_LABEL_REVIEW",
+      "human_reference_completed": false
+    },
+    {
+      "image_id": "0De0PEUDyeg9v1J3T6zr",
+      "filename": "IMG-20250416-WA0063.jpg",
+      "expected_split": "valid",
+      "annotation_valid": true,
+      "dimensions": {
+        "width": 1080,
+        "height": 810
+      },
+      "source_annotation_class_counts": {
+        "Safety Vests": 1,
+        "Hard Hat": 1,
+        "Persons": 1,
+        "Pants": 1
+      },
+      "source_annotation_person_count": 1,
+      "decision": "HOLD_FOR_VISUAL_GROUP_AND_HUMAN_LABEL_REVIEW",
+      "human_reference_completed": false
+    },
+    {
+      "image_id": "0bPA0Np3dQTf1XlXEAye",
+      "filename": "worker wearing mask_322.jpg",
+      "expected_split": "valid",
+      "annotation_valid": true,
+      "dimensions": {
+        "width": 405,
+        "height": 403
+      },
+      "source_annotation_class_counts": {
+        "Safety Vests": 2,
+        "Goggles": 1,
+        "Persons": 2,
+        "No Gloves": 2,
+        "Hard Hat": 2,
+        "Pants": 1,
+        "Face Masks": 2,
+        "Safety Boots": 1
+      },
+      "source_annotation_person_count": 2,
+      "decision": "HOLD_FOR_VISUAL_GROUP_AND_HUMAN_LABEL_REVIEW",
+      "human_reference_completed": false
+    },
+    {
+      "image_id": "0ti7iV9wSfzMHI2oa8EQ",
+      "filename": "298.JPG",
+      "expected_split": "valid",
+      "annotation_valid": true,
+      "dimensions": {
+        "width": 3024,
+        "height": 4032
+      },
+      "source_annotation_class_counts": {
+        "No Safety Boots": 2
+      },
+      "source_annotation_person_count": 0,
+      "decision": "HOLD_FOR_VISUAL_GROUP_AND_HUMAN_LABEL_REVIEW",
+      "human_reference_completed": false
+    }
+  ],
+  "detailed_flags": [
+    {
+      "image_id": "07BnOpgFJyNaOhuzvh5i",
+      "source_box_id": "C",
+      "label": "No Gloves",
+      "center_x": 499.64,
+      "source_person_horizontal_intervals": [
+        {
+          "id": "7",
+          "x_min": 229.5,
+          "x_max": 407.5
+        },
+        {
+          "id": "8",
+          "x_min": 602.5,
+          "x_max": 754.5
+        }
+      ],
+      "center_inside_any_old_person_horizontal_interval": false,
+      "interpretation": "The negative source marker does not establish absence or a unique wearer."
+    },
+    {
+      "image_id": "0ti7iV9wSfzMHI2oa8EQ",
+      "source_boxes": [
+        {
+          "id": "1",
+          "box_height": 1802.62,
+          "image_height": 4032,
+          "height_fraction": 0.4471
+        },
+        {
+          "id": "2",
+          "box_height": 1856.73,
+          "image_height": 4032,
+          "height_fraction": 0.4605
+        }
+      ],
+      "source_person_boxes": 0,
+      "interpretation": "Two large negative-labelled regions span ~45-46% of image height, so annotation scope and class semantics require manual review; zero annotated persons is not proof of no people."
+    }
+  ],
+  "admissibility_gate": {
+    "validation_threshold_tuning": "BLOCKED pending visually assessed source/scene family separation, reviewed people/PPE and locked protocol",
+    "old_test_predictions": "NOT_RUN; reserve Test",
+    "manual_second_review": "NOT_EXECUTED",
+    "case_c_researcher_decisions": "P001-P004 footwear PRESENT as reported by researcher; Q/R/S/T source-label semantics UNKNOWN; B/K/L/M and C/J ownership UNKNOWN",
+    "experimental_metric_status": "NOT_COMPUTED"
+  },
+  "mutation_contract": {
+    "roboflow_labels_changed": false,
+    "roboflow_splits_changed": false,
+    "workflow_changed": false,
+    "model_retrained": false
+  }
+}
