@@ -61,7 +61,11 @@
       "P004": [
         "Q"
       ]
-    }
+    },
+    "case_c_boot_marker_crop_review_completed": true,
+    "case_c_negative_class_authoritative_definition_found": false,
+    "case_c_original_forked_annotation_job_observed": true,
+    "case_c_semantic_issue_status": "OPEN_SOURCE_SEMANTICS_UNKNOWN_AFTER_CROPS"
   },
   "cases": [
     {
@@ -1493,7 +1497,12 @@
             "relationship_to_researcher_worker_boot_presence": "EVIDENCE_CONFLICT_OPEN",
             "physical_item_or_compliance_proof": false,
             "review_report": "CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.json",
-            "no_training_label_change": true
+            "no_training_label_change": true,
+            "followup_original_pixel_crop_reviewed": true,
+            "followup_document": "CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.json",
+            "original_source_class_ontology_verified": false,
+            "formal_resolution": "SOURCE_CLASS_SEMANTICS_UNKNOWN",
+            "source_training_label_changed": false
           }
         },
         {
@@ -1523,7 +1532,12 @@
             "relationship_to_researcher_worker_boot_presence": "EVIDENCE_CONFLICT_OPEN",
             "physical_item_or_compliance_proof": false,
             "review_report": "CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.json",
-            "no_training_label_change": true
+            "no_training_label_change": true,
+            "followup_original_pixel_crop_reviewed": true,
+            "followup_document": "CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.json",
+            "original_source_class_ontology_verified": false,
+            "formal_resolution": "SOURCE_CLASS_SEMANTICS_UNKNOWN",
+            "source_training_label_changed": false
           }
         },
         {
@@ -1553,7 +1567,12 @@
             "relationship_to_researcher_worker_boot_presence": "EVIDENCE_CONFLICT_OPEN",
             "physical_item_or_compliance_proof": false,
             "review_report": "CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.json",
-            "no_training_label_change": true
+            "no_training_label_change": true,
+            "followup_original_pixel_crop_reviewed": true,
+            "followup_document": "CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.json",
+            "original_source_class_ontology_verified": false,
+            "formal_resolution": "SOURCE_CLASS_SEMANTICS_UNKNOWN",
+            "source_training_label_changed": false
           }
         },
         {
@@ -1583,7 +1602,12 @@
             "relationship_to_researcher_worker_boot_presence": "EVIDENCE_CONFLICT_OPEN",
             "physical_item_or_compliance_proof": false,
             "review_report": "CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.json",
-            "no_training_label_change": true
+            "no_training_label_change": true,
+            "followup_original_pixel_crop_reviewed": true,
+            "followup_document": "CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.json",
+            "original_source_class_ontology_verified": false,
+            "formal_resolution": "SOURCE_CLASS_SEMANTICS_UNKNOWN",
+            "source_training_label_changed": false
           }
         }
       ],
