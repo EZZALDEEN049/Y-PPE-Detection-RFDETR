@@ -2563,7 +2563,29 @@
         "corrections_to_source_annotations_applied": false,
         "source_family_check_pending": true,
         "eval_ground_truth_state_stays": "incomplete",
-        "audit_not_a_model_performance_measure": true
+        "audit_not_a_model_performance_measure": true,
+        "last_followup_date": "2026-11-18",
+        "source_rubric_lookup": "PROJECT_CLASS_COUNTS_PRESENT; AUTHORITATIVE_SOURCE_CLASS_RUBRIC_NOT_FOUND",
+        "original_annotation_job": "nzrZTe9Jg5Camjn4npwO",
+        "original_annotation_job_indicates_fork": true,
+        "verified_parent_source": "UNKNOWN",
+        "project_No_Safety_Boots_class_count": 552,
+        "read_only_original_pixel_crops_reviewed": [
+          "Q",
+          "R",
+          "S",
+          "T",
+          "P002_CONTEXT"
+        ],
+        "followup_md": "CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.md",
+        "followup_json": "CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.json",
+        "label_source_semantics": "UNKNOWN_NEEDS_ORIGINAL_ANNOTATION_GUIDE",
+        "semantic_discrepancy_after_crops": "OPEN",
+        "worker_level_researcher_boot_states": "PRESENT_ALL_FOUR_UNCHANGED",
+        "independently_verified_safety_grade": false,
+        "worker_policy_violation_inferred": false,
+        "original_source_labels_edited": false,
+        "case_ready_for_eval": false
       }
     },
     {
@@ -2715,7 +2737,10 @@
     "case_c_eval_ground_truth_state": "incomplete",
     "case_c_eval_ground_truth_revision": 4,
     "case_c_legacy_boot_absence_marker_audit_completed_as_read_only": true,
-    "case_c_legacy_boot_absence_marker_discrepancy_status": "OPEN_UNRESOLVED",
-    "case_c_legacy_boot_absence_marker_distribution": "P001: S/T, P002: none, P003: R, P004: Q (source person box centroid intersection only)"
+    "case_c_legacy_boot_absence_marker_discrepancy_status": "OPEN_SOURCE_SEMANTICS_UNKNOWN_AFTER_CROPS",
+    "case_c_legacy_boot_absence_marker_distribution": "P001: S/T, P002: none, P003: R, P004: Q (source person box centroid intersection only)",
+    "case_c_boot_semantic_followup_closed": false,
+    "case_c_boot_crop_evidence_reviewed": true,
+    "case_c_original_No_Safety_Boots_labeling_rubric_found": false
   }
 }
