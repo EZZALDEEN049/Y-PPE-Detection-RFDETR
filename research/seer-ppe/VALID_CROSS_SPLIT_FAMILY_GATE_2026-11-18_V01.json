@@ -3,7 +3,7 @@
   "date": "2026-11-18",
   "project": "softyyemen/altayyar-0oflt-lafos-qqauz",
   "model_unchanged": "altayyar-0oflt-lafos-qqauz/2",
-  "status": "PRE_SCORING_TRIAGE_ONLY__NO_DUPLICATE_PROVEN__NO_METRICS",
+  "status": "PRE_SCORING_WITH_CONFIRMED_NAMED_SITE_CROSS_SPLIT__NO_METRICS",
   "interpretation": "Same filename stem and semantic-nearest-image results are candidate-family evidence, not pixel duplicate or source-scene identity proof. Roboflow similarity scores are not calibrated probabilities.",
   "groups": [
     {
@@ -208,5 +208,24 @@
     "roboflow_splits_changed": false,
     "workflow_changed": false,
     "model_retrained": false
+  },
+  "visual_followup": {
+    "date": "2026-11-18",
+    "evidence_file": "VISUAL_SOURCE_FAMILY_ADJUDICATION_2026-11-18_V01.json",
+    "script": "tools/site_family_split_gate.mjs",
+    "ai_visual_triage_only": true,
+    "site_independent_valid_hold_image_ids": [
+      "0De0PEUDyeg9v1J3T6zr",
+      "NZu6Faj6evgINF1qFE0V"
+    ],
+    "confirmed_site_group": "site_school_22may_aseefrah",
+    "sample_group_members_train": 2,
+    "sample_group_members_valid": 2,
+    "confirmed_pixel_duplicate": false,
+    "WA0026_different_named_site": "site_school_shahid_alalafi",
+    "mask322_vs_mask259": "DIFFERENT_IMAGES_IN_VISUAL_REVIEW_NOT_GLOBAL_INDEPENDENCE",
+    "image298": "BARE_FEET_PARTIAL_HUMAN_NONWORK_CONTEXT",
+    "test_visual_qa": "ONE_TEST_IMAGE_SCREENED_FOR_PROVENANCE_ONLY_STRICT_BLIND_NOT_CLAIMED",
+    "valid_research_scoring": "NOT_PERFORMED"
   }
 }
