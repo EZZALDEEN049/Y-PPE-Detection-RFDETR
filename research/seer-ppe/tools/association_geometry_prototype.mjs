@@ -8,6 +8,22 @@
 const TYPES={"Hard Hat":"hard_hat","Safety Vests":"safety_vest","Gloves":"glove","Safety Boots":"safety_boot","Goggles":"goggles","Face Masks":"face_mask"};
 const ZONES={"hard_hat":[0,0.36],"safety_vest":[0.15,0.84],"glove":[0.17,0.94],"safety_boot":[0.67,1.15],"goggles":[0.02,0.35],"face_mask":[0.06,0.46]};
 const SETTINGS={"minScore":0.57,"minMargin":0.12,"minConfidence":0.3};
+
+const MAX_ITEM_SUGGESTIONS_PER_PERSON={hard_hat:1,safety_vest:1,goggles:1,face_mask:1,glove:2,safety_boot:2};
+function capacityWarnings(candidates){
+ const grouped=new Map();
+ for(const c of candidates){
+  if(c.status!=="MATCHED_CANDIDATE"||!c.person_id)continue;
+  const key=c.person_id+"|"+c.ppe_type;const prev=grouped.get(key)||[];
+  prev.push(c.source_id);grouped.set(key,prev);
+ }
+ const flags=[];
+ for(const [key,ids] of grouped){
+  const [person_id,ppe_type]=key.split("|"),max=MAX_ITEM_SUGGESTIONS_PER_PERSON[ppe_type];
+  if(max!=null&&ids.length>max)flags.push({person_id,ppe_type,proposed_box_ids:ids,observed_count:ids.length,anatomical_count_screening_limit:max,reason:"POSSIBLE_DUPLICATE_SOURCE_ANNOTATIONS_OR_MISASSOCIATION_CHECK_HUMANLY",automatically_dismiss_any_candidate:false});
+ }
+ return flags.sort((a,b)=>a.person_id.localeCompare(b.person_id)||a.ppe_type.localeCompare(b.ppe_type));
+}
 function geomBox(b){const x=Number(b.x),y=Number(b.y),w=Number(b.width),h=Number(b.height);if(![x,y,w,h].every(Number.isFinite)||w<=0||h<=0)throw Error("Bad native bbox "+b.id);return {id:b.id,label:b.label,x,y,w,h,x1:x-w/2,x2:x+w/2,y1:y-h/2,y2:y+h/2};}
 function rankPair(e,p,type){
  const centerInside=e.x>=p.x1&&e.x<=p.x2&&e.y>=p.y1&&e.y<=p.y2;
@@ -40,10 +56,10 @@ function inspectImage(input,settings=SETTINGS){
   }
   positives.push({source_id:raw.id,source_class:raw.label,ppe_type,person_id:candidate,status,abstention_reason:status==="UNKNOWN"?why:null,geometry_score:best?.score??null,score_margin:best?gap:null,source_confidence:confidence,ranked_evidence:ranking.slice(0,3)});
  }
- return {image_id:input.image_id,filename:input.filename,split:input.split,stage:"GEOMETRIC_REVIEW_SUGGESTIONS_ONLY",source_person_count:persons.length,person_ids_are_left_to_right_native_box_order:true,positive_item_count:positives.length,candidates:positives,excluded_boxes:excluded,never_infers_ABSENT_or_POLICY_COMPLIANCE:true};
+ return {image_id:input.image_id,filename:input.filename,split:input.split,stage:"GEOMETRIC_REVIEW_SUGGESTIONS_ONLY",source_person_count:persons.length,person_ids_are_left_to_right_native_box_order:true,positive_item_count:positives.length,candidates:positives,excluded_boxes:excluded,capacity_review_flags:capacityWarnings(positives),never_infers_ABSENT_or_POLICY_COMPLIANCE:true};
 }
 function requireTest(condition,message){if(!condition)throw Error("SELFTEST_FAILED:"+message);}
-export {inspectImage,rankPair,geomBox};
+export {inspectImage,rankPair,geomBox,capacityWarnings};
 import {readFileSync} from "node:fs";
 import {pathToFileURL} from "node:url";
 if (process.argv[1] && import.meta.url===pathToFileURL(process.argv[1]).href){
@@ -63,7 +79,9 @@ if (process.argv[1] && import.meta.url===pathToFileURL(process.argv[1]).href){
   requireTest(low.candidates[0].abstention_reason==="DETECTION_LOW_CONFIDENCE","low_confidence");
   const far=inspectImage({image_id:"far",filename:"synthetic",split:"valid",boxes:[person,{id:"far",label:"Safety Boots",x:500,y:500,width:10,height:10}]});
   requireTest(far.candidates[0].status==="UNKNOWN","far_bbox");
-  process.stdout.write("6 SELF_TESTS_PASSED\n");
+  const duplicate=inspectImage({image_id:"dup",filename:"synthetic",split:"valid",boxes:[person,hat,{...hat,id:"h2",x:55}]});
+  requireTest(duplicate.capacity_review_flags.some(x=>x.ppe_type==="hard_hat"),"duplicate_hat_candidate_flags");
+  process.stdout.write("7 SELF_TESTS_PASSED\\n");
  }else if(arg){
   const input=JSON.parse(readFileSync(arg,"utf8"));if(!Array.isArray(input.images))throw Error("Expected {images:[...]}");
   const proposals=input.images.map(im=>inspectImage(im));process.stdout.write(JSON.stringify({stage:"PROPOSALS_ONLY",results:proposals},null,2)+"\n");
