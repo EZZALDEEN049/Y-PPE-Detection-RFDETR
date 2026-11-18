@@ -1,0 +1,747 @@
+{
+  "schema_version": "seer-ppe/source-family-expansion/v0.2",
+  "date": "2026-11-18",
+  "project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "method": "Live read-only Roboflow RoboQL inventory plus AI visual triage of selected non-Test originals and annotation summaries; previous visual adjudication reused.",
+  "unit": "IMAGE",
+  "scope": "TWO_FILENAME_CANDIDATE_FAMILIES_ONLY",
+  "not_full_dataset": true,
+  "blinded_test_claim": false,
+  "dataset_mutations": "NONE",
+  "model_inference": "NONE",
+  "gold_reference": "NOT_CREATED",
+  "split_counts": {
+    "test": 3,
+    "train": 40,
+    "valid": 7
+  },
+  "family_split_counts": {
+    "MASK": {
+      "train": 15,
+      "valid": 3,
+      "test": 2
+    },
+    "WA": {
+      "train": 25,
+      "valid": 4,
+      "test": 1
+    }
+  },
+  "visual_review_counts": {
+    "previous_within_50": 8,
+    "new_within_50": 9,
+    "total_within_50": 17,
+    "pending_within_50": 33,
+    "new_outside_50_comparison_images": 2
+  },
+  "images": [
+    {
+      "image_id": "bzGmI84cgljDL44GkhOr",
+      "filename": "worker wearing mask_259.jpg",
+      "split": "test",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "PREVIOUS_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TEST_PROTECTED_NO_TUNING",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "fEUcADff4dJ7iwRH7cQp",
+      "filename": "worker wearing mask_459.jpg",
+      "split": "test",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TEST_PROTECTED_NO_TUNING",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "mnhRmsJKUk6HgT3sOdK4",
+      "filename": "worker wearing mask_178.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "ab4lzp78Z50uGXos7cm2",
+      "filename": "worker wearing mask_183.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "lI9TPX9i04Xj2pj7UORZ",
+      "filename": "worker wearing mask_233.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "jTyjYkdl4Cy4e2t2LbGN",
+      "filename": "worker wearing mask_261.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "t0fuwmZ8lCbITks8l0qy",
+      "filename": "worker wearing mask_335.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "hs7geMAh8o7nSOJAfXXD",
+      "filename": "worker wearing mask_337.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "gPFsVpmsZNe3r3gpZiLR",
+      "filename": "worker wearing mask_380.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "Xh6S6Edpe5AMtpnp8QQK",
+      "filename": "worker wearing mask_382.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "BztjXmJLpvPC6pnJORLP",
+      "filename": "worker wearing mask_464.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "KDVvmhgzHRu1MJBJ2z1K",
+      "filename": "worker wearing mask_475.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "LSP1IG2b87fPqPsOjegr",
+      "filename": "worker wearing mask_49.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "D7vcyvGeZGmaaGurkKdN",
+      "filename": "worker wearing mask_498.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "N2IyVSQ2t5hZXho7aFWp",
+      "filename": "worker wearing mask_535.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "CGR1xyZNdYtbCYryxq0Y",
+      "filename": "worker wearing mask_583.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "C12R9biRWhcbH8QDOogJ",
+      "filename": "worker wearing mask_595.jpg",
+      "split": "train",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "dukvhiiZCSkdvnywuQKU",
+      "filename": "worker wearing mask_126.jpg",
+      "split": "valid",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "REVIEW_UNVERIFIED_INDEPENDENCE",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "0bPA0Np3dQTf1XlXEAye",
+      "filename": "worker wearing mask_322.jpg",
+      "split": "valid",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "PREVIOUS_AI_VISUAL_TRIAGE",
+      "eligibility_status": "HOLD_PREVIOUS_SOURCE_FAMILY_REVIEW",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "MBS44fI30lt9yp8ytc90",
+      "filename": "worker wearing mask_368.jpg",
+      "split": "valid",
+      "family": "MASK",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "REVIEW_UNVERIFIED_INDEPENDENCE",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "t3DpRsAqgpVlYA3zB2vF",
+      "filename": "IMG-20250416-WA0035.jpg",
+      "split": "test",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "PREVIOUS_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TEST_PROTECTED_NO_TUNING",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "UHC94ViENkwoGXAsLxc6",
+      "filename": "IMG-20250416-WA0003.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "UuTLsniMnpCpKocMdqjz",
+      "filename": "IMG-20250416-WA0009.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "ISrH711CBwkt7ckWLgmS",
+      "filename": "IMG-20250416-WA0015.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "K1Hs8sLSmKNqUS008Dda",
+      "filename": "IMG-20250416-WA0016.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "YzXvTEmsFjfwU9Fqj53e",
+      "filename": "IMG-20250416-WA0022.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "yYUmrrnPbJUZYC0H2Wnm",
+      "filename": "IMG-20250416-WA0023.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "0uxVAtGMObNydwEQiokf",
+      "filename": "IMG-20250416-WA0024.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "M38YKUU1KSIbT1KHLXOW",
+      "filename": "IMG-20250416-WA0030.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "1lrHveETpAVZdDr6U0No",
+      "filename": "IMG-20250416-WA0034.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "fWoFoSc4DlfUxdMMjEH4",
+      "filename": "IMG-20250416-WA0043.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "5xYn1wA7ItyEp5azSHXY",
+      "filename": "IMG-20250416-WA0044.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "NlSnR0UpwJDutw9HPIvH",
+      "filename": "IMG-20250416-WA0045.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "Tsr5lG9gPwaXFYgNc0fK",
+      "filename": "IMG-20250416-WA0048.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "ZJrlsb25jBAJ8Vv5ld7t",
+      "filename": "IMG-20250416-WA0050.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "lwQdTq9Azjk7ukITmVwI",
+      "filename": "IMG-20250416-WA0052.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "IZHbVWAvlAPhZd53dpz7",
+      "filename": "IMG-20250416-WA0053.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "LGXoBOUgMV27ByDkOJxk",
+      "filename": "IMG-20250416-WA0054.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "cioLrswNMmMzUK3Hii9o",
+      "filename": "IMG-20250416-WA0060.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "FZOVAaPg6OZlAJa2gTzE",
+      "filename": "IMG-20250416-WA0062.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "H1KOFc0NQZnWRHJNcHPc",
+      "filename": "IMG-20250416-WA0066(1).jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "PRIOR_VISIBLE_SITE_NAME",
+      "visual_review": "PREVIOUS_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "KrfW3xD7Vvxy6r6wISkv",
+      "filename": "IMG-20250416-WA0067.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "PRIOR_VISIBLE_SITE_NAME",
+      "visual_review": "PREVIOUS_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "8AmiOxIzxzdDN6tbVSu7",
+      "filename": "IMG-20250416-WA0076.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "o59m9wv0p9k6bg89EmGu",
+      "filename": "IMG-20250416-WA0077.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "PLYIGEjJv3eeXi8XDjf2",
+      "filename": "IMG-20250416-WA0078.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "xyKCHH49Xr7oCONLC9nN",
+      "filename": "IMG-20250416-WA0079.jpg",
+      "split": "train",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "NOT_VISUALLY_REVIEWED",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "yeEvdkqXtNgsj7PZFDvI",
+      "filename": "IMG-20250416-WA0026.jpg",
+      "split": "valid",
+      "family": "WA",
+      "site_id": "site_school_shahid_alalafi",
+      "site_evidence": "PRIOR_VISIBLE_SITE_NAME",
+      "visual_review": "PREVIOUS_AI_VISUAL_TRIAGE",
+      "eligibility_status": "REVIEW_NAMED_SITE_UNCLEARED",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "bTnZNZr08iBa3tMuDA8b",
+      "filename": "IMG-20250416-WA0033.jpg",
+      "split": "valid",
+      "family": "WA",
+      "site_id": null,
+      "site_evidence": "NOT_ESTABLISHED",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "REVIEW_POSSIBLE_SCENE_FAMILY",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "NZu6Faj6evgINF1qFE0V",
+      "filename": "IMG-20250416-WA0051.jpg",
+      "split": "valid",
+      "family": "WA",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "PRIOR_VISIBLE_SITE_NAME",
+      "visual_review": "PREVIOUS_AI_VISUAL_TRIAGE",
+      "eligibility_status": "HOLD_CONFIRMED_SITE_OVERLAP",
+      "eligible_for_site_independent_validation": false
+    },
+    {
+      "image_id": "0De0PEUDyeg9v1J3T6zr",
+      "filename": "IMG-20250416-WA0063.jpg",
+      "split": "valid",
+      "family": "WA",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "PRIOR_VISIBLE_SITE_NAME",
+      "visual_review": "PREVIOUS_AI_VISUAL_TRIAGE",
+      "eligibility_status": "HOLD_CONFIRMED_SITE_OVERLAP",
+      "eligible_for_site_independent_validation": false
+    }
+  ],
+  "valid_annotation_summaries": [
+    {
+      "image_id": "dukvhiiZCSkdvnywuQKU",
+      "annotation_valid": true,
+      "person_boxes": 1,
+      "all_boxes": 7,
+      "legacy_negative_marker_boxes": [
+        "No Gloves",
+        "No Gloves"
+      ],
+      "polygons": 0
+    },
+    {
+      "image_id": "0bPA0Np3dQTf1XlXEAye",
+      "annotation_valid": true,
+      "person_boxes": 2,
+      "all_boxes": 13,
+      "legacy_negative_marker_boxes": [
+        "No Gloves",
+        "No Gloves"
+      ],
+      "polygons": 0
+    },
+    {
+      "image_id": "MBS44fI30lt9yp8ytc90",
+      "annotation_valid": true,
+      "person_boxes": 1,
+      "all_boxes": 5,
+      "legacy_negative_marker_boxes": [
+        "No Safety Vest"
+      ],
+      "polygons": 0
+    },
+    {
+      "image_id": "yeEvdkqXtNgsj7PZFDvI",
+      "annotation_valid": true,
+      "person_boxes": 1,
+      "all_boxes": 7,
+      "legacy_negative_marker_boxes": [
+        "No Face Mask"
+      ],
+      "polygons": 0
+    },
+    {
+      "image_id": "bTnZNZr08iBa3tMuDA8b",
+      "annotation_valid": true,
+      "person_boxes": 1,
+      "all_boxes": 8,
+      "legacy_negative_marker_boxes": [],
+      "polygons": 8
+    },
+    {
+      "image_id": "NZu6Faj6evgINF1qFE0V",
+      "annotation_valid": true,
+      "person_boxes": 1,
+      "all_boxes": 6,
+      "legacy_negative_marker_boxes": [],
+      "polygons": 0
+    },
+    {
+      "image_id": "0De0PEUDyeg9v1J3T6zr",
+      "annotation_valid": true,
+      "person_boxes": 1,
+      "all_boxes": 4,
+      "legacy_negative_marker_boxes": [],
+      "polygons": 0
+    }
+  ],
+  "visual_comparisons": [
+    {
+      "a": "IMG-20250416-WA0033.jpg",
+      "a_split": "valid",
+      "b": "IMG-20250416-WA0048.jpg",
+      "b_split": "train",
+      "assessment": "POSSIBLE_SHARED_EXCAVATION_SCENE_FAMILY_UNCONFIRMED",
+      "grounds": "Both show stone-lined trench/civil-work scene; structural match insufficient to establish same named site or duplicate image.",
+      "action": "REVIEW_HOLD",
+      "same_pixel_image": false,
+      "site_id": null
+    },
+    {
+      "a": "IMG-20250416-WA0033.jpg",
+      "a_split": "valid",
+      "b": "IMG-20250416-WA0034.jpg",
+      "b_split": "train",
+      "assessment": "VISUALLY_DIFFERENT_SCENES",
+      "grounds": "Trench site versus wide rural hut scene; generic filename stem not proof of same site.",
+      "action": "NO_MATCH_CLAIM_ONLY"
+    },
+    {
+      "a": "worker wearing mask_368.jpg",
+      "a_split": "valid",
+      "b": "worker wearing mask_464.jpg",
+      "b_split": "train",
+      "assessment": "VISUALLY_DIFFERENT_SCENES",
+      "grounds": "Different face, attire and scene backdrop; similar PPE themes.",
+      "action": "DO_NOT_TREAT_SEMANTIC_NEIGHBOR_AS_DUPLICATE"
+    },
+    {
+      "a": "worker wearing mask_368.jpg",
+      "a_split": "valid",
+      "b": "image_782.jpg",
+      "b_split": "train",
+      "assessment": "VISUALLY_DIFFERENT_SCENES",
+      "grounds": "Different helmet color/background/composition.",
+      "action": "DO_NOT_TREAT_SEMANTIC_NEIGHBOR_AS_DUPLICATE"
+    },
+    {
+      "a": "worker wearing mask_126.jpg",
+      "a_split": "valid",
+      "b": "image_719.jpg",
+      "b_split": "train",
+      "assessment": "VISUALLY_DIFFERENT_SCENES",
+      "grounds": "Green surgical mask with blue shirt/vest versus white respirator and different setting.",
+      "action": "DO_NOT_TREAT_SEMANTIC_NEIGHBOR_AS_DUPLICATE"
+    },
+    {
+      "a": "worker wearing mask_126.jpg",
+      "a_split": "valid",
+      "b": "worker wearing mask_475.jpg",
+      "b_split": "train",
+      "assessment": "VISUALLY_DIFFERENT_SCENES",
+      "grounds": "Single worker adjusting mask versus multi-person group portrait.",
+      "action": "DO_NOT_TREAT_SEMANTIC_NEIGHBOR_AS_DUPLICATE"
+    }
+  ],
+  "visual_review_scope_current": {
+    "new_in_family": [
+      "IMG-20250416-WA0024.jpg",
+      "IMG-20250416-WA0030.jpg",
+      "IMG-20250416-WA0033.jpg",
+      "IMG-20250416-WA0034.jpg",
+      "IMG-20250416-WA0048.jpg",
+      "worker wearing mask_126.jpg",
+      "worker wearing mask_368.jpg",
+      "worker wearing mask_464.jpg",
+      "worker wearing mask_475.jpg"
+    ],
+    "new_outside_family": [
+      "image_719.jpg",
+      "image_782.jpg"
+    ],
+    "new_test_images_reviewed": 0,
+    "old_test_exposure_reused": [
+      "IMG-20250416-WA0035.jpg",
+      "worker wearing mask_259.jpg"
+    ]
+  },
+  "safeguards": {
+    "no_test_threshold_tuning": true,
+    "unseen_test_not_claimed": true,
+    "all_seven_valid_still_not_cleared": true,
+    "hold_two_22may_images": true,
+    "hold_mask322_remains": true,
+    "legacy_negative_boxes_not_absence_truth": true,
+    "no_independent_second_human_reviewer": true,
+    "no_accuracy_or_f1_or_map": true
+  }
+}
