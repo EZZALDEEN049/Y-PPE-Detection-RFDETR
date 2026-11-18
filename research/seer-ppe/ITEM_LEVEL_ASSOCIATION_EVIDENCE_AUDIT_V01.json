@@ -42,7 +42,10 @@
     "case_c_pending_ai_candidate_links": 0,
     "case_c_J_researcher_preliminary_unknown_preserved": true,
     "case_c_human_approved_matched_links": 12,
-    "case_c_J_human_final_unknown_owner": true
+    "case_c_J_human_final_unknown_owner": true,
+    "case_c_eval_ground_truth_partial_saved": true,
+    "case_c_eval_ground_truth_state": "incomplete",
+    "case_c_eval_ground_truth_revision": 4
   },
   "cases": [
     {
