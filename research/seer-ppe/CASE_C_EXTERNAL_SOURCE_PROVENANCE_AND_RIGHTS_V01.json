@@ -98,5 +98,25 @@
   "total_final_user_matched_equipment_associations_kept": 19,
   "eval_case_C_id": "c032f81d-64c5-44be-96f3-7e6fe9dad799",
   "eval_groundTruthState": "incomplete",
-  "public_repo_contains_original_photo_pixels": false
+  "public_repo_contains_original_photo_pixels": false,
+  "official_outreach": {
+    "date": "2026-11-18",
+    "verified_public_contact_email": "pwp-yem@y.net.ye",
+    "verified_public_contact_source": "https://www.pwpyemen.org/index.php/ar/?lang=ar",
+    "contact_status": "CONTACT_FOUND_NOT_SENT",
+    "contact_deliverability_unverified": true,
+    "rights_question_draft": "CASE_C_RIGHTS_CONTACT_AND_POLICY_CLEARANCE_V01.md",
+    "audit_log_json": "CASE_C_RIGHTS_CONTACT_AND_POLICY_CLEARANCE_V01.json",
+    "photo_rights_holder_confirmation": "PENDING",
+    "annotation_curator_contact": "UNKNOWN_NOT_SENT",
+    "no_external_messages_sent": true
+  },
+  "safety_policy_context": {
+    "public_general_OHS_document_found": true,
+    "source": "https://www.pwpyemen.org/index.php/ar/impacts-2/success-stories/421-public-works-project-diligent-efforts-to-implement-occupational-health-and-safety",
+    "statement_scope": "PWP general occupational health and safety; contractor responsibility",
+    "specific_safety_boot_mandate_for_C_activity": "POLICY_UNKNOWN",
+    "effective_date_at_photo_capture": "UNKNOWN",
+    "is_evidence_of_worker_level_PPE_violation": false
+  }
 }
