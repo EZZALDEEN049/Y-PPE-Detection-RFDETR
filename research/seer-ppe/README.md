@@ -1,5 +1,7 @@
 # SEER-PPE: cumulative research (v0.6, 10 Nov 2026)
 
+> **Latest checkpoint (19 Nov 2026):** [Consolidated progress and resume guide](PROJECT_PROGRESS_CHECKPOINT_2026-11-19.md) · [machine-readable JSON](PROJECT_PROGRESS_CHECKPOINT_2026-11-19.json) · [pending work Issue #17](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/issues/17). Train–Valid embedding review is complete, original-byte pixel audit remains pending, and final model scoring is **not ready**.
+
 **This is a developing research manuscript, not a completed or published efficacy study.**
 
 Canonical mutable draft: [MANUSCRIPT_MASTER.md](MANUSCRIPT_MASTER.md)  
