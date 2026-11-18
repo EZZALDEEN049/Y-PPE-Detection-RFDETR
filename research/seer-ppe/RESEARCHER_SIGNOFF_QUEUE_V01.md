@@ -359,3 +359,12 @@ The PWP article remains **a public publication copy**, not proof that PWP photog
 **Action:** Mark the old unsent “who is the photographer?” PWP inquiry as **superseded / do not send unchanged**. Prefer researcher-held original full-resolution files, non-sensitive creation records and any applicable project/employer photo-use arrangement to resolve the image's allowed study/thesis/public sharing scope; only contact the publisher if those documents require clarification. No external message sent.
 
 Existing 19 researcher-final item wearer links, C/J UNKNOWN owner, B/K/L/M UNKNOWN owners, four visual safety-boot PRESENT statements, and the unresolved `No Safety Boots` rubric remain unchanged. Eval C source review remains unapproved and all four cases incomplete.
+
+
+## Experimental evaluation readiness and held-out pilot screening (2026-11-18)
+
+Technical work followed researcher instruction to skip repeating photographer-origin checks and focus on the scientific system. Completed **read-only structural QA** of the four current Eval Cases: all four `train`/`incomplete`, with zero structural reference errors detected, 19 researcher-approved positive item-to-worker links and 38/42 possible person×six PPE visual states currently recorded. **Case B missing four unreviewed visual cells**: mask/boots for both P001/P002; these must not be silently converted to ABSENT or to human-certified UNKNOWN. **Case D** still lacks filled typed Eval ground truth, despite researcher's negative visible-person count and standalone helmet observation.
+
+Created [executable structural QA](tools/validate_reference.mjs), [audit](EVAL_REFERENCE_READINESS_AUDIT_V01.md), [JSON](EVAL_REFERENCE_READINESS_AUDIT_V01.json), [separate scoring protocol](ASSOCIATION_EVALUATION_PROTOCOL_V01.md). The frozen saved baseline Workflow has 21 blocks for detector/confidence/overlap review cues; no separately validated one-to-one PPE-owner assignment or independent held-out performance study yet.
+
+Screened **4 potential Valid and 4 potential Test examples** from live split searches: [shortlist](HELDOUT_CANDIDATE_SHORTLIST_V01.md) and [JSON](HELDOUT_CANDIDATE_SHORTLIST_V01.json). These are candidate images based only on old labels and exact filename checks; neither a new Eval Dataset nor cleaned gold GT. No Test calibration/tuning, no leakage-free guarantee until source-family/near-duplicate checks. Source training, labels, saved Workflows, prior human decisions and 0/4 complete count unchanged.
