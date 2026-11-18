@@ -58,3 +58,12 @@ Researcher replied **"موافق"** to the immediately preceding request to appr
 | Glove `J` | `UNKNOWN`, `person_id=null`; no forced identification of P003/P004 |
 
 Worker-level statements remain separate: user reports helmets, vests, gloves and boots PRESENT on all four, and masks/goggles UNKNOWN due occlusion. The four `No Safety Boots` legacy markers are **not proof of noncompliance** and the boot safety standard is not independently documented. `POLICY_UNKNOWN`. Source rights/privacy/source family and an independent second-pass check remain open. See the separate Roboflow Eval status after the partial reference is saved.
+
+
+## Case C separate Roboflow Eval partial human-approved reference stored (2026-11-18)
+
+After the user's final 12 source-box association approvals, separate Roboflow Eval Case `c032f81d-64c5-44be-96f3-7e6fe9dad799` was updated from revision `3` to **revision `4`**. Saved **4 persons, 12 source PPE items (all individually wearer-approved), 12 `MATCHED` associations, 24 researcher-confirmed person-level PPE visual states, and 24 `POLICY_UNKNOWN` task-mandate records**.
+
+**Glove `J` / `E012` has researcher-final owner `UNKNOWN`** in GitHub. Since independent source-item identity/coverage have not been fully checked, it is deliberately **not promoted into the 12 approved physical PPE item records in the partial Eval reference**; the unknown owner decision has not been discarded.
+
+Source `No Safety Boots` boxes `Q/R/S/T` still conflict with the researcher's four-person boot visual reports; no boot certification, item-to-person boot boxes or safety-violation finding is inferred. No `source_review` clearance was invented: rights/privacy/source family, independent second pass and full item coverage remain open. Accordingly `groundTruthState=incomplete`, not an evaluation-ready reference. Frozen original annotations/splits/model/baseline Workflows untouched.
