@@ -1,0 +1,890 @@
+{
+  "schema_version": "seer-ppe/source-family-expansion/v0.3",
+  "date": "2026-11-18",
+  "project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "supersedes": "SOURCE_FAMILY_EXPANSION_2026-11-18_V02.json",
+  "scope": "TWO_FILENAME_FAMILIES_50_IMAGES_ONLY_NOT_WHOLE_DATASET",
+  "sampling": "ALL_TRAIN_AND_VALID_VISUALLY_REVIEWED_WITHIN_TWO_FAMILIES; TWO_PREVIOUSLY_VISUALLY_VIEWED_TEST_FOR_GOVERNANCE; ONE_TEST_NOT_VIEWED",
+  "inference": "NONE",
+  "dataset_or_annotation_writes": "NONE",
+  "research_gold_reference": "NOT_ESTABLISHED",
+  "split_counts": {
+    "train": 40,
+    "valid": 7,
+    "test": 3
+  },
+  "family_split_counts": {
+    "MASK": {
+      "train": 15,
+      "valid": 3,
+      "test": 2
+    },
+    "WA": {
+      "train": 25,
+      "valid": 4,
+      "test": 1
+    }
+  },
+  "visual_review_counts": {
+    "previously_viewed_within_families": 8,
+    "newly_viewed_within_families": 41,
+    "reviewed_total": 49,
+    "test_not_viewed": 1
+  },
+  "confirmed_named_site_groups": [
+    {
+      "site_id": "site_school_22may_aseefrah",
+      "files": [
+        "IMG-20250416-WA0050.jpg",
+        "IMG-20250416-WA0051.jpg",
+        "IMG-20250416-WA0053.jpg",
+        "IMG-20250416-WA0062.jpg",
+        "IMG-20250416-WA0063.jpg",
+        "IMG-20250416-WA0066(1).jpg",
+        "IMG-20250416-WA0067.jpg"
+      ],
+      "train": 5,
+      "valid": 2,
+      "test": 0
+    },
+    {
+      "site_id": "site_school_shahid_alalafi",
+      "files": [
+        "IMG-20250416-WA0026.jpg",
+        "IMG-20250416-WA0079.jpg"
+      ],
+      "train": 1,
+      "valid": 1,
+      "test": 0
+    }
+  ],
+  "cross_split_named_site_count": 2,
+  "confirmed_cross_split_valid_hold_files": [
+    "IMG-20250416-WA0026.jpg",
+    "IMG-20250416-WA0051.jpg",
+    "IMG-20250416-WA0063.jpg"
+  ],
+  "test_images_previously_viewed_for_governance": [
+    "IMG-20250416-WA0035.jpg",
+    "worker wearing mask_259.jpg"
+  ],
+  "test_image_left_untouched": [
+    "worker wearing mask_459.jpg"
+  ],
+  "visual_findings": [
+    {
+      "type": "CONFIRMED_NAMED_SITE_ADDITIONAL_TRAIN",
+      "files": [
+        "IMG-20250416-WA0062.jpg",
+        "IMG-20250416-WA0050.jpg",
+        "IMG-20250416-WA0053.jpg"
+      ],
+      "site_id": "site_school_22may_aseefrah",
+      "evidence": "Legible 22 May School Aseefrah site-name text in each image",
+      "observer": "AI_VISUAL_TRIAGE"
+    },
+    {
+      "type": "CONFIRMED_NEW_CROSS_SPLIT_SITE",
+      "files": [
+        "IMG-20250416-WA0079.jpg",
+        "IMG-20250416-WA0026.jpg"
+      ],
+      "site_id": "site_school_shahid_alalafi",
+      "evidence": "Legible Martyr Alalafi School site-name in Train WA0079 and prior Valid WA0026",
+      "observer": "AI_VISUAL_TRIAGE"
+    },
+    {
+      "type": "PROBABLE_DERIVATIVE_SAME_PHOTO_WITH_EDIT",
+      "files": [
+        "IMG-20250416-WA0016.jpg",
+        "IMG-20250416-WA0078.jpg"
+      ],
+      "split": "train",
+      "evidence": "Image composition/people/background align; WA0078 is lower-resolution with pink footwear annotation markup; not pixel-hash verified.",
+      "same_pixel_hash_verified": false,
+      "action": "REVIEW_TRAIN_DEDUPLICATION_WITHOUT_DELETING_ANYTHING"
+    },
+    {
+      "type": "POSSIBLE_SAME_CONSTRUCTION_SCENE_NOT_CONFIRMED",
+      "files": [
+        "IMG-20250416-WA0033.jpg",
+        "IMG-20250416-WA0048.jpg"
+      ],
+      "evidence": "Shared stone-lined trench context but no unique location identity",
+      "action": "PENDING_SITE_IDENTITY"
+    },
+    {
+      "type": "VISIBLE_WATERMARKED_TRAIN_IMAGES",
+      "files": [
+        "worker wearing mask_535.jpg",
+        "worker wearing mask_178.jpg",
+        "worker wearing mask_335.jpg"
+      ],
+      "evidence": "Visible stock image watermarks in original pixels",
+      "action": "FLAG_DATASET_QUALITY_AND_SOURCE_REVIEW_NOT_PROOF_OF_LICENSE_STATUS"
+    },
+    {
+      "type": "VALID_GEOMETRY_ENVELOPES_READABLE_NOT_GOLD",
+      "evidence": "All 7 Valid image annotation envelopes returned annotation_valid=true in prior read-only tool call"
+    }
+  ],
+  "prior_pairwise_visual_comparisons": [
+    {
+      "a": "IMG-20250416-WA0033.jpg",
+      "a_split": "valid",
+      "b": "IMG-20250416-WA0048.jpg",
+      "b_split": "train",
+      "assessment": "POSSIBLE_SHARED_EXCAVATION_SCENE_FAMILY_UNCONFIRMED",
+      "grounds": "Both show stone-lined trench/civil-work scene; structural match insufficient to establish same named site or duplicate image.",
+      "action": "REVIEW_HOLD",
+      "same_pixel_image": false,
+      "site_id": null
+    },
+    {
+      "a": "IMG-20250416-WA0033.jpg",
+      "a_split": "valid",
+      "b": "IMG-20250416-WA0034.jpg",
+      "b_split": "train",
+      "assessment": "VISUALLY_DIFFERENT_SCENES",
+      "grounds": "Trench site versus wide rural hut scene; generic filename stem not proof of same site.",
+      "action": "NO_MATCH_CLAIM_ONLY"
+    },
+    {
+      "a": "worker wearing mask_368.jpg",
+      "a_split": "valid",
+      "b": "worker wearing mask_464.jpg",
+      "b_split": "train",
+      "assessment": "VISUALLY_DIFFERENT_SCENES",
+      "grounds": "Different face, attire and scene backdrop; similar PPE themes.",
+      "action": "DO_NOT_TREAT_SEMANTIC_NEIGHBOR_AS_DUPLICATE"
+    },
+    {
+      "a": "worker wearing mask_368.jpg",
+      "a_split": "valid",
+      "b": "image_782.jpg",
+      "b_split": "train",
+      "assessment": "VISUALLY_DIFFERENT_SCENES",
+      "grounds": "Different helmet color/background/composition.",
+      "action": "DO_NOT_TREAT_SEMANTIC_NEIGHBOR_AS_DUPLICATE"
+    },
+    {
+      "a": "worker wearing mask_126.jpg",
+      "a_split": "valid",
+      "b": "image_719.jpg",
+      "b_split": "train",
+      "assessment": "VISUALLY_DIFFERENT_SCENES",
+      "grounds": "Green surgical mask with blue shirt/vest versus white respirator and different setting.",
+      "action": "DO_NOT_TREAT_SEMANTIC_NEIGHBOR_AS_DUPLICATE"
+    },
+    {
+      "a": "worker wearing mask_126.jpg",
+      "a_split": "valid",
+      "b": "worker wearing mask_475.jpg",
+      "b_split": "train",
+      "assessment": "VISUALLY_DIFFERENT_SCENES",
+      "grounds": "Single worker adjusting mask versus multi-person group portrait.",
+      "action": "DO_NOT_TREAT_SEMANTIC_NEIGHBOR_AS_DUPLICATE"
+    }
+  ],
+  "valid_annotation_summaries": [
+    {
+      "image_id": "dukvhiiZCSkdvnywuQKU",
+      "annotation_valid": true,
+      "person_boxes": 1,
+      "all_boxes": 7,
+      "legacy_negative_marker_boxes": [
+        "No Gloves",
+        "No Gloves"
+      ],
+      "polygons": 0
+    },
+    {
+      "image_id": "0bPA0Np3dQTf1XlXEAye",
+      "annotation_valid": true,
+      "person_boxes": 2,
+      "all_boxes": 13,
+      "legacy_negative_marker_boxes": [
+        "No Gloves",
+        "No Gloves"
+      ],
+      "polygons": 0
+    },
+    {
+      "image_id": "MBS44fI30lt9yp8ytc90",
+      "annotation_valid": true,
+      "person_boxes": 1,
+      "all_boxes": 5,
+      "legacy_negative_marker_boxes": [
+        "No Safety Vest"
+      ],
+      "polygons": 0
+    },
+    {
+      "image_id": "yeEvdkqXtNgsj7PZFDvI",
+      "annotation_valid": true,
+      "person_boxes": 1,
+      "all_boxes": 7,
+      "legacy_negative_marker_boxes": [
+        "No Face Mask"
+      ],
+      "polygons": 0
+    },
+    {
+      "image_id": "bTnZNZr08iBa3tMuDA8b",
+      "annotation_valid": true,
+      "person_boxes": 1,
+      "all_boxes": 8,
+      "legacy_negative_marker_boxes": [],
+      "polygons": 8
+    },
+    {
+      "image_id": "NZu6Faj6evgINF1qFE0V",
+      "annotation_valid": true,
+      "person_boxes": 1,
+      "all_boxes": 6,
+      "legacy_negative_marker_boxes": [],
+      "polygons": 0
+    },
+    {
+      "image_id": "0De0PEUDyeg9v1J3T6zr",
+      "annotation_valid": true,
+      "person_boxes": 1,
+      "all_boxes": 4,
+      "legacy_negative_marker_boxes": [],
+      "polygons": 0
+    }
+  ],
+  "images": [
+    {
+      "image_id": "bzGmI84cgljDL44GkhOr",
+      "filename": "worker wearing mask_259.jpg",
+      "family": "MASK",
+      "split": "test",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "PRIOR_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TEST_PROTECTED_NO_TUNING",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "fEUcADff4dJ7iwRH7cQp",
+      "filename": "worker wearing mask_459.jpg",
+      "family": "MASK",
+      "split": "test",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "NOT_VIEWED_TO_PROTECT_TEST",
+      "eligibility_status": "TEST_PROTECTED_NO_TUNING",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "mnhRmsJKUk6HgT3sOdK4",
+      "filename": "worker wearing mask_178.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": [
+        "VISIBLE_STOCK_WATERMARK"
+      ]
+    },
+    {
+      "image_id": "ab4lzp78Z50uGXos7cm2",
+      "filename": "worker wearing mask_183.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "lI9TPX9i04Xj2pj7UORZ",
+      "filename": "worker wearing mask_233.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "jTyjYkdl4Cy4e2t2LbGN",
+      "filename": "worker wearing mask_261.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "t0fuwmZ8lCbITks8l0qy",
+      "filename": "worker wearing mask_335.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": [
+        "VISIBLE_DISSOLVE_WATERMARK"
+      ]
+    },
+    {
+      "image_id": "hs7geMAh8o7nSOJAfXXD",
+      "filename": "worker wearing mask_337.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "gPFsVpmsZNe3r3gpZiLR",
+      "filename": "worker wearing mask_380.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "Xh6S6Edpe5AMtpnp8QQK",
+      "filename": "worker wearing mask_382.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "BztjXmJLpvPC6pnJORLP",
+      "filename": "worker wearing mask_464.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "KDVvmhgzHRu1MJBJ2z1K",
+      "filename": "worker wearing mask_475.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "LSP1IG2b87fPqPsOjegr",
+      "filename": "worker wearing mask_49.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "D7vcyvGeZGmaaGurkKdN",
+      "filename": "worker wearing mask_498.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": [
+        "FACE_SHIELD_HEALTHCARE_IMAGE_POSSIBLE_DOMAIN_MISMATCH"
+      ]
+    },
+    {
+      "image_id": "N2IyVSQ2t5hZXho7aFWp",
+      "filename": "worker wearing mask_535.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": [
+        "VISIBLE_ALAMY_WATERMARK"
+      ]
+    },
+    {
+      "image_id": "CGR1xyZNdYtbCYryxq0Y",
+      "filename": "worker wearing mask_583.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "C12R9biRWhcbH8QDOogJ",
+      "filename": "worker wearing mask_595.jpg",
+      "family": "MASK",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "dukvhiiZCSkdvnywuQKU",
+      "filename": "worker wearing mask_126.jpg",
+      "family": "MASK",
+      "split": "valid",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "REVIEW_SOURCE_INDEPENDENCE_UNVERIFIED",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "0bPA0Np3dQTf1XlXEAye",
+      "filename": "worker wearing mask_322.jpg",
+      "family": "MASK",
+      "split": "valid",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "PRIOR_AI_VISUAL_TRIAGE",
+      "eligibility_status": "HOLD_PREVIOUS_SOURCE_FAMILY_REVIEW",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "MBS44fI30lt9yp8ytc90",
+      "filename": "worker wearing mask_368.jpg",
+      "family": "MASK",
+      "split": "valid",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "REVIEW_SOURCE_INDEPENDENCE_UNVERIFIED",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "t3DpRsAqgpVlYA3zB2vF",
+      "filename": "IMG-20250416-WA0035.jpg",
+      "family": "WA",
+      "split": "test",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "PRIOR_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TEST_PROTECTED_NO_TUNING",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "UHC94ViENkwoGXAsLxc6",
+      "filename": "IMG-20250416-WA0003.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "UuTLsniMnpCpKocMdqjz",
+      "filename": "IMG-20250416-WA0009.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "ISrH711CBwkt7ckWLgmS",
+      "filename": "IMG-20250416-WA0015.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "K1Hs8sLSmKNqUS008Dda",
+      "filename": "IMG-20250416-WA0016.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": [
+        "VISUAL_SAME_BASE_PHOTO_AS_WA0078_DIFFERENT_RENDERING"
+      ]
+    },
+    {
+      "image_id": "YzXvTEmsFjfwU9Fqj53e",
+      "filename": "IMG-20250416-WA0022.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "yYUmrrnPbJUZYC0H2Wnm",
+      "filename": "IMG-20250416-WA0023.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "0uxVAtGMObNydwEQiokf",
+      "filename": "IMG-20250416-WA0024.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "M38YKUU1KSIbT1KHLXOW",
+      "filename": "IMG-20250416-WA0030.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "1lrHveETpAVZdDr6U0No",
+      "filename": "IMG-20250416-WA0034.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "fWoFoSc4DlfUxdMMjEH4",
+      "filename": "IMG-20250416-WA0043.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "5xYn1wA7ItyEp5azSHXY",
+      "filename": "IMG-20250416-WA0044.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "NlSnR0UpwJDutw9HPIvH",
+      "filename": "IMG-20250416-WA0045.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "Tsr5lG9gPwaXFYgNc0fK",
+      "filename": "IMG-20250416-WA0048.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": [
+        "POSSIBLE_SHARED_TRENCH_SCENE_WITH_WA0033_UNCONFIRMED"
+      ]
+    },
+    {
+      "image_id": "ZJrlsb25jBAJ8Vv5ld7t",
+      "filename": "IMG-20250416-WA0050.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "VISIBLE_SCHOOL_NAME_AI_VISUAL_TRIAGE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "lwQdTq9Azjk7ukITmVwI",
+      "filename": "IMG-20250416-WA0052.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": [
+        "MAY_BELONG_TO_SCHOOL_22MAY_UNCONFIRMED"
+      ]
+    },
+    {
+      "image_id": "IZHbVWAvlAPhZd53dpz7",
+      "filename": "IMG-20250416-WA0053.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "VISIBLE_SCHOOL_NAME_AI_VISUAL_TRIAGE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "LGXoBOUgMV27ByDkOJxk",
+      "filename": "IMG-20250416-WA0054.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": [
+        "MAY_BELONG_TO_SCHOOL_22MAY_UNCONFIRMED"
+      ]
+    },
+    {
+      "image_id": "cioLrswNMmMzUK3Hii9o",
+      "filename": "IMG-20250416-WA0060.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "FZOVAaPg6OZlAJa2gTzE",
+      "filename": "IMG-20250416-WA0062.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "VISIBLE_SCHOOL_NAME_AI_VISUAL_TRIAGE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "H1KOFc0NQZnWRHJNcHPc",
+      "filename": "IMG-20250416-WA0066(1).jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "VISIBLE_SCHOOL_NAME_AI_VISUAL_TRIAGE",
+      "visual_review": "PRIOR_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "KrfW3xD7Vvxy6r6wISkv",
+      "filename": "IMG-20250416-WA0067.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "VISIBLE_SCHOOL_NAME_AI_VISUAL_TRIAGE",
+      "visual_review": "PRIOR_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "8AmiOxIzxzdDN6tbVSu7",
+      "filename": "IMG-20250416-WA0076.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "o59m9wv0p9k6bg89EmGu",
+      "filename": "IMG-20250416-WA0077.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "PLYIGEjJv3eeXi8XDjf2",
+      "filename": "IMG-20250416-WA0078.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": [
+        "VISUAL_SAME_BASE_PHOTO_AS_WA0016_WITH_MARKUP"
+      ]
+    },
+    {
+      "image_id": "xyKCHH49Xr7oCONLC9nN",
+      "filename": "IMG-20250416-WA0079.jpg",
+      "family": "WA",
+      "split": "train",
+      "site_id": "site_school_shahid_alalafi",
+      "site_evidence": "VISIBLE_SCHOOL_NAME_AI_VISUAL_TRIAGE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "TRAIN_NOT_EVALUATION",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "yeEvdkqXtNgsj7PZFDvI",
+      "filename": "IMG-20250416-WA0026.jpg",
+      "family": "WA",
+      "split": "valid",
+      "site_id": "site_school_shahid_alalafi",
+      "site_evidence": "VISIBLE_SCHOOL_NAME_AI_VISUAL_TRIAGE",
+      "visual_review": "PRIOR_AI_VISUAL_TRIAGE",
+      "eligibility_status": "HOLD_CONFIRMED_SITE_OVERLAP",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "bTnZNZr08iBa3tMuDA8b",
+      "filename": "IMG-20250416-WA0033.jpg",
+      "family": "WA",
+      "split": "valid",
+      "site_id": null,
+      "site_evidence": "NO_CONFIRMED_NAMED_SITE",
+      "visual_review": "CURRENT_AI_VISUAL_TRIAGE",
+      "eligibility_status": "REVIEW_POSSIBLE_SCENE_FAMILY",
+      "eligible_for_site_independent_validation": false,
+      "flags": [
+        "POSSIBLE_SHARED_TRENCH_SCENE_WITH_WA0048_UNCONFIRMED"
+      ]
+    },
+    {
+      "image_id": "NZu6Faj6evgINF1qFE0V",
+      "filename": "IMG-20250416-WA0051.jpg",
+      "family": "WA",
+      "split": "valid",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "VISIBLE_SCHOOL_NAME_AI_VISUAL_TRIAGE",
+      "visual_review": "PRIOR_AI_VISUAL_TRIAGE",
+      "eligibility_status": "HOLD_CONFIRMED_SITE_OVERLAP",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    },
+    {
+      "image_id": "0De0PEUDyeg9v1J3T6zr",
+      "filename": "IMG-20250416-WA0063.jpg",
+      "family": "WA",
+      "split": "valid",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "VISIBLE_SCHOOL_NAME_AI_VISUAL_TRIAGE",
+      "visual_review": "PRIOR_AI_VISUAL_TRIAGE",
+      "eligibility_status": "HOLD_CONFIRMED_SITE_OVERLAP",
+      "eligible_for_site_independent_validation": false,
+      "flags": []
+    }
+  ],
+  "limits": {
+    "whole_dataset_independence": "UNVERIFIED",
+    "all_valid_independence": "UNVERIFIED",
+    "site_names_from_visual_triage_not_second_human_review": true,
+    "semantic_neighbor_not_evidence_of_duplicate": true,
+    "pixel_hashes": "NOT_COMPUTED",
+    "final_model_scoring": "NOT_RUN",
+    "four_existing_evaluation_cases": "NOT_MODIFIED",
+    "nineteen_researcher_approved_associations": "NOT_MODIFIED",
+    "researcher_present_and_unknown_decisions": "NOT_MODIFIED"
+  }
+}
