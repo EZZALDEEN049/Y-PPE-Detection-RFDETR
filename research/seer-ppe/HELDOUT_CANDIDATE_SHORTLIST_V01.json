@@ -187,5 +187,22 @@
     "Animal/no-person controls must be assessed for visible workers and category relevance before evaluation.",
     "No Roboflow Eval Cases were added or marked complete in this screening."
   ],
-  "original_source_model_labels_splits_workflows_modified": false
+  "original_source_model_labels_splits_workflows_modified": false,
+  "subsequent_visual_source_family_screen": {
+    "date": "2026-11-18",
+    "evidence": "VISUAL_SOURCE_FAMILY_ADJUDICATION_2026-11-18_V01.json",
+    "confirmed_same_named_site_across_train_and_valid": true,
+    "site": "مدرسة 22 مايو - عصيفرة",
+    "held_valid_image_ids": [
+      "0De0PEUDyeg9v1J3T6zr",
+      "NZu6Faj6evgINF1qFE0V"
+    ],
+    "initial_only_WA0063_in_shortlist": true,
+    "WA0026_site": "مدرسة الشهيد العلفي",
+    "mask322_vs_mask259": "VISUALLY_DIFFERENT_NOT_PROOF_OF_GLOBAL_INDEPENDENCE",
+    "image298_barefoot": true,
+    "test_qa_exposure_disclosed": true,
+    "heldout_eligibility": "NOT_YET_COMPLETE",
+    "original_dataset_changed": false
+  }
 }
