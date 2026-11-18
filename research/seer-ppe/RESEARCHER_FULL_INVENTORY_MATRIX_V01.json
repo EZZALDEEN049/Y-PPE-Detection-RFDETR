@@ -2498,6 +2498,34 @@
         "no_item_identity_grade_certification_claim": true,
         "missing_source_rights_privacy_and_second_review": true,
         "review_state": "ITEM_OWNER_DECISIONS_APPROVED_SOURCE_CASE_READYNESS_PENDING"
+      },
+      "roboflow_eval_ground_truth_import": {
+        "date": "2026-11-18",
+        "eval_dataset_id": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+        "case_id": "c032f81d-64c5-44be-96f3-7e6fe9dad799",
+        "case_revision": 4,
+        "groundTruthState": "incomplete",
+        "saved_fields": [
+          "persons",
+          "ppe_items",
+          "worker_ppe_states",
+          "associations",
+          "task_mandates"
+        ],
+        "n_persons": 4,
+        "n_positive_item_boxes_with_approved_links": 12,
+        "n_matched_associations": 12,
+        "n_researcher_confirmed_worker_ppe_visual_states": 24,
+        "n_policy_unknown_rows": 24,
+        "excluded_pending_item_identity_and_full_coverage": [
+          "J"
+        ],
+        "excluded_J_owner_decision": "RESEARCHER_FINAL_UNKNOWN_RETAINED_IN_GITHUB",
+        "source_review_status": "UNREVIEWED; SOURCE_REVIEW_FIELD_NOT_FILLED",
+        "legacy_No_Safety_Boots_discrepancy": "Q/R/S/T_NOT_RESOLVED",
+        "rights_privacy_source_family_and_second_pass_pending": true,
+        "original_training_model_unchanged": true,
+        "no_full_reference_approval_claim": true
       }
     },
     {
@@ -2644,6 +2672,9 @@
     "case_b_eval_ground_truth_revision": 2,
     "case_c_human_approved_matched_item_links": 12,
     "case_c_final_unknown_owner_original_box": "J",
-    "case_c_rights_and_second_pass_pending": true
+    "case_c_rights_and_second_pass_pending": true,
+    "case_c_eval_ground_truth_partial_saved": true,
+    "case_c_eval_ground_truth_state": "incomplete",
+    "case_c_eval_ground_truth_revision": 4
   }
 }
