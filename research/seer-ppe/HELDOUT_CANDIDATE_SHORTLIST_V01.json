@@ -1,0 +1,191 @@
+{
+  "schema_version": "seer-ppe/preliminary-heldout-candidate-inventory/v0.1",
+  "date": "2026-11-18",
+  "project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "project_split_counts_from_live_workspace": {
+    "valid": 468,
+    "test": 234
+  },
+  "selection_status": "CANDIDATES_ONLY_NOT_HUMAN_VERIFIED_OR_FROZEN_TEST_SET",
+  "selection_method": "Read-only workspace queries split:valid/split:test, native old source annotation class screening and exact filename lookups. No original data changed.",
+  "shortlist": [
+    {
+      "split": "valid",
+      "image_id": "07BnOpgFJyNaOhuzvh5i",
+      "filename": "image_1282.jpg",
+      "old_annotated_person_count": 2,
+      "old_positive_ppe_boxes": 5,
+      "prior_label_categories": [
+        "Hard Hat",
+        "Goggles",
+        "Safety Vests",
+        "Persons",
+        "Pants",
+        "No Face Mask",
+        "No Gloves"
+      ],
+      "screening_role": "two_person_attribution_development",
+      "exact_filename_query_match_count": 1,
+      "person_count_provenance": "OLD_NATIVE_PERSONS_ANNOTATION_NOT_HUMAN_CONFIRMED",
+      "source_family_independence": "NOT_YET_VERIFIED",
+      "human_ppe_review": "NOT_STARTED",
+      "eligible_for_scoring": false
+    },
+    {
+      "split": "valid",
+      "image_id": "0De0PEUDyeg9v1J3T6zr",
+      "filename": "IMG-20250416-WA0063.jpg",
+      "old_annotated_person_count": 1,
+      "old_positive_ppe_boxes": 2,
+      "prior_label_categories": [
+        "Safety Vests",
+        "Hard Hat",
+        "Persons",
+        "Pants"
+      ],
+      "screening_role": "one_person_simple_development",
+      "exact_filename_query_match_count": 1,
+      "person_count_provenance": "OLD_NATIVE_PERSONS_ANNOTATION_NOT_HUMAN_CONFIRMED",
+      "source_family_independence": "NOT_YET_VERIFIED",
+      "human_ppe_review": "NOT_STARTED",
+      "eligible_for_scoring": false
+    },
+    {
+      "split": "valid",
+      "image_id": "0bPA0Np3dQTf1XlXEAye",
+      "filename": "worker wearing mask_322.jpg",
+      "old_annotated_person_count": 2,
+      "old_positive_ppe_boxes": 8,
+      "prior_label_categories": [
+        "Safety Vests",
+        "Goggles",
+        "Persons",
+        "No Gloves",
+        "Hard Hat",
+        "Pants",
+        "Face Masks",
+        "Safety Boots"
+      ],
+      "screening_role": "mixed_equipment_two_person_development",
+      "exact_filename_query_match_count": 1,
+      "person_count_provenance": "OLD_NATIVE_PERSONS_ANNOTATION_NOT_HUMAN_CONFIRMED",
+      "source_family_independence": "NOT_YET_VERIFIED",
+      "human_ppe_review": "NOT_STARTED",
+      "eligible_for_scoring": false
+    },
+    {
+      "split": "valid",
+      "image_id": "0ti7iV9wSfzMHI2oa8EQ",
+      "filename": "298.JPG",
+      "old_annotated_person_count": 0,
+      "old_positive_ppe_boxes": 0,
+      "prior_label_categories": [
+        "No Safety Boots"
+      ],
+      "screening_role": "questionable_zero_person_negative_label_control_requires_human_check",
+      "exact_filename_query_match_count": 1,
+      "person_count_provenance": "OLD_NATIVE_PERSONS_ANNOTATION_NOT_HUMAN_CONFIRMED",
+      "source_family_independence": "NOT_YET_VERIFIED",
+      "human_ppe_review": "NOT_STARTED",
+      "eligible_for_scoring": false
+    },
+    {
+      "split": "test",
+      "image_id": "0it1WmTbAyqSVQrvVqz8",
+      "filename": "485406592_1053877383452325_2413960543736529378_n.jpg",
+      "old_annotated_person_count": 5,
+      "old_positive_ppe_boxes": 7,
+      "prior_label_categories": [
+        "No Safety Vest",
+        "Pants",
+        "No Safety Attire",
+        "Safety Boots",
+        "Hard Hat",
+        "Soft Hat",
+        "Persons",
+        "No Safety Boots",
+        "No Gloves",
+        "No Hard Hat",
+        "No Face Mask"
+      ],
+      "screening_role": "crowded_five_person_blind_candidate",
+      "exact_filename_query_match_count": 1,
+      "person_count_provenance": "OLD_NATIVE_PERSONS_ANNOTATION_NOT_HUMAN_CONFIRMED",
+      "source_family_independence": "NOT_YET_VERIFIED",
+      "human_ppe_review": "NOT_STARTED",
+      "eligible_for_scoring": false
+    },
+    {
+      "split": "test",
+      "image_id": "17WufwI59dQ4oAH8PzyU",
+      "filename": "image_482.jpg",
+      "old_annotated_person_count": 1,
+      "old_positive_ppe_boxes": 3,
+      "prior_label_categories": [
+        "Hard Hat",
+        "Goggles",
+        "Safety Vests",
+        "Persons",
+        "No Gloves",
+        "No Face Mask"
+      ],
+      "screening_role": "single_person_test_candidate",
+      "exact_filename_query_match_count": 1,
+      "person_count_provenance": "OLD_NATIVE_PERSONS_ANNOTATION_NOT_HUMAN_CONFIRMED",
+      "source_family_independence": "NOT_YET_VERIFIED",
+      "human_ppe_review": "NOT_STARTED",
+      "eligible_for_scoring": false
+    },
+    {
+      "split": "test",
+      "image_id": "0SwGPZRUJ4wStiWIbtQi",
+      "filename": "518419850_122193377678320679_3231085051536002760_n.jpg",
+      "old_annotated_person_count": 1,
+      "old_positive_ppe_boxes": 0,
+      "prior_label_categories": [
+        "No Safety Attire",
+        "Persons",
+        "No Safety Vest",
+        "No Gloves",
+        "No Safety Boots"
+      ],
+      "screening_role": "absence_markers_test_candidate_not_policy_violation",
+      "exact_filename_query_match_count": 1,
+      "person_count_provenance": "OLD_NATIVE_PERSONS_ANNOTATION_NOT_HUMAN_CONFIRMED",
+      "source_family_independence": "NOT_YET_VERIFIED",
+      "human_ppe_review": "NOT_STARTED",
+      "eligible_for_scoring": false
+    },
+    {
+      "split": "test",
+      "image_id": "0dvbW8h1cckwPFactxw7",
+      "filename": "58ce644a53.jpg",
+      "old_annotated_person_count": 0,
+      "old_positive_ppe_boxes": 0,
+      "prior_label_categories": [
+        "Animal"
+      ],
+      "screening_role": "non_worker_out_of_scope_negative_control_test_candidate",
+      "exact_filename_query_match_count": 1,
+      "person_count_provenance": "OLD_NATIVE_PERSONS_ANNOTATION_NOT_HUMAN_CONFIRMED",
+      "source_family_independence": "NOT_YET_VERIFIED",
+      "human_ppe_review": "NOT_STARTED",
+      "eligible_for_scoring": false
+    }
+  ],
+  "known_candidate_exclusion": {
+    "filename": "36.jpg",
+    "image_id": "1KbUJ5BcsRkvNHCRdEd9",
+    "split": "test",
+    "exact_filename_occurrences_in_project": 10,
+    "reason": "Filename not unique; cross-split/source-family review necessary before a controlled shortlist"
+  },
+  "cautions": [
+    "An exact unique filename does not establish image uniqueness or acquisition-family independence.",
+    "Old boxes are NOT independently adjudicated PPE/person GT.",
+    "Test images must not be used for confidence threshold or association heuristic tuning.",
+    "Animal/no-person controls must be assessed for visible workers and category relevance before evaluation.",
+    "No Roboflow Eval Cases were added or marked complete in this screening."
+  ],
+  "original_source_model_labels_splits_workflows_modified": false
+}
