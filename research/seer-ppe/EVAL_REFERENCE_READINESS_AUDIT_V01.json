@@ -1,0 +1,143 @@
+{
+  "schema_version": "seer-ppe/eval-reference-readiness/v0.1",
+  "date": "2026-11-18",
+  "read_only_sources": {
+    "eval_dataset": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+    "workflow": "61llCTFuQ4Aq4goQ9HiP",
+    "model_id": "altayyar-0oflt-lafos-qqauz/2"
+  },
+  "method": "Live read-only Roboflow Eval Case inspection plus person/equipment ID, bbox, item link and PPE visual-cell structural validation; no model inference or scoring.",
+  "summary": {
+    "cases": 4,
+    "persons": 7,
+    "positive_approved_items": 19,
+    "approved_associations": 19,
+    "visual_states": 38,
+    "total_possible_visual_cells": 42,
+    "missing_visual_cells": 4,
+    "visual_PRESENT": 22,
+    "visual_ABSENT": 3,
+    "visual_UNKNOWN": 13,
+    "cases_structurally_invalid": 0,
+    "cases_complete": 0,
+    "held_out_test_cases": 0,
+    "ready_to_publish_performance_metrics": 0
+  },
+  "cases": [
+    {
+      "case_id": "A",
+      "split": "train",
+      "revision": 2,
+      "gt_state": "incomplete",
+      "persons": 1,
+      "positive_items": 3,
+      "matched_associations": 3,
+      "visual_states": 6,
+      "state_counts": {
+        "PRESENT": 3,
+        "ABSENT": 1,
+        "UNKNOWN": 2
+      },
+      "missing_visual_cells": [],
+      "policy_rows": 6,
+      "policy_unknown": 6,
+      "source_review_recorded": false,
+      "structural_errors": [],
+      "status": "STRUCTURAL_CHECK_PASS_NOT_EVALUATION_READY"
+    },
+    {
+      "case_id": "B",
+      "split": "train",
+      "revision": 2,
+      "gt_state": "incomplete",
+      "persons": 2,
+      "positive_items": 4,
+      "matched_associations": 4,
+      "visual_states": 8,
+      "state_counts": {
+        "PRESENT": 3,
+        "ABSENT": 2,
+        "UNKNOWN": 3
+      },
+      "missing_visual_cells": [
+        "P001:face_mask",
+        "P001:safety_boot",
+        "P002:face_mask",
+        "P002:safety_boot"
+      ],
+      "policy_rows": 8,
+      "policy_unknown": 8,
+      "source_review_recorded": false,
+      "structural_errors": [],
+      "status": "STRUCTURAL_CHECK_PASS_NOT_EVALUATION_READY"
+    },
+    {
+      "case_id": "C",
+      "split": "train",
+      "revision": 4,
+      "gt_state": "incomplete",
+      "persons": 4,
+      "positive_items": 12,
+      "matched_associations": 12,
+      "visual_states": 24,
+      "state_counts": {
+        "PRESENT": 16,
+        "ABSENT": 0,
+        "UNKNOWN": 8
+      },
+      "missing_visual_cells": [],
+      "policy_rows": 24,
+      "policy_unknown": 24,
+      "source_review_recorded": false,
+      "structural_errors": [],
+      "status": "STRUCTURAL_CHECK_PASS_NOT_EVALUATION_READY"
+    },
+    {
+      "case_id": "D",
+      "split": "train",
+      "revision": 1,
+      "gt_state": "incomplete",
+      "persons": 0,
+      "positive_items": 0,
+      "matched_associations": 0,
+      "visual_states": 0,
+      "state_counts": {
+        "PRESENT": 0,
+        "ABSENT": 0,
+        "UNKNOWN": 0
+      },
+      "missing_visual_cells": [],
+      "policy_rows": 0,
+      "policy_unknown": 0,
+      "source_review_recorded": false,
+      "structural_errors": [],
+      "status": "STRUCTURAL_CHECK_PASS_NOT_EVALUATION_READY"
+    }
+  ],
+  "workflow_capability": {
+    "saved_name": "SEER-PPE Conservative Review Cues v0.2",
+    "blocks": 21,
+    "contains_model_detection": true,
+    "confidence_review": true,
+    "overlap_geometry": true,
+    "has_independently_validated_one_to_one_equipment_assignment": false,
+    "training_metric_or_accuracy_claim": false
+  },
+  "researcher_unassigned_items_outside_partial_eval": {
+    "final_owner_unknown": [
+      "B/9",
+      "B/A",
+      "B/K",
+      "B/L",
+      "B/M",
+      "C/J"
+    ],
+    "preliminary_no_visible_owner": [
+      "D/1"
+    ],
+    "not_negative_ground_truth": true
+  },
+  "research_next_action": "Prepare group-separated Valid/Test reference using independent review. Do not report generalization accuracy from four train images.",
+  "user_completed_photographer_provenance_checks_not_reopened": true,
+  "original_images_annotations_model_splits_workflows_changed": false
+}
