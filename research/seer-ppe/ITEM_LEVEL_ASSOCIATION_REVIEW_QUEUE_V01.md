@@ -131,3 +131,6 @@ Old absence-like source markers: none.
 
 
 **2026-11-18 Case C final twelve ownership links:** Researcher has approved all 12 requested C wearer links, with source glove J owner remaining UNKNOWN. Historical candidate note above was superseded; box-owner decisions are final, while source classes/rights/legacy absence markers/second pass remain unresolved. See [updated C review](CASE_C_ITEM_LEVEL_HELMET_VEST_GLOVE_REVIEW_V01.md).
+
+
+**Case C separate Roboflow Eval partial reference saved at revision 4 (2026-11-18):** Researcher-final 12 Case C source-box wearer matches and earlier confirmed 24 worker-level visual PPE states have been stored as **partial** reference fields in separate Roboflow Eval Case C (revision 4); the final owner UNKNOWN for J remains in GitHub, with the box excluded from 12 fully wearer-approved items. Eval is `incomplete` and source right/privacy clearance, second pass and legacy No Safety Boots conflict remain open.
