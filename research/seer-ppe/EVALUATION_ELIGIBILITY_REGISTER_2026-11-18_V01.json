@@ -1,0 +1,105 @@
+{
+  "schema_version": "seer-ppe/evaluation-eligibility/v0.1",
+  "date": "2026-11-18",
+  "source_file": "VISUAL_SOURCE_FAMILY_ADJUDICATION_2026-11-18_V01.json",
+  "scope": "TEN_PREVIOUSLY_VISUALLY_REVIEWED_IMAGES_ONLY",
+  "gold_reference": false,
+  "scoring_ready": false,
+  "rows": [
+    {
+      "image_id": "0De0PEUDyeg9v1J3T6zr",
+      "filename": "IMG-20250416-WA0063.jpg",
+      "split": "valid",
+      "decision": "HOLD_SITE_OVERLAP",
+      "site_id": "site_school_22may_aseefrah",
+      "eligible_for_site_independent_scoring": false
+    },
+    {
+      "image_id": "NZu6Faj6evgINF1qFE0V",
+      "filename": "IMG-20250416-WA0051.jpg",
+      "split": "valid",
+      "decision": "HOLD_SITE_OVERLAP",
+      "site_id": "site_school_22may_aseefrah",
+      "eligible_for_site_independent_scoring": false
+    },
+    {
+      "image_id": "KrfW3xD7Vvxy6r6wISkv",
+      "filename": "IMG-20250416-WA0067.jpg",
+      "split": "train",
+      "decision": "TRAIN_SOURCE_NOT_EVALUATION",
+      "site_id": "site_school_22may_aseefrah",
+      "eligible_for_site_independent_scoring": false
+    },
+    {
+      "image_id": "H1KOFc0NQZnWRHJNcHPc",
+      "filename": "IMG-20250416-WA0066(1).jpg",
+      "split": "train",
+      "decision": "TRAIN_SOURCE_NOT_EVALUATION",
+      "site_id": "site_school_22may_aseefrah",
+      "eligible_for_site_independent_scoring": false
+    },
+    {
+      "image_id": "yeEvdkqXtNgsj7PZFDvI",
+      "filename": "IMG-20250416-WA0026.jpg",
+      "split": "valid",
+      "decision": "REVIEW_REQUIRED_SITE_INDEPENDENCE",
+      "site_id": "site_school_shahid_alalafi",
+      "eligible_for_site_independent_scoring": false
+    },
+    {
+      "image_id": "t3DpRsAqgpVlYA3zB2vF",
+      "filename": "IMG-20250416-WA0035.jpg",
+      "split": "test",
+      "decision": "TEST_GOVERNANCE_ONLY",
+      "site_id": null,
+      "eligible_for_site_independent_scoring": false
+    },
+    {
+      "image_id": "0bPA0Np3dQTf1XlXEAye",
+      "filename": "worker wearing mask_322.jpg",
+      "split": "valid",
+      "decision": "REVIEW_REQUIRED_SOURCE_FAMILY",
+      "site_id": null,
+      "eligible_for_site_independent_scoring": false
+    },
+    {
+      "image_id": "bzGmI84cgljDL44GkhOr",
+      "filename": "worker wearing mask_259.jpg",
+      "split": "test",
+      "decision": "TEST_GOVERNANCE_ONLY",
+      "site_id": null,
+      "eligible_for_site_independent_scoring": false
+    },
+    {
+      "image_id": "hnv5r5zAvrgjfxTQOsq2",
+      "filename": "image_252.jpg",
+      "split": "train",
+      "decision": "TRAIN_SOURCE_NOT_EVALUATION",
+      "site_id": null,
+      "eligible_for_site_independent_scoring": false
+    },
+    {
+      "image_id": "0ti7iV9wSfzMHI2oa8EQ",
+      "filename": "298.JPG",
+      "split": "valid",
+      "decision": "REVIEW_REQUIRED_TASK_CONTEXT",
+      "site_id": null,
+      "eligible_for_site_independent_scoring": false
+    }
+  ],
+  "retained_prior_hold": [
+    "worker wearing mask_322.jpg"
+  ],
+  "hold_valid_site_overlap": [
+    "IMG-20250416-WA0063.jpg",
+    "IMG-20250416-WA0051.jpg"
+  ],
+  "limits": [
+    "No new image review",
+    "No detector inference",
+    "No gold reference",
+    "No threshold tuning",
+    "No Roboflow mutations",
+    "Not exhaustive over dataset"
+  ]
+}
