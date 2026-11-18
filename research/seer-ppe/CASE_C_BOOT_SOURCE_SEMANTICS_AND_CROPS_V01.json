@@ -1,0 +1,161 @@
+{
+  "schema_version": "seer-ppe/case-c-boots-original-source-class-and-crop-followup/v0.1",
+  "date": "2026-11-18",
+  "research_case": "C",
+  "original_source_image_id": "0jGu9euJp1MbvkLtfBcs",
+  "original_dimensions": [
+    2048,
+    1365
+  ],
+  "original_filename": "Kathiah Gets a Chance03.jpg",
+  "project_id": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "read_only_operation": "Validated Roboflow inline AbsoluteStaticCrop with source original.jpg; no saved workflow, training label or model changes.",
+  "source_taxonomy": {
+    "observed_class_names": [
+      "No Safety Boots",
+      "Safety Boots"
+    ],
+    "project_class_count_No_Safety_Boots": 552,
+    "project_metadata_has_authoritative_definition_for_No_Safety_Boots": false,
+    "annotation_job_id": "nzrZTe9Jg5Camjn4npwO",
+    "annotation_job_status": "complete",
+    "annotation_job_instructions_summary": "Job was created when the project was created as part of being forked from another project; no definition or decision guide for No Safety Boots in inspected job metadata.",
+    "original_label_author_or_parent_fork_source_documented": false,
+    "github_existing_cross_domain_mapping_file": "cross_domain_reliability/stage2_data_audit/README.md",
+    "github_existing_provisional_mapping": "No Safety Boots -> no_boots",
+    "provisional_mapping_is_authoritative_source_annotation_definition": false,
+    "site_task_policy": "POLICY_UNKNOWN"
+  },
+  "image_crop_evidence": {
+    "crop_processing": "Original-pixel read-only crops; no upscaling claimed, source pixels not copied to public repository",
+    "initial_context_crop": {
+      "x_center": 590,
+      "y_center": 720,
+      "width": 300,
+      "height": 360
+    },
+    "comparison_crops": [
+      {
+        "worker": "P002",
+        "x_center": 880,
+        "y_center": 800,
+        "width": 340,
+        "height": 440,
+        "observation": "Long garment occludes feet; nearby visible shoe-like region in wider crop belongs to another person's area and cannot be used to infer P002 safety boot."
+      },
+      {
+        "worker": "P003",
+        "x_center": 1010,
+        "y_center": 790,
+        "width": 330,
+        "height": 375
+      },
+      {
+        "worker": "P004",
+        "x_center": 1240,
+        "y_center": 800,
+        "width": 370,
+        "height": 360
+      }
+    ],
+    "marker_specific_reviews": [
+      {
+        "id": "Q",
+        "person": "P004",
+        "crop": {
+          "x_center": 1226,
+          "y_center": 849,
+          "width": 230,
+          "height": 210
+        },
+        "observational_evidence": "Partly visible tan/brown footwear-like area beside/under the seated worker's draped outer garment; the visible region does not establish boot specification, toe protection or independent source class correctness.",
+        "visibility": "PARTIAL_FOOTWEAR_LIKE_REGION",
+        "protective_standard": "UNKNOWN",
+        "old_marker_type": "No Safety Boots",
+        "classification_verdict": "UNRESOLVED"
+      },
+      {
+        "id": "R",
+        "person": "P003",
+        "crop": {
+          "x_center": 996,
+          "y_center": 846,
+          "width": 210,
+          "height": 200
+        },
+        "observational_evidence": "Light tan/grey shoe-like footwear appears at the leaning worker's exposed lower leg. No reliable safety-toe, test standard or other certification evidence is visible. 'No Safety Boots' source label cannot be adjudicated from this alone.",
+        "visibility": "FOOTWEAR_APPEARS_VISIBLE_GRADE_UNKNOWN",
+        "protective_standard": "UNKNOWN",
+        "old_marker_type": "No Safety Boots",
+        "classification_verdict": "UNRESOLVED"
+      },
+      {
+        "id": "S",
+        "person": "P001",
+        "crop": {
+          "x_center": 584,
+          "y_center": 735,
+          "width": 210,
+          "height": 185
+        },
+        "observational_evidence": "The leftmost worker's long garment reaches the ground, with small pale footwear-like patches near the hem; small marker S cannot independently prove either an approved safety boot or absent safety boot.",
+        "visibility": "PARTIAL_GARMENT_OCCLUSION",
+        "protective_standard": "UNKNOWN",
+        "old_marker_type": "No Safety Boots",
+        "classification_verdict": "UNRESOLVED"
+      },
+      {
+        "id": "T",
+        "person": "P001",
+        "crop": {
+          "x_center": 584,
+          "y_center": 735,
+          "width": 210,
+          "height": 185
+        },
+        "observational_evidence": "Second small marker around the same long-garment/ground region. The two original boxes S/T should not be assumed to be one marked boot each without inspecting original annotation intent.",
+        "visibility": "PARTIAL_GARMENT_OCCLUSION",
+        "protective_standard": "UNKNOWN",
+        "old_marker_type": "No Safety Boots",
+        "classification_verdict": "UNRESOLVED"
+      }
+    ]
+  },
+  "reviewer_report": {
+    "user_previously_confirmed_all_four_workers_safety_boots_visible": "PRESENT",
+    "preserve_human_person_level_assertions": true,
+    "independently_verified_protective_boot_grade": false,
+    "no_positive_source_Safety_Boots_boxes_for_this_image": true,
+    "negative_markers_not_1_to_1_with_workers": true,
+    "marker_center_geometry": {
+      "P001": [
+        "S",
+        "T"
+      ],
+      "P002": [],
+      "P003": [
+        "R"
+      ],
+      "P004": [
+        "Q"
+      ]
+    },
+    "conflict_classification": "OPEN_CLASS_SEMANTICS_AND_ITEM_PROTECTION_GRADE_UNVERIFIED",
+    "proven_historical_label_error": false,
+    "proven_worker_PPE_policy_violation": false,
+    "source_rights_privacy": "UNREVIEWED",
+    "source_person_family": "UNKNOWN",
+    "human_verified_positive_item_links_A_B_C": 19,
+    "glove_J_owner": "UNKNOWN",
+    "boots_B_K_L_M_owner": "UNKNOWN",
+    "roboflow_eval_groundTruthState": "incomplete",
+    "original_data_annotation_model_changed": false
+  },
+  "next_independent_review": [
+    "Obtain authoritative original 'No Safety Boots' labeling definition or the source dataset's annotation instructions, including whether it marks no shoe, inadequate footwear, occluded shoe or another convention.",
+    "Where permitted, have a second independent reviewer examine Q/R/S/T pixels without viewing AI hypotheses, and record seen object, grade evidence and person association separately.",
+    "If class definition cannot be recovered, explicitly use SOURCE_CLASS_SEMANTICS_UNKNOWN and avoid translating the old negative boxes into worker-level ABSENT, violations or training relabels.",
+    "Verify original image provenance, rights/privacy and source family before completing Roboflow Eval Case C."
+  ],
+  "final_status": "UNRESOLVED_CROP_REVIEWED_SOURCE_LABEL_RUBRIC_UNAVAILABLE"
+}
