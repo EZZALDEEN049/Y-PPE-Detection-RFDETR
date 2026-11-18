@@ -296,5 +296,26 @@
   "eval_case_id": "c032f81d-64c5-44be-96f3-7e6fe9dad799",
   "eval_case_revision_observed": 4,
   "eval_case_state_observed": "incomplete",
-  "original_data_model_split_unchanged": true
+  "original_data_model_split_unchanged": true,
+  "followup": {
+    "date": "2026-11-18",
+    "original_source_class_definition_found": false,
+    "project_class_count_No_Safety_Boots": 552,
+    "original_annotation_job": "nzrZTe9Jg5Camjn4npwO",
+    "source_job_metadata_indicates_fork": true,
+    "source_image_crops_reviewed": [
+      "Q",
+      "R",
+      "S",
+      "T",
+      "P002_CONTEXT"
+    ],
+    "protective_grade_independently_verified": false,
+    "marker_class_correctness": "UNRESOLVED",
+    "discrepancy_closed": false,
+    "detailed_report": "CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.md",
+    "detailed_json": "CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.json",
+    "human_worker_boot_states_unchanged": true,
+    "original_source_boxes_unchanged": true
+  }
 }
