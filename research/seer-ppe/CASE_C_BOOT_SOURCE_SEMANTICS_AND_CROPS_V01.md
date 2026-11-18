@@ -37,3 +37,8 @@
 لم تُعدّل صور أو تعليقات Roboflow، ولا تقسيمات Train/Valid/Test، ولا الأوزان، ولا Workflows المحفوظة. بقيت روابط المعدات البشرية **19**، والقفاز `C/J` والأحذية `B/K/L/M` بلا مالك معلوم، ومرجع C بحالة `incomplete`.
 
 **ملف بيانات التدقيق:** [`CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.json`](CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.json). **سجل الفحص السابق:** [`CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.md`](CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.md).
+
+
+## مصدر منشور مؤكد للصورة C — تدقيق حقوق مستقل
+
+عُثر لاحقًا على خبر رسمي في موقع PWP يعرض صورة المشهد نفسها، وعلى صورتين إضافيتين (`01/02`) من القصة ذاتها موجودتين أيضًا في Train. مراجعة مصدر النشر والتراخيص في [التقرير المستقل](CASE_C_EXTERNAL_SOURCE_PROVENANCE_AND_RIGHTS_V01.md). **لم يظهر دليل أصلي لفئة `No Safety Boots` ضمن الخبر**، وبقي الترخيص الخاص بالصورة وحقوق الأشخاص `UNVERIFIED`، والتعارض البصري/الوسمي `OPEN`.
