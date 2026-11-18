@@ -1,0 +1,775 @@
+{
+  "schema_version": "seer-ppe/project-wide-filename-triage/v0.1",
+  "date": "2026-11-18",
+  "project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "coverage": "ALL_2327_PROJECT_IMAGES_METADATA_ONLY",
+  "image_media_inspection": "ONLY_3_SELECTED_TRAIN_VALID_PAIRS_SEPARATELY_RECORDED",
+  "total_images": 2327,
+  "split_counts": {
+    "train": 1625,
+    "valid": 468,
+    "test": 234
+  },
+  "pages_read": 10,
+  "group_key": "NFC_CASEFOLDED_EXACT_FILENAME_MATCH",
+  "exact_filename_repeated_groups_all_splits": 64,
+  "exact_filename_collision_groups_spanning_splits": 31,
+  "comparison_pairs_visually_reviewed": 3,
+  "high_visual_shared_scene_pairs": 2,
+  "groups": [
+    {
+      "filename_key": "------10-_png.jpg",
+      "representative_filename": "------10-_png.jpg",
+      "split_counts": {
+        "train": 2,
+        "valid": 0,
+        "test": 1
+      },
+      "image_ids_by_split": {
+        "train": [
+          "FVpeAXQVbrRk6P7CAfzQ",
+          "LpC2fKVzOwU6tnM3Kg6y"
+        ],
+        "valid": [],
+        "test": [
+          "IA8kLWlGWA6fXaGpMcNl"
+        ]
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "------12-_png.jpg",
+      "representative_filename": "------12-_png.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 1,
+        "test": 1
+      },
+      "image_ids_by_split": {
+        "train": [
+          "w8Ja8qHQTcfvAnJ7VRbg"
+        ],
+        "valid": [
+          "A3hFGqTOFfC4VH2IA1Lt"
+        ],
+        "test": [
+          "Dhu06gyZfGAUDRmjcx40"
+        ]
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "------16-_png.jpg",
+      "representative_filename": "------16-_png.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 0,
+        "test": 1
+      },
+      "image_ids_by_split": {
+        "train": [
+          "TCE1ZBJ261iyyUGjrtdY"
+        ],
+        "valid": [],
+        "test": [
+          "8AGeeAlhPlWD0gwHGozR"
+        ]
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "------6-_png.jpg",
+      "representative_filename": "------6-_png.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 2,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "mUj7WmfxH9Vbb23nIdyi"
+        ],
+        "valid": [
+          "INAgeZi7bwiF5utRk97U",
+          "MK8ALewnMHJpsuyZRVdw"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "------8-_png.jpg",
+      "representative_filename": "------8-_png.jpg",
+      "split_counts": {
+        "train": 2,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "RL8OVshaBWL1hfYvc242",
+          "nVdlialtyiAhj97P0Mg6"
+        ],
+        "valid": [
+          "cn4ImFhCWXyO3WBAyu7j"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "1.jpg",
+      "representative_filename": "1.jpg",
+      "split_counts": {
+        "train": 2,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "Q1aChGDlQeqzBHmyBGch",
+          "mCAIQHqf0TKmfo7QwaUw"
+        ],
+        "valid": [
+          "zkd5gzF2HP1Wij8jGOwq"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "117.jpg",
+      "representative_filename": "117.jpg",
+      "split_counts": {
+        "train": 0,
+        "valid": 1,
+        "test": 1
+      },
+      "image_ids_by_split": {
+        "train": [],
+        "valid": [
+          "niaVhug0tFUWAmznBDk3"
+        ],
+        "test": [
+          "OCCv5dzNCLIR6NK4yFtz"
+        ]
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "13.jpg",
+      "representative_filename": "13.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 1,
+        "test": 1
+      },
+      "image_ids_by_split": {
+        "train": [
+          "aADIKcKvkLAFCqG6XbAF"
+        ],
+        "valid": [
+          "XJRWtr2NdjyL0g01ziUa"
+        ],
+        "test": [
+          "WsuFO5zeHYucP6wH41kb"
+        ]
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "14.jpg",
+      "representative_filename": "14.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 0,
+        "test": 2
+      },
+      "image_ids_by_split": {
+        "train": [
+          "GFbLz6rnVretRatUFIZu"
+        ],
+        "valid": [],
+        "test": [
+          "akwrj8IXPfGECQ215xPN",
+          "fNxXdRztbDdifzG1sJHT"
+        ]
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "15.jpg",
+      "representative_filename": "15.jpg",
+      "split_counts": {
+        "train": 2,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "Mmb2XOKq51A7dIWYAMyi",
+          "T0TO0XVgODOiP0idxQKl"
+        ],
+        "valid": [
+          "0OQKf9ctc8nFLUzxlrSy"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "16.jpg",
+      "representative_filename": "16.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "u3qMAGp0zJAduQFHrBCa"
+        ],
+        "valid": [
+          "4qUaAqPNvHdehcPQFAEs"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "20.jpg",
+      "representative_filename": "20.jpg",
+      "split_counts": {
+        "train": 2,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "URnKrkFBfG2oasN6NjbS",
+          "kYZCiAzicM9umgFDlMzw"
+        ],
+        "valid": [
+          "grt6fZBL0Z050Ov9p2Do"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "28.jpg",
+      "representative_filename": "28.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "uokmcAPVXQaniYCeL3Zs"
+        ],
+        "valid": [
+          "8vSmsE12nbGWDvQcJmuV"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "28cd0b218f78403a904309a7bfdfb303.jpg",
+      "representative_filename": "28cd0b218f78403a904309a7bfdfb303.jpg",
+      "split_counts": {
+        "train": 0,
+        "valid": 1,
+        "test": 1
+      },
+      "image_ids_by_split": {
+        "train": [],
+        "valid": [
+          "Z3JHl90dYb7Q40EZP5Nc"
+        ],
+        "test": [
+          "mN6brTrokeM5cALnFjBV"
+        ]
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "29.jpg",
+      "representative_filename": "29.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "p9ZjvKMklaGbtnqtX4wy"
+        ],
+        "valid": [
+          "oARsYq6ZQOePA7eXP1tf"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "3.jpg",
+      "representative_filename": "3.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "hNOvu25rP9SRIycIiUl1"
+        ],
+        "valid": [
+          "zmrQYc8xjmXZkSlVinnc"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "32.jpg",
+      "representative_filename": "32.jpg",
+      "split_counts": {
+        "train": 0,
+        "valid": 1,
+        "test": 1
+      },
+      "image_ids_by_split": {
+        "train": [],
+        "valid": [
+          "mWViytcS98MF0NMfA3YL"
+        ],
+        "test": [
+          "HUdRZySsEZ2DCmy4b5M8"
+        ]
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "33.jpg",
+      "representative_filename": "33.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "qkOmMq7oL3tvWKYSWseu"
+        ],
+        "valid": [
+          "Oidvc0OwfogM8X5uenr1"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "38.jpg",
+      "representative_filename": "38.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "3tzZq9kGldIIDz7bMmLH"
+        ],
+        "valid": [
+          "M8aUyy2y7nq6zd6drpiD"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "4.jpg",
+      "representative_filename": "4.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "9VyRG8DsRou0hKtpERP9"
+        ],
+        "valid": [
+          "Vzd1KT4LA95UXpZTvfz7"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "46.jpg",
+      "representative_filename": "46.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "b1VXof7UoI4dgFP7rgft"
+        ],
+        "valid": [
+          "1jh0KCPlEeh4XAxhKMlV"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "7.jpg",
+      "representative_filename": "7.jpg",
+      "split_counts": {
+        "train": 2,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "oNdbDgtGVttBUrUVhyB0",
+          "xJExLWuCRwBCaPmf1BYB"
+        ],
+        "valid": [
+          "9IvmwwwxtY5HU002GUzj"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+      "representative_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "NAzs8sLreuFWQeOYDa2w"
+        ],
+        "valid": [
+          "qBtfzUgi6Mpg3A5TE0ln"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "HIGH_VISUAL_SHARED_SCENE_OR_DERIVATIVE_CANDIDATE",
+        "pair": [
+          {
+            "image_id": "NAzs8sLreuFWQeOYDa2w",
+            "split": "train"
+          },
+          {
+            "image_id": "qBtfzUgi6Mpg3A5TE0ln",
+            "split": "valid"
+          }
+        ],
+        "evidence": "Same indoor carpet, chair/objects and tan boot; boot placement/processing differs. Not identical-byte verified.",
+        "recommended": "HOLD_VALID_FOR_SOURCE_INDEPENDENT_VALIDATION"
+      }
+    },
+    {
+      "filename_key": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+      "representative_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "Cvh5UIGM4gTaPhriIh4Y"
+        ],
+        "valid": [
+          "jeB2NmucImurFBeFkyIz"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "HIGH_VISUAL_SHARED_SCENE_OR_DERIVATIVE_CANDIDATE",
+        "pair": [
+          {
+            "image_id": "Cvh5UIGM4gTaPhriIh4Y",
+            "split": "train"
+          },
+          {
+            "image_id": "jeB2NmucImurFBeFkyIz",
+            "split": "valid"
+          }
+        ],
+        "evidence": "Same tiled floor, door and tan shoe from same viewpoint, with position/crop differences. Not identical-byte verified.",
+        "recommended": "HOLD_VALID_FOR_SOURCE_INDEPENDENT_VALIDATION"
+      }
+    },
+    {
+      "filename_key": "images (1).jpeg",
+      "representative_filename": "images (1).jpeg",
+      "split_counts": {
+        "train": 2,
+        "valid": 2,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "l5CxwGqk5oaIzn3LYPdq",
+          "vCcq6NUkRZYVWow64jZG"
+        ],
+        "valid": [
+          "VGgO7pgrSLIT34s08k5H",
+          "sH4qWaeDYOnVFkAJ8bnA"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "images (1).jpg",
+      "representative_filename": "images (1).jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "Nvh2hfNuypzGjoxAcm85"
+        ],
+        "valid": [
+          "3nktU2FTbb9n1i0JPKgv"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "images (2).jpeg",
+      "representative_filename": "images (2).jpeg",
+      "split_counts": {
+        "train": 3,
+        "valid": 0,
+        "test": 1
+      },
+      "image_ids_by_split": {
+        "train": [
+          "FbSo4YKMdXqUvYOPp6hm",
+          "TvbrAhPHLUup3wrBz1ya",
+          "zFRi0DYkOQz16QXwP5sr"
+        ],
+        "valid": [],
+        "test": [
+          "AS9RZhKdWtazDtBMfFk1"
+        ]
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "images (3).jpeg",
+      "representative_filename": "images (3).jpeg",
+      "split_counts": {
+        "train": 2,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "O49ERE8LjlNFp3n0ZUE1",
+          "YnTtvJm069ARngO3MxhL"
+        ],
+        "valid": [
+          "sWmx8VYmhH5UuDTeko0d"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "images.jpeg",
+      "representative_filename": "images.jpeg",
+      "split_counts": {
+        "train": 5,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "1puZlGUm14iavysw4LHZ",
+          "96FqluUj8c5eI2Vekhks",
+          "URZSNn6LPIktR9XOWn1c",
+          "Wz0PGGalwDZ1lS90K3pD",
+          "g2YKQ6r4KEY5GlkZ7EmZ"
+        ],
+        "valid": [
+          "6HCuk7UuhOQH5pSi9IBX"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "MIXED_FILENAME_GROUP_INSPECTED_PAIR_DISTINCT",
+        "pair": [
+          {
+            "image_id": "1puZlGUm14iavysw4LHZ",
+            "split": "train"
+          },
+          {
+            "image_id": "6HCuk7UuhOQH5pSi9IBX",
+            "split": "valid"
+          }
+        ],
+        "evidence": "Selected Train image is an adult portrait; selected Valid image shows donkeys. This does not adjudicate the other 4 same-name images.",
+        "recommended": "DO_NOT_TREAT_NAME_ALONE_AS_DUPLICATE"
+      }
+    },
+    {
+      "filename_key": "ppe_0466.jpg",
+      "representative_filename": "ppe_0466.jpg",
+      "split_counts": {
+        "train": 1,
+        "valid": 0,
+        "test": 1
+      },
+      "image_ids_by_split": {
+        "train": [
+          "sczgz2SEBBD05XTwFIqr"
+        ],
+        "valid": [],
+        "test": [
+          "YS9zO5JVBNLHSKh7aTgG"
+        ]
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    },
+    {
+      "filename_key": "sharedscreenshot.jpg",
+      "representative_filename": "SharedScreenshot.jpg",
+      "split_counts": {
+        "train": 2,
+        "valid": 1,
+        "test": 0
+      },
+      "image_ids_by_split": {
+        "train": [
+          "DvebnFkbE0dBv0MPrXwT",
+          "mpnp3bw0cTUIeuf1qbKx"
+        ],
+        "valid": [
+          "u4obYScAA7jJeukqnfO3"
+        ],
+        "test": []
+      },
+      "triage": {
+        "status": "FILENAME_COLLISION_UNREVIEWED",
+        "recommended": "MANUAL_OR_HASH_FOLLOWUP"
+      }
+    }
+  ],
+  "limitations": [
+    "Filename equality is not duplicate-image evidence.",
+    "Absence of a matching filename does not imply source independence.",
+    "Only two selected pairs were flagged as visually sharing a source scene; no pixel hash or independent human audit.",
+    "No additional Test originals viewed; Test not used to tune thresholds.",
+    "This file contains cross-split name-collision candidates, not a full image-by-image site-family mapping.",
+    "No Roboflow dataset/model mutations or scoring."
+  ],
+  "recommended_hold_valid_image_ids": [
+    "qBtfzUgi6Mpg3A5TE0ln",
+    "jeB2NmucImurFBeFkyIz"
+  ],
+  "existing_named_site_holds_from_family_audit": [
+    "0De0PEUDyeg9v1J3T6zr",
+    "NZu6Faj6evgINF1qFE0V",
+    "yeEvdkqXtNgsj7PZFDvI"
+  ]
+}
