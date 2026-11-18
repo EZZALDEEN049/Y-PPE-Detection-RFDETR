@@ -142,3 +142,6 @@ Old absence-like source markers: none.
 **2026-11-18 Q/R/S/T provenance and crop follow-up:**
 
 See [source-class and foot-region crop review](CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.md) plus [JSON](CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.json). Native cropped pixels were inspected and original project/job/class metadata checked: **no authoritative definition** of `No Safety Boots` was found. Q/R shoe-like partial regions cannot establish certified safety footwear; S/T remain visually indeterminate. Researcher states, individual equipment links and ground-truth readiness not changed; original labeling conflict still OPEN.
+
+
+**2026-11-18 verified PWP publication and rights/source-family review:** Case C image `03` was found on an official PWP public article with related 01/02 images; all three matched Roboflow filenames are presently Train. [Source/rights report](CASE_C_EXTERNAL_SOURCE_PROVENANCE_AND_RIGHTS_V01.md), [structured provenance](CASE_C_EXTERNAL_SOURCE_PROVENANCE_AND_RIGHTS_V01.json), and [blank independent reviewer template](CASE_C_INDEPENDENT_SECOND_REVIEW_TEMPLATE_V01.md). Public project CC BY 4.0 display is **not evidence of underlying photographer authorization**. `SOURCE_LICENSE_CHAIN_PENDING`, `NO_SAFETY_BOOTS_RUBRIC_UNKNOWN`; original dataset unchanged, 19 approved positive-item person links preserved.
