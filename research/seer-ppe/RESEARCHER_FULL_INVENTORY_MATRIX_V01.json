@@ -2526,6 +2526,44 @@
         "rights_privacy_source_family_and_second_pass_pending": true,
         "original_training_model_unchanged": true,
         "no_full_reference_approval_claim": true
+      },
+      "legacy_boot_absence_label_audit": {
+        "date": "2026-11-18",
+        "report_markdown": "CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.md",
+        "report_json": "CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.json",
+        "source_label": "No Safety Boots",
+        "source_negative_annotation_ids": [
+          "Q",
+          "R",
+          "S",
+          "T"
+        ],
+        "original_positive_Safety_Boots_boxes": 0,
+        "marker_centres_inside_old_person_boxes": {
+          "P001": [
+            "S",
+            "T"
+          ],
+          "P002": [],
+          "P003": [
+            "R"
+          ],
+          "P004": [
+            "Q"
+          ]
+        },
+        "observed_non_one_to_one_mapping": true,
+        "discrepancy_state": "OPEN_UNRESOLVED_SOURCE_LABEL_SEMANTICS",
+        "researcher_boot_visual_states_unchanged": "PRESENT_ALL_FOUR_PER_RESEARCHER",
+        "researcher_confirmed_matched_item_links_unchanged": true,
+        "source_label_correctness_not_adjudicated": true,
+        "footgear_protection_certification": "UNVERIFIED",
+        "worksite_policy": "POLICY_UNKNOWN",
+        "rights_and_privacy": "UNREVIEWED",
+        "corrections_to_source_annotations_applied": false,
+        "source_family_check_pending": true,
+        "eval_ground_truth_state_stays": "incomplete",
+        "audit_not_a_model_performance_measure": true
       }
     },
     {
@@ -2675,6 +2713,9 @@
     "case_c_rights_and_second_pass_pending": true,
     "case_c_eval_ground_truth_partial_saved": true,
     "case_c_eval_ground_truth_state": "incomplete",
-    "case_c_eval_ground_truth_revision": 4
+    "case_c_eval_ground_truth_revision": 4,
+    "case_c_legacy_boot_absence_marker_audit_completed_as_read_only": true,
+    "case_c_legacy_boot_absence_marker_discrepancy_status": "OPEN_UNRESOLVED",
+    "case_c_legacy_boot_absence_marker_distribution": "P001: S/T, P002: none, P003: R, P004: Q (source person box centroid intersection only)"
   }
 }
