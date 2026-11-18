@@ -314,3 +314,12 @@ Finality applies to **person-owner relationships only**. Worksite policy `POLICY
 Separate Roboflow Eval Case C was saved at **revision 4** following the explicit researcher approval of 12 item-box wearer links. Typed partial reference: **4** visible people, **12** approved positive PPE source item boxes, **12** `MATCHED` box-to-person links, **24** pre-confirmed worker-level visual PPE states (6 PPE types × 4 people), and **24** `POLICY_UNKNOWN` mandates. The old `J` glove box, whose person owner is researcher-final `UNKNOWN`, is retained in GitHub but excluded from the approved positive-item subset in this incomplete Eval Case pending full identity/coverage checks.
 
 No source review record was fabricated; `source_review` remains unset and Eval `groundTruthState=incomplete`. Old four C `No Safety Boots` source markers `Q/R/S/T` still need reconciliation with researcher's claimed boot presence; rights/privacy/source-family/independent second-pass checks are still pending. No compliance verdict or measured model score.
+
+
+## Case C read-only source `No Safety Boots` Q/R/S/T audit (2026-11-18)
+
+Performed read-only inspection of the **actual** Roboflow source image and four original native `No Safety Boots` boxes for Case C. Detailed evidence: [Arabic audit](CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.md) and [machine-readable source-box audit](CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.json). Geometric centre-to-*old source person bbox* mapping is `Q→P004`, `R→P003`, `S/T→P001`, and no box-centre for `P002`. This is **not** wearer attribution or proof of physical boot presence/absence; four markers are not four independent worker violations.
+
+Old Case C source has **zero positive `Safety Boots` boxes**, while the researcher previously asserted `safety_boot=PRESENT` for each of four workers. This has been explicitly classified `OPEN_UNRESOLVED_SOURCE_LABEL_SEMANTICS`, not a proven mislabeling, false-negative, failed prediction, or safety non-compliance. The historical source class meaning, footwear protection specification and independent person-foot visual status require separate verification. **No original label corrected or deleted**.
+
+Prior human link approvals (19 A/B/C physical item links), C/J owner `UNKNOWN`, B/K,L,M ownership `UNKNOWN`, person-level PPE observations and `POLICY_UNKNOWN` are preserved; the separate Eval Case C remains `incomplete` pending source rights/privacy/family, full coverage and second-pass signoff.
