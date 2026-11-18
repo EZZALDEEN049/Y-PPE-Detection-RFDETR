@@ -300,3 +300,10 @@ Read the original C source image (2048×1365) read-only and reconciled 13 positi
 Researcher already reports four people wearing helmets, vests, gloves, boots and traditional `العباءة`. Original source has four `No Safety Boots` boxes `Q/R/S/T` but zero positive boot boxes; this is a review priority, not an automatic false-negative or violation finding. Eye protection and masks remain `UNKNOWN`; site policy `POLICY_UNKNOWN`, rights/privacy/source family `UNREVIEWED`.
 
 Roboflow Eval Case C remains `groundTruthState=incomplete` / `groundTruth={}`. No original annotations, splits, model or base Workflow changed.
+
+
+## Case C researcher-final individual source-box wearer decisions (2026-11-18)
+
+The researcher replied **"موافق"** after the exact twelve box-to-worker links were displayed and asked to be approved, with source glove `J` expressly kept `UNKNOWN`. These **twelve individual links are now human-final**, rather than AI suggestions: hats `F→P001`, `E→P002`, `D→P003`, `C→P004`; vests `6→P001`, `5→P002`, `7→P003`, `8→P004`; gloves `H/I→P001`, `G→P002`, `K→P003`. **Glove `J`: final owner `UNKNOWN`, `person_id=null`.**
+
+Finality applies to **person-owner relationships only**. Worksite policy `POLICY_UNKNOWN`, safety-boot protective certification and old negative `No Safety Boots` tags `Q/R/S/T` are not settled; goggles/masks remain visual `UNKNOWN`. Source rights/privacy/family and independent verification prevent full Roboflow Eval completion. No changes to original annotations/training.
