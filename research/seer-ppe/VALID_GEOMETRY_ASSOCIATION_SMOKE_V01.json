@@ -1,0 +1,737 @@
+{
+  "schema_version": "seer-ppe/valid-geometric-association-prototype-v0.1",
+  "date": "2026-11-18",
+  "source": "READ_ONLY_EXISTING_VALID_IMAGES_NATIVE_ANNOTATIONS",
+  "project_id": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "settings": {
+    "minScore": 0.57,
+    "minMargin": 0.12,
+    "minConfidence": 0.3
+  },
+  "algorithm_description": "Pair heuristic using normalized horizontal distance from native source person box, PPE type-specific relative vertical zone, item intersection/containment and centre inclusion; allow unknown for low score, near ties, no person or low detection confidence. No actual supervised assignment or semantic pixel classification.",
+  "weights": {
+    "horizontal_score": 0.36,
+    "body_vertical_zone": 0.28,
+    "box_overlap_fraction": 0.22,
+    "centre_inside_person_bbox": 0.14
+  },
+  "scores_are_calibrated_probabilities": false,
+  "thresholds_are_exploratory_unvalidated": true,
+  "synthetic_self_tests_passed": 6,
+  "split": "valid",
+  "human_checked_item_gt": false,
+  "model_inference_run": false,
+  "results": [
+    {
+      "image_id": "07BnOpgFJyNaOhuzvh5i",
+      "filename": "image_1282.jpg",
+      "split": "valid",
+      "stage": "GEOMETRIC_REVIEW_SUGGESTIONS_ONLY",
+      "source_person_count": 2,
+      "person_ids_are_left_to_right_native_box_order": true,
+      "positive_item_count": 5,
+      "candidates": [
+        {
+          "source_id": "1",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "person_id": "P002",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.9937,
+          "score_margin": 0.7137,
+          "source_confidence": null,
+          "ranked_evidence": [
+            {
+              "person_id": "P002",
+              "source_person_box_id": "8",
+              "score": 0.9937,
+              "person_center_distance_in_halfwidths": 0.026,
+              "vertical_relative": 0.095,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 1
+            },
+            {
+              "person_id": "P001",
+              "source_person_box_id": "7",
+              "score": 0.28,
+              "person_center_distance_in_halfwidths": 4.067,
+              "vertical_relative": 0.051,
+              "centre_inside_old_person_box": false,
+              "intersection_over_item": 0
+            }
+          ]
+        },
+        {
+          "source_id": "2",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "person_id": "P001",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.9312,
+          "score_margin": 0.6512,
+          "source_confidence": null,
+          "ranked_evidence": [
+            {
+              "person_id": "P001",
+              "source_person_box_id": "7",
+              "score": 0.9312,
+              "person_center_distance_in_halfwidths": 0.287,
+              "vertical_relative": 0.097,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 1
+            },
+            {
+              "person_id": "P002",
+              "source_person_box_id": "8",
+              "score": 0.28,
+              "person_center_distance_in_halfwidths": 5.072,
+              "vertical_relative": 0.138,
+              "centre_inside_old_person_box": false,
+              "intersection_over_item": 0
+            }
+          ]
+        },
+        {
+          "source_id": "4",
+          "source_class": "Goggles",
+          "ppe_type": "goggles",
+          "person_id": "P002",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.9163,
+          "score_margin": 0.6363,
+          "source_confidence": null,
+          "ranked_evidence": [
+            {
+              "person_id": "P002",
+              "source_person_box_id": "8",
+              "score": 0.9163,
+              "person_center_distance_in_halfwidths": 0.349,
+              "vertical_relative": 0.158,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 1
+            },
+            {
+              "person_id": "P001",
+              "source_person_box_id": "7",
+              "score": 0.28,
+              "person_center_distance_in_halfwidths": 3.747,
+              "vertical_relative": 0.117,
+              "centre_inside_old_person_box": false,
+              "intersection_over_item": 0
+            }
+          ]
+        },
+        {
+          "source_id": "5",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "person_id": "P001",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.9317,
+          "score_margin": 0.6517,
+          "source_confidence": null,
+          "ranked_evidence": [
+            {
+              "person_id": "P001",
+              "source_person_box_id": "7",
+              "score": 0.9317,
+              "person_center_distance_in_halfwidths": 0.202,
+              "vertical_relative": 0.48,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 0.91
+            },
+            {
+              "person_id": "P002",
+              "source_person_box_id": "8",
+              "score": 0.28,
+              "person_center_distance_in_halfwidths": 4.974,
+              "vertical_relative": 0.504,
+              "centre_inside_old_person_box": false,
+              "intersection_over_item": 0
+            }
+          ]
+        },
+        {
+          "source_id": "6",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "person_id": "P002",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.977,
+          "score_margin": 0.697,
+          "source_confidence": null,
+          "ranked_evidence": [
+            {
+              "person_id": "P002",
+              "source_person_box_id": "8",
+              "score": 0.977,
+              "person_center_distance_in_halfwidths": 0.066,
+              "vertical_relative": 0.5,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 0.967
+            },
+            {
+              "person_id": "P001",
+              "source_person_box_id": "7",
+              "score": 0.28,
+              "person_center_distance_in_halfwidths": 4.101,
+              "vertical_relative": 0.475,
+              "centre_inside_old_person_box": false,
+              "intersection_over_item": 0
+            }
+          ]
+        }
+      ],
+      "excluded_boxes": [
+        {
+          "source_id": "9",
+          "source_class": "Pants",
+          "reason": "OUT_OF_SCOPE_CLASS"
+        },
+        {
+          "source_id": "A",
+          "source_class": "Pants",
+          "reason": "OUT_OF_SCOPE_CLASS"
+        },
+        {
+          "source_id": "B",
+          "source_class": "No Face Mask",
+          "reason": "LEGACY_NEGATIVE_MARKER_NOT_PHYSICAL_PPE"
+        },
+        {
+          "source_id": "C",
+          "source_class": "No Gloves",
+          "reason": "LEGACY_NEGATIVE_MARKER_NOT_PHYSICAL_PPE"
+        },
+        {
+          "source_id": "D",
+          "source_class": "No Gloves",
+          "reason": "LEGACY_NEGATIVE_MARKER_NOT_PHYSICAL_PPE"
+        },
+        {
+          "source_id": "E",
+          "source_class": "No Face Mask",
+          "reason": "LEGACY_NEGATIVE_MARKER_NOT_PHYSICAL_PPE"
+        }
+      ],
+      "never_infers_ABSENT_or_POLICY_COMPLIANCE": true
+    },
+    {
+      "image_id": "0De0PEUDyeg9v1J3T6zr",
+      "filename": "IMG-20250416-WA0063.jpg",
+      "split": "valid",
+      "stage": "GEOMETRIC_REVIEW_SUGGESTIONS_ONLY",
+      "source_person_count": 1,
+      "person_ids_are_left_to_right_native_box_order": true,
+      "positive_item_count": 2,
+      "candidates": [
+        {
+          "source_id": "1",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "person_id": "P001",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.9593,
+          "score_margin": 1,
+          "source_confidence": null,
+          "ranked_evidence": [
+            {
+              "person_id": "P001",
+              "source_person_box_id": "3",
+              "score": 0.9593,
+              "person_center_distance_in_halfwidths": 0.17,
+              "vertical_relative": 0.435,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 1
+            }
+          ]
+        },
+        {
+          "source_id": "2",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "person_id": "P001",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.9196,
+          "score_margin": 1,
+          "source_confidence": null,
+          "ranked_evidence": [
+            {
+              "person_id": "P001",
+              "source_person_box_id": "3",
+              "score": 0.9196,
+              "person_center_distance_in_halfwidths": 0.335,
+              "vertical_relative": 0.181,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 1
+            }
+          ]
+        }
+      ],
+      "excluded_boxes": [
+        {
+          "source_id": "4",
+          "source_class": "Pants",
+          "reason": "OUT_OF_SCOPE_CLASS"
+        }
+      ],
+      "never_infers_ABSENT_or_POLICY_COMPLIANCE": true
+    },
+    {
+      "image_id": "0bPA0Np3dQTf1XlXEAye",
+      "filename": "worker wearing mask_322.jpg",
+      "split": "valid",
+      "stage": "GEOMETRIC_REVIEW_SUGGESTIONS_ONLY",
+      "source_person_count": 2,
+      "person_ids_are_left_to_right_native_box_order": true,
+      "positive_item_count": 8,
+      "candidates": [
+        {
+          "source_id": "3",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "person_id": "P001",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.9714,
+          "score_margin": 0.6914,
+          "source_confidence": 1,
+          "ranked_evidence": [
+            {
+              "person_id": "P001",
+              "source_person_box_id": "9",
+              "score": 0.9714,
+              "person_center_distance_in_halfwidths": 0.038,
+              "vertical_relative": 0.738,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 0.912
+            },
+            {
+              "person_id": "P002",
+              "source_person_box_id": "7",
+              "score": 0.28,
+              "person_center_distance_in_halfwidths": 3.197,
+              "vertical_relative": 0.526,
+              "centre_inside_old_person_box": false,
+              "intersection_over_item": 0
+            }
+          ]
+        },
+        {
+          "source_id": "5",
+          "source_class": "Goggles",
+          "ppe_type": "goggles",
+          "person_id": "P001",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.9639,
+          "score_margin": 0.8062,
+          "source_confidence": 1,
+          "ranked_evidence": [
+            {
+              "person_id": "P001",
+              "source_person_box_id": "9",
+              "score": 0.9639,
+              "person_center_distance_in_halfwidths": 0.15,
+              "vertical_relative": 0.152,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 1
+            },
+            {
+              "person_id": "P002",
+              "source_person_box_id": "7",
+              "score": 0.1577,
+              "person_center_distance_in_halfwidths": 3.666,
+              "vertical_relative": -0.162,
+              "centre_inside_old_person_box": false,
+              "intersection_over_item": 0
+            }
+          ]
+        },
+        {
+          "source_id": "E",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "person_id": "P002",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.9521,
+          "score_margin": 0.6558,
+          "source_confidence": 0.97225421667099,
+          "ranked_evidence": [
+            {
+              "person_id": "P002",
+              "source_person_box_id": "7",
+              "score": 0.9521,
+              "person_center_distance_in_halfwidths": 0.2,
+              "vertical_relative": 0.094,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 1
+            },
+            {
+              "person_id": "P001",
+              "source_person_box_id": "9",
+              "score": 0.2963,
+              "person_center_distance_in_halfwidths": 1.406,
+              "vertical_relative": 0.369,
+              "centre_inside_old_person_box": false,
+              "intersection_over_item": 0
+            }
+          ]
+        },
+        {
+          "source_id": "H",
+          "source_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "person_id": "P002",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.8975,
+          "score_margin": 0.6169,
+          "source_confidence": 1,
+          "ranked_evidence": [
+            {
+              "person_id": "P002",
+              "source_person_box_id": "7",
+              "score": 0.8975,
+              "person_center_distance_in_halfwidths": 0.427,
+              "vertical_relative": 0.329,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 1
+            },
+            {
+              "person_id": "P001",
+              "source_person_box_id": "9",
+              "score": 0.2806,
+              "person_center_distance_in_halfwidths": 1.498,
+              "vertical_relative": 0.57,
+              "centre_inside_old_person_box": false,
+              "intersection_over_item": 0
+            }
+          ]
+        },
+        {
+          "source_id": "2",
+          "source_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "person_id": "P001",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.9641,
+          "score_margin": 0.8041,
+          "source_confidence": 1,
+          "ranked_evidence": [
+            {
+              "person_id": "P001",
+              "source_person_box_id": "9",
+              "score": 0.9641,
+              "person_center_distance_in_halfwidths": 0.15,
+              "vertical_relative": 0.137,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 1
+            },
+            {
+              "person_id": "P002",
+              "source_person_box_id": "7",
+              "score": 0.16,
+              "person_center_distance_in_halfwidths": 2.921,
+              "vertical_relative": -0.179,
+              "centre_inside_old_person_box": false,
+              "intersection_over_item": 0
+            }
+          ]
+        },
+        {
+          "source_id": "1",
+          "source_class": "Face Masks",
+          "ppe_type": "face_mask",
+          "person_id": "P001",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.9629,
+          "score_margin": 0.7449,
+          "source_confidence": 1,
+          "ranked_evidence": [
+            {
+              "person_id": "P001",
+              "source_person_box_id": "9",
+              "score": 0.9629,
+              "person_center_distance_in_halfwidths": 0.155,
+              "vertical_relative": 0.262,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 1
+            },
+            {
+              "person_id": "P002",
+              "source_person_box_id": "7",
+              "score": 0.218,
+              "person_center_distance_in_halfwidths": 3.676,
+              "vertical_relative": -0.032,
+              "centre_inside_old_person_box": false,
+              "intersection_over_item": 0
+            }
+          ]
+        },
+        {
+          "source_id": "F",
+          "source_class": "Face Masks",
+          "ppe_type": "face_mask",
+          "person_id": "P002",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.9723,
+          "score_margin": 0.6616,
+          "source_confidence": 0.9510791897773743,
+          "ranked_evidence": [
+            {
+              "person_id": "P002",
+              "source_person_box_id": "7",
+              "score": 0.9723,
+              "person_center_distance_in_halfwidths": 0.115,
+              "vertical_relative": 0.176,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 1
+            },
+            {
+              "person_id": "P001",
+              "source_person_box_id": "9",
+              "score": 0.3107,
+              "person_center_distance_in_halfwidths": 1.372,
+              "vertical_relative": 0.44,
+              "centre_inside_old_person_box": false,
+              "intersection_over_item": 0
+            }
+          ]
+        },
+        {
+          "source_id": "J",
+          "source_class": "Safety Boots",
+          "ppe_type": "safety_boot",
+          "person_id": "P002",
+          "status": "MATCHED_CANDIDATE",
+          "abstention_reason": null,
+          "geometry_score": 0.9615,
+          "score_margin": 0.6551,
+          "source_confidence": null,
+          "ranked_evidence": [
+            {
+              "person_id": "P002",
+              "source_person_box_id": "7",
+              "score": 0.9615,
+              "person_center_distance_in_halfwidths": 0.16,
+              "vertical_relative": 0.972,
+              "centre_inside_old_person_box": true,
+              "intersection_over_item": 1
+            },
+            {
+              "person_id": "P001",
+              "source_person_box_id": "9",
+              "score": 0.3064,
+              "person_center_distance_in_halfwidths": 1.39,
+              "vertical_relative": 1.117,
+              "centre_inside_old_person_box": false,
+              "intersection_over_item": 0
+            }
+          ]
+        }
+      ],
+      "excluded_boxes": [
+        {
+          "source_id": "8",
+          "source_class": "No Gloves",
+          "reason": "LEGACY_NEGATIVE_MARKER_NOT_PHYSICAL_PPE"
+        },
+        {
+          "source_id": "G",
+          "source_class": "Pants",
+          "reason": "OUT_OF_SCOPE_CLASS"
+        },
+        {
+          "source_id": "I",
+          "source_class": "No Gloves",
+          "reason": "LEGACY_NEGATIVE_MARKER_NOT_PHYSICAL_PPE"
+        }
+      ],
+      "never_infers_ABSENT_or_POLICY_COMPLIANCE": true
+    },
+    {
+      "image_id": "0ti7iV9wSfzMHI2oa8EQ",
+      "filename": "298.JPG",
+      "split": "valid",
+      "stage": "GEOMETRIC_REVIEW_SUGGESTIONS_ONLY",
+      "source_person_count": 0,
+      "person_ids_are_left_to_right_native_box_order": true,
+      "positive_item_count": 0,
+      "candidates": [],
+      "excluded_boxes": [
+        {
+          "source_id": "1",
+          "source_class": "No Safety Boots",
+          "reason": "LEGACY_NEGATIVE_MARKER_NOT_PHYSICAL_PPE"
+        },
+        {
+          "source_id": "2",
+          "source_class": "No Safety Boots",
+          "reason": "LEGACY_NEGATIVE_MARKER_NOT_PHYSICAL_PPE"
+        }
+      ],
+      "never_infers_ABSENT_or_POLICY_COMPLIANCE": true
+    }
+  ],
+  "summary": [
+    {
+      "image": "image_1282.jpg",
+      "old_person_boxes": 2,
+      "positive_boxes": 5,
+      "matched_candidate": 5,
+      "abstained": [],
+      "excluded_negatives": 4,
+      "proposals": [
+        [
+          "1",
+          "hard_hat",
+          "P002",
+          0.9937,
+          0.7137
+        ],
+        [
+          "2",
+          "hard_hat",
+          "P001",
+          0.9312,
+          0.6512
+        ],
+        [
+          "4",
+          "goggles",
+          "P002",
+          0.9163,
+          0.6363
+        ],
+        [
+          "5",
+          "safety_vest",
+          "P001",
+          0.9317,
+          0.6517
+        ],
+        [
+          "6",
+          "safety_vest",
+          "P002",
+          0.977,
+          0.697
+        ]
+      ]
+    },
+    {
+      "image": "IMG-20250416-WA0063.jpg",
+      "old_person_boxes": 1,
+      "positive_boxes": 2,
+      "matched_candidate": 2,
+      "abstained": [],
+      "excluded_negatives": 0,
+      "proposals": [
+        [
+          "1",
+          "safety_vest",
+          "P001",
+          0.9593,
+          1
+        ],
+        [
+          "2",
+          "hard_hat",
+          "P001",
+          0.9196,
+          1
+        ]
+      ]
+    },
+    {
+      "image": "worker wearing mask_322.jpg",
+      "old_person_boxes": 2,
+      "positive_boxes": 8,
+      "matched_candidate": 8,
+      "abstained": [],
+      "excluded_negatives": 2,
+      "proposals": [
+        [
+          "3",
+          "safety_vest",
+          "P001",
+          0.9714,
+          0.6914
+        ],
+        [
+          "5",
+          "goggles",
+          "P001",
+          0.9639,
+          0.8062
+        ],
+        [
+          "E",
+          "hard_hat",
+          "P002",
+          0.9521,
+          0.6558
+        ],
+        [
+          "H",
+          "safety_vest",
+          "P002",
+          0.8975,
+          0.6169
+        ],
+        [
+          "2",
+          "hard_hat",
+          "P001",
+          0.9641,
+          0.8041
+        ],
+        [
+          "1",
+          "face_mask",
+          "P001",
+          0.9629,
+          0.7449
+        ],
+        [
+          "F",
+          "face_mask",
+          "P002",
+          0.9723,
+          0.6616
+        ],
+        [
+          "J",
+          "safety_boot",
+          "P002",
+          0.9615,
+          0.6551
+        ]
+      ]
+    },
+    {
+      "image": "298.JPG",
+      "old_person_boxes": 0,
+      "positive_boxes": 0,
+      "matched_candidate": 0,
+      "abstained": [],
+      "excluded_negatives": 2,
+      "proposals": []
+    }
+  ],
+  "original_training_images_splits_annotations_changed": false,
+  "workflow_saved": false,
+  "not_model_performance_metric": true
+}
