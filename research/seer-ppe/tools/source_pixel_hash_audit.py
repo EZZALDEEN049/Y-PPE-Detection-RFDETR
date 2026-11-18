@@ -44,7 +44,7 @@ def _fingerprint(path):
         width, height = rgb.size
         pix_sha256 = _sha(f"RGB:{width}x{height}:".encode() + rgb.tobytes())
         reduced = rgb.convert("L").resize((9, 8), Image.Resampling.LANCZOS)
-        values = list(reduced.getdata())
+        values = list(reduced.tobytes())
         bits = 0
         for y in range(8):
             for x in range(8):
