@@ -63,3 +63,10 @@
 أُعدّ [قالب مراجعة مستقلة](CASE_C_INDEPENDENT_SECOND_REVIEW_TEMPLATE_V01.md) يتيح لمراجع ثانٍ فحص الصورة والفئات ذات الصلة دون تلقين اقتراحات الذكاء الاصطناعي أو إلزامه بموافقة رأي الباحث. **لم تجرِ مراجعة بشرية ثانية بعد**. يظل `Q/R/S/T` تعارضًا مصدره غير محسوم ولا تتحول وسمات `No Safety Boots` إلى غياب للسلامة أو مخالفة.
 
 **البيانات المقروءة آليًا:** [`CASE_C_EXTERNAL_SOURCE_PROVENANCE_AND_RIGHTS_V01.json`](CASE_C_EXTERNAL_SOURCE_PROVENANCE_AND_RIGHTS_V01.json). روابط A/B/C الـ19 وقرار `J=UNKNOWN` وحالات البوت البصرية السابقة باقية كما هي. لا تعديل للوسوم أو الأوزان أو Workflows الأصلية أو تقسيمات الصور.
+
+
+## وسيلة التواصل الرسمية وسياسة السلامة العامة — متابعة بتاريخ 18 نوفمبر 2026
+
+تأكد وجود بريد مؤسسي منشور لـPWP: `pwp-yem@y.net.ye` عبر [الموقع الرسمي](https://www.pwpyemen.org/index.php/ar/?lang=ar). أُعدت [حزمة طلب توضيح الحقوق وسياسة المشروع](CASE_C_RIGHTS_CONTACT_AND_POLICY_CLEARANCE_V01.md) من دون إرسال أي رسالة، وجرى فصل طلب حقوق المصور عن طلب تفسير فئة `No Safety Boots` الذي ينبغي توجيهه لمنشئ الوسوم الأصلي.
+
+توجد لدى PWP [وثيقة منشورة عن أهمية إجراءات السلامة المهنية](https://www.pwpyemen.org/index.php/ar/impacts-2/success-stories/421-public-works-project-diligent-efforts-to-implement-occupational-health-and-safety)، لكنّها عامة ولا تثبت وجوب أحذية محددة في نشاط الصورة C أو تطبيق السياسة بتاريخ التصوير. `POLICY_UNKNOWN` كما هو، لا حكم مخالفة؛ حقوق الصور والخصوصية لا تزال قيد التحقق.
