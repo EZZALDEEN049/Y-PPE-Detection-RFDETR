@@ -2,6 +2,7 @@
 /** SEER-PPE read-only expanded source-family audit.
  * Usage: node research/seer-ppe/tools/expanded_source_family_gate.mjs --self-test
  *        node research/seer-ppe/tools/expanded_source_family_gate.mjs
+ * Accepts original and expanded visually-verified named-site evidence.
  * Does NOT modify Roboflow or calculate model performance.
  */
 import {readFileSync} from "node:fs";
@@ -16,7 +17,7 @@ export function audit(rows){
     ids.add(r.image_id);counts[r.split]++;
     if(r.eligibility_status==="ELIGIBLE" && !r.site_id)throw Error("Unsafe eligibility with unknown site: "+r.filename);
     if(r.split==="valid" && r.eligible_for_site_independent_validation!==true)pending.push(r.filename);
-    if(r.site_id && r.site_evidence==="PRIOR_VISIBLE_SITE_NAME"){
+    if(r.site_id && ["PRIOR_VISIBLE_SITE_NAME","VISIBLE_SCHOOL_NAME_AI_VISUAL_TRIAGE"].includes(r.site_evidence)){
       if(!bySite.has(r.site_id))bySite.set(r.site_id,[]);
       bySite.get(r.site_id).push(r);
     }
@@ -30,7 +31,7 @@ if(process.argv[2]==="--self-test"){
  const x=audit([one("a","train","S"),one("b","valid","S"),one("c","valid"),one("d","test")]);
  assert.equal(x.total,4);assert.equal(x.valid_uncleared_count,2);assert.equal(x.cross_split_named_sites.length,1);assert.deepEqual(x.cross_split_named_sites[0].valid_ids,["b"]);assert.equal(x.absence_of_collision_proves_independence,false);console.log("EXPANDED_SOURCE_FAMILY_GATE_SELF_TEST_PASS");
 }else{
- const f=process.argv[2] || new URL("../SOURCE_FAMILY_EXPANSION_2026-11-18_V02.json",import.meta.url);
+ const f=process.argv[2] || new URL("../SOURCE_FAMILY_EXPANSION_2026-11-18_V03.json",import.meta.url);
  const v=JSON.parse(readFileSync(f,"utf8"));const summary=audit(v.images);
  if(summary.duplicate_image_ids.length)throw Error("Duplicate image IDs in register");
  console.log(JSON.stringify({scope:v.scope,family_split_counts:v.family_split_counts,...summary},null,2));
