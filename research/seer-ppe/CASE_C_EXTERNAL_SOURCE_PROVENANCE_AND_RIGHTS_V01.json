@@ -12,15 +12,15 @@
     "image_03_url": "https://www.pwpyemen.org/images/contents/news/Kathiah%20Gets%20a%20Chance03.jpg",
     "page_context_confirmed": "Cash-for-work activities in the old city of Sana'a; article states PWP implementation in partnership with UNESCO with EU funding.",
     "page_author_credit_visible": "NOT_FOUND_IN_INSPECTED_ARTICLE",
-    "photographic_creator_credit_visible": "NOT_FOUND_IN_INSPECTED_ARTICLE",
+    "photographic_creator_credit_visible": "RESEARCHER_DIRECTLY_CLAIMS_TO_HAVE_TAKEN_CASE_C_PHOTO; WEBSITE_CREDIT_NOT_FOUND",
     "photographed_people_consent_evidence": "NOT_FOUND_IN_INSPECTED_ARTICLE",
     "photo_specific_license": "NOT_FOUND_IN_INSPECTED_ARTICLE",
     "footer_notice": "Copyright Public Works Projects 2026 (site-level notice only)",
     "photo_capture_date": "UNKNOWN",
     "original_publication_date": "UNKNOWN",
-    "first_publisher_or_original_negative_owner": "UNKNOWN",
+    "first_publisher_or_original_negative_owner": "ORIGINAL_PUBLISHER_CHAIN_NOT_INDEPENDENTLY_CHECKED; RESEARCHER_SAYS_PHOTOGRAPHED_SELF",
     "original_authoritative_class_rubric": "UNKNOWN",
-    "conclusion": "VERIFIED_PUBLICATION_HOST_AND_VISUAL_PHOTOGRAPH_MATCH; NOT VERIFIED_PHOTOGRAPHIC_RIGHTS_HOLDER_OR_PERMISSION"
+    "conclusion": "VERIFIED_PUBLIC_PUBLICATION_HOST_MATCH; DIRECT_RESEARCHER_CAPTURE_ATTESTATION_RECORDED; OWNERSHIP_AND_REUSE_RIGHTS_SEPARATE"
   },
   "confirmed_source_family": {
     "family_id": "PWP_KATHIAH_GETS_A_CHANCE_PUBLIC_ARTICLE_01_02_03_V01",
@@ -72,9 +72,9 @@
     "permission_for_ML_model_training": "UNVERIFIED",
     "permission_for_thesis_reproduction": "UNVERIFIED",
     "consent_and_privacy_for_identifiable_individuals": "UNVERIFIED",
-    "original_photographer_and_rights_owner": "UNKNOWN",
-    "flag": "SOURCE_LICENSE_CHAIN_PENDING",
-    "guidance": "Contact publisher/actual rights holder to confirm image copyright, permitted training/public sharing/thesis reproduction, required attribution, privacy consents and restrictions. Do not equate dataset CC BY badge with verified grant from original photographer."
+    "original_photographer_and_rights_owner": "RESEARCHER_SELF_REPORTS_PHOTOGRAPHER_FOR_CASE_C; COPYRIGHT_RIGHTS_HOLDER_UNDETERMINED",
+    "flag": "ORIGINAL_PHOTOGRAPHER_SELF_ATTESTED_RIGHTS_SCOPE_TO_VERIFY",
+    "guidance": "Prioritize researcher-held original media and applicable employer/project agreement. PWP is the publication host, not necessarily the creator. No default need to ask PWP who took the photograph; rights/redistribution/privacy remain to be confirmed as applicable. Dataset license badge does not independently settle image-specific rights."
   },
   "source_class_status": {
     "label": "No Safety Boots",
@@ -92,7 +92,7 @@
     "review_requires_ethical_rights_clearance": true,
     "review_prompt_prevent_AI_hypothesis_leakage": true
   },
-  "status": "PUBLICATION_SOURCE_IDENTIFIED_RIGHTS_PENDING_CLASS_RUBRIC_UNKNOWN_EVAL_INCOMPLETE",
+  "status": "DIRECT_PHOTOGRAPHER_ATTESTATION_CAPTURED_PUBLISHED_IMAGE_MATCHED_REUSE_RIGHTS_PENDING",
   "original_project_images_labels_splits_weights_workflows_changed": false,
   "explicit_user_decisions_changed": false,
   "total_final_user_matched_equipment_associations_kept": 19,
@@ -118,5 +118,31 @@
     "specific_safety_boot_mandate_for_C_activity": "POLICY_UNKNOWN",
     "effective_date_at_photo_capture": "UNKNOWN",
     "is_evidence_of_worker_level_PPE_violation": false
+  },
+  "direct_researcher_original_capture_attestation": {
+    "statement_date": "2026-11-18",
+    "provenance_type": "DIRECT_FIRST_PERSON_RESEARCHER_ATTESTATION_UNINDEPENDENTLY_VERIFIED",
+    "statement_text_ar": "شوووف انا اعمل في مشارع هذه ولي كا مهندس ميداني وانا من جمعت وانا اللي صورت الصورة  اثناء العمل في  المشاريع الميدانيه",
+    "statement_subject": "Case C photo under current discussion",
+    "researcher_field_role": "FIELD_ENGINEER_ON_THE_PROJECTS_PER_SELF_REPORT",
+    "photographer": "RESEARCHER_SELF_REPORTED",
+    "image_collection": "RESEARCHER_SELF_REPORTED_FIELD_COLLECTION",
+    "photo_captured_during": "FIELD_PROJECT_WORK_PER_RESEARCHER",
+    "claimed_scope": "CASE_C_ONLY_UNTIL_RESEARCHER_CLARIFIES_OTHER_IMAGES",
+    "public_article_host": "Public Works Project (PWP), Yemen",
+    "publication_host_is_not_automatic_original_photographer": true,
+    "employment_relationship_to_PWP": "NOT_SPECIFIED",
+    "independent_authentication": "NOT_PERFORMED",
+    "assignment_of_copyright_under_employer_or_project_contract": "NOT_DETERMINED",
+    "workers_privacy_basis": "NOT_ASSESSED",
+    "rights_to_thesis_display": "NOT_YET_FORMALLY_DETERMINED",
+    "public_dataset_redistribution_permission": "NOT_YET_FORMALLY_DETERMINED",
+    "evidence_to_collect_if_available": [
+      "Original full-resolution photo file and non-sensitive file properties/EXIF (avoid publicly sharing coordinates or identities)",
+      "Project documentation of field engineer's image collection role if applicable",
+      "Employer/project agreement or authorization defining publication/reuse rights where applicable",
+      "Appropriate privacy and institutional ethics authorization for showing identifiable people"
+    ],
+    "no_claim_of_permission_or_ownership_auto_granted": true
   }
 }
