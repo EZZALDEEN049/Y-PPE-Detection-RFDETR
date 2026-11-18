@@ -1,0 +1,153 @@
+{
+  "schema_version": "seer-ppe/visual-source-family-adjudication/v0.1",
+  "date": "2026-11-18",
+  "project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "method": "Read-only Roboflow inline Workflow passthrough of original image, visually reviewed by AI analyst. No detector inference or dataset writes.",
+  "observer": "AI_VISUAL_TRIAGE_NOT_INDEPENDENT_HUMAN_REVIEW",
+  "images_reviewed": [
+    {
+      "image_id": "0De0PEUDyeg9v1J3T6zr",
+      "filename": "IMG-20250416-WA0063.jpg",
+      "split": "valid",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "VISIBLE_IMAGE_TEXT_SCHOOL_NAME",
+      "site_review": "CONFIRMED_NAME_MATCH",
+      "visual": "Scaffolded block building, one worker on upper level; printed project/site caption."
+    },
+    {
+      "image_id": "KrfW3xD7Vvxy6r6wISkv",
+      "filename": "IMG-20250416-WA0067.jpg",
+      "split": "train",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "VISIBLE_IMAGE_TEXT_SCHOOL_NAME",
+      "site_review": "CONFIRMED_NAME_MATCH",
+      "visual": "Scaffolded masonry, one worker, project/site caption matching WA0063."
+    },
+    {
+      "image_id": "H1KOFc0NQZnWRHJNcHPc",
+      "filename": "IMG-20250416-WA0066(1).jpg",
+      "split": "train",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "VISIBLE_IMAGE_TEXT_SCHOOL_NAME",
+      "site_review": "CONFIRMED_NAME_MATCH",
+      "visual": "Masonry close-up with worker and project/site caption."
+    },
+    {
+      "image_id": "NZu6Faj6evgINF1qFE0V",
+      "filename": "IMG-20250416-WA0051.jpg",
+      "split": "valid",
+      "site_id": "site_school_22may_aseefrah",
+      "site_evidence": "VISIBLE_IMAGE_TEXT_SCHOOL_NAME",
+      "site_review": "CONFIRMED_NAME_MATCH",
+      "visual": "Construction close-up with project/site caption naming 22 May School – Aseefrah."
+    },
+    {
+      "image_id": "yeEvdkqXtNgsj7PZFDvI",
+      "filename": "IMG-20250416-WA0026.jpg",
+      "split": "valid",
+      "site_id": "site_school_shahid_alalafi",
+      "site_evidence": "VISIBLE_IMAGE_TEXT_SCHOOL_NAME",
+      "site_review": "CONFIRMED_DIFFERENT_NAMED_SITE",
+      "visual": "Masonry work and visible text مدرسة الشهيد العلفي, distinct from 22 May School."
+    },
+    {
+      "image_id": "t3DpRsAqgpVlYA3zB2vF",
+      "filename": "IMG-20250416-WA0035.jpg",
+      "split": "test",
+      "site_id": null,
+      "site_evidence": "NONE_FROM_VISUAL_IMAGE",
+      "site_review": "SITE_UNKNOWN",
+      "visual": "Worker doing masonry in different-looking open setting; no matching 22 May site watermark visible."
+    },
+    {
+      "image_id": "0bPA0Np3dQTf1XlXEAye",
+      "filename": "worker wearing mask_322.jpg",
+      "split": "valid",
+      "site_id": null,
+      "site_evidence": "NONE_FROM_VISUAL_IMAGE",
+      "site_review": "SITE_UNKNOWN",
+      "visual": "Factory workshop; foreground worker in yellow helmet/vest and green mask, additional worker behind."
+    },
+    {
+      "image_id": "bzGmI84cgljDL44GkhOr",
+      "filename": "worker wearing mask_259.jpg",
+      "split": "test",
+      "site_id": null,
+      "site_evidence": "NONE_FROM_VISUAL_IMAGE",
+      "site_review": "SITE_UNKNOWN",
+      "visual": "Distinct factory/workshop portrait with white helmet and face mask; not the same shot or same visible scene as mask_322."
+    },
+    {
+      "image_id": "hnv5r5zAvrgjfxTQOsq2",
+      "filename": "image_252.jpg",
+      "split": "train",
+      "site_id": null,
+      "site_evidence": "NONE_FROM_VISUAL_IMAGE",
+      "site_review": "SITE_UNKNOWN",
+      "visual": "Distinct white-helmet worker with another worker in industrial setting; not same shot as mask_322."
+    },
+    {
+      "image_id": "0ti7iV9wSfzMHI2oa8EQ",
+      "filename": "298.JPG",
+      "split": "valid",
+      "site_id": null,
+      "site_evidence": "NONE_FROM_VISUAL_IMAGE",
+      "site_review": "NON_WORK_TASK_CONTEXT",
+      "visual": "Cropped lower legs and two bare feet on indoor tiled floor; 2 old No Safety Boots boxes over feet/lower legs, no Persons bounding boxes."
+    }
+  ],
+  "evidence_conclusions": [
+    {
+      "code": "CONFIRMED_CROSS_SPLIT_NAMED_SITE",
+      "site_id": "site_school_22may_aseefrah",
+      "site_visible_name_ar": "مدرسة 22 مايو - عصيفرة",
+      "reviewed_split_counts": {
+        "train": 2,
+        "valid": 2,
+        "test": 0
+      },
+      "member_ids": [
+        "0De0PEUDyeg9v1J3T6zr",
+        "KrfW3xD7Vvxy6r6wISkv",
+        "H1KOFc0NQZnWRHJNcHPc",
+        "NZu6Faj6evgINF1qFE0V"
+      ],
+      "interpretation": "Same named site spans train and valid within reviewed sample; distinct photos/times, not exact duplicated pixels. Site-independent validation is violated for these Valid candidates unless excluded."
+    },
+    {
+      "code": "GENERIC_FILENAME_STEM_NOT_SITE_ID",
+      "image_id": "yeEvdkqXtNgsj7PZFDvI",
+      "interpretation": "WA0026 visibly names مدرسة الشهيد العلفي and should not be grouped with 22 May School solely by filename stem."
+    },
+    {
+      "code": "VISUALLY_DIFFERENT_IMAGES",
+      "pair": [
+        "0bPA0Np3dQTf1XlXEAye",
+        "bzGmI84cgljDL44GkhOr"
+      ],
+      "interpretation": "A visually distinct scene pair despite high semantic-neighbor score. Not proof of global independence or no other duplicated images."
+    },
+    {
+      "code": "POSSIBLE_BARE_FEET_CLASS_EXEMPLAR_NONWORK",
+      "image_id": "0ti7iV9wSfzMHI2oa8EQ",
+      "interpretation": "Bare feet are plainly visible, providing a plausible example of No Safety Boots annotation. Large boxes also include shins, so annotation scope is broader than feet; not a worker task compliance reference, and cannot settle source-codebook semantics for other images."
+    }
+  ],
+  "recommendations": {
+    "hold_valid_from_site_independent_calibration": [
+      "IMG-20250416-WA0063.jpg",
+      "IMG-20250416-WA0051.jpg"
+    ],
+    "do_not_assume_all_WA_stem_same_site": true,
+    "mask322_vs_mask259_same_image": false,
+    "mask322_full_source_independence": "UNRESOLVED",
+    "school_alalafi_full_source_independence": "UNRESOLVED",
+    "test_WA0035_site": "UNKNOWN",
+    "original_model_and_annotations": "UNMODIFIED",
+    "test_model_inference": "NOT_RUN",
+    "test_visual_inspection": "GOVERNANCE_ONLY; STRICT_BLIND_TEST_NOT_CLAIMED",
+    "scoring": "NOT_READY",
+    "case_C_source_semantics": "UNRESOLVED",
+    "second_independent_human_review": "NOT_PERFORMED"
+  }
+}
