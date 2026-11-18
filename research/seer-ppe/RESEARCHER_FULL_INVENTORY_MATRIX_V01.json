@@ -2618,7 +2618,18 @@
         "report_markdown": "CASE_C_EXTERNAL_SOURCE_PROVENANCE_AND_RIGHTS_V01.md",
         "report_json": "CASE_C_EXTERNAL_SOURCE_PROVENANCE_AND_RIGHTS_V01.json",
         "preservation_note": "No original source annotations, image splits, training weights, Workflows or human PPE decisions modified",
-        "eval_case_groundTruth_state": "incomplete"
+        "eval_case_groundTruth_state": "incomplete",
+        "official_contact_email": "pwp-yem@y.net.ye",
+        "official_contact_found": "2026-11-18",
+        "official_contact_source": "https://www.pwpyemen.org/index.php/ar/?lang=ar",
+        "rights_inquiry_status": "PREPARED_NOT_SENT",
+        "original_label_class_guide_request_status": "PREPARED_NOT_SENT_RECIPIENT_UNIDENTIFIED",
+        "rights_inquiry_packet": "CASE_C_RIGHTS_CONTACT_AND_POLICY_CLEARANCE_V01.md",
+        "PWP_general_OHS_statement": "FOUND_ORGANIZATION_LEVEL_ONLY",
+        "PWP_general_OHS_source": "https://www.pwpyemen.org/index.php/ar/impacts-2/success-stories/421-public-works-project-diligent-efforts-to-implement-occupational-health-and-safety",
+        "site_task_specific_boot_policy_status": "POLICY_UNKNOWN",
+        "photo_rights_status": "UNREVIEWED",
+        "second_review_completed": false
       }
     },
     {
@@ -2781,6 +2792,12 @@
     "case_c_rights_and_privacy_clearance": "UNREVIEWED",
     "case_c_visual_source_family_three_train_images": true,
     "case_c_filename_group_cross_split_leakage": "NO_MATCHING_FILENAME_FAMILY_SPLIT_CROSSING; NOT_GLOBAL_LEAKAGE_CLEARANCE",
-    "case_c_independent_second_reviewer_status": "NOT_STARTED"
+    "case_c_independent_second_reviewer_status": "NOT_STARTED",
+    "case_c_official_PWP_contact_verified": true,
+    "case_c_rights_outreach_status": "PREPARED_NOT_SENT",
+    "case_c_original_label_owner_inquiry_status": "PREPARED_NOT_SENT_RECIPIENT_UNIDENTIFIED",
+    "case_c_general_OHS_organizational_statement_found": true,
+    "case_c_safety_boot_policy_status": "POLICY_UNKNOWN",
+    "case_c_photo_rights_status": "UNREVIEWED"
   }
 }
