@@ -3,16 +3,16 @@
   "date": "2026-11-17",
   "source_project": "softyyemen/altayyar-0oflt-lafos-qqauz",
   "eval_dataset_id": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
-  "audit_status": "MIXED: CASE_A_AND_B_LINKAGE_APPROVED_B_UNRESOLVED_OWNERSHIP_DOCUMENTED_OTHERS_NOT_REVIEWED",
+  "audit_status": "CASE_A_B_C_ITEM_OWNER_DECISIONS_RESEARCHER_APPROVED; D_ORPHAN_OWNER_PROVISIONAL_UNKNOWN; SOURCE_REVIEW_OPEN",
   "source_provenance": "Native read-only original Roboflow boxes compared to previous item candidates and researcher's explicit chat statements; geometry is a triage feature not identity proof.",
   "original_model_or_labels_modified": false,
   "summary": {
     "case_count": 4,
     "annotated_physical_ppe_items": 26,
-    "physical_ppe_items_with_researcher_preliminary_owner_UNKNOWN": 2,
+    "physical_ppe_items_with_researcher_preliminary_owner_UNKNOWN": 1,
     "ai_uncertain_items_without_human_item_adjudication": 0,
-    "ai_proposed_matches_not_independently_human_item_approved": 12,
-    "human_item_level_fully_verified": 7,
+    "ai_proposed_matches_not_independently_human_item_approved": 0,
+    "human_item_level_fully_verified": 19,
     "annotated_absence_markers_not_physical_PPE": 14,
     "case_C_No_Safety_Boots_legacy_markers": 4,
     "case_B_no_safety_vest_legacy_markers": 2,
@@ -30,17 +30,19 @@
     "case_a_eval_ground_truth_partial_saved": true,
     "case_a_eval_ground_truth_state": "incomplete",
     "case_a_eval_ground_truth_revision": 2,
-    "human_final_matched_ownership_links": 7,
-    "human_confirmed_unknown_owner_items": 5,
-    "researcher_provisional_unknown_owner_items": 2,
-    "total_items_reviewed_for_owner_decision": 12,
+    "human_final_matched_ownership_links": 19,
+    "human_confirmed_unknown_owner_items": 6,
+    "researcher_provisional_unknown_owner_items": 1,
+    "total_items_reviewed_for_owner_decision": 25,
     "human_item_level_final_signoff_definition": "Final for owner link only, including unresolved UNKNOWN; does not establish actual item identity, PPE grade, task policy or whole-case readiness.",
     "case_b_eval_ground_truth_partial_saved": true,
     "case_b_eval_ground_truth_state": "incomplete",
     "case_b_eval_ground_truth_revision": 2,
     "case_c_source_image_rechecked_2026_11_18": true,
-    "case_c_pending_ai_candidate_links": 12,
-    "case_c_J_researcher_preliminary_unknown_preserved": true
+    "case_c_pending_ai_candidate_links": 0,
+    "case_c_J_researcher_preliminary_unknown_preserved": true,
+    "case_c_human_approved_matched_links": 12,
+    "case_c_J_human_final_unknown_owner": true
   },
   "cases": [
     {
@@ -732,11 +734,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P002",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P002",
@@ -746,13 +748,19 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false,
+          "next_review_action": "Researcher-final source item box wearer matched; preserve. Source rights, protective grade and task PPE policy remain unresolved.",
+          "human_item_level_final_signoff": true,
           "ai_source_image_recheck": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P002",
             "evidence": "High-visibility vest on second P002 torso",
             "reviewer_type": "AI_ONLY"
+          },
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P002",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18",
+            "is_final": true
           }
         },
         {
@@ -776,11 +784,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
@@ -790,13 +798,19 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false,
+          "next_review_action": "Researcher-final source item box wearer matched; preserve. Source rights, protective grade and task PPE policy remain unresolved.",
+          "human_item_level_final_signoff": true,
           "ai_source_image_recheck": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
             "evidence": "High-visibility vest on far-left P001 torso",
             "reviewer_type": "AI_ONLY"
+          },
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18",
+            "is_final": true
           }
         },
         {
@@ -820,11 +834,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P003",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P003",
@@ -834,13 +848,19 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false,
+          "next_review_action": "Researcher-final source item box wearer matched; preserve. Source rights, protective grade and task PPE policy remain unresolved.",
+          "human_item_level_final_signoff": true,
           "ai_source_image_recheck": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P003",
             "evidence": "High-visibility vest on third P003 torso",
             "reviewer_type": "AI_ONLY"
+          },
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P003",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18",
+            "is_final": true
           }
         },
         {
@@ -864,11 +884,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P004",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P004",
@@ -878,13 +898,19 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false,
+          "next_review_action": "Researcher-final source item box wearer matched; preserve. Source rights, protective grade and task PPE policy remain unresolved.",
+          "human_item_level_final_signoff": true,
           "ai_source_image_recheck": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P004",
             "evidence": "Partial bright reflective vest segment on crouching P004 back/torso; full garment partially obscured",
             "reviewer_type": "AI_ONLY"
+          },
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P004",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18",
+            "is_final": true
           }
         },
         {
@@ -908,11 +934,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P004",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P004",
@@ -922,13 +948,19 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false,
+          "next_review_action": "Researcher-final source item box wearer matched; preserve. Source rights, protective grade and task PPE policy remain unresolved.",
+          "human_item_level_final_signoff": true,
           "ai_source_image_recheck": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P004",
             "evidence": "Yellow hard hat on crouching far-right P004 head",
             "reviewer_type": "AI_ONLY"
+          },
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P004",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18",
+            "is_final": true
           }
         },
         {
@@ -952,11 +984,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P003",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P003",
@@ -966,13 +998,19 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false,
+          "next_review_action": "Researcher-final source item box wearer matched; preserve. Source rights, protective grade and task PPE policy remain unresolved.",
+          "human_item_level_final_signoff": true,
           "ai_source_image_recheck": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P003",
             "evidence": "Yellow hard hat on leaning third P003 head",
             "reviewer_type": "AI_ONLY"
+          },
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P003",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18",
+            "is_final": true
           }
         },
         {
@@ -996,11 +1034,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P002",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P002",
@@ -1010,13 +1048,19 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false,
+          "next_review_action": "Researcher-final source item box wearer matched; preserve. Source rights, protective grade and task PPE policy remain unresolved.",
+          "human_item_level_final_signoff": true,
           "ai_source_image_recheck": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P002",
             "evidence": "Yellow hard hat on second P002 head",
             "reviewer_type": "AI_ONLY"
+          },
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P002",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18",
+            "is_final": true
           }
         },
         {
@@ -1040,11 +1084,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
@@ -1054,13 +1098,19 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false,
+          "next_review_action": "Researcher-final source item box wearer matched; preserve. Source rights, protective grade and task PPE policy remain unresolved.",
+          "human_item_level_final_signoff": true,
           "ai_source_image_recheck": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
             "evidence": "Yellow hard hat on far-left P001 head",
             "reviewer_type": "AI_ONLY"
+          },
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18",
+            "is_final": true
           }
         },
         {
@@ -1084,11 +1134,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P002",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P002",
@@ -1098,13 +1148,19 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false,
+          "next_review_action": "Researcher-final source item box wearer matched; preserve. Source rights, protective grade and task PPE policy remain unresolved.",
+          "human_item_level_final_signoff": true,
           "ai_source_image_recheck": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P002",
             "evidence": "Red glove on second P002 hand",
             "reviewer_type": "AI_ONLY"
+          },
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P002",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18",
+            "is_final": true
           }
         },
         {
@@ -1128,11 +1184,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
@@ -1142,13 +1198,19 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false,
+          "next_review_action": "Researcher-final source item box wearer matched; preserve. Source rights, protective grade and task PPE policy remain unresolved.",
+          "human_item_level_final_signoff": true,
           "ai_source_image_recheck": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
             "evidence": "Red glove near far-left P001 hand",
             "reviewer_type": "AI_ONLY"
+          },
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18",
+            "is_final": true
           }
         },
         {
@@ -1172,11 +1234,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
@@ -1186,13 +1248,19 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false,
+          "next_review_action": "Researcher-final source item box wearer matched; preserve. Source rights, protective grade and task PPE policy remain unresolved.",
+          "human_item_level_final_signoff": true,
           "ai_source_image_recheck": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P001",
             "evidence": "Red glove at far-left P001 other hand",
             "reviewer_type": "AI_ONLY"
+          },
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P001",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18",
+            "is_final": true
           }
         },
         {
@@ -1216,9 +1284,9 @@
           "researcher_preliminary_link": {
             "status": "UNKNOWN",
             "person_id": null,
-            "source": "EXPLICIT_RESEARCHER_STATEMENT_PRELIMINARY"
+            "source": "RESEARCHER_REAFFIRMED_UNKNOWN_OWNER_2026-11-18"
           },
-          "effective_item_level_disposition": "RESEARCHER_PRELIMINARY_UNKNOWN",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_UNKNOWN_OWNER",
           "legacy_ai_historical_candidate": {
             "status": "AMBIGUOUS_CANDIDATE",
             "person_id": null,
@@ -1234,13 +1302,20 @@
             "RESEARCHER_OWNER_UNKNOWN",
             "BOX_CENTER_IN_PERSON_GAP_NEEDS_REVIEW"
           ],
-          "next_review_action": "Retain UNKNOWN person association unless independent evidence supports change",
-          "human_item_level_final_signoff": false,
+          "next_review_action": "Retain final unknown wearer of source item J; the old glove label and geometric closeness do not establish owner. Preserve decision if revisiting.",
+          "human_item_level_final_signoff": true,
           "ai_source_image_recheck": {
             "status": "UNKNOWN_CANDIDATE",
             "person_id": null,
             "evidence": "Researcher's J owner UNKNOWN remains in force; extended arms overlap"
-          }
+          },
+          "researcher_final_link": {
+            "status": "UNKNOWN",
+            "person_id": null,
+            "source": "RESEARCHER_REAFFIRMED_UNKNOWN_OWNER_2026-11-18",
+            "is_final": true
+          },
+          "physical_item_identity_verified_by_researcher": false
         },
         {
           "case_id": "C",
@@ -1263,11 +1338,11 @@
           ],
           "centre_geometry_only_not_proof": true,
           "researcher_preliminary_link": {
-            "status": "NOT_HUMAN_ADJUDICATED",
-            "person_id": null,
-            "source": "NO_RESEARCHER_DECISION"
+            "status": "MATCHED",
+            "person_id": "P003",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18"
           },
-          "effective_item_level_disposition": "AI_CANDIDATE_NOT_HUMAN_ITEM_VERIFIED",
+          "effective_item_level_disposition": "RESEARCHER_FINAL_MATCHED",
           "legacy_ai_historical_candidate": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P003",
@@ -1277,13 +1352,19 @@
           "researcher_person_visual_ppe_state_for_old_ai_candidate": "PRESENT",
           "physically_qualifying_safety_equipment_certification_verified": false,
           "risk_flags": [],
-          "next_review_action": "Independently verify item identity and which person's body part it touches before assigning MATCHED",
-          "human_item_level_final_signoff": false,
+          "next_review_action": "Researcher-final source item box wearer matched; preserve. Source rights, protective grade and task PPE policy remain unresolved.",
+          "human_item_level_final_signoff": true,
           "ai_source_image_recheck": {
             "status": "MATCHED_CANDIDATE",
             "person_id": "P003",
             "evidence": "Red glove near third P003 hand; P003/P004 arm intersection requires extra attention",
             "reviewer_type": "AI_ONLY"
+          },
+          "researcher_final_link": {
+            "status": "MATCHED",
+            "person_id": "P003",
+            "source": "RESEARCHER_EXPLICIT_APPROVAL_IN_CHAT_2026-11-18",
+            "is_final": true
           }
         }
       ],
