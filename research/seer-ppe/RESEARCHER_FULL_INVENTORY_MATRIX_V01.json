@@ -2585,7 +2585,40 @@
         "independently_verified_safety_grade": false,
         "worker_policy_violation_inferred": false,
         "original_source_labels_edited": false,
-        "case_ready_for_eval": false
+        "case_ready_for_eval": false,
+        "case_c_source_publication_found": true,
+        "photo_rights_not_cleared": true,
+        "original_class_guide_not_found": true,
+        "second_review_not_started": true
+      },
+      "source_provenance_research": {
+        "inspected_on": "2026-11-18",
+        "external_publication_host": "Public Works Project (PWP), Yemen",
+        "external_publication_url": "https://www.pwpyemen.org/index.php/en/media-center-en/news/558-kathiah-gets-a-chance",
+        "external_photo_url": "https://www.pwpyemen.org/images/contents/news/Kathiah%20Gets%20a%20Chance03.jpg",
+        "original_photo_same_scene_visual_match": "HIGH_CONFIDENCE",
+        "image_pixel_exact_hash_verified": false,
+        "family_group_id": "PWP_KATHIAH_GETS_A_CHANCE_PUBLIC_ARTICLE_01_02_03_V01",
+        "same_publication_image_filenames": [
+          "Kathiah Gets a Chance01.jpg",
+          "Kathiah Gets a Chance02.jpg",
+          "Kathiah Gets a Chance03.jpg"
+        ],
+        "all_three_in_current_train_split": true,
+        "local_three_filename_family_cross_split_leakage_found": false,
+        "global_leakage_assessment_complete": false,
+        "project_universe_published_license": "CC BY 4.0",
+        "photographic_rights_chain": "PENDING_ORIGINAL_RIGHTS_HOLDER_CONFIRMATION",
+        "original_author_or_photographer_credit": "UNKNOWN",
+        "individual_person_consent": "NOT_VERIFIED",
+        "original_negative_boot_class_rubric": "UNKNOWN",
+        "public_repo_original_photo_pixels_stored": false,
+        "independent_second_reviewer_completed": false,
+        "reviewer_template": "CASE_C_INDEPENDENT_SECOND_REVIEW_TEMPLATE_V01.md",
+        "report_markdown": "CASE_C_EXTERNAL_SOURCE_PROVENANCE_AND_RIGHTS_V01.md",
+        "report_json": "CASE_C_EXTERNAL_SOURCE_PROVENANCE_AND_RIGHTS_V01.json",
+        "preservation_note": "No original source annotations, image splits, training weights, Workflows or human PPE decisions modified",
+        "eval_case_groundTruth_state": "incomplete"
       }
     },
     {
@@ -2741,6 +2774,13 @@
     "case_c_legacy_boot_absence_marker_distribution": "P001: S/T, P002: none, P003: R, P004: Q (source person box centroid intersection only)",
     "case_c_boot_semantic_followup_closed": false,
     "case_c_boot_crop_evidence_reviewed": true,
-    "case_c_original_No_Safety_Boots_labeling_rubric_found": false
+    "case_c_original_No_Safety_Boots_labeling_rubric_found": false,
+    "case_c_external_publication_found": true,
+    "case_c_source_family": "PWP_KATHIAH_GETS_A_CHANCE_PUBLIC_ARTICLE_01_02_03_V01",
+    "case_c_photo_rights_license_chain": "PENDING",
+    "case_c_rights_and_privacy_clearance": "UNREVIEWED",
+    "case_c_visual_source_family_three_train_images": true,
+    "case_c_filename_group_cross_split_leakage": "NO_MATCHING_FILENAME_FAMILY_SPLIT_CROSSING; NOT_GLOBAL_LEAKAGE_CLEARANCE",
+    "case_c_independent_second_reviewer_status": "NOT_STARTED"
   }
 }
