@@ -134,3 +134,6 @@ Old absence-like source markers: none.
 
 
 **Case C separate Roboflow Eval partial reference saved at revision 4 (2026-11-18):** Researcher-final 12 Case C source-box wearer matches and earlier confirmed 24 worker-level visual PPE states have been stored as **partial** reference fields in separate Roboflow Eval Case C (revision 4); the final owner UNKNOWN for J remains in GitHub, with the box excluded from 12 fully wearer-approved items. Eval is `incomplete` and source right/privacy clearance, second pass and legacy No Safety Boots conflict remain open.
+
+
+**2026-11-18 completed read-only C Q/R/S/T discrepancy inspection:** Geometry and source-level limitations documented in [Case C boot-label audit](CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.md) and [JSON record](CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.json). Mapping by old bbox centre only: Q P004, R P003, S/T P001, none P002. Source has no positive Safety Boots boxes. **Semantic correctness is OPEN**, not human-adjudicated error or compliance failure; researcher worker boot PRESENT reports and all source boxes preserved. Next priority: original labeling guide, independent close-crop and source/rights verification.
