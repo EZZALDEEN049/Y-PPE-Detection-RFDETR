@@ -1,0 +1,300 @@
+{
+  "schema_version": "seer-ppe/source-legacy-boot-negative-marker-audit/v0.1",
+  "reviewed_on": "2026-11-18",
+  "source": "Read-only Roboflow original Train image and native boxes, 2048×1365. No training source mutation.",
+  "image": {
+    "case_id": "C",
+    "filename": "Kathiah Gets a Chance03.jpg",
+    "image_id": "0jGu9euJp1MbvkLtfBcs",
+    "split": "train",
+    "width": 2048,
+    "height": 1365,
+    "source_rights_privacy_clearance": "UNREVIEWED",
+    "source_family": "UNKNOWN"
+  },
+  "issue_scope": "LEGACY_NO_SAFETY_BOOTS_VS_RESEARCHER_VISUAL_REPORT",
+  "researcher_preexisting_claim": {
+    "visible_workers": 4,
+    "worker_level_safety_boot_visual_state": {
+      "P001": "PRESENT",
+      "P002": "PRESENT",
+      "P003": "PRESENT",
+      "P004": "PRESENT"
+    },
+    "claim_kind": "HUMAN_VISUAL_REPORT_NOT_PRODUCT_CERTIFICATION",
+    "do_not_overwrite": true
+  },
+  "source_annotation_inventory": {
+    "total_original_annotation_boxes": 27,
+    "absence_like_no_safety_boot_labels": 4,
+    "positive_safety_boot_boxes": 0,
+    "source_marker_ids": [
+      "Q",
+      "R",
+      "S",
+      "T"
+    ]
+  },
+  "method": {
+    "native_geometry_read_only": true,
+    "image_pixels_read_in_roboflow_read_only_workflow": true,
+    "person_bbox_geometry_used_for_triage_only": true,
+    "exact_person_owner_of_negative_marker": "NOT_APPROVED_OR_REQUIRED",
+    "external_media_pixels_saved_to_public_repo": false,
+    "model_inference_run": false,
+    "annotation_corrections_applied": false
+  },
+  "source_person_boxes": [
+    {
+      "id": "P001",
+      "old_source_person_box_id": "4",
+      "xyxy_px": [
+        505,
+        453,
+        669,
+        787.06
+      ]
+    },
+    {
+      "id": "P002",
+      "old_source_person_box_id": "3",
+      "xyxy_px": [
+        812.5,
+        475.50500000000005,
+        969,
+        913.135
+      ]
+    },
+    {
+      "id": "P003",
+      "old_source_person_box_id": "2",
+      "xyxy_px": [
+        921,
+        557.9949999999999,
+        1125,
+        869.105
+      ]
+    },
+    {
+      "id": "P004",
+      "old_source_person_box_id": "1",
+      "xyxy_px": [
+        1205,
+        638,
+        1421,
+        915.1400000000001
+      ]
+    }
+  ],
+  "marker_records": [
+    {
+      "source_annotation_id": "Q",
+      "source_class": "No Safety Boots",
+      "original_pixel_box_cxcywh": [
+        1226.23,
+        848.99,
+        49.79,
+        60.38
+      ],
+      "original_pixel_box_xyxy": [
+        1201.335,
+        818.8,
+        1251.125,
+        879.18
+      ],
+      "normalized_xyxy": [
+        0.58659,
+        0.59985,
+        0.6109,
+        0.64409
+      ],
+      "nearby_person_box_centres_geometry_only": [
+        "P004"
+      ],
+      "person_bbox_intersection_checks": [
+        {
+          "person_id": "P004",
+          "source_person_box_id": "1",
+          "box_center_inside": true,
+          "marker_area_fraction_inside_person_bbox": 0.92639
+        }
+      ],
+      "visual_review_note": "Around the lower-left edge of crouching P004's body and clothing; boot identity/safety grade not verifiable from the annotation alone.",
+      "original_label_is_absence_like": true,
+      "is_physical_positive_boot_box": false,
+      "independently_verified_boot_type": false,
+      "independently_verified_absence_of_safety_boot": false,
+      "source_label_semantics_verified": false,
+      "classification_issue": "LEGACY_ABSENCE_LABEL_VS_RESEARCHER_BOOT_PRESENCE_UNRESOLVED",
+      "reference_item_to_person_assignment": "NOT_APPLICABLE_TO_ABSENCE_MARKER",
+      "compliance_inference": "NONE",
+      "research_decision": "PENDING_INDEPENDENT_LABEL_SEMANTICS_AND_CROP_REVIEW"
+    },
+    {
+      "source_annotation_id": "R",
+      "source_class": "No Safety Boots",
+      "original_pixel_box_cxcywh": [
+        996.07,
+        845.99,
+        44.13,
+        39.71
+      ],
+      "original_pixel_box_xyxy": [
+        974.005,
+        826.135,
+        1018.135,
+        865.845
+      ],
+      "normalized_xyxy": [
+        0.47559,
+        0.60523,
+        0.49714,
+        0.63432
+      ],
+      "nearby_person_box_centres_geometry_only": [
+        "P003"
+      ],
+      "person_bbox_intersection_checks": [
+        {
+          "person_id": "P003",
+          "source_person_box_id": "2",
+          "box_center_inside": true,
+          "marker_area_fraction_inside_person_bbox": 1
+        }
+      ],
+      "visual_review_note": "Around the ground/lower leg area of leaning P003; distinguish foot, garment and ground before any source-class verdict.",
+      "original_label_is_absence_like": true,
+      "is_physical_positive_boot_box": false,
+      "independently_verified_boot_type": false,
+      "independently_verified_absence_of_safety_boot": false,
+      "source_label_semantics_verified": false,
+      "classification_issue": "LEGACY_ABSENCE_LABEL_VS_RESEARCHER_BOOT_PRESENCE_UNRESOLVED",
+      "reference_item_to_person_assignment": "NOT_APPLICABLE_TO_ABSENCE_MARKER",
+      "compliance_inference": "NONE",
+      "research_decision": "PENDING_INDEPENDENT_LABEL_SEMANTICS_AND_CROP_REVIEW"
+    },
+    {
+      "source_annotation_id": "S",
+      "source_class": "No Safety Boots",
+      "original_pixel_box_cxcywh": [
+        571.07,
+        733.99,
+        34.87,
+        25.79
+      ],
+      "original_pixel_box_xyxy": [
+        553.635,
+        721.095,
+        588.505,
+        746.885
+      ],
+      "normalized_xyxy": [
+        0.27033,
+        0.52827,
+        0.28736,
+        0.54717
+      ],
+      "nearby_person_box_centres_geometry_only": [
+        "P001"
+      ],
+      "person_bbox_intersection_checks": [
+        {
+          "person_id": "P001",
+          "source_person_box_id": "4",
+          "box_center_inside": true,
+          "marker_area_fraction_inside_person_bbox": 1
+        }
+      ],
+      "visual_review_note": "One of two nearby small annotations by P001's hem/foot region; not evidence of an absent safety boot.",
+      "original_label_is_absence_like": true,
+      "is_physical_positive_boot_box": false,
+      "independently_verified_boot_type": false,
+      "independently_verified_absence_of_safety_boot": false,
+      "source_label_semantics_verified": false,
+      "classification_issue": "LEGACY_ABSENCE_LABEL_VS_RESEARCHER_BOOT_PRESENCE_UNRESOLVED",
+      "reference_item_to_person_assignment": "NOT_APPLICABLE_TO_ABSENCE_MARKER",
+      "compliance_inference": "NONE",
+      "research_decision": "PENDING_INDEPENDENT_LABEL_SEMANTICS_AND_CROP_REVIEW"
+    },
+    {
+      "source_annotation_id": "T",
+      "source_class": "No Safety Boots",
+      "original_pixel_box_cxcywh": [
+        601.71,
+        734.08,
+        21.59,
+        16.88
+      ],
+      "original_pixel_box_xyxy": [
+        590.915,
+        725.64,
+        612.505,
+        742.52
+      ],
+      "normalized_xyxy": [
+        0.28853,
+        0.5316,
+        0.29907,
+        0.54397
+      ],
+      "nearby_person_box_centres_geometry_only": [
+        "P001"
+      ],
+      "person_bbox_intersection_checks": [
+        {
+          "person_id": "P001",
+          "source_person_box_id": "4",
+          "box_center_inside": true,
+          "marker_area_fraction_inside_person_bbox": 1
+        }
+      ],
+      "visual_review_note": "Second nearby annotation by P001's hem/foot region; there is no justified one-box-per-worker assumption.",
+      "original_label_is_absence_like": true,
+      "is_physical_positive_boot_box": false,
+      "independently_verified_boot_type": false,
+      "independently_verified_absence_of_safety_boot": false,
+      "source_label_semantics_verified": false,
+      "classification_issue": "LEGACY_ABSENCE_LABEL_VS_RESEARCHER_BOOT_PRESENCE_UNRESOLVED",
+      "reference_item_to_person_assignment": "NOT_APPLICABLE_TO_ABSENCE_MARKER",
+      "compliance_inference": "NONE",
+      "research_decision": "PENDING_INDEPENDENT_LABEL_SEMANTICS_AND_CROP_REVIEW"
+    }
+  ],
+  "centers_inside_person_bbox_by_worker": {
+    "P001": [
+      "S",
+      "T"
+    ],
+    "P002": [],
+    "P003": [
+      "R"
+    ],
+    "P004": [
+      "Q"
+    ]
+  },
+  "findings": [
+    "Four old No Safety Boots markers do not map one-to-one to the four workers; two centres align geometrically with P001, none with P002, one P003, one P004.",
+    "No positive old source Safety Boots bounding boxes exist for Case C, despite four positive person-level safety boot wear statements from the researcher.",
+    "Old absence-style markers are not wearable footwear instances; their presence cannot prove four missing safety boots or a PPE violation.",
+    "Footwear grade/certification and intention of historical class No Safety Boots have not been independently substantiated. Clothing, occlusion, footwear shape and floor can complicate visual interpretation.",
+    "There is an unresolved semantic evidence discrepancy, not independently demonstrated false-negative or annotation-error ground truth."
+  ],
+  "discrepancy_status": "OPEN_REQUIRES_INDEPENDENT_LABEL_SEMANTIC_REVIEW",
+  "researcher_visual_status_changed": false,
+  "researcher_final_approved_match_links_preserved": 19,
+  "researcher_unknown_owner_item_J_preserved": true,
+  "site_task_policy": "POLICY_UNKNOWN",
+  "source_rights_privacy": "UNREVIEWED",
+  "next_actions": [
+    "Ask curator to inspect original source box Q, R, S, T closeups and clarify whether each denotes a visible non-safety shoe, hidden footwear, fabric edge or another original-label convention; keep category UNKNOWN if unclear.",
+    "Check source dataset class definitions/annotation guide or original author provenance; no manual relabeling without explicit reviewed evidence.",
+    "Separate boot visual state, item identity, PPE certification, item-to-person association, and site PPE applicability in all subsequent reference exports.",
+    "Retain Roboflow Eval Case C in incomplete state until source-rights/independent-second-pass and full annotation-coverage requirements are met."
+  ],
+  "eval_dataset_id": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+  "eval_case_id": "c032f81d-64c5-44be-96f3-7e6fe9dad799",
+  "eval_case_revision_observed": 4,
+  "eval_case_state_observed": "incomplete",
+  "original_data_model_split_unchanged": true
+}
