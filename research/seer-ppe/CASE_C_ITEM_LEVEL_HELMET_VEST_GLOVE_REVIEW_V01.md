@@ -67,3 +67,8 @@ After the user's final 12 source-box association approvals, separate Roboflow Ev
 **Glove `J` / `E012` has researcher-final owner `UNKNOWN`** in GitHub. Since independent source-item identity/coverage have not been fully checked, it is deliberately **not promoted into the 12 approved physical PPE item records in the partial Eval reference**; the unknown owner decision has not been discarded.
 
 Source `No Safety Boots` boxes `Q/R/S/T` still conflict with the researcher's four-person boot visual reports; no boot certification, item-to-person boot boxes or safety-violation finding is inferred. No `source_review` clearance was invented: rights/privacy/source family, independent second pass and full item coverage remain open. Accordingly `groundTruthState=incomplete`, not an evaluation-ready reference. Frozen original annotations/splits/model/baseline Workflows untouched.
+
+
+## Case C source No Safety Boots marker investigation (2026-11-18)
+
+Separate read-only audit for historical negative labels `Q/R/S/T`: [markdown report](CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.md), [machine-readable coordinates](CASE_C_BOOT_ABSENCE_LABEL_AUDIT_V01.json). Two marker centres are by P001, one P003, one P004 and none P002, which **does not** identify workers without footwear. Researcher's boot visual reports remain `PRESENT` for all four, and no positive old `Safety Boots` source boxes exist. The source-label semantic conflict remains **OPEN**; no label or image modified. Rights/privacy and policy still unknown.
