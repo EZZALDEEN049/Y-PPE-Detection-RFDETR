@@ -1,0 +1,53 @@
+{
+  "schema_version": "seer-ppe/case-c-rights-and-policy-outreach-gates/v0.1",
+  "date": "2026-11-18",
+  "official_publisher": "Public Works Project (PWP), Yemen",
+  "official_contact": {
+    "email": "pwp-yem@y.net.ye",
+    "source_url": "https://www.pwpyemen.org/index.php/ar/?lang=ar",
+    "verified_as_listed_on_official_site": true,
+    "deliverability_verified": false
+  },
+  "external_photo_page": "https://www.pwpyemen.org/index.php/en/media-center-en/news/558-kathiah-gets-a-chance",
+  "research_email": {
+    "subject": "طلب توضيح حقوق استخدام صور «Kathiah Gets a Chance» في بحث أكاديمي",
+    "body": "السادة/ إدارة مشروع الأشغال العامة (PWP) المحترمون،\nالسلام عليكم ورحمة الله وبركاته،\n\nأعمل على بحث أكاديمي حول تحليل الظهور البصري لمعدات الوقاية الشخصية في صور مشروعات العمل. أثناء تدقيق منشأ إحدى الصور في مجموعة بيانات بحثية، عثرنا على ثلاث صور منشورة على موقعكم ضمن خبر «Kathiah Gets a Chance»، تحمل أسماء الملفات:\nKathiah Gets a Chance01.jpg\nKathiah Gets a Chance02.jpg\nKathiah Gets a Chance03.jpg\n\nرابط الخبر: https://www.pwpyemen.org/index.php/en/media-center-en/news/558-kathiah-gets-a-chance\n\nنرجو منكم التكرم بتوضيح النقاط التالية، أو إحالة الطلب إلى صاحب الحقوق المختص:\n1. من المصوّر أو صاحب حقوق النشر الأصلي لهذه الصور؟ وهل تمتلك جهة PWP صلاحية الترخيص بإعادة استخدامها؟\n2. هل يُسمح بإدراج الصور أو مقتطفات منها في رسالة ماجستير ودراسات أو عروض علمية، وما شروط النَّسب أو الإحالة أو التعديل؟\n3. هل يوجد إذن صالح لاستخدام الصور في مجموعة بيانات للتعلم الآلي، ولتدريب النماذج، ولإعادة توزيع الصور أو النسخ المشتقة عبر مستودعات أو منصات عامة؟ يرجى التمييز بين الاستخدام الداخلي والنشر العام.\n4. ما المتطلبات الخاصة بخصوصية الأشخاص الظاهرين في الصور، وأي موافقات أو قيود نشر ينبغي مراعاتها؟ لا نطلب أسماء العاملين أو معلوماتهم الشخصية.\n5. هل تتوافر وثيقة رسمية لمتطلبات معدات الوقاية في أنشطة النقد مقابل العمل المرتبطة بهذا المشروع في صنعاء القديمة، وبخاصة متطلبات الأحذية، أم يجب الرجوع إلى وثيقة مشروع محددة؟\n\nلن نفترض أن مجرد نشر الصور على الموقع يجيز نسخها أو إعادة استخدامها؛ ونرغب في حفظ توضيحكم أو موافقتكم كتابةً ضمن سجل الأدلة البحثية.\n\nمع خالص الشكر والتقدير،\nباحث في رسالة ماجستير حول تحليل معدات الوقاية الشخصية\nبيانات التواصل: [يُكملها الباحث قبل الإرسال]",
+    "recipient_email": "pwp-yem@y.net.ye",
+    "status": "PREPARED_NOT_SENT",
+    "sent_at": null,
+    "reply_at": null,
+    "attachments": [],
+    "photo_pixels_attached": false
+  },
+  "annotation_curator_request": {
+    "draft": "الموضوع: استفسار عن دليل وسم الفئة No Safety Boots ومصدر صور ALTAYYAR\n\nمرحبًا،\nأجري تدقيقًا بحثيًا لتعليقات مشروع ALTAYYAR في Roboflow، وأحتاج تعريفًا أصليًا موثقًا للفئة `No Safety Boots`: هل وُضعت عندما لا يرتدي الشخص حذاءً، أم عندما يظهر حذاء غير مطابق لمواصفات الحماية، أم عند عدم ظهور القدم، أم وفق اصطلاح آخر؟\n\nيرجى -إن توافر- تقديم تعريفات الفئات ودليل الوسم أو تعليمات المراجعين الأصلية، ومعلومات المشروع الذي نُسخ منه هذا العمل، ومصدر صور `Kathiah Gets a Chance01/02/03.jpg`، وأساس إتاحة الصور بموجب ترخيص `CC BY 4.0` في المجموعة المنشورة.\n\nلدينا تعليقات قديمة Q/R/S/T باسم `No Safety Boots` في الصورة 03، لكنها لا تمثل علاقة واحدة لكل عامل، ولا يوجد صندوق `Safety Boots` موجب في الصورة. نحتاج إلى فهم الاصطلاح الأصلي قبل إصدار أي حكم بصحة الوسم أو تعديله.\n\nشكرًا لتعاونكم.",
+    "recipient": "UNIDENTIFIED",
+    "status": "PREPARED_NOT_SENT",
+    "original_annotation_guide_found": false
+  },
+  "general_occupational_health_and_safety": {
+    "source_title": "مشروع الأشغال العامة: جهود دؤوبة في تطبيق إجراءات السلامة والصحة المهنية",
+    "source_url": "https://www.pwpyemen.org/index.php/ar/impacts-2/success-stories/421-public-works-project-diligent-efforts-to-implement-occupational-health-and-safety",
+    "organization_general_policy_found": true,
+    "task_specific_shoes_requirement_found": false,
+    "site_date_applicability_verified": false,
+    "individual_PPE_mandate_status": "POLICY_UNKNOWN"
+  },
+  "rights_gate": {
+    "photographer": "UNKNOWN",
+    "underlying_permission": "UNVERIFIED",
+    "thesis_reproduction": "UNVERIFIED",
+    "dataset_redistribution": "UNVERIFIED",
+    "training_model_use": "UNVERIFIED",
+    "person_consent_privacy": "UNVERIFIED",
+    "overall": "PENDING"
+  },
+  "second_reviewer": {
+    "assigned": false,
+    "independent_review_done": false,
+    "precondition": "RIGHTS_ACCESS_CLEARANCE_PENDING"
+  },
+  "original_source_data_or_labels_mutated": false,
+  "user_approved_links_preserved": 19,
+  "eval_completed_cases": 0
+}
