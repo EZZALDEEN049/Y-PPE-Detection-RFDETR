@@ -1,0 +1,102 @@
+{
+  "schema_version": "seer-ppe/publication-provenance-rights-family-audit/v0.1",
+  "observed_date": "2026-11-18",
+  "research_project": "SEER-PPE",
+  "source_case_id": "C",
+  "source_dataset_project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "source_dataset_version_not_assumed_for_original": "Read current source image project; Eval C remains independent and incomplete.",
+  "original_publication": {
+    "host_organization_name": "Public Works Project (PWP), Yemen",
+    "page_title": "Kathiah Gets a Chance",
+    "page_url": "https://www.pwpyemen.org/index.php/en/media-center-en/news/558-kathiah-gets-a-chance",
+    "image_03_url": "https://www.pwpyemen.org/images/contents/news/Kathiah%20Gets%20a%20Chance03.jpg",
+    "page_context_confirmed": "Cash-for-work activities in the old city of Sana'a; article states PWP implementation in partnership with UNESCO with EU funding.",
+    "page_author_credit_visible": "NOT_FOUND_IN_INSPECTED_ARTICLE",
+    "photographic_creator_credit_visible": "NOT_FOUND_IN_INSPECTED_ARTICLE",
+    "photographed_people_consent_evidence": "NOT_FOUND_IN_INSPECTED_ARTICLE",
+    "photo_specific_license": "NOT_FOUND_IN_INSPECTED_ARTICLE",
+    "footer_notice": "Copyright Public Works Projects 2026 (site-level notice only)",
+    "photo_capture_date": "UNKNOWN",
+    "original_publication_date": "UNKNOWN",
+    "first_publisher_or_original_negative_owner": "UNKNOWN",
+    "original_authoritative_class_rubric": "UNKNOWN",
+    "conclusion": "VERIFIED_PUBLICATION_HOST_AND_VISUAL_PHOTOGRAPH_MATCH; NOT VERIFIED_PHOTOGRAPHIC_RIGHTS_HOLDER_OR_PERMISSION"
+  },
+  "confirmed_source_family": {
+    "family_id": "PWP_KATHIAH_GETS_A_CHANCE_PUBLIC_ARTICLE_01_02_03_V01",
+    "source_group_logic": "Three photographs published within the exact same PWP article, share stem and visibly depict related work/people/location. Source-family grouping is an independence/leakage precaution, not a verified capture-session timestamp.",
+    "items": [
+      {
+        "suffix": "01",
+        "filename": "Kathiah Gets a Chance01.jpg",
+        "roboflow_image_id": "FbzGGe4z2Ys5WBEemsfV",
+        "pwp_image_url": "https://www.pwpyemen.org/images/2022/03/09/Kathiah%20Gets%20a%20Chance01.jpg",
+        "current_project_split": "train",
+        "match_basis": "Source image retrieved read-only and visually matched to PWP published photo 01; same scene and framing; byte-level equivalence not computed."
+      },
+      {
+        "suffix": "02",
+        "filename": "Kathiah Gets a Chance02.jpg",
+        "roboflow_image_id": "XtA7vX2KpLPxJgLnphS5",
+        "pwp_image_url": "https://www.pwpyemen.org/images/contents/news/Kathiah%20Gets%20a%20Chance02.jpg",
+        "current_project_split": "train",
+        "match_basis": "Source image retrieved read-only and visually matched to PWP published photo 02; same scene and framing; byte-level equivalence not computed."
+      },
+      {
+        "suffix": "03",
+        "filename": "Kathiah Gets a Chance03.jpg",
+        "roboflow_image_id": "0jGu9euJp1MbvkLtfBcs",
+        "pwp_image_url": "https://www.pwpyemen.org/images/contents/news/Kathiah%20Gets%20a%20Chance03.jpg",
+        "current_project_split": "train",
+        "match_basis": "Source image C visually matched to official PWP photo 03 (building/wall/window pattern, four workers in same positions, green wheelbarrow), same filename base; byte-level equivalence not computed."
+      }
+    ],
+    "current_project_workspace_search": "project:altayyar-0oflt-lafos-qqauz filename:\"Kathiah Gets a Chance*\"",
+    "exact_filename_family_count": 3,
+    "current_splits_seen": [
+      "train"
+    ],
+    "these_three_have_cross_split_presence": false,
+    "all_other_related_frames_or_site_groups_exhaustively_search_verified": false,
+    "no_global_cross_split_leakage_claim": true,
+    "policy": "Group correlated/nearby photos as one acquisition family when planning any future independent calibration or test sets. Do not move original images/splits in this investigation.",
+    "original_training_split_edited": false
+  },
+  "license_status": {
+    "roboflow_universe_public_dataset_url": "https://universe.roboflow.com/softyyemen/altayyar-0oflt-lafos-qqauz",
+    "roboflow_project_public_displayed_license": "CC BY 4.0",
+    "license_metadata_is_image_specific_rights_clearance": false,
+    "pwp_page_has_site_copyright_footer": true,
+    "pwp_article_explicit_photo_reuse_permission_found": false,
+    "permission_for_public_dataset_redistribution": "UNVERIFIED",
+    "permission_for_ML_model_training": "UNVERIFIED",
+    "permission_for_thesis_reproduction": "UNVERIFIED",
+    "consent_and_privacy_for_identifiable_individuals": "UNVERIFIED",
+    "original_photographer_and_rights_owner": "UNKNOWN",
+    "flag": "SOURCE_LICENSE_CHAIN_PENDING",
+    "guidance": "Contact publisher/actual rights holder to confirm image copyright, permitted training/public sharing/thesis reproduction, required attribution, privacy consents and restrictions. Do not equate dataset CC BY badge with verified grant from original photographer."
+  },
+  "source_class_status": {
+    "label": "No Safety Boots",
+    "source_authoritative_label_semantics": "UNKNOWN",
+    "public_article_proves_annotation_definition": false,
+    "original_legacy_Q_R_S_T_discrepancy": "OPEN",
+    "user_four_worker_boot_visual_status": "PRESENT_PER_RESEARCHER_UNCHANGED",
+    "independently_verified_safety_boot_certification": false
+  },
+  "independent_review_status": {
+    "completed": false,
+    "independent_reviewer_identified": false,
+    "original_unblinded_study_results_available": false,
+    "template": "CASE_C_INDEPENDENT_SECOND_REVIEW_TEMPLATE_V01.md",
+    "review_requires_ethical_rights_clearance": true,
+    "review_prompt_prevent_AI_hypothesis_leakage": true
+  },
+  "status": "PUBLICATION_SOURCE_IDENTIFIED_RIGHTS_PENDING_CLASS_RUBRIC_UNKNOWN_EVAL_INCOMPLETE",
+  "original_project_images_labels_splits_weights_workflows_changed": false,
+  "explicit_user_decisions_changed": false,
+  "total_final_user_matched_equipment_associations_kept": 19,
+  "eval_case_C_id": "c032f81d-64c5-44be-96f3-7e6fe9dad799",
+  "eval_groundTruthState": "incomplete",
+  "public_repo_contains_original_photo_pixels": false
+}
