@@ -323,3 +323,12 @@ Performed read-only inspection of the **actual** Roboflow source image and four 
 Old Case C source has **zero positive `Safety Boots` boxes**, while the researcher previously asserted `safety_boot=PRESENT` for each of four workers. This has been explicitly classified `OPEN_UNRESOLVED_SOURCE_LABEL_SEMANTICS`, not a proven mislabeling, false-negative, failed prediction, or safety non-compliance. The historical source class meaning, footwear protection specification and independent person-foot visual status require separate verification. **No original label corrected or deleted**.
 
 Prior human link approvals (19 A/B/C physical item links), C/J owner `UNKNOWN`, B/K,L,M ownership `UNKNOWN`, person-level PPE observations and `POLICY_UNKNOWN` are preserved; the separate Eval Case C remains `incomplete` pending source rights/privacy/family, full coverage and second-pass signoff.
+
+
+## Case C source-class provenance and native-pixel boot crop follow-up (2026-11-18)
+
+Inspected read-only original pixel crops around `Q`, `R`, `S/T` and independent `P002` worker context via a validated Roboflow `AbsoluteStaticCrop` Workflow, without saving a Workflow or writing an annotation. `Q` has a partly visible tan footwear-like region beneath seated worker clothing; `R` has a light-coloured shoe-like area on the leaning worker's foot; `S/T` show tiny pale regions near P001's long hem and ground. The crops cannot establish a protective safety standard or prove absence of safety footwear.
+
+Roboflow project metadata lists `No Safety Boots` (552 annotations in class counts) but provides no original labeling rubric. Annotation job `nzrZTe9Jg5Camjn4npwO` says the job was created when the project was forked; no original parent provenance or authoritative negative-boot definition was available in the inspected metadata. Another repo's strict `No Safety Boots -> no_boots` cross-domain mapping is **to be audited**, not source instructions.
+
+**OPEN / SOURCE_CLASS_SEMANTICS_UNKNOWN**. Detailed evidence: [Arabic report](CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.md) and [machine-readable record](CASE_C_BOOT_SOURCE_SEMANTICS_AND_CROPS_V01.json). Retained researcher's four visual boot PRESENT reports, 19 accepted item-wearer matches, glove C/J and boot B/K/L/M UNKNOWN owners, and original labels unchanged. No proven annotation error, boot-grade certification, policy violation or model accuracy is inferred.
