@@ -307,3 +307,10 @@ Roboflow Eval Case C remains `groundTruthState=incomplete` / `groundTruth={}`. N
 The researcher replied **"موافق"** after the exact twelve box-to-worker links were displayed and asked to be approved, with source glove `J` expressly kept `UNKNOWN`. These **twelve individual links are now human-final**, rather than AI suggestions: hats `F→P001`, `E→P002`, `D→P003`, `C→P004`; vests `6→P001`, `5→P002`, `7→P003`, `8→P004`; gloves `H/I→P001`, `G→P002`, `K→P003`. **Glove `J`: final owner `UNKNOWN`, `person_id=null`.**
 
 Finality applies to **person-owner relationships only**. Worksite policy `POLICY_UNKNOWN`, safety-boot protective certification and old negative `No Safety Boots` tags `Q/R/S/T` are not settled; goggles/masks remain visual `UNKNOWN`. Source rights/privacy/family and independent verification prevent full Roboflow Eval completion. No changes to original annotations/training.
+
+
+## Case C partial approved source-item reference saved to Roboflow (2026-11-18)
+
+Separate Roboflow Eval Case C was saved at **revision 4** following the explicit researcher approval of 12 item-box wearer links. Typed partial reference: **4** visible people, **12** approved positive PPE source item boxes, **12** `MATCHED` box-to-person links, **24** pre-confirmed worker-level visual PPE states (6 PPE types × 4 people), and **24** `POLICY_UNKNOWN` mandates. The old `J` glove box, whose person owner is researcher-final `UNKNOWN`, is retained in GitHub but excluded from the approved positive-item subset in this incomplete Eval Case pending full identity/coverage checks.
+
+No source review record was fabricated; `source_review` remains unset and Eval `groundTruthState=incomplete`. Old four C `No Safety Boots` source markers `Q/R/S/T` still need reconciliation with researcher's claimed boot presence; rights/privacy/source-family/independent second-pass checks are still pending. No compliance verdict or measured model score.
