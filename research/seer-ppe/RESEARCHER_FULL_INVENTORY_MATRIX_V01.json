@@ -2622,14 +2622,45 @@
         "official_contact_email": "pwp-yem@y.net.ye",
         "official_contact_found": "2026-11-18",
         "official_contact_source": "https://www.pwpyemen.org/index.php/ar/?lang=ar",
-        "rights_inquiry_status": "PREPARED_NOT_SENT",
+        "rights_inquiry_status": "OLD_DRAFT_UNSENT_RECONSIDER_AFTER_SELF_CAPTURE_STATEMENT",
         "original_label_class_guide_request_status": "PREPARED_NOT_SENT_RECIPIENT_UNIDENTIFIED",
         "rights_inquiry_packet": "CASE_C_RIGHTS_CONTACT_AND_POLICY_CLEARANCE_V01.md",
         "PWP_general_OHS_statement": "FOUND_ORGANIZATION_LEVEL_ONLY",
         "PWP_general_OHS_source": "https://www.pwpyemen.org/index.php/ar/impacts-2/success-stories/421-public-works-project-diligent-efforts-to-implement-occupational-health-and-safety",
         "site_task_specific_boot_policy_status": "POLICY_UNKNOWN",
-        "photo_rights_status": "UNREVIEWED",
-        "second_review_completed": false
+        "photo_rights_status": "CAPTURE_SELF_ATTESTED_REUSE_RIGHTS_UNVERIFIED",
+        "second_review_completed": false,
+        "original_photographer_reported": "RESEARCHER_SELF_REPORTED_CASE_C",
+        "field_engineer_reported": true,
+        "first_party_capture_statement_logged": true,
+        "publication_site_not_treated_as_proof_of_original_photographer": true,
+        "siblings_01_02_photographer": "NOT_ESTABLISHED_BY_SINGULAR_STATEMENT"
+      },
+      "researcher_direct_original_capture_attestation": {
+        "statement_date": "2026-11-18",
+        "provenance_type": "DIRECT_FIRST_PERSON_RESEARCHER_ATTESTATION_UNINDEPENDENTLY_VERIFIED",
+        "statement_text_ar": "شوووف انا اعمل في مشارع هذه ولي كا مهندس ميداني وانا من جمعت وانا اللي صورت الصورة  اثناء العمل في  المشاريع الميدانيه",
+        "statement_subject": "Case C photo under current discussion",
+        "researcher_field_role": "FIELD_ENGINEER_ON_THE_PROJECTS_PER_SELF_REPORT",
+        "photographer": "RESEARCHER_SELF_REPORTED",
+        "image_collection": "RESEARCHER_SELF_REPORTED_FIELD_COLLECTION",
+        "photo_captured_during": "FIELD_PROJECT_WORK_PER_RESEARCHER",
+        "claimed_scope": "CASE_C_ONLY_UNTIL_RESEARCHER_CLARIFIES_OTHER_IMAGES",
+        "public_article_host": "Public Works Project (PWP), Yemen",
+        "publication_host_is_not_automatic_original_photographer": true,
+        "employment_relationship_to_PWP": "NOT_SPECIFIED",
+        "independent_authentication": "NOT_PERFORMED",
+        "assignment_of_copyright_under_employer_or_project_contract": "NOT_DETERMINED",
+        "workers_privacy_basis": "NOT_ASSESSED",
+        "rights_to_thesis_display": "NOT_YET_FORMALLY_DETERMINED",
+        "public_dataset_redistribution_permission": "NOT_YET_FORMALLY_DETERMINED",
+        "evidence_to_collect_if_available": [
+          "Original full-resolution photo file and non-sensitive file properties/EXIF (avoid publicly sharing coordinates or identities)",
+          "Project documentation of field engineer's image collection role if applicable",
+          "Employer/project agreement or authorization defining publication/reuse rights where applicable",
+          "Appropriate privacy and institutional ethics authorization for showing identifiable people"
+        ],
+        "no_claim_of_permission_or_ownership_auto_granted": true
       }
     },
     {
@@ -2794,10 +2825,13 @@
     "case_c_filename_group_cross_split_leakage": "NO_MATCHING_FILENAME_FAMILY_SPLIT_CROSSING; NOT_GLOBAL_LEAKAGE_CLEARANCE",
     "case_c_independent_second_reviewer_status": "NOT_STARTED",
     "case_c_official_PWP_contact_verified": true,
-    "case_c_rights_outreach_status": "PREPARED_NOT_SENT",
+    "case_c_rights_outreach_status": "UNSENT_OLD_DRAFT_NEEDS_REVISION",
     "case_c_original_label_owner_inquiry_status": "PREPARED_NOT_SENT_RECIPIENT_UNIDENTIFIED",
     "case_c_general_OHS_organizational_statement_found": true,
     "case_c_safety_boot_policy_status": "POLICY_UNKNOWN",
-    "case_c_photo_rights_status": "UNREVIEWED"
+    "case_c_photo_rights_status": "UNREVIEWED",
+    "case_c_researcher_self_reports_original_photographer": true,
+    "case_c_researcher_self_reports_field_engineer": true,
+    "case_c_rights_reassessment": "SELF_ATTESTED_ORIGIN_REUSE_SCOPE_AND_PRIVACY_PENDING"
   }
 }
