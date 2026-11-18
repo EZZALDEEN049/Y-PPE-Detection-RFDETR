@@ -1,0 +1,100 @@
+{
+  "schema_version": "seer-ppe/research-progress-checkpoint/v1",
+  "date": "2026-11-19",
+  "repository": "EZZALDEEN049/Y-PPE-Detection-RFDETR",
+  "branch": "main",
+  "project": "SEER-PPE / Master's thesis",
+  "roboflow": {
+    "project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+    "dataset_version": 3,
+    "source_images_total": 2327,
+    "splits": {
+      "train": 1625,
+      "valid": 468,
+      "test": 234
+    },
+    "classes": 17,
+    "original_model": "RF-DETR Small (historical project model; not retrained by this checkpoint)",
+    "dataset_mutations_in_checkpoint": 0,
+    "new_test_originals_viewed_in_checkpoint": 0,
+    "known_prior_test_exposure": "Two Test originals were previously viewed for governance in an earlier investigation; not an untouched-blind Test claim"
+  },
+  "source_integrity": {
+    "two_family_images": 50,
+    "visually_reviewed": 49,
+    "protected_unviewed_test_in_family": 1,
+    "named_cross_split_sites": 2,
+    "valid_held_for_named_site": 3,
+    "valid_held_for_high_visual_shared_source_suspicion": 2,
+    "distinct_high_evidence_valid_source_holds": 5,
+    "cross_split_exact_filename_collision_groups": 31,
+    "valid_filename_only_candidates_remaining": 26,
+    "filename_collisions_proven_duplicates": false,
+    "score_independent_valid_ready": false
+  },
+  "embedding_screen": {
+    "train_count": 1625,
+    "valid_count": 468,
+    "comparisons": 760500,
+    "dimension": 768,
+    "valid_with_top_train_cosine_at_least": {
+      "0.995": 1,
+      "0.99": 4,
+      "0.98": 7,
+      "0.95": 52,
+      "0.90": 192
+    },
+    "status": "COMPLETED_AS_REVIEW_QUEUE_ONLY_NO_DUPLICATE_VERDICTS",
+    "no_test_embeddings_queried": true
+  },
+  "pixel_hash": {
+    "tool": "tools/source_pixel_hash_audit.py",
+    "local_synthetic_self_test": "PASS_2026-11-19",
+    "local_missing_input_test": {
+      "expected_exit_code": 2,
+      "observed_exit_code": 2,
+      "missing_count": 2,
+      "full_2093_coverage": false,
+      "scoring_ready": false
+    },
+    "original_source_image_bytes_collected": false,
+    "actual_sha256_scan_complete": false,
+    "actual_phash_dhash_scan_complete": false,
+    "node_gate_self_test": "NOT_CONFIRMED_EXECUTED"
+  },
+  "researcher_constraints": {
+    "preserve_dataset_annotations_splits": true,
+    "preserve_prior_person_ppe_approved_associations": 19,
+    "preserve_researcher_present_unknown_decisions": true,
+    "do_not_reopen_image_authorship_investigation": true,
+    "avoid_unnecessary_model_retraining": true,
+    "no_test_based_threshold_calibration": true,
+    "do_not_claim_new_map_f1_accuracy_compliance_or_energy_results": true
+  },
+  "blocked_tasks": [
+    "Secure access to original Train and Valid Source bytes indexed by Roboflow Source IDs",
+    "Execute full SHA-256, decoded-pixel SHA-256 and dHash audit against originals",
+    "Independently adjudicate candidate image pairs and sites/sessions and freeze eligible development subset",
+    "Complete independently reviewed person-to-PPE human ground truth and policy-required PPE context",
+    "Run and record remaining Node source-integrity-gate test and readiness evidence",
+    "Only after gates, freeze thresholds and evaluate existing detector/association outputs on truly eligible held-out data"
+  ],
+  "evaluation_model_scoring_ready": false,
+  "related_issue": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/issues/17",
+  "artifact_paths": {
+    "source_family_md": "SOURCE_FAMILY_EXPANSION_2026-11-18_V03.md",
+    "source_family_json": "SOURCE_FAMILY_EXPANSION_2026-11-18_V03.json",
+    "filenames_md": "PROJECT_WIDE_FILENAME_COLLISION_TRIAGE_2026-11-18_V01.md",
+    "filenames_json": "PROJECT_WIDE_FILENAME_COLLISION_TRIAGE_2026-11-18_V01.json",
+    "source_gate_md": "COMBINED_SOURCE_INTEGRITY_GATE_2026-11-18_V01.md",
+    "source_gate_code": "tools/source_integrity_readiness_gate.mjs",
+    "embedding_md": "EMBEDDING_CROSS_SPLIT_TRIAGE_2026-11-19_V01.md",
+    "embedding_json": "EMBEDDING_CROSS_SPLIT_TRIAGE_2026-11-19_V01.json",
+    "source_manifest": "SOURCE_ID_MANIFEST_TRAIN_VALID_2026-11-19_V01.json",
+    "pixel_hash_code": "tools/source_pixel_hash_audit.py",
+    "hash_readiness": "PIXEL_HASH_AUDIT_READINESS_2026-11-19_V01.md",
+    "progress": "PROGRESS.md",
+    "protocol": "PROTOCOL_MASTER.md",
+    "manuscript": "MANUSCRIPT_MASTER.md"
+  }
+}
