@@ -1,0 +1,240 @@
+{
+  "schema_version": "seer-ppe/high-sim-original-image-ai-visual-triage/v0.1",
+  "date": "2026-11-21",
+  "scope": "5_VALID_TO_TRAIN_PAIRS_10_ORIGINAL_ROBOFLOW_IMAGES_NO_TEST",
+  "methods": [
+    "Exact filename/id re-lookup through Roboflow workspace search to confirm split and original URL",
+    "Single-image Roboflow media_analyze, ten successful calls",
+    "Read-only saved native Roboflow annotation geometry for all 10 image IDs; all annotation_valid true",
+    "Cross-check cosine values with frozen 19-Nov embedding JSON",
+    "AI scene descriptions compared after independent calls; no image bytes exported or humans recruited"
+  ],
+  "pair_count": 5,
+  "original_images_read_as_ai_visual": 10,
+  "all_annotation_records_valid": true,
+  "previous_specific_valid_source_holds_unchanged": 5,
+  "review_queue_valid_count_unchanged": 83,
+  "model_scoring_ready": false,
+  "source_pixel_sha256_computed": false,
+  "original_dataset_mutated": false,
+  "independent_human_review_completed": false,
+  "no_test_access": true,
+  "pairs": [
+    {
+      "key": "toolbox-worker-portrait",
+      "valid": {
+        "id": "HRYvLu8UFRgGlQQoJN7G",
+        "filename": "Safety-Glasses-Toolbox-Talk.jpg",
+        "size": [
+          1200,
+          800
+        ],
+        "legacy_labels": {
+          "Hard Hat": 1,
+          "Goggles": 1,
+          "Face Masks": 1,
+          "Persons": 1,
+          "No Safety Vest": 1
+        },
+        "scene": "Close-up portrait of worker in bright yellow hard hat, clear eye protection and white respirator; industrial background blurred."
+      },
+      "train": {
+        "id": "nhXMHxaCM0f7kNLOKU8Z",
+        "filename": "image_719.jpg",
+        "size": [
+          1200,
+          800
+        ],
+        "legacy_labels": {
+          "Hard Hat": 1,
+          "Goggles": 1,
+          "Face Masks": 1,
+          "Persons": 1,
+          "No Safety Vest": 1
+        },
+        "scene": "Close-up portrait of worker in yellow hard hat, clear eye protection and white respirator, navy work jacket and lanyard; industrial background blurred."
+      },
+      "cosine": 0.998663,
+      "review_signal": "HIGH_POSSIBLE_SHARED_PORTRAIT_ASSET",
+      "support": [
+        "Very high embedding cosine",
+        "Identical original dimensions",
+        "Matching five saved legacy label categories and counts",
+        "Distinct AI one-image descriptions agree on prominent hard hat, glasses, white mask and blurred industrial background"
+      ],
+      "limitation": "No side-by-side independent frame alignment or original pixels; cannot label pixel duplicate and do not infer person identity.",
+      "original_source_byte_verdict": "NOT_TESTED",
+      "human_pair_signoff": "PENDING",
+      "new_source_hold_created": false,
+      "existing_queue_priority": "AS_PREVIOUSLY_RECORDED"
+    },
+    {
+      "key": "anti-fog-glasses-product",
+      "valid": {
+        "id": "FamTszkxp5aOfuAcZwtn",
+        "filename": "v126.jpg",
+        "size": [
+          350,
+          197
+        ],
+        "legacy_labels": {
+          "Goggles": 1
+        },
+        "scene": "Clear side-shield eyewear, straight-on studio view, white background and oval 'Anti-Fog Lens' sticker on viewer's right lens."
+      },
+      "train": {
+        "id": "ol5tvzeJJtiq9Ng0oFqC",
+        "filename": "v125.jpg",
+        "size": [
+          354,
+          205
+        ],
+        "legacy_labels": {
+          "Goggles": 1
+        },
+        "scene": "Clear side-shield eyewear, straight-on studio view, white background and oval 'Anti-Fog Lens' sticker on viewer's right lens."
+      },
+      "cosine": 0.99105,
+      "review_signal": "HIGH_POSSIBLE_SHARED_PRODUCT_STUDIO_ASSET",
+      "support": [
+        "Consecutive v125/v126 filenames",
+        "Same distinctive sticker location and lettering in two AI summaries",
+        "Similar framing and small differing dimensions",
+        "One saved Goggles source box per image"
+      ],
+      "limitation": "Description-based comparison cannot prove same underlying photograph or cropped/resized derivation.",
+      "original_source_byte_verdict": "NOT_TESTED",
+      "human_pair_signoff": "PENDING",
+      "new_source_hold_created": false,
+      "existing_queue_priority": "AS_PREVIOUSLY_RECORDED"
+    },
+    {
+      "key": "clear-glasses-threequarter",
+      "valid": {
+        "id": "V7nP50xtllhmv7ex0OZf",
+        "filename": "v141.jpg",
+        "size": [
+          700,
+          700
+        ],
+        "legacy_labels": {
+          "Goggles": 1
+        },
+        "scene": "Transparent plastic safety glasses, white studio background, three-quarter perspective."
+      },
+      "train": {
+        "id": "8vE1Ov0KTilzHRh7gtpq",
+        "filename": "v140.jpg",
+        "size": [
+          700,
+          700
+        ],
+        "legacy_labels": {
+          "Goggles": 1
+        },
+        "scene": "Transparent plastic safety glasses, white studio background, front three-quarter view."
+      },
+      "cosine": 0.990562,
+      "review_signal": "REVIEW_SIMILAR_PRODUCT_STUDIO_ASSETS",
+      "support": [
+        "Consecutive v140/v141 filenames",
+        "Matching dimensions and source label classes",
+        "Similar 3/4-view clear safety glasses in white studio descriptions"
+      ],
+      "limitation": "Generic product appearance makes it insufficient to say these are the same photo/source.",
+      "original_source_byte_verdict": "NOT_TESTED",
+      "human_pair_signoff": "PENDING",
+      "new_source_hold_created": false,
+      "existing_queue_priority": "AS_PREVIOUSLY_RECORDED"
+    },
+    {
+      "key": "orange-vest-stock-portrait",
+      "valid": {
+        "id": "qealvsJAhBFs6A668kak",
+        "filename": "construction-worker-wearing-safety-equipment-19672694.jpg",
+        "size": [
+          1255,
+          1690
+        ],
+        "legacy_labels": {
+          "Persons": 1,
+          "Gloves": 1,
+          "Hard Hat": 1,
+          "Face Masks": 1,
+          "Safety Vests": 1
+        },
+        "scene": "White-backdrop stock-style portrait: hard hat, white respirator, orange reflective mesh vest, gloved raised hand touching helmet brim; stock watermarks visible."
+      },
+      "train": {
+        "id": "ngf3QT4XU6cS6p2Kegzy",
+        "filename": "image_798.jpg",
+        "size": [
+          1020,
+          1390
+        ],
+        "legacy_labels": {
+          "Persons": 1,
+          "Gloves": 1,
+          "Hard Hat": 1,
+          "Face Masks": 1,
+          "Safety Vests": 1,
+          "Goggles": 1
+        },
+        "scene": "White-backdrop stock portrait with yellow hard hat, white mask, orange reflective mesh vest and raised gloved right hand at helmet brim; Alamy watermarks/bottom banner described."
+      },
+      "cosine": 0.985266,
+      "review_signal": "HIGH_POSSIBLE_SHARED_STOCK_PHOTO_DERIVATIVE",
+      "support": [
+        "Distinctive matching pose: glove on helmet brim",
+        "Matching orange mesh vest, yellow hard hat, white mask and studio white background",
+        "Watermark/stock-photo features in each AI report",
+        "Similar but not identical source dimensions and label inventories"
+      ],
+      "limitation": "Watermark brand and stock photo identifier not independently matched; product/individual identity and exact duplicate status not established.",
+      "original_source_byte_verdict": "NOT_TESTED",
+      "human_pair_signoff": "PENDING",
+      "new_source_hold_created": false,
+      "existing_queue_priority": "AS_PREVIOUSLY_RECORDED"
+    },
+    {
+      "key": "thai-helmet-marketing",
+      "valid": {
+        "id": "rjjkVbdcd3dCIoxywUJE",
+        "filename": "h39.jpg",
+        "size": [
+          300,
+          300
+        ],
+        "legacy_labels": {
+          "Hard Hat": 1
+        },
+        "scene": "One yellow ABS safety helmet, white background and Thai promotional writing/brand marks."
+      },
+      "train": {
+        "id": "y1pL7pvPcML2CbzYYqdy",
+        "filename": "h34.jpg",
+        "size": [
+          300,
+          300
+        ],
+        "legacy_labels": {
+          "Hard Hat": 1
+        },
+        "scene": "One orange ABS safety helmet, white background and Thai/English marketing text/logos."
+      },
+      "cosine": 0.982068,
+      "review_signal": "LIKELY_DIFFERENT_COLOR_PRODUCT_ASSETS",
+      "support": [
+        "AI descriptions explicitly distinguish yellow vs orange helmet despite high cosine",
+        "Same 300×300 size and single hard-hat label",
+        "Common marketing style could explain strong embedding similarity"
+      ],
+      "limitation": "Independent image descriptions do not certify source ownership/capture independence or background template lineage.",
+      "original_source_byte_verdict": "NOT_TESTED",
+      "human_pair_signoff": "PENDING",
+      "new_source_hold_created": false,
+      "existing_queue_priority": "AS_PREVIOUSLY_RECORDED"
+    }
+  ],
+  "interpretation": "Two strong candidate shared portraits/products and one stock derivative; one similar eyewear product image candidate; one distinctive color-different hard-hat pair illustrating high cosine nonidentity. None is adjudicated duplicate."
+}
