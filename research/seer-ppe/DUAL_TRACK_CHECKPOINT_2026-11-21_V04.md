@@ -28,14 +28,14 @@ All earlier wearer-owner UNKNOWN decisions, C shoe-marker semantic uncertainty, 
 
 ## 4. Source-integrity tool path hardening (engineering only)
 
-Updated [`tools/source_pixel_hash_audit.py`](tools/source_pixel_hash_audit.py) at [commit `7d8aece`](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/commit/7d8aece4516c7896da5f0f20aa22fd0a4c988752) to fail closed on unsafe Source IDs, cross-split explicit paths (including Test), symlink traversal and mistaken original-asset path mapping. Added synthetic negative tests. **The new self-tests were written but have not been executed in this continuation; remote CI passing status is unverified.** This hardens the audit program; it does NOT mean any of the 2,093 original images have been hashed.
+Updated [`tools/source_pixel_hash_audit.py`](tools/source_pixel_hash_audit.py) at [commit `7d8aece`](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/commit/7d8aece4516c7896da5f0f20aa22fd0a4c988752) to fail closed on unsafe Source IDs, cross-split explicit paths (including Test), symlink traversal and mistaken original-asset path mapping. Added synthetic negative tests. **Executed and verified in remote GitHub Actions:** [source/reference gate run 44830713403](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44830713403) and [public unit test run 44830713411](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44830713411), both completed successfully on the path-guard commit. The source-gate job logs explicitly report `SOURCE_PIXEL_HASH_AUDIT_SELF_TEST_PASS` and other fail-closed markers. [Detailed remote CI evidence](GITHUB_ACTIONS_V04_VERIFIED_2026-11-21_V01.md). This hardens the audit program; it does NOT mean any of the 2,093 original images have been hashed.
 
 ## 5. Limits and next gate
 
 - **Original image bytes were not obtained.** No actual raw SHA-256, decoded RGB SHA-256 or dHash was computed here; the complete 2,093-Source audit is still blocked. An attempted direct download did not supply original bytes in the available environment.
 - Seven fresh single-image AI analyses in this continuation (six pair members + Case D) were **triage, not human reference decisions**.
 - No change to Roboflow original data, old annotation geometry, training, model, splits, Eval Case contents or Test images; no SEER performance/compliance/power claims.
-- The remote GitHub Actions status still cannot be declared passing without its actual run record.
+- The GitHub Actions engineering gates passed and were verified against their actual run/job/log records; this is **not** the still-missing original-byte or human source-family audit.
 - Immediate requirements: secure original bytes keyed by Source ID; deterministic complete audit and human family decisions; curator review for B and D and comprehensive A–D inventory, rights and task policy; only then eligibility evaluation.
 
 [Machine-readable V04 evidence](DUAL_TRACK_CHECKPOINT_2026-11-21_V04.json) · [Issue #17 source integrity](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/issues/17) · [Issue #18 human reference](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/issues/18).
