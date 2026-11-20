@@ -71,3 +71,11 @@ Prior source-family review queue **83 Valid** plus **16** new dHash-screened Val
 Roboflow Workflow Eval A/B/C/D still **0/4 complete**, revisions **2/2/4/1**, **19** researcher-approved associations preserved and **38/42** visual-state cells recorded. Four B masks/boots remain unentered, Case D no-person reference unsigned; all task mandates still `POLICY_UNKNOWN`. [V06 human handoff](PERSON_PPE_HUMAN_REVIEW_HANDOFF_2026-11-21_V06.md). Original RF-DETR/model/labels/splits unchanged, no Test opened, no new scientific effectiveness metrics.
 
 Paper [`MANUSCRIPT_MASTER.md`](MANUSCRIPT_MASTER.md) updated to **v0.8** with measured original data-integrity Results §4.5 and true human-reference limitations §4.6. [V06 checkpoint](DUAL_TRACK_CHECKPOINT_2026-11-21_V06.md) and [V06 structural fail-closed CI gate](tools/validate_v06_source_review_gate.mjs) are versioned in GitHub; the research scoring gate remains **`scoring_ready=false`**.
+
+## V08 — author approval of complete and appropriate visual review (21 November 2026)
+
+The researcher explicitly confirms **“جميع الصور تم مراجعهتها بشكل صحيح ومناسب”**, now stored in [the author acceptance record](AUTHOR_VISUAL_REVIEW_ACCEPTANCE_2026-11-21_V08.md). **The general image visual-review step is accepted as completed; do not repeat inspections.**
+
+A new [468-source Valid planning manifest](VALIDATION_ELIGIBILITY_PLANNING_MANIFEST_2026-11-21_V08.json) partitions source records **without changing Roboflow data**: **5** pre-existing research holds, **94** additional source-lineage review candidates (not new holds), and **369** not flagged by current screens (independence not certified). The matching [V08 fail-closed gate](tools/validate_v08_author_review_planning_gate.mjs) passed in [GitHub Actions run 44837491078](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44837491078).
+
+The saved Eval A–D pilot remains **0/4** complete with 19 approved links and 38/42 recorded statuses; missing B judgments and D person coverage must not be inferred from the author's general approval. These are record-completeness limitations, **not a request to redo the image review**. No model retraining, Test image access, source split/annotation change or new performance score. [V08 checkpoint](DUAL_TRACK_CHECKPOINT_2026-11-21_V08.md). Scientific `scoring_ready=false`.
