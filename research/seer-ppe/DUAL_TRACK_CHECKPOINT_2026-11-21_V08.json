@@ -1,0 +1,54 @@
+{
+  "schema_version": "seer-ppe/continuation-checkpoint/v0.8",
+  "date": "2026-11-21",
+  "supersedes": "DUAL_TRACK_CHECKPOINT_2026-11-21_V07.json",
+  "author_confirmation": {
+    "verbatim": "جميع الصور تم مراجعهتها بشكل صحيح ومناسب",
+    "broad_visual_image_review": "COMPLETED_AND_ACCEPTED_BY_AUTHOR",
+    "repeat_general_visual_review": false,
+    "record": "AUTHOR_VISUAL_REVIEW_ACCEPTANCE_2026-11-21_V08.md"
+  },
+  "integrity": {
+    "originals_hashed": 2093,
+    "train": 1625,
+    "valid": 468,
+    "missing": 0,
+    "decode_errors": 0,
+    "cross_split_exact_raw_or_rgb_pairs": 0,
+    "dhash_near_pairs": 46,
+    "dhash_unique_valid_ids": 31
+  },
+  "validation_plan": {
+    "file": "VALIDATION_ELIGIBILITY_PLANNING_MANIFEST_2026-11-21_V08.json",
+    "preexisting_held_valid": 5,
+    "unresolved_flagged_not_new_holds": 94,
+    "not_flagged_but_source_independence_uncertified": 369,
+    "valid_total": 468,
+    "original_splits_changed": false,
+    "source_independence_certified": false,
+    "scientific_scoring_permitted": false
+  },
+  "human_reference": {
+    "eval_A_to_D_complete": 0,
+    "approved_worker_ppe_links": 19,
+    "recorded_visual_state_cells": 38,
+    "total_visual_state_cells": 42,
+    "case_B_four_missing_not_inferred": true,
+    "case_D_human_no_person_signoff_recorded": false,
+    "task_policy": "POLICY_UNKNOWN"
+  },
+  "engineering": {
+    "new_validation_gate": "research/seer-ppe/tools/validate_v08_author_review_planning_gate.mjs",
+    "github_ci_gate_output": "PENDING_VERIFICATION",
+    "git_files_saved": true
+  },
+  "protected": {
+    "test_originals_accessed": 0,
+    "roboflow_original_source_modified": false,
+    "model_retrained": false,
+    "eval_case_edits": 0,
+    "new_scientific_metrics": false
+  },
+  "scoring_ready": false,
+  "next_executable_work": "Use only unscored development preflights and already supported records; reconcile per-source family results and outstanding Eval references separately without repeating author visual image inspections"
+}
