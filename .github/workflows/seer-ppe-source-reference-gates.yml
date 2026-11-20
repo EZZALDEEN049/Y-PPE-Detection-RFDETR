@@ -132,6 +132,8 @@ jobs:
         run: node research/seer-ppe/tools/validate_v06_source_review_gate.mjs
       - name: Verify V08 author-reviewed validation planning stays fail-closed
         run: node research/seer-ppe/tools/validate_v08_author_review_planning_gate.mjs
+      - name: Verify V09 Train-only unscored Workflow and human-reference safeguards
+        run: node research/seer-ppe/tools/validate_v09_train_preflight_reference_gate.mjs
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'
