@@ -1,0 +1,53 @@
+{
+  "schema_version": "seer-ppe/continuation-checkpoint/v0.5",
+  "date": "2026-11-21",
+  "supersedes": "DUAL_TRACK_CHECKPOINT_2026-11-21_V04.md",
+  "project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "source_audit": {
+    "frozen_train": 1625,
+    "frozen_valid": 468,
+    "frozen_original_train_valid_total": 2093,
+    "originals_decoded_and_hashed_verified": 6,
+    "originals_not_yet_coverage_verified": 2087,
+    "pilot_pair_count": 3,
+    "pilot_raw_byte_identical_pairs": 0,
+    "pilot_rgb_pixel_identical_pairs": 0,
+    "pilot_dhash_distances": [
+      11,
+      29,
+      18
+    ],
+    "previous_valid_candidate_queue": 83,
+    "prior_source_holds": 5,
+    "source_family_human_verdicts_added": 0,
+    "full_run_id": 44834307184,
+    "full_run_status_at_checkpoint": "IN_PROGRESS_NOT_YET_VERIFIED",
+    "all_2093_hashed_claim": false
+  },
+  "person_ppe": {
+    "cases_complete": 0,
+    "cases_total": 4,
+    "approved_worker_item_links": 19,
+    "case_B_missing": [
+      "P001:face_mask",
+      "P001:safety_boot",
+      "P002:face_mask",
+      "P002:safety_boot"
+    ],
+    "case_D_human_no_person_signoff": false
+  },
+  "github": {
+    "pilot_run_id": 44833885353,
+    "pilot_run_conclusion": "success",
+    "pilot_artifact_id": 14676968695,
+    "pilot_artifact_digest": "sha256:39608e279c822b841578f88a772392fb245af2db56486946cd7ff1807a2fc831",
+    "pilot_evidence": "SOURCE_ORIGINAL_PIXEL_PILOT_2026-11-21_V01.md",
+    "full_workflow": ".github/workflows/seer-ppe-source-original-full.yml",
+    "full_report_pending": true
+  },
+  "no_model_retraining": true,
+  "no_roboflow_source_mutation": true,
+  "no_test_access": true,
+  "no_new_scientific_metrics": true,
+  "scoring_ready": false
+}
