@@ -1,0 +1,2656 @@
+{
+  "schema_version": "seer-ppe/unified-train-valid-source-triage/v0.1",
+  "date": "2026-11-21",
+  "project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "scope": "TRAIN_VALID_SOURCE_IDS_ONLY_NO_TEST_ACCESS",
+  "source_files": [
+    "PROJECT_WIDE_FILENAME_COLLISION_TRIAGE_2026-11-18_V01.json",
+    "SOURCE_FAMILY_EXPANSION_2026-11-18_V03.json",
+    "EMBEDDING_CROSS_SPLIT_TRIAGE_2026-11-19_V01.json",
+    "SOURCE_ID_MANIFEST_TRAIN_VALID_2026-11-19_V01.json"
+  ],
+  "status": "PENDING_ORIGINAL_BYTES_AND_HUMAN_ADJUDICATION",
+  "prior_valid_holds_not_changed": 5,
+  "embedding_top_valid_ge_0_98": 7,
+  "embedding_top_valid_ge_0_95": 52,
+  "unique_valid_triage_rows": 79,
+  "priority_counts": {
+    "P0_KEEP_EXISTING_HOLD": 5,
+    "P1_REVIEW_STRONG_EMBEDDING": 6,
+    "P2_REVIEW_EMBEDDING": 45,
+    "P3_REVIEW_FILENAME": 21,
+    "P4_REVIEW_FAMILY": 2
+  },
+  "rule": "Existing holds stay held. Filename and embeddings only PRIORITIZE review, do not create new leakage findings or change validity.",
+  "prioritization": [
+    {
+      "valid_id": "qBtfzUgi6Mpg3A5TE0ln",
+      "filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+      "reasons": [
+        "HIGH_VISUAL_SHARED_SCENE_OR_DERIVATIVE",
+        "EXACT_FILENAME_CROSS_SPLIT",
+        "EMBEDDING_GE_0_98"
+      ],
+      "notes": [
+        "Keep earlier source hold until independently adjudicated; not verified pixel-identical",
+        "Filename match is not evidence of image duplication",
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": true,
+      "best_train_neighbors": [
+        {
+          "train_id": "NAzs8sLreuFWQeOYDa2w",
+          "train_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+          "cosine_similarity": 0.980171
+        },
+        {
+          "train_id": "gnbAKN1ga4t7AIXYrZPQ",
+          "train_filename": "9e0af5a2364f4e34bd44e030716d2840.jpg",
+          "cosine_similarity": 0.76238
+        },
+        {
+          "train_id": "83RJ7YNPo3wWJZFGw3Ah",
+          "train_filename": "6818bc47bfb64c1aab652e80a2a2a8b8.jpg",
+          "cosine_similarity": 0.741217
+        }
+      ],
+      "top_cosine": 0.980171,
+      "review_priority": "P0_KEEP_EXISTING_HOLD",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "0De0PEUDyeg9v1J3T6zr",
+      "filename": "IMG-20250416-WA0063.jpg",
+      "reasons": [
+        "CONFIRMED_NAMED_SITE_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Keep earlier independent-evaluation hold; does NOT mean pixel duplicate"
+      ],
+      "prior_source_hold": true,
+      "best_train_neighbors": [
+        {
+          "train_id": "KrfW3xD7Vvxy6r6wISkv",
+          "train_filename": "IMG-20250416-WA0067.jpg",
+          "cosine_similarity": 0.906803
+        },
+        {
+          "train_id": "H1KOFc0NQZnWRHJNcHPc",
+          "train_filename": "IMG-20250416-WA0066(1).jpg",
+          "cosine_similarity": 0.834018
+        },
+        {
+          "train_id": "FZOVAaPg6OZlAJa2gTzE",
+          "train_filename": "IMG-20250416-WA0062.jpg",
+          "cosine_similarity": 0.82678
+        }
+      ],
+      "top_cosine": 0.906803,
+      "review_priority": "P0_KEEP_EXISTING_HOLD",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "jeB2NmucImurFBeFkyIz",
+      "filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+      "reasons": [
+        "HIGH_VISUAL_SHARED_SCENE_OR_DERIVATIVE",
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Keep earlier source hold until independently adjudicated; not verified pixel-identical",
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": true,
+      "best_train_neighbors": [
+        {
+          "train_id": "Cvh5UIGM4gTaPhriIh4Y",
+          "train_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+          "cosine_similarity": 0.896492
+        },
+        {
+          "train_id": "NAzs8sLreuFWQeOYDa2w",
+          "train_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+          "cosine_similarity": 0.787
+        },
+        {
+          "train_id": "JfEnhjYX5LHYwPcbvlAm",
+          "train_filename": "dd280f1a1eca4a03846ac5c173a1cd27.jpg",
+          "cosine_similarity": 0.784117
+        }
+      ],
+      "top_cosine": 0.896492,
+      "review_priority": "P0_KEEP_EXISTING_HOLD",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "yeEvdkqXtNgsj7PZFDvI",
+      "filename": "IMG-20250416-WA0026.jpg",
+      "reasons": [
+        "CONFIRMED_NAMED_SITE_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Keep earlier independent-evaluation hold; does NOT mean pixel duplicate"
+      ],
+      "prior_source_hold": true,
+      "best_train_neighbors": [
+        {
+          "train_id": "xyKCHH49Xr7oCONLC9nN",
+          "train_filename": "IMG-20250416-WA0079.jpg",
+          "cosine_similarity": 0.881212
+        },
+        {
+          "train_id": "H1KOFc0NQZnWRHJNcHPc",
+          "train_filename": "IMG-20250416-WA0066(1).jpg",
+          "cosine_similarity": 0.865431
+        },
+        {
+          "train_id": "LGXoBOUgMV27ByDkOJxk",
+          "train_filename": "IMG-20250416-WA0054.jpg",
+          "cosine_similarity": 0.864294
+        }
+      ],
+      "top_cosine": 0.881212,
+      "review_priority": "P0_KEEP_EXISTING_HOLD",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "NZu6Faj6evgINF1qFE0V",
+      "filename": "IMG-20250416-WA0051.jpg",
+      "reasons": [
+        "CONFIRMED_NAMED_SITE_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Keep earlier independent-evaluation hold; does NOT mean pixel duplicate"
+      ],
+      "prior_source_hold": true,
+      "best_train_neighbors": [
+        {
+          "train_id": "vfwrerLlt3psnrSl2EZA",
+          "train_filename": "125182753_5333001493392670_6503923738393063554_n.jpg",
+          "cosine_similarity": 0.831894
+        },
+        {
+          "train_id": "FZOVAaPg6OZlAJa2gTzE",
+          "train_filename": "IMG-20250416-WA0062.jpg",
+          "cosine_similarity": 0.82863
+        },
+        {
+          "train_id": "IZHbVWAvlAPhZd53dpz7",
+          "train_filename": "IMG-20250416-WA0053.jpg",
+          "cosine_similarity": 0.820652
+        }
+      ],
+      "top_cosine": 0.831894,
+      "review_priority": "P0_KEEP_EXISTING_HOLD",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "HRYvLu8UFRgGlQQoJN7G",
+      "filename": "Safety-Glasses-Toolbox-Talk.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_98"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "nhXMHxaCM0f7kNLOKU8Z",
+          "train_filename": "image_719.jpg",
+          "cosine_similarity": 0.998663
+        },
+        {
+          "train_id": "gPFsVpmsZNe3r3gpZiLR",
+          "train_filename": "worker wearing mask_380.jpg",
+          "cosine_similarity": 0.944866
+        },
+        {
+          "train_id": "2GX4zgqbVnbY5u1DZPga",
+          "train_filename": "image_780.jpg",
+          "cosine_similarity": 0.940281
+        }
+      ],
+      "top_cosine": 0.998663,
+      "review_priority": "P1_REVIEW_STRONG_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "sPdt3S9xyB3XzrWa3DaE",
+      "filename": "Sapi 7_mp4-223.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_98"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "x4li7ZpEZqRlWEFBMom3",
+          "train_filename": "Sapi 7_mp4-224.jpg",
+          "cosine_similarity": 0.99238
+        },
+        {
+          "train_id": "kAEpHUtPYW1n0eSmiLZP",
+          "train_filename": "Sapi 7_mp4-152.jpg",
+          "cosine_similarity": 0.865198
+        },
+        {
+          "train_id": "VuUmGXKTK7ySCcYc8hwl",
+          "train_filename": "Sapi 7_mp4-41.jpg",
+          "cosine_similarity": 0.811222
+        }
+      ],
+      "top_cosine": 0.99238,
+      "review_priority": "P1_REVIEW_STRONG_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "FamTszkxp5aOfuAcZwtn",
+      "filename": "v126.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_98"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "ol5tvzeJJtiq9Ng0oFqC",
+          "train_filename": "v125.jpg",
+          "cosine_similarity": 0.99105
+        },
+        {
+          "train_id": "xoveNHw2nBZsKBiMPSTY",
+          "train_filename": "v119.jpg",
+          "cosine_similarity": 0.955304
+        },
+        {
+          "train_id": "fKXAOP3L1sQ1Pd6tLHts",
+          "train_filename": "v65.jpg",
+          "cosine_similarity": 0.948622
+        }
+      ],
+      "top_cosine": 0.99105,
+      "review_priority": "P1_REVIEW_STRONG_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "V7nP50xtllhmv7ex0OZf",
+      "filename": "v141.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_98"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "8vE1Ov0KTilzHRh7gtpq",
+          "train_filename": "v140.jpg",
+          "cosine_similarity": 0.990562
+        },
+        {
+          "train_id": "AebELdylN9ohxXmzz6u9",
+          "train_filename": "v139.jpg",
+          "cosine_similarity": 0.950947
+        },
+        {
+          "train_id": "783nS3Yp14VaNm3ACvfO",
+          "train_filename": "v147.jpg",
+          "cosine_similarity": 0.942047
+        }
+      ],
+      "top_cosine": 0.990562,
+      "review_priority": "P1_REVIEW_STRONG_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "qealvsJAhBFs6A668kak",
+      "filename": "construction-worker-wearing-safety-equipment-19672694.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_98"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "ngf3QT4XU6cS6p2Kegzy",
+          "train_filename": "image_798.jpg",
+          "cosine_similarity": 0.985266
+        },
+        {
+          "train_id": "mImJnwiZzmDc9GvIOIrx",
+          "train_filename": "male-construction-worker-wearing-safety-protective-gear-JBB3BB.jpg",
+          "cosine_similarity": 0.968175
+        },
+        {
+          "train_id": "xGwYGERTiSWU6PsRhMT1",
+          "train_filename": "happy-construction-worker-20852840.jpg",
+          "cosine_similarity": 0.927652
+        }
+      ],
+      "top_cosine": 0.985266,
+      "review_priority": "P1_REVIEW_STRONG_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "rjjkVbdcd3dCIoxywUJE",
+      "filename": "h39.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_98"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "y1pL7pvPcML2CbzYYqdy",
+          "train_filename": "h34.jpg",
+          "cosine_similarity": 0.982068
+        },
+        {
+          "train_id": "DNfkZRQDetlemze06T6r",
+          "train_filename": "h36.jpg",
+          "cosine_similarity": 0.976795
+        },
+        {
+          "train_id": "XfsXc3s44x1mDOEKdIrr",
+          "train_filename": "h18.jpg",
+          "cosine_similarity": 0.749666
+        }
+      ],
+      "top_cosine": 0.982068,
+      "review_priority": "P1_REVIEW_STRONG_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "VoxtMSBDU2XW3WLRyUtx",
+      "filename": "v99.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "930aFf45w1CvKrfYoonN",
+          "train_filename": "v74.jpg",
+          "cosine_similarity": 0.979143
+        },
+        {
+          "train_id": "sTqR9sIvkUI2NUiaBI0g",
+          "train_filename": "v111.jpg",
+          "cosine_similarity": 0.946904
+        },
+        {
+          "train_id": "xoveNHw2nBZsKBiMPSTY",
+          "train_filename": "v119.jpg",
+          "cosine_similarity": 0.943251
+        }
+      ],
+      "top_cosine": 0.979143,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "K1hITffRQtdL69x6W3WF",
+      "filename": "image_1372.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "jOqfE2KetI3hANjQbkDZ",
+          "train_filename": "image_1342.jpg",
+          "cosine_similarity": 0.978564
+        },
+        {
+          "train_id": "lhnnARhQHn8DSdUfw8pQ",
+          "train_filename": "ppe_0070.jpg",
+          "cosine_similarity": 0.860509
+        },
+        {
+          "train_id": "J8ZfFxuhXVU3H30MjAEp",
+          "train_filename": "gettyimages-173233703-612x612.jpg",
+          "cosine_similarity": 0.858336
+        }
+      ],
+      "top_cosine": 0.978564,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "DXPjbo9xT1UjLzOkeB6l",
+      "filename": "v16.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "24DyXrfQsknLjzqUaQZm",
+          "train_filename": "v15.jpg",
+          "cosine_similarity": 0.978558
+        },
+        {
+          "train_id": "cIMM2dZcfWzYb5ee88b1",
+          "train_filename": "v87.jpg",
+          "cosine_similarity": 0.960322
+        },
+        {
+          "train_id": "lEeHFgvsn6wG8YGYCVUx",
+          "train_filename": "v102.jpg",
+          "cosine_similarity": 0.947313
+        }
+      ],
+      "top_cosine": 0.978558,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "DiNSDQBhYtmZBBYx92JU",
+      "filename": "pos_401.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "2ct5Jp59ACtQ0hbkUJxB",
+          "train_filename": "pos_440.jpg",
+          "cosine_similarity": 0.975313
+        },
+        {
+          "train_id": "7RDKxp46ntUeFg1ANU09",
+          "train_filename": "pos_653.jpg",
+          "cosine_similarity": 0.958527
+        },
+        {
+          "train_id": "77WAQEeaLT9wAxFMGzm3",
+          "train_filename": "pos_345.jpg",
+          "cosine_similarity": 0.937717
+        }
+      ],
+      "top_cosine": 0.975313,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "nDva2lsHrXl7UAgGq2Nx",
+      "filename": "h54.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "w9VxWK9GW7fmH4J6ATFo",
+          "train_filename": "h46.jpg",
+          "cosine_similarity": 0.974638
+        },
+        {
+          "train_id": "0oVmRAxL0SM1PWqZCNyM",
+          "train_filename": "h1.jpg",
+          "cosine_similarity": 0.949667
+        },
+        {
+          "train_id": "EDSDuokCx8gyug1gAruj",
+          "train_filename": "h53.jpg",
+          "cosine_similarity": 0.945635
+        }
+      ],
+      "top_cosine": 0.974638,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "XKxOHVSOitlv2lbJPtv7",
+      "filename": "v10.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "lGItUWeUToGtFQuK1VBj",
+          "train_filename": "v28.jpg",
+          "cosine_similarity": 0.974201
+        },
+        {
+          "train_id": "KnYaRNvLntDoIrN5bOuv",
+          "train_filename": "v104.jpg",
+          "cosine_similarity": 0.958857
+        },
+        {
+          "train_id": "1Qe6S9gSBl0XC953xl66",
+          "train_filename": "v26.jpg",
+          "cosine_similarity": 0.958783
+        }
+      ],
+      "top_cosine": 0.974201,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "RmZzo1PiJ1OCVI9ziOuW",
+      "filename": "v103.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "KnYaRNvLntDoIrN5bOuv",
+          "train_filename": "v104.jpg",
+          "cosine_similarity": 0.973859
+        },
+        {
+          "train_id": "lGItUWeUToGtFQuK1VBj",
+          "train_filename": "v28.jpg",
+          "cosine_similarity": 0.950954
+        },
+        {
+          "train_id": "z8MCkkavHo3FfRmud7N2",
+          "train_filename": "v91.jpg",
+          "cosine_similarity": 0.950526
+        }
+      ],
+      "top_cosine": 0.973859,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "pDFh3U4Tpa9rB1fYWGOQ",
+      "filename": "h38.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "DNfkZRQDetlemze06T6r",
+          "train_filename": "h36.jpg",
+          "cosine_similarity": 0.972941
+        },
+        {
+          "train_id": "y1pL7pvPcML2CbzYYqdy",
+          "train_filename": "h34.jpg",
+          "cosine_similarity": 0.972749
+        },
+        {
+          "train_id": "XfsXc3s44x1mDOEKdIrr",
+          "train_filename": "h18.jpg",
+          "cosine_similarity": 0.728676
+        }
+      ],
+      "top_cosine": 0.972941,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "A3hFGqTOFfC4VH2IA1Lt",
+      "filename": "------12-_png.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT",
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication",
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "w8Ja8qHQTcfvAnJ7VRbg",
+          "train_filename": "------12-_png.jpg",
+          "cosine_similarity": 0.972618
+        },
+        {
+          "train_id": "QUCawQ5BJE4HCvWLp8Oc",
+          "train_filename": "------3-_png.jpg",
+          "cosine_similarity": 0.783088
+        },
+        {
+          "train_id": "afFxqQE031r6JAGqv9RG",
+          "train_filename": "------3-_png.jpg",
+          "cosine_similarity": 0.774158
+        }
+      ],
+      "top_cosine": 0.972618,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "4NJYe4cbpEy8uCopUQq3",
+      "filename": "1000_F_685781687_mFglvrw8421PMRPg8UzaVLGbnBCiVsBk.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "OPDPeBipt6t4OLusdkc7",
+          "train_filename": "1000_F_685781708_okbs0gJJ2GhCdFIfJlmcNhndvhJoz8pn.jpg",
+          "cosine_similarity": 0.972596
+        },
+        {
+          "train_id": "HVWgUHtJnL2tj0wq0jyJ",
+          "train_filename": "ed064a002811ed39fd16d09a047575ab.jpg",
+          "cosine_similarity": 0.918597
+        },
+        {
+          "train_id": "ex1tdubnSujF9smD49S7",
+          "train_filename": "2562dc5b93649732e5269dac4cc767be.jpg",
+          "cosine_similarity": 0.821346
+        }
+      ],
+      "top_cosine": 0.972596,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "zs0ICbiboEbpAnE4v5ff",
+      "filename": "h47.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "EDSDuokCx8gyug1gAruj",
+          "train_filename": "h53.jpg",
+          "cosine_similarity": 0.970356
+        },
+        {
+          "train_id": "w9VxWK9GW7fmH4J6ATFo",
+          "train_filename": "h46.jpg",
+          "cosine_similarity": 0.94734
+        },
+        {
+          "train_id": "WM94zkY0UH0YQYfqi0Xy",
+          "train_filename": "h123.jpg",
+          "cosine_similarity": 0.945428
+        }
+      ],
+      "top_cosine": 0.970356,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "INAgeZi7bwiF5utRk97U",
+      "filename": "------6-_png.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT",
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication",
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "mUj7WmfxH9Vbb23nIdyi",
+          "train_filename": "------6-_png.jpg",
+          "cosine_similarity": 0.968764
+        },
+        {
+          "train_id": "fc9rTXZ3rZhszkAcr0xk",
+          "train_filename": "------9-_png.jpg",
+          "cosine_similarity": 0.728995
+        },
+        {
+          "train_id": "E4W2z0idMQY32u6A5qo8",
+          "train_filename": "------25-_png.jpg",
+          "cosine_similarity": 0.726619
+        }
+      ],
+      "top_cosine": 0.968764,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "Z1vJiJW0OnVZMlr0SIvJ",
+      "filename": "v19.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "lGItUWeUToGtFQuK1VBj",
+          "train_filename": "v28.jpg",
+          "cosine_similarity": 0.967865
+        },
+        {
+          "train_id": "KnYaRNvLntDoIrN5bOuv",
+          "train_filename": "v104.jpg",
+          "cosine_similarity": 0.96783
+        },
+        {
+          "train_id": "1Qe6S9gSBl0XC953xl66",
+          "train_filename": "v26.jpg",
+          "cosine_similarity": 0.961757
+        }
+      ],
+      "top_cosine": 0.967865,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "exRlvnSBoSB4EW71NGaf",
+      "filename": "87.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "oKrokq5e0WLBBB7relPM",
+          "train_filename": "93.jpg",
+          "cosine_similarity": 0.967592
+        },
+        {
+          "train_id": "UFjGsNFM4cNqviKNaMT9",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٧١٣.jpg",
+          "cosine_similarity": 0.879028
+        },
+        {
+          "train_id": "NLfu394BprkmhTuYM6T6",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٦٥٧.jpg",
+          "cosine_similarity": 0.838229
+        }
+      ],
+      "top_cosine": 0.967592,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "DvuTj6lOacAoKGpbzDTF",
+      "filename": "472863178_122158768826320679_4044938397851373251_n.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "AVkS5L1lYndBMr5TBHrm",
+          "train_filename": "472701427_122158768796320679_3383190418969739057_n.jpg",
+          "cosine_similarity": 0.966324
+        },
+        {
+          "train_id": "8hhnZRhrC1A9nPl87SCd",
+          "train_filename": "472831549_122158768382320679_6500912665895669453_n.jpg",
+          "cosine_similarity": 0.944893
+        },
+        {
+          "train_id": "9UXdJO3ZeCASK4w1XqDC",
+          "train_filename": "465168002_17866405350240088_5528047994975554599_n.jpg",
+          "cosine_similarity": 0.92571
+        }
+      ],
+      "top_cosine": 0.966324,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "SlMNfdbpvClsUZin1RcK",
+      "filename": "v150.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "RXPMol7W1P613i0j9iJz",
+          "train_filename": "v149.jpg",
+          "cosine_similarity": 0.965398
+        },
+        {
+          "train_id": "8vE1Ov0KTilzHRh7gtpq",
+          "train_filename": "v140.jpg",
+          "cosine_similarity": 0.873933
+        },
+        {
+          "train_id": "ks10Zg9NzO3ystW1YNm4",
+          "train_filename": "v45.jpg",
+          "cosine_similarity": 0.871199
+        }
+      ],
+      "top_cosine": 0.965398,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "7S5o6ul4Q1LlmNiVs4mC",
+      "filename": "v105.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "elAhEYrK2fTQcWn78ck6",
+          "train_filename": "v96.jpg",
+          "cosine_similarity": 0.965274
+        },
+        {
+          "train_id": "BOMWPS19XZGG9oC2pDcp",
+          "train_filename": "v34.jpg",
+          "cosine_similarity": 0.964832
+        },
+        {
+          "train_id": "sTqR9sIvkUI2NUiaBI0g",
+          "train_filename": "v111.jpg",
+          "cosine_similarity": 0.958521
+        }
+      ],
+      "top_cosine": 0.965274,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "QNy1J29vY62jBvRJLZcv",
+      "filename": "v95.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "Jdnwl2WNEp2b5jo4WA9h",
+          "train_filename": "v12.jpg",
+          "cosine_similarity": 0.963208
+        },
+        {
+          "train_id": "8PBwZuIpEZ7ByWQfBTBz",
+          "train_filename": "v38.jpg",
+          "cosine_similarity": 0.951653
+        },
+        {
+          "train_id": "783nS3Yp14VaNm3ACvfO",
+          "train_filename": "v147.jpg",
+          "cosine_similarity": 0.947072
+        }
+      ],
+      "top_cosine": 0.963208,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "028d8mXwFsIucPHX2qeu",
+      "filename": "v124.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "ol5tvzeJJtiq9Ng0oFqC",
+          "train_filename": "v125.jpg",
+          "cosine_similarity": 0.962995
+        },
+        {
+          "train_id": "sTqR9sIvkUI2NUiaBI0g",
+          "train_filename": "v111.jpg",
+          "cosine_similarity": 0.957528
+        },
+        {
+          "train_id": "xoveNHw2nBZsKBiMPSTY",
+          "train_filename": "v119.jpg",
+          "cosine_similarity": 0.952463
+        }
+      ],
+      "top_cosine": 0.962995,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "g4Mlhl0AUNtsmolYc1CW",
+      "filename": "76.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "M5eZeyBnh7ovew4nTpmL",
+          "train_filename": "77.jpg",
+          "cosine_similarity": 0.962123
+        },
+        {
+          "train_id": "I6cpLLn4d8TphLPneTKW",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٦_١٠٤٦٣٩.jpg",
+          "cosine_similarity": 0.889186
+        },
+        {
+          "train_id": "p9ZjvKMklaGbtnqtX4wy",
+          "train_filename": "29.jpg",
+          "cosine_similarity": 0.87913
+        }
+      ],
+      "top_cosine": 0.962123,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "grt6fZBL0Z050Ov9p2Do",
+      "filename": "20.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT",
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication",
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "AmiD6dzDEWAVUi9qNeFl",
+          "train_filename": "19.jpg",
+          "cosine_similarity": 0.96079
+        },
+        {
+          "train_id": "tNSSKsZy0JNvLupEHm38",
+          "train_filename": "17.jpg",
+          "cosine_similarity": 0.888609
+        },
+        {
+          "train_id": "mDxIDO2j07cui1WuAOLx",
+          "train_filename": "18.jpg",
+          "cosine_similarity": 0.878436
+        }
+      ],
+      "top_cosine": 0.96079,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "MK8ALewnMHJpsuyZRVdw",
+      "filename": "------6-_png.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT",
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication",
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "mUj7WmfxH9Vbb23nIdyi",
+          "train_filename": "------6-_png.jpg",
+          "cosine_similarity": 0.960427
+        },
+        {
+          "train_id": "FVpeAXQVbrRk6P7CAfzQ",
+          "train_filename": "------10-_png.jpg",
+          "cosine_similarity": 0.781035
+        },
+        {
+          "train_id": "0yWCgn5rjpjI1pL3bSot",
+          "train_filename": "------9-_png.jpg",
+          "cosine_similarity": 0.775
+        }
+      ],
+      "top_cosine": 0.960427,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "0Rdh8tDdfnRtMMldwpae",
+      "filename": "image_211.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "ZZVGcNOOZzsUbuoZSv29",
+          "train_filename": "image_1139.jpg",
+          "cosine_similarity": 0.958732
+        },
+        {
+          "train_id": "aGsg3qVGNgWw3QEcNRPN",
+          "train_filename": "image_879.jpg",
+          "cosine_similarity": 0.956552
+        },
+        {
+          "train_id": "aq4hvIHgXHSwet7BwdL1",
+          "train_filename": "depositphotos_389234016-stock-photo-african-american-black-w (1).jpg",
+          "cosine_similarity": 0.943718
+        }
+      ],
+      "top_cosine": 0.958732,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "5OA6x5qzw8YNcjg3UIn8",
+      "filename": "fridolin_23.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "bZPO37y1muF1nXry6S5D",
+          "train_filename": "fridolin_26.jpg",
+          "cosine_similarity": 0.958422
+        },
+        {
+          "train_id": "h4AUep9cPy95zPci7DYS",
+          "train_filename": "fridolin_25.jpg",
+          "cosine_similarity": 0.934361
+        },
+        {
+          "train_id": "VuUmGXKTK7ySCcYc8hwl",
+          "train_filename": "Sapi 7_mp4-41.jpg",
+          "cosine_similarity": 0.792774
+        }
+      ],
+      "top_cosine": 0.958422,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "N8u0Zsp2n92ZNzkimD3E",
+      "filename": "image_1181.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "ywR5eMsT7lFMqeKneoZD",
+          "train_filename": "image_240.jpg",
+          "cosine_similarity": 0.957937
+        },
+        {
+          "train_id": "cwc3fzFBL1c67M6fsDgL",
+          "train_filename": "image_601.jpg",
+          "cosine_similarity": 0.89165
+        },
+        {
+          "train_id": "gC9H7ffI1cRXaJD1LXrK",
+          "train_filename": "depositphotos_441840308-stock-photo-engineer-man-factory-wor (1).jpg",
+          "cosine_similarity": 0.886252
+        }
+      ],
+      "top_cosine": 0.957937,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "L4WkRdq9ugIFtq56Ey7P",
+      "filename": "h88.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "313qZ9KDJDD5lKNMfJxc",
+          "train_filename": "h86.jpg",
+          "cosine_similarity": 0.957756
+        },
+        {
+          "train_id": "Eh9VFbSTvNqehhhi9QcD",
+          "train_filename": "h76.jpg",
+          "cosine_similarity": 0.949024
+        },
+        {
+          "train_id": "osKgd19JvKgJgVk1EBg0",
+          "train_filename": "h62.jpg",
+          "cosine_similarity": 0.943602
+        }
+      ],
+      "top_cosine": 0.957756,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "96yr1HCv912RPimdtoqn",
+      "filename": "WhatsApp Image 2025-07-20 at 20.57.51_16abe53b.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "LERQiZjRNJwKC6Sv5cPR",
+          "train_filename": "WhatsApp Image 2025-07-20 at 20.57.52_56723d1e.jpg",
+          "cosine_similarity": 0.957742
+        },
+        {
+          "train_id": "GEQid2TCwH0CGrvHqdcX",
+          "train_filename": "WhatsApp Image 2025-07-20 at 20.57.50_d4cadcbd.jpg",
+          "cosine_similarity": 0.870431
+        },
+        {
+          "train_id": "kHVKmMkINvPDMpfCLfI2",
+          "train_filename": "WhatsApp Image 2025-07-20 at 20.59.55_48d4e175.jpg",
+          "cosine_similarity": 0.840999
+        }
+      ],
+      "top_cosine": 0.957742,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "dIJP9tp9QHrLMdpchwUL",
+      "filename": "465295247_17866405341240088_7567564164108343598_n.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "9UXdJO3ZeCASK4w1XqDC",
+          "train_filename": "465168002_17866405350240088_5528047994975554599_n.jpg",
+          "cosine_similarity": 0.957636
+        },
+        {
+          "train_id": "dpk5d78APaxucAsyejJb",
+          "train_filename": "464926200_17866405458240088_7581316147577840570_n.jpg",
+          "cosine_similarity": 0.942083
+        },
+        {
+          "train_id": "AVkS5L1lYndBMr5TBHrm",
+          "train_filename": "472701427_122158768796320679_3383190418969739057_n.jpg",
+          "cosine_similarity": 0.905458
+        }
+      ],
+      "top_cosine": 0.957636,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "JNRWoVUmVTR79J3dTolT",
+      "filename": "479193535_1047928954046060_85281726465115260_n.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "XYIgAEWmkpCiGzONrzhE",
+          "train_filename": "476736401_1047929380712684_4394812098043037929_n.jpg",
+          "cosine_similarity": 0.957261
+        },
+        {
+          "train_id": "EnFpCXHeMg35yxjat3ZW",
+          "train_filename": "484913055_653242120777870_4336597965699474162_n.jpg",
+          "cosine_similarity": 0.77631
+        },
+        {
+          "train_id": "I4uOTUPUhzD10iFZ4R0N",
+          "train_filename": "484050125_653242170777865_8190836360428790971_n.jpg",
+          "cosine_similarity": 0.766119
+        }
+      ],
+      "top_cosine": 0.957261,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "4qUaAqPNvHdehcPQFAEs",
+      "filename": "16.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT",
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication",
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "drGNMGlPp2niXYyy9PPE",
+          "train_filename": "19.jpg",
+          "cosine_similarity": 0.957081
+        },
+        {
+          "train_id": "lYhay939cr2RUmloFebu",
+          "train_filename": "5.jpg",
+          "cosine_similarity": 0.946424
+        },
+        {
+          "train_id": "hNOvu25rP9SRIycIiUl1",
+          "train_filename": "3.jpg",
+          "cosine_similarity": 0.927038
+        }
+      ],
+      "top_cosine": 0.957081,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "qXE1V6kfZzDEJSiGCaHO",
+      "filename": "h59.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "AhASrbxzht1yCGeHHLNR",
+          "train_filename": "h58.jpg",
+          "cosine_similarity": 0.955094
+        },
+        {
+          "train_id": "bfmxF6I6XjASurifNZM6",
+          "train_filename": "h121.jpg",
+          "cosine_similarity": 0.945248
+        },
+        {
+          "train_id": "ffRMJiqgs0zw9ymjqSd1",
+          "train_filename": "h81.jpg",
+          "cosine_similarity": 0.937405
+        }
+      ],
+      "top_cosine": 0.955094,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "WKCoIJwVj11D58a5fbTU",
+      "filename": "image_1126.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "GnTioQOO0mHodD1G6SF0",
+          "train_filename": "image_1119.jpg",
+          "cosine_similarity": 0.95473
+        },
+        {
+          "train_id": "aGsg3qVGNgWw3QEcNRPN",
+          "train_filename": "image_879.jpg",
+          "cosine_similarity": 0.954193
+        },
+        {
+          "train_id": "5d7toQTMGeuBepuqgPBL",
+          "train_filename": "image_957.jpg",
+          "cosine_similarity": 0.93956
+        }
+      ],
+      "top_cosine": 0.95473,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "dukvhiiZCSkdvnywuQKU",
+      "filename": "worker wearing mask_126.jpg",
+      "reasons": [
+        "EARLIER_SOURCE_FAMILY_REVIEW",
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Earlier family status unchanged",
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "nhXMHxaCM0f7kNLOKU8Z",
+          "train_filename": "image_719.jpg",
+          "cosine_similarity": 0.954229
+        },
+        {
+          "train_id": "jL21G4hxV4nqhu7btVvN",
+          "train_filename": "safety-glasses-on-the-job (1).jpg",
+          "cosine_similarity": 0.951272
+        },
+        {
+          "train_id": "oZ7uHdj03NdOmABa2vIU",
+          "train_filename": "safety-glasses-on-the-job.jpg",
+          "cosine_similarity": 0.948661
+        }
+      ],
+      "top_cosine": 0.954229,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "lIFiZTHPZ5zS1g65qQVy",
+      "filename": "h65.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "H27MMKSHNuXWIsnryecM",
+          "train_filename": "h75.jpg",
+          "cosine_similarity": 0.95404
+        },
+        {
+          "train_id": "Eh9VFbSTvNqehhhi9QcD",
+          "train_filename": "h76.jpg",
+          "cosine_similarity": 0.949077
+        },
+        {
+          "train_id": "6HaMFaE7JmuU5hvbBuA7",
+          "train_filename": "h77.jpg",
+          "cosine_similarity": 0.940151
+        }
+      ],
+      "top_cosine": 0.95404,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "KyVAIRsbyvwqi0NdShr1",
+      "filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٨٢٠.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "6VoOPkvjtr3SefLzUwD3",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٨١٩.jpg",
+          "cosine_similarity": 0.953827
+        },
+        {
+          "train_id": "nj1KT1mWVrASfkYCF7JN",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٦٠٨.jpg",
+          "cosine_similarity": 0.89263
+        },
+        {
+          "train_id": "0y0zgpG864yblyOCr4wX",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٧٥٥.jpg",
+          "cosine_similarity": 0.872815
+        }
+      ],
+      "top_cosine": 0.953827,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "OiDzGcb60GRmhSHB7QR7",
+      "filename": "image_976.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "ZZVGcNOOZzsUbuoZSv29",
+          "train_filename": "image_1139.jpg",
+          "cosine_similarity": 0.953491
+        },
+        {
+          "train_id": "ENLLJDhiIanpUYvOuqVm",
+          "train_filename": "image_1168.jpg",
+          "cosine_similarity": 0.950328
+        },
+        {
+          "train_id": "l7n0Zu329XMc8LQ6w0mS",
+          "train_filename": "image_929.jpg",
+          "cosine_similarity": 0.942837
+        }
+      ],
+      "top_cosine": 0.953491,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "fZp2tDa18uGI4kSV6jPc",
+      "filename": "image_614.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "60xIMkvQ3xbYpxIaVxOW",
+          "train_filename": "image_743.jpg",
+          "cosine_similarity": 0.953087
+        },
+        {
+          "train_id": "lqbP9UoiAwtyQs1YNmmc",
+          "train_filename": "worker-wearing-safety-glasses-on-site.jpg",
+          "cosine_similarity": 0.940645
+        },
+        {
+          "train_id": "KKvyp8dc13XQFz5SFxge",
+          "train_filename": "image_1125.jpg",
+          "cosine_similarity": 0.929324
+        }
+      ],
+      "top_cosine": 0.953087,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "ubLbRgeuCP4HZDTLcf2m",
+      "filename": "h31.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "JMjsrkO5sAl7xPeEQEMg",
+          "train_filename": "h13.jpg",
+          "cosine_similarity": 0.953005
+        },
+        {
+          "train_id": "Pya04Mhgq8sozLPEm3DL",
+          "train_filename": "h78.jpg",
+          "cosine_similarity": 0.936046
+        },
+        {
+          "train_id": "7sNIIsyrMKkq7IoTuohP",
+          "train_filename": "h97.jpg",
+          "cosine_similarity": 0.934544
+        }
+      ],
+      "top_cosine": 0.953005,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "K70fvBHIEQzJNbPcAIzP",
+      "filename": "h105.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "0oVmRAxL0SM1PWqZCNyM",
+          "train_filename": "h1.jpg",
+          "cosine_similarity": 0.952787
+        },
+        {
+          "train_id": "WM94zkY0UH0YQYfqi0Xy",
+          "train_filename": "h123.jpg",
+          "cosine_similarity": 0.932763
+        },
+        {
+          "train_id": "kz6B65GQNv9vGAqVAkdU",
+          "train_filename": "h93.jpg",
+          "cosine_similarity": 0.925598
+        }
+      ],
+      "top_cosine": 0.952787,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "G5zUHo68mLr7ZdqFSLgT",
+      "filename": "image_314.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "J8ZfFxuhXVU3H30MjAEp",
+          "train_filename": "gettyimages-173233703-612x612.jpg",
+          "cosine_similarity": 0.952489
+        },
+        {
+          "train_id": "Q7K6A44y2KRBI8bryphq",
+          "train_filename": "asian-man-in-a-yellow-safety-vest-and-a-yellow-hard-hat-he-is-wearing-glasses-and-has-a-serious-look-on-his-face-photo.jpg",
+          "cosine_similarity": 0.943763
+        },
+        {
+          "train_id": "Cf0DaVAU3cDwyGgBNME0",
+          "train_filename": "image_1209.jpg",
+          "cosine_similarity": 0.938536
+        }
+      ],
+      "top_cosine": 0.952489,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "0ZAYPJY0224XQrog3p1b",
+      "filename": "image_973.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "5d7toQTMGeuBepuqgPBL",
+          "train_filename": "image_957.jpg",
+          "cosine_similarity": 0.952203
+        },
+        {
+          "train_id": "ENLLJDhiIanpUYvOuqVm",
+          "train_filename": "image_1168.jpg",
+          "cosine_similarity": 0.908252
+        },
+        {
+          "train_id": "aq4hvIHgXHSwet7BwdL1",
+          "train_filename": "depositphotos_389234016-stock-photo-african-american-black-w (1).jpg",
+          "cosine_similarity": 0.904582
+        }
+      ],
+      "top_cosine": 0.952203,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "IrPWl2Q6jzcr9VOhOeHl",
+      "filename": "image_756.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "6K1cDKbWRzFFWsAkpOWk",
+          "train_filename": "image_693.jpg",
+          "cosine_similarity": 0.951175
+        },
+        {
+          "train_id": "l7n0Zu329XMc8LQ6w0mS",
+          "train_filename": "image_929.jpg",
+          "cosine_similarity": 0.945805
+        },
+        {
+          "train_id": "5XpLasxvrjz1Bga52aNN",
+          "train_filename": "image_802.jpg",
+          "cosine_similarity": 0.943528
+        }
+      ],
+      "top_cosine": 0.951175,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "m14RxytKhBsUC15KDuTb",
+      "filename": "image_731.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "AoYOVVKiYseesaZfNuQ4",
+          "train_filename": "ppe_0217.jpg",
+          "cosine_similarity": 0.950935
+        },
+        {
+          "train_id": "0jRe8fpRDE5fLgAJrYvT",
+          "train_filename": "image_604.jpg",
+          "cosine_similarity": 0.950524
+        },
+        {
+          "train_id": "QWkMw2dF8HqvycdLFMDW",
+          "train_filename": "image_628.jpg",
+          "cosine_similarity": 0.948061
+        }
+      ],
+      "top_cosine": 0.950935,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "QfLc2HInt6JqXiO8TaeJ",
+      "filename": "h84.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "313qZ9KDJDD5lKNMfJxc",
+          "train_filename": "h86.jpg",
+          "cosine_similarity": 0.95082
+        },
+        {
+          "train_id": "osKgd19JvKgJgVk1EBg0",
+          "train_filename": "h62.jpg",
+          "cosine_similarity": 0.946273
+        },
+        {
+          "train_id": "Eh9VFbSTvNqehhhi9QcD",
+          "train_filename": "h76.jpg",
+          "cosine_similarity": 0.943841
+        }
+      ],
+      "top_cosine": 0.95082,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "jtg9ROXWnr8NXbweC4Uc",
+      "filename": "h98.jpg",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "notes": [
+        "Cosine is descriptive; requires original-byte/pixel comparison and visual review"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "Pya04Mhgq8sozLPEm3DL",
+          "train_filename": "h78.jpg",
+          "cosine_similarity": 0.95056
+        },
+        {
+          "train_id": "RhnvHK6SPTxa7PI6jTSf",
+          "train_filename": "h124.jpg",
+          "cosine_similarity": 0.933253
+        },
+        {
+          "train_id": "lHbUeAvgT98Bb2Cl8hc0",
+          "train_filename": "h131.jpg",
+          "cosine_similarity": 0.926138
+        }
+      ],
+      "top_cosine": 0.95056,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "9IvmwwwxtY5HU002GUzj",
+      "filename": "7.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "lYhay939cr2RUmloFebu",
+          "train_filename": "5.jpg",
+          "cosine_similarity": 0.949699
+        },
+        {
+          "train_id": "URnKrkFBfG2oasN6NjbS",
+          "train_filename": "20.jpg",
+          "cosine_similarity": 0.925695
+        },
+        {
+          "train_id": "ficbodpWZGENzWUkj1qR",
+          "train_filename": "18.jpg",
+          "cosine_similarity": 0.916814
+        }
+      ],
+      "top_cosine": 0.949699,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "0OQKf9ctc8nFLUzxlrSy",
+      "filename": "15.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "lYhay939cr2RUmloFebu",
+          "train_filename": "5.jpg",
+          "cosine_similarity": 0.947761
+        },
+        {
+          "train_id": "URnKrkFBfG2oasN6NjbS",
+          "train_filename": "20.jpg",
+          "cosine_similarity": 0.932743
+        },
+        {
+          "train_id": "hNOvu25rP9SRIycIiUl1",
+          "train_filename": "3.jpg",
+          "cosine_similarity": 0.912492
+        }
+      ],
+      "top_cosine": 0.947761,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "u4obYScAA7jJeukqnfO3",
+      "filename": "SharedScreenshot.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "GhQDenRJpLT58Z9yV7tD",
+          "train_filename": "h91.jpg",
+          "cosine_similarity": 0.942937
+        },
+        {
+          "train_id": "XrCVvBw9xgDGlkCSmUey",
+          "train_filename": "h141.jpg",
+          "cosine_similarity": 0.936588
+        },
+        {
+          "train_id": "HURG50egdVo8yZ0vbx9y",
+          "train_filename": "h57.jpg",
+          "cosine_similarity": 0.934292
+        }
+      ],
+      "top_cosine": 0.942937,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "sWmx8VYmhH5UuDTeko0d",
+      "filename": "images (3).jpeg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "URZSNn6LPIktR9XOWn1c",
+          "train_filename": "images.jpeg",
+          "cosine_similarity": 0.937117
+        },
+        {
+          "train_id": "eCDDqEmBKPO11SsxxmyS",
+          "train_filename": "18.jpg",
+          "cosine_similarity": 0.923683
+        },
+        {
+          "train_id": "oInVxou9q6mAbnO81QzH",
+          "train_filename": "imagem22.jpg",
+          "cosine_similarity": 0.907972
+        }
+      ],
+      "top_cosine": 0.937117,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "cn4ImFhCWXyO3WBAyu7j",
+      "filename": "------8-_png.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "nVdlialtyiAhj97P0Mg6",
+          "train_filename": "------8-_png.jpg",
+          "cosine_similarity": 0.935134
+        },
+        {
+          "train_id": "RL8OVshaBWL1hfYvc242",
+          "train_filename": "------8-_png.jpg",
+          "cosine_similarity": 0.910011
+        },
+        {
+          "train_id": "59hUst2yJIqKw7QDkUzb",
+          "train_filename": "images--25-_png.jpg",
+          "cosine_similarity": 0.783699
+        }
+      ],
+      "top_cosine": 0.935134,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "Vzd1KT4LA95UXpZTvfz7",
+      "filename": "4.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "URZSNn6LPIktR9XOWn1c",
+          "train_filename": "images.jpeg",
+          "cosine_similarity": 0.933135
+        },
+        {
+          "train_id": "eCDDqEmBKPO11SsxxmyS",
+          "train_filename": "18.jpg",
+          "cosine_similarity": 0.911957
+        },
+        {
+          "train_id": "ByfNJFqxMUKKuMKCT39g",
+          "train_filename": "images286.jpg",
+          "cosine_similarity": 0.908643
+        }
+      ],
+      "top_cosine": 0.933135,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "XJRWtr2NdjyL0g01ziUa",
+      "filename": "13.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "QWkMw2dF8HqvycdLFMDW",
+          "train_filename": "image_628.jpg",
+          "cosine_similarity": 0.931907
+        },
+        {
+          "train_id": "0jRe8fpRDE5fLgAJrYvT",
+          "train_filename": "image_604.jpg",
+          "cosine_similarity": 0.925167
+        },
+        {
+          "train_id": "BfUt6VmYBL4k0kbyAbGD",
+          "train_filename": "image_616.jpg",
+          "cosine_similarity": 0.910871
+        }
+      ],
+      "top_cosine": 0.931907,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "8vSmsE12nbGWDvQcJmuV",
+      "filename": "28.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "2tqzWv5JMP6bou0Ik6YM",
+          "train_filename": "8.jpg",
+          "cosine_similarity": 0.924273
+        },
+        {
+          "train_id": "1THjUSwluUstrfHm9gyT",
+          "train_filename": "111.jpg",
+          "cosine_similarity": 0.885699
+        },
+        {
+          "train_id": "xJYuONMitXouj4EKtMys",
+          "train_filename": "9.jpg",
+          "cosine_similarity": 0.85811
+        }
+      ],
+      "top_cosine": 0.924273,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "niaVhug0tFUWAmznBDk3",
+      "filename": "117.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "aQUZFEK4DzS2frvqckwY",
+          "train_filename": "115.jpg",
+          "cosine_similarity": 0.910005
+        },
+        {
+          "train_id": "dYSr8LxbFUmIc1ezvJgI",
+          "train_filename": "97.jpg",
+          "cosine_similarity": 0.856726
+        },
+        {
+          "train_id": "K7nbvTdFvXgRLBJK8RbG",
+          "train_filename": "89.jpg",
+          "cosine_similarity": 0.844561
+        }
+      ],
+      "top_cosine": 0.910005,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "mWViytcS98MF0NMfA3YL",
+      "filename": "32.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "EH5RfpG8BRk9akzt16D0",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٧_١٦١٢٣٦.jpg",
+          "cosine_similarity": 0.902122
+        },
+        {
+          "train_id": "HUw5Y4sg0RUhRPQmrx8w",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٥٤٠٨.jpg",
+          "cosine_similarity": 0.879658
+        },
+        {
+          "train_id": "V5Zel6JgdvR3ikc1lD49",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٧_١٥٣٣١٦.jpg",
+          "cosine_similarity": 0.871269
+        }
+      ],
+      "top_cosine": 0.902122,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "zkd5gzF2HP1Wij8jGOwq",
+      "filename": "1.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "3tzZq9kGldIIDz7bMmLH",
+          "train_filename": "38.jpg",
+          "cosine_similarity": 0.889801
+        },
+        {
+          "train_id": "MKLP5JNqOgK5hWQ9i6jl",
+          "train_filename": "٢٠٢٤١١١١_١٦٥٦٠٨.jpg",
+          "cosine_similarity": 0.876365
+        },
+        {
+          "train_id": "oKrokq5e0WLBBB7relPM",
+          "train_filename": "93.jpg",
+          "cosine_similarity": 0.872042
+        }
+      ],
+      "top_cosine": 0.889801,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "Oidvc0OwfogM8X5uenr1",
+      "filename": "33.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "4MLx3SSpMaKCmZPAEgwN",
+          "train_filename": "10.jpg",
+          "cosine_similarity": 0.888665
+        },
+        {
+          "train_id": "dsJW5VbvRgGlCtHrprsO",
+          "train_filename": "safety gloves (58).jpg",
+          "cosine_similarity": 0.876215
+        },
+        {
+          "train_id": "hs7geMAh8o7nSOJAfXXD",
+          "train_filename": "worker wearing mask_337.jpg",
+          "cosine_similarity": 0.860781
+        }
+      ],
+      "top_cosine": 0.888665,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "zmrQYc8xjmXZkSlVinnc",
+      "filename": "3.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "IbhrkpfcoubnCaFiz534",
+          "train_filename": "safety gloves (54).jpg",
+          "cosine_similarity": 0.875776
+        },
+        {
+          "train_id": "Q1aChGDlQeqzBHmyBGch",
+          "train_filename": "1.jpg",
+          "cosine_similarity": 0.865934
+        },
+        {
+          "train_id": "3ZfxYNGRV0hEntNBvjNr",
+          "train_filename": "45.jpg",
+          "cosine_similarity": 0.848898
+        }
+      ],
+      "top_cosine": 0.875776,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "3nktU2FTbb9n1i0JPKgv",
+      "filename": "images (1).jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "3JQVFTo9UAKud4yGOzPi",
+          "train_filename": "images (6).jpg",
+          "cosine_similarity": 0.848307
+        },
+        {
+          "train_id": "ZBzLmCTrKe2zOkr76Odu",
+          "train_filename": "images30.jpg",
+          "cosine_similarity": 0.830277
+        },
+        {
+          "train_id": "9DUY4eYln2207ucEJkD4",
+          "train_filename": "image20.jpeg",
+          "cosine_similarity": 0.828517
+        }
+      ],
+      "top_cosine": 0.848307,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "M8aUyy2y7nq6zd6drpiD",
+      "filename": "38.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "dsJW5VbvRgGlCtHrprsO",
+          "train_filename": "safety gloves (58).jpg",
+          "cosine_similarity": 0.8298
+        },
+        {
+          "train_id": "u3qMAGp0zJAduQFHrBCa",
+          "train_filename": "16.jpg",
+          "cosine_similarity": 0.82003
+        },
+        {
+          "train_id": "PbO3Ui2FCNFKPbYVu1bI",
+          "train_filename": "image_685.jpg",
+          "cosine_similarity": 0.811676
+        }
+      ],
+      "top_cosine": 0.8298,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "1jh0KCPlEeh4XAxhKMlV",
+      "filename": "46.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "3ZfxYNGRV0hEntNBvjNr",
+          "train_filename": "45.jpg",
+          "cosine_similarity": 0.821177
+        },
+        {
+          "train_id": "Q1aChGDlQeqzBHmyBGch",
+          "train_filename": "1.jpg",
+          "cosine_similarity": 0.818446
+        },
+        {
+          "train_id": "3mGHDMjiQFzNrS0YuIzY",
+          "train_filename": "47.jpg",
+          "cosine_similarity": 0.81092
+        }
+      ],
+      "top_cosine": 0.821177,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "oARsYq6ZQOePA7eXP1tf",
+      "filename": "29.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "u3qMAGp0zJAduQFHrBCa",
+          "train_filename": "16.jpg",
+          "cosine_similarity": 0.784442
+        },
+        {
+          "train_id": "q2NaKe2sFq3Nt0xfvgiS",
+          "train_filename": "3b9ca62193910138f76d8fa1f211b742.jpg",
+          "cosine_similarity": 0.75589
+        },
+        {
+          "train_id": "LhYBXqs4HUcWS8Rm5R1z",
+          "train_filename": "safety gloves (19).jpg",
+          "cosine_similarity": 0.750943
+        }
+      ],
+      "top_cosine": 0.784442,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "sH4qWaeDYOnVFkAJ8bnA",
+      "filename": "images (1).jpeg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "zc3mhWLr3t26c2bJN4S2",
+          "train_filename": "ef6dcca67dbbdf6e3b539a8d69007df2.jpg",
+          "cosine_similarity": 0.77729
+        },
+        {
+          "train_id": "W5ecAQ3Rq8R5DFvvj34k",
+          "train_filename": "474391720_122160846680320679_3087905056801293665_n.jpg",
+          "cosine_similarity": 0.77463
+        },
+        {
+          "train_id": "3g0y0IgtET76VrLkKlsr",
+          "train_filename": "DdBxob0XkAAkUfr.jpg",
+          "cosine_similarity": 0.772075
+        }
+      ],
+      "top_cosine": 0.77729,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "6HCuk7UuhOQH5pSi9IBX",
+      "filename": "images.jpeg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "VVNGZmV3Kpkv51dREgU8",
+          "train_filename": "chiens-rabat.jpg",
+          "cosine_similarity": 0.767049
+        },
+        {
+          "train_id": "dEIWi5t1OivYV2QM7HRM",
+          "train_filename": "下載 (3).jpg",
+          "cosine_similarity": 0.748409
+        },
+        {
+          "train_id": "H8k552xX7W8OavJcEf95",
+          "train_filename": "d557fc6d0cf38eb0.jpg",
+          "cosine_similarity": 0.746178
+        }
+      ],
+      "top_cosine": 0.767049,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "Z3JHl90dYb7Q40EZP5Nc",
+      "filename": "28cd0b218f78403a904309a7bfdfb303.jpg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "Cvh5UIGM4gTaPhriIh4Y",
+          "train_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+          "cosine_similarity": 0.76008
+        },
+        {
+          "train_id": "NAzs8sLreuFWQeOYDa2w",
+          "train_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+          "cosine_similarity": 0.742237
+        },
+        {
+          "train_id": "gnbAKN1ga4t7AIXYrZPQ",
+          "train_filename": "9e0af5a2364f4e34bd44e030716d2840.jpg",
+          "cosine_similarity": 0.735852
+        }
+      ],
+      "top_cosine": 0.76008,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "VGgO7pgrSLIT34s08k5H",
+      "filename": "images (1).jpeg",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "notes": [
+        "Filename match is not evidence of image duplication"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "Y5x5U1rz5oiAxogFDDch",
+          "train_filename": "d06b6191e92390efc938ab243e61212b.jpg",
+          "cosine_similarity": 0.714412
+        },
+        {
+          "train_id": "l5CxwGqk5oaIzn3LYPdq",
+          "train_filename": "images (1).jpeg",
+          "cosine_similarity": 0.710145
+        },
+        {
+          "train_id": "qNgfHjtB0GNa89yvmOmI",
+          "train_filename": "stock-photo-taiz-yemen-feb-a-sad-child-searches-for-water-in-the-camps-for-the-displaced-from-the-2465233049.jpg",
+          "cosine_similarity": 0.703716
+        }
+      ],
+      "top_cosine": 0.714412,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "0bPA0Np3dQTf1XlXEAye",
+      "filename": "worker wearing mask_322.jpg",
+      "reasons": [
+        "EARLIER_SOURCE_FAMILY_REVIEW"
+      ],
+      "notes": [
+        "Earlier family status unchanged"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "hnv5r5zAvrgjfxTQOsq2",
+          "train_filename": "image_252.jpg",
+          "cosine_similarity": 0.911948
+        },
+        {
+          "train_id": "ENLLJDhiIanpUYvOuqVm",
+          "train_filename": "image_1168.jpg",
+          "cosine_similarity": 0.903042
+        },
+        {
+          "train_id": "mBvKWu1BsI3yXFBNRQDd",
+          "train_filename": "image_972.jpg",
+          "cosine_similarity": 0.897585
+        }
+      ],
+      "top_cosine": 0.911948,
+      "review_priority": "P4_REVIEW_FAMILY",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    },
+    {
+      "valid_id": "MBS44fI30lt9yp8ytc90",
+      "filename": "worker wearing mask_368.jpg",
+      "reasons": [
+        "EARLIER_SOURCE_FAMILY_REVIEW"
+      ],
+      "notes": [
+        "Earlier family status unchanged"
+      ],
+      "prior_source_hold": false,
+      "best_train_neighbors": [
+        {
+          "train_id": "OgkLI55Y2FCpvvOAMxzz",
+          "train_filename": "image_782.jpg",
+          "cosine_similarity": 0.894676
+        },
+        {
+          "train_id": "BztjXmJLpvPC6pnJORLP",
+          "train_filename": "worker wearing mask_464.jpg",
+          "cosine_similarity": 0.889294
+        },
+        {
+          "train_id": "nhXMHxaCM0f7kNLOKU8Z",
+          "train_filename": "image_719.jpg",
+          "cosine_similarity": 0.887485
+        }
+      ],
+      "top_cosine": 0.894676,
+      "review_priority": "P4_REVIEW_FAMILY",
+      "proposed_pixel_outcome": "NOT_TESTED_ORIGINAL_BYTES_UNAVAILABLE",
+      "human_source_verdict": "NOT_ADJUDICATED_IN_THIS_PASS",
+      "eligibility_change_authorized": false
+    }
+  ],
+  "scoring_ready": false,
+  "original_source_bytes_acquired": false,
+  "test_inspected": false,
+  "roboflow_dataset_modified": false
+}
