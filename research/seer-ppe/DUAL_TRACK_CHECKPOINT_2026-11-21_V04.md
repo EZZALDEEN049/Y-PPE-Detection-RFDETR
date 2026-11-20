@@ -26,7 +26,11 @@ The live Eval Dataset `9c2679df-f2b9-4e25-b88d-9c6ac9033a95` still has four inco
 
 All earlier wearer-owner UNKNOWN decisions, C shoe-marker semantic uncertainty, and site/task `POLICY_UNKNOWN` remain untouched.
 
-## 4. Limits and next gate
+## 4. Source-integrity tool path hardening (engineering only)
+
+Updated [`tools/source_pixel_hash_audit.py`](tools/source_pixel_hash_audit.py) at [commit `7d8aece`](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/commit/7d8aece4516c7896da5f0f20aa22fd0a4c988752) to fail closed on unsafe Source IDs, cross-split explicit paths (including Test), symlink traversal and mistaken original-asset path mapping. Added synthetic negative tests. **The new self-tests were written but have not been executed in this continuation; remote CI passing status is unverified.** This hardens the audit program; it does NOT mean any of the 2,093 original images have been hashed.
+
+## 5. Limits and next gate
 
 - **Original image bytes were not obtained.** No actual raw SHA-256, decoded RGB SHA-256 or dHash was computed here; the complete 2,093-Source audit is still blocked. An attempted direct download did not supply original bytes in the available environment.
 - Seven fresh single-image AI analyses in this continuation (six pair members + Case D) were **triage, not human reference decisions**.
