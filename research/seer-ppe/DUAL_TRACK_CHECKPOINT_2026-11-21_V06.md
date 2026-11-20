@@ -26,3 +26,7 @@ The primary paper [`MANUSCRIPT_MASTER.md`](MANUSCRIPT_MASTER.md) now includes **
 **Next execution gates:** human side-by-side source-family decisions and evidence; four B cells and D signoff; full reference completeness and task policy; then independently eligible evaluation partition and genuinely measured SEER baselines. `scoring_ready=false`.
 
 [Source integrity #17](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/issues/17) · [Human Person–PPE #18](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/issues/18).
+
+## Remote V06 CI gate verified
+
+The original 2,093-source run and the newly added fail-closed 99-Valid queue validator have **both been verified from actual GitHub Actions jobs/log markers**: [source audit run 44834307184](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44834307184) and [V06 source review gate run 44836037577](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44836037577). See [complete CI evidence](GITHUB_ACTIONS_V06_VERIFIED_2026-11-21_V01.md). Passing is an engineering/reproducibility gate, not scientific scoring authorization.
