@@ -145,14 +145,14 @@
     "model_retrained": false,
     "splits_changed": false,
     "test_images_accessed": 0,
-    "github_actions_run_verified": false,
+    "github_actions_run_verified": true,
     "scoring_ready": false
   },
   "unresolved": [
     "Original Source bytes for 2093 Train/Valid remain unavailable to this session for complete pixel hash audit",
     "Human source-family adjudication and rights/source review remain open",
     "Human signoff of four B missing cells and D no-person control, plus full case completeness/policies, remains open",
-    "Remote GitHub Actions execution not verified"
+    "GitHub CI synthetic engineering gates passed; not a substitute for original-byte audits or curator signoff"
   ],
   "engineering": {
     "source_audit_script": "tools/source_pixel_hash_audit.py",
@@ -165,7 +165,24 @@
       "Add synthetic negative self-tests for malformed ID, cross-split and symlink paths"
     ],
     "self_tests_added": true,
-    "self_tests_executed_in_this_continuation": false,
-    "remote_github_actions_verified": false
+    "self_tests_executed_in_this_continuation": true,
+    "remote_github_actions_verified": true,
+    "remote_ci": {
+      "source_gate_run_id": 44830713403,
+      "source_gate_job_id": 136614664442,
+      "unit_tests_run_id": 44830713411,
+      "unit_tests_job_id": 136614663555,
+      "code_commit": "7d8aece4516c7896da5f0f20aa22fd0a4c988752",
+      "source_gate_conclusion": "success",
+      "unit_tests_conclusion": "success",
+      "log_markers": [
+        "SOURCE_INTEGRITY_READINESS_GATE_SELF_TEST_PASS",
+        "CURRENT_SOURCE_INTEGRITY_GATE_FAIL_CLOSED_PASS",
+        "SOURCE_PIXEL_HASH_AUDIT_SELF_TEST_PASS",
+        "TWO_TRACK_SAVED_EVIDENCE_FAIL_CLOSED_PASS"
+      ],
+      "is_original_2093_byte_run": false,
+      "evidence_file": "GITHUB_ACTIONS_V04_VERIFIED_2026-11-21_V01.md"
+    }
   }
 }
