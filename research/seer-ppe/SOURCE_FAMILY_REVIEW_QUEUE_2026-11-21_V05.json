@@ -59,7 +59,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "PREEXISTING_RESEARCH_HOLD",
       "may_change_roboflow_splits": false
     },
     {
@@ -99,7 +99,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "PREEXISTING_RESEARCH_HOLD",
       "may_change_roboflow_splits": false
     },
     {
@@ -140,7 +140,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "PREEXISTING_RESEARCH_HOLD",
       "may_change_roboflow_splits": false
     },
     {
@@ -180,7 +180,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "PREEXISTING_RESEARCH_HOLD",
       "may_change_roboflow_splits": false
     },
     {
@@ -220,7 +220,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "PREEXISTING_RESEARCH_HOLD",
       "may_change_roboflow_splits": false
     },
     {
@@ -260,7 +260,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -301,7 +301,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -341,7 +341,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -381,7 +381,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -421,7 +421,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -461,7 +461,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -507,7 +507,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -553,7 +553,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -599,7 +599,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -639,7 +639,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -679,7 +679,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -719,7 +719,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -759,7 +759,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -799,7 +799,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -840,7 +840,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -880,7 +880,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -920,7 +920,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -961,7 +961,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1001,7 +1001,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1041,7 +1041,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1081,7 +1081,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1121,7 +1121,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1161,7 +1161,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1201,7 +1201,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1241,7 +1241,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1281,7 +1281,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1322,7 +1322,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1363,7 +1363,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1403,7 +1403,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1443,7 +1443,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1483,7 +1483,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1523,7 +1523,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1563,7 +1563,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1603,7 +1603,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1643,7 +1643,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1684,7 +1684,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1724,7 +1724,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1764,7 +1764,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1805,7 +1805,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1845,7 +1845,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1885,7 +1885,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1925,7 +1925,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -1965,7 +1965,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2005,7 +2005,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2045,7 +2045,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2085,7 +2085,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2125,7 +2125,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2165,7 +2165,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2205,7 +2205,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2245,7 +2245,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2285,7 +2285,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2325,7 +2325,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2365,7 +2365,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2405,7 +2405,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2445,7 +2445,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2485,7 +2485,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2525,7 +2525,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2565,7 +2565,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2605,7 +2605,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2645,7 +2645,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2685,7 +2685,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2725,7 +2725,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2765,7 +2765,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2805,7 +2805,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2845,7 +2845,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2885,7 +2885,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2925,7 +2925,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -2965,7 +2965,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -3005,7 +3005,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -3045,7 +3045,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -3085,7 +3085,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -3125,7 +3125,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -3165,7 +3165,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -3205,7 +3205,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -3245,7 +3245,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -3285,7 +3285,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -3325,7 +3325,7 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     },
     {
@@ -3365,11 +3365,12 @@
       "acquisition_site_id": null,
       "basis_document": null,
       "human_signoff": "PENDING",
-      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "valid_eligibility": "UNDETERMINED_REVIEW_REQUIRED",
       "may_change_roboflow_splits": false
     }
   ],
   "original_dataset_mutated": false,
   "test_images_accessed": false,
-  "scoring_ready": false
+  "scoring_ready": false,
+  "explanation": "Review-required is not a new research hold; five previous held Valid IDs remain the only specifically held IDs."
 }
