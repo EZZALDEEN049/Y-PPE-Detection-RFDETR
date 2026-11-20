@@ -1,0 +1,3375 @@
+{
+  "schema_version": "seer-ppe/source-family-curator-queue/v0.5",
+  "date": "2026-11-21",
+  "source_manifest": "SOURCE_ID_MANIFEST_TRAIN_VALID_2026-11-19_V01.json",
+  "triage_input": "UNIFIED_TRAIN_VALID_TRIAGE_2026-11-21_V02.json",
+  "pixel_input": "SOURCE_ORIGINAL_PIXEL_PILOT_2026-11-21_V01.json",
+  "scope": "83_VALID_IDS_FOR_HUMAN_SOURCE_FAMILY_ADJUDICATION_NO_TEST",
+  "total_valid_review_ids": 83,
+  "prior_held_valid_ids": 5,
+  "pilot_original_byte_pairs_available": 3,
+  "human_decisions_newly_created": 0,
+  "classification_options": [
+    "SAME_IMAGE_EXACT_BYTES",
+    "SAME_RGB_PIXELS_DIFFERENT_BYTES",
+    "DERIVATIVE_SAME_ORIGINAL_ASSET",
+    "SHARED_SESSION_OR_SITE",
+    "SAME_PRODUCT_DIFFERENT_PHOTOGRAPH",
+    "INDEPENDENT_ACQUISITION_EVIDENCED",
+    "UNCERTAIN"
+  ],
+  "rule": "No candidate may be automatically cleared or held for scientific evaluation based on filenames, embedding cosine, dHash or different pixel arrays alone.",
+  "review_queue": [
+    {
+      "queue_position": 1,
+      "valid_source_id": "qBtfzUgi6Mpg3A5TE0ln",
+      "valid_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+      "prior_hold": true,
+      "review_priority": "P0_KEEP_EXISTING_HOLD",
+      "reasons": [
+        "HIGH_VISUAL_SHARED_SCENE_OR_DERIVATIVE",
+        "EXACT_FILENAME_CROSS_SPLIT",
+        "EMBEDDING_GE_0_98"
+      ],
+      "nearest_train_id": "NAzs8sLreuFWQeOYDa2w",
+      "nearest_train_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+      "nearest_train_cosine": 0.980171,
+      "top_three_train_candidates": [
+        {
+          "train_id": "NAzs8sLreuFWQeOYDa2w",
+          "train_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+          "cosine_similarity": 0.980171
+        },
+        {
+          "train_id": "gnbAKN1ga4t7AIXYrZPQ",
+          "train_filename": "9e0af5a2364f4e34bd44e030716d2840.jpg",
+          "cosine_similarity": 0.76238
+        },
+        {
+          "train_id": "83RJ7YNPo3wWJZFGw3Ah",
+          "train_filename": "6818bc47bfb64c1aab652e80a2a2a8b8.jpg",
+          "cosine_similarity": 0.741217
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 2,
+      "valid_source_id": "0De0PEUDyeg9v1J3T6zr",
+      "valid_filename": "IMG-20250416-WA0063.jpg",
+      "prior_hold": true,
+      "review_priority": "P0_KEEP_EXISTING_HOLD",
+      "reasons": [
+        "CONFIRMED_NAMED_SITE_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "KrfW3xD7Vvxy6r6wISkv",
+      "nearest_train_filename": "IMG-20250416-WA0067.jpg",
+      "nearest_train_cosine": 0.906803,
+      "top_three_train_candidates": [
+        {
+          "train_id": "KrfW3xD7Vvxy6r6wISkv",
+          "train_filename": "IMG-20250416-WA0067.jpg",
+          "cosine_similarity": 0.906803
+        },
+        {
+          "train_id": "H1KOFc0NQZnWRHJNcHPc",
+          "train_filename": "IMG-20250416-WA0066(1).jpg",
+          "cosine_similarity": 0.834018
+        },
+        {
+          "train_id": "FZOVAaPg6OZlAJa2gTzE",
+          "train_filename": "IMG-20250416-WA0062.jpg",
+          "cosine_similarity": 0.82678
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 3,
+      "valid_source_id": "jeB2NmucImurFBeFkyIz",
+      "valid_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+      "prior_hold": true,
+      "review_priority": "P0_KEEP_EXISTING_HOLD",
+      "reasons": [
+        "HIGH_VISUAL_SHARED_SCENE_OR_DERIVATIVE",
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "Cvh5UIGM4gTaPhriIh4Y",
+      "nearest_train_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+      "nearest_train_cosine": 0.896492,
+      "top_three_train_candidates": [
+        {
+          "train_id": "Cvh5UIGM4gTaPhriIh4Y",
+          "train_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+          "cosine_similarity": 0.896492
+        },
+        {
+          "train_id": "NAzs8sLreuFWQeOYDa2w",
+          "train_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+          "cosine_similarity": 0.787
+        },
+        {
+          "train_id": "JfEnhjYX5LHYwPcbvlAm",
+          "train_filename": "dd280f1a1eca4a03846ac5c173a1cd27.jpg",
+          "cosine_similarity": 0.784117
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 4,
+      "valid_source_id": "yeEvdkqXtNgsj7PZFDvI",
+      "valid_filename": "IMG-20250416-WA0026.jpg",
+      "prior_hold": true,
+      "review_priority": "P0_KEEP_EXISTING_HOLD",
+      "reasons": [
+        "CONFIRMED_NAMED_SITE_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "xyKCHH49Xr7oCONLC9nN",
+      "nearest_train_filename": "IMG-20250416-WA0079.jpg",
+      "nearest_train_cosine": 0.881212,
+      "top_three_train_candidates": [
+        {
+          "train_id": "xyKCHH49Xr7oCONLC9nN",
+          "train_filename": "IMG-20250416-WA0079.jpg",
+          "cosine_similarity": 0.881212
+        },
+        {
+          "train_id": "H1KOFc0NQZnWRHJNcHPc",
+          "train_filename": "IMG-20250416-WA0066(1).jpg",
+          "cosine_similarity": 0.865431
+        },
+        {
+          "train_id": "LGXoBOUgMV27ByDkOJxk",
+          "train_filename": "IMG-20250416-WA0054.jpg",
+          "cosine_similarity": 0.864294
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 5,
+      "valid_source_id": "NZu6Faj6evgINF1qFE0V",
+      "valid_filename": "IMG-20250416-WA0051.jpg",
+      "prior_hold": true,
+      "review_priority": "P0_KEEP_EXISTING_HOLD",
+      "reasons": [
+        "CONFIRMED_NAMED_SITE_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "vfwrerLlt3psnrSl2EZA",
+      "nearest_train_filename": "125182753_5333001493392670_6503923738393063554_n.jpg",
+      "nearest_train_cosine": 0.831894,
+      "top_three_train_candidates": [
+        {
+          "train_id": "vfwrerLlt3psnrSl2EZA",
+          "train_filename": "125182753_5333001493392670_6503923738393063554_n.jpg",
+          "cosine_similarity": 0.831894
+        },
+        {
+          "train_id": "FZOVAaPg6OZlAJa2gTzE",
+          "train_filename": "IMG-20250416-WA0062.jpg",
+          "cosine_similarity": 0.82863
+        },
+        {
+          "train_id": "IZHbVWAvlAPhZd53dpz7",
+          "train_filename": "IMG-20250416-WA0053.jpg",
+          "cosine_similarity": 0.820652
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 6,
+      "valid_source_id": "HRYvLu8UFRgGlQQoJN7G",
+      "valid_filename": "Safety-Glasses-Toolbox-Talk.jpg",
+      "prior_hold": false,
+      "review_priority": "P1_REVIEW_STRONG_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_98"
+      ],
+      "nearest_train_id": "nhXMHxaCM0f7kNLOKU8Z",
+      "nearest_train_filename": "image_719.jpg",
+      "nearest_train_cosine": 0.998663,
+      "top_three_train_candidates": [
+        {
+          "train_id": "nhXMHxaCM0f7kNLOKU8Z",
+          "train_filename": "image_719.jpg",
+          "cosine_similarity": 0.998663
+        },
+        {
+          "train_id": "gPFsVpmsZNe3r3gpZiLR",
+          "train_filename": "worker wearing mask_380.jpg",
+          "cosine_similarity": 0.944866
+        },
+        {
+          "train_id": "2GX4zgqbVnbY5u1DZPga",
+          "train_filename": "image_780.jpg",
+          "cosine_similarity": 0.940281
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 7,
+      "valid_source_id": "sPdt3S9xyB3XzrWa3DaE",
+      "valid_filename": "Sapi 7_mp4-223.jpg",
+      "prior_hold": false,
+      "review_priority": "P1_REVIEW_STRONG_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_98",
+        "FILENAME_SUGGESTS_SHARED_VIDEO_SEQUENCE"
+      ],
+      "nearest_train_id": "x4li7ZpEZqRlWEFBMom3",
+      "nearest_train_filename": "Sapi 7_mp4-224.jpg",
+      "nearest_train_cosine": 0.99238,
+      "top_three_train_candidates": [
+        {
+          "train_id": "x4li7ZpEZqRlWEFBMom3",
+          "train_filename": "Sapi 7_mp4-224.jpg",
+          "cosine_similarity": 0.99238
+        },
+        {
+          "train_id": "kAEpHUtPYW1n0eSmiLZP",
+          "train_filename": "Sapi 7_mp4-152.jpg",
+          "cosine_similarity": 0.865198
+        },
+        {
+          "train_id": "VuUmGXKTK7ySCcYc8hwl",
+          "train_filename": "Sapi 7_mp4-41.jpg",
+          "cosine_similarity": 0.811222
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 8,
+      "valid_source_id": "FamTszkxp5aOfuAcZwtn",
+      "valid_filename": "v126.jpg",
+      "prior_hold": false,
+      "review_priority": "P1_REVIEW_STRONG_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_98"
+      ],
+      "nearest_train_id": "ol5tvzeJJtiq9Ng0oFqC",
+      "nearest_train_filename": "v125.jpg",
+      "nearest_train_cosine": 0.99105,
+      "top_three_train_candidates": [
+        {
+          "train_id": "ol5tvzeJJtiq9Ng0oFqC",
+          "train_filename": "v125.jpg",
+          "cosine_similarity": 0.99105
+        },
+        {
+          "train_id": "xoveNHw2nBZsKBiMPSTY",
+          "train_filename": "v119.jpg",
+          "cosine_similarity": 0.955304
+        },
+        {
+          "train_id": "fKXAOP3L1sQ1Pd6tLHts",
+          "train_filename": "v65.jpg",
+          "cosine_similarity": 0.948622
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 9,
+      "valid_source_id": "V7nP50xtllhmv7ex0OZf",
+      "valid_filename": "v141.jpg",
+      "prior_hold": false,
+      "review_priority": "P1_REVIEW_STRONG_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_98"
+      ],
+      "nearest_train_id": "8vE1Ov0KTilzHRh7gtpq",
+      "nearest_train_filename": "v140.jpg",
+      "nearest_train_cosine": 0.990562,
+      "top_three_train_candidates": [
+        {
+          "train_id": "8vE1Ov0KTilzHRh7gtpq",
+          "train_filename": "v140.jpg",
+          "cosine_similarity": 0.990562
+        },
+        {
+          "train_id": "AebELdylN9ohxXmzz6u9",
+          "train_filename": "v139.jpg",
+          "cosine_similarity": 0.950947
+        },
+        {
+          "train_id": "783nS3Yp14VaNm3ACvfO",
+          "train_filename": "v147.jpg",
+          "cosine_similarity": 0.942047
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 10,
+      "valid_source_id": "qealvsJAhBFs6A668kak",
+      "valid_filename": "construction-worker-wearing-safety-equipment-19672694.jpg",
+      "prior_hold": false,
+      "review_priority": "P1_REVIEW_STRONG_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_98"
+      ],
+      "nearest_train_id": "ngf3QT4XU6cS6p2Kegzy",
+      "nearest_train_filename": "image_798.jpg",
+      "nearest_train_cosine": 0.985266,
+      "top_three_train_candidates": [
+        {
+          "train_id": "ngf3QT4XU6cS6p2Kegzy",
+          "train_filename": "image_798.jpg",
+          "cosine_similarity": 0.985266
+        },
+        {
+          "train_id": "mImJnwiZzmDc9GvIOIrx",
+          "train_filename": "male-construction-worker-wearing-safety-protective-gear-JBB3BB.jpg",
+          "cosine_similarity": 0.968175
+        },
+        {
+          "train_id": "xGwYGERTiSWU6PsRhMT1",
+          "train_filename": "happy-construction-worker-20852840.jpg",
+          "cosine_similarity": 0.927652
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 11,
+      "valid_source_id": "rjjkVbdcd3dCIoxywUJE",
+      "valid_filename": "h39.jpg",
+      "prior_hold": false,
+      "review_priority": "P1_REVIEW_STRONG_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_98"
+      ],
+      "nearest_train_id": "y1pL7pvPcML2CbzYYqdy",
+      "nearest_train_filename": "h34.jpg",
+      "nearest_train_cosine": 0.982068,
+      "top_three_train_candidates": [
+        {
+          "train_id": "y1pL7pvPcML2CbzYYqdy",
+          "train_filename": "h34.jpg",
+          "cosine_similarity": 0.982068
+        },
+        {
+          "train_id": "DNfkZRQDetlemze06T6r",
+          "train_filename": "h36.jpg",
+          "cosine_similarity": 0.976795
+        },
+        {
+          "train_id": "XfsXc3s44x1mDOEKdIrr",
+          "train_filename": "h18.jpg",
+          "cosine_similarity": 0.749666
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 12,
+      "valid_source_id": "VoxtMSBDU2XW3WLRyUtx",
+      "valid_filename": "v99.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "930aFf45w1CvKrfYoonN",
+      "nearest_train_filename": "v74.jpg",
+      "nearest_train_cosine": 0.979143,
+      "top_three_train_candidates": [
+        {
+          "train_id": "930aFf45w1CvKrfYoonN",
+          "train_filename": "v74.jpg",
+          "cosine_similarity": 0.979143
+        },
+        {
+          "train_id": "sTqR9sIvkUI2NUiaBI0g",
+          "train_filename": "v111.jpg",
+          "cosine_similarity": 0.946904
+        },
+        {
+          "train_id": "xoveNHw2nBZsKBiMPSTY",
+          "train_filename": "v119.jpg",
+          "cosine_similarity": 0.943251
+        }
+      ],
+      "measured_original_pixel_pair": {
+        "train_id": "930aFf45w1CvKrfYoonN",
+        "raw_byte_equal": false,
+        "decoded_rgb_equal": false,
+        "dhash_hamming": 11,
+        "evidence": "SOURCE_ORIGINAL_PIXEL_PILOT_2026-11-21_V01.json"
+      },
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 13,
+      "valid_source_id": "K1hITffRQtdL69x6W3WF",
+      "valid_filename": "image_1372.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "jOqfE2KetI3hANjQbkDZ",
+      "nearest_train_filename": "image_1342.jpg",
+      "nearest_train_cosine": 0.978564,
+      "top_three_train_candidates": [
+        {
+          "train_id": "jOqfE2KetI3hANjQbkDZ",
+          "train_filename": "image_1342.jpg",
+          "cosine_similarity": 0.978564
+        },
+        {
+          "train_id": "lhnnARhQHn8DSdUfw8pQ",
+          "train_filename": "ppe_0070.jpg",
+          "cosine_similarity": 0.860509
+        },
+        {
+          "train_id": "J8ZfFxuhXVU3H30MjAEp",
+          "train_filename": "gettyimages-173233703-612x612.jpg",
+          "cosine_similarity": 0.858336
+        }
+      ],
+      "measured_original_pixel_pair": {
+        "train_id": "jOqfE2KetI3hANjQbkDZ",
+        "raw_byte_equal": false,
+        "decoded_rgb_equal": false,
+        "dhash_hamming": 29,
+        "evidence": "SOURCE_ORIGINAL_PIXEL_PILOT_2026-11-21_V01.json"
+      },
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 14,
+      "valid_source_id": "DXPjbo9xT1UjLzOkeB6l",
+      "valid_filename": "v16.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "24DyXrfQsknLjzqUaQZm",
+      "nearest_train_filename": "v15.jpg",
+      "nearest_train_cosine": 0.978558,
+      "top_three_train_candidates": [
+        {
+          "train_id": "24DyXrfQsknLjzqUaQZm",
+          "train_filename": "v15.jpg",
+          "cosine_similarity": 0.978558
+        },
+        {
+          "train_id": "cIMM2dZcfWzYb5ee88b1",
+          "train_filename": "v87.jpg",
+          "cosine_similarity": 0.960322
+        },
+        {
+          "train_id": "lEeHFgvsn6wG8YGYCVUx",
+          "train_filename": "v102.jpg",
+          "cosine_similarity": 0.947313
+        }
+      ],
+      "measured_original_pixel_pair": {
+        "train_id": "24DyXrfQsknLjzqUaQZm",
+        "raw_byte_equal": false,
+        "decoded_rgb_equal": false,
+        "dhash_hamming": 18,
+        "evidence": "SOURCE_ORIGINAL_PIXEL_PILOT_2026-11-21_V01.json"
+      },
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 15,
+      "valid_source_id": "DiNSDQBhYtmZBBYx92JU",
+      "valid_filename": "pos_401.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "2ct5Jp59ACtQ0hbkUJxB",
+      "nearest_train_filename": "pos_440.jpg",
+      "nearest_train_cosine": 0.975313,
+      "top_three_train_candidates": [
+        {
+          "train_id": "2ct5Jp59ACtQ0hbkUJxB",
+          "train_filename": "pos_440.jpg",
+          "cosine_similarity": 0.975313
+        },
+        {
+          "train_id": "7RDKxp46ntUeFg1ANU09",
+          "train_filename": "pos_653.jpg",
+          "cosine_similarity": 0.958527
+        },
+        {
+          "train_id": "77WAQEeaLT9wAxFMGzm3",
+          "train_filename": "pos_345.jpg",
+          "cosine_similarity": 0.937717
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 16,
+      "valid_source_id": "nDva2lsHrXl7UAgGq2Nx",
+      "valid_filename": "h54.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "w9VxWK9GW7fmH4J6ATFo",
+      "nearest_train_filename": "h46.jpg",
+      "nearest_train_cosine": 0.974638,
+      "top_three_train_candidates": [
+        {
+          "train_id": "w9VxWK9GW7fmH4J6ATFo",
+          "train_filename": "h46.jpg",
+          "cosine_similarity": 0.974638
+        },
+        {
+          "train_id": "0oVmRAxL0SM1PWqZCNyM",
+          "train_filename": "h1.jpg",
+          "cosine_similarity": 0.949667
+        },
+        {
+          "train_id": "EDSDuokCx8gyug1gAruj",
+          "train_filename": "h53.jpg",
+          "cosine_similarity": 0.945635
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 17,
+      "valid_source_id": "XKxOHVSOitlv2lbJPtv7",
+      "valid_filename": "v10.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "lGItUWeUToGtFQuK1VBj",
+      "nearest_train_filename": "v28.jpg",
+      "nearest_train_cosine": 0.974201,
+      "top_three_train_candidates": [
+        {
+          "train_id": "lGItUWeUToGtFQuK1VBj",
+          "train_filename": "v28.jpg",
+          "cosine_similarity": 0.974201
+        },
+        {
+          "train_id": "KnYaRNvLntDoIrN5bOuv",
+          "train_filename": "v104.jpg",
+          "cosine_similarity": 0.958857
+        },
+        {
+          "train_id": "1Qe6S9gSBl0XC953xl66",
+          "train_filename": "v26.jpg",
+          "cosine_similarity": 0.958783
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 18,
+      "valid_source_id": "RmZzo1PiJ1OCVI9ziOuW",
+      "valid_filename": "v103.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "KnYaRNvLntDoIrN5bOuv",
+      "nearest_train_filename": "v104.jpg",
+      "nearest_train_cosine": 0.973859,
+      "top_three_train_candidates": [
+        {
+          "train_id": "KnYaRNvLntDoIrN5bOuv",
+          "train_filename": "v104.jpg",
+          "cosine_similarity": 0.973859
+        },
+        {
+          "train_id": "lGItUWeUToGtFQuK1VBj",
+          "train_filename": "v28.jpg",
+          "cosine_similarity": 0.950954
+        },
+        {
+          "train_id": "z8MCkkavHo3FfRmud7N2",
+          "train_filename": "v91.jpg",
+          "cosine_similarity": 0.950526
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 19,
+      "valid_source_id": "pDFh3U4Tpa9rB1fYWGOQ",
+      "valid_filename": "h38.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "DNfkZRQDetlemze06T6r",
+      "nearest_train_filename": "h36.jpg",
+      "nearest_train_cosine": 0.972941,
+      "top_three_train_candidates": [
+        {
+          "train_id": "DNfkZRQDetlemze06T6r",
+          "train_filename": "h36.jpg",
+          "cosine_similarity": 0.972941
+        },
+        {
+          "train_id": "y1pL7pvPcML2CbzYYqdy",
+          "train_filename": "h34.jpg",
+          "cosine_similarity": 0.972749
+        },
+        {
+          "train_id": "XfsXc3s44x1mDOEKdIrr",
+          "train_filename": "h18.jpg",
+          "cosine_similarity": 0.728676
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 20,
+      "valid_source_id": "A3hFGqTOFfC4VH2IA1Lt",
+      "valid_filename": "------12-_png.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT",
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "w8Ja8qHQTcfvAnJ7VRbg",
+      "nearest_train_filename": "------12-_png.jpg",
+      "nearest_train_cosine": 0.972618,
+      "top_three_train_candidates": [
+        {
+          "train_id": "w8Ja8qHQTcfvAnJ7VRbg",
+          "train_filename": "------12-_png.jpg",
+          "cosine_similarity": 0.972618
+        },
+        {
+          "train_id": "QUCawQ5BJE4HCvWLp8Oc",
+          "train_filename": "------3-_png.jpg",
+          "cosine_similarity": 0.783088
+        },
+        {
+          "train_id": "afFxqQE031r6JAGqv9RG",
+          "train_filename": "------3-_png.jpg",
+          "cosine_similarity": 0.774158
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 21,
+      "valid_source_id": "4NJYe4cbpEy8uCopUQq3",
+      "valid_filename": "1000_F_685781687_mFglvrw8421PMRPg8UzaVLGbnBCiVsBk.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "OPDPeBipt6t4OLusdkc7",
+      "nearest_train_filename": "1000_F_685781708_okbs0gJJ2GhCdFIfJlmcNhndvhJoz8pn.jpg",
+      "nearest_train_cosine": 0.972596,
+      "top_three_train_candidates": [
+        {
+          "train_id": "OPDPeBipt6t4OLusdkc7",
+          "train_filename": "1000_F_685781708_okbs0gJJ2GhCdFIfJlmcNhndvhJoz8pn.jpg",
+          "cosine_similarity": 0.972596
+        },
+        {
+          "train_id": "HVWgUHtJnL2tj0wq0jyJ",
+          "train_filename": "ed064a002811ed39fd16d09a047575ab.jpg",
+          "cosine_similarity": 0.918597
+        },
+        {
+          "train_id": "ex1tdubnSujF9smD49S7",
+          "train_filename": "2562dc5b93649732e5269dac4cc767be.jpg",
+          "cosine_similarity": 0.821346
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 22,
+      "valid_source_id": "zs0ICbiboEbpAnE4v5ff",
+      "valid_filename": "h47.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "EDSDuokCx8gyug1gAruj",
+      "nearest_train_filename": "h53.jpg",
+      "nearest_train_cosine": 0.970356,
+      "top_three_train_candidates": [
+        {
+          "train_id": "EDSDuokCx8gyug1gAruj",
+          "train_filename": "h53.jpg",
+          "cosine_similarity": 0.970356
+        },
+        {
+          "train_id": "w9VxWK9GW7fmH4J6ATFo",
+          "train_filename": "h46.jpg",
+          "cosine_similarity": 0.94734
+        },
+        {
+          "train_id": "WM94zkY0UH0YQYfqi0Xy",
+          "train_filename": "h123.jpg",
+          "cosine_similarity": 0.945428
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 23,
+      "valid_source_id": "INAgeZi7bwiF5utRk97U",
+      "valid_filename": "------6-_png.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT",
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "mUj7WmfxH9Vbb23nIdyi",
+      "nearest_train_filename": "------6-_png.jpg",
+      "nearest_train_cosine": 0.968764,
+      "top_three_train_candidates": [
+        {
+          "train_id": "mUj7WmfxH9Vbb23nIdyi",
+          "train_filename": "------6-_png.jpg",
+          "cosine_similarity": 0.968764
+        },
+        {
+          "train_id": "fc9rTXZ3rZhszkAcr0xk",
+          "train_filename": "------9-_png.jpg",
+          "cosine_similarity": 0.728995
+        },
+        {
+          "train_id": "E4W2z0idMQY32u6A5qo8",
+          "train_filename": "------25-_png.jpg",
+          "cosine_similarity": 0.726619
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 24,
+      "valid_source_id": "Z1vJiJW0OnVZMlr0SIvJ",
+      "valid_filename": "v19.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "lGItUWeUToGtFQuK1VBj",
+      "nearest_train_filename": "v28.jpg",
+      "nearest_train_cosine": 0.967865,
+      "top_three_train_candidates": [
+        {
+          "train_id": "lGItUWeUToGtFQuK1VBj",
+          "train_filename": "v28.jpg",
+          "cosine_similarity": 0.967865
+        },
+        {
+          "train_id": "KnYaRNvLntDoIrN5bOuv",
+          "train_filename": "v104.jpg",
+          "cosine_similarity": 0.96783
+        },
+        {
+          "train_id": "1Qe6S9gSBl0XC953xl66",
+          "train_filename": "v26.jpg",
+          "cosine_similarity": 0.961757
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 25,
+      "valid_source_id": "exRlvnSBoSB4EW71NGaf",
+      "valid_filename": "87.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "oKrokq5e0WLBBB7relPM",
+      "nearest_train_filename": "93.jpg",
+      "nearest_train_cosine": 0.967592,
+      "top_three_train_candidates": [
+        {
+          "train_id": "oKrokq5e0WLBBB7relPM",
+          "train_filename": "93.jpg",
+          "cosine_similarity": 0.967592
+        },
+        {
+          "train_id": "UFjGsNFM4cNqviKNaMT9",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٧١٣.jpg",
+          "cosine_similarity": 0.879028
+        },
+        {
+          "train_id": "NLfu394BprkmhTuYM6T6",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٦٥٧.jpg",
+          "cosine_similarity": 0.838229
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 26,
+      "valid_source_id": "DvuTj6lOacAoKGpbzDTF",
+      "valid_filename": "472863178_122158768826320679_4044938397851373251_n.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "AVkS5L1lYndBMr5TBHrm",
+      "nearest_train_filename": "472701427_122158768796320679_3383190418969739057_n.jpg",
+      "nearest_train_cosine": 0.966324,
+      "top_three_train_candidates": [
+        {
+          "train_id": "AVkS5L1lYndBMr5TBHrm",
+          "train_filename": "472701427_122158768796320679_3383190418969739057_n.jpg",
+          "cosine_similarity": 0.966324
+        },
+        {
+          "train_id": "8hhnZRhrC1A9nPl87SCd",
+          "train_filename": "472831549_122158768382320679_6500912665895669453_n.jpg",
+          "cosine_similarity": 0.944893
+        },
+        {
+          "train_id": "9UXdJO3ZeCASK4w1XqDC",
+          "train_filename": "465168002_17866405350240088_5528047994975554599_n.jpg",
+          "cosine_similarity": 0.92571
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 27,
+      "valid_source_id": "SlMNfdbpvClsUZin1RcK",
+      "valid_filename": "v150.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "RXPMol7W1P613i0j9iJz",
+      "nearest_train_filename": "v149.jpg",
+      "nearest_train_cosine": 0.965398,
+      "top_three_train_candidates": [
+        {
+          "train_id": "RXPMol7W1P613i0j9iJz",
+          "train_filename": "v149.jpg",
+          "cosine_similarity": 0.965398
+        },
+        {
+          "train_id": "8vE1Ov0KTilzHRh7gtpq",
+          "train_filename": "v140.jpg",
+          "cosine_similarity": 0.873933
+        },
+        {
+          "train_id": "ks10Zg9NzO3ystW1YNm4",
+          "train_filename": "v45.jpg",
+          "cosine_similarity": 0.871199
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 28,
+      "valid_source_id": "7S5o6ul4Q1LlmNiVs4mC",
+      "valid_filename": "v105.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "elAhEYrK2fTQcWn78ck6",
+      "nearest_train_filename": "v96.jpg",
+      "nearest_train_cosine": 0.965274,
+      "top_three_train_candidates": [
+        {
+          "train_id": "elAhEYrK2fTQcWn78ck6",
+          "train_filename": "v96.jpg",
+          "cosine_similarity": 0.965274
+        },
+        {
+          "train_id": "BOMWPS19XZGG9oC2pDcp",
+          "train_filename": "v34.jpg",
+          "cosine_similarity": 0.964832
+        },
+        {
+          "train_id": "sTqR9sIvkUI2NUiaBI0g",
+          "train_filename": "v111.jpg",
+          "cosine_similarity": 0.958521
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 29,
+      "valid_source_id": "QNy1J29vY62jBvRJLZcv",
+      "valid_filename": "v95.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "Jdnwl2WNEp2b5jo4WA9h",
+      "nearest_train_filename": "v12.jpg",
+      "nearest_train_cosine": 0.963208,
+      "top_three_train_candidates": [
+        {
+          "train_id": "Jdnwl2WNEp2b5jo4WA9h",
+          "train_filename": "v12.jpg",
+          "cosine_similarity": 0.963208
+        },
+        {
+          "train_id": "8PBwZuIpEZ7ByWQfBTBz",
+          "train_filename": "v38.jpg",
+          "cosine_similarity": 0.951653
+        },
+        {
+          "train_id": "783nS3Yp14VaNm3ACvfO",
+          "train_filename": "v147.jpg",
+          "cosine_similarity": 0.947072
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 30,
+      "valid_source_id": "028d8mXwFsIucPHX2qeu",
+      "valid_filename": "v124.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "ol5tvzeJJtiq9Ng0oFqC",
+      "nearest_train_filename": "v125.jpg",
+      "nearest_train_cosine": 0.962995,
+      "top_three_train_candidates": [
+        {
+          "train_id": "ol5tvzeJJtiq9Ng0oFqC",
+          "train_filename": "v125.jpg",
+          "cosine_similarity": 0.962995
+        },
+        {
+          "train_id": "sTqR9sIvkUI2NUiaBI0g",
+          "train_filename": "v111.jpg",
+          "cosine_similarity": 0.957528
+        },
+        {
+          "train_id": "xoveNHw2nBZsKBiMPSTY",
+          "train_filename": "v119.jpg",
+          "cosine_similarity": 0.952463
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 31,
+      "valid_source_id": "g4Mlhl0AUNtsmolYc1CW",
+      "valid_filename": "76.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "M5eZeyBnh7ovew4nTpmL",
+      "nearest_train_filename": "77.jpg",
+      "nearest_train_cosine": 0.962123,
+      "top_three_train_candidates": [
+        {
+          "train_id": "M5eZeyBnh7ovew4nTpmL",
+          "train_filename": "77.jpg",
+          "cosine_similarity": 0.962123
+        },
+        {
+          "train_id": "I6cpLLn4d8TphLPneTKW",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٦_١٠٤٦٣٩.jpg",
+          "cosine_similarity": 0.889186
+        },
+        {
+          "train_id": "p9ZjvKMklaGbtnqtX4wy",
+          "train_filename": "29.jpg",
+          "cosine_similarity": 0.87913
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 32,
+      "valid_source_id": "grt6fZBL0Z050Ov9p2Do",
+      "valid_filename": "20.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT",
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "AmiD6dzDEWAVUi9qNeFl",
+      "nearest_train_filename": "19.jpg",
+      "nearest_train_cosine": 0.96079,
+      "top_three_train_candidates": [
+        {
+          "train_id": "AmiD6dzDEWAVUi9qNeFl",
+          "train_filename": "19.jpg",
+          "cosine_similarity": 0.96079
+        },
+        {
+          "train_id": "tNSSKsZy0JNvLupEHm38",
+          "train_filename": "17.jpg",
+          "cosine_similarity": 0.888609
+        },
+        {
+          "train_id": "mDxIDO2j07cui1WuAOLx",
+          "train_filename": "18.jpg",
+          "cosine_similarity": 0.878436
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 33,
+      "valid_source_id": "MK8ALewnMHJpsuyZRVdw",
+      "valid_filename": "------6-_png.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT",
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "mUj7WmfxH9Vbb23nIdyi",
+      "nearest_train_filename": "------6-_png.jpg",
+      "nearest_train_cosine": 0.960427,
+      "top_three_train_candidates": [
+        {
+          "train_id": "mUj7WmfxH9Vbb23nIdyi",
+          "train_filename": "------6-_png.jpg",
+          "cosine_similarity": 0.960427
+        },
+        {
+          "train_id": "FVpeAXQVbrRk6P7CAfzQ",
+          "train_filename": "------10-_png.jpg",
+          "cosine_similarity": 0.781035
+        },
+        {
+          "train_id": "0yWCgn5rjpjI1pL3bSot",
+          "train_filename": "------9-_png.jpg",
+          "cosine_similarity": 0.775
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 34,
+      "valid_source_id": "0Rdh8tDdfnRtMMldwpae",
+      "valid_filename": "image_211.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "ZZVGcNOOZzsUbuoZSv29",
+      "nearest_train_filename": "image_1139.jpg",
+      "nearest_train_cosine": 0.958732,
+      "top_three_train_candidates": [
+        {
+          "train_id": "ZZVGcNOOZzsUbuoZSv29",
+          "train_filename": "image_1139.jpg",
+          "cosine_similarity": 0.958732
+        },
+        {
+          "train_id": "aGsg3qVGNgWw3QEcNRPN",
+          "train_filename": "image_879.jpg",
+          "cosine_similarity": 0.956552
+        },
+        {
+          "train_id": "aq4hvIHgXHSwet7BwdL1",
+          "train_filename": "depositphotos_389234016-stock-photo-african-american-black-w (1).jpg",
+          "cosine_similarity": 0.943718
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 35,
+      "valid_source_id": "5OA6x5qzw8YNcjg3UIn8",
+      "valid_filename": "fridolin_23.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "bZPO37y1muF1nXry6S5D",
+      "nearest_train_filename": "fridolin_26.jpg",
+      "nearest_train_cosine": 0.958422,
+      "top_three_train_candidates": [
+        {
+          "train_id": "bZPO37y1muF1nXry6S5D",
+          "train_filename": "fridolin_26.jpg",
+          "cosine_similarity": 0.958422
+        },
+        {
+          "train_id": "h4AUep9cPy95zPci7DYS",
+          "train_filename": "fridolin_25.jpg",
+          "cosine_similarity": 0.934361
+        },
+        {
+          "train_id": "VuUmGXKTK7ySCcYc8hwl",
+          "train_filename": "Sapi 7_mp4-41.jpg",
+          "cosine_similarity": 0.792774
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 36,
+      "valid_source_id": "N8u0Zsp2n92ZNzkimD3E",
+      "valid_filename": "image_1181.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "ywR5eMsT7lFMqeKneoZD",
+      "nearest_train_filename": "image_240.jpg",
+      "nearest_train_cosine": 0.957937,
+      "top_three_train_candidates": [
+        {
+          "train_id": "ywR5eMsT7lFMqeKneoZD",
+          "train_filename": "image_240.jpg",
+          "cosine_similarity": 0.957937
+        },
+        {
+          "train_id": "cwc3fzFBL1c67M6fsDgL",
+          "train_filename": "image_601.jpg",
+          "cosine_similarity": 0.89165
+        },
+        {
+          "train_id": "gC9H7ffI1cRXaJD1LXrK",
+          "train_filename": "depositphotos_441840308-stock-photo-engineer-man-factory-wor (1).jpg",
+          "cosine_similarity": 0.886252
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 37,
+      "valid_source_id": "L4WkRdq9ugIFtq56Ey7P",
+      "valid_filename": "h88.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "313qZ9KDJDD5lKNMfJxc",
+      "nearest_train_filename": "h86.jpg",
+      "nearest_train_cosine": 0.957756,
+      "top_three_train_candidates": [
+        {
+          "train_id": "313qZ9KDJDD5lKNMfJxc",
+          "train_filename": "h86.jpg",
+          "cosine_similarity": 0.957756
+        },
+        {
+          "train_id": "Eh9VFbSTvNqehhhi9QcD",
+          "train_filename": "h76.jpg",
+          "cosine_similarity": 0.949024
+        },
+        {
+          "train_id": "osKgd19JvKgJgVk1EBg0",
+          "train_filename": "h62.jpg",
+          "cosine_similarity": 0.943602
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 38,
+      "valid_source_id": "96yr1HCv912RPimdtoqn",
+      "valid_filename": "WhatsApp Image 2025-07-20 at 20.57.51_16abe53b.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "LERQiZjRNJwKC6Sv5cPR",
+      "nearest_train_filename": "WhatsApp Image 2025-07-20 at 20.57.52_56723d1e.jpg",
+      "nearest_train_cosine": 0.957742,
+      "top_three_train_candidates": [
+        {
+          "train_id": "LERQiZjRNJwKC6Sv5cPR",
+          "train_filename": "WhatsApp Image 2025-07-20 at 20.57.52_56723d1e.jpg",
+          "cosine_similarity": 0.957742
+        },
+        {
+          "train_id": "GEQid2TCwH0CGrvHqdcX",
+          "train_filename": "WhatsApp Image 2025-07-20 at 20.57.50_d4cadcbd.jpg",
+          "cosine_similarity": 0.870431
+        },
+        {
+          "train_id": "kHVKmMkINvPDMpfCLfI2",
+          "train_filename": "WhatsApp Image 2025-07-20 at 20.59.55_48d4e175.jpg",
+          "cosine_similarity": 0.840999
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 39,
+      "valid_source_id": "dIJP9tp9QHrLMdpchwUL",
+      "valid_filename": "465295247_17866405341240088_7567564164108343598_n.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "9UXdJO3ZeCASK4w1XqDC",
+      "nearest_train_filename": "465168002_17866405350240088_5528047994975554599_n.jpg",
+      "nearest_train_cosine": 0.957636,
+      "top_three_train_candidates": [
+        {
+          "train_id": "9UXdJO3ZeCASK4w1XqDC",
+          "train_filename": "465168002_17866405350240088_5528047994975554599_n.jpg",
+          "cosine_similarity": 0.957636
+        },
+        {
+          "train_id": "dpk5d78APaxucAsyejJb",
+          "train_filename": "464926200_17866405458240088_7581316147577840570_n.jpg",
+          "cosine_similarity": 0.942083
+        },
+        {
+          "train_id": "AVkS5L1lYndBMr5TBHrm",
+          "train_filename": "472701427_122158768796320679_3383190418969739057_n.jpg",
+          "cosine_similarity": 0.905458
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 40,
+      "valid_source_id": "JNRWoVUmVTR79J3dTolT",
+      "valid_filename": "479193535_1047928954046060_85281726465115260_n.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "XYIgAEWmkpCiGzONrzhE",
+      "nearest_train_filename": "476736401_1047929380712684_4394812098043037929_n.jpg",
+      "nearest_train_cosine": 0.957261,
+      "top_three_train_candidates": [
+        {
+          "train_id": "XYIgAEWmkpCiGzONrzhE",
+          "train_filename": "476736401_1047929380712684_4394812098043037929_n.jpg",
+          "cosine_similarity": 0.957261
+        },
+        {
+          "train_id": "EnFpCXHeMg35yxjat3ZW",
+          "train_filename": "484913055_653242120777870_4336597965699474162_n.jpg",
+          "cosine_similarity": 0.77631
+        },
+        {
+          "train_id": "I4uOTUPUhzD10iFZ4R0N",
+          "train_filename": "484050125_653242170777865_8190836360428790971_n.jpg",
+          "cosine_similarity": 0.766119
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 41,
+      "valid_source_id": "4qUaAqPNvHdehcPQFAEs",
+      "valid_filename": "16.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT",
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "drGNMGlPp2niXYyy9PPE",
+      "nearest_train_filename": "19.jpg",
+      "nearest_train_cosine": 0.957081,
+      "top_three_train_candidates": [
+        {
+          "train_id": "drGNMGlPp2niXYyy9PPE",
+          "train_filename": "19.jpg",
+          "cosine_similarity": 0.957081
+        },
+        {
+          "train_id": "lYhay939cr2RUmloFebu",
+          "train_filename": "5.jpg",
+          "cosine_similarity": 0.946424
+        },
+        {
+          "train_id": "hNOvu25rP9SRIycIiUl1",
+          "train_filename": "3.jpg",
+          "cosine_similarity": 0.927038
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 42,
+      "valid_source_id": "qXE1V6kfZzDEJSiGCaHO",
+      "valid_filename": "h59.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "AhASrbxzht1yCGeHHLNR",
+      "nearest_train_filename": "h58.jpg",
+      "nearest_train_cosine": 0.955094,
+      "top_three_train_candidates": [
+        {
+          "train_id": "AhASrbxzht1yCGeHHLNR",
+          "train_filename": "h58.jpg",
+          "cosine_similarity": 0.955094
+        },
+        {
+          "train_id": "bfmxF6I6XjASurifNZM6",
+          "train_filename": "h121.jpg",
+          "cosine_similarity": 0.945248
+        },
+        {
+          "train_id": "ffRMJiqgs0zw9ymjqSd1",
+          "train_filename": "h81.jpg",
+          "cosine_similarity": 0.937405
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 43,
+      "valid_source_id": "WKCoIJwVj11D58a5fbTU",
+      "valid_filename": "image_1126.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "GnTioQOO0mHodD1G6SF0",
+      "nearest_train_filename": "image_1119.jpg",
+      "nearest_train_cosine": 0.95473,
+      "top_three_train_candidates": [
+        {
+          "train_id": "GnTioQOO0mHodD1G6SF0",
+          "train_filename": "image_1119.jpg",
+          "cosine_similarity": 0.95473
+        },
+        {
+          "train_id": "aGsg3qVGNgWw3QEcNRPN",
+          "train_filename": "image_879.jpg",
+          "cosine_similarity": 0.954193
+        },
+        {
+          "train_id": "5d7toQTMGeuBepuqgPBL",
+          "train_filename": "image_957.jpg",
+          "cosine_similarity": 0.93956
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 44,
+      "valid_source_id": "dukvhiiZCSkdvnywuQKU",
+      "valid_filename": "worker wearing mask_126.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EARLIER_SOURCE_FAMILY_REVIEW",
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "nhXMHxaCM0f7kNLOKU8Z",
+      "nearest_train_filename": "image_719.jpg",
+      "nearest_train_cosine": 0.954229,
+      "top_three_train_candidates": [
+        {
+          "train_id": "nhXMHxaCM0f7kNLOKU8Z",
+          "train_filename": "image_719.jpg",
+          "cosine_similarity": 0.954229
+        },
+        {
+          "train_id": "jL21G4hxV4nqhu7btVvN",
+          "train_filename": "safety-glasses-on-the-job (1).jpg",
+          "cosine_similarity": 0.951272
+        },
+        {
+          "train_id": "oZ7uHdj03NdOmABa2vIU",
+          "train_filename": "safety-glasses-on-the-job.jpg",
+          "cosine_similarity": 0.948661
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 45,
+      "valid_source_id": "lIFiZTHPZ5zS1g65qQVy",
+      "valid_filename": "h65.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "H27MMKSHNuXWIsnryecM",
+      "nearest_train_filename": "h75.jpg",
+      "nearest_train_cosine": 0.95404,
+      "top_three_train_candidates": [
+        {
+          "train_id": "H27MMKSHNuXWIsnryecM",
+          "train_filename": "h75.jpg",
+          "cosine_similarity": 0.95404
+        },
+        {
+          "train_id": "Eh9VFbSTvNqehhhi9QcD",
+          "train_filename": "h76.jpg",
+          "cosine_similarity": 0.949077
+        },
+        {
+          "train_id": "6HaMFaE7JmuU5hvbBuA7",
+          "train_filename": "h77.jpg",
+          "cosine_similarity": 0.940151
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 46,
+      "valid_source_id": "KyVAIRsbyvwqi0NdShr1",
+      "valid_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٨٢٠.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "6VoOPkvjtr3SefLzUwD3",
+      "nearest_train_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٨١٩.jpg",
+      "nearest_train_cosine": 0.953827,
+      "top_three_train_candidates": [
+        {
+          "train_id": "6VoOPkvjtr3SefLzUwD3",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٨١٩.jpg",
+          "cosine_similarity": 0.953827
+        },
+        {
+          "train_id": "nj1KT1mWVrASfkYCF7JN",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٦٠٨.jpg",
+          "cosine_similarity": 0.89263
+        },
+        {
+          "train_id": "0y0zgpG864yblyOCr4wX",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٧٥٥.jpg",
+          "cosine_similarity": 0.872815
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 47,
+      "valid_source_id": "OiDzGcb60GRmhSHB7QR7",
+      "valid_filename": "image_976.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "ZZVGcNOOZzsUbuoZSv29",
+      "nearest_train_filename": "image_1139.jpg",
+      "nearest_train_cosine": 0.953491,
+      "top_three_train_candidates": [
+        {
+          "train_id": "ZZVGcNOOZzsUbuoZSv29",
+          "train_filename": "image_1139.jpg",
+          "cosine_similarity": 0.953491
+        },
+        {
+          "train_id": "ENLLJDhiIanpUYvOuqVm",
+          "train_filename": "image_1168.jpg",
+          "cosine_similarity": 0.950328
+        },
+        {
+          "train_id": "l7n0Zu329XMc8LQ6w0mS",
+          "train_filename": "image_929.jpg",
+          "cosine_similarity": 0.942837
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 48,
+      "valid_source_id": "fZp2tDa18uGI4kSV6jPc",
+      "valid_filename": "image_614.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "60xIMkvQ3xbYpxIaVxOW",
+      "nearest_train_filename": "image_743.jpg",
+      "nearest_train_cosine": 0.953087,
+      "top_three_train_candidates": [
+        {
+          "train_id": "60xIMkvQ3xbYpxIaVxOW",
+          "train_filename": "image_743.jpg",
+          "cosine_similarity": 0.953087
+        },
+        {
+          "train_id": "lqbP9UoiAwtyQs1YNmmc",
+          "train_filename": "worker-wearing-safety-glasses-on-site.jpg",
+          "cosine_similarity": 0.940645
+        },
+        {
+          "train_id": "KKvyp8dc13XQFz5SFxge",
+          "train_filename": "image_1125.jpg",
+          "cosine_similarity": 0.929324
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 49,
+      "valid_source_id": "ubLbRgeuCP4HZDTLcf2m",
+      "valid_filename": "h31.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "JMjsrkO5sAl7xPeEQEMg",
+      "nearest_train_filename": "h13.jpg",
+      "nearest_train_cosine": 0.953005,
+      "top_three_train_candidates": [
+        {
+          "train_id": "JMjsrkO5sAl7xPeEQEMg",
+          "train_filename": "h13.jpg",
+          "cosine_similarity": 0.953005
+        },
+        {
+          "train_id": "Pya04Mhgq8sozLPEm3DL",
+          "train_filename": "h78.jpg",
+          "cosine_similarity": 0.936046
+        },
+        {
+          "train_id": "7sNIIsyrMKkq7IoTuohP",
+          "train_filename": "h97.jpg",
+          "cosine_similarity": 0.934544
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 50,
+      "valid_source_id": "K70fvBHIEQzJNbPcAIzP",
+      "valid_filename": "h105.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "0oVmRAxL0SM1PWqZCNyM",
+      "nearest_train_filename": "h1.jpg",
+      "nearest_train_cosine": 0.952787,
+      "top_three_train_candidates": [
+        {
+          "train_id": "0oVmRAxL0SM1PWqZCNyM",
+          "train_filename": "h1.jpg",
+          "cosine_similarity": 0.952787
+        },
+        {
+          "train_id": "WM94zkY0UH0YQYfqi0Xy",
+          "train_filename": "h123.jpg",
+          "cosine_similarity": 0.932763
+        },
+        {
+          "train_id": "kz6B65GQNv9vGAqVAkdU",
+          "train_filename": "h93.jpg",
+          "cosine_similarity": 0.925598
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 51,
+      "valid_source_id": "G5zUHo68mLr7ZdqFSLgT",
+      "valid_filename": "image_314.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "J8ZfFxuhXVU3H30MjAEp",
+      "nearest_train_filename": "gettyimages-173233703-612x612.jpg",
+      "nearest_train_cosine": 0.952489,
+      "top_three_train_candidates": [
+        {
+          "train_id": "J8ZfFxuhXVU3H30MjAEp",
+          "train_filename": "gettyimages-173233703-612x612.jpg",
+          "cosine_similarity": 0.952489
+        },
+        {
+          "train_id": "Q7K6A44y2KRBI8bryphq",
+          "train_filename": "asian-man-in-a-yellow-safety-vest-and-a-yellow-hard-hat-he-is-wearing-glasses-and-has-a-serious-look-on-his-face-photo.jpg",
+          "cosine_similarity": 0.943763
+        },
+        {
+          "train_id": "Cf0DaVAU3cDwyGgBNME0",
+          "train_filename": "image_1209.jpg",
+          "cosine_similarity": 0.938536
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 52,
+      "valid_source_id": "0ZAYPJY0224XQrog3p1b",
+      "valid_filename": "image_973.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "5d7toQTMGeuBepuqgPBL",
+      "nearest_train_filename": "image_957.jpg",
+      "nearest_train_cosine": 0.952203,
+      "top_three_train_candidates": [
+        {
+          "train_id": "5d7toQTMGeuBepuqgPBL",
+          "train_filename": "image_957.jpg",
+          "cosine_similarity": 0.952203
+        },
+        {
+          "train_id": "ENLLJDhiIanpUYvOuqVm",
+          "train_filename": "image_1168.jpg",
+          "cosine_similarity": 0.908252
+        },
+        {
+          "train_id": "aq4hvIHgXHSwet7BwdL1",
+          "train_filename": "depositphotos_389234016-stock-photo-african-american-black-w (1).jpg",
+          "cosine_similarity": 0.904582
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 53,
+      "valid_source_id": "IrPWl2Q6jzcr9VOhOeHl",
+      "valid_filename": "image_756.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "6K1cDKbWRzFFWsAkpOWk",
+      "nearest_train_filename": "image_693.jpg",
+      "nearest_train_cosine": 0.951175,
+      "top_three_train_candidates": [
+        {
+          "train_id": "6K1cDKbWRzFFWsAkpOWk",
+          "train_filename": "image_693.jpg",
+          "cosine_similarity": 0.951175
+        },
+        {
+          "train_id": "l7n0Zu329XMc8LQ6w0mS",
+          "train_filename": "image_929.jpg",
+          "cosine_similarity": 0.945805
+        },
+        {
+          "train_id": "5XpLasxvrjz1Bga52aNN",
+          "train_filename": "image_802.jpg",
+          "cosine_similarity": 0.943528
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 54,
+      "valid_source_id": "m14RxytKhBsUC15KDuTb",
+      "valid_filename": "image_731.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "AoYOVVKiYseesaZfNuQ4",
+      "nearest_train_filename": "ppe_0217.jpg",
+      "nearest_train_cosine": 0.950935,
+      "top_three_train_candidates": [
+        {
+          "train_id": "AoYOVVKiYseesaZfNuQ4",
+          "train_filename": "ppe_0217.jpg",
+          "cosine_similarity": 0.950935
+        },
+        {
+          "train_id": "0jRe8fpRDE5fLgAJrYvT",
+          "train_filename": "image_604.jpg",
+          "cosine_similarity": 0.950524
+        },
+        {
+          "train_id": "QWkMw2dF8HqvycdLFMDW",
+          "train_filename": "image_628.jpg",
+          "cosine_similarity": 0.948061
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 55,
+      "valid_source_id": "QfLc2HInt6JqXiO8TaeJ",
+      "valid_filename": "h84.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "313qZ9KDJDD5lKNMfJxc",
+      "nearest_train_filename": "h86.jpg",
+      "nearest_train_cosine": 0.95082,
+      "top_three_train_candidates": [
+        {
+          "train_id": "313qZ9KDJDD5lKNMfJxc",
+          "train_filename": "h86.jpg",
+          "cosine_similarity": 0.95082
+        },
+        {
+          "train_id": "osKgd19JvKgJgVk1EBg0",
+          "train_filename": "h62.jpg",
+          "cosine_similarity": 0.946273
+        },
+        {
+          "train_id": "Eh9VFbSTvNqehhhi9QcD",
+          "train_filename": "h76.jpg",
+          "cosine_similarity": 0.943841
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 56,
+      "valid_source_id": "jtg9ROXWnr8NXbweC4Uc",
+      "valid_filename": "h98.jpg",
+      "prior_hold": false,
+      "review_priority": "P2_REVIEW_EMBEDDING",
+      "reasons": [
+        "EMBEDDING_GE_0_95"
+      ],
+      "nearest_train_id": "Pya04Mhgq8sozLPEm3DL",
+      "nearest_train_filename": "h78.jpg",
+      "nearest_train_cosine": 0.95056,
+      "top_three_train_candidates": [
+        {
+          "train_id": "Pya04Mhgq8sozLPEm3DL",
+          "train_filename": "h78.jpg",
+          "cosine_similarity": 0.95056
+        },
+        {
+          "train_id": "RhnvHK6SPTxa7PI6jTSf",
+          "train_filename": "h124.jpg",
+          "cosine_similarity": 0.933253
+        },
+        {
+          "train_id": "lHbUeAvgT98Bb2Cl8hc0",
+          "train_filename": "h131.jpg",
+          "cosine_similarity": 0.926138
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 57,
+      "valid_source_id": "uA9y28wPppY4ahz9uUeQ",
+      "valid_filename": "Sapi 7_mp4-42.jpg",
+      "prior_hold": false,
+      "review_priority": "P2S_NAMED_SOURCE_SEQUENCE",
+      "reasons": [
+        "FILENAME_SUGGESTS_SHARED_VIDEO_SEQUENCE"
+      ],
+      "nearest_train_id": "VuUmGXKTK7ySCcYc8hwl",
+      "nearest_train_filename": "Sapi 7_mp4-41.jpg",
+      "nearest_train_cosine": 0.941476,
+      "top_three_train_candidates": [
+        {
+          "train_id": "VuUmGXKTK7ySCcYc8hwl",
+          "train_filename": "Sapi 7_mp4-41.jpg",
+          "cosine_similarity": 0.941476
+        },
+        {
+          "train_id": "kAEpHUtPYW1n0eSmiLZP",
+          "train_filename": "Sapi 7_mp4-152.jpg",
+          "cosine_similarity": 0.87298
+        },
+        {
+          "train_id": "mvq9vYgREyBShHKTWm0a",
+          "train_filename": "c120_png.jpg",
+          "cosine_similarity": 0.803304
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 58,
+      "valid_source_id": "1t5zb6gruEPzGDxzvUXH",
+      "valid_filename": "Sapi 7_mp4-111.jpg",
+      "prior_hold": false,
+      "review_priority": "P2S_NAMED_SOURCE_SEQUENCE",
+      "reasons": [
+        "FILENAME_SUGGESTS_SHARED_VIDEO_SEQUENCE"
+      ],
+      "nearest_train_id": "1pOMviL9U3zBg7KEVwFo",
+      "nearest_train_filename": "Sapi 7_mp4-125.jpg",
+      "nearest_train_cosine": 0.899926,
+      "top_three_train_candidates": [
+        {
+          "train_id": "1pOMviL9U3zBg7KEVwFo",
+          "train_filename": "Sapi 7_mp4-125.jpg",
+          "cosine_similarity": 0.899926
+        },
+        {
+          "train_id": "kAEpHUtPYW1n0eSmiLZP",
+          "train_filename": "Sapi 7_mp4-152.jpg",
+          "cosine_similarity": 0.824382
+        },
+        {
+          "train_id": "x4li7ZpEZqRlWEFBMom3",
+          "train_filename": "Sapi 7_mp4-224.jpg",
+          "cosine_similarity": 0.777719
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 59,
+      "valid_source_id": "SLMvRgYkn0nHL1bhpAGH",
+      "valid_filename": "Sapi 7_mp4-60.jpg",
+      "prior_hold": false,
+      "review_priority": "P2S_NAMED_SOURCE_SEQUENCE",
+      "reasons": [
+        "FILENAME_SUGGESTS_SHARED_VIDEO_SEQUENCE"
+      ],
+      "nearest_train_id": "kAEpHUtPYW1n0eSmiLZP",
+      "nearest_train_filename": "Sapi 7_mp4-152.jpg",
+      "nearest_train_cosine": 0.845347,
+      "top_three_train_candidates": [
+        {
+          "train_id": "kAEpHUtPYW1n0eSmiLZP",
+          "train_filename": "Sapi 7_mp4-152.jpg",
+          "cosine_similarity": 0.845347
+        },
+        {
+          "train_id": "VuUmGXKTK7ySCcYc8hwl",
+          "train_filename": "Sapi 7_mp4-41.jpg",
+          "cosine_similarity": 0.822698
+        },
+        {
+          "train_id": "1pOMviL9U3zBg7KEVwFo",
+          "train_filename": "Sapi 7_mp4-125.jpg",
+          "cosine_similarity": 0.813393
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 60,
+      "valid_source_id": "nEdQwfjMIy4GrATgOLKz",
+      "valid_filename": "UNESCO-Regional-Director-visits-some-houses-restored-in-old-Sanaa-04.jpg",
+      "prior_hold": false,
+      "review_priority": "P2S_NAMED_SOURCE_SEQUENCE",
+      "reasons": [
+        "FILENAME_SUGGESTS_SHARED_NAMED_MEDIA_SERIES"
+      ],
+      "nearest_train_id": "ygGA8aGTeFnFdcxana3D",
+      "nearest_train_filename": "UN0829168.jpg.jpeg",
+      "nearest_train_cosine": 0.816399,
+      "top_three_train_candidates": [
+        {
+          "train_id": "ygGA8aGTeFnFdcxana3D",
+          "train_filename": "UN0829168.jpg.jpeg",
+          "cosine_similarity": 0.816399
+        },
+        {
+          "train_id": "8B8Eblicga7ZVqewHrnY",
+          "train_filename": "75522039_971728039848741_8717344264259895296_n.jpg",
+          "cosine_similarity": 0.788648
+        },
+        {
+          "train_id": "9ltRfEBYe5QnAvtK6G3d",
+          "train_filename": "IMG-20250508-WA0002.jpg",
+          "cosine_similarity": 0.777887
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 61,
+      "valid_source_id": "9IvmwwwxtY5HU002GUzj",
+      "valid_filename": "7.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "lYhay939cr2RUmloFebu",
+      "nearest_train_filename": "5.jpg",
+      "nearest_train_cosine": 0.949699,
+      "top_three_train_candidates": [
+        {
+          "train_id": "lYhay939cr2RUmloFebu",
+          "train_filename": "5.jpg",
+          "cosine_similarity": 0.949699
+        },
+        {
+          "train_id": "URnKrkFBfG2oasN6NjbS",
+          "train_filename": "20.jpg",
+          "cosine_similarity": 0.925695
+        },
+        {
+          "train_id": "ficbodpWZGENzWUkj1qR",
+          "train_filename": "18.jpg",
+          "cosine_similarity": 0.916814
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 62,
+      "valid_source_id": "0OQKf9ctc8nFLUzxlrSy",
+      "valid_filename": "15.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "lYhay939cr2RUmloFebu",
+      "nearest_train_filename": "5.jpg",
+      "nearest_train_cosine": 0.947761,
+      "top_three_train_candidates": [
+        {
+          "train_id": "lYhay939cr2RUmloFebu",
+          "train_filename": "5.jpg",
+          "cosine_similarity": 0.947761
+        },
+        {
+          "train_id": "URnKrkFBfG2oasN6NjbS",
+          "train_filename": "20.jpg",
+          "cosine_similarity": 0.932743
+        },
+        {
+          "train_id": "hNOvu25rP9SRIycIiUl1",
+          "train_filename": "3.jpg",
+          "cosine_similarity": 0.912492
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 63,
+      "valid_source_id": "u4obYScAA7jJeukqnfO3",
+      "valid_filename": "SharedScreenshot.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "GhQDenRJpLT58Z9yV7tD",
+      "nearest_train_filename": "h91.jpg",
+      "nearest_train_cosine": 0.942937,
+      "top_three_train_candidates": [
+        {
+          "train_id": "GhQDenRJpLT58Z9yV7tD",
+          "train_filename": "h91.jpg",
+          "cosine_similarity": 0.942937
+        },
+        {
+          "train_id": "XrCVvBw9xgDGlkCSmUey",
+          "train_filename": "h141.jpg",
+          "cosine_similarity": 0.936588
+        },
+        {
+          "train_id": "HURG50egdVo8yZ0vbx9y",
+          "train_filename": "h57.jpg",
+          "cosine_similarity": 0.934292
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 64,
+      "valid_source_id": "sWmx8VYmhH5UuDTeko0d",
+      "valid_filename": "images (3).jpeg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "URZSNn6LPIktR9XOWn1c",
+      "nearest_train_filename": "images.jpeg",
+      "nearest_train_cosine": 0.937117,
+      "top_three_train_candidates": [
+        {
+          "train_id": "URZSNn6LPIktR9XOWn1c",
+          "train_filename": "images.jpeg",
+          "cosine_similarity": 0.937117
+        },
+        {
+          "train_id": "eCDDqEmBKPO11SsxxmyS",
+          "train_filename": "18.jpg",
+          "cosine_similarity": 0.923683
+        },
+        {
+          "train_id": "oInVxou9q6mAbnO81QzH",
+          "train_filename": "imagem22.jpg",
+          "cosine_similarity": 0.907972
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 65,
+      "valid_source_id": "cn4ImFhCWXyO3WBAyu7j",
+      "valid_filename": "------8-_png.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "nVdlialtyiAhj97P0Mg6",
+      "nearest_train_filename": "------8-_png.jpg",
+      "nearest_train_cosine": 0.935134,
+      "top_three_train_candidates": [
+        {
+          "train_id": "nVdlialtyiAhj97P0Mg6",
+          "train_filename": "------8-_png.jpg",
+          "cosine_similarity": 0.935134
+        },
+        {
+          "train_id": "RL8OVshaBWL1hfYvc242",
+          "train_filename": "------8-_png.jpg",
+          "cosine_similarity": 0.910011
+        },
+        {
+          "train_id": "59hUst2yJIqKw7QDkUzb",
+          "train_filename": "images--25-_png.jpg",
+          "cosine_similarity": 0.783699
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 66,
+      "valid_source_id": "Vzd1KT4LA95UXpZTvfz7",
+      "valid_filename": "4.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "URZSNn6LPIktR9XOWn1c",
+      "nearest_train_filename": "images.jpeg",
+      "nearest_train_cosine": 0.933135,
+      "top_three_train_candidates": [
+        {
+          "train_id": "URZSNn6LPIktR9XOWn1c",
+          "train_filename": "images.jpeg",
+          "cosine_similarity": 0.933135
+        },
+        {
+          "train_id": "eCDDqEmBKPO11SsxxmyS",
+          "train_filename": "18.jpg",
+          "cosine_similarity": 0.911957
+        },
+        {
+          "train_id": "ByfNJFqxMUKKuMKCT39g",
+          "train_filename": "images286.jpg",
+          "cosine_similarity": 0.908643
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 67,
+      "valid_source_id": "XJRWtr2NdjyL0g01ziUa",
+      "valid_filename": "13.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "QWkMw2dF8HqvycdLFMDW",
+      "nearest_train_filename": "image_628.jpg",
+      "nearest_train_cosine": 0.931907,
+      "top_three_train_candidates": [
+        {
+          "train_id": "QWkMw2dF8HqvycdLFMDW",
+          "train_filename": "image_628.jpg",
+          "cosine_similarity": 0.931907
+        },
+        {
+          "train_id": "0jRe8fpRDE5fLgAJrYvT",
+          "train_filename": "image_604.jpg",
+          "cosine_similarity": 0.925167
+        },
+        {
+          "train_id": "BfUt6VmYBL4k0kbyAbGD",
+          "train_filename": "image_616.jpg",
+          "cosine_similarity": 0.910871
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 68,
+      "valid_source_id": "8vSmsE12nbGWDvQcJmuV",
+      "valid_filename": "28.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "2tqzWv5JMP6bou0Ik6YM",
+      "nearest_train_filename": "8.jpg",
+      "nearest_train_cosine": 0.924273,
+      "top_three_train_candidates": [
+        {
+          "train_id": "2tqzWv5JMP6bou0Ik6YM",
+          "train_filename": "8.jpg",
+          "cosine_similarity": 0.924273
+        },
+        {
+          "train_id": "1THjUSwluUstrfHm9gyT",
+          "train_filename": "111.jpg",
+          "cosine_similarity": 0.885699
+        },
+        {
+          "train_id": "xJYuONMitXouj4EKtMys",
+          "train_filename": "9.jpg",
+          "cosine_similarity": 0.85811
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 69,
+      "valid_source_id": "niaVhug0tFUWAmznBDk3",
+      "valid_filename": "117.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "aQUZFEK4DzS2frvqckwY",
+      "nearest_train_filename": "115.jpg",
+      "nearest_train_cosine": 0.910005,
+      "top_three_train_candidates": [
+        {
+          "train_id": "aQUZFEK4DzS2frvqckwY",
+          "train_filename": "115.jpg",
+          "cosine_similarity": 0.910005
+        },
+        {
+          "train_id": "dYSr8LxbFUmIc1ezvJgI",
+          "train_filename": "97.jpg",
+          "cosine_similarity": 0.856726
+        },
+        {
+          "train_id": "K7nbvTdFvXgRLBJK8RbG",
+          "train_filename": "89.jpg",
+          "cosine_similarity": 0.844561
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 70,
+      "valid_source_id": "mWViytcS98MF0NMfA3YL",
+      "valid_filename": "32.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "EH5RfpG8BRk9akzt16D0",
+      "nearest_train_filename": "TimePhoto_٢٠٢٤١١٠٧_١٦١٢٣٦.jpg",
+      "nearest_train_cosine": 0.902122,
+      "top_three_train_candidates": [
+        {
+          "train_id": "EH5RfpG8BRk9akzt16D0",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٧_١٦١٢٣٦.jpg",
+          "cosine_similarity": 0.902122
+        },
+        {
+          "train_id": "HUw5Y4sg0RUhRPQmrx8w",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٥٤٠٨.jpg",
+          "cosine_similarity": 0.879658
+        },
+        {
+          "train_id": "V5Zel6JgdvR3ikc1lD49",
+          "train_filename": "TimePhoto_٢٠٢٤١١٠٧_١٥٣٣١٦.jpg",
+          "cosine_similarity": 0.871269
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 71,
+      "valid_source_id": "zkd5gzF2HP1Wij8jGOwq",
+      "valid_filename": "1.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "3tzZq9kGldIIDz7bMmLH",
+      "nearest_train_filename": "38.jpg",
+      "nearest_train_cosine": 0.889801,
+      "top_three_train_candidates": [
+        {
+          "train_id": "3tzZq9kGldIIDz7bMmLH",
+          "train_filename": "38.jpg",
+          "cosine_similarity": 0.889801
+        },
+        {
+          "train_id": "MKLP5JNqOgK5hWQ9i6jl",
+          "train_filename": "٢٠٢٤١١١١_١٦٥٦٠٨.jpg",
+          "cosine_similarity": 0.876365
+        },
+        {
+          "train_id": "oKrokq5e0WLBBB7relPM",
+          "train_filename": "93.jpg",
+          "cosine_similarity": 0.872042
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 72,
+      "valid_source_id": "Oidvc0OwfogM8X5uenr1",
+      "valid_filename": "33.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "4MLx3SSpMaKCmZPAEgwN",
+      "nearest_train_filename": "10.jpg",
+      "nearest_train_cosine": 0.888665,
+      "top_three_train_candidates": [
+        {
+          "train_id": "4MLx3SSpMaKCmZPAEgwN",
+          "train_filename": "10.jpg",
+          "cosine_similarity": 0.888665
+        },
+        {
+          "train_id": "dsJW5VbvRgGlCtHrprsO",
+          "train_filename": "safety gloves (58).jpg",
+          "cosine_similarity": 0.876215
+        },
+        {
+          "train_id": "hs7geMAh8o7nSOJAfXXD",
+          "train_filename": "worker wearing mask_337.jpg",
+          "cosine_similarity": 0.860781
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 73,
+      "valid_source_id": "zmrQYc8xjmXZkSlVinnc",
+      "valid_filename": "3.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "IbhrkpfcoubnCaFiz534",
+      "nearest_train_filename": "safety gloves (54).jpg",
+      "nearest_train_cosine": 0.875776,
+      "top_three_train_candidates": [
+        {
+          "train_id": "IbhrkpfcoubnCaFiz534",
+          "train_filename": "safety gloves (54).jpg",
+          "cosine_similarity": 0.875776
+        },
+        {
+          "train_id": "Q1aChGDlQeqzBHmyBGch",
+          "train_filename": "1.jpg",
+          "cosine_similarity": 0.865934
+        },
+        {
+          "train_id": "3ZfxYNGRV0hEntNBvjNr",
+          "train_filename": "45.jpg",
+          "cosine_similarity": 0.848898
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 74,
+      "valid_source_id": "3nktU2FTbb9n1i0JPKgv",
+      "valid_filename": "images (1).jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "3JQVFTo9UAKud4yGOzPi",
+      "nearest_train_filename": "images (6).jpg",
+      "nearest_train_cosine": 0.848307,
+      "top_three_train_candidates": [
+        {
+          "train_id": "3JQVFTo9UAKud4yGOzPi",
+          "train_filename": "images (6).jpg",
+          "cosine_similarity": 0.848307
+        },
+        {
+          "train_id": "ZBzLmCTrKe2zOkr76Odu",
+          "train_filename": "images30.jpg",
+          "cosine_similarity": 0.830277
+        },
+        {
+          "train_id": "9DUY4eYln2207ucEJkD4",
+          "train_filename": "image20.jpeg",
+          "cosine_similarity": 0.828517
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 75,
+      "valid_source_id": "M8aUyy2y7nq6zd6drpiD",
+      "valid_filename": "38.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "dsJW5VbvRgGlCtHrprsO",
+      "nearest_train_filename": "safety gloves (58).jpg",
+      "nearest_train_cosine": 0.8298,
+      "top_three_train_candidates": [
+        {
+          "train_id": "dsJW5VbvRgGlCtHrprsO",
+          "train_filename": "safety gloves (58).jpg",
+          "cosine_similarity": 0.8298
+        },
+        {
+          "train_id": "u3qMAGp0zJAduQFHrBCa",
+          "train_filename": "16.jpg",
+          "cosine_similarity": 0.82003
+        },
+        {
+          "train_id": "PbO3Ui2FCNFKPbYVu1bI",
+          "train_filename": "image_685.jpg",
+          "cosine_similarity": 0.811676
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 76,
+      "valid_source_id": "1jh0KCPlEeh4XAxhKMlV",
+      "valid_filename": "46.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "3ZfxYNGRV0hEntNBvjNr",
+      "nearest_train_filename": "45.jpg",
+      "nearest_train_cosine": 0.821177,
+      "top_three_train_candidates": [
+        {
+          "train_id": "3ZfxYNGRV0hEntNBvjNr",
+          "train_filename": "45.jpg",
+          "cosine_similarity": 0.821177
+        },
+        {
+          "train_id": "Q1aChGDlQeqzBHmyBGch",
+          "train_filename": "1.jpg",
+          "cosine_similarity": 0.818446
+        },
+        {
+          "train_id": "3mGHDMjiQFzNrS0YuIzY",
+          "train_filename": "47.jpg",
+          "cosine_similarity": 0.81092
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 77,
+      "valid_source_id": "oARsYq6ZQOePA7eXP1tf",
+      "valid_filename": "29.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "u3qMAGp0zJAduQFHrBCa",
+      "nearest_train_filename": "16.jpg",
+      "nearest_train_cosine": 0.784442,
+      "top_three_train_candidates": [
+        {
+          "train_id": "u3qMAGp0zJAduQFHrBCa",
+          "train_filename": "16.jpg",
+          "cosine_similarity": 0.784442
+        },
+        {
+          "train_id": "q2NaKe2sFq3Nt0xfvgiS",
+          "train_filename": "3b9ca62193910138f76d8fa1f211b742.jpg",
+          "cosine_similarity": 0.75589
+        },
+        {
+          "train_id": "LhYBXqs4HUcWS8Rm5R1z",
+          "train_filename": "safety gloves (19).jpg",
+          "cosine_similarity": 0.750943
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 78,
+      "valid_source_id": "sH4qWaeDYOnVFkAJ8bnA",
+      "valid_filename": "images (1).jpeg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "zc3mhWLr3t26c2bJN4S2",
+      "nearest_train_filename": "ef6dcca67dbbdf6e3b539a8d69007df2.jpg",
+      "nearest_train_cosine": 0.77729,
+      "top_three_train_candidates": [
+        {
+          "train_id": "zc3mhWLr3t26c2bJN4S2",
+          "train_filename": "ef6dcca67dbbdf6e3b539a8d69007df2.jpg",
+          "cosine_similarity": 0.77729
+        },
+        {
+          "train_id": "W5ecAQ3Rq8R5DFvvj34k",
+          "train_filename": "474391720_122160846680320679_3087905056801293665_n.jpg",
+          "cosine_similarity": 0.77463
+        },
+        {
+          "train_id": "3g0y0IgtET76VrLkKlsr",
+          "train_filename": "DdBxob0XkAAkUfr.jpg",
+          "cosine_similarity": 0.772075
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 79,
+      "valid_source_id": "6HCuk7UuhOQH5pSi9IBX",
+      "valid_filename": "images.jpeg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "VVNGZmV3Kpkv51dREgU8",
+      "nearest_train_filename": "chiens-rabat.jpg",
+      "nearest_train_cosine": 0.767049,
+      "top_three_train_candidates": [
+        {
+          "train_id": "VVNGZmV3Kpkv51dREgU8",
+          "train_filename": "chiens-rabat.jpg",
+          "cosine_similarity": 0.767049
+        },
+        {
+          "train_id": "dEIWi5t1OivYV2QM7HRM",
+          "train_filename": "下載 (3).jpg",
+          "cosine_similarity": 0.748409
+        },
+        {
+          "train_id": "H8k552xX7W8OavJcEf95",
+          "train_filename": "d557fc6d0cf38eb0.jpg",
+          "cosine_similarity": 0.746178
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 80,
+      "valid_source_id": "Z3JHl90dYb7Q40EZP5Nc",
+      "valid_filename": "28cd0b218f78403a904309a7bfdfb303.jpg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "Cvh5UIGM4gTaPhriIh4Y",
+      "nearest_train_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+      "nearest_train_cosine": 0.76008,
+      "top_three_train_candidates": [
+        {
+          "train_id": "Cvh5UIGM4gTaPhriIh4Y",
+          "train_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+          "cosine_similarity": 0.76008
+        },
+        {
+          "train_id": "NAzs8sLreuFWQeOYDa2w",
+          "train_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+          "cosine_similarity": 0.742237
+        },
+        {
+          "train_id": "gnbAKN1ga4t7AIXYrZPQ",
+          "train_filename": "9e0af5a2364f4e34bd44e030716d2840.jpg",
+          "cosine_similarity": 0.735852
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 81,
+      "valid_source_id": "VGgO7pgrSLIT34s08k5H",
+      "valid_filename": "images (1).jpeg",
+      "prior_hold": false,
+      "review_priority": "P3_REVIEW_FILENAME",
+      "reasons": [
+        "EXACT_FILENAME_CROSS_SPLIT"
+      ],
+      "nearest_train_id": "Y5x5U1rz5oiAxogFDDch",
+      "nearest_train_filename": "d06b6191e92390efc938ab243e61212b.jpg",
+      "nearest_train_cosine": 0.714412,
+      "top_three_train_candidates": [
+        {
+          "train_id": "Y5x5U1rz5oiAxogFDDch",
+          "train_filename": "d06b6191e92390efc938ab243e61212b.jpg",
+          "cosine_similarity": 0.714412
+        },
+        {
+          "train_id": "l5CxwGqk5oaIzn3LYPdq",
+          "train_filename": "images (1).jpeg",
+          "cosine_similarity": 0.710145
+        },
+        {
+          "train_id": "qNgfHjtB0GNa89yvmOmI",
+          "train_filename": "stock-photo-taiz-yemen-feb-a-sad-child-searches-for-water-in-the-camps-for-the-displaced-from-the-2465233049.jpg",
+          "cosine_similarity": 0.703716
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 82,
+      "valid_source_id": "0bPA0Np3dQTf1XlXEAye",
+      "valid_filename": "worker wearing mask_322.jpg",
+      "prior_hold": false,
+      "review_priority": "P4_REVIEW_FAMILY",
+      "reasons": [
+        "EARLIER_SOURCE_FAMILY_REVIEW"
+      ],
+      "nearest_train_id": "hnv5r5zAvrgjfxTQOsq2",
+      "nearest_train_filename": "image_252.jpg",
+      "nearest_train_cosine": 0.911948,
+      "top_three_train_candidates": [
+        {
+          "train_id": "hnv5r5zAvrgjfxTQOsq2",
+          "train_filename": "image_252.jpg",
+          "cosine_similarity": 0.911948
+        },
+        {
+          "train_id": "ENLLJDhiIanpUYvOuqVm",
+          "train_filename": "image_1168.jpg",
+          "cosine_similarity": 0.903042
+        },
+        {
+          "train_id": "mBvKWu1BsI3yXFBNRQDd",
+          "train_filename": "image_972.jpg",
+          "cosine_similarity": 0.897585
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    },
+    {
+      "queue_position": 83,
+      "valid_source_id": "MBS44fI30lt9yp8ytc90",
+      "valid_filename": "worker wearing mask_368.jpg",
+      "prior_hold": false,
+      "review_priority": "P4_REVIEW_FAMILY",
+      "reasons": [
+        "EARLIER_SOURCE_FAMILY_REVIEW"
+      ],
+      "nearest_train_id": "OgkLI55Y2FCpvvOAMxzz",
+      "nearest_train_filename": "image_782.jpg",
+      "nearest_train_cosine": 0.894676,
+      "top_three_train_candidates": [
+        {
+          "train_id": "OgkLI55Y2FCpvvOAMxzz",
+          "train_filename": "image_782.jpg",
+          "cosine_similarity": 0.894676
+        },
+        {
+          "train_id": "BztjXmJLpvPC6pnJORLP",
+          "train_filename": "worker wearing mask_464.jpg",
+          "cosine_similarity": 0.889294
+        },
+        {
+          "train_id": "nhXMHxaCM0f7kNLOKU8Z",
+          "train_filename": "image_719.jpg",
+          "cosine_similarity": 0.887485
+        }
+      ],
+      "measured_original_pixel_pair": null,
+      "human_media_relationship": "UNREVIEWED",
+      "human_reviewer": null,
+      "review_date": null,
+      "source_family_id": null,
+      "acquisition_site_id": null,
+      "basis_document": null,
+      "human_signoff": "PENDING",
+      "valid_eligibility": "ON_HOLD_PENDING_SOURCE_REVIEW",
+      "may_change_roboflow_splits": false
+    }
+  ],
+  "original_dataset_mutated": false,
+  "test_images_accessed": false,
+  "scoring_ready": false
+}
