@@ -1,0 +1,41 @@
+{
+  "schema_version": "seer-ppe/author-visual-review-acceptance/v0.8",
+  "date": "2026-11-21",
+  "owner_statement_verbatim": "جميع الصور تم مراجعهتها بشكل صحيح ومناسب",
+  "previous_owner_statement": "تم مراجع كل الصور تمام",
+  "author_visual_review_status": "COMPLETED_AND_AUTHOR_ACCEPTED_AS_CORRECT_AND_APPROPRIATE",
+  "need_to_reinspect_images_for_general_visual_review": false,
+  "author_approval_is_general_visual_review_quality": true,
+  "individual_train_valid_source_family_verdicts_not_specified": true,
+  "not_interpreted_as": "automatic independence certification for Valid source family, new hold decisions, PPE case-level statuses, task policy, Test evaluation signoff",
+  "completed_original_source_byte_hash_audit": {
+    "total": 2093,
+    "train": 1625,
+    "valid": 468,
+    "byte_identical_cross_split": 0,
+    "rgb_pixel_identical_cross_split": 0,
+    "near_dhash_pairs": 46
+  },
+  "validation_planning_manifest": "VALIDATION_ELIGIBILITY_PLANNING_MANIFEST_2026-11-21_V08.json",
+  "validation_buckets": {
+    "preexisting_specific_holds": 5,
+    "additional_source_review_candidates": 94,
+    "not_flagged_but_independence_not_certified": 369
+  },
+  "pilot_eval": {
+    "approved_item_person_links": 19,
+    "recorded_visual_states": 38,
+    "expected_visual_states": 42,
+    "complete_cases": 0,
+    "missing_B_cells": [
+      "P001:face_mask",
+      "P001:safety_boot",
+      "P002:face_mask",
+      "P002:safety_boot"
+    ],
+    "D_zero_person_signed": false
+  },
+  "no_roboflow_dataset_or_model_edits": true,
+  "no_test_image_access": true,
+  "scoring_ready": false
+}
