@@ -153,5 +153,19 @@
     "Human source-family adjudication and rights/source review remain open",
     "Human signoff of four B missing cells and D no-person control, plus full case completeness/policies, remains open",
     "Remote GitHub Actions execution not verified"
-  ]
+  ],
+  "engineering": {
+    "source_audit_script": "tools/source_pixel_hash_audit.py",
+    "script_blob_sha_after_change": "be5269c16a5a589628d06e189eef66903364b8d3",
+    "commit": "7d8aece4516c7896da5f0f20aa22fd0a4c988752",
+    "changes": [
+      "Refuse malformed Source IDs before resolving paths",
+      "Refuse explicit local paths outside declared Train/Valid directory, including Test",
+      "Refuse symlink-based split/file traversal",
+      "Add synthetic negative self-tests for malformed ID, cross-split and symlink paths"
+    ],
+    "self_tests_added": true,
+    "self_tests_executed_in_this_continuation": false,
+    "remote_github_actions_verified": false
+  }
 }
