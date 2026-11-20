@@ -1,0 +1,101 @@
+{
+  "schema_version": "seer-ppe/case-b-ai-visibility-preflight/v0.1",
+  "date": "2026-11-21",
+  "source_project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "split": "train",
+  "image_id": "0xxsYWiz1FZBYERolu4z",
+  "filename": "000760.jpg",
+  "original_image_dimensions": [
+    500,
+    330
+  ],
+  "method": "Roboflow media_analyze one-image targeted question concerning face-mask and safety footwear visibility for P001/P002, then read-only Roboflow Eval Case check",
+  "model_report_type": "AI_ASSISTED_UNVERIFIED_OBSERVATIONS_ONLY",
+  "live_eval_dataset": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+  "live_eval_case": "87b6cc58-43bd-4583-8b13-bd9b7413c03d",
+  "live_eval_case_revision": 2,
+  "live_eval_ground_truth_state": "incomplete",
+  "live_matched_item_owner_links": 4,
+  "live_recorded_visual_states": 8,
+  "missing_visual_states": [
+    "P001:face_mask",
+    "P001:safety_boot",
+    "P002:face_mask",
+    "P002:safety_boot"
+  ],
+  "scene_summary": "Two workers on a rebar foundation handling concrete: larger foreground worker with helmet and gloves, smaller worker in background near another hose.",
+  "review_items": [
+    {
+      "person_id": "P001",
+      "ppe_type": "face_mask",
+      "current_ground_truth": "MISSING_REVIEW",
+      "human_final_state": null,
+      "human_signoff": null,
+      "observation": "Face angled down; cheeks/jaw partly visible; nose/mouth partly obscured. No mask clearly described by the AI image inspection, but anatomical coverage not sufficient for a defensible absent/present verdict.",
+      "ai_uncertainty": [
+        "head tilt",
+        "partial nose/mouth occlusion",
+        "500×330 original dimensions"
+      ],
+      "not_authorized_to_set_visual_state": true
+    },
+    {
+      "person_id": "P001",
+      "ppe_type": "safety_boot",
+      "current_ground_truth": "MISSING_REVIEW",
+      "human_final_state": null,
+      "human_signoff": null,
+      "observation": "AI image inspection suggests feet may show open-toed or strapped footwear under apron near rebar; crop and pixel resolution can mislead. Does not establish type, protective rating, ownership of K/L/M, or confirmed absence of certified footwear.",
+      "ai_uncertainty": [
+        "old source boot boxes K/L/M wearer UNKNOWN",
+        "footwear certification cannot be established from a single photo",
+        "possible garment/footwear visual confusion"
+      ],
+      "not_authorized_to_set_visual_state": true
+    },
+    {
+      "person_id": "P002",
+      "ppe_type": "face_mask",
+      "current_ground_truth": "MISSING_REVIEW",
+      "human_final_state": null,
+      "human_signoff": null,
+      "observation": "Background worker face is blurry/small; nose and mouth cannot be determined reliably from the AI summary; a face mask cannot be confidently verified or excluded.",
+      "ai_uncertainty": [
+        "background scale",
+        "blur",
+        "partly indeterminate face details"
+      ],
+      "not_authorized_to_set_visual_state": true
+    },
+    {
+      "person_id": "P002",
+      "ppe_type": "safety_boot",
+      "current_ground_truth": "MISSING_REVIEW",
+      "human_final_state": null,
+      "human_signoff": null,
+      "observation": "Lower extremities/feet are partly obscured and blur into background; no defensible safety-footwear classification or certification can be drawn from this AI-only inspection.",
+      "ai_uncertainty": [
+        "low-resolution background person",
+        "occlusion",
+        "old source boot item K wearer UNKNOWN"
+      ],
+      "not_authorized_to_set_visual_state": true
+    }
+  ],
+  "preserve_unknown_source_item_owner_ids": [
+    "9",
+    "A",
+    "K",
+    "L",
+    "M"
+  ],
+  "preserve_existing_researcher_decisions": true,
+  "task_policy": "POLICY_UNKNOWN",
+  "case_complete": false,
+  "eval_ground_truth_modified": false,
+  "original_annotations_modified": false,
+  "model_retrained": false,
+  "test_accessed": false,
+  "scoring_ready": false,
+  "interpretation": "No new human-confirmed visual cell; these are focused prompts/evidence suggestions for a future reviewer inspection."
+}
