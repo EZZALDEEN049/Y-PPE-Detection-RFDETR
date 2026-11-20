@@ -122,6 +122,20 @@ All 30 previously prepared development images were visually reviewed at thumbnai
 
 Planned results tables: R2 researcher-labeled worker/mandate ground-truth coverage and unknowns (without interrater agreement claims); R3 target-matched Occlusion, Deletion/Insertion and LOST/AMBIGUOUS; R4 matched compute/latency/review costs and electrical energy *if actually metered*; R5 historical-development-exposed internal Test safety metrics and bounds; R6 matched comparator/ablation contrasts and source-sensitivity results. All efficacy cells remain unpopulated pending reproducible experiments.
 
+### 4.4 Direct original Roboflow Source-byte integrity pilot (measured, descriptive only; 21 November 2026)
+
+To separate source-provenance hypotheses from image-embedding resemblance, we retrieved six **original Source images**, identified by immutable Roboflow Source IDs and frozen Train/Valid assignments, inside a temporary read-only GitHub Actions environment. Each image was decoded and passed raw-byte SHA-256, EXIF-oriented decoded-RGB SHA-256 (with image dimensions), and 64-bit dHash computation. The source access path used the existing credential and did not store original media, credentials or image access URLs in the public repository. The exact executable run is [44833885353](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44833885353).
+
+| Previously flagged Valid image | Compared Train image | Byte-identical | RGB-pixel-identical | dHash Hamming distance |
+|:--|:--|:--:|:--:|--:|
+| `v99.jpg` | `v74.jpg` | No | No | 11 |
+| `image_1372.jpg` | `image_1342.jpg` | No | No | 29 |
+| `v16.jpg` | `v15.jpg` | No | No | 18 |
+
+These observations establish **nonidentical bytes and decoded pixel arrays** for the **three compared pairs** only. Their greater-than-eight dHash distances are not a test of independent photographic acquisition: a cropped, watermarked or reframed derivative may be source-dependent despite dissimilar 64-bit perceptual hashes. In particular, an AI-only visual description suggests possible shared stock-media content for the `image_1372/image_1342` pair, which remains **unconfirmed**. None of the three pairs was certified independent by a human reviewer, and no existing Valid hold was lifted. Only **6 of the 2,093 Train/Valid original Source images** had undergone this direct-byte step at the time of the pilot. The full 2,093-source audit was separately requested and must be assessed from its own completed run record.
+
+This subsection reports **dataset audit evidence, not SEER-PPE detection accuracy, worker-level safety/compliance, explanation fidelity, source-independent validation, or energy performance**. The frozen Test split was not accessed. Full methods, hashes and source IDs are archived in [the original-Source pilot report](SOURCE_ORIGINAL_PIXEL_PILOT_2026-11-21_V01.md), with an independently verified GitHub Actions artifact digest.
+
 ## 5. Discussion — questions, not claimed findings
 
 The eventual discussion will address whether routing demonstrably reduces additional compute energy without intolerable safety errors, whether explanations are faithful rather than merely plausible, and which constraints cannot be supported by the available Y-PPE evaluation population. Claims of real-world incident reduction, deployability on arbitrary hardware, universal safety guarantees, and global generalization are outside present evidence.
