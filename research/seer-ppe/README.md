@@ -43,3 +43,12 @@ No independently verified worker-level PPE mandate, completed human A/B review, 
 Archive images, reviewer case mapping, and image-contact sheets are **not published to GitHub**. Even within the owner's internal Drive research vault, individual image rights require separate clearance before onward sharing.
 
 Every subsequent phase updates this same manuscript, progress log and changelog; no unexecuted metrics are treated as research findings.
+
+
+## SEER-PPE V04 continuation — 2026-11-21
+
+- Live Roboflow read-only verification of three additional Train/Valid high-similarity pairs: `v99/v74`, `image_1372/image_1342`, `v16/v15`; **6/6** source annotations valid, all IDs checked against frozen Train/Valid manifest. AI descriptions raise a high-priority possible shared stock portrait for `image_1372/image_1342`, **not** pixel-duplicate proof or a new hold.
+- Train pilot D `h1.jpg` AI-only analysis: isolated helmet/no person apparent; original annotation 1 Hard Hat / 0 Persons; live Eval Case D remains empty and incomplete. Human no-person signoff **not** obtained.
+- Live Eval A–D revisions `2/2/4/1`, all four incomplete; prior **19** researcher-approved item-owner links unchanged; **4** B visual cells still missing. No new human reference decision or task-policy claim.
+- Source audit hardened against wrong-split/Test path access, unsafe Source ID and symlink traversal, with **new synthetic negative tests authored, not executed in this continuation**. Remote GitHub Actions CI result unverified. Original image-byte audit for 2,093 Train/Valid still blocked.
+- **No Roboflow source/model/Eval Case writes, no new Test image inspection or scoring.** V04 checkpoint: [Markdown](DUAL_TRACK_CHECKPOINT_2026-11-21_V04.md) · [JSON](DUAL_TRACK_CHECKPOINT_2026-11-21_V04.json); current status **`scoring_ready=false`**.
