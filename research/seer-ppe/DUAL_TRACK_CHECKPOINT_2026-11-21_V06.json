@@ -63,7 +63,12 @@
     "git_master_manuscript_version": "v0.8",
     "manuscript_file": "MANUSCRIPT_MASTER.md",
     "source_record_uploaded_to_git": true,
-    "original_image_binaries_uploaded": false
+    "original_image_binaries_uploaded": false,
+    "github_actions_v06_source_review_gate_verified": true,
+    "github_actions_v06_run_id": 44836037577,
+    "github_actions_v06_conclusion": "success",
+    "github_actions_v06_marker": "SEER_V06_ORIGINAL_SOURCE_REVIEW_FAIL_CLOSED_GATE_PASS",
+    "ci_evidence_file": "GITHUB_ACTIONS_V06_VERIFIED_2026-11-21_V01.md"
   },
   "invariants": {
     "original_roboflow_model_mutated": false,
