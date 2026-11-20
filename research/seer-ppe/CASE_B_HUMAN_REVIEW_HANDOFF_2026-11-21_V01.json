@@ -1,0 +1,94 @@
+{
+  "schema_version": "seer-ppe/case-b-human-review-handoff/v0.1",
+  "date": "2026-11-21",
+  "source_project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "source_id": "0xxsYWiz1FZBYERolu4z",
+  "source_filename": "000760.jpg",
+  "source_split": "train",
+  "case_id": "87b6cc58-43bd-4583-8b13-bd9b7413c03d",
+  "eval_dataset_id": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+  "case_revision_observed": 2,
+  "historical_researcher_approved_item_owner_links": 4,
+  "other_source_boxes_to_preserve_unknown": [
+    "9",
+    "A",
+    "K",
+    "L",
+    "M"
+  ],
+  "allowed_visual_state_after_human_inspection": [
+    "PRESENT",
+    "ABSENT",
+    "UNKNOWN"
+  ],
+  "cells": [
+    {
+      "person_id": "P001",
+      "ppe_type": "face_mask",
+      "context": "Foreground worker; verify actual visible nose/mouth and whether mask region can be assessed without relying on 'No Face Mask' detector class.",
+      "current_state": "MISSING_REVIEW",
+      "required_human_evidence": [
+        "body region visible or legitimately unobservable",
+        "item visibility or reason not interpretable",
+        "whether class-specific safety grade can be supported",
+        "annotator reviewer/date"
+      ],
+      "proposed_state": null,
+      "signoff": "PENDING"
+    },
+    {
+      "person_id": "P001",
+      "ppe_type": "safety_boot",
+      "context": "Foreground worker; old source boxes L/M have human-final UNKNOWN wearer ownership, and visible footwear cannot establish certified safety grade.",
+      "current_state": "MISSING_REVIEW",
+      "required_human_evidence": [
+        "body region visible or legitimately unobservable",
+        "item visibility or reason not interpretable",
+        "whether class-specific safety grade can be supported",
+        "annotator reviewer/date"
+      ],
+      "proposed_state": null,
+      "signoff": "PENDING"
+    },
+    {
+      "person_id": "P002",
+      "ppe_type": "face_mask",
+      "context": "Smaller/rear worker; face visibility may be limited by scale or occlusion; do not infer absence from no detection.",
+      "current_state": "MISSING_REVIEW",
+      "required_human_evidence": [
+        "body region visible or legitimately unobservable",
+        "item visibility or reason not interpretable",
+        "whether class-specific safety grade can be supported",
+        "annotator reviewer/date"
+      ],
+      "proposed_state": null,
+      "signoff": "PENDING"
+    },
+    {
+      "person_id": "P002",
+      "ppe_type": "safety_boot",
+      "context": "Rear worker; old source box K human-final UNKNOWN wearer ownership; visually distinguish ordinary shoes and verified safety-grade footwear.",
+      "current_state": "MISSING_REVIEW",
+      "required_human_evidence": [
+        "body region visible or legitimately unobservable",
+        "item visibility or reason not interpretable",
+        "whether class-specific safety grade can be supported",
+        "annotator reviewer/date"
+      ],
+      "proposed_state": null,
+      "signoff": "PENDING"
+    }
+  ],
+  "guardrails": [
+    "No user image authorship re-investigation",
+    "Do not alter existing matched links or original annotation boxes",
+    "Unknown old item ownership does not force unknown wearer-level visual state",
+    "No face mask, footwear, PPE violations or site PPE mandates inferred solely from old detector tags",
+    "No Eval Case completeness change without explicit user approval"
+  ],
+  "source_review_required": true,
+  "task_policy_status": "POLICY_UNKNOWN",
+  "ready_to_mark_complete": false,
+  "roboflow_mutated": false,
+  "model_scoring_ready": false
+}
