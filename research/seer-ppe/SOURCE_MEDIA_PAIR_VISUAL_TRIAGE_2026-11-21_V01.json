@@ -1,0 +1,94 @@
+{
+  "schema_version": "seer-ppe/cross-split-source-family-ai-visual-pair-triage/v0.1",
+  "date": "2026-11-21",
+  "methods": [
+    "Read-only Roboflow image URL lookup by exact Train/Valid filename",
+    "Read-only Roboflow media_analyze on six original image URLs, one per image",
+    "Cross-compare six independently returned AI scene descriptions and previously saved cosine metadata"
+  ],
+  "coverage": {
+    "single_images_analyzed": 6,
+    "pairs_analyzed": 3,
+    "split_scope": [
+      "train",
+      "valid"
+    ],
+    "test_images_analyzed": 0,
+    "existing_valid_review_queue_size": 83,
+    "previous_specific_valid_holds_unchanged": 5
+  },
+  "source_images_publicly_published": false,
+  "original_model_training_or_data_modified": false,
+  "researcher_signoff_performed": false,
+  "scientific_metrics_scoring_ready": false,
+  "interpretations": "AI visual descriptions, not human visual adjudication and not cryptographic/pixel verification.",
+  "reviewed_pairs": [
+    {
+      "id": "sapi-223-224",
+      "family": "Sapi 7_mp4",
+      "valid_id": "sPdt3S9xyB3XzrWa3DaE",
+      "train_id": "x4li7ZpEZqRlWEFBMom3",
+      "valid_description": "Outdoor green cattle pasture: four cows, tan cow in foreground facing right, other cattle and tropical vegetation, small rustic shelter, distant hills; centered BINGKENG TV watermark; no people.",
+      "train_description": "Outdoor green cattle pasture: four cows, tan cow in foreground facing right, other cattle, palm trees and rural shelter, distant hills; centered BINGKENG TV watermark; no people.",
+      "visual_cross_image_evidence": [
+        "same distinctive BINGKENG TV watermark in both individual summaries",
+        "both descriptions: same pasture and foreground tan cow facing right",
+        "both descriptions: four cattle, palm trees, shelter and distant hills"
+      ],
+      "interpretation": "HIGH_PRIORITY_POSSIBLE_ADJACENT_VIDEO_FRAMES_AI_ONLY",
+      "cautions": "Two single-image vision descriptions plus prior cosine are supportive of same source video; do not claim exact pixel duplication or definitive capture/session matching.",
+      "valid_filename": "Sapi 7_mp4-223.jpg",
+      "train_filename": "Sapi 7_mp4-224.jpg",
+      "cosine_from_prior_screen": 0.99238,
+      "vision_method": "Roboflow media_analyze on each original image URL separately; AI single-image descriptions compared after the fact",
+      "source_image_bytes_hashed": false,
+      "human_pairwise_adjudicated": false,
+      "eligibility_status_change": "NONE"
+    },
+    {
+      "id": "sapi-41-42",
+      "family": "Sapi 7_mp4",
+      "valid_id": "uA9y28wPppY4ahz9uUeQ",
+      "train_id": "VuUmGXKTK7ySCcYc8hwl",
+      "valid_description": "Outdoor rural paved road: an adult white cow, tan calf and smaller calf along grassy edge, tropical vegetation and rustic fence; centered BINGKENG TV watermark; no people/vehicles.",
+      "train_description": "Outdoor rural asphalt road: an adult white cow and three light brown calves along a wooded road edge and rustic wire fence; no person statement made in returned summary.",
+      "visual_cross_image_evidence": [
+        "both descriptions: white adult cow and brown calves on rural paved-road edge",
+        "both descriptions: tropical trees and rustic fence",
+        "adjacent filename serials 41 and 42"
+      ],
+      "interpretation": "PRIORITY_POSSIBLE_ADJACENT_VIDEO_FRAMES_AI_ONLY",
+      "cautions": "Counts differ between the individual AI descriptions (Valid approximately 3 cattle, Train approximately 4); do not infer identical content, confirm by direct side-by-side source image review.",
+      "valid_filename": "Sapi 7_mp4-42.jpg",
+      "train_filename": "Sapi 7_mp4-41.jpg",
+      "cosine_from_prior_screen": 0.941476,
+      "vision_method": "Roboflow media_analyze on each original image URL separately; AI single-image descriptions compared after the fact",
+      "source_image_bytes_hashed": false,
+      "human_pairwise_adjudicated": false,
+      "eligibility_status_change": "NONE"
+    },
+    {
+      "id": "unesco-03-04",
+      "family": "UNESCO named media sequence",
+      "valid_id": "nEdQwfjMIy4GrATgOLKz",
+      "train_id": "2cxNJHyzOFa4MyWN8gbM",
+      "valid_description": "Group of approximately five at a stone-paved terrace under red-striped canopy; reflective/UNESCO vests, white hard hat held by one person, decorative masonry and arched background.",
+      "train_description": "Group of approximately eight to nine on an outdoor roof/terrace near weathered traditional walls; reflective and UN-style vests, masks, ID lanyards, camera and urban view.",
+      "visual_cross_image_evidence": [
+        "both descriptions contain multi-person scenes wearing reflective/UNESCO-style vests",
+        "both show traditional masonry but different immediate backgrounds",
+        "adjacent numeric media filenames 03 and 04"
+      ],
+      "interpretation": "SHARED_NAMED_MEDIA_SERIES_CANDIDATE_DISTINCT_VIEWS",
+      "cautions": "No pixel identical claim and no confirmed same-camera session; shared article/media source suggested by filenames, with clear scene-composition differences.",
+      "valid_filename": "UNESCO-Regional-Director-visits-some-houses-restored-in-old-Sanaa-04.jpg",
+      "train_filename": "UNESCO-Regional-Director-visits-some-houses-restored-in-old-Sanaa-03.jpg",
+      "cosine_from_prior_screen": null,
+      "vision_method": "Roboflow media_analyze on each original image URL separately; AI single-image descriptions compared after the fact",
+      "source_image_bytes_hashed": false,
+      "human_pairwise_adjudicated": false,
+      "eligibility_status_change": "NONE"
+    }
+  ],
+  "research_implication": "An apparently shared animal-video source can span Train and Valid even for nonworker negative controls. Group-aware validation may be needed for negative-control specificity; do not automatically call animal controls erroneous labels or generalize any leakage count beyond reviewed pairs."
+}
