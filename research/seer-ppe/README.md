@@ -1,5 +1,7 @@
 # SEER-PPE: cumulative research (v0.6, 10 Nov 2026)
 
+> **Latest execution checkpoint (21 Nov 2026):** [Dual-track source-integrity + Person–PPE progress](DUAL_TRACK_CHECKPOINT_2026-11-21.md) · [machine JSON](DUAL_TRACK_CHECKPOINT_2026-11-21.json) · [source audit Issue #17](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/issues/17) · [human reference Issue #18](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/issues/18). Full pixel hashing and human gold remain open, scoring is **not ready**.
+
 > **Latest checkpoint (19 Nov 2026):** [Consolidated progress and resume guide](PROJECT_PROGRESS_CHECKPOINT_2026-11-19.md) · [machine-readable JSON](PROJECT_PROGRESS_CHECKPOINT_2026-11-19.json) · [pending work Issue #17](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/issues/17). Train–Valid embedding review is complete, original-byte pixel audit remains pending, and final model scoring is **not ready**.
 
 **This is a developing research manuscript, not a completed or published efficacy study.**
