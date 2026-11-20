@@ -39,8 +39,11 @@
   },
   "engineering": {
     "new_validation_gate": "research/seer-ppe/tools/validate_v08_author_review_planning_gate.mjs",
-    "github_ci_gate_output": "PENDING_VERIFICATION",
-    "git_files_saved": true
+    "github_ci_gate_output": "REMOTE_COMPLETED_SUCCESS",
+    "git_files_saved": true,
+    "github_ci_gate_run_id": 44837491078,
+    "github_ci_gate_job_id": 136637438351,
+    "github_ci_evidence": "GITHUB_ACTIONS_V08_VERIFIED_2026-11-21_V01.md"
   },
   "protected": {
     "test_originals_accessed": 0,
