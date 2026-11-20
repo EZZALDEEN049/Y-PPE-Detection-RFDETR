@@ -1,0 +1,514 @@
+{
+  "schema_version": "seer-ppe/person-ppe-reference-live-readback/v0.9",
+  "date": "2026-11-21",
+  "dataset": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+  "source": "LIVE_READ_ONLY_ROBOFLOW_WORKFLOW_EVAL_CASES_GET",
+  "case_count": 4,
+  "case_complete_count": 0,
+  "human_approved_links_preserved": 19,
+  "saved_worker_ppe_states": 38,
+  "expected_worker_ppe_states": 42,
+  "missing_state_cells": [
+    {
+      "case": "B",
+      "person_id": "P001",
+      "ppe_type": "face_mask"
+    },
+    {
+      "case": "B",
+      "person_id": "P001",
+      "ppe_type": "safety_boot"
+    },
+    {
+      "case": "B",
+      "person_id": "P002",
+      "ppe_type": "face_mask"
+    },
+    {
+      "case": "B",
+      "person_id": "P002",
+      "ppe_type": "safety_boot"
+    }
+  ],
+  "saved_visual_state_distribution_not_a_model_metric": {
+    "PRESENT": 22,
+    "ABSENT": 3,
+    "UNKNOWN": 13,
+    "NOT_RECORDED": 4
+  },
+  "case_D_human_signed_zero_person_decision": false,
+  "task_mandate_status": "POLICY_UNKNOWN",
+  "workflow_predictions_are_separate_from_human_reference": true,
+  "model_inference_promoted_to_reference": false,
+  "no_eval_case_writes": true,
+  "scoring_ready": false,
+  "cases": [
+    {
+      "case": "A",
+      "case_id": "8f7cce94-d46e-4fac-9a0a-641bcd1f12c8",
+      "source_filename": "image_604.jpg",
+      "revision": 2,
+      "ground_truth_state": "incomplete",
+      "person_count": 1,
+      "saved_visual_rows": 6,
+      "expected_visual_rows": 6,
+      "approved_links": 3,
+      "associations": [
+        {
+          "equipment_id": "E001",
+          "person_id": "P001",
+          "status": "MATCHED",
+          "basis": "Final researcher-confirmed attribution of old source box 1 to the one visible worker P001."
+        },
+        {
+          "equipment_id": "E002",
+          "person_id": "P001",
+          "status": "MATCHED",
+          "basis": "Final researcher-confirmed attribution of old source box 2 to the one visible worker P001."
+        },
+        {
+          "equipment_id": "E003",
+          "person_id": "P001",
+          "status": "MATCHED",
+          "basis": "Final researcher-confirmed attribution of old source box 3 to the one visible worker P001."
+        }
+      ],
+      "task_mandates_count": 6,
+      "all_saved_mandates_policy_unknown": true,
+      "people": [
+        {
+          "person_id": "P001",
+          "states": {
+            "hard_hat": {
+              "state": "PRESENT",
+              "evidence": "Yellow hard hat visibly worn by P001 (old source item box 3)",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "safety_vest": {
+              "state": "PRESENT",
+              "evidence": "High-visibility vest visibly worn by P001 (old source item box 1)",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "goggles": {
+              "state": "PRESENT",
+              "evidence": "Visible eye protection worn by P001 (old source item box 2); product-grade unknown",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "face_mask": {
+              "state": "ABSENT",
+              "evidence": "Researcher explicitly confirms no face mask on visible nose/mouth; absence is visual, not a violation without documented task/site policy",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "glove": {
+              "state": "UNKNOWN",
+              "evidence": "Hands outside cropped source image; cannot infer worn/not worn",
+              "uncertainty_reason": "HANDS_OUTSIDE_CROP",
+              "side": "NOT_APPLICABLE"
+            },
+            "safety_boot": {
+              "state": "UNKNOWN",
+              "evidence": "Feet outside cropped source image; cannot infer worn/not worn or safety certification",
+              "uncertainty_reason": "FEET_OUTSIDE_CROP",
+              "side": "NOT_APPLICABLE"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "B",
+      "case_id": "87b6cc58-43bd-4583-8b13-bd9b7413c03d",
+      "source_filename": "000760.jpg",
+      "revision": 2,
+      "ground_truth_state": "incomplete",
+      "person_count": 2,
+      "saved_visual_rows": 8,
+      "expected_visual_rows": 12,
+      "approved_links": 4,
+      "associations": [
+        {
+          "equipment_id": "E001",
+          "person_id": "P001",
+          "status": "MATCHED",
+          "basis": "Researcher explicitly approved original box 3 -> P001 in chat 2026-11-18. Note: other five old boxes 9/A/K/L/M have human-confirmed owner UNKNOWN and are omitted from this partial positive-item list because item identity/coverage is not fully verified."
+        },
+        {
+          "equipment_id": "E002",
+          "person_id": "P002",
+          "status": "MATCHED",
+          "basis": "Researcher explicitly approved original box 4 -> P002 in chat 2026-11-18. Note: other five old boxes 9/A/K/L/M have human-confirmed owner UNKNOWN and are omitted from this partial positive-item list because item identity/coverage is not fully verified."
+        },
+        {
+          "equipment_id": "E003",
+          "person_id": "P001",
+          "status": "MATCHED",
+          "basis": "Researcher explicitly approved original box 6 -> P001 in chat 2026-11-18. Note: other five old boxes 9/A/K/L/M have human-confirmed owner UNKNOWN and are omitted from this partial positive-item list because item identity/coverage is not fully verified."
+        },
+        {
+          "equipment_id": "E004",
+          "person_id": "P001",
+          "status": "MATCHED",
+          "basis": "Researcher explicitly approved original box 7 -> P001 in chat 2026-11-18. Note: other five old boxes 9/A/K/L/M have human-confirmed owner UNKNOWN and are omitted from this partial positive-item list because item identity/coverage is not fully verified."
+        }
+      ],
+      "task_mandates_count": 8,
+      "all_saved_mandates_policy_unknown": true,
+      "people": [
+        {
+          "person_id": "P001",
+          "states": {
+            "hard_hat": {
+              "state": "PRESENT",
+              "evidence": "Researcher confirmed person-level hard_hat visual state PRESENT; original statements in GitHub. This is not a box-to-person association or workplace safety rule.",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "safety_vest": {
+              "state": "ABSENT",
+              "evidence": "Researcher confirmed person-level safety_vest visual state ABSENT; original statements in GitHub. This is not a box-to-person association or workplace safety rule.",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "goggles": {
+              "state": "UNKNOWN",
+              "evidence": "Researcher confirmed person-level goggles visual state UNKNOWN; original statements in GitHub. This is not a box-to-person association or workplace safety rule.",
+              "uncertainty_reason": "NOT_OBSERVABLE_DUE_TO_WORKER_POSE",
+              "side": "NOT_APPLICABLE"
+            },
+            "face_mask": {
+              "state": "NOT_RECORDED",
+              "evidence": null,
+              "uncertainty_reason": null,
+              "side": null
+            },
+            "glove": {
+              "state": "PRESENT",
+              "evidence": "Researcher confirmed person-level glove visual state PRESENT; original statements in GitHub. This is not a box-to-person association or workplace safety rule.",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "safety_boot": {
+              "state": "NOT_RECORDED",
+              "evidence": null,
+              "uncertainty_reason": null,
+              "side": null
+            }
+          }
+        },
+        {
+          "person_id": "P002",
+          "states": {
+            "hard_hat": {
+              "state": "PRESENT",
+              "evidence": "Researcher confirmed person-level hard_hat visual state PRESENT; original statements in GitHub. This is not a box-to-person association or workplace safety rule.",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "safety_vest": {
+              "state": "ABSENT",
+              "evidence": "Researcher confirmed person-level safety_vest visual state ABSENT; original statements in GitHub. This is not a box-to-person association or workplace safety rule.",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "goggles": {
+              "state": "UNKNOWN",
+              "evidence": "Researcher confirmed person-level goggles visual state UNKNOWN; original statements in GitHub. This is not a box-to-person association or workplace safety rule.",
+              "uncertainty_reason": "NOT_OBSERVABLE_DUE_TO_WORKER_POSE",
+              "side": "NOT_APPLICABLE"
+            },
+            "face_mask": {
+              "state": "NOT_RECORDED",
+              "evidence": null,
+              "uncertainty_reason": null,
+              "side": null
+            },
+            "glove": {
+              "state": "UNKNOWN",
+              "evidence": "Researcher confirmed person-level glove visual state UNKNOWN; original statements in GitHub. This is not a box-to-person association or workplace safety rule.",
+              "uncertainty_reason": "BACKGROUND_HANDS_NOT_RELIABLY_VISIBLE",
+              "side": "NOT_APPLICABLE"
+            },
+            "safety_boot": {
+              "state": "NOT_RECORDED",
+              "evidence": null,
+              "uncertainty_reason": null,
+              "side": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "C",
+      "case_id": "c032f81d-64c5-44be-96f3-7e6fe9dad799",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "revision": 4,
+      "ground_truth_state": "incomplete",
+      "person_count": 4,
+      "saved_visual_rows": 24,
+      "expected_visual_rows": 24,
+      "approved_links": 12,
+      "associations": [
+        {
+          "equipment_id": "E001",
+          "person_id": "P002",
+          "status": "MATCHED",
+          "basis": "Researcher 'موافق' confirms item 5→P002 (2026-11-18). Glove J/E012 owner remains UNKNOWN and is excluded from this incomplete positive-item subset."
+        },
+        {
+          "equipment_id": "E002",
+          "person_id": "P001",
+          "status": "MATCHED",
+          "basis": "Researcher 'موافق' confirms item 6→P001 (2026-11-18). Glove J/E012 owner remains UNKNOWN and is excluded from this incomplete positive-item subset."
+        },
+        {
+          "equipment_id": "E003",
+          "person_id": "P003",
+          "status": "MATCHED",
+          "basis": "Researcher 'موافق' confirms item 7→P003 (2026-11-18). Glove J/E012 owner remains UNKNOWN and is excluded from this incomplete positive-item subset."
+        },
+        {
+          "equipment_id": "E004",
+          "person_id": "P004",
+          "status": "MATCHED",
+          "basis": "Researcher 'موافق' confirms item 8→P004 (2026-11-18). Glove J/E012 owner remains UNKNOWN and is excluded from this incomplete positive-item subset."
+        },
+        {
+          "equipment_id": "E005",
+          "person_id": "P004",
+          "status": "MATCHED",
+          "basis": "Researcher 'موافق' confirms item C→P004 (2026-11-18). Glove J/E012 owner remains UNKNOWN and is excluded from this incomplete positive-item subset."
+        },
+        {
+          "equipment_id": "E006",
+          "person_id": "P003",
+          "status": "MATCHED",
+          "basis": "Researcher 'موافق' confirms item D→P003 (2026-11-18). Glove J/E012 owner remains UNKNOWN and is excluded from this incomplete positive-item subset."
+        },
+        {
+          "equipment_id": "E007",
+          "person_id": "P002",
+          "status": "MATCHED",
+          "basis": "Researcher 'موافق' confirms item E→P002 (2026-11-18). Glove J/E012 owner remains UNKNOWN and is excluded from this incomplete positive-item subset."
+        },
+        {
+          "equipment_id": "E008",
+          "person_id": "P001",
+          "status": "MATCHED",
+          "basis": "Researcher 'موافق' confirms item F→P001 (2026-11-18). Glove J/E012 owner remains UNKNOWN and is excluded from this incomplete positive-item subset."
+        },
+        {
+          "equipment_id": "E009",
+          "person_id": "P002",
+          "status": "MATCHED",
+          "basis": "Researcher 'موافق' confirms item G→P002 (2026-11-18). Glove J/E012 owner remains UNKNOWN and is excluded from this incomplete positive-item subset."
+        },
+        {
+          "equipment_id": "E010",
+          "person_id": "P001",
+          "status": "MATCHED",
+          "basis": "Researcher 'موافق' confirms item H→P001 (2026-11-18). Glove J/E012 owner remains UNKNOWN and is excluded from this incomplete positive-item subset."
+        },
+        {
+          "equipment_id": "E011",
+          "person_id": "P001",
+          "status": "MATCHED",
+          "basis": "Researcher 'موافق' confirms item I→P001 (2026-11-18). Glove J/E012 owner remains UNKNOWN and is excluded from this incomplete positive-item subset."
+        },
+        {
+          "equipment_id": "E013",
+          "person_id": "P003",
+          "status": "MATCHED",
+          "basis": "Researcher 'موافق' confirms item K→P003 (2026-11-18). Glove J/E012 owner remains UNKNOWN and is excluded from this incomplete positive-item subset."
+        }
+      ],
+      "task_mandates_count": 24,
+      "all_saved_mandates_policy_unknown": true,
+      "people": [
+        {
+          "person_id": "P001",
+          "states": {
+            "hard_hat": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports a worn protective helmet on each of the four workers; no certification independently inspected. Visual person-level researcher report separate from source-item ownership.",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "safety_vest": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports reflective vest worn by each of four workers, including partially visible clothing on P004. Visual person-level researcher report separate from source-item ownership.",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "goggles": {
+              "state": "UNKNOWN",
+              "evidence": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence Not visible owing to pose/face occlusion. UNKNOWN means not observable, not absent.",
+              "uncertainty_reason": "NOT_VISUALLY_DETERMINABLE_DUE_TO_POSE_OR_OCCLUSION",
+              "side": "NOT_APPLICABLE"
+            },
+            "face_mask": {
+              "state": "UNKNOWN",
+              "evidence": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence Not visible owing to pose/face occlusion. UNKNOWN means not observable, not absent.",
+              "uncertainty_reason": "NOT_VISUALLY_DETERMINABLE_DUE_TO_POSE_OR_OCCLUSION",
+              "side": "NOT_APPLICABLE"
+            },
+            "glove": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports glove wearing for all four workers; this does NOT identify owner of source glove annotation J/E012, retained UNKNOWN. Visual person-level researcher report separate from source-item ownership.",
+              "uncertainty_reason": null,
+              "side": "UNKNOWN"
+            },
+            "safety_boot": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports safety boots worn by all four workers; original image has lower-body occlusion and independent footwear certification cannot be verified from pixels alone. Researcher reports safety footwear visible, but four conflicting legacy No Safety Boots markers Q/R/S/T exist; actual safety certification unverified; case not complete.",
+              "uncertainty_reason": null,
+              "side": "UNKNOWN"
+            }
+          }
+        },
+        {
+          "person_id": "P002",
+          "states": {
+            "hard_hat": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports a worn protective helmet on each of the four workers; no certification independently inspected. Visual person-level researcher report separate from source-item ownership.",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "safety_vest": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports reflective vest worn by each of four workers, including partially visible clothing on P004. Visual person-level researcher report separate from source-item ownership.",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "goggles": {
+              "state": "UNKNOWN",
+              "evidence": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence Not visible owing to pose/face occlusion. UNKNOWN means not observable, not absent.",
+              "uncertainty_reason": "NOT_VISUALLY_DETERMINABLE_DUE_TO_POSE_OR_OCCLUSION",
+              "side": "NOT_APPLICABLE"
+            },
+            "face_mask": {
+              "state": "UNKNOWN",
+              "evidence": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence Not visible owing to pose/face occlusion. UNKNOWN means not observable, not absent.",
+              "uncertainty_reason": "NOT_VISUALLY_DETERMINABLE_DUE_TO_POSE_OR_OCCLUSION",
+              "side": "NOT_APPLICABLE"
+            },
+            "glove": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports glove wearing for all four workers; this does NOT identify owner of source glove annotation J/E012, retained UNKNOWN. Visual person-level researcher report separate from source-item ownership.",
+              "uncertainty_reason": null,
+              "side": "UNKNOWN"
+            },
+            "safety_boot": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports safety boots worn by all four workers; original image has lower-body occlusion and independent footwear certification cannot be verified from pixels alone. Researcher reports safety footwear visible, but four conflicting legacy No Safety Boots markers Q/R/S/T exist; actual safety certification unverified; case not complete.",
+              "uncertainty_reason": null,
+              "side": "UNKNOWN"
+            }
+          }
+        },
+        {
+          "person_id": "P003",
+          "states": {
+            "hard_hat": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports a worn protective helmet on each of the four workers; no certification independently inspected. Visual person-level researcher report separate from source-item ownership.",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "safety_vest": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports reflective vest worn by each of four workers, including partially visible clothing on P004. Visual person-level researcher report separate from source-item ownership.",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "goggles": {
+              "state": "UNKNOWN",
+              "evidence": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence Not visible owing to pose/face occlusion. UNKNOWN means not observable, not absent.",
+              "uncertainty_reason": "NOT_VISUALLY_DETERMINABLE_DUE_TO_POSE_OR_OCCLUSION",
+              "side": "NOT_APPLICABLE"
+            },
+            "face_mask": {
+              "state": "UNKNOWN",
+              "evidence": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence Not visible owing to pose/face occlusion. UNKNOWN means not observable, not absent.",
+              "uncertainty_reason": "NOT_VISUALLY_DETERMINABLE_DUE_TO_POSE_OR_OCCLUSION",
+              "side": "NOT_APPLICABLE"
+            },
+            "glove": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports glove wearing for all four workers; this does NOT identify owner of source glove annotation J/E012, retained UNKNOWN. Visual person-level researcher report separate from source-item ownership.",
+              "uncertainty_reason": null,
+              "side": "UNKNOWN"
+            },
+            "safety_boot": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports safety boots worn by all four workers; original image has lower-body occlusion and independent footwear certification cannot be verified from pixels alone. Researcher reports safety footwear visible, but four conflicting legacy No Safety Boots markers Q/R/S/T exist; actual safety certification unverified; case not complete.",
+              "uncertainty_reason": null,
+              "side": "UNKNOWN"
+            }
+          }
+        },
+        {
+          "person_id": "P004",
+          "states": {
+            "hard_hat": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports a worn protective helmet on each of the four workers; no certification independently inspected. Visual person-level researcher report separate from source-item ownership.",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "safety_vest": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports reflective vest worn by each of four workers, including partially visible clothing on P004. Visual person-level researcher report separate from source-item ownership.",
+              "uncertainty_reason": null,
+              "side": "NOT_APPLICABLE"
+            },
+            "goggles": {
+              "state": "UNKNOWN",
+              "evidence": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence Not visible owing to pose/face occlusion. UNKNOWN means not observable, not absent.",
+              "uncertainty_reason": "NOT_VISUALLY_DETERMINABLE_DUE_TO_POSE_OR_OCCLUSION",
+              "side": "NOT_APPLICABLE"
+            },
+            "face_mask": {
+              "state": "UNKNOWN",
+              "evidence": "The item could not be seen/assessed on the person due to limited visibility; nonvisibility is not proof of physical absence Not visible owing to pose/face occlusion. UNKNOWN means not observable, not absent.",
+              "uncertainty_reason": "NOT_VISUALLY_DETERMINABLE_DUE_TO_POSE_OR_OCCLUSION",
+              "side": "NOT_APPLICABLE"
+            },
+            "glove": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports glove wearing for all four workers; this does NOT identify owner of source glove annotation J/E012, retained UNKNOWN. Visual person-level researcher report separate from source-item ownership.",
+              "uncertainty_reason": null,
+              "side": "UNKNOWN"
+            },
+            "safety_boot": {
+              "state": "PRESENT",
+              "evidence": "Researcher reports safety boots worn by all four workers; original image has lower-body occlusion and independent footwear certification cannot be verified from pixels alone. Researcher reports safety footwear visible, but four conflicting legacy No Safety Boots markers Q/R/S/T exist; actual safety certification unverified; case not complete.",
+              "uncertainty_reason": null,
+              "side": "UNKNOWN"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "D",
+      "case_id": "c197d82e-7870-42a3-bf94-462420d3f6a2",
+      "source_filename": "h1.jpg",
+      "revision": 1,
+      "ground_truth_state": "incomplete",
+      "person_count": 0,
+      "saved_visual_rows": 0,
+      "expected_visual_rows": 0,
+      "approved_links": 0,
+      "associations": [],
+      "task_mandates_count": 0,
+      "all_saved_mandates_policy_unknown": true,
+      "people": []
+    }
+  ]
+}
