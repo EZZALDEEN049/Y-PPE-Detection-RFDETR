@@ -1,0 +1,584 @@
+{
+  "schema_version": "seer-ppe/person-ppe-live-review-intake/v0.1",
+  "date": "2026-11-21",
+  "scope": "ROBOFLOW_EVAL_TRAIN_PILOT_A_B_C_D_READ_ONLY",
+  "eval_dataset_id": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+  "source_project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "method": "Direct read-only Roboflow Workflow Eval Cases and original annotations compared with saved research decision audit; not new independent image-level visual human inspection",
+  "cases": [
+    {
+      "case": "A",
+      "case_id": "8f7cce94-d46e-4fac-9a0a-641bcd1f12c8",
+      "revision": 2,
+      "original_split": "train",
+      "source_id": "0jRe8fpRDE5fLgAJrYvT",
+      "filename": "image_604.jpg",
+      "ground_truth_state": "incomplete",
+      "original_annotation_valid": true,
+      "original_annotation_box_count": 5,
+      "original_source_ppe_positive_box_count": 3,
+      "original_source_absence_marker_count": 1,
+      "reviewed_person_records": 1,
+      "approved_item_owner_matches": 3,
+      "positive_items_current_eval": 3,
+      "existing_visual_cells": 6,
+      "expected_visual_cells": 6,
+      "missing_visual_cells": [],
+      "visual_state_counts": {
+        "PRESENT": 3,
+        "ABSENT": 1,
+        "UNKNOWN": 2
+      },
+      "all_policy_status_unknown": true,
+      "explicit_source_review_missing": true,
+      "required_followup": [
+        "Source/session independence and privacy gate",
+        "Complete independent case-level source/item inventory review",
+        "Do not call stored partial arrays human-complete gold"
+      ]
+    },
+    {
+      "case": "B",
+      "case_id": "87b6cc58-43bd-4583-8b13-bd9b7413c03d",
+      "revision": 2,
+      "original_split": "train",
+      "source_id": "0xxsYWiz1FZBYERolu4z",
+      "filename": "000760.jpg",
+      "ground_truth_state": "incomplete",
+      "original_annotation_valid": true,
+      "original_annotation_box_count": 15,
+      "original_source_ppe_positive_box_count": 9,
+      "original_source_absence_marker_count": 3,
+      "reviewed_person_records": 2,
+      "approved_item_owner_matches": 4,
+      "positive_items_current_eval": 4,
+      "existing_visual_cells": 8,
+      "expected_visual_cells": 12,
+      "missing_visual_cells": [
+        "P001:face_mask",
+        "P001:safety_boot",
+        "P002:face_mask",
+        "P002:safety_boot"
+      ],
+      "visual_state_counts": {
+        "PRESENT": 3,
+        "ABSENT": 2,
+        "UNKNOWN": 3
+      },
+      "all_policy_status_unknown": true,
+      "explicit_source_review_missing": true,
+      "required_followup": [
+        "Review missing 4 person×PPE cells; do not impute UNKNOWN or ABSENT",
+        "Preserve researcher-final UNKNOWN for source items 9,A,K,L,M despite their omission from current Eval positive-item list",
+        "Source/session and case-level completeness check"
+      ]
+    },
+    {
+      "case": "C",
+      "case_id": "c032f81d-64c5-44be-96f3-7e6fe9dad799",
+      "revision": 4,
+      "original_split": "train",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "ground_truth_state": "incomplete",
+      "original_annotation_valid": true,
+      "original_annotation_box_count": 27,
+      "original_source_ppe_positive_box_count": 13,
+      "original_source_absence_marker_count": 10,
+      "reviewed_person_records": 4,
+      "approved_item_owner_matches": 12,
+      "positive_items_current_eval": 12,
+      "existing_visual_cells": 24,
+      "expected_visual_cells": 24,
+      "missing_visual_cells": [],
+      "visual_state_counts": {
+        "PRESENT": 16,
+        "ABSENT": 0,
+        "UNKNOWN": 8
+      },
+      "all_policy_status_unknown": true,
+      "explicit_source_review_missing": true,
+      "required_followup": [
+        "Preserve 12 item links; glove J/E012 owner UNKNOWN, not assigned",
+        "Legacy No Safety Boots Q/R/S/T remain disputed; feet/clothes visibility and safety certification separate",
+        "Source/session and case-level completeness check"
+      ]
+    },
+    {
+      "case": "D",
+      "case_id": "c197d82e-7870-42a3-bf94-462420d3f6a2",
+      "revision": 1,
+      "original_split": "train",
+      "source_id": "0oVmRAxL0SM1PWqZCNyM",
+      "filename": "h1.jpg",
+      "ground_truth_state": "incomplete",
+      "original_annotation_valid": true,
+      "original_annotation_box_count": 1,
+      "original_source_ppe_positive_box_count": 1,
+      "original_source_absence_marker_count": 0,
+      "reviewed_person_records": 0,
+      "approved_item_owner_matches": 0,
+      "positive_items_current_eval": 0,
+      "existing_visual_cells": 0,
+      "expected_visual_cells": 0,
+      "missing_visual_cells": [],
+      "visual_state_counts": {
+        "PRESENT": 0,
+        "ABSENT": 0,
+        "UNKNOWN": 0
+      },
+      "all_policy_status_unknown": true,
+      "explicit_source_review_missing": true,
+      "required_followup": [
+        "Source standalone helmet is a detached-item control, with no verified wearer",
+        "Prepare case-level reviewed zero-person/one-orphan item reference only after user curator verification",
+        "Do not call empty GT a confirmed zero-person reference"
+      ]
+    }
+  ],
+  "totals": {
+    "persons": 7,
+    "items": 19,
+    "associations": 19,
+    "visual_reviewed_cells": 38,
+    "visual_missing_cells": 4,
+    "policy_unknown_rows": 38,
+    "positive_source_boxes": 26,
+    "legacy_negative_markers": 14
+  },
+  "visual_review_cells": [
+    {
+      "case": "A",
+      "source_filename": "image_604.jpg",
+      "source_id": "0jRe8fpRDE5fLgAJrYvT",
+      "person_id": "P001",
+      "ppe_type": "hard_hat",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "A",
+      "source_filename": "image_604.jpg",
+      "source_id": "0jRe8fpRDE5fLgAJrYvT",
+      "person_id": "P001",
+      "ppe_type": "safety_vest",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "A",
+      "source_filename": "image_604.jpg",
+      "source_id": "0jRe8fpRDE5fLgAJrYvT",
+      "person_id": "P001",
+      "ppe_type": "goggles",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "A",
+      "source_filename": "image_604.jpg",
+      "source_id": "0jRe8fpRDE5fLgAJrYvT",
+      "person_id": "P001",
+      "ppe_type": "face_mask",
+      "existing_visual_state": "ABSENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "A",
+      "source_filename": "image_604.jpg",
+      "source_id": "0jRe8fpRDE5fLgAJrYvT",
+      "person_id": "P001",
+      "ppe_type": "glove",
+      "existing_visual_state": "UNKNOWN",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "A",
+      "source_filename": "image_604.jpg",
+      "source_id": "0jRe8fpRDE5fLgAJrYvT",
+      "person_id": "P001",
+      "ppe_type": "safety_boot",
+      "existing_visual_state": "UNKNOWN",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "B",
+      "source_filename": "000760.jpg",
+      "source_id": "0xxsYWiz1FZBYERolu4z",
+      "person_id": "P001",
+      "ppe_type": "hard_hat",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "B",
+      "source_filename": "000760.jpg",
+      "source_id": "0xxsYWiz1FZBYERolu4z",
+      "person_id": "P001",
+      "ppe_type": "safety_vest",
+      "existing_visual_state": "ABSENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "B",
+      "source_filename": "000760.jpg",
+      "source_id": "0xxsYWiz1FZBYERolu4z",
+      "person_id": "P001",
+      "ppe_type": "goggles",
+      "existing_visual_state": "UNKNOWN",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "B",
+      "source_filename": "000760.jpg",
+      "source_id": "0xxsYWiz1FZBYERolu4z",
+      "person_id": "P001",
+      "ppe_type": "face_mask",
+      "existing_visual_state": "MISSING_REVIEW",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "B",
+      "source_filename": "000760.jpg",
+      "source_id": "0xxsYWiz1FZBYERolu4z",
+      "person_id": "P001",
+      "ppe_type": "glove",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "B",
+      "source_filename": "000760.jpg",
+      "source_id": "0xxsYWiz1FZBYERolu4z",
+      "person_id": "P001",
+      "ppe_type": "safety_boot",
+      "existing_visual_state": "MISSING_REVIEW",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "B",
+      "source_filename": "000760.jpg",
+      "source_id": "0xxsYWiz1FZBYERolu4z",
+      "person_id": "P002",
+      "ppe_type": "hard_hat",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "B",
+      "source_filename": "000760.jpg",
+      "source_id": "0xxsYWiz1FZBYERolu4z",
+      "person_id": "P002",
+      "ppe_type": "safety_vest",
+      "existing_visual_state": "ABSENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "B",
+      "source_filename": "000760.jpg",
+      "source_id": "0xxsYWiz1FZBYERolu4z",
+      "person_id": "P002",
+      "ppe_type": "goggles",
+      "existing_visual_state": "UNKNOWN",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "B",
+      "source_filename": "000760.jpg",
+      "source_id": "0xxsYWiz1FZBYERolu4z",
+      "person_id": "P002",
+      "ppe_type": "face_mask",
+      "existing_visual_state": "MISSING_REVIEW",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "B",
+      "source_filename": "000760.jpg",
+      "source_id": "0xxsYWiz1FZBYERolu4z",
+      "person_id": "P002",
+      "ppe_type": "glove",
+      "existing_visual_state": "UNKNOWN",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "B",
+      "source_filename": "000760.jpg",
+      "source_id": "0xxsYWiz1FZBYERolu4z",
+      "person_id": "P002",
+      "ppe_type": "safety_boot",
+      "existing_visual_state": "MISSING_REVIEW",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P001",
+      "ppe_type": "hard_hat",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P001",
+      "ppe_type": "safety_vest",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P001",
+      "ppe_type": "goggles",
+      "existing_visual_state": "UNKNOWN",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P001",
+      "ppe_type": "face_mask",
+      "existing_visual_state": "UNKNOWN",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P001",
+      "ppe_type": "glove",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P001",
+      "ppe_type": "safety_boot",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P002",
+      "ppe_type": "hard_hat",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P002",
+      "ppe_type": "safety_vest",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P002",
+      "ppe_type": "goggles",
+      "existing_visual_state": "UNKNOWN",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P002",
+      "ppe_type": "face_mask",
+      "existing_visual_state": "UNKNOWN",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P002",
+      "ppe_type": "glove",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P002",
+      "ppe_type": "safety_boot",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P003",
+      "ppe_type": "hard_hat",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P003",
+      "ppe_type": "safety_vest",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P003",
+      "ppe_type": "goggles",
+      "existing_visual_state": "UNKNOWN",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P003",
+      "ppe_type": "face_mask",
+      "existing_visual_state": "UNKNOWN",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P003",
+      "ppe_type": "glove",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P003",
+      "ppe_type": "safety_boot",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P004",
+      "ppe_type": "hard_hat",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P004",
+      "ppe_type": "safety_vest",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P004",
+      "ppe_type": "goggles",
+      "existing_visual_state": "UNKNOWN",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P004",
+      "ppe_type": "face_mask",
+      "existing_visual_state": "UNKNOWN",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P004",
+      "ppe_type": "glove",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    },
+    {
+      "case": "C",
+      "source_filename": "Kathiah Gets a Chance03.jpg",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "person_id": "P004",
+      "ppe_type": "safety_boot",
+      "existing_visual_state": "PRESENT",
+      "assessment": "PRESERVE_RESEARCHER_RECORD_UNTIL_EXPLICIT_REVIEW",
+      "case_review_complete": false
+    }
+  ],
+  "status": "PRESERVE_PARTIAL_GROUND_TRUTH_NEEDS_HUMAN_COMPLETENESS_SOURCE_POLICY",
+  "case_completion_ready": false,
+  "model_scoring_ready": false,
+  "original_annotations_updated": false,
+  "eval_cases_mutated": false,
+  "researcher_existing_matched_link_count_preserved": 19,
+  "missing_task_policy_evidence": true,
+  "notes": [
+    "Do not convert omitted B source items 9/A/K/L/M or C J into matched Eval PPE items without confirmation",
+    "PRESENT or ABSENT is only a visual state, and not a worker task-policy violation",
+    "Case D empty GT is NOT a human-approved zero-object conclusion",
+    "No Test image or label touched"
+  ]
+}
