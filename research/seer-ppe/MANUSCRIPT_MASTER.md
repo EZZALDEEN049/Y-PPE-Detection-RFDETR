@@ -166,6 +166,16 @@ The separate Roboflow Workflow Evals Train-pilot dataset was re-read after sourc
 
 **Evaluation eligibility remains blocked.** The new contributions in Sections 4.4–4.6 concern data and reference-integrity engineering, not measured new SEER-PPE safety, faithful explanation, selective compute or electrical-energy outcomes.
 
+### 4.7 Author-approved visual review and conservative Validation eligibility planning (21 November 2026)
+
+The author confirmed that **all images had been reviewed correctly and appropriately**. This statement closes the general human visual-inspection task as reported by the author; it does not specify which cross-split images share a photographic source, capture session or worksite, or imply task-specific PPE-policy compliance.
+
+For an auditable, nondestructive handoff from source integrity checking to evaluation design, an immutable-Source-ID [Validation planning manifest](VALIDATION_ELIGIBILITY_PLANNING_MANIFEST_2026-11-21_V08.json) was assembled for all **468 original Valid** images. It retains **5 previously imposed specific source holds**, distinguishes **94 additional cases with unresolved lineage signals** without creating new exclusions, and records **369 images without a current screening flag** whose source-independence remains **uncertified**. The partitions are planning strata, *not* demonstrated class- or source-independent test cohorts, and **none is authorized for held-out scientific efficacy scoring by this manifest**. The frozen Train/Valid/Test assignment and Roboflow source labels remain unchanged.
+
+This conservative status is consistent with the complete original-file audit (2,093/2,093 images; no exact byte/pixel duplicate across Train and Valid) and the 46 perceptually near pairs: pixel inequality cannot exclude shared scenes, stock-asset derivatives or video sequences. Likewise, the remaining unentered four Case B per-person mask/boot states and unsigned Case D person-coverage reference concern **formal individual adjudication records**, not a claim that the author neglected general image inspection. No such missing field was inferred from the blanket quality confirmation.
+
+The [author acceptance record](AUTHOR_VISUAL_REVIEW_ACCEPTANCE_2026-11-21_V08.md) and machine-verifiable Valid planning manifest provide a traceable preregistration boundary for future **unscored development preflight**, while maintaining `scoring_ready=false` until individually supportable source-family and Person–PPE reference eligibility is established.
+
 ## 5. Discussion — questions, not claimed findings
 
 The eventual discussion will address whether routing demonstrably reduces additional compute energy without intolerable safety errors, whether explanations are faithful rather than merely plausible, and which constraints cannot be supported by the available Y-PPE evaluation population. Claims of real-world incident reduction, deployability on arbitrary hardware, universal safety guarantees, and global generalization are outside present evidence.
