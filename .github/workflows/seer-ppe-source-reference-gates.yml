@@ -58,6 +58,8 @@ jobs:
           const expanded=read('UNIFIED_TRAIN_VALID_TRIAGE_2026-11-21_V02.json');
           const pairAudit=read('SOURCE_MEDIA_PAIR_VISUAL_TRIAGE_2026-11-21_V01.json');
           const pairAuditV2=read('SOURCE_MEDIA_PAIR_VISUAL_TRIAGE_2026-11-21_V02.json');
+          const highSim=read('EMBEDDING_HIGH_SIM_VISUAL_TRIAGE_2026-11-21_V01.json');
+          const caseB=read('CASE_B_AI_VISIBILITY_PREFLIGHT_2026-11-21_V01.json');
           assert.equal(source.images.length,2093);
           assert.equal(source.images.filter(x=>x.split==='train').length,1625);
           assert.equal(source.images.filter(x=>x.split==='valid').length,468);
@@ -90,6 +92,28 @@ jobs:
           assert.equal(pairAuditV2.native_annotation_readback_summary.unesco_source_person_boxes_train,7);
           assert.equal(pairAuditV2.scientific_metrics_scoring_ready,false);
           assert.ok(pairAuditV2.reviewed_pairs.every(x=>x.native_saved_source_annotation_readback.length===2&&x.source_image_bytes_hashed===false));
+          assert.equal(highSim.pair_count,5);
+          assert.equal(highSim.original_images_read_as_ai_visual,10);
+          assert.equal(highSim.all_annotation_records_valid,true);
+          assert.equal(highSim.review_queue_valid_count_unchanged,83);
+          assert.equal(highSim.previous_specific_valid_source_holds_unchanged,5);
+          assert.equal(highSim.source_pixel_sha256_computed,false);
+          assert.equal(highSim.model_scoring_ready,false);
+          assert.ok(highSim.pairs.every(x=>x.human_pair_signoff==='PENDING'&&x.original_source_byte_verdict==='NOT_TESTED'&&x.new_source_hold_created===false));
+          assert.equal(new Set(highSim.pairs.map(x=>x.valid.id)).size,5);
+          assert.ok(highSim.pairs.every(x=>expanded.prioritization.some(q=>q.valid_id===x.valid.id)));
+          assert.equal(caseB.live_eval_case_revision,2);
+          assert.equal(caseB.live_eval_ground_truth_state,'incomplete');
+          assert.equal(caseB.live_matched_item_owner_links,4);
+          assert.equal(caseB.live_recorded_visual_states,8);
+          assert.equal(caseB.review_items.length,4);
+          assert.deepEqual([...caseB.missing_visual_states].sort(),[
+            'P001:face_mask','P001:safety_boot','P002:face_mask','P002:safety_boot'
+          ].sort());
+          assert.ok(caseB.review_items.every(x=>x.human_final_state===null&&x.human_signoff===null&&x.current_ground_truth==='MISSING_REVIEW'));
+          assert.equal(caseB.eval_ground_truth_modified,false);
+          assert.equal(caseB.case_complete,false);
+          assert.equal(caseB.scoring_ready,false);
           const prior=new Set(union.prioritization.map(x=>x.valid_id));
           assert.ok([...prior].every(id=>expanded.prioritization.some(x=>x.valid_id===id)));
           assert.equal(union.original_source_bytes_acquired,false);
