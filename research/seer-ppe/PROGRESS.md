@@ -1,4 +1,4 @@
-# SEER-PPE cumulative research progress — v0.8 (updated 2026-11-21)
+# SEER-PPE cumulative research progress — v0.9 (updated 2026-11-21)
 
 | Phase | Outcome | Proof / blocker |
 |---|---|---|
@@ -14,11 +14,11 @@
 | 6 Power metering | BLOCKED, not measured | No CUDA/RAPL/NVML, no joule measurements |
 | 6 Worker reference review | NEW DOCUMENTED SINGLE-CURATOR PLAN; not complete | Single-researcher review approved, no independent A/B validation, verified task/site PPE mandates still unavailable |
 | 7 Risk/energy baselines and locked evaluation | NOT STARTED | Requires defensible researcher-reference cases, source sensitivity, real original-model inference and sensor if Joules claimed |
-| 8 Research manuscript v0.8 | Methods and original-image source audit documented; full 2,093 original Train/Valid fingerprint scan verified | No new SEER worker-risk/faithfulness/energy numeric results; no claim of validated Q1-ready paper |
+| 8 Research manuscript v0.9 | Methods and original-image source audit documented; full 2,093 original Train/Valid fingerprint scan verified | No new SEER worker-risk/faithfulness/energy numeric results; no claim of validated Q1-ready paper |
 
 **Cumulative engineering test count:** 56 passed. The draft has not fabricated research efficacy.
 **Next essential inputs:** original 17-class checkpoint bytes + hash + executable Colab loader; documented single-researcher worker and task-policy reference with adequate confirmed violations; source/rights manifest and similarity-group sensitivity; preregistered calibration/competitor/old-Test internal-evaluation plan; power sensor only if measured joules will be claimed. Roboflow original 17-class training and weights-download entitlement confirmed on 15 November 2026; weights and gradients not yet locally verified.
-**Primary working manuscript:** `MANUSCRIPT_MASTER.md` v0.8 and `PROTOCOL_MASTER.md` v0.7 on GitHub; archival v0.6 Word package remains on the owner's Drive and must not be described as automatically synchronized. **Q40:** Author self-attests full ownership and disposal rights over original Y-PPE primary data (17 November 2026); **Q41:** comprehensive reproducibility package selected: rights-cleared data/labels, code, config and dependency locks, SHA manifests, shareable logs, tests, Colab notebooks and result-regeneration scripts. External-image/person privacy permissions and model-weight redistribution terms remain gating checks; no package has yet been publicly uploaded.
+**Primary working manuscript:** `MANUSCRIPT_MASTER.md` v0.9 and `PROTOCOL_MASTER.md` v0.7 on GitHub; archival v0.6 Word package remains on the owner's Drive and must not be described as automatically synchronized. **Q40:** Author self-attests full ownership and disposal rights over original Y-PPE primary data (17 November 2026); **Q41:** comprehensive reproducibility package selected: rights-cleared data/labels, code, config and dependency locks, SHA manifests, shareable logs, tests, Colab notebooks and result-regeneration scripts. External-image/person privacy permissions and model-weight redistribution terms remain gating checks; no package has yet been publicly uploaded.
 
 **Q42 reproducibility decision (17 November 2026):** Staged pass/fail/not-run gates for hashes and frozen inputs, clean-environment unit tests, exact 17-class ALTAYYAR local-Colab load with development-sample output concordance, executed paired SEER baselines/XAI and metered resources only when available, then regeneration of figures/tables from authentic logs. Q42 records planned verification; it does **not** report completed Colab inference or reproduced scientific outcomes. Q43 pending environment/version/seed pinning.
 
@@ -271,3 +271,12 @@ The researcher explicitly confirms **“جميع الصور تم مراجعهت�
 A new [468-source Valid planning manifest](VALIDATION_ELIGIBILITY_PLANNING_MANIFEST_2026-11-21_V08.json) partitions source records **without changing Roboflow data**: **5** pre-existing research holds, **94** additional source-lineage review candidates (not new holds), and **369** not flagged by current screens (independence not certified). The matching [V08 fail-closed gate](tools/validate_v08_author_review_planning_gate.mjs) passed in [GitHub Actions run 44837491078](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44837491078).
 
 The saved Eval A–D pilot remains **0/4** complete with 19 approved links and 38/42 recorded statuses; missing B judgments and D person coverage must not be inferred from the author's general approval. These are record-completeness limitations, **not a request to redo the image review**. No model retraining, Test image access, source split/annotation change or new performance score. [V08 checkpoint](DUAL_TRACK_CHECKPOINT_2026-11-21_V08.md). Scientific `scoring_ready=false`.
+
+## V09 — actual Train-only Roboflow Workflow engineering execution (21 November 2026)
+
+**Executed live** the existing published `SEER-PPE Conservative Review Cues v0.2` Workflow on exactly **four original Train images** A, B, C and D (no Valid or Test), using unchanged original RF-DETR Small `altayyar-0oflt-lafos-qqauz/2`. Raw detector candidate counts **5/16/29/1**; `Persons` candidates **1/2/4/0**; lower-score review candidates **0/1/3/0**. All outputs retained `ASSOCIATION_UNKNOWN`/`POLICY_UNKNOWN`; zero person candidates in D yielded `PERSON_COVERAGE_UNKNOWN`, not a human zero-person signoff. No original model retraining, split/label changes, Eval writes or scientific metric computation. [Executed Workflow preflight](TRAIN_ONLY_UNSCORED_PREFLIGHT_2026-11-21_V09.md).
+
+Re-read original saved human reference after the Workflow calls: **19** approved person→equipment links remain, **38/42** visual-state cells recorded (previous judgments **22 PRESENT / 3 ABSENT / 13 UNKNOWN**); **four B cells remain NOT_RECORDED**, D not signed as human empty-person, all A–D incomplete. [Live reference snapshot](PERSON_PPE_REFERENCE_LIVE_SNAPSHOT_2026-11-21_V09.md). This is **reference-readiness evidence, not benchmark model performance**.
+
+[Remote fail-closed V09 CI run 44838922575](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44838922575) completed success; [CI proof](GITHUB_ACTIONS_V09_VERIFIED_2026-11-21_V01.md). Master manuscript **v0.9**, Results §4.8 updated; [checkpoint V09](DUAL_TRACK_CHECKPOINT_2026-11-21_V09.md). Author-approved full visual image review remains accepted, the 99-Valid source-family queue/five holds remain, Test protected, **`scoring_ready=false`**.
+
