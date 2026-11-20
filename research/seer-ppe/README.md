@@ -1,5 +1,7 @@
 # SEER-PPE: cumulative research (v0.6, 10 Nov 2026)
 
+> **Latest continuation V03 (21 Nov 2026):** [5 high-sim Train↔Valid original-image reviews, Case B AI visibility preflight, and fail-closed tests](DUAL_TRACK_CHECKPOINT_2026-11-21_V03.md) · [JSON](DUAL_TRACK_CHECKPOINT_2026-11-21_V03.json). **83 Valid in candidate queue, 5 earlier holds unchanged, 19 approved Person–PPE links preserved, 4 B cells still missing.** Source pixel hashes and independent evaluation are not complete.
+
 > **Latest source-media audit (21 Nov 2026):** [Six direct original-image AI descriptions + native source annotation counts](SOURCE_MEDIA_PAIR_VISUAL_TRIAGE_2026-11-21_V02.md) · [JSON](SOURCE_MEDIA_PAIR_VISUAL_TRIAGE_2026-11-21_V02.json) · [executed exact-GitHub-blob Node gate self-test](SOURCE_GATE_EXECUTED_TEST_2026-11-21_V01.md). The full original-image pixel-hash audit and independent human group adjudication remain open.
 
 > **Latest continuation (21 Nov 2026 V02):** [83-Valid source triage, Case B reviewer handoff and CI safeguard](DUAL_TRACK_CHECKPOINT_2026-11-21_V02.md) · [JSON](DUAL_TRACK_CHECKPOINT_2026-11-21_V02.json). Original-byte image hashes and final human gold **remain incomplete**; GitHub Actions execution result is not yet confirmed.
