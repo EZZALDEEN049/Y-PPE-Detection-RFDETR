@@ -1,5 +1,7 @@
 # SEER-PPE: cumulative research (v0.6, 10 Nov 2026)
 
+> **Latest source-media audit (21 Nov 2026):** [Six direct original-image AI descriptions + native source annotation counts](SOURCE_MEDIA_PAIR_VISUAL_TRIAGE_2026-11-21_V02.md) · [JSON](SOURCE_MEDIA_PAIR_VISUAL_TRIAGE_2026-11-21_V02.json) · [executed exact-GitHub-blob Node gate self-test](SOURCE_GATE_EXECUTED_TEST_2026-11-21_V01.md). The full original-image pixel-hash audit and independent human group adjudication remain open.
+
 > **Latest continuation (21 Nov 2026 V02):** [83-Valid source triage, Case B reviewer handoff and CI safeguard](DUAL_TRACK_CHECKPOINT_2026-11-21_V02.md) · [JSON](DUAL_TRACK_CHECKPOINT_2026-11-21_V02.json). Original-byte image hashes and final human gold **remain incomplete**; GitHub Actions execution result is not yet confirmed.
 
 > **Latest execution checkpoint (21 Nov 2026):** [Dual-track source-integrity + Person–PPE progress](DUAL_TRACK_CHECKPOINT_2026-11-21.md) · [machine JSON](DUAL_TRACK_CHECKPOINT_2026-11-21.json) · [source audit Issue #17](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/issues/17) · [human reference Issue #18](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/issues/18). Full pixel hashing and human gold remain open, scoring is **not ready**.
