@@ -1,0 +1,65 @@
+name: SEER-PPE original Source byte pilot (Train+Valid only)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'research/seer-ppe/SOURCE_ORIGINAL_PILOT_REQUEST_2026-11-21_V01.md'
+
+permissions:
+  contents: read
+
+jobs:
+  original_source_six_image_probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+    steps:
+      - name: Checkout frozen Source-ID manifest and research tools
+        uses: actions/checkout@v4
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install minimum original-file access dependencies
+        run: python -m pip install 'roboflow>=1.1,<2' 'Pillow>=10,<13'
+      - name: Run synthetic pixel hash self-test before any network image access
+        run: python research/seer-ppe/tools/source_pixel_hash_audit.py --self-test
+      - name: Verify existing scoped Roboflow secret
+        run: test -n "$ROBOFLOW_API_KEY" || (echo 'ROBOFLOW_API_KEY not configured' >&2; exit 2)
+      - name: Acquire six scoped original Sources into ephemeral runner and fingerprint
+        id: probe
+        shell: bash
+        run: |
+          set +e
+          python research/seer-ppe/tools/source_original_acquire_pilot.py \
+            --manifest research/seer-ppe/SOURCE_ID_MANIFEST_TRAIN_VALID_2026-11-19_V01.json \
+            --checkpoint research/seer-ppe/DUAL_TRACK_CHECKPOINT_2026-11-21_V04.json \
+            --temp-root "${RUNNER_TEMP}/private-original-sources" \
+            --report "${RUNNER_TEMP}/research-only/pilot-original-hash.json"
+          result=$?
+          echo "status=$result" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Upload fingerprints and Source-ID comparisons only, never media
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-ppe-original-source-six-image-pilot
+          path: ${{ runner.temp }}/research-only/pilot-original-hash.json
+          retention-days: 7
+          if-no-files-found: warn
+      - name: Enforce conservative pilot access gate
+        shell: bash
+        run: |
+          test "${{ steps.probe.outputs.status }}" = '0'
+          python - <<'PY'
+          import json, os, pathlib
+          p=pathlib.Path(os.environ['RUNNER_TEMP'])/'research-only'/'pilot-original-hash.json'
+          d=json.loads(p.read_text(encoding='utf-8'))
+          assert d['scope']=='TRAIN_VALID_SIX_SOURCE_IDS_NO_TEST'
+          assert d['expected_images']==d['acquired_and_decoded_images']==6
+          assert len(d['pairs'])==3 and d['complete'] and not d['errors']
+          assert not d['scoring_ready'] and not d['image_bytes_uploaded']
+          print('TRAIN_VALID_ORIGINAL_SOURCE_PILOT_READ_ONLY_PASS')
+          PY
