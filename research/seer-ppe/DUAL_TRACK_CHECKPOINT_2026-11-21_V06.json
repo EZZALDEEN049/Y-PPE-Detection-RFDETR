@@ -1,0 +1,83 @@
+{
+  "schema_version": "seer-ppe/continuation-checkpoint/v0.6",
+  "date": "2026-11-21",
+  "supersedes": "DUAL_TRACK_CHECKPOINT_2026-11-21_V05.md",
+  "source_audit": {
+    "status": "COMPLETE_BYTE_AND_RGB_FINGERPRINT_COVERAGE",
+    "run_id": 44834307184,
+    "job_id": 136626717923,
+    "run_status": "completed",
+    "run_conclusion": "success",
+    "artifact_id": 14676718549,
+    "artifact_sha256": "4303a220ef1ceb5d9c688c6a57b6b74ce1c8e53826c9b5fca52590199cb6e212",
+    "manifest_originals_total": 2093,
+    "train": 1625,
+    "valid": 468,
+    "test_accessed": 0,
+    "missing_sources": 0,
+    "decode_errors": 0,
+    "cross_split_comparisons": 760500,
+    "exact_byte_pairs": 0,
+    "exact_decoded_rgb_pairs": 0,
+    "dhash_le8_pairs": 46,
+    "dhash_unique_valid": 31
+  },
+  "source_family": {
+    "prior_review_queue": 83,
+    "overlap_original_near_ids": 15,
+    "new_near_valid_ids": 16,
+    "merged_valid_review_queue": 99,
+    "specific_valid_holds_preserved": 5,
+    "new_automatic_valid_holds": 0,
+    "other_review_only_candidates": 94,
+    "remaining_valid_unflagged": 369,
+    "new_human_signoffs": 0,
+    "all_valid_independent_source_certified": false,
+    "queue": "SOURCE_FAMILY_REVIEW_QUEUE_2026-11-21_V06.json",
+    "report": "SOURCE_ORIGINAL_FULL_AUDIT_2026-11-21_V01.md"
+  },
+  "person_ppe": {
+    "eval_dataset": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+    "cases_complete": 0,
+    "cases_total": 4,
+    "revisions": {
+      "A": 2,
+      "B": 2,
+      "C": 4,
+      "D": 1
+    },
+    "associations_researcher_approved": 19,
+    "visual_review_cells_recorded": 38,
+    "visual_review_cells_expected": 42,
+    "case_B_missing": [
+      "P001:face_mask",
+      "P001:safety_boot",
+      "P002:face_mask",
+      "P002:safety_boot"
+    ],
+    "case_D_no_person_human_signoff": false,
+    "task_mandates": "POLICY_UNKNOWN",
+    "eval_case_writes": 0
+  },
+  "engineering": {
+    "git_master_manuscript_version": "v0.8",
+    "manuscript_file": "MANUSCRIPT_MASTER.md",
+    "source_record_uploaded_to_git": true,
+    "original_image_binaries_uploaded": false
+  },
+  "invariants": {
+    "original_roboflow_model_mutated": false,
+    "original_annotations_mutated": false,
+    "splits_changed": false,
+    "test_image_accessed": false,
+    "model_retrained": false,
+    "new_seer_ppe_performance_metrics": false,
+    "scoring_ready": false
+  },
+  "next": [
+    "Human source-family comparison of 99 Valid candidates, beginning with dHash distance 0–2 and all five prior holds",
+    "Human completeness review for A–D; decide four Case B visual cells; D negative-control signoff",
+    "Document applicable task/site policy where defensible; keep POLICY_UNKNOWN otherwise",
+    "Only after human source and gold reference gates, freeze eligible source-independent validation and start controlled SEER comparisons"
+  ]
+}
