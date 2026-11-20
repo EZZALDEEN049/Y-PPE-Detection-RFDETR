@@ -1,0 +1,157 @@
+{
+  "schema_version": "seer-ppe/continuation-checkpoint/v0.4",
+  "date": "2026-11-21",
+  "repository": "EZZALDEEN049/Y-PPE-Detection-RFDETR",
+  "project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "supersedes": "DUAL_TRACK_CHECKPOINT_2026-11-21_V03.md",
+  "scope": "TRAIN_VALID_SOURCE_TRIAGE_AND_TRAIN_PILOT_D_READ_ONLY_NO_TEST",
+  "live_source_verification": {
+    "previous_five_pairs_live_id_and_split_reconfirmed": 5,
+    "new_pairs_individually_analyzed": 3,
+    "new_images_analyzed": 6,
+    "source_annotation_readbacks_valid": 6,
+    "source_manifest_entries_verified": 6,
+    "previous_valid_review_queue_unique": 83,
+    "previous_specific_valid_holds": 5,
+    "new_source_holds": 0,
+    "original_pixel_bytes_downloaded": 0,
+    "sha256_or_dhash_newly_measured": false,
+    "pairs": [
+      {
+        "valid": {
+          "id": "VoxtMSBDU2XW3WLRyUtx",
+          "filename": "v99.jpg",
+          "size": [
+            462,
+            267
+          ]
+        },
+        "train": {
+          "id": "930aFf45w1CvKrfYoonN",
+          "filename": "v74.jpg",
+          "size": [
+            451,
+            309
+          ]
+        },
+        "cosine": 0.979143,
+        "ai_scene_comparison": "Both show clear safety goggles with dark top/brow trim, transparent side shields and white studio background. Slight differences in angle and sizing described.",
+        "candidate_status": "SIMILAR_PRODUCT_CATALOG_IMAGES_UNRESOLVED",
+        "human_pair_signoff": "PENDING"
+      },
+      {
+        "valid": {
+          "id": "K1hITffRQtdL69x6W3WF",
+          "filename": "image_1372.jpg",
+          "size": [
+            400,
+            239
+          ]
+        },
+        "train": {
+          "id": "jOqfE2KetI3hANjQbkDZ",
+          "filename": "image_1342.jpg",
+          "size": [
+            400,
+            239
+          ]
+        },
+        "cosine": 0.978564,
+        "ai_scene_comparison": "Both independently described a close-up bearded person in white hard hat, glasses and bright safety vest holding rolled plans before unfinished buildings/fencing; an apparent stock/watermark band mentioned in AI output. Source annotation inventories differ (valid six boxes; train five).",
+        "candidate_status": "HIGH_PRIORITY_POSSIBLE_SHARED_STOCK_OR_DERIVATIVE",
+        "human_pair_signoff": "PENDING"
+      },
+      {
+        "valid": {
+          "id": "DXPjbo9xT1UjLzOkeB6l",
+          "filename": "v16.jpg",
+          "size": [
+            490,
+            490
+          ]
+        },
+        "train": {
+          "id": "24DyXrfQsknLjzqUaQZm",
+          "filename": "v15.jpg",
+          "size": [
+            490,
+            490
+          ]
+        },
+        "cosine": 0.978558,
+        "ai_scene_comparison": "Both describe clear wraparound safety glasses with blue temple ends on plain white backgrounds. One image summary suggests temple branding, not verified by a human.",
+        "candidate_status": "SIMILAR_BLUE_TEMPLE_GOGGLES_UNRESOLVED",
+        "human_pair_signoff": "PENDING"
+      }
+    ]
+  },
+  "case_D": {
+    "case_id": "c197d82e-7870-42a3-bf94-462420d3f6a2",
+    "source_image_id": "0oVmRAxL0SM1PWqZCNyM",
+    "filename": "h1.jpg",
+    "split": "train",
+    "source_dimensions": [
+      1000,
+      1000
+    ],
+    "saved_source_annotations_valid": true,
+    "saved_source_label_counts": {
+      "Hard Hat": 1,
+      "Persons": 0
+    },
+    "model_visual_note": "AI-only single-image analysis describes isolated bright yellow hard hat and a hanging strap on white; no visible person/limbs.",
+    "eval_revision": 1,
+    "eval_ground_truth_state": "incomplete",
+    "eval_ground_truth_empty": true,
+    "human_zero_person_verdict": "NOT_SIGNED_OFF",
+    "eval_case_modified": false
+  },
+  "live_eval_pilots": {
+    "A": {
+      "revision": 2,
+      "state": "incomplete",
+      "recorded_states": 6,
+      "associations": 3
+    },
+    "B": {
+      "revision": 2,
+      "state": "incomplete",
+      "recorded_states": 8,
+      "associations": 4,
+      "missing": [
+        "P001:face_mask",
+        "P001:safety_boot",
+        "P002:face_mask",
+        "P002:safety_boot"
+      ]
+    },
+    "C": {
+      "revision": 4,
+      "state": "incomplete",
+      "associations": 12
+    },
+    "D": {
+      "revision": 1,
+      "state": "incomplete",
+      "associations": 0
+    },
+    "approved_associations_total": 19,
+    "completed_cases": 0,
+    "total_cases": 4
+  },
+  "boundary": {
+    "human_adjudications_added": 0,
+    "original_roboflow_annotated_labels_changed": false,
+    "model_retrained": false,
+    "splits_changed": false,
+    "test_images_accessed": 0,
+    "github_actions_run_verified": false,
+    "scoring_ready": false
+  },
+  "unresolved": [
+    "Original Source bytes for 2093 Train/Valid remain unavailable to this session for complete pixel hash audit",
+    "Human source-family adjudication and rights/source review remain open",
+    "Human signoff of four B missing cells and D no-person control, plus full case completeness/policies, remains open",
+    "Remote GitHub Actions execution not verified"
+  ]
+}
