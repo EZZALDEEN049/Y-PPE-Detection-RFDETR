@@ -1,0 +1,69 @@
+{
+  "schema_version": "seer-ppe/dual-track-progress/v0.1",
+  "date": "2026-11-21",
+  "repo": "EZZALDEEN049/Y-PPE-Detection-RFDETR",
+  "project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "original_source_counts": {
+    "train": 1625,
+    "valid": 468,
+    "test": 234,
+    "total": 2327
+  },
+  "source_integrity": {
+    "train_valid_source_count": 2093,
+    "embedding_comparisons": 760500,
+    "valid_triage_unique_ids": 79,
+    "prior_valid_holds": 5,
+    "priority_disjoint_counts": {
+      "previous_holds": 5,
+      "additional_embedding_ge_0_98": 6,
+      "other_embedding_ge_0_95": 45,
+      "filename_only": 21,
+      "earlier_family_review": 2
+    },
+    "original_pixel_hashes_executed": false,
+    "original_image_bytes_obtained": false
+  },
+  "person_ppe": {
+    "eval_dataset_id": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+    "pilot_cases": 4,
+    "complete_cases": 0,
+    "case_revisions": {
+      "A": 2,
+      "B": 2,
+      "C": 4,
+      "D": 1
+    },
+    "human_approved_item_owner_links": 19,
+    "people_in_partial_eval": 7,
+    "reviewed_visual_cells": 38,
+    "expected_visual_cells": 42,
+    "missing_b_cells": [
+      "P001:face_mask",
+      "P001:safety_boot",
+      "P002:face_mask",
+      "P002:safety_boot"
+    ],
+    "cases_with_source_review": 0,
+    "task_policy": "POLICY_UNKNOWN",
+    "original_annotations_modified": false,
+    "eval_gt_modified": false
+  },
+  "issues": [
+    "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/issues/17",
+    "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/issues/18"
+  ],
+  "files": [
+    "UNIFIED_TRAIN_VALID_TRIAGE_2026-11-21_V01.md",
+    "UNIFIED_TRAIN_VALID_TRIAGE_2026-11-21_V01.json",
+    "PERSON_PPE_LIVE_READINESS_2026-11-21_V01.md",
+    "PERSON_PPE_LIVE_READINESS_2026-11-21_V01.json"
+  ],
+  "test_newly_accessed": false,
+  "metrics_scoring_ready": false,
+  "limitations": [
+    "Read-only case/annotation inspection does not constitute independent human adjudication",
+    "No real original-image byte hash scan completed",
+    "No Test-based tuning"
+  ]
+}
