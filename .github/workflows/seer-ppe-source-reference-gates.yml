@@ -128,6 +128,8 @@ jobs:
           assert.equal(checkpoint.test_newly_accessed,false);
           console.log('TWO_TRACK_SAVED_EVIDENCE_FAIL_CLOSED_PASS');
           JS
+      - name: Verify V06 source-family review evidence remains fail-closed
+        run: node research/seer-ppe/tools/validate_v06_source_review_gate.mjs
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'
