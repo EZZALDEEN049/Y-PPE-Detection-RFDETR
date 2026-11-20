@@ -4,12 +4,14 @@
 Dependencies: Pillow. Input must contain unique Roboflow Source image IDs and
 explicit local paths (or uniquely matching <root>/<split>/<image_id>.* files).
 Only Train/Valid are accepted. Test is intentionally excluded to keep it sealed.
+Local paths must be under their declared split folder. No symlinks or traversal.
 Results are research triage, NEVER authorization to score or modify images.
 """
 import argparse
 import hashlib
 import json
 import platform
+import re
 import shutil
 import sys
 import tempfile
@@ -24,14 +26,45 @@ def _sha(data):
 
 
 def _resolve(root, item):
+    """Resolve ONLY the declared Train/Valid Source ID, never arbitrary or Test paths.
+
+    Local paths must start with the declared split directory. Symlinks and path
+    traversal are forbidden to prevent accidental reads of protected Test bytes.
+    """
+    root = root.resolve()
+    split = item["split"]
+    folder = root / split
+    if folder.is_symlink() or not folder.resolve().is_relative_to(root):
+        raise ValueError("Split directory symlink or root escape forbidden")
+
     if item.get("local_path"):
-        path = (root / item["local_path"]).resolve()
-        if not path.is_relative_to(root.resolve()):
-            raise ValueError("Path escapes image root")
+        relative = Path(item["local_path"])
+        if (relative.is_absolute() or ".." in relative.parts
+                or not relative.parts or relative.parts[0] != split
+                or any(part.lower() in {"test", "testing"} for part in relative.parts[:-1])):
+            raise ValueError("Local path must remain under the declared Train/Valid split")
+        candidate = root / relative
+        cursor = root
+        for part in relative.parts:
+            cursor = cursor / part
+            if cursor.is_symlink():
+                raise ValueError("Symlink in Source path forbidden")
+        path = candidate.resolve()
+        if not path.is_relative_to(folder.resolve()):
+            raise ValueError("Path escapes declared Train/Valid split")
         return path if path.is_file() else None
-    # Do not guess by filename: multiple Roboflow Sources can have the same name.
-    folder = root / item["split"]
-    paths = [p for p in folder.glob(item["image_id"] + ".*") if p.is_file()]
+
+    # Never guess by original filename: different Sources may share filenames.
+    # Search Source-ID-prefixed files only, rejecting symlinks and ambiguities.
+    paths = []
+    for candidate in folder.glob(item["image_id"] + ".*"):
+        if candidate.is_symlink():
+            raise ValueError("Symlink in Source path forbidden")
+        path = candidate.resolve()
+        if not path.is_relative_to(folder.resolve()):
+            raise ValueError("Path escapes declared Train/Valid split")
+        if path.is_file():
+            paths.append(path)
     if len(paths) > 1:
         raise ValueError("Ambiguous Source ID in local files: " + item["image_id"])
     return paths[0] if paths else None
@@ -59,8 +92,9 @@ def audit(manifest, root):
     items = manifest["images"]
     if any(x.get("split") not in ("train", "valid") for x in items):
         raise ValueError("Test or unknown split is forbidden in this audit")
-    if any(not isinstance(x.get("image_id"), str) or not x["image_id"] for x in items):
-        raise ValueError("All rows require a nonempty Roboflow Source image_id")
+    if any(not isinstance(x.get("image_id"), str)
+           or not re.fullmatch(r"[A-Za-z0-9_-]+", x["image_id"]) for x in items):
+        raise ValueError("All Source image_id values must be safe alphanumeric IDs")
     if len({x["image_id"] for x in items}) != len(items):
         raise ValueError("Duplicate Source ID in manifest")
     counts = Counter(x["split"] for x in items)
@@ -153,6 +187,27 @@ def self_test():
             raise AssertionError("Test guard failed")
         except ValueError as exc:
             assert "forbidden" in str(exc)
+        # Reject malformed IDs before any file access.
+        try:
+            audit({"images": [{"image_id": "../test/secret", "split": "train"}]}, root)
+            raise AssertionError("Unsafe image ID guard failed")
+        except ValueError as exc:
+            assert "alphanumeric" in str(exc)
+        # Reject a declared Train Source pointing to Valid or Test image bytes.
+        for wrong_path in ("valid/V1.png", "test/secret.png"):
+            try:
+                audit({"images": [{"image_id": "T", "split": "train",
+                                   "local_path": wrong_path}]}, root)
+                raise AssertionError("Cross-split path guard failed")
+            except ValueError as exc:
+                assert "split" in str(exc)
+        # Reject file symlinks which could silently cross split boundaries.
+        (root / "train" / "LINK.png").symlink_to(root / "valid" / "V1.png")
+        try:
+            audit({"images": [{"image_id": "LINK", "split": "train"}]}, root)
+            raise AssertionError("Symlink guard failed")
+        except ValueError as exc:
+            assert "Symlink" in str(exc)
     print("SOURCE_PIXEL_HASH_AUDIT_SELF_TEST_PASS")
 
 
