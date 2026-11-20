@@ -1,0 +1,82 @@
+name: SEER-PPE source and reference readiness (research-only)
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/**'
+      - '.github/workflows/seer-ppe-source-reference-gates.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  read_only_pre_scoring_gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout frozen research records
+        uses: actions/checkout@v4
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image-test dependency (synthetic images only)
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Verify original combined source-gate self-test
+        run: node research/seer-ppe/tools/source_integrity_readiness_gate.mjs --self-test
+      - name: Verify source-integrity gate fails closed on current research data
+        run: |
+          set -euo pipefail
+          node research/seer-ppe/tools/source_integrity_readiness_gate.mjs > /tmp/seer-source-gate.json
+          node --input-type=module -e '
+            import fs from "node:fs";
+            import assert from "node:assert/strict";
+            const x=JSON.parse(fs.readFileSync("/tmp/seer-source-gate.json","utf8"));
+            assert.equal(x.model_metric_scoring_ready,false);
+            assert.equal(x.specific_source_hold_count,5);
+            assert.equal(x.unadjudicated_exact_filename_collision_valid_count,26);
+            assert.equal(x.no_test_image_inspection_or_inference_by_this_gate,true);
+            process.stdout.write("CURRENT_SOURCE_INTEGRITY_GATE_FAIL_CLOSED_PASS\\n");
+          '
+      - name: Verify existing Person–PPE structural review validator self-test
+        run: node research/seer-ppe/tools/validate_reference.mjs --self-test
+      - name: Verify synthetic byte/pixel/dHash image audit self-test
+        run: python research/seer-ppe/tools/source_pixel_hash_audit.py --self-test
+      - name: Verify saved two-track evidence is internally consistent and not scoring-ready
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const root='research/seer-ppe/';
+          const read=name=>JSON.parse(fs.readFileSync(root+name,'utf8'));
+          const source=read('SOURCE_ID_MANIFEST_TRAIN_VALID_2026-11-19_V01.json');
+          const union=read('UNIFIED_TRAIN_VALID_TRIAGE_2026-11-21_V01.json');
+          const human=read('PERSON_PPE_LIVE_READINESS_2026-11-21_V01.json');
+          const checkpoint=read('DUAL_TRACK_CHECKPOINT_2026-11-21.json');
+          assert.equal(source.images.length,2093);
+          assert.equal(source.images.filter(x=>x.split==='train').length,1625);
+          assert.equal(source.images.filter(x=>x.split==='valid').length,468);
+          assert.equal(source.images.filter(x=>x.split==='test').length,0);
+          assert.equal(new Set(source.images.map(x=>x.image_id)).size,2093);
+          assert.equal(union.unique_valid_triage_rows,79);
+          assert.equal(union.prior_valid_holds_not_changed,5);
+          assert.equal(new Set(union.prioritization.map(x=>x.valid_id)).size,79);
+          assert.equal(union.scoring_ready,false);
+          assert.equal(union.original_source_bytes_acquired,false);
+          assert.equal(human.totals.associations,19);
+          assert.equal(human.totals.visual_reviewed_cells,38);
+          assert.equal(human.totals.visual_missing_cells,4);
+          assert.equal(human.cases.length,4);
+          assert.ok(human.cases.every(x=>x.ground_truth_state==='incomplete'));
+          assert.equal(human.case_completion_ready,false);
+          assert.equal(human.model_scoring_ready,false);
+          assert.equal(checkpoint.metrics_scoring_ready,false);
+          assert.equal(checkpoint.test_newly_accessed,false);
+          console.log('TWO_TRACK_SAVED_EVIDENCE_FAIL_CLOSED_PASS');
+          JS
+      - name: Scientific status boundary
+        run: |
+          echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'
+          echo 'Passing these engineering gates DOES NOT authorize mAP/F1 or PPE compliance scoring'
