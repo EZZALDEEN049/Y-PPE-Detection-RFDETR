@@ -134,3 +134,8 @@ When reporting results, cite the exact Roboflow Universe project/model used and 
 ## Current SRAC-PPE Research Progress
 
 The current **Trustworthy and Risk-Aware Vision Transformers for PPE Compliance Monitoring Under Domain Shift and Limited Data** project is tracked in [SRAC-PPE Research Progress Hub](research/srac-ppe/README.md). The canonical, dated status and remaining experimental gates are documented in [PROJECT.md](research/srac-ppe/PROJECT.md). This public tracking page does **not** include the full unpublished manuscript, private data, or model credentials.
+
+
+### SEER-PPE continuation V04 — 21 November 2026
+
+Latest **read-only** research checkpoint: [source-triage expansion, Train Case D preflight, and safe path gate](research/seer-ppe/DUAL_TRACK_CHECKPOINT_2026-11-21_V04.md). Three further Train↔Valid candidates were AI-screened (no pixel identity verdict); the four Train pilot Eval Cases remain incomplete; original RF-DETR data/model and sealed Test are untouched. [Path-hardened original-byte audit tool](research/seer-ppe/tools/source_pixel_hash_audit.py) has added negative tests; not yet independently executed for V04. **Research scoring gate remains CLOSED**.
