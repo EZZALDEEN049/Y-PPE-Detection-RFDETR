@@ -6,7 +6,7 @@
 
 1. Archived the exact author acceptance in [`AUTHOR_VISUAL_REVIEW_ACCEPTANCE_2026-11-21_V08.md`](AUTHOR_VISUAL_REVIEW_ACCEPTANCE_2026-11-21_V08.md) and [machine record](AUTHOR_VISUAL_REVIEW_ACCEPTANCE_2026-11-21_V08.json).
 2. Built a **468-row Validation eligibility *planning* manifest** from the frozen original image Source IDs and the V06 candidate queue. It distinguishes **5 pre-existing holds**, **94 additional unresolved/flagged Valid candidates**, and **369 not flagged by present screeners but *not* proven independent**. No automatic new holds and no Roboflow split/annotation changes. [Manifest](VALIDATION_ELIGIBILITY_PLANNING_MANIFEST_2026-11-21_V08.json).
-3. Added [`validate_v08_author_review_planning_gate.mjs`](tools/validate_v08_author_review_planning_gate.mjs) and a source/reference CI step. It asserts all **468 frozen Valid identities**, disjoint bucket counts, zero Test accesses, preservation of existing holds, and **`scoring_ready=false`**. The newly committed CI run must pass before claiming remote gate success.
+3. Added [`validate_v08_author_review_planning_gate.mjs`](tools/validate_v08_author_review_planning_gate.mjs) and a source/reference CI step. It asserts all **468 frozen Valid identities**, disjoint bucket counts, zero Test accesses, preservation of existing holds, and **`scoring_ready=false`**. The new source/reference CI step **passed on GitHub Actions**: [run 44837491078](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44837491078), verified V08 step success; [CI evidence](GITHUB_ACTIONS_V08_VERIFIED_2026-11-21_V01.md).
 
 ## Existing scientific evidence and boundaries
 
