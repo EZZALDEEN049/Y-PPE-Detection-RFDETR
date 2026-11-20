@@ -1,0 +1,149 @@
+{
+  "schema_version": "seer-ppe/train-only-unscored-workflow-engineering-preflight/v0.9",
+  "date": "2026-11-21",
+  "execution_type": "DIRECT_LIVE_ROBOFLOW_WORKFLOWS_RUN_WITHOUT_GROUND_TRUTH_SCORING",
+  "workspace": "softyyemen",
+  "source_project": "altayyar-0oflt-lafos-qqauz",
+  "model": "altayyar-0oflt-lafos-qqauz/2",
+  "workflow": {
+    "name": "SEER-PPE Conservative Review Cues v0.2",
+    "id": "61llCTFuQ4Aq4goQ9HiP",
+    "status": "EXISTING_PUBLISHED_WORKFLOW_READ_ONLY",
+    "all_step_types": "read-only model detection, filters, overlaps, expressions, visualization",
+    "disable_active_learning": true,
+    "custom_candidate_confidence_threshold": 0.2,
+    "high_confidence_cue_threshold": 0.6
+  },
+  "sample_count": 4,
+  "image_split": "train",
+  "evaluated_test_or_valid_images": 0,
+  "cases": [
+    {
+      "case": "A",
+      "source_id": "0jRe8fpRDE5fLgAJrYvT",
+      "filename": "image_604.jpg",
+      "image_dimensions": [
+        1000,
+        667
+      ],
+      "output": {
+        "raw": 5,
+        "high": 5,
+        "lower": 0,
+        "persons": 1,
+        "ppe": 4,
+        "positive": 3,
+        "absence": 1,
+        "geometric": 4,
+        "pairwise": 4
+      },
+      "review_codes": {
+        "person_coverage": "PERSON_CANDIDATES_DETECTED_COVERAGE_UNVERIFIED",
+        "confidence": "NO_LOW_SCORE_CANDIDATES_RETURNED",
+        "association": "ASSOCIATION_UNKNOWN",
+        "policy": "POLICY_UNKNOWN"
+      }
+    },
+    {
+      "case": "B",
+      "source_id": "0xxsYWiz1FZBYERolu4z",
+      "filename": "000760.jpg",
+      "image_dimensions": [
+        500,
+        330
+      ],
+      "output": {
+        "raw": 16,
+        "high": 15,
+        "lower": 1,
+        "persons": 2,
+        "ppe": 14,
+        "positive": 11,
+        "absence": 3,
+        "geometric": 14,
+        "pairwise": 18
+      },
+      "review_codes": {
+        "person_coverage": "PERSON_CANDIDATES_DETECTED_COVERAGE_UNVERIFIED",
+        "confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+        "association": "ASSOCIATION_UNKNOWN",
+        "policy": "POLICY_UNKNOWN"
+      }
+    },
+    {
+      "case": "C",
+      "source_id": "0jGu9euJp1MbvkLtfBcs",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "image_dimensions": [
+        2048,
+        1365
+      ],
+      "output": {
+        "raw": 29,
+        "high": 26,
+        "lower": 3,
+        "persons": 4,
+        "ppe": 25,
+        "positive": 14,
+        "absence": 11,
+        "geometric": 24,
+        "pairwise": 26
+      },
+      "review_codes": {
+        "person_coverage": "PERSON_CANDIDATES_DETECTED_COVERAGE_UNVERIFIED",
+        "confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+        "association": "ASSOCIATION_UNKNOWN",
+        "policy": "POLICY_UNKNOWN"
+      }
+    },
+    {
+      "case": "D",
+      "source_id": "0oVmRAxL0SM1PWqZCNyM",
+      "filename": "h1.jpg",
+      "image_dimensions": [
+        1000,
+        1000
+      ],
+      "output": {
+        "raw": 1,
+        "high": 1,
+        "lower": 0,
+        "persons": 0,
+        "ppe": 1,
+        "positive": 1,
+        "absence": 0,
+        "geometric": 0,
+        "pairwise": 0
+      },
+      "review_codes": {
+        "person_coverage": "PERSON_COVERAGE_UNKNOWN",
+        "confidence": "NO_LOW_SCORE_CANDIDATES_RETURNED",
+        "association": "ASSOCIATION_UNKNOWN",
+        "policy": "POLICY_UNKNOWN"
+      }
+    }
+  ],
+  "invariants": {
+    "all_calls_succeeded": true,
+    "per_case_model_identity_confirmed": true,
+    "all_association_states_UNKNOWN": true,
+    "all_policy_states_UNKNOWN": true,
+    "no_person_D_returns_PERSON_COVERAGE_UNKNOWN": true,
+    "raw_predictions_partitioned_by_high_and_low": true,
+    "per_person_ground_truth_preserved": true,
+    "approved_human_19_links_unchanged": true,
+    "original_dataset_mutated": false,
+    "model_retrained": false,
+    "eval_case_mutated": false,
+    "scores_computed": false,
+    "energy_measured": false
+  },
+  "scientific_readiness": {
+    "mAP": null,
+    "F1": null,
+    "worker_compliance": null,
+    "XAI_faithfulness": null,
+    "energy_joules": null,
+    "scoring_ready": false
+  }
+}
