@@ -1,0 +1,115 @@
+{
+  "schema_version": "seer-ppe/continuation-checkpoint/v0.9",
+  "date": "2026-11-21",
+  "supersedes": "DUAL_TRACK_CHECKPOINT_2026-11-21_V08.json",
+  "author_review": {
+    "images_visual_review_confirmed_correct_and_appropriate": true,
+    "review_repeated": false,
+    "author_approval_record": "AUTHOR_VISUAL_REVIEW_ACCEPTANCE_2026-11-21_V08.md"
+  },
+  "data_integrity": {
+    "original_train_valid_sources_hashed": 2093,
+    "raw_rgb_equal_cross_split_pairs": 0,
+    "dhash_near_pairs": 46,
+    "valid_human_source_family_queue": 99,
+    "preexisting_valid_holds": 5,
+    "source_family_independence_confirmed": false
+  },
+  "train_only_workflow_preflight": {
+    "executed_live": true,
+    "workflow_id": "61llCTFuQ4Aq4goQ9HiP",
+    "model_id": "altayyar-0oflt-lafos-qqauz/2",
+    "train_cases": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "test_used": false,
+    "valid_used": false,
+    "raw_predictions_by_case": {
+      "A": 5,
+      "B": 16,
+      "C": 29,
+      "D": 1
+    },
+    "high_score_candidates_by_case": {
+      "A": 5,
+      "B": 15,
+      "C": 26,
+      "D": 1
+    },
+    "lower_score_candidates_by_case": {
+      "A": 0,
+      "B": 1,
+      "C": 3,
+      "D": 0
+    },
+    "persons_candidates_by_case": {
+      "A": 1,
+      "B": 2,
+      "C": 4,
+      "D": 0
+    },
+    "all_4_association_unknown": true,
+    "all_4_policy_unknown": true,
+    "case_D_person_coverage_unknown": true,
+    "source_report": "TRAIN_ONLY_UNSCORED_PREFLIGHT_2026-11-21_V09.md",
+    "no_model_retraining": true
+  },
+  "human_reference": {
+    "eval_dataset": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+    "live_case_revisions": {
+      "A": 2,
+      "B": 2,
+      "C": 4,
+      "D": 1
+    },
+    "complete_cases": 0,
+    "approved_worker_ppe_links": 19,
+    "recorded_worker_ppe_states": 38,
+    "expected_worker_ppe_states": 42,
+    "prior_visual_state_counts": {
+      "PRESENT": 22,
+      "ABSENT": 3,
+      "UNKNOWN": 13
+    },
+    "not_recorded_B": [
+      "P001:face_mask",
+      "P001:safety_boot",
+      "P002:face_mask",
+      "P002:safety_boot"
+    ],
+    "case_D_zero_person_human_signoff": false,
+    "task_mandate": "POLICY_UNKNOWN",
+    "snapshot": "PERSON_PPE_REFERENCE_LIVE_SNAPSHOT_2026-11-21_V09.md",
+    "new_human_decisions_in_this_continuation": 0
+  },
+  "github_actions": {
+    "run_id": 44838922575,
+    "job_id": 136642173363,
+    "conclusion": "success",
+    "verified_log_marker": "SEER_V09_TRAIN_ONLY_PREFLIGHT_REFERENCE_FAIL_CLOSED_PASS",
+    "evidence": "GITHUB_ACTIONS_V09_VERIFIED_2026-11-21_V01.md"
+  },
+  "manuscript": "MANUSCRIPT_MASTER.md",
+  "manuscript_version": "v0.9",
+  "results_section_added": "4.8",
+  "safety": {
+    "original_data_splits_annotations_changed": false,
+    "roboflow_eval_case_writes": 0,
+    "test_opened": false,
+    "retraining": false,
+    "new_mAP": false,
+    "new_F1": false,
+    "new_compliance": false,
+    "new_energy_joules": false,
+    "scoring_ready": false
+  },
+  "next": [
+    "Transcribe the author's already reviewed four missing B face-mask/boot states only with specific research decisions/evidence",
+    "Obtain explicit D no-person human negative-control signoff if appropriate",
+    "Record source-family decisions for 99 Valid candidates, preserving five holds unless explicitly cleared",
+    "Use only Train engineering smoke tests and keep actual scientific scoring/Valid and protected Test gated"
+  ]
+}
