@@ -55,6 +55,7 @@ jobs:
           const union=read('UNIFIED_TRAIN_VALID_TRIAGE_2026-11-21_V01.json');
           const human=read('PERSON_PPE_LIVE_READINESS_2026-11-21_V01.json');
           const checkpoint=read('DUAL_TRACK_CHECKPOINT_2026-11-21.json');
+          const expanded=read('UNIFIED_TRAIN_VALID_TRIAGE_2026-11-21_V02.json');
           assert.equal(source.images.length,2093);
           assert.equal(source.images.filter(x=>x.split==='train').length,1625);
           assert.equal(source.images.filter(x=>x.split==='valid').length,468);
@@ -64,6 +65,14 @@ jobs:
           assert.equal(union.prior_valid_holds_not_changed,5);
           assert.equal(new Set(union.prioritization.map(x=>x.valid_id)).size,79);
           assert.equal(union.scoring_ready,false);
+          assert.equal(expanded.unique_valid_triage_rows,83);
+          assert.equal(expanded.new_unique_valid_review_ids.length,4);
+          assert.equal(expanded.prior_valid_holds_not_changed,5);
+          assert.equal(new Set(expanded.prioritization.map(x=>x.valid_id)).size,83);
+          assert.equal(expanded.scoring_ready,false);
+          assert.equal(expanded.tests_accessed,false);
+          const prior=new Set(union.prioritization.map(x=>x.valid_id));
+          assert.ok([...prior].every(id=>expanded.prioritization.some(x=>x.valid_id===id)));
           assert.equal(union.original_source_bytes_acquired,false);
           assert.equal(human.totals.associations,19);
           assert.equal(human.totals.visual_reviewed_cells,38);
