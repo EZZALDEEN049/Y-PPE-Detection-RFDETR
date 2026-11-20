@@ -1,0 +1,87 @@
+{
+  "schema_version": "seer-ppe/original-source-six-image-audit/v0.1",
+  "date": "2026-11-21",
+  "project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "scope": "THREE_VALID_TO_TRAIN_PAIRS_SIX_ORIGINAL_ROBOFLOW_SOURCES_NO_TEST",
+  "method": "project.image(id).urls.original direct original download in temporary GitHub Actions runner; SHA256 raw bytes; EXIF-corrected RGB SHA256 with dimensions; 64-bit dHash",
+  "execution": {
+    "github_run_id": 44833885353,
+    "github_job_id": 136625309425,
+    "head_sha": "b135421b105cc7bfec9729ee7596411f8f604afd",
+    "job_conclusion": "success",
+    "artifact_id": 14676968695,
+    "artifact_digest": "sha256:39608e279c822b841578f88a772392fb245af2db56486946cd7ff1807a2fc831",
+    "original_sources_hashed": 6,
+    "requested": 6,
+    "failed": 0
+  },
+  "pairs": [
+    {
+      "valid": {
+        "id": "VoxtMSBDU2XW3WLRyUtx",
+        "filename": "v99.jpg",
+        "bytes_sha256": "c0f7a764f8f98d22524459ec1fa38095b7bd52df0c2bd0cfdce347a936d68755",
+        "rgb_sha256": "82eb0ab8dddfb16dc8570e2d158d59a872087fa4ceadcbcd682c132cbc5ae6ac"
+      },
+      "train": {
+        "id": "930aFf45w1CvKrfYoonN",
+        "filename": "v74.jpg",
+        "bytes_sha256": "f69344530742b887e8e5819df3859202ed9ae13e0198cea3f8414fc242f59098",
+        "rgb_sha256": "16e8d71550727cbc1abb5db802d82de9629c6ec5c6215838f0ba50b60d844ec7"
+      },
+      "dhash_hamming": 11,
+      "raw_byte_identical": false,
+      "decoded_rgb_identical": false,
+      "source_family_verdict": "PENDING_HUMAN_REVIEW"
+    },
+    {
+      "valid": {
+        "id": "K1hITffRQtdL69x6W3WF",
+        "filename": "image_1372.jpg",
+        "bytes_sha256": "cfa8ab785b8dbcc003510cc1ef58b07c2f7376fed113f53c55023871e6b924a6",
+        "rgb_sha256": "b4ddd0f5dba6d9a4b0467f7464ee60eb0a786688b56bd6e1c2f160a50e4a2fa9"
+      },
+      "train": {
+        "id": "jOqfE2KetI3hANjQbkDZ",
+        "filename": "image_1342.jpg",
+        "bytes_sha256": "46eecb4d36fd076683476180fee5e18817e985c7937a2a4f5aad69ea69d62671",
+        "rgb_sha256": "d1f647af9b0e1373c0e9402ed03a4045e30d7450873493efeb8a20a7948be987"
+      },
+      "dhash_hamming": 29,
+      "raw_byte_identical": false,
+      "decoded_rgb_identical": false,
+      "source_family_verdict": "HIGH_PRIORITY_POSSIBLE_SHARED_STOCK_DERIVATIVE_REQUIRES_HUMAN_REVIEW"
+    },
+    {
+      "valid": {
+        "id": "DXPjbo9xT1UjLzOkeB6l",
+        "filename": "v16.jpg",
+        "bytes_sha256": "c9512dd4a396eb5074710ec0859fe0836205b799bd6c9c30b0a51035bea30b96",
+        "rgb_sha256": "d59f7b30aad51b5b569e30ed218b4df50b30651e65b007d5340f063498ed8b01"
+      },
+      "train": {
+        "id": "24DyXrfQsknLjzqUaQZm",
+        "filename": "v15.jpg",
+        "bytes_sha256": "8609badda40f405971dca9a7e349fd9e39b93a55798e69594c9106aa7d7f18dc",
+        "rgb_sha256": "0a361c16ec29b7f82e0eaf1bbbe437899ef598f8942bc51bb9f2c871547f22c1"
+      },
+      "dhash_hamming": 18,
+      "raw_byte_identical": false,
+      "decoded_rgb_identical": false,
+      "source_family_verdict": "PENDING_HUMAN_REVIEW"
+    }
+  ],
+  "human_approved_new_source_verdicts": 0,
+  "valid_review_queue_unchanged": 83,
+  "specific_valid_holds_unchanged": 5,
+  "no_original_media_in_git_or_artifacts": true,
+  "original_urls_not_published": true,
+  "model_or_dataset_changed": false,
+  "new_test_image_access": 0,
+  "scoring_ready": false,
+  "limits": [
+    "Only 6/2093 original Train/Valid images were hashed; complete train-valid source independence has NOT been demonstrated",
+    "dHash distance > 8 or different RGB pixel arrays is NOT proof of acquisition/source-family independence",
+    "Site/task policy and Person-PPE human reference remain incomplete"
+  ]
+}
