@@ -134,6 +134,10 @@ jobs:
         run: node research/seer-ppe/tools/validate_v08_author_review_planning_gate.mjs
       - name: Verify V09 Train-only unscored Workflow and human-reference safeguards
         run: node research/seer-ppe/tools/validate_v09_train_preflight_reference_gate.mjs
+      - name: Verify V10 graph candidates and conservative record-contract regression
+        run: |
+          node research/seer-ppe/tools/validate_v10_source_components_and_guardrails.mjs --self-test
+          node research/seer-ppe/tools/validate_v10_source_components_and_guardrails.mjs --verify
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'

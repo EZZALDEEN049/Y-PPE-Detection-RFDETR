@@ -1,0 +1,59 @@
+{
+  "schema_version": "seer-ppe/dual-track-checkpoint/v0.10",
+  "date": "2026-11-21",
+  "supersedes": "DUAL_TRACK_CHECKPOINT_2026-11-21_V09.json",
+  "status": "READ_ONLY_GRAPH_CHARACTERIZATION_AND_RESEARCH_RECORD_GUARDRAIL_VALIDATION_NOT_SCIENTIFIC_SCORING",
+  "source_similarity_graph": {
+    "input_pairs": 46,
+    "unique_valid_source_ids": 31,
+    "unique_train_source_ids": 41,
+    "connected_candidate_components": 27,
+    "multi_pair_candidate_components": 8,
+    "source_family_verdicts_added": 0,
+    "graph_proves_actual_source_families": false
+  },
+  "validation": {
+    "original_valid_images": 468,
+    "preexisting_specific_holds": 5,
+    "additional_unresolved_candidates": 94,
+    "not_flagged_but_independence_uncertified": 369,
+    "independent_scientific_cohort_eligible": false
+  },
+  "recorded_reference": {
+    "train_pilot_count": 4,
+    "human_links_approved": 19,
+    "saved_states": 38,
+    "expected_states": 42,
+    "missing_B_cells": [
+      "P001:face_mask",
+      "P001:safety_boot",
+      "P002:face_mask",
+      "P002:safety_boot"
+    ],
+    "case_D_human_zero_person_signoff": false,
+    "complete_cases": 0
+  },
+  "conservative_offline_disposition": {
+    "cases": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "suggested_abstain_and_review_cases": 4,
+    "review_requests_confirmed_executed": 0,
+    "automatic_clearances": 0,
+    "detector_or_workflow_rerun": false,
+    "scientific_metrics_derived": false
+  },
+  "reproducible_script": "tools/validate_v10_source_components_and_guardrails.mjs",
+  "report": "SOURCE_COMPONENTS_AND_GUARDRAIL_CONTRACT_2026-11-21_V10.md",
+  "unchanged": {
+    "original_model": true,
+    "source_labels_and_splits": true,
+    "person_ppe_eval_cases": true,
+    "test_unopened": true
+  },
+  "evaluation_ready": false,
+  "scoring_ready": false
+}
