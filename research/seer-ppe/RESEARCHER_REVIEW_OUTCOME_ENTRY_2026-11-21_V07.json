@@ -1,0 +1,82 @@
+{
+  "schema_version": "seer-ppe/reviewer-outcome-input/v0.7",
+  "date": "2026-11-21",
+  "review_confirmation_source": "AUTHOR_VISUAL_REVIEW_ACKNOWLEDGEMENT_2026-11-21_V01.json",
+  "overall_images_visually_reviewed_per_author": true,
+  "source_independence": {
+    "full_original_fingerprint_scan_completed": true,
+    "valid_candidate_count": 99,
+    "preexisting_holds": 5,
+    "author_source_family_verdict_records_received": 0,
+    "verdicts_status": "AWAIT_EXISTING_REVIEW_FINDINGS_TO_BE_TRANSCRIBED",
+    "permitted_verdicts": [
+      "SHARED_ORIGINAL_IMAGE_OR_DERIVATIVE",
+      "SHARED_CAPTURE_SESSION_OR_SITE",
+      "DISTINCT_IMAGES_SHARED_PRODUCT_ONLY",
+      "INDEPENDENT_SOURCE_EVIDENCED",
+      "UNRESOLVED"
+    ],
+    "note": "Review completion ≠ source-family independence approval"
+  },
+  "person_ppe": {
+    "eval_dataset": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+    "saved_approved_links": 19,
+    "saved_cells": 38,
+    "total_cells": 42,
+    "cases_complete": 0,
+    "case_B_missing_user_outcomes": [
+      {
+        "person_id": "P001",
+        "ppe_type": "face_mask",
+        "decision": "NOT_RECORDED",
+        "allowed": [
+          "PRESENT",
+          "ABSENT",
+          "UNKNOWN"
+        ],
+        "evidence": null
+      },
+      {
+        "person_id": "P001",
+        "ppe_type": "safety_boot",
+        "decision": "NOT_RECORDED",
+        "allowed": [
+          "PRESENT",
+          "ABSENT",
+          "UNKNOWN"
+        ],
+        "evidence": null
+      },
+      {
+        "person_id": "P002",
+        "ppe_type": "face_mask",
+        "decision": "NOT_RECORDED",
+        "allowed": [
+          "PRESENT",
+          "ABSENT",
+          "UNKNOWN"
+        ],
+        "evidence": null
+      },
+      {
+        "person_id": "P002",
+        "ppe_type": "safety_boot",
+        "decision": "NOT_RECORDED",
+        "allowed": [
+          "PRESENT",
+          "ABSENT",
+          "UNKNOWN"
+        ],
+        "evidence": null
+      }
+    ],
+    "case_D_negative_control": {
+      "person_count_human_decision": "NOT_RECORDED",
+      "human_signoff": false,
+      "evidence": null
+    },
+    "task_and_site_mandates": "POLICY_UNKNOWN",
+    "roboflow_eval_mutated": false
+  },
+  "research_scoring_authorized": false
+}
