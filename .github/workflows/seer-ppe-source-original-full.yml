@@ -1,0 +1,68 @@
+name: SEER-PPE full 2093 original Source hash audit (Train+Valid)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'research/seer-ppe/SOURCE_ORIGINAL_FULL_REQUEST_2026-11-21_V01.md'
+
+permissions:
+  contents: read
+
+jobs:
+  full_original_read_only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    env:
+      ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+    steps:
+      - name: Checkout audited manifest and audit scripts
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install minimum read-only image dependencies
+        run: python -m pip install 'roboflow>=1.1,<2' 'Pillow>=10,<13'
+      - name: Test source hashing and Test split path protections
+        run: python research/seer-ppe/tools/source_pixel_hash_audit.py --self-test
+      - name: Require existing Roboflow access secret
+        run: test -n "$ROBOFLOW_API_KEY" || (echo 'ROBOFLOW_API_KEY missing' >&2; exit 2)
+      - name: Read 2093 original Train Valid Sources, persist only metadata
+        id: audit
+        shell: bash
+        run: |
+          set +e
+          python research/seer-ppe/tools/source_original_full_audit.py \
+            --manifest research/seer-ppe/SOURCE_ID_MANIFEST_TRAIN_VALID_2026-11-19_V01.json \
+            --temp-root "${RUNNER_TEMP}/private-originals" \
+            --report "${RUNNER_TEMP}/research-only/original-source-hash-audit.json" \
+            --workers 4
+          status=$?
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Upload only Source-ID keyed hash report, no images or URLs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-ppe-original-source-full-2093-metadata
+          path: ${{ runner.temp }}/research-only/original-source-hash-audit.json
+          retention-days: 7
+          compression-level: 6
+          if-no-files-found: warn
+      - name: Fail closed on incomplete original-data coverage
+        shell: bash
+        run: |
+          test "${{ steps.audit.outputs.exit_code }}" = '0'
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path(os.environ['RUNNER_TEMP'])/'research-only'/'original-source-hash-audit.json'
+          x=json.loads(p.read_text(encoding='utf-8'))
+          assert x['scope']=='TRAIN_VALID_ONLY_TEST_NEVER_READ'
+          assert x['original_source_requested_count']==x['original_source_decoded_count']==2093
+          assert x['missing_count']==x['decode_error_count']==0
+          assert x['full_2093_coverage'] and not x['acquisition_errors']
+          assert x['test_sources_queried']==0 and not x['image_bytes_uploaded']
+          assert x['scoring_ready'] is False
+          print('ALL_2093_ORIGINAL_SOURCE_BYTES_HASHED_SCORING_STILL_BLOCKED')
+          PY
