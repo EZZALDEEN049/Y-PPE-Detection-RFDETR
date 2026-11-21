@@ -1,5 +1,7 @@
 # Y-PPE Detection Research Repository
 
+> **Latest working SEER-PPE research v0.24 — 21 November 2026:** [updated complete research paper](research/seer-ppe/MANUSCRIPT_MASTER.md) · [download actual editable Word v0.24](research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.24_2026-11-21.docx) · [verified recent related-work and novelty boundaries](research/seer-ppe/V24_VERIFIED_2024_2026_RELATED_WORK_NOVELTY_BOUNDARY.md) · [latest checkpoint](research/seer-ppe/DUAL_TRACK_CHECKPOINT_2026-11-21_V24.md). Development-only original Valid 5-image bbox pilot and historical Valid scores are descriptive, not evidence of SEER-PPE comparative worker-safety improvements. Frozen V21 handoff is preserved separately; no Test/tuning, no original model retraining or source edits.
+
 > **استئناف بحث SEER-PPE من حساب ChatGPT آخر / Research handoff snapshot — 21 Nov 2026:** [ابدأ من هنا — START HERE](SEER_PPE_START_HERE.md) · [ملف التسليم البحثي الشامل V21](research/seer-ppe/SEER_PPE_COMPLETE_HANDOFF_2026-11-21_V21.md) · [الورقة الكاملة الحالية v0.20](research/seer-ppe/MANUSCRIPT_MASTER.md) · [نص جاهز لمحادثة جديدة](SEER_PPE_RESUME_IN_NEW_CHAT.md). هذه **نسخة أرشيفية للتقدم وليست ورقة مكتملة جاهزة للنشر**؛ النتائج المقارنة الحاسمة لـSEER-PPE لم تكتمل بعد. المستودع عام؛ الذاكرة والمرفقات والاتصالات الخاصة لا تنتقل بين الحسابات تلقائيًا.
 
 **Researcher:** Ezzaldeen Nabil Ghaleb Obadi Al-Tayar  
