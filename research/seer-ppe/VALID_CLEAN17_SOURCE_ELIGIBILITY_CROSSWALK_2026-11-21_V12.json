@@ -1,0 +1,35 @@
+{
+  "schema_version": "seer-ppe/clean17-validation-eligibility-crosswalk/v0.12.2",
+  "date": "2026-11-21",
+  "join_keys": "ORIGINAL_VALID_SOURCE_ID_TO_V11_LEDGER_AND_V12_PROVISIONAL_CLEAN17_EXPORT_CANDIDATE",
+  "original_valid": 468,
+  "provisional_clean17_valid_candidates": 459,
+  "historically_excluded_valid": 9,
+  "provisional_clean17_eligibility_buckets": {
+    "preexisting_holds": 5,
+    "additional_source_lineage_flagged_unsigned": 87,
+    "unflagged_source_independence_uncertified": 367
+  },
+  "historically_excluded_eligibility_buckets": {
+    "preexisting_holds": 0,
+    "additional_source_lineage_flagged_unsigned": 7,
+    "unflagged_source_independence_uncertified": 2
+  },
+  "all_preexisting_holds_survive_as_provisional_export_candidates": true,
+  "provisional_mapping_is_confirmed_image_identity": false,
+  "author_individual_source_family_signatures_added": 0,
+  "scoring_eligible_images": 0,
+  "expected_human_person_ppe_visual_rows": 42,
+  "existing_saved_human_person_ppe_visual_rows": 38,
+  "reference_complete_cases": 0,
+  "roboflow_data_modified": false,
+  "original_model_retrained": false,
+  "test_photo_opened": false,
+  "scoring_ready": false,
+  "inputs": [
+    "SOURCE_ELIGIBILITY_DECISION_LEDGER_2026-11-21_V11.json",
+    "SEER_PPE_VALID_TO_CLEAN17_PROVISIONAL_V12.json",
+    "PERSON_PPE_REFERENCE_LIVE_SNAPSHOT_2026-11-21_V09.json"
+  ],
+  "validator": "tools/validate_v12_valid_eligibility_crosswalk.mjs"
+}
