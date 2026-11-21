@@ -1,0 +1,67 @@
+name: SEER-PPE V13 archive full Valid-only photo evidence metadata
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/V13_IMAGE_EVIDENCE_ARCHIVE_REQUEST.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  persist_frozen_valid_photo_evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Download completed V13 Valid-only image-content metadata
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 44843940099
+          name: seer-ppe-v13-valid-only-direct-photo-full
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/v13-full-evidence
+      - name: Require 459 original/image-hash-verified valid-only records, never Test
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,os,pathlib
+          src=pathlib.Path(os.environ['RUNNER_TEMP'])/'v13-full-evidence/valid-only-full.json'
+          x=json.loads(src.read_text())
+          cross=json.loads(pathlib.Path('research/seer-ppe/SEER_PPE_VALID_TO_CLEAN17_PROVISIONAL_V12.json').read_text())
+          assert x['schema_version']=='seer-ppe/source-clean17-valid-photo-corroboration/v0.13'
+          assert x['mode']=='full' and x['requested']==459
+          assert x['source_and_export_sha_verified']==459 and x['errors']==0
+          assert len(x['results'])==459
+          assert x['high_content_consistency']+x['needs_further_review']==459
+          assert x['test_images_decoded']==0 and x['test_image_inference']==0
+          assert x['images_uploaded'] is False
+          assert x['scientific_scoring_ready'] is False
+          assert x['source_family_signoffs_added']==0 and x['person_ppe_decisions_added']==0
+          assert x['source_urls_or_secrets_persisted'] is False
+          expected={r['original_source_id'] for r in cross['valid_rows'] if r['clean17_export_candidate']}
+          ids={r['source_id'] for r in x['results']}
+          assert len(expected)==len(ids)==459 and ids==expected
+          assert all(r['original_sha_verified'] is True and r['export_sha_verified'] is True for r in x['results'])
+          assert all(r['scoring_eligible'] is False and r['source_family_independence_human_signed'] is False for r in x['results'])
+          assert sum(r['previous_hold'] for r in x['results'])==5
+          dst=pathlib.Path('research/seer-ppe/ORIGINAL_CLEAN17_VALID_IMAGE_CONTENT_V13.json')
+          dst.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
+          print('SEER_V13_ARCHIVED_ALL_459_VALID_MEDIA_EVIDENCE_NO_SCIENTIFIC_SCORE')
+          PY
+      - name: Commit metadata evidence only, never private image bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/seer-ppe/ORIGINAL_CLEAN17_VALID_IMAGE_CONTENT_V13.json
+          if git diff --cached --quiet; then
+            echo 'V13_MEDIA_EVIDENCE_ALREADY_PRESENT'
+            exit 0
+          fi
+          git commit -m 'research(seer-ppe): archive 459 Valid source-to-Clean17 direct image comparison evidence'
+          git push origin HEAD:main
