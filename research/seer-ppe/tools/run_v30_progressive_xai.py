@@ -3,7 +3,7 @@
 
 Images are read-only inputs. No image, URL, credential, annotation, model weight,
 or Test asset is written to the repository. The full run requires explicit
-confirmation of its frozen 1,068-model-call budget.
+confirmation of its frozen maximum 1,068-model-call budget.
 """
 from __future__ import annotations
 
@@ -30,7 +30,7 @@ OVERLAP = 0.50
 ROWS = 8
 COLS = 8
 STEP_PERCENT = 10
-EXPECTED_CALLS = 1068
+MAX_MODEL_CALLS = 1068
 
 sys.path.insert(0, str(ROOT))
 from seer_ppe.detection_match import Detection, match_target  # noqa: E402
@@ -52,7 +52,7 @@ def parse_args():
     parser.add_argument("--preflight-only", action="store_true",
                         help="Run only the eight original-image baseline checks.")
     parser.add_argument("--confirm-model-call-budget", type=int, default=None,
-                        help=f"Required exact confirmation value {EXPECTED_CALLS} for the full run.")
+                        help=f"Required exact maximum confirmation value {MAX_MODEL_CALLS} for the full run.")
     return parser.parse_args()
 
 
@@ -195,6 +195,7 @@ def run_full(manifest, images_dir, predictor, output_path):
     prepared, baseline_records = prepare_references(manifest, images_dir, predictor)
     targets_by_image = group_targets(manifest)
     target_results = []
+    curve_eligible_targets = 0
 
     for image in manifest["source_images"]:
         image_key = image["image_key"]
@@ -206,9 +207,11 @@ def run_full(manifest, images_dir, predictor, output_path):
         blurred_scores = {}
         for target_id, reference in references.items():
             score, status, iou = target_score(reference, blurred_predictions)
-            if status == "AMBIGUOUS":
-                raise RuntimeError(f"Ambiguous fully-blurred endpoint for {target_id}")
-            blurred_scores[target_id] = {"score": float(score), "status": status, "iou": iou}
+            blurred_scores[target_id] = {
+                "score": None if score is None else float(score),
+                "status": status,
+                "iou": iou,
+            }
 
         maps = {target_id: np.full((ROWS, COLS), np.nan, dtype=float) for target_id in references}
         map_trials = {target_id: [] for target_id in references}
@@ -236,26 +239,53 @@ def run_full(manifest, images_dir, predictor, output_path):
             target_id = row["target_id"]
             reference = references[target_id]
             importance = maps[target_id]
-            saliency_order = rank_grid_cells(importance)
-            orderings = {
-                "saliency": saliency_order,
-                "random": stable_random_order(target_id, ROWS, COLS),
-                "inverse_saliency": list(reversed(saliency_order)),
-            }
+            if not np.isfinite(importance).all():
+                map_status = "AMBIGUOUS_CELL"
+            elif float(np.maximum(importance, 0.0).sum()) <= 0:
+                map_status = "NO_POSITIVE_DROP"
+            else:
+                map_status = "RANKABLE"
+
+            block_reason = None
+            if map_status != "RANKABLE":
+                block_reason = "MAP_" + map_status
+            elif blurred_scores[target_id]["score"] is None:
+                block_reason = "AMBIGUOUS_BLURRED_ENDPOINT"
+
             curves = {}
-            for ordering_name, ordering in orderings.items():
-                curves[ordering_name] = {}
-                for direction in ("deletion", "insertion"):
-                    points, auc = progressive_curve(
-                        rgb, blurred, reference, predictor, ordering,
-                        direction=direction, ordering_name=ordering_name,
-                        blurred_score=blurred_scores[target_id]["score"],
-                        rows=ROWS, cols=COLS, step_percent=STEP_PERCENT,
-                    )
-                    curves[ordering_name][direction] = {
-                        "points": [point.__dict__ for point in points],
-                        "auc": auc,
-                    }
+            if block_reason is not None:
+                for ordering_name in ("saliency", "random", "inverse_saliency"):
+                    curves[ordering_name] = {}
+                    for direction in ("deletion", "insertion"):
+                        curves[ordering_name][direction] = {
+                            "points": [], "auc": None,
+                            "status": "NOT_RUN_" + block_reason,
+                        }
+                curve_status = "NOT_RUN_" + block_reason
+            else:
+                saliency_order = rank_grid_cells(importance)
+                orderings = {
+                    "saliency": saliency_order,
+                    "random": stable_random_order(target_id, ROWS, COLS),
+                    "inverse_saliency": list(reversed(saliency_order)),
+                }
+                curve_eligible_targets += 1
+                for ordering_name, ordering in orderings.items():
+                    curves[ordering_name] = {}
+                    for direction in ("deletion", "insertion"):
+                        points, auc = progressive_curve(
+                            rgb, blurred, reference, predictor, ordering,
+                            direction=direction, ordering_name=ordering_name,
+                            blurred_score=blurred_scores[target_id]["score"],
+                            rows=ROWS, cols=COLS, step_percent=STEP_PERCENT,
+                        )
+                        curves[ordering_name][direction] = {
+                            "points": [point.__dict__ for point in points],
+                            "auc": auc,
+                            "status": "EXECUTED" if auc is not None else "EXECUTED_AUC_BLOCKED_BY_AMBIGUOUS_POINT",
+                        }
+                curve_status = "EXECUTED"
+
             target_results.append({
                 "target_id": target_id,
                 "image_key": image_key,
@@ -267,14 +297,18 @@ def run_full(manifest, images_dir, predictor, output_path):
                 "baseline_confidence": reference.score,
                 "blurred_endpoint": blurred_scores[target_id],
                 "blur_sigma_px": blur_sigma,
+                "map_status": map_status,
+                "curve_status": curve_status,
                 "importance_map": importance.tolist(),
                 "occlusion_trials": map_trials[target_id],
                 "curves": curves,
             })
 
-    if predictor.calls != EXPECTED_CALLS:
+    expected_actual_calls = 8 + 8 + 512 + 54 * curve_eligible_targets
+    if predictor.calls != expected_actual_calls or predictor.calls > MAX_MODEL_CALLS:
         raise RuntimeError(
-            f"Inference call-count mismatch: expected {EXPECTED_CALLS}, observed {predictor.calls}"
+            f"Inference call-count mismatch: expected {expected_actual_calls} from "
+            f"{curve_eligible_targets} curve-eligible targets, observed {predictor.calls}"
         )
 
     def mean_or_none(values):
@@ -319,7 +353,8 @@ def run_full(manifest, images_dir, predictor, output_path):
         "curve_settings": manifest["curves"],
         "baseline_images": baseline_records,
         "model_inference_calls": predictor.calls,
-        "planned_model_inference_calls": EXPECTED_CALLS,
+        "planned_model_inference_calls_max": MAX_MODEL_CALLS,
+        "curve_eligible_targets": curve_eligible_targets,
         "target_results": target_results,
         "A5_A6_summary": arm_summary,
         "constraints": {
@@ -336,6 +371,8 @@ def run_full(manifest, images_dir, predictor, output_path):
     print(json.dumps({
         "status": result["status"],
         "model_inference_calls": predictor.calls,
+        "planned_model_inference_calls_max": MAX_MODEL_CALLS,
+        "curve_eligible_targets": curve_eligible_targets,
         "A5_A6_summary": arm_summary,
         "output": str(output_path),
     }, indent=2))
@@ -354,7 +391,7 @@ def main():
             "status": "DRY_RUN_INPUTS_VALID",
             "source_images": len(manifest["source_images"]),
             "unique_targets": len(manifest["targets"]),
-            "planned_model_inference_calls": EXPECTED_CALLS,
+            "planned_model_inference_calls_max": MAX_MODEL_CALLS,
             "no_model_calls_made": True,
         }, indent=2))
         return
@@ -362,10 +399,10 @@ def main():
     if args.preflight_only:
         run_preflight(manifest, args.images_dir, predictor, args.output)
         return
-    if args.confirm_model_call_budget != EXPECTED_CALLS:
+    if args.confirm_model_call_budget != MAX_MODEL_CALLS:
         raise SystemExit(
-            f"Full run blocked: pass --confirm-model-call-budget {EXPECTED_CALLS} "
-            "after reviewing the frozen call budget. No inference was started."
+            f"Full run blocked: pass --confirm-model-call-budget {MAX_MODEL_CALLS} "
+            "after reviewing the frozen maximum call budget. No inference was started."
         )
     run_full(manifest, args.images_dir, predictor, args.output)
 
