@@ -1,0 +1,59 @@
+name: SEER-PPE V23 real frozen RF-DETR Valid five original source box matching
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/V23_CURRENT_BOX_PILOT_REQUEST.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  score_actual_five_original_valid:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify fail-closed real Source ID, model, split, confidence and original annotation guards
+        run: node research/seer-ppe/tools/score_current_valid_source_boxes_v23.mjs --self-test
+      - name: Recalculate five previously hosted model prediction bbox matches on current author labels
+        run: |
+          node research/seer-ppe/tools/score_current_valid_source_boxes_v23.mjs --audit \
+            research/seer-ppe/VALID_CURRENT_SOURCE_REAL_MODEL_BOX_MATCH_V23.json
+      - name: Verify objective baseline pilot scope without Test or SEER efficacy
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const x=JSON.parse(fs.readFileSync('research/seer-ppe/VALID_CURRENT_SOURCE_REAL_MODEL_BOX_MATCH_V23.json','utf8'));
+          assert.equal(x.schema_version,'seer-ppe/v23-actual-current-label-five-valid-descriptive-box-match/v0.23');
+          assert.equal(x.original_model_id,'altayyar-0oflt-lafos-qqauz/2');
+          assert.equal(x.confidence_floor,0.2);
+          assert.equal(x.box_iou_threshold,0.5);
+          assert.equal(x.source_pilot_box_match.images,5);
+          assert.equal(x.source_pilot_box_match.current_author_reference_boxes,23);
+          assert.equal(x.source_pilot_box_match.new_original_model_prediction_boxes,23);
+          assert.equal(x.source_pilot_box_match.tp,22);
+          assert.equal(x.source_pilot_box_match.fp,1);
+          assert.equal(x.source_pilot_box_match.fn,1);
+          assert.equal(x.source_pilot_box_match.f1,0.956522);
+          assert.equal(x.new_real_hosted_inference_calls,5);
+          assert.equal(x.historical_development_exposure,true);
+          assert.equal(x.source_independence_verified,false);
+          assert.equal(x.test_source_or_evaluation_accessed,false);
+          assert.equal(x.new_SEER_comparator_or_XAI_routing_experiment,false);
+          assert.equal(x.strict_independent_worker_safety_scoring_ready,false);
+          console.log('SEER_V23_HOSTED_READONLY_FIVE_REAL_VALID_CURRENT_GT_IoU50_SOURCE_MATCH_PASS');
+          JS
+      - name: Archive numeric-only 5-source original-model Valid current label match result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/seer-ppe/VALID_CURRENT_SOURCE_REAL_MODEL_BOX_MATCH_V23.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'research(seer-ppe): archive V23 real five Valid original current author bbox matching'
+          git pull --rebase origin main
+          git push origin HEAD:main
