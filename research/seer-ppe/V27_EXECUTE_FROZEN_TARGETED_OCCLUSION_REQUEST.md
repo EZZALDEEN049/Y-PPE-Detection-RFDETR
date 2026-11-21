@@ -11,3 +11,5 @@ Target-freeze CI trigger: regenerate the manifest from the already committed V16
 Workflow-spec builder update: generate the ten exact target/control Roboflow Workflow specs from the frozen manifest and archive them without executing inference.
 
 Apply the pre-outcome [V27 execution technical amendment](V27_EXECUTION_TECHNICAL_AMENDMENT_2026-11-21.md): target isolation uses class, confidence and four supported box-edge properties only. The original frozen target manifest remains unchanged; do not widen tolerances.
+
+Second preflight note: the initial multi-clause StatementGroup did not isolate a single target and its output is discarded. The builder now chains one single-statement DetectionsFilter per criterion (sequential AND); only exactly-one target/control outputs are admissible.
