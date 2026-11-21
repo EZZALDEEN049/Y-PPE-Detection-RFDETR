@@ -1,5 +1,7 @@
 # Y-PPE Detection Research Repository
 
+> **[Download editable Word manuscript v0.26](research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.26_2026-11-21.docx)** — includes the complete 459-image original current GT detection assessment, per-class results, correct historical-comparison limitations and latest appendices.
+
 > **Newest SEER-PPE research: V26, manuscript v0.26 — fully scored 459 original Valid current Source images (21 Nov 2026).** [Read main paper](research/seer-ppe/MANUSCRIPT_MASTER.md) · [full V26 numeric scientific report](research/seer-ppe/V26_VALID_CURRENT_SOURCE_459_RESULTS_REPORT.md) · [17-class machine-readable counts](research/seer-ppe/V26_VALID_CURRENT_SOURCE_459_NUMERIC_SUMMARY.json) · [V26 checkpoint](research/seer-ppe/DUAL_TRACK_CHECKPOINT_2026-11-21_V26.md). Unchanged original RF-DETR model, exact class IoU0.5, M0=459 **TP3297 FP806 FN174, F1 87.06%**, with full M1/M2 source-risk checks. This is an **internal current annotation object detection assessment**, not independent scene sampling, improved worker compliance, SEER A5 policy advantage, XAI fidelity or measured energy; Test not used.
 
 > **Latest SEER-PPE research — V25> **[Download latest editable SEER-PPE manuscript v0.25 (Word)](research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.25_2026-11-21.docx)** — contains executed 74-detection policy routing evidence (non-efficacy), safety limits and full cumulative research sections.
