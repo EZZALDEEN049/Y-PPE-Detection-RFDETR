@@ -158,6 +158,10 @@ jobs:
         run: |
           node research/seer-ppe/tools/validate_v12_valid_eligibility_crosswalk.mjs --self-test
           node research/seer-ppe/tools/validate_v12_valid_eligibility_crosswalk.mjs --verify
+      - name: Verify V13 individual Person PPE and source signoff remain fail closed
+        run: |
+          node research/seer-ppe/tools/validate_v13_pending_decisions.mjs --self-test
+          node research/seer-ppe/tools/validate_v13_pending_decisions.mjs --verify
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'
