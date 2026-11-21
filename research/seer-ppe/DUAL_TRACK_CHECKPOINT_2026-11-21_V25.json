@@ -1,0 +1,82 @@
+{
+  "schema_version": "seer-ppe/executed-policy-routing-checkpoint/v0.25",
+  "date": "2026-11-21",
+  "working_manuscript_version": "v0.25",
+  "scientific_efficacy_complete": false,
+  "V25_scope": "DETERMINISTIC_A2_A5_OFFLINE_POLICY_EXECUTION_ON_REAL_SAVED_FIXED_RFDETR_OUTPUTS",
+  "original_model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "original_model_changed": false,
+  "author_original_images_labels_splits_changed": false,
+  "frozen_prior_to_execution": "V25_A2_A5_PAIRED_ROUTING_PROTOCOL_FROZEN_2026-11-21.md",
+  "github_actions_execution_success": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44944842661",
+  "V25_inputs": {
+    "original_train_images": 4,
+    "original_valid_images_previously_development_exposed": 5,
+    "stored_original_model_detection_boxes": 74,
+    "person_candidate_boxes": 10,
+    "typed_PPE_cues": 59,
+    "context_boxes": 5,
+    "no_person_detection_images": 4,
+    "no_PPE_cue_images": 1
+  },
+  "comparison": {
+    "A0": "raw original RF-DETR object detections only",
+    "A2": "fixed confidence-only uncertainty highest-ranked cue with full same safety abstention",
+    "A5": "fixed uncalibrated negative-named cue + association + severity + uncertainty priority with full same safety abstention",
+    "same_per_image_proposed_explanation_cap": 1,
+    "same_per_image_proposed_review_cap": 1,
+    "A2_explanation_proposals": 8,
+    "A5_explanation_proposals": 8,
+    "A2_review_proposals": 8,
+    "A5_review_proposals": 8,
+    "A2_pending_unselected_cues": 51,
+    "A5_pending_unselected_cues": 51,
+    "images_with_same_selected_detection": 6,
+    "images_with_different_selected_detection": 3,
+    "actual_explanation_calls": 0,
+    "actual_review_requests_dispatched": 0,
+    "actual_extra_original_model_inference": 0,
+    "actual_safe_worker_clearances": 0,
+    "verified_worker_violations": 0,
+    "risk_priorities_independently_calibrated": false,
+    "primary_strong_executed_selective_PPE_comparator_complete": false
+  },
+  "posthoc_descriptive_current_author_object_box_FP_probe": {
+    "reference": "VALID_CURRENT_SOURCE_REAL_MODEL_BOX_MATCH_V23.json",
+    "valid_images": 5,
+    "original_source_GT_independent_of_routing": true,
+    "A2_selected_FP_detection_count": 1,
+    "A5_selected_FP_detection_count": 0,
+    "FP_is_only_one_Safety_Vests_object_bbox": true,
+    "worker_false_clearance_error_evaluable": false,
+    "SEER_safety_superiority_supported": false
+  },
+  "strong_claims_not_supported": [
+    "workplace PPE compliance",
+    "human review efficacy",
+    "target-matched XAI faithfulness",
+    "energy savings",
+    "runtime latency improvement",
+    "independently acquired Valid or Test generalization"
+  ],
+  "scoring_ready": false,
+  "strict_worker_safety_gate": "NOT_FROZEN",
+  "historical_test_accessed": false,
+  "source_reinspection_requested": false,
+  "second_human_reviewer_required": false,
+  "next_requires": [
+    "real executed faithful target-matched explanations and computable costs",
+    "robust safety-matched strong selective verifier with actual comparison",
+    "current source label prediction geometry on larger Valid sample",
+    "task mandate and worker PPE reference when safety endpoint is asserted",
+    "honest non-estimable outcomes without evidence",
+    "journal-grade statistical and editorial finalization"
+  ],
+  "artifacts": {
+    "protocol": "V25_A2_A5_PAIRED_ROUTING_PROTOCOL_FROZEN_2026-11-21.md",
+    "script": "tools/run_v25_paired_selective_routing.mjs",
+    "outcomes": "ACTUAL_A0_A2_A5_PAIRED_OFFLINE_ROUTING_V25.json",
+    "manuscript": "MANUSCRIPT_MASTER.md",
+    "checkpoint": "DUAL_TRACK_CHECKPOINT_2026-11-21_V25.md"
+  }
+}
