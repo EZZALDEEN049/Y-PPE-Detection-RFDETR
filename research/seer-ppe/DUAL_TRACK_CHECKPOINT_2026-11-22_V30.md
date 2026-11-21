@@ -23,13 +23,13 @@ The manuscript remains v0.27. No progressive XAI result, AUC, or new model-perfo
 - `tools/run_v30_progressive_xai.py`
 - `tests/test_v30_progressive_xai.py`
 
-The scorer defines a lost target's fixed-target score as zero, while ambiguous matches remain missing and block AUC. It records actual modified pixel area, preserves raw confidence, and clips only the normalized AUC score to [0,1]. Unrankable maps and ambiguous blurred endpoints receive explicit null curves; other targets continue.
+The scorer defines a lost target's fixed-target score as zero, while ambiguous matches remain missing and block AUC. It records actual modified pixel area, preserves raw confidence, and clips only the normalized AUC score to [0,1]. Unrankable maps and ambiguous blurred endpoints receive explicit null curves; other targets continue. Unrankable maps and ambiguous blurred endpoints receive explicit null curves; other targets continue.
 
 ## Verification performed in this continuation
 
-- Nine synthetic unit tests passed locally and in GitHub Actions for target matching, lost/ambiguous handling, grid-map drops, deterministic random controls, blurred baseline, progressive endpoints, and AUC. [Unit-test run 44957983705](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44957983705).
+- Nine synthetic unit tests passed locally and in GitHub Actions for target matching, lost/ambiguous handling, grid-map drops, deterministic random controls, blurred baseline, progressive endpoints, and AUC. [Unit-test run 44958488385](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44958488385).
 - Python syntax compilation passed for the V30 module and runner.
-- Source/reference readiness workflow passed after aligning stale V22–V26 manuscript assertions to the existing v0.27 master. [Readiness run 44957983683](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44957983683).
+- Source/reference readiness workflow passed after aligning stale V22–V26 manuscript assertions to the existing v0.27 master. [Readiness run 44958488365](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44958488365).
 - No RF-DETR model calls were made in this continuation.
 - No image bytes, original annotations, model weights, or Test assets were changed or committed.
 - No human review or worker-safety scoring was performed.
