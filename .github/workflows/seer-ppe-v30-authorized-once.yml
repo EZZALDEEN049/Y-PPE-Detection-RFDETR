@@ -16,7 +16,9 @@ concurrency:
 
 jobs:
   authorized_v30_progressive_xai:
-    if: ${{ github.run_attempt == 1 && github.event.head_commit.message == 'V30-AUTHORIZED-ONCE: execute frozen cloud XAI' }}
+    if: >-
+      ${{ github.run_attempt == 1 &&
+          github.event.head_commit.message == 'V30-AUTHORIZED-ONCE: execute frozen cloud XAI' }}
     name: Execute the user-authorized V30 frozen pilot on ephemeral cloud compute
     runs-on: ubuntu-latest
     timeout-minutes: 240
