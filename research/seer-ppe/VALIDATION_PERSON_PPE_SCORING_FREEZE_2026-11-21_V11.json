@@ -1,0 +1,27 @@
+{
+  "schema_version": "seer-ppe/validation-scoring-freeze/v0.11",
+  "date": "2026-11-21",
+  "state": "NOT_FROZEN",
+  "authorized": false,
+  "test_authorized": false,
+  "model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "policy": "Only original Valid, never protected Test, after source-specific signed independence, Clean17 scope reconciliation and independent review of every visible person. Freeze evaluator policy and thresholds before descriptive validation.",
+  "gates": {
+    "source_lineage_signed": false,
+    "clean17_membership_reconciled": false,
+    "person_reference_signed": false,
+    "person_coverage_audited": false,
+    "matching_policy_frozen": false,
+    "metrics_plan_frozen": false,
+    "thresholds_frozen": false
+  },
+  "freeze_reviewer_id": null,
+  "freeze_date": null,
+  "protocol_commit_sha": null,
+  "approved_valid_source_ids": [],
+  "evidence_refs": [],
+  "current_scoring_ready": false,
+  "live_case_reference_note": "V09 A/B/C/D are Train-only and incomplete, not Validation evaluation gold",
+  "original_model_modified": false,
+  "roboflow_splits_modified": false
+}

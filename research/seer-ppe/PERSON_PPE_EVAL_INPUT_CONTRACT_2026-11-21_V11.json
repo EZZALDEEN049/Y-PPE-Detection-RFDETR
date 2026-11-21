@@ -1,0 +1,78 @@
+{
+  "schema_version": "seer-ppe/worker-visual-validation-bundle/v0.11",
+  "status": "SCHEMA_EXAMPLE_NOT_A_REAL_RUN_AND_NOT_SCORE_ELIGIBLE",
+  "split": "valid",
+  "model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "run_id": "REPLACE_WITH_ACTUAL_RUN_PROVENANCE",
+  "cases": [],
+  "case_contract": {
+    "source_id": "EXACT_ORIGINAL_VALID_SOURCE_ID",
+    "split": "valid",
+    "clean17_member_verified": false,
+    "human_reference_complete": false,
+    "person_coverage_human_signed": false,
+    "person_correspondence_verified": false,
+    "item_correspondence_verified": false,
+    "reference_evidence_ref": null,
+    "reference_reviewer_id": null,
+    "reference": {
+      "people": [
+        {
+          "person_id": "P001",
+          "visual_states": {
+            "hard_hat": "UNKNOWN",
+            "safety_vest": "UNKNOWN",
+            "goggles": "UNKNOWN",
+            "face_mask": "UNKNOWN",
+            "glove": "UNKNOWN",
+            "safety_boot": "UNKNOWN"
+          },
+          "task_mandates": {
+            "hard_hat": "POLICY_UNKNOWN",
+            "safety_vest": "POLICY_UNKNOWN",
+            "goggles": "POLICY_UNKNOWN",
+            "face_mask": "POLICY_UNKNOWN",
+            "glove": "POLICY_UNKNOWN",
+            "safety_boot": "POLICY_UNKNOWN"
+          }
+        }
+      ],
+      "items": [
+        {
+          "item_id": "E001",
+          "owner_state": "UNKNOWN",
+          "person_id": null
+        }
+      ]
+    },
+    "predictions": {
+      "people": [
+        {
+          "person_id": "P001",
+          "visual_states": {
+            "hard_hat": "UNKNOWN",
+            "safety_vest": "UNKNOWN",
+            "goggles": "UNKNOWN",
+            "face_mask": "UNKNOWN",
+            "glove": "UNKNOWN",
+            "safety_boot": "UNKNOWN"
+          }
+        }
+      ],
+      "items": [
+        {
+          "item_id": "E001",
+          "decision": "ABSTAIN",
+          "person_id": null
+        }
+      ]
+    }
+  },
+  "notes": [
+    "Do not score this example; fields are schema illustrations only",
+    "A bundle must be derived from actual eligible Valid cases and pre-frozen research plan",
+    "Every human person, including missed detections, requires explicit predicted PPE states or abstentions",
+    "Every GT item in verified item correspondences must receive MATCHED or ABSTAIN; unmatched detector items are outside association metric and need a separate object-detection audit",
+    "Do not interpret old No labels as visual physical absence or task-specific PPE mandates"
+  ]
+}
