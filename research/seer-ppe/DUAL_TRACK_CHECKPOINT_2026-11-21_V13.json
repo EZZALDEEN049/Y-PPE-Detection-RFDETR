@@ -1,0 +1,62 @@
+{
+  "schema_version": "seer-ppe/checkpoint/v0.13",
+  "date": "2026-11-21",
+  "supersedes": "DUAL_TRACK_CHECKPOINT_2026-11-21_V12.json",
+  "status": "DIRECT_VALID_PHOTO_CONTENT_CROSSWALK_VERIFIED_TECHNICALLY_AND_50_CROSS_SPLIT_SOURCE_PAIR_EXAMINATION_FINISHED_NOT_SCORED",
+  "original_to_clean_valid": {
+    "pairs": 459,
+    "source_sha_verified": 459,
+    "clean_export_sha_verified": 459,
+    "high_automated_consistency": 459,
+    "content_gray_ssim_min": 0.90624,
+    "content_gray_ssim_median": 0.98079,
+    "max_rgb_mean_absolute_error": 0.03084,
+    "prior_valid_holds_preserved": 5,
+    "originals_excluded_historically": 9,
+    "human_signed_exact_exposure_identity": 0
+  },
+  "cross_split_source_pairs": {
+    "unique_original_sources": 76,
+    "pairs": 50,
+    "prior_dhash_near_pairs": 46,
+    "previous_named_school_site_pairs": 4,
+    "automated_same_frame_candidates": 7,
+    "nonhigh_pairs_source_independence_unresolved": 43,
+    "already_held_high_pairs": 2,
+    "retained_clean_new_technical_p0_candidates": 4,
+    "already_clean_excluded_high_pair": 1,
+    "formal_source_family_signoffs_added": 0,
+    "new_formal_source_holds": 0
+  },
+  "person_ppe": {
+    "live_eval_revisions": {
+      "A": 2,
+      "B": 2,
+      "C": 4,
+      "D": 1
+    },
+    "approved_links": 19,
+    "visual_states_recorded": 38,
+    "visual_states_expected": 42,
+    "missing_case_B": 4,
+    "case_D_zero_person_human_signed": false,
+    "case_complete": 0
+  },
+  "model_original_unchanged": true,
+  "source_splits_annotations_unchanged": true,
+  "roboflow_eval_no_writes": true,
+  "test_images_decoded": 0,
+  "test_model_inference": 0,
+  "retraining": false,
+  "mAP": null,
+  "F1": null,
+  "energy_joules": null,
+  "scientific_scoring_ready": false,
+  "artifacts": {
+    "direct_original_clean_correspondence": "ORIGINAL_CLEAN17_VALID_IMAGE_CONTENT_V13.json",
+    "direct_cross_split": "DIRECT_ORIGINAL_TRAIN_VALID_SOURCE_EVIDENCE_V13.json",
+    "source_priority": "DIRECT_SOURCE_OVERLAP_PRIORITY_2026-11-21_V13.json",
+    "human_handoff": "PERSON_PPE_PENDING_HUMAN_SIGNOFF_2026-11-21_V13.json",
+    "manuscript": "MANUSCRIPT_MASTER.md"
+  }
+}

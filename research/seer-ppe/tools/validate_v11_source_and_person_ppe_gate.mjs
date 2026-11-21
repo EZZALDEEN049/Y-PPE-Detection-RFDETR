@@ -366,15 +366,26 @@ try{
       read('SOURCE_ID_MANIFEST_TRAIN_VALID_2026-11-19_V01.json'));
     const freeze=read('VALIDATION_PERSON_PPE_SCORING_FREEZE_2026-11-21_V11.json');
     const bundle=JSON.parse(readFileSync(process.argv[3],'utf8'));
-    // V12 metadata candidates are not confirmed Clean17 image identities.
-    // A supplied boolean in an input bundle cannot override the independent crosswalk.
+    // V13: direct actual-media and historical SHA corroboration supersedes V12
+    // name-only/dHash candidate evidence; a user's bundle boolean alone is never proof.
     const crosswalk=read('SEER_PPE_VALID_TO_CLEAN17_PROVISIONAL_V12.json');
+    const direct=read('ORIGINAL_CLEAN17_VALID_IMAGE_CONTENT_V13.json');
+    check(direct.mode==='full'&&direct.requested===459&&
+      direct.source_and_export_sha_verified===459&&direct.high_content_consistency===459&&
+      direct.test_images_decoded===0&&direct.scientific_scoring_ready===false,
+      'V13_DIRECT_SOURCE_EXPORT_EVIDENCE_INVALID');
     const cleanBySource=new Map(crosswalk.valid_rows.map(x=>[x.original_source_id,x]));
+    const technicalBySource=new Map(direct.results.map(x=>[x.source_id,x]));
     for (const c of bundle.cases ?? []) {
       const row=cleanBySource.get(c.source_id);
-      check(row && row.confirmed_clean17_membership === true &&
-        row.source_to_clean17_pixel_identity_verified === true,
-        'V12_SOURCE_TO_CLEAN17_IDENTITY_UNVERIFIED_NO_SCIENTIFIC_SCORE');
+      const proof=technicalBySource.get(c.source_id);
+      check(row && row.clean17_export_candidate && proof &&
+        proof.export_filename===row.clean17_export_candidate &&
+        proof.original_sha_verified===true && proof.export_sha_verified===true &&
+        proof.technical_content_consistency==='HIGH_AUTOMATED_EVIDENCE_NOT_FINAL_PHOTO_IDENTITY' &&
+        proof.source_family_independence_human_signed===false &&
+        proof.scoring_eligible===false,
+        'V13_DIRECT_SOURCE_EXPORT_MEMBERSHIP_EVIDENCE_NOT_CONFIRMED');
     }
     console.log(JSON.stringify(scoreValidationBundle(bundle,freeze,v.eligibility),null,2));
   }else{throw Error('usage: --self-test | --audit | --score <bundle.json>');}
