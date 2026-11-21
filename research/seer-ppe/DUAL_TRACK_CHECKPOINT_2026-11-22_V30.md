@@ -23,7 +23,7 @@ The manuscript remains v0.27. No progressive XAI result, AUC, or new model-perfo
 - `tools/run_v30_progressive_xai.py`
 - `tests/test_v30_progressive_xai.py`
 
-The scorer defines a lost target's fixed-target score as zero, while ambiguous matches remain missing and block AUC. It records actual modified pixel area, preserves raw confidence, and clips only the normalized AUC score to [0,1]. Unrankable maps and ambiguous blurred endpoints receive explicit null curves; other targets continue. Unrankable maps and ambiguous blurred endpoints receive explicit null curves; other targets continue.
+The scorer defines a lost target's fixed-target score as zero, while ambiguous matches remain missing and block AUC. It records actual modified pixel area, preserves raw confidence, and clips only the normalized AUC score to [0,1]. Unrankable maps and ambiguous blurred endpoints receive explicit null curves; other targets continue.
 
 ## Verification performed in this continuation
 
