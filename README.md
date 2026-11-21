@@ -1,5 +1,7 @@
 # Y-PPE Detection Research Repository
 
+> **استئناف بحث SEER-PPE من حساب ChatGPT آخر / Research handoff snapshot — 21 Nov 2026:** [ابدأ من هنا — START HERE](SEER_PPE_START_HERE.md) · [ملف التسليم البحثي الشامل V21](research/seer-ppe/SEER_PPE_COMPLETE_HANDOFF_2026-11-21_V21.md) · [الورقة الكاملة الحالية v0.20](research/seer-ppe/MANUSCRIPT_MASTER.md) · [نص جاهز لمحادثة جديدة](SEER_PPE_RESUME_IN_NEW_CHAT.md). هذه **نسخة أرشيفية للتقدم وليست ورقة مكتملة جاهزة للنشر**؛ النتائج المقارنة الحاسمة لـSEER-PPE لم تكتمل بعد. المستودع عام؛ الذاكرة والمرفقات والاتصالات الخاصة لا تنتقل بين الحسابات تلقائيًا.
+
 **Researcher:** Ezzaldeen Nabil Ghaleb Obadi Al-Tayar  
 **Degree:** Master of Engineering Project Management  
 **Institution:** Taiz University, Republic of Yemen
