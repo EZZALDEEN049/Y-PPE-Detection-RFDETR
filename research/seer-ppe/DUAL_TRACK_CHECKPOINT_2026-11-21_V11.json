@@ -1,0 +1,40 @@
+{
+  "schema_version": "seer-ppe/checkpoint/v0.11",
+  "date": "2026-11-21",
+  "supersedes": "DUAL_TRACK_CHECKPOINT_2026-11-21_V10.json",
+  "status": "SOURCE_ELIGIBILITY_LEDGER_CREATED_PERSON_PPE_EVALUATION_CONTRACT_IMPLEMENTED_NOT_SCORED",
+  "source": {
+    "original_valid_total": 468,
+    "held": 5,
+    "flagged_unsigned": 94,
+    "unflagged_not_certified": 369,
+    "human_signed_independent": 0,
+    "near_hash_pairs": 46,
+    "similarity_components": 27,
+    "clean17_source_reconciliation_complete": false
+  },
+  "reference": {
+    "train_pilot_cases": 4,
+    "complete": 0,
+    "approved_links": 19,
+    "saved_person_ppe_visual_cells": 38,
+    "expected_cells": 42,
+    "missing_B": 4,
+    "D_zero_person_human_signed": false
+  },
+  "implementation": {
+    "source_ledger": "SOURCE_ELIGIBILITY_DECISION_LEDGER_2026-11-21_V11.json",
+    "human_lineage_decisions": "SOURCE_LINEAGE_SIGNED_DECISIONS_2026-11-21_V11.json",
+    "read_only_validator": "tools/validate_v11_source_and_person_ppe_gate.mjs",
+    "input_contract": "PERSON_PPE_EVAL_INPUT_CONTRACT_2026-11-21_V11.json",
+    "scoring_freeze": "VALIDATION_PERSON_PPE_SCORING_FREEZE_2026-11-21_V11.json",
+    "validation_scoring_authorized": false,
+    "protected_test_supported": false
+  },
+  "original_data_and_model_mutated": false,
+  "model_retrained": false,
+  "valid_or_test_inference": false,
+  "roboflow_eval_modified": false,
+  "metrics_computed": false,
+  "scoring_ready": false
+}

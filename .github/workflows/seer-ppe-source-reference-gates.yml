@@ -138,6 +138,18 @@ jobs:
         run: |
           node research/seer-ppe/tools/validate_v10_source_components_and_guardrails.mjs --self-test
           node research/seer-ppe/tools/validate_v10_source_components_and_guardrails.mjs --verify
+      - name: Verify V11 signed source-lineage and Person PPE validation contract fail closed
+        run: |
+          set -euo pipefail
+          node research/seer-ppe/tools/validate_v11_source_and_person_ppe_gate.mjs --self-test
+          node research/seer-ppe/tools/validate_v11_source_and_person_ppe_gate.mjs --audit > /tmp/seer-v11-audit.log
+          grep -q 'SEER_V11_REAL_RECORD_GATE_FAIL_CLOSED_PASS' /tmp/seer-v11-audit.log
+          if node research/seer-ppe/tools/validate_v11_source_and_person_ppe_gate.mjs --score research/seer-ppe/PERSON_PPE_EVAL_INPUT_CONTRACT_2026-11-21_V11.json > /tmp/seer-v11-blocked.log 2>&1; then
+            echo 'UNSAFE_V11_SCORER_ACCEPTED_UNFROZEN_INPUT' >&2
+            exit 1
+          fi
+          grep -q 'V11_GATE_BLOCKED' /tmp/seer-v11-blocked.log
+          echo 'SEER_V11_UNSIGNED_FREEZE_AND_PROTECTED_TEST_POLICY_FAIL_CLOSED_PASS'
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'
