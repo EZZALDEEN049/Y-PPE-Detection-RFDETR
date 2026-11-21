@@ -41,15 +41,21 @@ function filterStep(name,det,w,h){
  ];
  return {
   type:'roboflow_core/detections_filter@v1',name,predictions:'$steps.detect.predictions',
-  operations:[{type:'DetectionsFilter',filter_operation:{
-   type:'StatementGroup',
-   statements:bounds.map(([property,comparator,value])=>({
-    type:'BinaryStatement',
-    left_operand:{type:'DynamicOperand',operand_name:'_',operations:[{type:'ExtractDetectionProperty',property_name:property}]},
-    comparator:{type:comparator},
-    right_operand:{type:'StaticOperand',value}
-   }))
-  }}],
+  // Apply one condition per DetectionsFilter operation. Chaining is AND:
+  // a single StatementGroup with many statements admitted every detection
+  // that satisfied any one clause and therefore did not isolate the target.
+  operations:bounds.map(([property,comparator,value])=>({
+   type:'DetectionsFilter',
+   filter_operation:{
+    type:'StatementGroup',
+    statements:[{
+     type:'BinaryStatement',
+     left_operand:{type:'DynamicOperand',operand_name:'_',operations:[{type:'ExtractDetectionProperty',property_name:property}]},
+     comparator:{type:comparator},
+     right_operand:{type:'StaticOperand',value}
+    }]
+   }
+  })),
   operations_parameters:{}
  };
 }
