@@ -1,0 +1,56 @@
+name: SEER-PPE V27 frozen A5-A6 occlusion targets and non-overlap controls
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/V27_EXECUTE_FROZEN_TARGETED_OCCLUSION_REQUEST.md'
+      - 'research/seer-ppe/tools/build_v27_frozen_targets.mjs'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  freeze_targets_before_any_perturbation_inference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build frozen target IDs from V25 and V26 only
+        run: |
+          node research/seer-ppe/tools/build_v27_frozen_targets.mjs research/seer-ppe/V27_FROZEN_TARGETS_2026-11-21.json
+      - name: Verify sample, calibration exclusions, matched budgets and target geometry
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('research/seer-ppe/V27_FROZEN_TARGETS_2026-11-21.json')
+          v=json.loads(p.read_text())
+          assert v['schema_version']=='seer-ppe/v27-frozen-targeted-occlusion-sample-and-A6-class-error-calibrated-comparator/v0.27'
+          assert v['source_images']==9 and v['original_detector_boxes']==74 and v['typed_PPE_cues']==59
+          assert len(v['per_image_selections'])==9
+          assert v['budget']['A5_target_slots']==8 and v['budget']['A6_target_slots']==8
+          assert v['budget']['shared_target_slots']==6 and v['budget']['different_target_slots']==2
+          assert v['budget']['unique_target_occlusion_tests']==10
+          assert v['budget']['controls_available']==7 and v['budget']['no_control']==3
+          assert v['budget']['planned_original_model_inference_calls']==27
+          assert v['A6_policy']['target_image_GT_used_as_a_feature'] is False
+          assert v['A6_policy']['source_calibration_independent_or_unexposed'] is False
+          assert v['no_test_accessed'] is True
+          assert v['original_model_or_data_changed'] is False
+          assert v['strict_worker_safety_scoring_ready'] is False
+          assert all(t['target_id'] and t['target_class'] and t['bbox_center_xywh'] for t in v['unique_A5_A6_target_tests'])
+          assert all(t['control'] is None or t['control']['detection_id']!=t['target_id'] for t in v['unique_A5_A6_target_tests'])
+          print('SEER_V27_FROZEN_NINE_IMAGES_TEN_TARGETS_SEVEN_CONTROLS_A6_CALIBRATION_AND_MATCHED_BUDGET_PASS')
+          PY
+      - name: Archive frozen V27 targets before any Roboflow inference
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/seer-ppe/V27_FROZEN_TARGETS_2026-11-21.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'research(seer-ppe): freeze V27 A5 A6 targets and matched controls before occlusion inference'
+          git pull --rebase origin main
+          git push origin HEAD:main
