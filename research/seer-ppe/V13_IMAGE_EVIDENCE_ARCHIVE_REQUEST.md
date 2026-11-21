@@ -1,0 +1,3 @@
+# V13 — archive completed all-459 direct image-content evidence
+
+**2026-11-21.** The actual [Valid-only full direct image-comparison run 44843940099](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44843940099) completed successfully: **459/459** original Source SHA and historical Clean17 export SHA verified; **459/459** high automated image-content consistency; **0** failed or weak matches; **5** retained research holds; **0** Test decoded and **0** scientific scores. This request triggers a metadata-only archiver to persist the exact per-image comparison evidence in GitHub, without images or image URLs. It does not grant new human source-family/photo identity signoffs, create Person–PPE reference labels or freeze Validation.
