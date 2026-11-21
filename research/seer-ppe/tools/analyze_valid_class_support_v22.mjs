@@ -197,7 +197,7 @@ function test(){
  assert.equal(z.cohorts[K[0]].observed_object_classes,17);
  assert.equal(z.cohorts[K[0]].stored_current_source_annotation_boxes,3471);
  assert.equal(z.cohorts[K[2]].valid_original_source_images,367);
- const bad=structuredClone(inputs[0]);bad.rows[0].class_counts={Persons:1};
+ const bad=structuredClone(inputs[0]);bad.rows[0].class_counts={Persons:999999};
  assert.throws(()=>compile(bad,...inputs.slice(1)));
  const bad2=structuredClone(inputs[1]);bad2.split='test';
  assert.throws(()=>compile(inputs[0],bad2,...inputs.slice(2)));
