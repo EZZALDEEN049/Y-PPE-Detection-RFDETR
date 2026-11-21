@@ -367,7 +367,10 @@
     "shared_targets": 6,
     "unique_A5_targets": 2,
     "unique_A6_targets": 2,
-    "shared_target_results_reused_across_arms": true
+    "shared_target_results_reused_across_arms": true,
+    "fixed_model_calls": 528,
+    "curve_calls_per_eligible_target": 54,
+    "planned_total_model_calls_max": 1068
   },
   "constraints": {
     "development_exposed_sample": true,
