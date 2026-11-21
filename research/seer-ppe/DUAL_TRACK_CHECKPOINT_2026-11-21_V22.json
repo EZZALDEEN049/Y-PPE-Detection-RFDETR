@@ -1,0 +1,81 @@
+{
+  "schema_version": "seer-ppe/dual-track-checkpoint/v0.22",
+  "date": "2026-11-21",
+  "working_manuscript_version": "v0.22",
+  "work_executed": "V22_DETERMINISTIC_CURRENT_SOURCE_VALID_17_CLASS_COMPOSITION_AND_MANUSCRIPT_CORE_INTEGRATION",
+  "git_branch": "main",
+  "prior_handoff": "SEER_PPE_COMPLETE_HANDOFF_2026-11-21_V21.md",
+  "manuscript": "MANUSCRIPT_MASTER.md",
+  "original_model": "altayyar-0oflt-lafos-qqauz/2",
+  "original_model_retrained": false,
+  "original_source_images_modified": false,
+  "original_annotations_modified": false,
+  "new_inference_calls": 0,
+  "test_images_or_outcomes_accessed": false,
+  "author_curation_accepted": true,
+  "second_reviewer_required": false,
+  "current_valid_source_images": 459,
+  "source_class_count": 17,
+  "cohorts": {
+    "M0_459": {
+      "images": 459,
+      "current_source_boxes": 3471,
+      "assisted_markers": 729,
+      "images_assisted": 113,
+      "mean_boxes_per_image": 7.562092
+    },
+    "M1_448": {
+      "images": 448,
+      "current_source_boxes": 3433,
+      "assisted_markers": 725,
+      "images_assisted": 112,
+      "mean_boxes_per_image": 7.662946
+    },
+    "M2_367": {
+      "images": 367,
+      "current_source_boxes": 3049,
+      "assisted_markers": 655,
+      "images_assisted": 97,
+      "mean_boxes_per_image": 8.307902
+    }
+  },
+  "source_risk_selection_difference": {
+    "M0_to_M2_removed_images": 92,
+    "removed_boxes": 422,
+    "removed_image_fraction": 0.200436,
+    "removed_box_fraction": 0.121579,
+    "mean_boxes_per_removed_image": 4.586957
+  },
+  "class_support_M0_examples": {
+    "Persons": 488,
+    "Hard Hat": 388,
+    "Safety Boots": 365,
+    "Child": 31
+  },
+  "class_retention_M0_to_M2_examples": {
+    "Goggles": 0.814815,
+    "Hard Hat": 0.850515,
+    "No Safety Vest": 0.9125
+  },
+  "historical_v2_eval_different_reference_images": 13,
+  "historical_vs_current_reference_box_difference_current_minus_legacy": 16,
+  "historic_2025_valid_provider_micro_f1": {
+    "M0": 0.885018,
+    "M1": 0.884642,
+    "M2": 0.880754
+  },
+  "historical_counters_recomputed_from_present_source_gt": false,
+  "independent_source_group_certified": false,
+  "worker_compliance_metrics_measured": false,
+  "XAI_faithfulness_measured": false,
+  "energy_joules_measured": false,
+  "SEER_strong_comparator_measured": false,
+  "independent_worker_safety_scoring_ready": false,
+  "source_artifacts": {
+    "current_labels": "VALID_CURRENT_CLASS_SUPPORT_RISK_COHORTS_V22.json",
+    "tool": "tools/analyze_valid_class_support_v22.mjs",
+    "historical": "HISTORICAL_VALID_INTERNAL_METRICS_V20.json",
+    "source_risk": "VALIDATION_SOURCE_OVERLAP_NUMERIC_SENSITIVITY_V19.json"
+  },
+  "scientific_caution": "Current Source annotation composition and historical model Eval quality are distinct, no new SEER PPE evidence of policy superiority, Test untouched, strict worker safety NOT_FROZEN."
+}
