@@ -1,0 +1,9 @@
+# SEER-PPE V23 — execute deterministic five actual original RF-DETR Valid Source bbox pair scorer
+
+Date: 2026-11-21. The original fixed `altayyar-0oflt-lafos-qqauz/2` model was **actually executed read-only** once against five predetermined original Roboflow Valid Source IDs at confidence 0.20 and overlap 0.50. Current author-curated Source bounding boxes were retrieved read-only for the identical exact Source image IDs. All real prediction/GT coordinates, classes and IDs are saved in `VALID_ORIGINAL_SOURCE_CURRENT_BBOX_MODEL_PILOT_V23.json`. No images, image URLs, credentials or private file bytes are stored here.
+
+The [V23 frozen protocol](V23_VALID_CURRENT_BOX_GEOMETRY_FROZEN_PILOT_PROTOCOL.md) was committed before any of the five inference requests. The selected images are first five sorted original M2 Valid Source IDs, **already development-exposed, nonrandom, unflagged but not independently sourced**. Source labels total **23 current boxes**; model returned **23 detection boxes** (exact counts after real inference). This request executes and validates actual one-to-one same-class bbox IoU ≥0.50 with original width and height, then stores TP/FP/FN, micro P/R/F1 and individual audited matches.
+
+The real model is unmodified, no retraining, no original annotation edits, no new Test, no inference outside the five original Valid source IDs. V20 historical provider Eval and V22 source reference composition stay separate. This is **development-only geometry checking**, not a fully independent Valid benchmark, no worker PPE compliance, no SEER A5 versus A2 comparator, no XAI, no Joules. Strict independent-source worker-safety `scoring_ready=false` remains.
+
+**CI will fail closed** if identity, original Source split, label class, box geometry, model, confidence, overlap or current annotation counts drift. The original author has already completed the image curation and need not repeat full image review or find another reviewer.
