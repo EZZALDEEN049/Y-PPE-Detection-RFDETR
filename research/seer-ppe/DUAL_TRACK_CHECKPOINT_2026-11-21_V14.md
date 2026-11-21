@@ -1,0 +1,9 @@
+# SEER-PPE V14 checkpoint — source-family 99/99 direct evidence completed; freeze blocked
+
+**21 November 2026.** Completed [280 original Train↔Valid candidate comparisons](ORIGINAL_99_VALID_SOURCE_FAMILY_PAIRS_2026-11-21_V14.json) covering **all 99 original Valid review cases** and 205 distinct Train sources, using **304 hash-verified originals** and no protected Test image reads. Included 50 previous V13 source pair regression checks and **230 additional direct comparisons**. Twelve high same-frame technical candidate pairs mapped to nine Valid Source IDs: eight are retained in Clean17 and one was previously excluded. Of the eight retained, two are existing formal holds; **six new technical quarantine cases** await individual source-family adjudication but are not new formal holds.
+
+[Current 459 Clean17 Valid status ledger](VALIDATION_TECHNICAL_QUARANTINE_V14.json): **5 prior holds / 6 new technical quarantines / 81 other flagged source-uncertain / 367 unflagged but uncertified**. All source-family independence and workplace source claims remain unsigned; **0** scoring-eligible Valid images and no changed Roboflow splits or original detector weights. Human A/B/C/D remains 19 approved item-owner links and 38/42 recorded visual states, with four B cells and D zero-person signoff missing.
+
+A [pre-freeze study design](VALIDATION_PRE_FREEZE_STUDY_DESIGN_2026-11-21_V14.md) now specifies source-family cohort eligibility, fixed-model paired policy comparison and uncertainty-aware evaluation rules. An executable CI check prevents V14 strong overlap candidates and old holds from being prematurely scored. **`scoring_ready=false`**, and no new model accuracy/energy/XAI result is claimed.
+
+[Manuscript v0.14](MANUSCRIPT_MASTER.md) · [six high-priority overlap candidate review cases](VALIDATION_P0_HIGH_OVERLAP_HUMAN_REVIEW_V14.json) · [V14 scientific source-quarantine protocol](SOURCE_FAMILY_AND_VALIDATION_QUARANTINE_PROTOCOL_2026-11-21_V14.md).

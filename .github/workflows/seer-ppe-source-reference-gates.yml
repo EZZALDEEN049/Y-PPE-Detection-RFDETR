@@ -166,6 +166,10 @@ jobs:
         run: |
           node research/seer-ppe/tools/validate_v13_full_media_and_source_gate.mjs --self-test
           node research/seer-ppe/tools/validate_v13_full_media_and_source_gate.mjs --verify
+      - name: Verify V14 99-source direct content and six new technical quarantines fail closed
+        run: |
+          node research/seer-ppe/tools/validate_v14_quarantine_and_freeze.mjs --self-test
+          node research/seer-ppe/tools/validate_v14_quarantine_and_freeze.mjs --verify
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'

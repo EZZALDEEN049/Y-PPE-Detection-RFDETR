@@ -1,0 +1,56 @@
+{
+  "schema_version": "seer-ppe/checkpoint/v0.14",
+  "date": "2026-11-21",
+  "supersedes": "DUAL_TRACK_CHECKPOINT_2026-11-21_V13.json",
+  "status": "ALL_99_ORIGINAL_VALID_SOURCE_FAMILY_DIRECT_PAIRS_COMPLETED_VALIDATION_TECHNICAL_QUARANTINE_CREATED_NOT_FROZEN",
+  "direct_evidence": {
+    "source_images_original_sha_verified": 304,
+    "valid_sources_fully_candidate_screened": 99,
+    "distinct_train_sources": 205,
+    "original_pair_comparisons": 280,
+    "prior_v13_pairs_regression_checked": 50,
+    "new_v14_comparisons": 230,
+    "high_same_frame_candidate_pairs": 12,
+    "valid_source_ids_high_same_frame": 9,
+    "retained_clean17_high_original_valid": 8,
+    "excluded_high_original_valid": 1,
+    "unique_test_image_reads": 0
+  },
+  "corrected_clean17_valid": {
+    "images": 459,
+    "historical_source_holds": 5,
+    "new_technical_overlap_quarantines_unsigned": 6,
+    "other_source_flagged_unsigned": 81,
+    "unflagged_independence_uncertified": 367,
+    "individually_signed_independent_sources": 0,
+    "scoring_eligible": 0,
+    "original_to_clean_direct_content_verified": 459
+  },
+  "person_ppe": {
+    "previous_signed_associations": 19,
+    "visual_states_entered": 38,
+    "visual_states_expected": 42,
+    "B_missing_cells": 4,
+    "D_zero_person_human_signed": false,
+    "additional_human_decisions_written": 0
+  },
+  "freeze": {
+    "status": "NOT_FROZEN",
+    "authorized": false,
+    "policy_and_thresholds_signed": false,
+    "scoring_ready": false
+  },
+  "original_model_modified": false,
+  "Roboflow_dataset_splits_modified": false,
+  "test_images_accessed": false,
+  "scientific_accuracy_metrics": null,
+  "XAI_fidelity": null,
+  "energy_joules": null,
+  "documentation": {
+    "manuscript": "MANUSCRIPT_MASTER.md",
+    "methods": "VALIDATION_PRE_FREEZE_STUDY_DESIGN_2026-11-21_V14.md",
+    "source_audit": "ORIGINAL_99_VALID_SOURCE_FAMILY_PAIRS_2026-11-21_V14.json",
+    "source_quarantine": "VALIDATION_TECHNICAL_QUARANTINE_V14.json",
+    "missing_person_ppe": "PERSON_PPE_PENDING_HUMAN_SIGNOFF_2026-11-21_V13.json"
+  }
+}

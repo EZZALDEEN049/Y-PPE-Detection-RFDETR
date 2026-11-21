@@ -376,9 +376,17 @@ try{
       'V13_DIRECT_SOURCE_EXPORT_EVIDENCE_INVALID');
     const cleanBySource=new Map(crosswalk.valid_rows.map(x=>[x.original_source_id,x]));
     const technicalBySource=new Map(direct.results.map(x=>[x.source_id,x]));
+    // V14 conservative source-family safeguard: existing holds and strong
+    // Train-overlap candidates cannot be silently promoted by generic signoff.
+    const quarantine=read('VALIDATION_TECHNICAL_QUARANTINE_V14.json');
+    check(quarantine.schema_version==='seer-ppe/clean17-valid-research-quarantine/v0.14' &&
+      quarantine.rows.length===459&&quarantine.additional_technical_quarantine_unsigned===6,
+      'V14_SOURCE_QUARANTINE_RECORD_NOT_VERIFIED');
+    const quarantineBySource=new Map(quarantine.rows.map(r=>[r.original_valid_source_id,r]));
     for (const c of bundle.cases ?? []) {
       const row=cleanBySource.get(c.source_id);
       const proof=technicalBySource.get(c.source_id);
+      const src=quarantineBySource.get(c.source_id);
       check(row && row.clean17_export_candidate && proof &&
         proof.export_filename===row.clean17_export_candidate &&
         proof.original_sha_verified===true && proof.export_sha_verified===true &&
@@ -386,6 +394,10 @@ try{
         proof.source_family_independence_human_signed===false &&
         proof.scoring_eligible===false,
         'V13_DIRECT_SOURCE_EXPORT_MEMBERSHIP_EVIDENCE_NOT_CONFIRMED');
+      check(src && src.clean17_valid_filename===proof.export_filename &&
+        !['RETAIN_PREEXISTING_RESEARCH_HOLD',
+          'TECHNICAL_OVERLAP_QUARANTINE_PENDING_REVIEW'].includes(src.eligibility_disposition),
+        'V14_HISTORICAL_HOLD_OR_TECHNICAL_OVERLAP_QUARANTINE_BLOCKED');
     }
     console.log(JSON.stringify(scoreValidationBundle(bundle,freeze,v.eligibility),null,2));
   }else{throw Error('usage: --self-test | --audit | --score <bundle.json>');}
