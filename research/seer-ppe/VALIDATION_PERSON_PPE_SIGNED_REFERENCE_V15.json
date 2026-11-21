@@ -1,0 +1,32 @@
+{
+  "schema_version": "seer-ppe/validation-person-ppe-signed-human-reference/v0.15",
+  "date": "2026-11-21",
+  "status": "EMPTY_REFERENCE_NO_HUMAN_VALID_GOLD_WAS_COLLECTED",
+  "scope": "ORIGINAL_VALID_SOURCE_IDS_IN_CLEAN17_CORRECTED_VALID_ONLY",
+  "does_not_use_train_pilots_as_validation_gold": true,
+  "supported_ppe_types": [
+    "hard_hat",
+    "safety_vest",
+    "goggles",
+    "face_mask",
+    "glove",
+    "safety_boot"
+  ],
+  "allowed_human_visual_states": [
+    "PRESENT",
+    "ABSENT",
+    "UNKNOWN"
+  ],
+  "allowed_task_mandates": [
+    "REQUIRED",
+    "NOT_REQUIRED",
+    "POLICY_UNKNOWN"
+  ],
+  "required_people_and_items_coverage_human_signed": true,
+  "per_image_evidence_sha256_and_reviewer_required": true,
+  "cases": [],
+  "test_authorized": false,
+  "model_predictions_are_not_ground_truth": true,
+  "original_roboflow_annotations_modified": false,
+  "scoring_ready": false
+}
