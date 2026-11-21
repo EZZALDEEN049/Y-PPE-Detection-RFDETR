@@ -75,5 +75,5 @@ const out={
   source_independence_verified:false,worker_compliance_measured:false,strict_worker_safety_scoring_ready:false}
 };
 const outPath=process.argv[2]??resolve(ROOT,'V27_A5_A6_COMPARISON_2026-11-22.json');
-writeFileSync(outPath,JSON.stringify(out,null,2)+'\\n');
+writeFileSync(outPath,JSON.stringify(out,null,2));
 console.log(JSON.stringify({A5:arms.A5,A6:arms.A6,shared:shared.length,uniqueA5:uniqueA5.length,uniqueA6:uniqueA6.length},null,2));
