@@ -1,0 +1,75 @@
+name: SEER-PPE V13 direct original Train Valid lineage evidence
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/V13_CROSS_SPLIT_SOURCE_EVIDENCE_REQUEST.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  original_cross_split_source_audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    env:
+      ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install read-only image comparison dependencies
+        run: python -m pip install 'roboflow>=1.1,<2' 'Pillow>=10,<13' 'numpy>=1.24,<3' 'opencv-python-headless>=4.8,<5' 'scikit-image>=0.22,<1'
+      - name: Synthetic scene matching negative-control self-test
+        run: python research/seer-ppe/tools/inspect_original_cross_split_pairs_v13.py --self-test
+      - name: Download already verified original Source fingerprint metadata only
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 44834307184
+          name: seer-ppe-original-source-full-2093-metadata
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/originals-metadata
+      - name: Compare 46 prior dHash pairs plus four known named-site pairs
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$ROBOFLOW_API_KEY"
+          python research/seer-ppe/tools/inspect_original_cross_split_pairs_v13.py \
+            --queue research/seer-ppe/SOURCE_FAMILY_REVIEW_QUEUE_2026-11-21_V06.json \
+            --manifest research/seer-ppe/SOURCE_ID_MANIFEST_TRAIN_VALID_2026-11-19_V01.json \
+            --fingerprints "${RUNNER_TEMP}/originals-metadata/original-source-hash-audit.json" \
+            --report "${RUNNER_TEMP}/v13-evidence/cross-split-original-evidence.json"
+      - name: Strict metadata-only and no-Test evidence validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,os,pathlib
+          x=json.loads((pathlib.Path(os.environ['RUNNER_TEMP'])/'v13-evidence/cross-split-original-evidence.json').read_text())
+          assert x['previous_dhash_close_edges']==46
+          assert x['additional_previously_named_site_edges']==4
+          assert x['cross_split_pairs_compared']==50
+          assert x['original_fetch_or_hash_errors']==0
+          assert x['raw_byte_identical_cross_split_pairs']==0
+          assert x['human_source_family_verdicts_added']==0
+          assert x['test_image_bytes_opened']==x['test_inferences']==0
+          assert x['image_binary_uploaded'] is False
+          assert x['scoring_ready'] is False
+          print('SEER_V13_DIRECT_CROSS_SPLIT_50_PAIR_SOURCE_EVIDENCE_PASS')
+          PY
+      - name: Copy only numeric evidence without image binaries or private URLs
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp "${RUNNER_TEMP}/v13-evidence/cross-split-original-evidence.json" \
+             research/seer-ppe/DIRECT_ORIGINAL_TRAIN_VALID_SOURCE_EVIDENCE_V13.json
+      - name: Commit read-only cross-split evidence record
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/seer-ppe/DIRECT_ORIGINAL_TRAIN_VALID_SOURCE_EVIDENCE_V13.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'research(seer-ppe): archive 50 original Train Valid image source evidence comparisons'
+          git push origin HEAD:main
