@@ -1,0 +1,50 @@
+{
+  "schema_version": "seer-ppe/checkpoint/v0.12",
+  "date": "2026-11-21",
+  "supersedes": "DUAL_TRACK_CHECKPOINT_2026-11-21_V11.json",
+  "status": "EXECUTED_PROVISIONAL_ORIGINAL_VALID_TO_CLEAN17_METADATA_JOIN_SCIENTIFIC_SCORING_BLOCKED",
+  "sources": {
+    "original_train": 1625,
+    "original_valid": 468,
+    "clean_train": 1595,
+    "clean_valid": 459,
+    "historic_exclusions_train": 30,
+    "historic_exclusions_valid": 9,
+    "valid_unique_name_candidates": 426,
+    "valid_dhash_ranked_candidates": 33,
+    "valid_unmatched_historical_exclusions": 9,
+    "clean_valid_unique_candidates": 459,
+    "minimum_dhash_rank_margin": 15,
+    "maximum_ambiguous_best_distance": 6,
+    "source_export_raw_byte_identity_confirmed": 0,
+    "source_export_pixel_identity_confirmed": 0
+  },
+  "eligibility": {
+    "preexisting_valid_holds": 5,
+    "other_valid_flagged_unsigned": 94,
+    "unflagged_independence_uncertified": 369,
+    "newly_signed_independent_sources": 0,
+    "scientific_scoring_eligible": 0
+  },
+  "reference": {
+    "train_case_count": 4,
+    "completed_train_cases": 0,
+    "approved_person_item_links": 19,
+    "recorded_visual_states": 38,
+    "expected_visual_states": 42,
+    "case_B_unrecorded": 4,
+    "case_D_human_zero_person_signed": false
+  },
+  "executed_actions": {
+    "raw_metadata_join_run_id": 44842423862,
+    "ranked_candidate_archival_run_id": 44842880165
+  },
+  "paper": "MANUSCRIPT_MASTER.md",
+  "paper_version": "v0.12",
+  "original_model_modified": false,
+  "original_dataset_modified": false,
+  "new_Roboflow_inference": false,
+  "test_photo_opened": false,
+  "human_claims_promoted_from_model": false,
+  "scientific_scoring_ready": false
+}

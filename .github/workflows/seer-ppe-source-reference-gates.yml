@@ -150,6 +150,10 @@ jobs:
           fi
           grep -q 'V11_GATE_BLOCKED' /tmp/seer-v11-blocked.log
           echo 'SEER_V11_UNSIGNED_FREEZE_AND_PROTECTED_TEST_POLICY_FAIL_CLOSED_PASS'
+      - name: Verify V12 ranked Clean17 Valid candidate mapping cannot be mistaken for identity
+        run: |
+          node research/seer-ppe/tools/validate_v12_provisional_clean17_gate.mjs --self-test
+          node research/seer-ppe/tools/validate_v12_provisional_clean17_gate.mjs --verify
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'

@@ -366,6 +366,16 @@ try{
       read('SOURCE_ID_MANIFEST_TRAIN_VALID_2026-11-19_V01.json'));
     const freeze=read('VALIDATION_PERSON_PPE_SCORING_FREEZE_2026-11-21_V11.json');
     const bundle=JSON.parse(readFileSync(process.argv[3],'utf8'));
+    // V12 metadata candidates are not confirmed Clean17 image identities.
+    // A supplied boolean in an input bundle cannot override the independent crosswalk.
+    const crosswalk=read('SEER_PPE_VALID_TO_CLEAN17_PROVISIONAL_V12.json');
+    const cleanBySource=new Map(crosswalk.valid_rows.map(x=>[x.original_source_id,x]));
+    for (const c of bundle.cases ?? []) {
+      const row=cleanBySource.get(c.source_id);
+      check(row && row.confirmed_clean17_membership === true &&
+        row.source_to_clean17_pixel_identity_verified === true,
+        'V12_SOURCE_TO_CLEAN17_IDENTITY_UNVERIFIED_NO_SCIENTIFIC_SCORE');
+    }
     console.log(JSON.stringify(scoreValidationBundle(bundle,freeze,v.eligibility),null,2));
   }else{throw Error('usage: --self-test | --audit | --score <bundle.json>');}
 }catch(e){console.error(String(e));process.exitCode=2;}
