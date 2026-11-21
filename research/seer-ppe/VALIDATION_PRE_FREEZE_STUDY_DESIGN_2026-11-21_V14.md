@@ -18,6 +18,10 @@ Pre-specify: (1) known visual PPE coverage, retained-accuracy and PRESENT precis
 
 For uncertainty estimates, avoid treating near-duplicate or same-site frames as independent replicates; group resampling by human-verified site/acquisition families when the independent evaluation population and group counts permit. Do not claim confidence intervals or generalization from the current exploratory Train A/B/C/D controls. Comparison of policy variants must be paired on identical frozen image/person cohorts and use an error taxonomy distinguishing false negatives from principled abstentions.
 
+## V18 author-approved existing-label alternative (superseding extra reviewer assumption)
+
+For **historical internal object-detection analysis**, original object-level annotations made and visually checked by the dataset author are accepted as the primary single-curator reference, with matching IDs/classes/boxes. A new second human reviewer, fresh annotation of all images or per-person label overlay for every Valid frame is **not mandated for this narrow endpoint**. This protocol's stringent independently verified worker-level reference, mandated PPE compliance labels, source-family independence and per-image attestation gates remain applicable only when those *higher-order* claims are made. Previously missing worker/PPE cells are excluded from those denominators rather than fabricated. See [V18 author-curator reference policy](AUTHOR_CURATOR_REFERENCE_POLICY_2026-11-21_V18.md). Historical development exposure and unknown site/session grouping remain mandatory caveats; do not call the historical Valid/Test externally independent.
+
 ## Required proof before freeze
 
 1. Signed source-family decisions for each chosen Valid Source ID, with Train-family crosscheck, acquisition/session evidence, and handling of the five prior holds and six technical overlap quarantines.
