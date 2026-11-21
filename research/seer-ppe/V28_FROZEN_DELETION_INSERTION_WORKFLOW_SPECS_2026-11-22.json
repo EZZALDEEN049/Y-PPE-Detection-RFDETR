@@ -1,0 +1,4252 @@
+{
+  "schema_version": "seer-ppe/v28-frozen-target-box-deletion-insertion-workflow-specifications/v0.28",
+  "protocol": "V28_FROZEN_TARGETED_DELETION_INSERTION_PROTOCOL_2026-11-22.md",
+  "parent_v27_targets": "V27_FROZEN_TARGETS_2026-11-21.json",
+  "original_model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "confidence_floor": 0.2,
+  "nms_iou_threshold": 0.5,
+  "deletion": {
+    "method": "ColorVisualization solid black fill on frozen target bounding box",
+    "color": "#000000",
+    "opacity": 1
+  },
+  "insertion": {
+    "method": "BackgroundColorVisualization masks all pixels outside frozen target bounding box",
+    "color": "BLACK",
+    "opacity": 1
+  },
+  "target_match": "same exact class and original-box IoU >= 0.50; target confidence zero only when no match remains",
+  "planned_model_inference_passes": 30,
+  "no_image_urls_or_pixels_included": true,
+  "no_test_accessed": true,
+  "no_active_learning": true,
+  "original_model_or_dataset_modified": false,
+  "target_workflows": [
+    {
+      "image_key": "train:A",
+      "asset_id": "0jRe8fpRDE5fLgAJrYvT",
+      "source_id": null,
+      "split": "train",
+      "target_id": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+      "target_class": "No Face Mask",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "control_id": "3c93a7b4-3d1c-4fe3-a668-1edda6101556",
+      "target_area_fraction": 0.044379,
+      "target_box": {
+        "x": 475.5,
+        "y": 353.5,
+        "width": 207,
+        "height": 143
+      },
+      "image_width": 1000,
+      "image_height": 667,
+      "planned_model_passes": 3,
+      "specification": {
+        "version": "1.0",
+        "inputs": [
+          {
+            "type": "WorkflowImage",
+            "name": "image"
+          }
+        ],
+        "steps": [
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect",
+            "images": "$inputs.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/detections_filter@v1",
+            "name": "target_filter",
+            "predictions": "$steps.detect.predictions",
+            "operations": [
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "class_name"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "=="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": "No Face Mask"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.80017
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.96017
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 365
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 379
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 572
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 586
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 275
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 289
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 418
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 432
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "operations_parameters": {}
+          },
+          {
+            "type": "roboflow_core/color_visualization@v1",
+            "name": "delete_target",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "custom_colors": [
+              "#000000"
+            ],
+            "color_axis": "CLASS",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_deletion",
+            "images": "$steps.delete_target.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/background_color_visualization@v1",
+            "name": "insert_target_only",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "color": "BLACK",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_insertion",
+            "images": "$steps.insert_target_only.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          }
+        ],
+        "outputs": [
+          {
+            "type": "JsonField",
+            "name": "baseline_predictions",
+            "selector": "$steps.detect.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "target_predictions",
+            "selector": "$steps.target_filter.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "deletion_predictions",
+            "selector": "$steps.detect_after_deletion.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "insertion_predictions",
+            "selector": "$steps.detect_after_insertion.predictions"
+          }
+        ]
+      }
+    },
+    {
+      "image_key": "train:B",
+      "asset_id": "0xxsYWiz1FZBYERolu4z",
+      "source_id": null,
+      "split": "train",
+      "target_id": "1b2af685-6965-4986-9d35-258b036e5882",
+      "target_class": "Gloves",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "control_id": "c4f49afa-d4bd-400a-9d75-731453792e3a",
+      "target_area_fraction": 0.001018,
+      "target_box": {
+        "x": 356,
+        "y": 169,
+        "width": 12,
+        "height": 14
+      },
+      "image_width": 500,
+      "image_height": 330,
+      "planned_model_passes": 3,
+      "specification": {
+        "version": "1.0",
+        "inputs": [
+          {
+            "type": "WorkflowImage",
+            "name": "image"
+          }
+        ],
+        "steps": [
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect",
+            "images": "$inputs.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/detections_filter@v1",
+            "name": "target_filter",
+            "predictions": "$steps.detect.predictions",
+            "operations": [
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "class_name"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "=="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": "Gloves"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.23097999999999996
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.39098
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 344
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 356
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 356
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 368
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 156
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 168
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 170
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 182
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "operations_parameters": {}
+          },
+          {
+            "type": "roboflow_core/color_visualization@v1",
+            "name": "delete_target",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "custom_colors": [
+              "#000000"
+            ],
+            "color_axis": "CLASS",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_deletion",
+            "images": "$steps.delete_target.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/background_color_visualization@v1",
+            "name": "insert_target_only",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "color": "BLACK",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_insertion",
+            "images": "$steps.insert_target_only.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          }
+        ],
+        "outputs": [
+          {
+            "type": "JsonField",
+            "name": "baseline_predictions",
+            "selector": "$steps.detect.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "target_predictions",
+            "selector": "$steps.target_filter.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "deletion_predictions",
+            "selector": "$steps.detect_after_deletion.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "insertion_predictions",
+            "selector": "$steps.detect_after_insertion.predictions"
+          }
+        ]
+      }
+    },
+    {
+      "image_key": "train:C",
+      "asset_id": "0jGu9euJp1MbvkLtfBcs",
+      "source_id": null,
+      "split": "train",
+      "target_id": "35e4de96-de91-46a1-910f-89738f80e053",
+      "target_class": "No Safety Boots",
+      "arms": [
+        "A5"
+      ],
+      "control_id": "15c07c8c-56e9-4fbe-8fac-105ff957d9d7",
+      "target_area_fraction": 0.00025,
+      "target_box": {
+        "x": 608.5,
+        "y": 731,
+        "width": 35,
+        "height": 20
+      },
+      "image_width": 2048,
+      "image_height": 1365,
+      "planned_model_passes": 3,
+      "specification": {
+        "version": "1.0",
+        "inputs": [
+          {
+            "type": "WorkflowImage",
+            "name": "image"
+          }
+        ],
+        "steps": [
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect",
+            "images": "$inputs.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/detections_filter@v1",
+            "name": "target_filter",
+            "predictions": "$steps.detect.predictions",
+            "operations": [
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "class_name"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "=="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": "No Safety Boots"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.27066999999999997
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.43067
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 577
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 605
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 612
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 640
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 707
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 735
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 727
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 755
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "operations_parameters": {}
+          },
+          {
+            "type": "roboflow_core/color_visualization@v1",
+            "name": "delete_target",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "custom_colors": [
+              "#000000"
+            ],
+            "color_axis": "CLASS",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_deletion",
+            "images": "$steps.delete_target.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/background_color_visualization@v1",
+            "name": "insert_target_only",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "color": "BLACK",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_insertion",
+            "images": "$steps.insert_target_only.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          }
+        ],
+        "outputs": [
+          {
+            "type": "JsonField",
+            "name": "baseline_predictions",
+            "selector": "$steps.detect.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "target_predictions",
+            "selector": "$steps.target_filter.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "deletion_predictions",
+            "selector": "$steps.detect_after_deletion.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "insertion_predictions",
+            "selector": "$steps.detect_after_insertion.predictions"
+          }
+        ]
+      }
+    },
+    {
+      "image_key": "train:C",
+      "asset_id": "0jGu9euJp1MbvkLtfBcs",
+      "source_id": null,
+      "split": "train",
+      "target_id": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+      "target_class": "Face Masks",
+      "arms": [
+        "A6"
+      ],
+      "control_id": "021a8c09-78bf-4dac-82c3-e4ec15e819c9",
+      "target_area_fraction": 0.00011,
+      "target_box": {
+        "x": 591,
+        "y": 549,
+        "width": 22,
+        "height": 14
+      },
+      "image_width": 2048,
+      "image_height": 1365,
+      "planned_model_passes": 3,
+      "specification": {
+        "version": "1.0",
+        "inputs": [
+          {
+            "type": "WorkflowImage",
+            "name": "image"
+          }
+        ],
+        "steps": [
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect",
+            "images": "$inputs.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/detections_filter@v1",
+            "name": "target_filter",
+            "predictions": "$steps.detect.predictions",
+            "operations": [
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "class_name"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "=="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": "Face Masks"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.2
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.32226
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 566
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 594
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 588
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 616
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 528
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 556
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 542
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 570
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "operations_parameters": {}
+          },
+          {
+            "type": "roboflow_core/color_visualization@v1",
+            "name": "delete_target",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "custom_colors": [
+              "#000000"
+            ],
+            "color_axis": "CLASS",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_deletion",
+            "images": "$steps.delete_target.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/background_color_visualization@v1",
+            "name": "insert_target_only",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "color": "BLACK",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_insertion",
+            "images": "$steps.insert_target_only.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          }
+        ],
+        "outputs": [
+          {
+            "type": "JsonField",
+            "name": "baseline_predictions",
+            "selector": "$steps.detect.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "target_predictions",
+            "selector": "$steps.target_filter.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "deletion_predictions",
+            "selector": "$steps.detect_after_deletion.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "insertion_predictions",
+            "selector": "$steps.detect_after_insertion.predictions"
+          }
+        ]
+      }
+    },
+    {
+      "image_key": "train:D",
+      "asset_id": "0oVmRAxL0SM1PWqZCNyM",
+      "source_id": null,
+      "split": "train",
+      "target_id": "7a101411-15e7-457a-842a-0e61be4f1f11",
+      "target_class": "Hard Hat",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "control_id": null,
+      "target_area_fraction": 0.637506,
+      "target_box": {
+        "x": 512.5,
+        "y": 334,
+        "width": 963,
+        "height": 662
+      },
+      "image_width": 1000,
+      "image_height": 1000,
+      "planned_model_passes": 3,
+      "specification": {
+        "version": "1.0",
+        "inputs": [
+          {
+            "type": "WorkflowImage",
+            "name": "image"
+          }
+        ],
+        "steps": [
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect",
+            "images": "$inputs.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/detections_filter@v1",
+            "name": "target_filter",
+            "predictions": "$steps.detect.predictions",
+            "operations": [
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "class_name"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "=="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": "Hard Hat"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.8847200000000001
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 1
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 21
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 41
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 984
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 1004
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": -7
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 13
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 655
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 675
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "operations_parameters": {}
+          },
+          {
+            "type": "roboflow_core/color_visualization@v1",
+            "name": "delete_target",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "custom_colors": [
+              "#000000"
+            ],
+            "color_axis": "CLASS",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_deletion",
+            "images": "$steps.delete_target.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/background_color_visualization@v1",
+            "name": "insert_target_only",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "color": "BLACK",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_insertion",
+            "images": "$steps.insert_target_only.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          }
+        ],
+        "outputs": [
+          {
+            "type": "JsonField",
+            "name": "baseline_predictions",
+            "selector": "$steps.detect.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "target_predictions",
+            "selector": "$steps.target_filter.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "deletion_predictions",
+            "selector": "$steps.detect_after_deletion.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "insertion_predictions",
+            "selector": "$steps.detect_after_insertion.predictions"
+          }
+        ]
+      }
+    },
+    {
+      "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+      "asset_id": "07BnOpgFJyNaOhuzvh5i",
+      "source_id": "07BnOpgFJyNaOhuzvh5i",
+      "split": "valid",
+      "target_id": "e67b5082-bdc0-4143-8a98-9dd8524f868d",
+      "target_class": "No Gloves",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "control_id": "7f17e4f0-1bee-42d9-8b1b-0ae20f1719eb",
+      "target_area_fraction": 0.007322,
+      "target_box": {
+        "x": 498,
+        "y": 449,
+        "width": 66,
+        "height": 74
+      },
+      "image_width": 1000,
+      "image_height": 667,
+      "planned_model_passes": 3,
+      "specification": {
+        "version": "1.0",
+        "inputs": [
+          {
+            "type": "WorkflowImage",
+            "name": "image"
+          }
+        ],
+        "steps": [
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect",
+            "images": "$inputs.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/detections_filter@v1",
+            "name": "target_filter",
+            "predictions": "$steps.detect.predictions",
+            "operations": [
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "class_name"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "=="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": "No Gloves"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.7551
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.9150999999999999
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 458
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 472
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 524
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 538
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 405
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 419
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 479
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 493
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "operations_parameters": {}
+          },
+          {
+            "type": "roboflow_core/color_visualization@v1",
+            "name": "delete_target",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "custom_colors": [
+              "#000000"
+            ],
+            "color_axis": "CLASS",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_deletion",
+            "images": "$steps.delete_target.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/background_color_visualization@v1",
+            "name": "insert_target_only",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "color": "BLACK",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_insertion",
+            "images": "$steps.insert_target_only.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          }
+        ],
+        "outputs": [
+          {
+            "type": "JsonField",
+            "name": "baseline_predictions",
+            "selector": "$steps.detect.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "target_predictions",
+            "selector": "$steps.target_filter.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "deletion_predictions",
+            "selector": "$steps.detect_after_deletion.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "insertion_predictions",
+            "selector": "$steps.detect_after_insertion.predictions"
+          }
+        ]
+      }
+    },
+    {
+      "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+      "asset_id": "09WO3iVNf9jOt21QAxmb",
+      "source_id": "09WO3iVNf9jOt21QAxmb",
+      "split": "valid",
+      "target_id": "181c2d93-bac0-4cfe-8613-9c4e66ecc4fc",
+      "target_class": "Safety Boots",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "control_id": null,
+      "target_area_fraction": 0.04286,
+      "target_box": {
+        "x": 261.5,
+        "y": 415.5,
+        "width": 211,
+        "height": 135
+      },
+      "image_width": 736,
+      "image_height": 903,
+      "planned_model_passes": 3,
+      "specification": {
+        "version": "1.0",
+        "inputs": [
+          {
+            "type": "WorkflowImage",
+            "name": "image"
+          }
+        ],
+        "steps": [
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect",
+            "images": "$inputs.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/detections_filter@v1",
+            "name": "target_filter",
+            "predictions": "$steps.detect.predictions",
+            "operations": [
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "class_name"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "=="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": "Safety Boots"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.832613
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.992613
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 149
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 163
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 360
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 374
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 341
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 355
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 476
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 490
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "operations_parameters": {}
+          },
+          {
+            "type": "roboflow_core/color_visualization@v1",
+            "name": "delete_target",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "custom_colors": [
+              "#000000"
+            ],
+            "color_axis": "CLASS",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_deletion",
+            "images": "$steps.delete_target.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/background_color_visualization@v1",
+            "name": "insert_target_only",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "color": "BLACK",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_insertion",
+            "images": "$steps.insert_target_only.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          }
+        ],
+        "outputs": [
+          {
+            "type": "JsonField",
+            "name": "baseline_predictions",
+            "selector": "$steps.detect.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "target_predictions",
+            "selector": "$steps.target_filter.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "deletion_predictions",
+            "selector": "$steps.detect_after_deletion.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "insertion_predictions",
+            "selector": "$steps.detect_after_insertion.predictions"
+          }
+        ]
+      }
+    },
+    {
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "asset_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "source_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "split": "valid",
+      "target_id": "5d2a56b6-4b76-4206-afd0-51e1e4c28d8e",
+      "target_class": "No Face Mask",
+      "arms": [
+        "A5"
+      ],
+      "control_id": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+      "target_area_fraction": 0.076833,
+      "target_box": {
+        "x": 87,
+        "y": 163.5,
+        "width": 70,
+        "height": 43
+      },
+      "image_width": 166,
+      "image_height": 236,
+      "planned_model_passes": 3,
+      "specification": {
+        "version": "1.0",
+        "inputs": [
+          {
+            "type": "WorkflowImage",
+            "name": "image"
+          }
+        ],
+        "steps": [
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect",
+            "images": "$inputs.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/detections_filter@v1",
+            "name": "target_filter",
+            "predictions": "$steps.detect.predictions",
+            "operations": [
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "class_name"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "=="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": "No Face Mask"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.8181360000000001
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.978136
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 46
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 58
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 116
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 128
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 136
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 148
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 179
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 191
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "operations_parameters": {}
+          },
+          {
+            "type": "roboflow_core/color_visualization@v1",
+            "name": "delete_target",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "custom_colors": [
+              "#000000"
+            ],
+            "color_axis": "CLASS",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_deletion",
+            "images": "$steps.delete_target.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/background_color_visualization@v1",
+            "name": "insert_target_only",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "color": "BLACK",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_insertion",
+            "images": "$steps.insert_target_only.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          }
+        ],
+        "outputs": [
+          {
+            "type": "JsonField",
+            "name": "baseline_predictions",
+            "selector": "$steps.detect.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "target_predictions",
+            "selector": "$steps.target_filter.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "deletion_predictions",
+            "selector": "$steps.detect_after_deletion.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "insertion_predictions",
+            "selector": "$steps.detect_after_insertion.predictions"
+          }
+        ]
+      }
+    },
+    {
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "asset_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "source_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "split": "valid",
+      "target_id": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+      "target_class": "Safety Vests",
+      "arms": [
+        "A6"
+      ],
+      "control_id": "ac23487e-dbbf-448b-a13e-31765fce591d",
+      "target_area_fraction": 0.165561,
+      "target_box": {
+        "x": 97,
+        "y": 212.5,
+        "width": 138,
+        "height": 47
+      },
+      "image_width": 166,
+      "image_height": 236,
+      "planned_model_passes": 3,
+      "specification": {
+        "version": "1.0",
+        "inputs": [
+          {
+            "type": "WorkflowImage",
+            "name": "image"
+          }
+        ],
+        "steps": [
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect",
+            "images": "$inputs.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/detections_filter@v1",
+            "name": "target_filter",
+            "predictions": "$steps.detect.predictions",
+            "operations": [
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "class_name"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "=="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": "Safety Vests"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.7728400000000001
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.93284
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 22
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 34
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 160
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 172
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 183
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 195
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 230
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 242
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "operations_parameters": {}
+          },
+          {
+            "type": "roboflow_core/color_visualization@v1",
+            "name": "delete_target",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "custom_colors": [
+              "#000000"
+            ],
+            "color_axis": "CLASS",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_deletion",
+            "images": "$steps.delete_target.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/background_color_visualization@v1",
+            "name": "insert_target_only",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "color": "BLACK",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_insertion",
+            "images": "$steps.insert_target_only.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          }
+        ],
+        "outputs": [
+          {
+            "type": "JsonField",
+            "name": "baseline_predictions",
+            "selector": "$steps.detect.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "target_predictions",
+            "selector": "$steps.target_filter.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "deletion_predictions",
+            "selector": "$steps.detect_after_deletion.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "insertion_predictions",
+            "selector": "$steps.detect_after_insertion.predictions"
+          }
+        ]
+      }
+    },
+    {
+      "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+      "asset_id": "0aGYjxE5LmocXyvuLHs8",
+      "source_id": "0aGYjxE5LmocXyvuLHs8",
+      "split": "valid",
+      "target_id": "8bdb1086-0226-4293-b70c-3a44efd763c5",
+      "target_class": "No Safety Boots",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "control_id": null,
+      "target_area_fraction": 0.217561,
+      "target_box": {
+        "x": 294,
+        "y": 488.5,
+        "width": 244,
+        "height": 483
+      },
+      "image_width": 736,
+      "image_height": 736,
+      "planned_model_passes": 3,
+      "specification": {
+        "version": "1.0",
+        "inputs": [
+          {
+            "type": "WorkflowImage",
+            "name": "image"
+          }
+        ],
+        "steps": [
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect",
+            "images": "$inputs.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/detections_filter@v1",
+            "name": "target_filter",
+            "predictions": "$steps.detect.predictions",
+            "operations": [
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "class_name"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "=="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": "No Safety Boots"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.839713
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "confidence"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 0.999713
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 165
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 179
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 409
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "x_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 423
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 240
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_min"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 254
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) >="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 723
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DetectionsFilter",
+                "filter_operation": {
+                  "type": "StatementGroup",
+                  "statements": [
+                    {
+                      "type": "BinaryStatement",
+                      "left_operand": {
+                        "type": "DynamicOperand",
+                        "operand_name": "_",
+                        "operations": [
+                          {
+                            "type": "ExtractDetectionProperty",
+                            "property_name": "y_max"
+                          }
+                        ]
+                      },
+                      "comparator": {
+                        "type": "(Number) <="
+                      },
+                      "right_operand": {
+                        "type": "StaticOperand",
+                        "value": 737
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "operations_parameters": {}
+          },
+          {
+            "type": "roboflow_core/color_visualization@v1",
+            "name": "delete_target",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "custom_colors": [
+              "#000000"
+            ],
+            "color_axis": "CLASS",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_deletion",
+            "images": "$steps.delete_target.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          },
+          {
+            "type": "roboflow_core/background_color_visualization@v1",
+            "name": "insert_target_only",
+            "image": "$inputs.image",
+            "predictions": "$steps.target_filter.predictions",
+            "color": "BLACK",
+            "opacity": 1,
+            "copy_image": true
+          },
+          {
+            "type": "roboflow_core/roboflow_object_detection_model@v3",
+            "name": "detect_after_insertion",
+            "images": "$steps.insert_target_only.image",
+            "model_id": "altayyar-0oflt-lafos-qqauz/2",
+            "confidence_mode": "custom",
+            "custom_confidence": 0.2,
+            "iou_threshold": 0.5,
+            "disable_active_learning": true
+          }
+        ],
+        "outputs": [
+          {
+            "type": "JsonField",
+            "name": "baseline_predictions",
+            "selector": "$steps.detect.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "target_predictions",
+            "selector": "$steps.target_filter.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "deletion_predictions",
+            "selector": "$steps.detect_after_deletion.predictions"
+          },
+          {
+            "type": "JsonField",
+            "name": "insertion_predictions",
+            "selector": "$steps.detect_after_insertion.predictions"
+          }
+        ]
+      }
+    }
+  ]
+}
