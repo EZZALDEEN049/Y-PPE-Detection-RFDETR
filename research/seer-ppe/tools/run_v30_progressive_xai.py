@@ -94,7 +94,8 @@ class HostedPredictor:
         )
         self.client = InferenceHTTPClient(
             api_url=API_URL, api_key=api_key
-        ).configure(configuration)
+        )
+        self.client.configure(configuration)
         self.calls = 0
 
     def __call__(self, image: np.ndarray) -> list[Detection]:
@@ -104,6 +105,14 @@ class HostedPredictor:
             result = self.client.infer(temporary.name, model_id=MODEL_ID)
         self.calls += 1
         return as_detection_rows(result)
+
+
+def build_predictor() -> HostedPredictor:
+    """Create an authenticated hosted predictor; never log or store the API key."""
+    api_key = os.getenv("ROBOFLOW_API_KEY")
+    if not api_key:
+        raise SystemExit("ROBOFLOW_API_KEY is not set; no inference was started.")
+    return HostedPredictor(api_key)
 
 
 def frozen_reference(row: dict) -> Detection:
