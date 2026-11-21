@@ -1,5 +1,8 @@
 # SEER-PPE: cumulative research (v0.6, 10 Nov 2026)
 
+> **Latest experimental continuation V17 (21 Nov 2026):** [Paired original RF-DETR numeric Train detections vs proposed SEER conservative routing trace](DUAL_TRACK_CHECKPOINT_2026-11-21_V17.md) · [validated JSON trace](PAIRED_TRAIN_DETECTOR_POLICY_TRACE_V17.json) · [successful GitHub Actions](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44851631822). **51 fixed detector predictions**, **38 PPE review suggestions not dispatched**, **zero worker clearances or actual XAI/reviews**, and **zero authorized Validation scientific source records**; `scoring_ready=false`. No Test or Valid inference, model retraining, safety superiority or measured Joule saving.
+
+
 > **Latest continuation V03 (21 Nov 2026):** [5 high-sim Train↔Valid original-image reviews, Case B AI visibility preflight, and fail-closed tests](DUAL_TRACK_CHECKPOINT_2026-11-21_V03.md) · [JSON](DUAL_TRACK_CHECKPOINT_2026-11-21_V03.json). **83 Valid in candidate queue, 5 earlier holds unchanged, 19 approved Person–PPE links preserved, 4 B cells still missing.** Source pixel hashes and independent evaluation are not complete.
 
 > **Latest source-media audit (21 Nov 2026):** [Six direct original-image AI descriptions + native source annotation counts](SOURCE_MEDIA_PAIR_VISUAL_TRIAGE_2026-11-21_V02.md) · [JSON](SOURCE_MEDIA_PAIR_VISUAL_TRIAGE_2026-11-21_V02.json) · [executed exact-GitHub-blob Node gate self-test](SOURCE_GATE_EXECUTED_TEST_2026-11-21_V01.md). The full original-image pixel-hash audit and independent human group adjudication remain open.
