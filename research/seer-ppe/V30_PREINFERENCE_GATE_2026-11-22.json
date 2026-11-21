@@ -1,7 +1,7 @@
 {
   "schema_version": "seer-ppe/v30-preinference-gate/v0.30",
   "date": "2026-11-22",
-  "status": "BASELINE_PREFLIGHT_PASSED_LOCAL_IMAGE_BUNDLE_PENDING",
+  "status": "BASELINE_AND_CLOUD_INPUT_PREFLIGHT_PASSED_PROGRESSIVE_INFERENCE_PENDING",
   "source_images": 8,
   "unique_targets": 10,
   "synthetic_tests_passed": 9,
@@ -16,10 +16,10 @@
   "human_review_dispatched": false,
   "strict_worker_safety_scoring_ready": false,
   "blocking_requirements": [
-    "eight exact original image files available locally",
-    "local image filenames and dimensions pass --dry-run",
-    "local image bundle validates against the frozen connector preflight with --preflight-only",
-    "ROBOFLOW_API_KEY in local runner environment for progressive XAI calls"
+    "manual V30 cloud workflow needs to be available on main after reviewed PR is merged",
+    "ROBOFLOW_API_KEY stored as GitHub Actions repository secret",
+    "review Roboflow quota/usage billing before launching up to 1,060 additional calls",
+    "explicit workflow_dispatch run_progressive=true and confirm_budget=1068"
   ],
   "source_reference_gate_compatibility_fix": "V22-V26 read-only manuscript assertions now target the current v0.27 master; this does not alter empirical claims or the manuscript.",
   "github_actions": {
@@ -41,5 +41,15 @@
   "planned_remaining_model_calls_max": 1060,
   "baseline_preflight_record": "V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json",
   "note": "The eight baseline inferences are already completed and archived. The local runner reuses them; it must not repeat the baseline calls. The 1,068-call maximum is total V30 calls, leaving at most 1,060 additional calls.",
-  "current_branch_head": "8cb4f2d04720e2552aeb3145d29ef6e9872b2df6"
+  "current_branch_head": "8cb4f2d04720e2552aeb3145d29ef6e9872b2df6",
+  "cloud_preflight": {
+    "status": "SUCCESS",
+    "run_id": 44962342687,
+    "url": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44962342687",
+    "evidence_file": "V30_CLOUD_PREFLIGHT_ACTUAL_2026-11-22.json",
+    "source_images_downloaded": 8,
+    "local_pc_setup_required": false,
+    "new_inference_calls": 0,
+    "numeric_only_artifact_id": 14729164212
+  }
 }
