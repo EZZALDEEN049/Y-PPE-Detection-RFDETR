@@ -4,6 +4,7 @@ on:
     paths:
       - 'research/seer-ppe/V27_EXECUTE_FROZEN_TARGETED_OCCLUSION_REQUEST.md'
       - 'research/seer-ppe/tools/build_v27_frozen_targets.mjs'
+      - 'research/seer-ppe/tools/build_v27_occlusion_specs.mjs'
   workflow_dispatch:
 permissions:
   contents: write
@@ -19,6 +20,11 @@ jobs:
       - name: Build frozen target IDs from V25 and V26 only
         run: |
           node research/seer-ppe/tools/build_v27_frozen_targets.mjs research/seer-ppe/V27_FROZEN_TARGETS_2026-11-21.json
+      - name: Build exact target and control occlusion workflow specifications
+        run: |
+          node research/seer-ppe/tools/build_v27_occlusion_specs.mjs \
+            research/seer-ppe/V27_FROZEN_TARGETS_2026-11-21.json \
+            research/seer-ppe/V27_FROZEN_OCCLUSION_WORKFLOW_SPECS_2026-11-21.json
       - name: Verify sample, calibration exclusions, matched budgets and target geometry
         run: |
           python - <<'PY'
@@ -50,6 +56,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add research/seer-ppe/V27_FROZEN_TARGETS_2026-11-21.json
+          git add research/seer-ppe/V27_FROZEN_OCCLUSION_WORKFLOW_SPECS_2026-11-21.json
           git diff --cached --quiet && exit 0
           git commit -m 'research(seer-ppe): freeze V27 A5 A6 targets and matched controls before occlusion inference'
           git pull --rebase origin main
