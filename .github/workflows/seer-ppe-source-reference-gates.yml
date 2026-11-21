@@ -238,7 +238,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text()
-          for phrase in ('**Working manuscript v0.25', '### 3.17 Actual original-source',
+          for phrase in ('**Working manuscript v0.26', '### 3.17 Actual original-source',
                          '### 4.17 Current author-curated', '## 5. Discussion',
                          '## Appendix N.', '3,471', '3,049', '729',
                          '0.885018', '0.880754', '13'):
@@ -256,7 +256,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text()
-          for phrase in ('**Working manuscript v0.25','### 3.18 Frozen five-image',
+          for phrase in ('**Working manuscript v0.26','### 3.18 Frozen five-image',
                          '### 4.18 Actual fixed original RF-DETR','## Appendix O.',
                          'TP=22, FP=1, FN=1','0.956522'):
               assert phrase in m, phrase
@@ -269,7 +269,7 @@ jobs:
           from pathlib import Path
           m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text(encoding='utf8')
           q=Path('research/seer-ppe/V24_VERIFIED_2024_2026_RELATED_WORK_NOVELTY_BOUNDARY.md').read_text(encoding='utf8')
-          for phrase in ('**Working manuscript v0.25','### 2.2 Closest methodological',
+          for phrase in ('**Working manuscript v0.26','### 2.2 Closest methodological',
                          '### 2.3 Provisional, falsifiable', '## Selected verified references',
                          '## Appendix P.', 'Selective Explanations',
                          '10.52202/079017-1765','10.3389/fbuil.2026.1976288',
@@ -294,7 +294,7 @@ jobs:
           root=Path('research/seer-ppe')
           m=(root/'MANUSCRIPT_MASTER.md').read_text()
           d=json.loads((root/'ACTUAL_A0_A2_A5_PAIRED_OFFLINE_ROUTING_V25.json').read_text())
-          for phrase in ('**Working manuscript v0.25','### 3.19 V25 paired',
+          for phrase in ('**Working manuscript v0.26','### 3.19 V25 paired',
                          '### 4.19 Actually executed A2/A5', '### 5.7 Routing implementation',
                          '## Appendix Q.', '59 typed PPE', '3/9', '51 typed cues'):
               assert phrase in m, phrase
@@ -309,6 +309,36 @@ jobs:
           assert not d['strict_scientific_worker_safety_scoring_ready']
           print('SEER_V25_EXECUTED_A2_A5_MATH_AND_MANUSCRIPT_SCOPE_PASS')
           PY
+      - name: Verify V26 all 459 original current-GT images and 17 class metrics
+        run: |
+          node research/seer-ppe/tools/score_original_valid_current_boxes_v26.mjs --self-test
+          node research/seer-ppe/tools/score_original_valid_current_boxes_v26.mjs --audit /tmp/seer-v26-all-459.json > /tmp/seer-v26-all-459.log
+          cmp research/seer-ppe/ACTUAL_CURRENT_SOURCE_ORIGINAL_VALID_459_CLASS_BBOX_METRICS_V26.json /tmp/seer-v26-all-459.json
+          node research/seer-ppe/tools/render_v26_current_valid_report.mjs /tmp/seer-v26-all-459.json /tmp/seer-v26-small.json /tmp/seer-v26-report.md
+          cmp research/seer-ppe/V26_VALID_CURRENT_SOURCE_459_NUMERIC_SUMMARY.json /tmp/seer-v26-small.json
+          cmp research/seer-ppe/V26_VALID_CURRENT_SOURCE_459_RESULTS_REPORT.md /tmp/seer-v26-report.md
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('research/seer-ppe')
+          v=json.loads((root/'V26_VALID_CURRENT_SOURCE_459_NUMERIC_SUMMARY.json').read_text())
+          m=(root/'MANUSCRIPT_MASTER.md').read_text()
+          assert v['actual_current_reference_459_complete']
+          m0=v['cohorts']['M0']
+          assert (m0['images'],m0['GT'],m0['predictions'],m0['TP'],m0['FP'],m0['FN'])==(459,3471,4103,3297,806,174)
+          assert abs(m0['F1']-0.870610)<1e-7
+          assert v['cohorts']['M1']['F1']==0.870064 and v['cohorts']['M2']['F1']==0.868157
+          assert len(m0['per_class'])==17
+          assert not v['SEER_safety_XAI_energy_superiority_evaluated']
+          assert not v['protected_test_used']
+          for phrase in ('**Working manuscript v0.26','### 3.20 Executed all-459',
+                         '### 4.20 Newly measured full current-author-reference',
+                         '### 5.8 Implications','## Appendix R.',
+                         '3,297','806','174','0.870610','NOT_FROZEN'):
+              assert phrase in m,phrase
+          print('SEER_V26_CURRENT_AUTHOR_GT_459_FULL_MATCH_AND_MANUSCRIPT_SAFE_PASS')
+          PY
+          echo 'SEER_V26_FULL_ORIGINAL_VALID_CURRENT_GT_NUMBER_AND_SCOPE_GATE_PASS'
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'
