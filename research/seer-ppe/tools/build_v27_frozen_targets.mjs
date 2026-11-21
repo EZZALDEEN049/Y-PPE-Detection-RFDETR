@@ -45,7 +45,7 @@ need(train.schema_version==='seer-ppe/train-only-real-roboflow-preflight/v0.16'&
  train.model_id===model&&train.model_retrained===false&&train.model_modified===false&&
  train.dataset_images_or_labels_modified===false&&train.test_inputs_used===0&&
  train.validation_inputs_used===0&&train.cases.length===4,'V16_TRAIN_INPUT');
-need(valid.schema_version==='seer-ppe/actual-hosted-valid-pilot-current-gt-pred-bboxes/v0.23'&&
+need(valid.schema_version==='seer-ppe/actual-hosted-valid-pilot-current-original-gt-pred-bboxes/v0.23'&&
  valid.model_id===model&&valid.source_project===sourceProject&&
  valid.selected_image_count===5&&valid.no_test_accessed===true&&
  valid.selection_predeclared_ids.length===5&&valid.rows.length===5,'V23_VALID_INPUT');
