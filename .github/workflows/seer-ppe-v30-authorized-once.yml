@@ -1,0 +1,91 @@
+name: SEER-PPE V30 authorized one-time cloud XAI
+
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - research/seer-ppe/V30_CLOUD_EXECUTION_AUTHORIZATION_2026-11-22.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seer-ppe-v30-explicit-authorized-once
+  cancel-in-progress: false
+
+jobs:
+  authorized_v30_progressive_xai:
+    if: ${{ github.run_attempt == 1 && github.event.head_commit.message == 'V30-AUTHORIZED-ONCE: execute frozen cloud XAI' }}
+    name: Execute the user-authorized V30 frozen pilot on ephemeral cloud compute
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check explicit V30 authorization, fixed call limit and API credential
+        env:
+          ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${ROBOFLOW_API_KEY}" ]; then
+            echo "::error::Repository secret ROBOFLOW_API_KEY is absent. No model inference has been launched."
+            exit 1
+          fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('research/seer-ppe/V30_CLOUD_EXECUTION_AUTHORIZATION_2026-11-22.json')
+          a=json.loads(p.read_text(encoding='utf-8'))
+          assert a.get('authorized') is True
+          assert a.get('scope') == 'V30_frozen_progressive_XAI_only'
+          assert a.get('frozen_model_id') == 'altayyar-0oflt-lafos-qqauz/2'
+          assert a.get('allowed_train_images') == 4
+          assert a.get('allowed_valid_images') == 4
+          assert a.get('test_images_allowed') == 0
+          assert a.get('baseline_calls_already_completed') == 8
+          assert a.get('max_additional_calls') == 1060
+          assert a.get('max_total_calls') == 1068
+          print('One-time V30 authorization and frozen call limit validated. Credential is present.')
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install numeric and hosted-inference dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install numpy pillow inference-sdk
+      - name: Fetch only eight frozen original source images to ephemeral disk
+        run: |
+          set -euo pipefail
+          mkdir -p "${RUNNER_TEMP}/v30_originals"
+          python research/seer-ppe/tools/fetch_v30_originals_cloud.py \
+            --destination "${RUNNER_TEMP}/v30_originals" \
+            --hashes-output "${RUNNER_TEMP}/v30_image_sha256.json"
+      - name: Verify frozen image files and matching baseline, no model calls
+        run: |
+          set -euo pipefail
+          python research/seer-ppe/tools/run_v30_progressive_xai.py \
+            --images-dir "${RUNNER_TEMP}/v30_originals" --dry-run
+          python research/seer-ppe/tools/run_v30_progressive_xai.py \
+            --images-dir "${RUNNER_TEMP}/v30_originals" --preflight-only \
+            --output "${RUNNER_TEMP}/v30_local_preflight.json"
+      - name: Execute actual frozen XAI, with budget guard 1068 total / 1060 additional
+        env:
+          ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+        run: |
+          set -euo pipefail
+          python research/seer-ppe/tools/run_v30_progressive_xai.py \
+            --images-dir "${RUNNER_TEMP}/v30_originals" \
+            --confirm-model-call-budget 1068 \
+            --output "${RUNNER_TEMP}/v30_numeric_results.json"
+      - name: Publish numeric evidence only; do not publish private credentials or image bytes
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: v30-authorized-cloud-numeric-evidence
+          path: |
+            ${{ runner.temp }}/v30_image_sha256.json
+            ${{ runner.temp }}/v30_local_preflight.json
+            ${{ runner.temp }}/v30_numeric_results.json
+          if-no-files-found: warn
+          retention-days: 30
