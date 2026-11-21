@@ -1,0 +1,1425 @@
+{
+  "schema_version": "seer-ppe/direct-original-cross-split-media-candidates/v0.13",
+  "date": "2026-11-21",
+  "target_source_ids": 76,
+  "originals_sha_verified": 76,
+  "original_fetch_or_hash_errors": 0,
+  "previous_dhash_close_edges": 46,
+  "additional_previously_named_site_edges": 4,
+  "cross_split_pairs_compared": 50,
+  "automated_same_frame_candidates": 7,
+  "nonhigh_pixel_pairs_remain_independence_unresolved": 43,
+  "raw_byte_identical_cross_split_pairs": 0,
+  "known_named_school_22may_site_pairs": 4,
+  "human_source_family_verdicts_added": 0,
+  "photographic_source_independence_verified": false,
+  "test_image_bytes_opened": 0,
+  "test_inferences": 0,
+  "original_model_modified": false,
+  "roboflow_images_or_annotations_modified": false,
+  "image_binary_uploaded": false,
+  "scoring_ready": false,
+  "source_errors": [],
+  "pairs": [
+    {
+      "valid_id": "HRYvLu8UFRgGlQQoJN7G",
+      "train_id": "nhXMHxaCM0f7kNLOKU8Z",
+      "valid_filename": "Safety-Glasses-Toolbox-Talk.jpg",
+      "train_filename": "image_719.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 0,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.99757,
+      "rgb_mean_absolute_error": 0.00226,
+      "resize_method": "lanczos",
+      "orb_good_matches": 780,
+      "orb_inliers": 780,
+      "technical_content_consistency": "HIGH_AUTOMATED_EVIDENCE_NOT_FINAL_PHOTO_IDENTITY",
+      "original_dimensions": [
+        1200,
+        800
+      ],
+      "export_dimensions": [
+        1200,
+        800
+      ],
+      "automated_same_frame_candidate": true,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "Mkau5KV4R3oKikuywC3Z",
+      "train_id": "ZaKZ4YEBZd8ZazCHIWjp",
+      "valid_filename": "images13.jpg",
+      "train_filename": "10-kv165-kavsun-brown-original-imagafu3jwrkxact2.jpeg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 0,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.94934,
+      "rgb_mean_absolute_error": 0.01608,
+      "resize_method": "bilinear",
+      "orb_good_matches": 509,
+      "orb_inliers": 509,
+      "technical_content_consistency": "HIGH_AUTOMATED_EVIDENCE_NOT_FINAL_PHOTO_IDENTITY",
+      "original_dimensions": [
+        261,
+        193
+      ],
+      "export_dimensions": [
+        300,
+        222
+      ],
+      "automated_same_frame_candidate": true,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "orMUSm4hS7KXI9Ew0jCz",
+      "train_id": "Qg2Bi6E8AQc5aacor77R",
+      "valid_filename": "h20.jpg",
+      "train_filename": "h2.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 0,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.95548,
+      "rgb_mean_absolute_error": 0.00747,
+      "resize_method": "bilinear",
+      "orb_good_matches": 350,
+      "orb_inliers": 321,
+      "technical_content_consistency": "HIGH_AUTOMATED_EVIDENCE_NOT_FINAL_PHOTO_IDENTITY",
+      "original_dimensions": [
+        225,
+        225
+      ],
+      "export_dimensions": [
+        800,
+        800
+      ],
+      "automated_same_frame_candidate": true,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "sPdt3S9xyB3XzrWa3DaE",
+      "train_id": "x4li7ZpEZqRlWEFBMom3",
+      "valid_filename": "Sapi 7_mp4-223.jpg",
+      "train_filename": "Sapi 7_mp4-224.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 0,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.88008,
+      "rgb_mean_absolute_error": 0.02133,
+      "resize_method": "lanczos",
+      "orb_good_matches": 377,
+      "orb_inliers": 342,
+      "technical_content_consistency": "HIGH_AUTOMATED_EVIDENCE_NOT_FINAL_PHOTO_IDENTITY",
+      "original_dimensions": [
+        1920,
+        1080
+      ],
+      "export_dimensions": [
+        1920,
+        1080
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "5OA6x5qzw8YNcjg3UIn8",
+      "train_id": "h4AUep9cPy95zPci7DYS",
+      "valid_filename": "fridolin_23.jpg",
+      "train_filename": "fridolin_25.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 1,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.66385,
+      "rgb_mean_absolute_error": 0.05244,
+      "resize_method": "lanczos",
+      "orb_good_matches": 575,
+      "orb_inliers": 554,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        480,
+        600
+      ],
+      "export_dimensions": [
+        480,
+        600
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "TBsuPnS1fL27ZV03VWqm",
+      "train_id": "zDkY0VBVHxe1BRvK4FZO",
+      "valid_filename": "image_153-1-.jpg",
+      "train_filename": "image_153.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 1,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.98378,
+      "rgb_mean_absolute_error": 0.00906,
+      "resize_method": "lanczos",
+      "orb_good_matches": 775,
+      "orb_inliers": 771,
+      "technical_content_consistency": "HIGH_AUTOMATED_EVIDENCE_NOT_FINAL_PHOTO_IDENTITY",
+      "original_dimensions": [
+        640,
+        640
+      ],
+      "export_dimensions": [
+        640,
+        480
+      ],
+      "automated_same_frame_candidate": true,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "yeEvdkqXtNgsj7PZFDvI",
+      "train_id": "xyKCHH49Xr7oCONLC9nN",
+      "valid_filename": "IMG-20250416-WA0026.jpg",
+      "train_filename": "IMG-20250416-WA0079.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 1,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.9324,
+      "rgb_mean_absolute_error": 0.01974,
+      "resize_method": "bilinear",
+      "orb_good_matches": 756,
+      "orb_inliers": 751,
+      "technical_content_consistency": "HIGH_AUTOMATED_EVIDENCE_NOT_FINAL_PHOTO_IDENTITY",
+      "original_dimensions": [
+        1920,
+        2560
+      ],
+      "export_dimensions": [
+        960,
+        1280
+      ],
+      "automated_same_frame_candidate": true,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "G5zUHo68mLr7ZdqFSLgT",
+      "train_id": "J8ZfFxuhXVU3H30MjAEp",
+      "valid_filename": "image_314.jpg",
+      "train_filename": "gettyimages-173233703-612x612.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 2,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.86114,
+      "rgb_mean_absolute_error": 0.03574,
+      "resize_method": "bilinear",
+      "orb_good_matches": 225,
+      "orb_inliers": 216,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        683,
+        1024
+      ],
+      "export_dimensions": [
+        408,
+        612
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "KyVAIRsbyvwqi0NdShr1",
+      "train_id": "6VoOPkvjtr3SefLzUwD3",
+      "valid_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٨٢٠.jpg",
+      "train_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٨١٩.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 2,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.09738,
+      "rgb_mean_absolute_error": 0.17707,
+      "resize_method": "lanczos",
+      "orb_good_matches": 259,
+      "orb_inliers": 246,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        3840,
+        2160
+      ],
+      "export_dimensions": [
+        3840,
+        2160
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "FamTszkxp5aOfuAcZwtn",
+      "train_id": "ol5tvzeJJtiq9Ng0oFqC",
+      "valid_filename": "v126.jpg",
+      "train_filename": "v125.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 3,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.88668,
+      "rgb_mean_absolute_error": 0.00749,
+      "resize_method": "bilinear",
+      "orb_good_matches": 43,
+      "orb_inliers": 37,
+      "technical_content_consistency": "HIGH_AUTOMATED_EVIDENCE_NOT_FINAL_PHOTO_IDENTITY",
+      "original_dimensions": [
+        350,
+        197
+      ],
+      "export_dimensions": [
+        354,
+        205
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "fFlWxVQlwpq7Cax8mQvC",
+      "train_id": "J55rqkCtsz8Kg1m0zPxh",
+      "valid_filename": "safety gloves (12).jpg",
+      "train_filename": "safety gloves (33).jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 3,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.40192,
+      "rgb_mean_absolute_error": 0.17897,
+      "resize_method": "bilinear",
+      "orb_good_matches": 9,
+      "orb_inliers": 5,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        221,
+        228
+      ],
+      "export_dimensions": [
+        225,
+        225
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "nc7xQq3eh7ZlwFUhIVaK",
+      "train_id": "g5kRwnDaAIY0OBU74wSX",
+      "valid_filename": "h55.jpg",
+      "train_filename": "h52.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 3,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.80902,
+      "rgb_mean_absolute_error": 0.15853,
+      "resize_method": "lanczos",
+      "orb_good_matches": 123,
+      "orb_inliers": 77,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        700,
+        700
+      ],
+      "export_dimensions": [
+        700,
+        700
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "5OA6x5qzw8YNcjg3UIn8",
+      "train_id": "bZPO37y1muF1nXry6S5D",
+      "valid_filename": "fridolin_23.jpg",
+      "train_filename": "fridolin_26.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 4,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.15405,
+      "rgb_mean_absolute_error": 0.10549,
+      "resize_method": "lanczos",
+      "orb_good_matches": 403,
+      "orb_inliers": 359,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        480,
+        600
+      ],
+      "export_dimensions": [
+        480,
+        600
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "qealvsJAhBFs6A668kak",
+      "train_id": "ngf3QT4XU6cS6p2Kegzy",
+      "valid_filename": "construction-worker-wearing-safety-equipment-19672694.jpg",
+      "train_filename": "image_798.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 4,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.62594,
+      "rgb_mean_absolute_error": 0.08539,
+      "resize_method": "bilinear",
+      "orb_good_matches": 316,
+      "orb_inliers": 270,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        1255,
+        1690
+      ],
+      "export_dimensions": [
+        1020,
+        1390
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "cn4ImFhCWXyO3WBAyu7j",
+      "train_id": "RL8OVshaBWL1hfYvc242",
+      "valid_filename": "------8-_png.jpg",
+      "train_filename": "------8-_png.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 5,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.5775,
+      "rgb_mean_absolute_error": 0.07398,
+      "resize_method": "lanczos",
+      "orb_good_matches": 404,
+      "orb_inliers": 388,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        416,
+        416
+      ],
+      "export_dimensions": [
+        416,
+        416
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "HYXdM58ZQlw148ngAVkT",
+      "train_id": "Eh9VFbSTvNqehhhi9QcD",
+      "valid_filename": "h66.jpg",
+      "train_filename": "h76.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 5,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.72798,
+      "rgb_mean_absolute_error": 0.12012,
+      "resize_method": "bilinear",
+      "orb_good_matches": 4,
+      "orb_inliers": 0,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        426,
+        362
+      ],
+      "export_dimensions": [
+        428,
+        380
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "JNRWoVUmVTR79J3dTolT",
+      "train_id": "XYIgAEWmkpCiGzONrzhE",
+      "valid_filename": "479193535_1047928954046060_85281726465115260_n.jpg",
+      "train_filename": "476736401_1047929380712684_4394812098043037929_n.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 5,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.65868,
+      "rgb_mean_absolute_error": 0.09488,
+      "resize_method": "lanczos",
+      "orb_good_matches": 338,
+      "orb_inliers": 259,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        1080,
+        1080
+      ],
+      "export_dimensions": [
+        1080,
+        1080
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "rjjkVbdcd3dCIoxywUJE",
+      "train_id": "DNfkZRQDetlemze06T6r",
+      "valid_filename": "h39.jpg",
+      "train_filename": "h36.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 5,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.69422,
+      "rgb_mean_absolute_error": 0.19644,
+      "resize_method": "lanczos",
+      "orb_good_matches": 61,
+      "orb_inliers": 54,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        300,
+        300
+      ],
+      "export_dimensions": [
+        300,
+        300
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "rjjkVbdcd3dCIoxywUJE",
+      "train_id": "y1pL7pvPcML2CbzYYqdy",
+      "valid_filename": "h39.jpg",
+      "train_filename": "h34.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 5,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.69885,
+      "rgb_mean_absolute_error": 0.09165,
+      "resize_method": "lanczos",
+      "orb_good_matches": 59,
+      "orb_inliers": 43,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        300,
+        300
+      ],
+      "export_dimensions": [
+        300,
+        300
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "TBsuPnS1fL27ZV03VWqm",
+      "train_id": "ZyQvbdPdlVkXiVfmEP6o",
+      "valid_filename": "image_153-1-.jpg",
+      "train_filename": "image_168.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 5,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.81904,
+      "rgb_mean_absolute_error": 0.06019,
+      "resize_method": "lanczos",
+      "orb_good_matches": 258,
+      "orb_inliers": 251,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        640,
+        640
+      ],
+      "export_dimensions": [
+        640,
+        640
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "HYXdM58ZQlw148ngAVkT",
+      "train_id": "313qZ9KDJDD5lKNMfJxc",
+      "valid_filename": "h66.jpg",
+      "train_filename": "h86.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 6,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.66596,
+      "rgb_mean_absolute_error": 0.13958,
+      "resize_method": "bilinear",
+      "orb_good_matches": 2,
+      "orb_inliers": 0,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        426,
+        362
+      ],
+      "export_dimensions": [
+        440,
+        397
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "kWleWGGhZTrQsxEva3lZ",
+      "train_id": "B9lMDAyDDeSiSqwmfgCd",
+      "valid_filename": "Pantalones (823).jpg",
+      "train_filename": "Pantalones (1762).jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 6,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.7922,
+      "rgb_mean_absolute_error": 0.09101,
+      "resize_method": "bilinear",
+      "orb_good_matches": 13,
+      "orb_inliers": 10,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        474,
+        623
+      ],
+      "export_dimensions": [
+        474,
+        711
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "VQek1aRLrMK3ZpN76R6p",
+      "train_id": "9VyRG8DsRou0hKtpERP9",
+      "valid_filename": "11.jpg",
+      "train_filename": "4.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 6,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.67149,
+      "rgb_mean_absolute_error": 0.12252,
+      "resize_method": "bilinear",
+      "orb_good_matches": 2,
+      "orb_inliers": 0,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        735,
+        649
+      ],
+      "export_dimensions": [
+        589,
+        532
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "eH1Y0Bp2O1MflHqQv6ba",
+      "train_id": "XYIgAEWmkpCiGzONrzhE",
+      "valid_filename": "478595008_1047929187379370_1459944212425990510_n.jpg",
+      "train_filename": "476736401_1047929380712684_4394812098043037929_n.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 7,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.61069,
+      "rgb_mean_absolute_error": 0.15593,
+      "resize_method": "bilinear",
+      "orb_good_matches": 293,
+      "orb_inliers": 214,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        960,
+        960
+      ],
+      "export_dimensions": [
+        1080,
+        1080
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "HYXdM58ZQlw148ngAVkT",
+      "train_id": "osKgd19JvKgJgVk1EBg0",
+      "valid_filename": "h66.jpg",
+      "train_filename": "h62.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 7,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.72344,
+      "rgb_mean_absolute_error": 0.11957,
+      "resize_method": "bilinear",
+      "orb_good_matches": 4,
+      "orb_inliers": 0,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        426,
+        362
+      ],
+      "export_dimensions": [
+        446,
+        372
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "JrXGarMMjf6nk5IrhEVx",
+      "train_id": "IyZzhoLqzQQKGwY0gJWe",
+      "valid_filename": "v133.jpg",
+      "train_filename": "v138.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 7,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.77876,
+      "rgb_mean_absolute_error": 0.06814,
+      "resize_method": "bilinear",
+      "orb_good_matches": 21,
+      "orb_inliers": 3,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        405,
+        220
+      ],
+      "export_dimensions": [
+        384,
+        233
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "nDva2lsHrXl7UAgGq2Nx",
+      "train_id": "w9VxWK9GW7fmH4J6ATFo",
+      "valid_filename": "h54.jpg",
+      "train_filename": "h46.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 7,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.86497,
+      "rgb_mean_absolute_error": 0.07103,
+      "resize_method": "lanczos",
+      "orb_good_matches": 72,
+      "orb_inliers": 64,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        700,
+        700
+      ],
+      "export_dimensions": [
+        700,
+        700
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "D52hyy3k4BQbtqVm6Lmx",
+      "train_id": "WTuCuxbuccI14NYBygrT",
+      "valid_filename": "474410334_122160847028320679_5591083362049053163_n.jpg",
+      "train_filename": "Pantalones (1892).jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.59616,
+      "rgb_mean_absolute_error": 0.23296,
+      "resize_method": "bilinear",
+      "orb_good_matches": 4,
+      "orb_inliers": 0,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        206,
+        309
+      ],
+      "export_dimensions": [
+        474,
+        474
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "ExyFLJF06IpMLJEveIgA",
+      "train_id": "8PBwZuIpEZ7ByWQfBTBz",
+      "valid_filename": "v100.jpg",
+      "train_filename": "v38.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.82361,
+      "rgb_mean_absolute_error": 0.02069,
+      "resize_method": "bilinear",
+      "orb_good_matches": 4,
+      "orb_inliers": 0,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        800,
+        800
+      ],
+      "export_dimensions": [
+        320,
+        320
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "f8Lh7cHa3XXXsl88xpDt",
+      "train_id": "SLZOoYkDhOJhKRpgb4UR",
+      "valid_filename": "v9.jpg",
+      "train_filename": "v31.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.90881,
+      "rgb_mean_absolute_error": 0.03638,
+      "resize_method": "bilinear",
+      "orb_good_matches": 5,
+      "orb_inliers": 0,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        225,
+        225
+      ],
+      "export_dimensions": [
+        800,
+        800
+      ],
+      "automated_same_frame_candidate": true,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "GGGhnGFSERRxQtY1fopB",
+      "train_id": "Eh9VFbSTvNqehhhi9QcD",
+      "valid_filename": "h63.jpg",
+      "train_filename": "h76.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.68079,
+      "rgb_mean_absolute_error": 0.10238,
+      "resize_method": "bilinear",
+      "orb_good_matches": 10,
+      "orb_inliers": 6,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        372,
+        365
+      ],
+      "export_dimensions": [
+        428,
+        380
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "GGGhnGFSERRxQtY1fopB",
+      "train_id": "osKgd19JvKgJgVk1EBg0",
+      "valid_filename": "h63.jpg",
+      "train_filename": "h62.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.67943,
+      "rgb_mean_absolute_error": 0.10898,
+      "resize_method": "bilinear",
+      "orb_good_matches": 17,
+      "orb_inliers": 11,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        372,
+        365
+      ],
+      "export_dimensions": [
+        446,
+        372
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "gN2CIeTPNIhL4OAjMyrL",
+      "train_id": "dpyZXITnqxVpyPOsiAe5",
+      "valid_filename": "istockphoto-1129412914-612x612.jpg",
+      "train_filename": "istockphoto-1359665695-612x612.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.87086,
+      "rgb_mean_absolute_error": 0.05969,
+      "resize_method": "lanczos",
+      "orb_good_matches": 17,
+      "orb_inliers": 6,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        612,
+        408
+      ],
+      "export_dimensions": [
+        612,
+        408
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "grt6fZBL0Z050Ov9p2Do",
+      "train_id": "AmiD6dzDEWAVUi9qNeFl",
+      "valid_filename": "20.jpg",
+      "train_filename": "19.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.19662,
+      "rgb_mean_absolute_error": 0.1745,
+      "resize_method": "lanczos",
+      "orb_good_matches": 302,
+      "orb_inliers": 234,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        3000,
+        4000
+      ],
+      "export_dimensions": [
+        3000,
+        4000
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "jeB2NmucImurFBeFkyIz",
+      "train_id": "Cvh5UIGM4gTaPhriIh4Y",
+      "valid_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+      "train_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.90125,
+      "rgb_mean_absolute_error": 0.01867,
+      "resize_method": "lanczos",
+      "orb_good_matches": 34,
+      "orb_inliers": 26,
+      "technical_content_consistency": "HIGH_AUTOMATED_EVIDENCE_NOT_FINAL_PHOTO_IDENTITY",
+      "original_dimensions": [
+        640,
+        640
+      ],
+      "export_dimensions": [
+        640,
+        640
+      ],
+      "automated_same_frame_candidate": true,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "JNRWoVUmVTR79J3dTolT",
+      "train_id": "sM0Iq9rSnZI0lstqWVqG",
+      "valid_filename": "479193535_1047928954046060_85281726465115260_n.jpg",
+      "train_filename": "8c88dde010778c93ad33e67133178368 - Copy.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.30585,
+      "rgb_mean_absolute_error": 0.21989,
+      "resize_method": "bilinear",
+      "orb_good_matches": 2,
+      "orb_inliers": 0,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        1080,
+        1080
+      ],
+      "export_dimensions": [
+        1202,
+        1280
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "JNRWoVUmVTR79J3dTolT",
+      "train_id": "z3eBPQiyZUYXiG2NWcPK",
+      "valid_filename": "479193535_1047928954046060_85281726465115260_n.jpg",
+      "train_filename": "construction-worker-feet-yellow-helmet-wide-picture-isolated--1-.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.40749,
+      "rgb_mean_absolute_error": 0.37855,
+      "resize_method": "bilinear",
+      "orb_good_matches": 2,
+      "orb_inliers": 0,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        1080,
+        1080
+      ],
+      "export_dimensions": [
+        416,
+        416
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "kWleWGGhZTrQsxEva3lZ",
+      "train_id": "GGBdecMR32zse7H0ZKGf",
+      "valid_filename": "Pantalones (823).jpg",
+      "train_filename": "76e6a65d1d3046e17c6c53ad43e64bb7.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.63366,
+      "rgb_mean_absolute_error": 0.26215,
+      "resize_method": "bilinear",
+      "orb_good_matches": 6,
+      "orb_inliers": 0,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        474,
+        623
+      ],
+      "export_dimensions": [
+        600,
+        900
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "kWleWGGhZTrQsxEva3lZ",
+      "train_id": "WTuCuxbuccI14NYBygrT",
+      "valid_filename": "Pantalones (823).jpg",
+      "train_filename": "Pantalones (1892).jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.65409,
+      "rgb_mean_absolute_error": 0.15904,
+      "resize_method": "bilinear",
+      "orb_good_matches": 7,
+      "orb_inliers": 0,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        474,
+        623
+      ],
+      "export_dimensions": [
+        474,
+        474
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "nDva2lsHrXl7UAgGq2Nx",
+      "train_id": "d4ilB02D7GSSN5ncwwRR",
+      "valid_filename": "h54.jpg",
+      "train_filename": "h8.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.71222,
+      "rgb_mean_absolute_error": 0.07991,
+      "resize_method": "bilinear",
+      "orb_good_matches": 0,
+      "orb_inliers": 0,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        700,
+        700
+      ],
+      "export_dimensions": [
+        225,
+        225
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "orMUSm4hS7KXI9Ew0jCz",
+      "train_id": "rvCpXGasu8UDrfMTenx7",
+      "valid_filename": "h20.jpg",
+      "train_filename": "h126.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.8363,
+      "rgb_mean_absolute_error": 0.17473,
+      "resize_method": "bilinear",
+      "orb_good_matches": 10,
+      "orb_inliers": 4,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        225,
+        225
+      ],
+      "export_dimensions": [
+        960,
+        1034
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "qBtfzUgi6Mpg3A5TE0ln",
+      "train_id": "NAzs8sLreuFWQeOYDa2w",
+      "valid_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+      "train_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.82136,
+      "rgb_mean_absolute_error": 0.03601,
+      "resize_method": "lanczos",
+      "orb_good_matches": 538,
+      "orb_inliers": 538,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        640,
+        640
+      ],
+      "export_dimensions": [
+        640,
+        640
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "TBsuPnS1fL27ZV03VWqm",
+      "train_id": "FSquN9Caaj56UBFJsU44",
+      "valid_filename": "image_153-1-.jpg",
+      "train_filename": "image_166.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.84194,
+      "rgb_mean_absolute_error": 0.05196,
+      "resize_method": "lanczos",
+      "orb_good_matches": 356,
+      "orb_inliers": 340,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        640,
+        640
+      ],
+      "export_dimensions": [
+        640,
+        640
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "TBsuPnS1fL27ZV03VWqm",
+      "train_id": "ZihgdSDzUxIyCGxW1y2d",
+      "valid_filename": "image_153-1-.jpg",
+      "train_filename": "image_166.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.83983,
+      "rgb_mean_absolute_error": 0.05321,
+      "resize_method": "lanczos",
+      "orb_good_matches": 365,
+      "orb_inliers": 345,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        640,
+        640
+      ],
+      "export_dimensions": [
+        640,
+        480
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "WAXK4RuX6gNjApQEww3U",
+      "train_id": "7HKonDN2OKaZ7rvTPTru",
+      "valid_filename": "Pantalones (1902).jpg",
+      "train_filename": "484101059_122203971956217512_8415466978441738563_n.jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.75115,
+      "rgb_mean_absolute_error": 0.16077,
+      "resize_method": "bilinear",
+      "orb_good_matches": 2,
+      "orb_inliers": 0,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        474,
+        592
+      ],
+      "export_dimensions": [
+        1352,
+        2048
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "WAXK4RuX6gNjApQEww3U",
+      "train_id": "B9lMDAyDDeSiSqwmfgCd",
+      "valid_filename": "Pantalones (1902).jpg",
+      "train_filename": "Pantalones (1762).jpg",
+      "evidence_origin": "V06_ORIGINAL_DHASH_LE8",
+      "legacy_dhash_hamming": 8,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.81439,
+      "rgb_mean_absolute_error": 0.13538,
+      "resize_method": "bilinear",
+      "orb_good_matches": 3,
+      "orb_inliers": 0,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        474,
+        592
+      ],
+      "export_dimensions": [
+        474,
+        711
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "0De0PEUDyeg9v1J3T6zr",
+      "train_id": "KrfW3xD7Vvxy6r6wISkv",
+      "valid_filename": "IMG-20250416-WA0063.jpg",
+      "train_filename": "IMG-20250416-WA0067.jpg",
+      "evidence_origin": "PREVIOUSLY_DOCUMENTED_SHARED_NAMED_SITE_22_MAY_SCHOOL",
+      "legacy_dhash_hamming": null,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.28551,
+      "rgb_mean_absolute_error": 0.24436,
+      "resize_method": "opencv_area",
+      "orb_good_matches": 12,
+      "orb_inliers": 7,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        1080,
+        810
+      ],
+      "export_dimensions": [
+        1078,
+        811
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "0De0PEUDyeg9v1J3T6zr",
+      "train_id": "H1KOFc0NQZnWRHJNcHPc",
+      "valid_filename": "IMG-20250416-WA0063.jpg",
+      "train_filename": "IMG-20250416-WA0066(1).jpg",
+      "evidence_origin": "PREVIOUSLY_DOCUMENTED_SHARED_NAMED_SITE_22_MAY_SCHOOL",
+      "legacy_dhash_hamming": null,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.26684,
+      "rgb_mean_absolute_error": 0.22252,
+      "resize_method": "bilinear",
+      "orb_good_matches": 18,
+      "orb_inliers": 14,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        1080,
+        810
+      ],
+      "export_dimensions": [
+        1080,
+        794
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "NZu6Faj6evgINF1qFE0V",
+      "train_id": "KrfW3xD7Vvxy6r6wISkv",
+      "valid_filename": "IMG-20250416-WA0051.jpg",
+      "train_filename": "IMG-20250416-WA0067.jpg",
+      "evidence_origin": "PREVIOUSLY_DOCUMENTED_SHARED_NAMED_SITE_22_MAY_SCHOOL",
+      "legacy_dhash_hamming": null,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.26785,
+      "rgb_mean_absolute_error": 0.214,
+      "resize_method": "opencv_area",
+      "orb_good_matches": 11,
+      "orb_inliers": 9,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        1080,
+        810
+      ],
+      "export_dimensions": [
+        1078,
+        811
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    },
+    {
+      "valid_id": "NZu6Faj6evgINF1qFE0V",
+      "train_id": "H1KOFc0NQZnWRHJNcHPc",
+      "valid_filename": "IMG-20250416-WA0051.jpg",
+      "train_filename": "IMG-20250416-WA0066(1).jpg",
+      "evidence_origin": "PREVIOUSLY_DOCUMENTED_SHARED_NAMED_SITE_22_MAY_SCHOOL",
+      "legacy_dhash_hamming": null,
+      "raw_bytes_equal": false,
+      "source_hashes_both_verified": true,
+      "gray_ssim": 0.21637,
+      "rgb_mean_absolute_error": 0.21857,
+      "resize_method": "bilinear",
+      "orb_good_matches": 27,
+      "orb_inliers": 18,
+      "technical_content_consistency": "FURTHER_REVIEW_NEEDED",
+      "original_dimensions": [
+        1080,
+        810
+      ],
+      "export_dimensions": [
+        1080,
+        794
+      ],
+      "automated_same_frame_candidate": false,
+      "source_independence_established": false,
+      "human_family_verdict_signed": false,
+      "scientific_scoring_eligible": false
+    }
+  ]
+}
