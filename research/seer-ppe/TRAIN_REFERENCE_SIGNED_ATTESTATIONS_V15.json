@@ -1,0 +1,20 @@
+{
+  "schema_version": "seer-ppe/train-only-person-ppe-human-attestation/v0.15",
+  "date": "2026-11-21",
+  "dataset_id": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+  "case_ids": {
+    "B": "87b6cc58-43bd-4583-8b13-bd9b7413c03d",
+    "D": "c197d82e-7870-42a3-bf94-462420d3f6a2"
+  },
+  "case_revisions": {
+    "B": 2,
+    "D": 1
+  },
+  "description": "Only four individually missing B visual fields, and D zero-person human review. These Train pilot cases do not create Validation reference.",
+  "case_B_visual_decisions": [],
+  "case_D_zero_person_decision": null,
+  "reviewer_signatures_fabricated": false,
+  "completed_human_reference": false,
+  "original_eval_cases_modified": false,
+  "scientific_scoring_ready": false
+}

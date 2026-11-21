@@ -1,0 +1,59 @@
+name: SEER-PPE V15 source family and human-attestation cohort readiness
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/V15_COHORT_READINESS_EXECUTION_REQUEST.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  assemble_blocked_non_scoring_cohort:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify synthetic signed-evidence integrity and false-clearance guards
+        run: node research/seer-ppe/tools/compile_v15_source_qualification_and_ppe.mjs --self-test
+      - name: Compile all 459 original Valid source groups and incomplete human decision state
+        run: |
+          node research/seer-ppe/tools/compile_v15_source_qualification_and_ppe.mjs --audit \
+            research/seer-ppe/VALIDATION_459_SIGNED_SOURCE_COHORT_READINESS_V15.json
+      - name: Confirm unsigned scientific freeze is deliberately blocked
+        shell: bash
+        run: |
+          set -euo pipefail
+          if node research/seer-ppe/tools/compile_v15_source_qualification_and_ppe.mjs --gate >/tmp/v15-rejected.txt 2>&1; then
+            echo UNSAFE_V15_UNSIGNED_FREEZE_ACCEPTED >&2
+            exit 2
+          fi
+          grep -q 'V15_FREEZE_GATED_NO_SCIENTIFIC_SCORE' /tmp/v15-rejected.txt
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import fs from 'node:fs';
+          const x=JSON.parse(fs.readFileSync('research/seer-ppe/VALIDATION_459_SIGNED_SOURCE_COHORT_READINESS_V15.json','utf8'));
+          assert.equal(x.clean17_valid_count,459);
+          assert.equal(x.image_rows.length,459);
+          assert.deepEqual(x.source_eligibility_buckets,
+            {historical_holds:5,technical_overlap_quarantine:6,other_source_family_review:81,unflagged_but_unsigned:367});
+          assert.equal(x.per_image_source_family_human_decisions_signed,0);
+          assert.equal(x.train_reference.case_B_missing_visual_cells,4);
+          assert.equal(x.train_reference.case_D_human_confirmed_zero_person,false);
+          assert.equal(x.scoring_ready,false);
+          assert.equal(x.test_images_accessed,false);
+          assert.equal(new Set(x.image_rows.map(z=>z.source_id)).size,459);
+          assert.ok(x.image_rows.every(z=>z.eligible_for_scientific_scoring===false));
+          console.log('SEER_V15_LIVE_459_VALID_SOURCE_FAMILY_AND_HUMAN_GATE_BLOCKED_PASS');
+          JS
+      - name: Commit deterministic source-cohort readiness evidence only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/seer-ppe/VALIDATION_459_SIGNED_SOURCE_COHORT_READINESS_V15.json
+          if git diff --cached --quiet; then echo 'NO_SOURCE_COHORT_CHANGES'; exit 0; fi
+          git commit -m 'research(seer-ppe): snapshot V15 459-source human attestation and science readiness gate'
+          git push origin HEAD:main

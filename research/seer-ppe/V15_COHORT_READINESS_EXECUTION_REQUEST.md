@@ -1,0 +1,3 @@
+# V15 reviewer-proof and frozen-cohort source-readiness audit
+
+Execute entirely read-only from V13/V14 media evidence and V11/V13 canonical reference and freeze records. Audit all 459 Clean17 Valid Source IDs, produce machine-readable per-source human-signoff requirements; verify the five old holds, six technical quarantines, 81 other flagged and 367 unflagged but unsigned source families cannot be automatically scored. The two V15 signing overlays start **empty**; do not assert or impersonate the researcher. No Test, no Roboflow data or model modifications. Intentionally reject --gate with the present unsigned Validation freeze and incomplete human reference.

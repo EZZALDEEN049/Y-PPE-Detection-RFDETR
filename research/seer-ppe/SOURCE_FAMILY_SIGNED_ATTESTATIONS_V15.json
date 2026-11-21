@@ -1,0 +1,13 @@
+{
+  "schema_version": "seer-ppe/source-family-human-attestation-overlay/v0.15",
+  "date": "2026-11-21",
+  "status": "EMPTY_UNTIL_RESEARCHER_SIGNS_EACH_SOURCE_WITH_ORIGINAL_EVIDENCE",
+  "base": "VALIDATION_TECHNICAL_QUARANTINE_V14.json",
+  "semantic_rule": "GENERAL_APPROVAL_OF_IMAGE_QUALITY_IS_NOT_INDEPENDENT_SOURCE_FAMILY_ATTESTATION",
+  "additional_conflict_rule": "OLD_HOLDS_AND_SIX_V14_TECHNICAL_OVERLAP_QUARANTINES_REMAIN_BLOCKED_EVEN_WITH_SIMPLE_INDEPENDENCE_ASSERTION",
+  "evidence_integrity_rule": "evidence_ref and evidence_sha256 must match an existing in-repository item; SHA proves integrity not honesty",
+  "decisions": [],
+  "test_source_ids_used": false,
+  "roboflow_modified": false,
+  "scoring_authorized": false
+}
