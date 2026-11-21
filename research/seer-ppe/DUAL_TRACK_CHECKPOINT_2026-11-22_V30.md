@@ -13,7 +13,7 @@ The manuscript remains v0.27. No progressive XAI result, AUC, or new model-perfo
 - A5/A6: eight selected slots per arm, six shared, two A5-only and two A6-only.
 - Original hosted model remains `altayyar-0oflt-lafos-qqauz/2`, confidence 0.20, overlap 0.50.
 - 8×8 single-cell occlusion map, Gaussian-blur progressive deletion/insertion, random and inverse-saliency controls.
-- Frozen full-run budget: **1,068 original-model calls** (8 baseline + 8 blurred endpoints + 512 map + 540 curve-intermediate calls).
+- Frozen maximum budget: **1,068 original-model calls** (528 fixed baseline/blur/map calls plus 54 intermediate calls per curve-eligible target; fewer if a target map or blurred endpoint is unrankable).
 
 ## Implemented artifacts
 
@@ -23,7 +23,7 @@ The manuscript remains v0.27. No progressive XAI result, AUC, or new model-perfo
 - `tools/run_v30_progressive_xai.py`
 - `tests/test_v30_progressive_xai.py`
 
-The scorer defines a lost target's fixed-target score as zero, while ambiguous matches remain missing and block AUC. It records actual modified pixel area, preserves raw confidence, and clips only the normalized AUC score to [0,1].
+The scorer defines a lost target's fixed-target score as zero, while ambiguous matches remain missing and block AUC. It records actual modified pixel area, preserves raw confidence, and clips only the normalized AUC score to [0,1]. Unrankable maps and ambiguous blurred endpoints receive explicit null curves; other targets continue.
 
 ## Verification performed in this continuation
 
@@ -40,7 +40,7 @@ The scorer defines a lost target's fixed-target score as zero, while ambiguous m
 2. Set `ROBOFLOW_API_KEY` in the local execution environment.
 3. Run `--dry-run` to verify all image filenames and dimensions.
 4. Run `--preflight-only` to verify all ten target reproductions before spending the full budget.
-5. After reviewing preflight, run the 1,068-call V30 job with the explicit budget confirmation.
+5. After reviewing preflight, run the V30 job with the explicit maximum-budget confirmation; actual calls are checked against the number of curve-eligible targets.
 6. Validate all maps, curve points, AUCs, target IDs, and actual call count; archive the numeric result JSON.
 7. Only after actual results are verified, update the manuscript beyond v0.27 and decide whether any V30 claims are supportable.
 
