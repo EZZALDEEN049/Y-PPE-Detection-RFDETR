@@ -1,0 +1,54 @@
+name: SEER-PPE V16 real Train-only detection review cue engineering gate
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/V16_TRAIN_GEOMETRY_REVIEW_EXECUTION_REQUEST.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  non_scoring_train_metadata_review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test synthetic ambiguity, no-person, missing-GT, and Test-injection safeguards
+        run: node research/seer-ppe/tools/review_real_train_detection_geometry_v16.mjs --self-test
+      - name: Read actual Roboflow Train-only metadata; never do new off-Roboflow model inference
+        run: |
+          node research/seer-ppe/tools/review_real_train_detection_geometry_v16.mjs --audit \
+            research/seer-ppe/TRAIN_ONLY_PERSON_PPE_GEOMETRIC_REVIEW_V16.json
+      - name: Assert all 51 actual Train detections remain non-scoring
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const x=JSON.parse(fs.readFileSync('research/seer-ppe/TRAIN_ONLY_PERSON_PPE_GEOMETRIC_REVIEW_V16.json','utf8'));
+          assert.equal(x.original_model_id,'altayyar-0oflt-lafos-qqauz/2');
+          assert.equal(x.totals.detection_candidates,51);
+          assert.equal(x.totals.person_candidates,7);
+          assert.equal(x.cases.length,4);
+          assert.equal(x.automated_person_PPE_compliance_verdicts,0);
+          assert.equal(x.human_validated_PPE_or_person_coverage_count,0);
+          assert.equal(x.scientific_scoring_ready,false);
+          assert.equal(x.developer_test_images,0);
+          assert.equal(x.source_images_or_annotations_modified,false);
+          assert.equal(x.cases.find(y=>y.case==='D').counts.person_candidates,0);
+          assert.equal(x.cases.find(y=>y.case==='D').non_scoring_review_status,'ZERO_DETECTED_PERSONS_HUMAN_SCENE_REVIEW_NEEDED');
+          assert.ok(x.cases.every(y=>y.per_person_candidate_review.every(p=>
+            p.worker_compliance_status==='NOT_ESTIMABLE_POLICY_AND_HUMAN_EVIDENCE_MISSING')));
+          console.log('SEER_V16_REAL_TRAIN_MODEL_OUTPUT_51_CUES_WITH_ZERO_FABRICATED_SAFETY_VERDICTS_PASS');
+          JS
+      - name: Commit only numeric reviewer prompts; never save image bytes or URLs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/seer-ppe/TRAIN_ONLY_PERSON_PPE_GEOMETRIC_REVIEW_V16.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'research(seer-ppe): archive real Train-only 51-detection geometric abstention review cues'
+          git push origin HEAD:main
