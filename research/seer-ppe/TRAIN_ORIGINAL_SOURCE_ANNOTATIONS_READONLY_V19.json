@@ -1,0 +1,662 @@
+{
+  "schema_version": "seer-ppe/live-original-source-annotation-bbox-snapshot/v0.19",
+  "date": "2026-11-21",
+  "read_source": "LIVE_READ_ONLY_ROBOFLOW_ORIGINAL_PROJECT_SOURCE_ANNOTATIONS",
+  "project_id": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "train_cases_only": true,
+  "original_annotations_modified": false,
+  "source_annotation_representation": "Original saved x/y/width/height fields; polygons matched by their saved bounding rectangles",
+  "snapshot_is_independent_gold": false,
+  "note": "Some source annotations have labeledByModel=RFBoxPrompt/v1; preserve this provenance, no independent blind labeling claim",
+  "human_person_ppe_ground_truth_imputed": false,
+  "validation_or_test_annotations_accessed": false,
+  "scoring_ready": false,
+  "summary": {
+    "images": 4,
+    "source_annotated_boxes": 48,
+    "model_assisted_box_markers": 7
+  },
+  "cases": [
+    {
+      "case": "A",
+      "source_image_id": "0jRe8fpRDE5fLgAJrYvT",
+      "filename": "image_604.jpg",
+      "split": "train",
+      "width": 1000,
+      "height": 667,
+      "annotation_group": "objects",
+      "annotation_group_version": 0,
+      "annotation_valid": true,
+      "annotation_state": "ANNOTATED",
+      "annotated_objects": 5,
+      "model_assisted_label_count": 0,
+      "original_source_boxes": [
+        {
+          "annotation_id": "1",
+          "class_name": "Safety Vests",
+          "center_xywh": [
+            563.5,
+            559,
+            638,
+            215
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "2",
+          "class_name": "Goggles",
+          "center_xywh": [
+            474.5,
+            243.5,
+            254,
+            97
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "3",
+          "class_name": "Hard Hat",
+          "center_xywh": [
+            515.5,
+            121.77,
+            423.45,
+            240.55
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "4",
+          "class_name": "Persons",
+          "center_xywh": [
+            558.87,
+            335.77,
+            657.91,
+            662.45
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "5",
+          "class_name": "No Face Mask",
+          "center_xywh": [
+            483.18,
+            349.32,
+            195.45,
+            149.09
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        }
+      ]
+    },
+    {
+      "case": "B",
+      "source_image_id": "0xxsYWiz1FZBYERolu4z",
+      "filename": "000760.jpg",
+      "split": "train",
+      "width": 500,
+      "height": 330,
+      "annotation_group": "objects",
+      "annotation_group_version": 0,
+      "annotation_valid": true,
+      "annotation_state": "ANNOTATED",
+      "annotated_objects": 15,
+      "model_assisted_label_count": 7,
+      "original_source_boxes": [
+        {
+          "annotation_id": "1",
+          "class_name": "Persons",
+          "center_xywh": [
+            225.1,
+            163.7,
+            191.04,
+            264.4
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": "RFBoxPrompt/v1"
+        },
+        {
+          "annotation_id": "2",
+          "class_name": "Persons",
+          "center_xywh": [
+            330.32,
+            171.02,
+            70.19,
+            179.08
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": "RFBoxPrompt/v1"
+        },
+        {
+          "annotation_id": "3",
+          "class_name": "Hard Hat",
+          "center_xywh": [
+            235.23,
+            55.42,
+            37.93,
+            43.64
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": "RFBoxPrompt/v1"
+        },
+        {
+          "annotation_id": "4",
+          "class_name": "Hard Hat",
+          "center_xywh": [
+            309.08,
+            92.04,
+            24.66,
+            22.72
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": "RFBoxPrompt/v1"
+        },
+        {
+          "annotation_id": "5",
+          "class_name": "Pants",
+          "center_xywh": [
+            334.23,
+            214.36,
+            51.51,
+            72.2
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": "RFBoxPrompt/v1"
+        },
+        {
+          "annotation_id": "6",
+          "class_name": "Gloves",
+          "center_xywh": [
+            240.68,
+            141.93,
+            28.64,
+            22.95
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "7",
+          "class_name": "Gloves",
+          "center_xywh": [
+            145,
+            63.3,
+            30,
+            27.5
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "8",
+          "class_name": "No Safety Attire",
+          "center_xywh": [
+            264.55,
+            216.25,
+            91.82,
+            127.95
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "9",
+          "class_name": "Gloves",
+          "center_xywh": [
+            346.92,
+            133.06,
+            14.27,
+            13.53
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": "RFBoxPrompt/v1"
+        },
+        {
+          "annotation_id": "A",
+          "class_name": "Gloves",
+          "center_xywh": [
+            336.43,
+            171.88,
+            11.71,
+            11.31
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": "RFBoxPrompt/v1"
+        },
+        {
+          "annotation_id": "K",
+          "class_name": "Safety Boots",
+          "center_xywh": [
+            358.64,
+            256.02,
+            21.82,
+            21.14
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "L",
+          "class_name": "Safety Boots",
+          "center_xywh": [
+            284.36,
+            284.51,
+            23.73,
+            22.53
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "M",
+          "class_name": "Safety Boots",
+          "center_xywh": [
+            217.66,
+            284.07,
+            32.17,
+            21.64
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "N",
+          "class_name": "No Safety Vest",
+          "center_xywh": [
+            248.18,
+            106.88,
+            85.45,
+            57.39
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "O",
+          "class_name": "No Safety Vest",
+          "center_xywh": [
+            321.36,
+            141.19,
+            28.18,
+            58.75
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        }
+      ]
+    },
+    {
+      "case": "C",
+      "source_image_id": "0jGu9euJp1MbvkLtfBcs",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "split": "train",
+      "width": 2048,
+      "height": 1365,
+      "annotation_group": "objects",
+      "annotation_group_version": 0,
+      "annotation_valid": true,
+      "annotation_state": "ANNOTATED",
+      "annotated_objects": 27,
+      "model_assisted_label_count": 0,
+      "original_source_boxes": [
+        {
+          "annotation_id": "1",
+          "class_name": "Persons",
+          "center_xywh": [
+            1313,
+            776.57,
+            216,
+            277.14
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "2",
+          "class_name": "Persons",
+          "center_xywh": [
+            1023,
+            713.55,
+            204,
+            311.11
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "3",
+          "class_name": "Persons",
+          "center_xywh": [
+            890.75,
+            694.32,
+            156.5,
+            437.63
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "4",
+          "class_name": "Persons",
+          "center_xywh": [
+            587,
+            620.03,
+            164,
+            334.06
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "5",
+          "class_name": "Safety Vests",
+          "center_xywh": [
+            877,
+            642.5,
+            102,
+            173
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "6",
+          "class_name": "Safety Vests",
+          "center_xywh": [
+            581,
+            594,
+            68,
+            92
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "7",
+          "class_name": "Safety Vests",
+          "center_xywh": [
+            990.5,
+            693.5,
+            105,
+            137
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "8",
+          "class_name": "Safety Vests",
+          "center_xywh": [
+            1323,
+            806,
+            64,
+            62
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "9",
+          "class_name": "No Safety Attire",
+          "center_xywh": [
+            878,
+            804.5,
+            100,
+            163
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "A",
+          "class_name": "No Safety Attire",
+          "center_xywh": [
+            590,
+            678.5,
+            80,
+            101
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "C",
+          "class_name": "Hard Hat",
+          "center_xywh": [
+            1271.5,
+            684.5,
+            55,
+            33
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "D",
+          "class_name": "Hard Hat",
+          "center_xywh": [
+            1068,
+            631.5,
+            50,
+            57
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "E",
+          "class_name": "Hard Hat",
+          "center_xywh": [
+            898.5,
+            537,
+            57,
+            50
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "F",
+          "class_name": "Hard Hat",
+          "center_xywh": [
+            589.5,
+            527.5,
+            35,
+            23
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "G",
+          "class_name": "Gloves",
+          "center_xywh": [
+            871,
+            715,
+            38,
+            72
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "H",
+          "class_name": "Gloves",
+          "center_xywh": [
+            547.5,
+            653,
+            19,
+            34
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "I",
+          "class_name": "Gloves",
+          "center_xywh": [
+            604,
+            625,
+            28,
+            42
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "J",
+          "class_name": "Gloves",
+          "center_xywh": [
+            1163.5,
+            764,
+            65,
+            28
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "K",
+          "class_name": "Gloves",
+          "center_xywh": [
+            1052.5,
+            746.5,
+            85,
+            65
+          ],
+          "annotation_shape": "POLYGON_BBOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "M",
+          "class_name": "No Safety Attire",
+          "center_xywh": [
+            990.86,
+            779.62,
+            84.57,
+            121.52
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "N",
+          "class_name": "No Safety Attire",
+          "center_xywh": [
+            1272.09,
+            821.2,
+            84.19,
+            127.55
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "O",
+          "class_name": "No Face Mask",
+          "center_xywh": [
+            903.22,
+            583.71,
+            17.56,
+            17.81
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "P",
+          "class_name": "No Face Mask",
+          "center_xywh": [
+            1065.59,
+            670.6,
+            28.81,
+            22.27
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "Q",
+          "class_name": "No Safety Boots",
+          "center_xywh": [
+            1226.23,
+            848.99,
+            49.79,
+            60.38
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "R",
+          "class_name": "No Safety Boots",
+          "center_xywh": [
+            996.07,
+            845.99,
+            44.13,
+            39.71
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "S",
+          "class_name": "No Safety Boots",
+          "center_xywh": [
+            571.07,
+            733.99,
+            34.87,
+            25.79
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "T",
+          "class_name": "No Safety Boots",
+          "center_xywh": [
+            601.71,
+            734.08,
+            21.59,
+            16.88
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        }
+      ]
+    },
+    {
+      "case": "D",
+      "source_image_id": "0oVmRAxL0SM1PWqZCNyM",
+      "filename": "h1.jpg",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "annotation_group": "objects",
+      "annotation_group_version": 0,
+      "annotation_valid": true,
+      "annotation_state": "ANNOTATED",
+      "annotated_objects": 1,
+      "model_assisted_label_count": 0,
+      "original_source_boxes": [
+        {
+          "annotation_id": "1",
+          "class_name": "Hard Hat",
+          "center_xywh": [
+            511.28,
+            350.05,
+            950.55,
+            660.11
+          ],
+          "annotation_shape": "BOX",
+          "labeled_by_model": null
+        }
+      ]
+    }
+  ]
+}
