@@ -34,5 +34,5 @@
 - Froze V30 target-specific progressive XAI protocol and ten-target manifest, reusing V27/V28 target IDs and archived baseline geometry without target reselection.
 - Added 8×8 single-cell occlusion maps, progressive deletion/insertion curves, random and inverse-saliency controls, and trapezoidal AUC implementation.
 - Added a guarded local RF-DETR hosted-inference runner with an explicit 1,068-call confirmation requirement; local source images are not committed.
-- Added eight synthetic V30 tests and CI coverage. All eight passed locally; Python syntax compilation passed.
+- Added nine synthetic V30 tests and CI coverage. All nine passed locally; Python syntax compilation passed. Unrankable target maps and ambiguous blurred endpoints fail closed with explicit null curves.
 - Actual V30 model calls remain zero pending the local image bundle and Roboflow API key. Manuscript remains v0.27; no progressive XAI or worker-safety efficacy result is claimed.
