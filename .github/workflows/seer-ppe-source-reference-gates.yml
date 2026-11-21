@@ -212,6 +212,16 @@ jobs:
           node research/seer-ppe/tools/paired_train_policy_trace_v17.mjs --audit /tmp/seer-v17-paired.json > /tmp/seer-v17-paired.log
           cmp research/seer-ppe/PAIRED_TRAIN_DETECTOR_POLICY_TRACE_V17.json /tmp/seer-v17-paired.json
           grep -q 'SEER_V17_PAIRED_TRAIN_OFFLINE_NOT_SCIENTIFIC_SCORE_PASS' /tmp/seer-v17-paired.log
+      - name: Verify V19 original author box scores and risk strata against numeric snapshots
+        run: |
+          node research/seer-ppe/tools/score_original_train_boxes_v19.mjs --self-test
+          node research/seer-ppe/tools/score_original_train_boxes_v19.mjs --audit /tmp/seer-v19-matching.json > /tmp/seer-v19-matching.log
+          cmp research/seer-ppe/TRAIN_SOURCE_LABEL_DETECTION_NUMERIC_PREFLIGHT_V19.json /tmp/seer-v19-matching.json
+          grep -q 'SEER_V19_ACTUAL_ORIGINAL_TRAIN_ANNOTATION_MATCH_READ_ONLY_PASS' /tmp/seer-v19-matching.log
+          node research/seer-ppe/tools/compute_validation_source_sensitivity_v19.mjs --self-test
+          node research/seer-ppe/tools/compute_validation_source_sensitivity_v19.mjs --audit /tmp/seer-v19-overlap.json > /tmp/seer-v19-overlap.log
+          cmp research/seer-ppe/VALIDATION_SOURCE_OVERLAP_NUMERIC_SENSITIVITY_V19.json /tmp/seer-v19-overlap.json
+          grep -q 'SEER_V19_SOURCE_METADATA_ONLY_STRATIFICATION_NOT_INDEPENDENT_PASS' /tmp/seer-v19-overlap.log
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'
