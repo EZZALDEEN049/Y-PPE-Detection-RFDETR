@@ -1,6 +1,6 @@
 # SEER-PPE V30 — cloud-only execution (no local workstation)
 
-**Date:** 22 November 2026. **Status:** cloud runner and read-only image-downloader prepared. This file is a runbook, not a claim that the progressive XAI experiment has completed.
+**Date:** 22 November 2026. **Status:** cloud runner and image-downloader executed successfully in [GitHub Actions 44962342687](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44962342687). This file is a runbook, not a claim that the progressive XAI experiment has completed.
 
 ## Goal
 
@@ -45,4 +45,4 @@ The public Roboflow source URL may stop serving the original bytes or impose acc
 
 Passing the cloud download and dry-run checks is **infrastructure readiness**. It does not supply saliency maps, deletion/insertion AUC, A5/A6 superiority, person-level compliance or safety impact. The manuscript stays v0.27 until actual model perturbations are run and audited.
 
-**No local computer setup is needed for this GitHub Actions path.**
+**No local computer setup is needed for this GitHub Actions path.** The automatic safe cloud check downloaded all eight frozen original images, computed hashes, and passed `--dry-run` and `--preflight-only`, with no new model inference. Archive: [V30_CLOUD_PREFLIGHT_ACTUAL_2026-11-22.json](V30_CLOUD_PREFLIGHT_ACTUAL_2026-11-22.json).
