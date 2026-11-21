@@ -44,3 +44,9 @@
 - Archived inference IDs, target detection IDs, prediction counts and timings in `V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json`; no raw image bytes or credentials committed.
 - Updated the V30 runner to reuse the completed baseline record and avoid eight duplicate calls. Total budget remains 1,068, with at most 1,060 additional calls.
 - Progressive occlusion, deletion/insertion curves and AUC remain unexecuted; local image SHA-256 verification and full-run execution are still pending. Manuscript remains v0.27.
+
+## v0.9 — 2026-11-22
+- Created cloud-only V30 GitHub Actions workflow and read-only frozen-image downloader; raw images stay on an ephemeral hosted runner, never in GitHub commits or artifacts.
+- [Cloud run 44962342687](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44962342687) succeeded: fetched all 8 original Roboflow sources, checked filenames/splits/asset IDs/dimensions, computed SHA-256 hashes, and passed dry-run and local-bundle preflight.
+- Archived a numeric-only cloud preflight ledger: `V30_CLOUD_PREFLIGHT_ACTUAL_2026-11-22.json`. No cloud perturbation inference was triggered; V30 remains 8/1,068 model calls.
+- Actual progressive XAI remains an explicit user-authorized manual Actions run, requiring `ROBOFLOW_API_KEY` as a repository secret and approval of the remaining 1,060-call maximum. No local workstation setup needed.
