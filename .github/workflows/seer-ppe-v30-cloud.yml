@@ -1,0 +1,96 @@
+name: SEER-PPE V30 cloud-only XAI (manual full run)
+
+on:
+  push:
+    branches:
+      - 'research/v30-progressive-xai-2026-11-22'
+    paths:
+      - '.github/workflows/seer-ppe-v30-cloud.yml'
+      - 'research/seer-ppe/tools/fetch_v30_originals_cloud.py'
+      - 'research/seer-ppe/tools/run_v30_progressive_xai.py'
+      - 'research/seer-ppe/V30_FROZEN_TARGETS_2026-11-22.json'
+      - 'research/seer-ppe/V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json'
+  workflow_dispatch:
+    inputs:
+      run_progressive:
+        type: boolean
+        description: 'Enable actual V30 perturbation inference (at most 1,060 new model calls)'
+        required: true
+        default: false
+      confirm_budget:
+        type: string
+        description: 'For actual inference only, type 1068 to confirm full V30 call cap (8 already used)'
+        required: false
+        default: 'not-authorized'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seer-ppe-v30-cloud-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  cloud_v30:
+    name: Download frozen images to ephemeral cloud runner; optionally run XAI
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install cloud XAI runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pillow inference-sdk
+      - name: Download only eight frozen Roboflow original images
+        run: |
+          set -euo pipefail
+          mkdir -p "${RUNNER_TEMP}/v30_originals"
+          python research/seer-ppe/tools/fetch_v30_originals_cloud.py \
+            --destination "${RUNNER_TEMP}/v30_originals" \
+            --hashes-output "${RUNNER_TEMP}/v30_image_sha256.json"
+      - name: Verify image filenames and dimensions (no model inference)
+        run: |
+          set -euo pipefail
+          python research/seer-ppe/tools/run_v30_progressive_xai.py \
+            --images-dir "${RUNNER_TEMP}/v30_originals" --dry-run
+      - name: Verify downloaded images against frozen connector baseline (no model inference)
+        run: |
+          set -euo pipefail
+          python research/seer-ppe/tools/run_v30_progressive_xai.py \
+            --images-dir "${RUNNER_TEMP}/v30_originals" --preflight-only \
+            --output "${RUNNER_TEMP}/v30_local_preflight.json"
+      - name: Confirm safe manual execution gate
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_progressive }}
+        run: |
+          if [ "${{ inputs.confirm_budget }}" != "1068" ]; then
+            echo "::error::V30 full run blocked: confirm_budget must equal 1068."
+            exit 1
+          fi
+      - name: Run actual V30 progressive XAI on cloud runner
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_progressive && inputs.confirm_budget == '1068' }}
+        env:
+          ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${ROBOFLOW_API_KEY}" ]; then
+            echo "::error::Set repository Actions secret ROBOFLOW_API_KEY before the full run."
+            exit 1
+          fi
+          python research/seer-ppe/tools/run_v30_progressive_xai.py \
+            --images-dir "${RUNNER_TEMP}/v30_originals" \
+            --confirm-model-call-budget 1068 \
+            --output "${RUNNER_TEMP}/v30_numeric_results.json"
+      - name: Upload numeric evidence only; never upload original images or API keys
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: v30-cloud-numeric-evidence
+          path: |
+            ${{ runner.temp }}/v30_image_sha256.json
+            ${{ runner.temp }}/v30_local_preflight.json
+            ${{ runner.temp }}/v30_numeric_results.json
+          if-no-files-found: warn
+          retention-days: 30
