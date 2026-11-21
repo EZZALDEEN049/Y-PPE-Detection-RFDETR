@@ -23,7 +23,9 @@
     "provider_reported_time_available": false,
     "provider_reported_time_count": 0,
     "mean_provider_reported_inference_seconds": null,
-    "median_provider_reported_inference_seconds": null
+    "median_provider_reported_inference_seconds": null,
+    "prediction_payloads_returned": 10,
+    "prediction_count_recorded": false
   },
   "by_image": [
     {
@@ -87,12 +89,14 @@
       "image_height": 667,
       "request_roundtrip_ms": 1835,
       "provider_reported_inference_seconds": null,
-      "prediction_count": 0,
+      "prediction_count": null,
       "inference_id": null,
       "response_keys": [
         "model_id",
         "result"
-      ]
+      ],
+      "prediction_payload_returned": true,
+      "prediction_count_status": "not parsed from nested result envelope; zero is not a valid count"
     },
     {
       "call_index": 2,
@@ -103,12 +107,14 @@
       "image_height": 330,
       "request_roundtrip_ms": 1415,
       "provider_reported_inference_seconds": null,
-      "prediction_count": 0,
+      "prediction_count": null,
       "inference_id": null,
       "response_keys": [
         "model_id",
         "result"
-      ]
+      ],
+      "prediction_payload_returned": true,
+      "prediction_count_status": "not parsed from nested result envelope; zero is not a valid count"
     },
     {
       "call_index": 3,
@@ -119,12 +125,14 @@
       "image_height": 1365,
       "request_roundtrip_ms": 1668,
       "provider_reported_inference_seconds": null,
-      "prediction_count": 0,
+      "prediction_count": null,
       "inference_id": null,
       "response_keys": [
         "model_id",
         "result"
-      ]
+      ],
+      "prediction_payload_returned": true,
+      "prediction_count_status": "not parsed from nested result envelope; zero is not a valid count"
     },
     {
       "call_index": 4,
@@ -135,12 +143,14 @@
       "image_height": 1000,
       "request_roundtrip_ms": 1523,
       "provider_reported_inference_seconds": null,
-      "prediction_count": 0,
+      "prediction_count": null,
       "inference_id": null,
       "response_keys": [
         "model_id",
         "result"
-      ]
+      ],
+      "prediction_payload_returned": true,
+      "prediction_count_status": "not parsed from nested result envelope; zero is not a valid count"
     },
     {
       "call_index": 5,
@@ -151,12 +161,14 @@
       "image_height": 903,
       "request_roundtrip_ms": 1539,
       "provider_reported_inference_seconds": null,
-      "prediction_count": 0,
+      "prediction_count": null,
       "inference_id": null,
       "response_keys": [
         "model_id",
         "result"
-      ]
+      ],
+      "prediction_payload_returned": true,
+      "prediction_count_status": "not parsed from nested result envelope; zero is not a valid count"
     },
     {
       "call_index": 6,
@@ -167,12 +179,14 @@
       "image_height": 903,
       "request_roundtrip_ms": 1383,
       "provider_reported_inference_seconds": null,
-      "prediction_count": 0,
+      "prediction_count": null,
       "inference_id": null,
       "response_keys": [
         "model_id",
         "result"
-      ]
+      ],
+      "prediction_payload_returned": true,
+      "prediction_count_status": "not parsed from nested result envelope; zero is not a valid count"
     },
     {
       "call_index": 7,
@@ -183,12 +197,14 @@
       "image_height": 1000,
       "request_roundtrip_ms": 1415,
       "provider_reported_inference_seconds": null,
-      "prediction_count": 0,
+      "prediction_count": null,
       "inference_id": null,
       "response_keys": [
         "model_id",
         "result"
-      ]
+      ],
+      "prediction_payload_returned": true,
+      "prediction_count_status": "not parsed from nested result envelope; zero is not a valid count"
     },
     {
       "call_index": 8,
@@ -199,12 +215,14 @@
       "image_height": 1365,
       "request_roundtrip_ms": 1608,
       "provider_reported_inference_seconds": null,
-      "prediction_count": 0,
+      "prediction_count": null,
       "inference_id": null,
       "response_keys": [
         "model_id",
         "result"
-      ]
+      ],
+      "prediction_payload_returned": true,
+      "prediction_count_status": "not parsed from nested result envelope; zero is not a valid count"
     },
     {
       "call_index": 9,
@@ -215,12 +233,14 @@
       "image_height": 330,
       "request_roundtrip_ms": 1413,
       "provider_reported_inference_seconds": null,
-      "prediction_count": 0,
+      "prediction_count": null,
       "inference_id": null,
       "response_keys": [
         "model_id",
         "result"
-      ]
+      ],
+      "prediction_payload_returned": true,
+      "prediction_count_status": "not parsed from nested result envelope; zero is not a valid count"
     },
     {
       "call_index": 10,
@@ -231,12 +251,14 @@
       "image_height": 667,
       "request_roundtrip_ms": 1407,
       "provider_reported_inference_seconds": null,
-      "prediction_count": 0,
+      "prediction_count": null,
       "inference_id": null,
       "response_keys": [
         "model_id",
         "result"
-      ]
+      ],
+      "prediction_payload_returned": true,
+      "prediction_count_status": "not parsed from nested result envelope; zero is not a valid count"
     }
   ],
   "limitations": {
@@ -246,6 +268,7 @@
     "physical_energy_joules_not_measured": true,
     "financial_credit_or_usd_cost_not_available": true,
     "source_independence_verified": false,
-    "no_test_accessed": true
+    "no_test_accessed": true,
+    "prediction_count_not_recorded_due_nested_response_envelope": true
   }
 }
