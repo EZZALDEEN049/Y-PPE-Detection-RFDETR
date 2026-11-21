@@ -66,7 +66,7 @@ Compute trapezoidal AUC over actual pixel-area fractions:
 | Original-image baselines: 8 images | 8 |
 | Fully blurred endpoints: 8 images | 8 |
 | Single-cell grid occlusion: 8 images × 64 cells | 512 |
-| Intermediate curve points: 10 targets × 3 orders × 2 directions × 9 interior steps | 540 |
+| Intermediate curve points: up to 10 targets × 3 orders × 2 directions × 9 interior steps | up to 540 |
 | **Maximum original-model calls** | **1,068** |
 
 The 0% and 100% endpoints are shared and are not re-inferred per ordering. The maximum is 1,068 calls. The fixed baseline/blur/map portion is 528 calls; each curve-eligible target adds 54 intermediate calls. If a target map or blurred endpoint is unrankable, its curves are skipped and the actual call count is lower. The runner checks the exact formula and never exceeds the maximum. An explicit command-line confirmation is required before the full run. No additional inference is authorized by this frozen protocol.
