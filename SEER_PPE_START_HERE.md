@@ -18,6 +18,7 @@ https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/blob/main/SEER_PPE_START_
 
 ### نسخ Word القابلة للتعديل / Download editable DOCX
 
+- **[تنزيل أحدث نسخة Word كاملة — manuscript v0.25](research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.25_2026-11-21.docx)** — includes actual V25 A2/A5 routing results, tested code evidence, discussion and Appendix Q.
 - **[تنزيل أحدث نسخة Word كاملة للورقة العلمية — manuscript v0.24](research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.24_2026-11-21.docx)** — includes original-Source V22/V23 results, reviewed recent literature, selected references, and Appendix P.
 - **[تنزيل الورقة العلمية الكاملة بصيغة Word — manuscript v0.20](research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.20_2026-11-21.docx)**
 - **[تنزيل تقرير التسليم والاستئناف الشامل بصيغة Word — V21](research/seer-ppe/exports/SEER_PPE_Complete_Research_Handoff_V21_2026-11-21.docx)**
