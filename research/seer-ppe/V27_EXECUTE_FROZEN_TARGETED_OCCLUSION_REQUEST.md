@@ -9,3 +9,5 @@ Primary comparison is A5 versus A6, both one target per image, one proposed revi
 Target-freeze CI trigger: regenerate the manifest from the already committed V16/V23/V25/V26 artifacts and verify all 10 A5/A6 targets before any new model call.
 
 Workflow-spec builder update: generate the ten exact target/control Roboflow Workflow specs from the frozen manifest and archive them without executing inference.
+
+Apply the pre-outcome [V27 execution technical amendment](V27_EXECUTION_TECHNICAL_AMENDMENT_2026-11-21.md): target isolation uses class, confidence and four supported box-edge properties only. The original frozen target manifest remains unchanged; do not widen tolerances.
