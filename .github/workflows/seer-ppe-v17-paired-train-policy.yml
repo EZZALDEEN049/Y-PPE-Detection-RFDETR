@@ -1,0 +1,61 @@
+name: SEER-PPE V17 paired original detector vs conservative policy (Train offline only)
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/V17_PAIRED_TRAIN_POLICY_REQUEST.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  paired_train_read_only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fail-closed synthetic boundary and cross-arm pairing checks
+        run: node research/seer-ppe/tools/paired_train_policy_trace_v17.mjs --self-test
+      - name: Regenerate trace strictly from existing original model Train outputs
+        run: |
+          node research/seer-ppe/tools/paired_train_policy_trace_v17.mjs --audit \
+            research/seer-ppe/PAIRED_TRAIN_DETECTOR_POLICY_TRACE_V17.json
+      - name: Assert zero scientific scoring, unsafe clearance, review dispatches or XAI
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const x=JSON.parse(fs.readFileSync('research/seer-ppe/PAIRED_TRAIN_DETECTOR_POLICY_TRACE_V17.json','utf8'));
+          assert.equal(x.totals.real_original_train_images_reused,4);
+          assert.equal(x.totals.raw_model_detections,51);
+          assert.equal(x.totals.person_box_candidates_not_verified_people,7);
+          assert.equal(x.totals.typed_ppe_cues_review_suggested_not_sent,38);
+          assert.equal(x.totals.geometry_single_owner_proposals_not_verified,34);
+          assert.equal(x.totals.ambiguous_or_unassigned_ppe,4);
+          assert.equal(x.eligible_scientific_validation_source_images,0);
+          assert.equal(x.totals.unsafe_scene_clearances,0);
+          assert.equal(x.totals.worker_compliance_verdicts,0);
+          assert.equal(x.detector_inference_calls_new_in_v17,0);
+          assert.equal(x.XAI_calls_new_in_v17,0);
+          assert.equal(x.human_review_requests_dispatched,0);
+          assert.equal(x.paired_benefit_or_safety_superiority_measured,false);
+          assert.equal(x.scoring_ready,false);
+          assert.equal(x.protected_test_read_or_used,false);
+          assert.equal(x.cases.find(c=>c.case==='D').detector_person_candidates,0);
+          assert.ok(x.cases.every(c=>c.A0_baseline.raw_detection_ids.length===c.raw_detected_boxes));
+          assert.ok(x.cases.every(c=>c.A5_SEER_offline_proposal.typed_cues.every(t=>
+            t.A0_original_detector_only.cue_id===t.A5_offline_SEER_policy_proposal.input_cue_id)));
+          console.log('SEER_V17_SAME_DETECTOR_INPUT_ZERO_CLEARANCE_NO_METRIC_CI_PASS');
+          JS
+      - name: Store read-only numeric paired policy trace (no media or credentials)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/seer-ppe/PAIRED_TRAIN_DETECTOR_POLICY_TRACE_V17.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'research(seer-ppe): archive V17 paired Train detector policy dry-run numeric trace'
+          git pull --rebase origin main
+          git push origin HEAD:main
