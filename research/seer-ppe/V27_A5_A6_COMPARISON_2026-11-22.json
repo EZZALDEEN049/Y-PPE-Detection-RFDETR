@@ -1,0 +1,384 @@
+{
+  "schema_version": "seer-ppe/v27-a5-a6-matched-budget-occlusion-and-postselection-detection-alignment/v0.27",
+  "date": "2026-11-22",
+  "protocol": "V27_FROZEN_TARGETED_OCCLUSION_AND_A6_COMPARATOR_PROTOCOL_2026-11-21.md",
+  "inputs": {
+    "frozen_targets": {
+      "path": "V27_FROZEN_TARGETS_2026-11-21.json",
+      "blob_sha": "712488561234d98b31f6e58ca5f1c9d738cc0bc5"
+    },
+    "actual_occlusion_results": {
+      "path": "V27_ACTUAL_TARGETED_OCCLUSION_RESULTS_2026-11-22.json",
+      "blob_sha": "efcb19a05dfb57470ea2ff1774f40b55fb8b29b6"
+    },
+    "postselection_v23_match_ledger": {
+      "path": "VALID_CURRENT_SOURCE_REAL_MODEL_BOX_MATCH_V23.json",
+      "blob_sha": "78bdaf72cf3a4dc345eda58f55d1493626287b09"
+    }
+  },
+  "model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "equal_budget": {
+    "A5_selected_target_slots": 8,
+    "A6_selected_target_slots": 8,
+    "shared_target_slots": 6,
+    "unique_A5_targets": 2,
+    "unique_A6_targets": 2,
+    "image_level_disagreements": [
+      {
+        "image_key": "train:C",
+        "filename": "Kathiah Gets a Chance03.jpg",
+        "A5": {
+          "target_id": "35e4de96-de91-46a1-910f-89738f80e053",
+          "class_name": "No Safety Boots"
+        },
+        "A6": {
+          "target_id": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+          "class_name": "Face Masks"
+        }
+      },
+      {
+        "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+        "filename": "imagem40.jpg",
+        "A5": {
+          "target_id": "5d2a56b6-4b76-4206-afd0-51e1e4c28d8e",
+          "class_name": "No Face Mask"
+        },
+        "A6": {
+          "target_id": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+          "class_name": "Safety Vests"
+        }
+      }
+    ],
+    "no_target_image_count": 1,
+    "union_target_occlusion_tests": 10
+  },
+  "xai_arm_comparison": {
+    "A5": {
+      "selected_slots": 8,
+      "target_detection_lost": 7,
+      "target_detection_retained": 1,
+      "mean_baseline_confidence": 0.759013,
+      "mean_target_confidence_drop": 0.641018,
+      "controlled_targets": 5,
+      "mean_control_confidence_drop": 0.009952,
+      "mean_specificity_margin": 0.64506,
+      "valid_selected_targets": 4,
+      "valid_selected_detection_TP": 4,
+      "valid_selected_detection_FP": 0,
+      "selected_targets": [
+        {
+          "image_key": "train:A",
+          "filename": "image_604.jpg",
+          "split": "train",
+          "target_id": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+          "target_class": "No Face Mask",
+          "baseline_confidence": 0.8801664710044861,
+          "target_confidence_after_occlusion": 0,
+          "target_confidence_drop": 0.8801664710044861,
+          "target_detection_retained": false,
+          "control_confidence_drop": 0.009838998317718506,
+          "specificity_margin": 0.8703274726867676,
+          "v23_post_selection_detection_status": null,
+          "v23_bbox_iou": null
+        },
+        {
+          "image_key": "train:B",
+          "filename": "000760.jpg",
+          "split": "train",
+          "target_id": "1b2af685-6965-4986-9d35-258b036e5882",
+          "target_class": "Gloves",
+          "baseline_confidence": 0.3109840154647827,
+          "target_confidence_after_occlusion": 0,
+          "target_confidence_drop": 0.3109840154647827,
+          "target_detection_retained": false,
+          "control_confidence_drop": 0.025345981121063232,
+          "specificity_margin": 0.2856380343437195,
+          "v23_post_selection_detection_status": null,
+          "v23_bbox_iou": null
+        },
+        {
+          "image_key": "train:C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "split": "train",
+          "target_id": "35e4de96-de91-46a1-910f-89738f80e053",
+          "target_class": "No Safety Boots",
+          "baseline_confidence": 0.3506709635257721,
+          "target_confidence_after_occlusion": 0,
+          "target_confidence_drop": 0.3506709635257721,
+          "target_detection_retained": false,
+          "control_confidence_drop": 0.03198879957199097,
+          "specificity_margin": 0.31868216395378113,
+          "v23_post_selection_detection_status": null,
+          "v23_bbox_iou": null
+        },
+        {
+          "image_key": "train:D",
+          "filename": "h1.jpg",
+          "split": "train",
+          "target_id": "7a101411-15e7-457a-842a-0e61be4f1f11",
+          "target_class": "Hard Hat",
+          "baseline_confidence": 0.9647238850593567,
+          "target_confidence_after_occlusion": 0.9439595341682434,
+          "target_confidence_drop": 0.02076435089111328,
+          "target_detection_retained": true,
+          "control_confidence_drop": null,
+          "specificity_margin": null,
+          "v23_post_selection_detection_status": null,
+          "v23_bbox_iou": null
+        },
+        {
+          "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+          "filename": "image_1282.jpg",
+          "split": "valid",
+          "target_id": "e67b5082-bdc0-4143-8a98-9dd8524f868d",
+          "target_class": "No Gloves",
+          "baseline_confidence": 0.8351004123687744,
+          "target_confidence_after_occlusion": 0,
+          "target_confidence_drop": 0.8351004123687744,
+          "target_detection_retained": false,
+          "control_confidence_drop": -0.0012320876121520996,
+          "specificity_margin": 0.8363324999809265,
+          "v23_post_selection_detection_status": "TP",
+          "v23_bbox_iou": 0.850318
+        },
+        {
+          "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+          "filename": "c1e5a26df8225afb5be5beceae128ad5.jpg",
+          "split": "valid",
+          "target_id": "181c2d93-bac0-4cfe-8613-9c4e66ecc4fc",
+          "target_class": "Safety Boots",
+          "baseline_confidence": 0.912612795829773,
+          "target_confidence_after_occlusion": 0,
+          "target_confidence_drop": 0.912612795829773,
+          "target_detection_retained": false,
+          "control_confidence_drop": null,
+          "specificity_margin": null,
+          "v23_post_selection_detection_status": "TP",
+          "v23_bbox_iou": 0.784178
+        },
+        {
+          "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+          "filename": "imagem40.jpg",
+          "split": "valid",
+          "target_id": "5d2a56b6-4b76-4206-afd0-51e1e4c28d8e",
+          "target_class": "No Face Mask",
+          "baseline_confidence": 0.8981361985206604,
+          "target_confidence_after_occlusion": 0,
+          "target_confidence_drop": 0.8981361985206604,
+          "target_detection_retained": false,
+          "control_confidence_drop": -0.016183316707611084,
+          "specificity_margin": 0.9143195152282715,
+          "v23_post_selection_detection_status": "TP",
+          "v23_bbox_iou": 0.759501
+        },
+        {
+          "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+          "filename": "a16ea468abd845e68ea9ccbbe4f9762e.jpg",
+          "split": "valid",
+          "target_id": "8bdb1086-0226-4293-b70c-3a44efd763c5",
+          "target_class": "No Safety Boots",
+          "baseline_confidence": 0.9197127223014832,
+          "target_confidence_after_occlusion": 0,
+          "target_confidence_drop": 0.9197127223014832,
+          "target_detection_retained": false,
+          "control_confidence_drop": null,
+          "specificity_margin": null,
+          "v23_post_selection_detection_status": "TP",
+          "v23_bbox_iou": 0.872422
+        }
+      ]
+    },
+    "A6": {
+      "selected_slots": 8,
+      "target_detection_lost": 7,
+      "target_detection_retained": 1,
+      "mean_baseline_confidence": 0.739801,
+      "mean_target_confidence_drop": 0.621806,
+      "controlled_targets": 5,
+      "mean_control_confidence_drop": 0.008464,
+      "mean_specificity_margin": 0.615807,
+      "valid_selected_targets": 4,
+      "valid_selected_detection_TP": 3,
+      "valid_selected_detection_FP": 1,
+      "selected_targets": [
+        {
+          "image_key": "train:A",
+          "filename": "image_604.jpg",
+          "split": "train",
+          "target_id": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+          "target_class": "No Face Mask",
+          "baseline_confidence": 0.8801664710044861,
+          "target_confidence_after_occlusion": 0,
+          "target_confidence_drop": 0.8801664710044861,
+          "target_detection_retained": false,
+          "control_confidence_drop": 0.009838998317718506,
+          "specificity_margin": 0.8703274726867676,
+          "v23_post_selection_detection_status": null,
+          "v23_bbox_iou": null
+        },
+        {
+          "image_key": "train:B",
+          "filename": "000760.jpg",
+          "split": "train",
+          "target_id": "1b2af685-6965-4986-9d35-258b036e5882",
+          "target_class": "Gloves",
+          "baseline_confidence": 0.3109840154647827,
+          "target_confidence_after_occlusion": 0,
+          "target_confidence_drop": 0.3109840154647827,
+          "target_detection_retained": false,
+          "control_confidence_drop": 0.025345981121063232,
+          "specificity_margin": 0.2856380343437195,
+          "v23_post_selection_detection_status": null,
+          "v23_bbox_iou": null
+        },
+        {
+          "image_key": "train:C",
+          "filename": "Kathiah Gets a Chance03.jpg",
+          "split": "train",
+          "target_id": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+          "target_class": "Face Masks",
+          "baseline_confidence": 0.24226410686969757,
+          "target_confidence_after_occlusion": 0,
+          "target_confidence_drop": 0.24226410686969757,
+          "target_detection_retained": false,
+          "control_confidence_drop": 0.022639304399490356,
+          "specificity_margin": 0.21962480247020721,
+          "v23_post_selection_detection_status": null,
+          "v23_bbox_iou": null
+        },
+        {
+          "image_key": "train:D",
+          "filename": "h1.jpg",
+          "split": "train",
+          "target_id": "7a101411-15e7-457a-842a-0e61be4f1f11",
+          "target_class": "Hard Hat",
+          "baseline_confidence": 0.9647238850593567,
+          "target_confidence_after_occlusion": 0.9439595341682434,
+          "target_confidence_drop": 0.02076435089111328,
+          "target_detection_retained": true,
+          "control_confidence_drop": null,
+          "specificity_margin": null,
+          "v23_post_selection_detection_status": null,
+          "v23_bbox_iou": null
+        },
+        {
+          "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+          "filename": "image_1282.jpg",
+          "split": "valid",
+          "target_id": "e67b5082-bdc0-4143-8a98-9dd8524f868d",
+          "target_class": "No Gloves",
+          "baseline_confidence": 0.8351004123687744,
+          "target_confidence_after_occlusion": 0,
+          "target_confidence_drop": 0.8351004123687744,
+          "target_detection_retained": false,
+          "control_confidence_drop": -0.0012320876121520996,
+          "specificity_margin": 0.8363324999809265,
+          "v23_post_selection_detection_status": "TP",
+          "v23_bbox_iou": 0.850318
+        },
+        {
+          "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+          "filename": "c1e5a26df8225afb5be5beceae128ad5.jpg",
+          "split": "valid",
+          "target_id": "181c2d93-bac0-4cfe-8613-9c4e66ecc4fc",
+          "target_class": "Safety Boots",
+          "baseline_confidence": 0.912612795829773,
+          "target_confidence_after_occlusion": 0,
+          "target_confidence_drop": 0.912612795829773,
+          "target_detection_retained": false,
+          "control_confidence_drop": null,
+          "specificity_margin": null,
+          "v23_post_selection_detection_status": "TP",
+          "v23_bbox_iou": 0.784178
+        },
+        {
+          "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+          "filename": "imagem40.jpg",
+          "split": "valid",
+          "target_id": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+          "target_class": "Safety Vests",
+          "baseline_confidence": 0.8528399467468262,
+          "target_confidence_after_occlusion": 0,
+          "target_confidence_drop": 0.8528399467468262,
+          "target_detection_retained": false,
+          "control_confidence_drop": -0.014272749423980713,
+          "specificity_margin": 0.8671126961708069,
+          "v23_post_selection_detection_status": "FP",
+          "v23_bbox_iou": 0.194826
+        },
+        {
+          "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+          "filename": "a16ea468abd845e68ea9ccbbe4f9762e.jpg",
+          "split": "valid",
+          "target_id": "8bdb1086-0226-4293-b70c-3a44efd763c5",
+          "target_class": "No Safety Boots",
+          "baseline_confidence": 0.9197127223014832,
+          "target_confidence_after_occlusion": 0,
+          "target_confidence_drop": 0.9197127223014832,
+          "target_detection_retained": false,
+          "control_confidence_drop": null,
+          "specificity_margin": null,
+          "v23_post_selection_detection_status": "TP",
+          "v23_bbox_iou": 0.872422
+        }
+      ]
+    },
+    "deltas_A5_minus_A6": {
+      "mean_target_confidence_drop": 0.019212,
+      "mean_specificity_margin": 0.029253,
+      "target_detection_lost_count": 0
+    },
+    "interpretation": "A5 shows slightly larger mean target-box occlusion sensitivity on this development-exposed sample. This is not a test of worker safety, review correctness, causal attribution completeness, or statistical superiority."
+  },
+  "postselection_valid_detection_error_alignment": {
+    "method": "Exact detection-ID join performed only after A5/A6 target selection was frozen, against the pre-existing V23 same-class IoU>=0.50 current-author-label match ledger. Not used as a routing feature.",
+    "A5": {
+      "selected_valid_targets": 4,
+      "TP": 4,
+      "FP": 0,
+      "selected_target_precision": 1
+    },
+    "A6": {
+      "selected_valid_targets": 4,
+      "TP": 3,
+      "FP": 1,
+      "selected_target_precision": 0.75
+    },
+    "overall_V23_five_image_pilot": {
+      "images": 5,
+      "current_author_reference_boxes": 23,
+      "new_original_model_prediction_boxes": 23,
+      "tp": 22,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.956522,
+      "recall": 0.956522,
+      "f1": 0.956522,
+      "source_label_assistance_markers": 0
+    },
+    "important_disagreement": {
+      "image": "imagem40.jpg",
+      "source_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "A5_target": {
+        "class_name": "No Face Mask",
+        "detection_id": "5d2a56b6-4b76-4206-afd0-51e1e4c28d8e",
+        "V23_status": "TP"
+      },
+      "A6_target": {
+        "class_name": "Safety Vests",
+        "detection_id": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+        "V23_status": "FP"
+      }
+    },
+    "interpretation": "On the four PPE-target-bearing Valid pilot images, A5 selected four boxes that were TP in the existing V23 object-detection ledger; A6 selected three TP and one FP. This is a five-image, historically exposed object-detection diagnostic only, not evidence of PPE mandate correctness or worker compliance."
+  },
+  "constraints": {
+    "no_test_accessed": true,
+    "original_model_or_dataset_modified": false,
+    "V23_outcomes_used_for_selection": false,
+    "source_independence_verified": false,
+    "human_review_dispatched": false,
+    "worker_compliance_or_false_clearance_measured": false,
+    "strict_worker_safety_scoring_ready": false
+  }
+}
