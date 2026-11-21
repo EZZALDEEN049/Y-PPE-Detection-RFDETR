@@ -190,6 +190,10 @@ jobs:
           fi
           grep -q 'V15_FREEZE_GATED_NO_SCIENTIFIC_SCORE' /tmp/seer-v15-denied.txt
           echo 'SEER_V15_FINAL_INDEPENDENT_VALIDATION_FREEZE_FAIL_CLOSED_PASS'
+      - name: Verify V15 eleven priority Source IDs with no forged reviewer clearance
+        run: |
+          node research/seer-ppe/tools/validate_v15_priority_11_source_packets.mjs --self-test
+          node research/seer-ppe/tools/validate_v15_priority_11_source_packets.mjs --verify
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'
