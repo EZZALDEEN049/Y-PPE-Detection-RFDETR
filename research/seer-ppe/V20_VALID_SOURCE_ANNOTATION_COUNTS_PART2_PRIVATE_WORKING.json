@@ -1,0 +1,3393 @@
+{
+  "schema_version": "seer-ppe/read-only-valid-source-annotation-counts-part/v0.20",
+  "part": 2,
+  "total_parts": 2,
+  "project_id": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "split": "valid",
+  "read_only": true,
+  "source_annotations_modified": false,
+  "rows": [
+    {
+      "source_id": "a1T6O579jFeBtfKuMfDG",
+      "source_original_filename": "Created 2-9 Million ManDays of Short-Term Work01 .jpeg",
+      "annotation_group_version": 0,
+      "width": 1024,
+      "height": 768,
+      "saved_object_count": 31,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 7,
+        "No Safety Attire": 4,
+        "Safety Vests": 4,
+        "Face Masks": 1,
+        "Hard Hat": 5,
+        "Pants": 2,
+        "No Face Mask": 2,
+        "No Hard Hat": 1,
+        "No Safety Vest": 1,
+        "No Gloves": 4
+      }
+    },
+    {
+      "source_id": "ahAA5jwj45nnyXNKVmTL",
+      "source_original_filename": "-Casual-Shoes-Summer-Outdoor-Slip-on-Slippers-Men-Shoes-footwear-jpg_640x640.jpg",
+      "annotation_group_version": 0,
+      "width": 640,
+      "height": 640,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Boots": 2
+      }
+    },
+    {
+      "source_id": "ahk44sdscKQYVCLShQUg",
+      "source_original_filename": "128.jpg",
+      "annotation_group_version": 0,
+      "width": 1868,
+      "height": 4000,
+      "saved_object_count": 14,
+      "model_assisted_marker_count": 9,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 3,
+        "Safety Vests": 3,
+        "Persons": 3,
+        "Pants": 1,
+        "Safety Boots": 1,
+        "No Gloves": 3
+      }
+    },
+    {
+      "source_id": "aiYZh8v28NLH2m2R8PA0",
+      "source_original_filename": "TimePhoto_٢٠٢٤١١٠٣_٠٨٤٩٢٨.jpg",
+      "annotation_group_version": 0,
+      "width": 4080,
+      "height": 3060,
+      "saved_object_count": 40,
+      "model_assisted_marker_count": 3,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 5,
+        "Hard Hat": 3,
+        "Safety Vests": 2,
+        "Pants": 3,
+        "No Safety Attire": 1,
+        "Safety Boots": 2,
+        "No Safety Boots": 3,
+        "No Gloves": 10,
+        "No Hard Hat": 2,
+        "No Face Mask": 5,
+        "No Safety Vest": 4
+      }
+    },
+    {
+      "source_id": "ajJxqma2DZeS2m9KhYQo",
+      "source_original_filename": "image_760.jpg",
+      "annotation_group_version": 0,
+      "width": 866,
+      "height": 1390,
+      "saved_object_count": 10,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Hard Hat": 1,
+        "Goggles": 1,
+        "Gloves": 2,
+        "Face Masks": 1,
+        "Pants": 1,
+        "Safety Boots": 2,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "akWqvOpzEWz933sibdT9",
+      "source_original_filename": "istockphoto-1177974779-612x612.jpg",
+      "annotation_group_version": 0,
+      "width": 612,
+      "height": 408,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 1
+      }
+    },
+    {
+      "source_id": "aoXcWLmhcGazkr5yJwLs",
+      "source_original_filename": "af405b54bc856273d05c9e65c375a85c.jpg",
+      "annotation_group_version": 0,
+      "width": 623,
+      "height": 775,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 2,
+      "polygon_count": 1,
+      "class_counts": {
+        "Persons": 1,
+        "Soft Hat": 1,
+        "No Safety Attire": 1,
+        "No Safety Vest": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "aVZi1BIWz4mRvV8JEjqx",
+      "source_original_filename": "IMG-20241009-WA0008.jpg",
+      "annotation_group_version": 0,
+      "width": 389,
+      "height": 364,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 2,
+        "Persons": 1,
+        "No Face Mask": 1,
+        "No Hard Hat": 1,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "aXMOenEBtYzlO0ne8GHX",
+      "source_original_filename": "IMG-20250211-WA0008.jpg",
+      "annotation_group_version": 0,
+      "width": 1080,
+      "height": 810,
+      "saved_object_count": 33,
+      "model_assisted_marker_count": 20,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 7,
+        "Safety Vests": 7,
+        "Safety Boots": 4,
+        "Persons": 8,
+        "No Safety Attire": 1,
+        "Pants": 2,
+        "Gloves": 2,
+        "No Safety Vest": 1,
+        "No Gloves": 1
+      }
+    },
+    {
+      "source_id": "bbt62Fcicj3NGsmaQ7To",
+      "source_original_filename": "下載 (15).jpg",
+      "annotation_group_version": 0,
+      "width": 284,
+      "height": 177,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Animal": 1
+      }
+    },
+    {
+      "source_id": "bf2OUZFRK3dhptRU71lq",
+      "source_original_filename": "image_1124.jpg",
+      "annotation_group_version": 0,
+      "width": 1384,
+      "height": 855,
+      "saved_object_count": 4,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "Persons": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "bGKPo64kfLVUolUxZ8Ln",
+      "source_original_filename": "0011.jpg",
+      "annotation_group_version": 0,
+      "width": 400,
+      "height": 267,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Animal": 1
+      }
+    },
+    {
+      "source_id": "bLPe6lbFQoqkY7kPGvGW",
+      "source_original_filename": "istockphoto-188144775-612x612.jpg",
+      "annotation_group_version": 0,
+      "width": 612,
+      "height": 531,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 1
+      }
+    },
+    {
+      "source_id": "blys41qT7T5ZxrfrXUMK",
+      "source_original_filename": "image_797.jpg",
+      "annotation_group_version": 0,
+      "width": 1000,
+      "height": 667,
+      "saved_object_count": 10,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 2,
+        "Hard Hat": 1,
+        "Goggles": 2,
+        "Safety Vests": 2,
+        "No Safety Vest": 1,
+        "No Face Mask": 2
+      }
+    },
+    {
+      "source_id": "bTnZNZr08iBa3tMuDA8b",
+      "source_original_filename": "IMG-20250416-WA0033.jpg",
+      "annotation_group_version": 0,
+      "width": 1555,
+      "height": 2560,
+      "saved_object_count": 8,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 8,
+      "class_counts": {
+        "Gloves": 1,
+        "Hard Hat": 1,
+        "Safety Vests": 1,
+        "Pants": 2,
+        "Safety Boots": 2,
+        "Persons": 1
+      }
+    },
+    {
+      "source_id": "bX02v4MKZLAgFL7pBal4",
+      "source_original_filename": "c2d2a8175ce8527b21ced50405df19bf.jpg",
+      "annotation_group_version": 0,
+      "width": 364,
+      "height": 712,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 2,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Pants": 1,
+        "Safety Boots": 2,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "cbRNFB7nuyAjKcMOt2Nw",
+      "source_original_filename": "image_1001.jpg",
+      "annotation_group_version": 0,
+      "width": 768,
+      "height": 505,
+      "saved_object_count": 22,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 4,
+        "Goggles": 3,
+        "Persons": 4,
+        "Safety Vests": 3,
+        "Gloves": 3,
+        "Pants": 2,
+        "No Face Mask": 3
+      }
+    },
+    {
+      "source_id": "cn4ImFhCWXyO3WBAyu7j",
+      "source_original_filename": "------8-_png.jpg",
+      "annotation_group_version": 0,
+      "width": 416,
+      "height": 416,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 1,
+      "class_counts": {
+        "Safety Boots": 2
+      }
+    },
+    {
+      "source_id": "cNy34SyUUpbgL8Zzq4vp",
+      "source_original_filename": "ual-Shoes-Men-Slippers-Sport-Water-Flip-Flops-Sandalia-Masculina-jpg_640x640.jpg",
+      "annotation_group_version": 0,
+      "width": 640,
+      "height": 640,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Boots": 2
+      }
+    },
+    {
+      "source_id": "cO3AJhBbdDSX5tD9NN66",
+      "source_original_filename": "d6e2a00804e92736ec1c8fd1bb0c62c3.jpg",
+      "annotation_group_version": 0,
+      "width": 1080,
+      "height": 1750,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Child": 2
+      }
+    },
+    {
+      "source_id": "ctGW56MqviLMSNHKfhwV",
+      "source_original_filename": "12.jpg",
+      "annotation_group_version": 0,
+      "width": 3000,
+      "height": 4000,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 3,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1,
+        "Safety Vests": 1,
+        "Persons": 1,
+        "Pants": 1,
+        "Gloves": 1,
+        "Safety Boots": 2
+      }
+    },
+    {
+      "source_id": "dcEmQSEJWCtXgrTSltaJ",
+      "source_original_filename": "safety gloves (67).jpg",
+      "annotation_group_version": 0,
+      "width": 320,
+      "height": 158,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 2
+      }
+    },
+    {
+      "source_id": "deHkGKiYysAeQmodZNhc",
+      "source_original_filename": "0372eb29725f4e848dc7d9654294df2a.jpg",
+      "annotation_group_version": 0,
+      "width": 640,
+      "height": 640,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Boots": 1
+      }
+    },
+    {
+      "source_id": "dFJNcH9VPbWGUH6uEEZ3",
+      "source_original_filename": "03f50c272459c3328c81e3d0d589496b.jpg",
+      "annotation_group_version": 0,
+      "width": 715,
+      "height": 536,
+      "saved_object_count": 23,
+      "model_assisted_marker_count": 7,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Attire": 4,
+        "Persons": 4,
+        "No Safety Vest": 4,
+        "No Safety Boots": 6,
+        "No Gloves": 5
+      }
+    },
+    {
+      "source_id": "dIJP9tp9QHrLMdpchwUL",
+      "source_original_filename": "465295247_17866405341240088_7567564164108343598_n.jpg",
+      "annotation_group_version": 0,
+      "width": 315,
+      "height": 315,
+      "saved_object_count": 4,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Attire": 1,
+        "No Gloves": 1,
+        "No Safety Vest": 1,
+        "Persons": 1
+      }
+    },
+    {
+      "source_id": "dU8M2Nui4fSld7jcI8gF",
+      "source_original_filename": "images (5).jpeg",
+      "annotation_group_version": 0,
+      "width": 240,
+      "height": 210,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "No Safety Attire": 1,
+        "Safety Boots": 1,
+        "Soft Hat": 1,
+        "No Gloves": 2,
+        "Safety Vests": 1
+      }
+    },
+    {
+      "source_id": "dukvhiiZCSkdvnywuQKU",
+      "source_original_filename": "worker wearing mask_126.jpg",
+      "annotation_group_version": 0,
+      "width": 1024,
+      "height": 682,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Face Masks": 1,
+        "Hard Hat": 1,
+        "Safety Vests": 1,
+        "Goggles": 1,
+        "Persons": 1,
+        "No Gloves": 2
+      }
+    },
+    {
+      "source_id": "dzWD8tMItyDu8NsTUBFM",
+      "source_original_filename": "image_157.jpg",
+      "annotation_group_version": 0,
+      "width": 602,
+      "height": 903,
+      "saved_object_count": 10,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1,
+        "Goggles": 1,
+        "Safety Vests": 1,
+        "Persons": 1,
+        "Gloves": 2,
+        "Safety Boots": 2,
+        "Pants": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "eFqVDoZv1ys0RSFpIL7p",
+      "source_original_filename": "donkey (73).jpg",
+      "annotation_group_version": 0,
+      "width": 224,
+      "height": 224,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Animal": 1
+      }
+    },
+    {
+      "source_id": "eH1Y0Bp2O1MflHqQv6ba",
+      "source_original_filename": "478595008_1047929187379370_1459944212425990510_n.jpg",
+      "annotation_group_version": 0,
+      "width": 960,
+      "height": 960,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 2,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Attire": 2,
+        "No Safety Boots": 4
+      }
+    },
+    {
+      "source_id": "elfHvfXRwwLqjkJXz1Jb",
+      "source_original_filename": "v40.jpg",
+      "annotation_group_version": 0,
+      "width": 800,
+      "height": 800,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1
+      }
+    },
+    {
+      "source_id": "eQrhTBVNG7pk3eGnyoHP",
+      "source_original_filename": "dac2d067afd19fd0fcfadfcffe5ab328.jpg",
+      "annotation_group_version": 0,
+      "width": 427,
+      "height": 640,
+      "saved_object_count": 4,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "No Safety Vest": 1,
+        "No Face Mask": 1,
+        "Soft Hat": 1
+      }
+    },
+    {
+      "source_id": "eRh4tk2fpIPxjXTjDyzt",
+      "source_original_filename": "IMG-20221031-WA0017.jpg",
+      "annotation_group_version": 0,
+      "width": 640,
+      "height": 640,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 1
+      }
+    },
+    {
+      "source_id": "erxN2bmF39n8hdhQ33Ll",
+      "source_original_filename": "ESPECRP.jpg",
+      "annotation_group_version": 0,
+      "width": 2048,
+      "height": 1365,
+      "saved_object_count": 25,
+      "model_assisted_marker_count": 15,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 3,
+        "Safety Vests": 5,
+        "Gloves": 4,
+        "Soft Hat": 2,
+        "Pants": 1,
+        "Persons": 5,
+        "No Gloves": 2,
+        "No Face Mask": 3
+      }
+    },
+    {
+      "source_id": "exRlvnSBoSB4EW71NGaf",
+      "source_original_filename": "87.jpg",
+      "annotation_group_version": 0,
+      "width": 2160,
+      "height": 3840,
+      "saved_object_count": 9,
+      "model_assisted_marker_count": 5,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1,
+        "Persons": 1,
+        "Safety Boots": 2,
+        "Pants": 1,
+        "Gloves": 2,
+        "Safety Vests": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "eyKuN20jy8bAh9IVo72L",
+      "source_original_filename": "construction-worker-installing-binding-wires-23230099.jpg",
+      "annotation_group_version": 0,
+      "width": 1600,
+      "height": 1157,
+      "saved_object_count": 8,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1,
+        "Safety Boots": 2,
+        "Gloves": 2,
+        "Pants": 1,
+        "Persons": 1,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "eYnvrU5SUp3G9qTz8QYW",
+      "source_original_filename": "240_F_1597720297_rtQKoncPfVDN7SCL9rxOkSMk1Oi6H9te.jpg",
+      "annotation_group_version": 0,
+      "width": 440,
+      "height": 240,
+      "saved_object_count": 3,
+      "model_assisted_marker_count": 3,
+      "polygon_count": 0,
+      "class_counts": {
+        "Animal": 3
+      }
+    },
+    {
+      "source_id": "f8Lh7cHa3XXXsl88xpDt",
+      "source_original_filename": "v9.jpg",
+      "annotation_group_version": 0,
+      "width": 225,
+      "height": 225,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1
+      }
+    },
+    {
+      "source_id": "fFlWxVQlwpq7Cax8mQvC",
+      "source_original_filename": "safety gloves (12).jpg",
+      "annotation_group_version": 0,
+      "width": 221,
+      "height": 228,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 2
+      }
+    },
+    {
+      "source_id": "fjjJWzv8H5J05PHpC6r8",
+      "source_original_filename": "FoG0u0NWYAMsu0V.jpeg",
+      "annotation_group_version": 0,
+      "width": 900,
+      "height": 900,
+      "saved_object_count": 10,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Attire": 1,
+        "Soft Hat": 1,
+        "Persons": 1,
+        "Animal": 3,
+        "No Safety Vest": 1,
+        "No Gloves": 2,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "fMas2p9FZ7AP5oQ9f4Sn",
+      "source_original_filename": "Facing-funding-challenges.jpeg",
+      "annotation_group_version": 0,
+      "width": 1080,
+      "height": 720,
+      "saved_object_count": 61,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 7,
+        "Safety Vests": 7,
+        "Pants": 7,
+        "Hard Hat": 7,
+        "Face Masks": 3,
+        "Goggles": 4,
+        "Gloves": 5,
+        "Safety Boots": 14,
+        "No Gloves": 4,
+        "No Face Mask": 3
+      }
+    },
+    {
+      "source_id": "ftvpEPIcaUb60SqCBtAc",
+      "source_original_filename": "ppe_0257.jpg",
+      "annotation_group_version": 0,
+      "width": 1300,
+      "height": 957,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1,
+        "Persons": 1,
+        "Safety Vests": 1,
+        "Goggles": 1,
+        "No Face Mask": 1,
+        "No Gloves": 2
+      }
+    },
+    {
+      "source_id": "fxyWsEW6DjI9jqcl5SEh",
+      "source_original_filename": "Pantalones (1867).jpg",
+      "annotation_group_version": 0,
+      "width": 474,
+      "height": 474,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Pants": 1
+      }
+    },
+    {
+      "source_id": "fZp2tDa18uGI4kSV6jPc",
+      "source_original_filename": "image_614.jpg",
+      "annotation_group_version": 0,
+      "width": 612,
+      "height": 408,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "Persons": 1,
+        "No Face Mask": 1,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "g4Mlhl0AUNtsmolYc1CW",
+      "source_original_filename": "76.jpg",
+      "annotation_group_version": 0,
+      "width": 2160,
+      "height": 3840,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 3,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 1,
+        "Persons": 1,
+        "Safety Boots": 2,
+        "Pants": 1,
+        "Hard Hat": 1,
+        "Safety Vests": 1
+      }
+    },
+    {
+      "source_id": "g7Vz1BZL5zYrjyx5Bi76",
+      "source_original_filename": "55726209_845787205766234_3342176930785918976_n.jpg",
+      "annotation_group_version": 0,
+      "width": 1080,
+      "height": 1080,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Soft Hat": 1,
+        "Persons": 1,
+        "No Gloves": 2,
+        "No Face Mask": 1,
+        "Goggles": 1,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "ganmRsS1VeP6fwMHMwYG",
+      "source_original_filename": "depositphotos_535054818-stock-photo-worker-wearing-face-shie.jpg",
+      "annotation_group_version": 0,
+      "width": 600,
+      "height": 400,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Face Masks": 1,
+        "Persons": 1,
+        "Safety Vests": 1,
+        "No Hard Hat": 1,
+        "No Gloves": 2
+      }
+    },
+    {
+      "source_id": "gG2TnBIbeolaffAv08Je",
+      "source_original_filename": "image_861.jpg",
+      "annotation_group_version": 0,
+      "width": 1024,
+      "height": 683,
+      "saved_object_count": 8,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1,
+        "Goggles": 1,
+        "Safety Vests": 1,
+        "Persons": 1,
+        "Pants": 1,
+        "No Gloves": 2,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "gItmkHfD0kaiaDCfz2KR",
+      "source_original_filename": "٢٠٢٤١٢٢٣_١٧٤٩١١.jpg",
+      "annotation_group_version": 0,
+      "width": 4000,
+      "height": 3000,
+      "saved_object_count": 22,
+      "model_assisted_marker_count": 10,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Boots": 2,
+        "Hard Hat": 1,
+        "Persons": 4,
+        "Pants": 2,
+        "Gloves": 2,
+        "No Safety Boots": 3,
+        "No Hard Hat": 2,
+        "No Safety Vest": 3,
+        "No Safety Attire": 1,
+        "No Gloves": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "gLKiMoX5je2iLVoGskbb",
+      "source_original_filename": "images32.jpg",
+      "annotation_group_version": 0,
+      "width": 284,
+      "height": 177,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "Persons": 1,
+        "Safety Vests": 1,
+        "No Gloves": 2
+      }
+    },
+    {
+      "source_id": "gN2CIeTPNIhL4OAjMyrL",
+      "source_original_filename": "istockphoto-1129412914-612x612.jpg",
+      "annotation_group_version": 0,
+      "width": 612,
+      "height": 408,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 1
+      }
+    },
+    {
+      "source_id": "goX6C4HdfbzWXetnZAGb",
+      "source_original_filename": "IMG_٢٠١٨٠٣٢٨_١٠١٧١١.jpg",
+      "annotation_group_version": 0,
+      "width": 640,
+      "height": 480,
+      "saved_object_count": 9,
+      "model_assisted_marker_count": 2,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Boots": 2,
+        "Pants": 1,
+        "Hard Hat": 1,
+        "Gloves": 2,
+        "Persons": 1,
+        "No Safety Vest": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "gRaOGQXSDCkn0XliO3r1",
+      "source_original_filename": "ec26c428c844b507f187b4ba0b4e93b6.jpg",
+      "annotation_group_version": 0,
+      "width": 1199,
+      "height": 1643,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 2,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 2
+      }
+    },
+    {
+      "source_id": "grt6fZBL0Z050Ov9p2Do",
+      "source_original_filename": "20.jpg",
+      "annotation_group_version": 0,
+      "width": 3000,
+      "height": 4000,
+      "saved_object_count": 9,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Vests": 1,
+        "Hard Hat": 1,
+        "No Face Mask": 1,
+        "Gloves": 2,
+        "Pants": 1,
+        "Safety Boots": 2,
+        "Persons": 1
+      }
+    },
+    {
+      "source_id": "hhL9RJGO9nheAH3qkXJS",
+      "source_original_filename": "image_234.jpg",
+      "annotation_group_version": 0,
+      "width": 877,
+      "height": 493,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1,
+        "Goggles": 1,
+        "Safety Vests": 1,
+        "Persons": 1,
+        "No Face Mask": 1,
+        "No Gloves": 2
+      }
+    },
+    {
+      "source_id": "hJmmGUv4FcAJEze6N7Qg",
+      "source_original_filename": "pexels-photo-14681713.jpeg",
+      "annotation_group_version": 0,
+      "width": 600,
+      "height": 600,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Animal": 1
+      }
+    },
+    {
+      "source_id": "hjWi7Ge2k7qzua1gnmcv",
+      "source_original_filename": "IMG-20250513-WA0006.jpg",
+      "annotation_group_version": 0,
+      "width": 1080,
+      "height": 810,
+      "saved_object_count": 48,
+      "model_assisted_marker_count": 20,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Boots": 6,
+        "Pants": 4,
+        "No Safety Attire": 3,
+        "Persons": 8,
+        "Hard Hat": 3,
+        "Soft Hat": 2,
+        "Safety Vests": 4,
+        "Face Masks": 1,
+        "No Safety Boots": 6,
+        "No Gloves": 3,
+        "No Hard Hat": 1,
+        "No Face Mask": 4,
+        "No Safety Vest": 3
+      }
+    },
+    {
+      "source_id": "hKApMrY4uuoOjUL7wt8f",
+      "source_original_filename": "man-stands-ladder-89654360--1-.jpg",
+      "annotation_group_version": 0,
+      "width": 416,
+      "height": 416,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Boots": 2
+      }
+    },
+    {
+      "source_id": "hNakNKfC0DQ1ilkggWQF",
+      "source_original_filename": "f485ed9003fe02effe659ce80feda6eb.jpg",
+      "annotation_group_version": 0,
+      "width": 437,
+      "height": 800,
+      "saved_object_count": 9,
+      "model_assisted_marker_count": 3,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Gloves": 2,
+        "Safety Boots": 2,
+        "Pants": 1,
+        "Hard Hat": 1,
+        "Persons": 1,
+        "Safety Vests": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "hneLm0LFZ0uSWUnpkqns",
+      "source_original_filename": "image_251.jpg",
+      "annotation_group_version": 0,
+      "width": 3776,
+      "height": 2844,
+      "saved_object_count": 17,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 3,
+        "Hard Hat": 3,
+        "Goggles": 3,
+        "Safety Vests": 3,
+        "No Face Mask": 3,
+        "No Gloves": 2
+      }
+    },
+    {
+      "source_id": "hOFTMInR6bOw3mRe8klk",
+      "source_original_filename": "IMG-20241009-WA0017.jpg",
+      "annotation_group_version": 0,
+      "width": 465,
+      "height": 357,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 1,
+        "Safety Vests": 1,
+        "Hard Hat": 1,
+        "Goggles": 1,
+        "Persons": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "hsj7lsduc5Vdv1JoSbym",
+      "source_original_filename": "work-boot-brown-color-blue-jean-leg-isolated-white-backgroun.jpg",
+      "annotation_group_version": 0,
+      "width": 416,
+      "height": 416,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Boots": 1
+      }
+    },
+    {
+      "source_id": "hVJ6NugyMqniDdEdxwUi",
+      "source_original_filename": "donkey-pulling-plow-field-yemen-sadaa-april-farmer-family-father-son-brother-working-340220243.jpg",
+      "annotation_group_version": 0,
+      "width": 1600,
+      "height": 1218,
+      "saved_object_count": 23,
+      "model_assisted_marker_count": 3,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Attire": 3,
+        "Soft Hat": 2,
+        "Animal": 1,
+        "Persons": 3,
+        "No Safety Boots": 4,
+        "No Safety Vest": 3,
+        "No Hard Hat": 1,
+        "No Gloves": 3,
+        "No Face Mask": 3
+      }
+    },
+    {
+      "source_id": "ies6I235LvzM4ElYNeaH",
+      "source_original_filename": "image14.jpeg",
+      "annotation_group_version": 0,
+      "width": 225,
+      "height": 225,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Boots": 2
+      }
+    },
+    {
+      "source_id": "iIZtvl5XFhAecAJZhksl",
+      "source_original_filename": "IMG-20241216-WA0032.jpg",
+      "annotation_group_version": 0,
+      "width": 1000,
+      "height": 450,
+      "saved_object_count": 26,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 3,
+        "Pants": 3,
+        "Hard Hat": 4,
+        "Safety Vests": 1,
+        "Safety Boots": 6,
+        "No Safety Vest": 2,
+        "No Gloves": 4,
+        "No Face Mask": 3
+      }
+    },
+    {
+      "source_id": "ikryw0CGwHcuIVNENylx",
+      "source_original_filename": "image_945.jpg",
+      "annotation_group_version": 0,
+      "width": 927,
+      "height": 660,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Hard Hat": 1,
+        "Safety Vests": 1,
+        "Goggles": 1,
+        "No Face Mask": 1,
+        "No Gloves": 2
+      }
+    },
+    {
+      "source_id": "inv7g61bTJzjNOvdb2rf",
+      "source_original_filename": "Builder-Operating-Circular-Saw-Roofing.jpg",
+      "annotation_group_version": 0,
+      "width": 416,
+      "height": 416,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Safety Boots": 1,
+        "Gloves": 2,
+        "Hard Hat": 1,
+        "Safety Vests": 1
+      }
+    },
+    {
+      "source_id": "io6zULN9vMMk0r0ZokY6",
+      "source_original_filename": "imagem64.jpg",
+      "annotation_group_version": 0,
+      "width": 142,
+      "height": 260,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "Persons": 1,
+        "No Face Mask": 1,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "iqRDAlSKpZu2WIMk9nbC",
+      "source_original_filename": "image_1708.jpg",
+      "annotation_group_version": 0,
+      "width": 1280,
+      "height": 953,
+      "saved_object_count": 38,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Vests": 5,
+        "Hard Hat": 5,
+        "Persons": 5,
+        "Goggles": 3,
+        "Pants": 3,
+        "Safety Boots": 4,
+        "No Face Mask": 5,
+        "No Gloves": 8
+      }
+    },
+    {
+      "source_id": "irL1verRazykQpdm7vz3",
+      "source_original_filename": "image_655.jpg",
+      "annotation_group_version": 0,
+      "width": 427,
+      "height": 427,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1,
+        "Goggles": 1,
+        "Persons": 1,
+        "Gloves": 2,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "iWJVFTtDaweLb4L1CO3Q",
+      "source_original_filename": "41.jpg",
+      "annotation_group_version": 0,
+      "width": 190,
+      "height": 187,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 2,
+        "No Safety Vest": 1,
+        "No Face Mask": 1,
+        "Persons": 1
+      }
+    },
+    {
+      "source_id": "j9r05Eep90M9rs4FeRiH",
+      "source_original_filename": "h147.jpg",
+      "annotation_group_version": 0,
+      "width": 223,
+      "height": 213,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1
+      }
+    },
+    {
+      "source_id": "jcPZvBoyeDumwVh9FvNz",
+      "source_original_filename": "two-women-farmers-working-fields-hadramawt-yemen-arabic-literally-land-sunburn-dry-remote-southeast-heat-wear-350134356.jpg",
+      "annotation_group_version": 0,
+      "width": 1600,
+      "height": 1144,
+      "saved_object_count": 8,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Attire": 2,
+        "Persons": 2,
+        "Soft Hat": 2,
+        "No Safety Vest": 2
+      }
+    },
+    {
+      "source_id": "jeB2NmucImurFBeFkyIz",
+      "source_original_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+      "annotation_group_version": 0,
+      "width": 640,
+      "height": 640,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Boots": 1
+      }
+    },
+    {
+      "source_id": "jtg9ROXWnr8NXbweC4Uc",
+      "source_original_filename": "h98.jpg",
+      "annotation_group_version": 0,
+      "width": 387,
+      "height": 334,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1
+      }
+    },
+    {
+      "source_id": "jTRUmZcvyWkN6E7qZzKh",
+      "source_original_filename": "57272076_3157949764231198_8691311900543156224_n.jpg",
+      "annotation_group_version": 0,
+      "width": 960,
+      "height": 720,
+      "saved_object_count": 8,
+      "model_assisted_marker_count": 6,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1,
+        "Gloves": 2,
+        "Face Masks": 1,
+        "Persons": 1,
+        "Pants": 1,
+        "Goggles": 1,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "jW3ezSnFTv12UGz3YvT2",
+      "source_original_filename": "image_959.jpg",
+      "annotation_group_version": 0,
+      "width": 1280,
+      "height": 720,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "Safety Vests": 1,
+        "Gloves": 2,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "keEtuIZhllz7Oqi5q4IL",
+      "source_original_filename": "00e6f71d05.jpg",
+      "annotation_group_version": 0,
+      "width": 2048,
+      "height": 1363,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Animal": 1
+      }
+    },
+    {
+      "source_id": "kFUi37sl8AsUkSogu8lT",
+      "source_original_filename": "g3.jpeg",
+      "annotation_group_version": 0,
+      "width": 284,
+      "height": 177,
+      "saved_object_count": 4,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 2,
+        "Safety Vests": 1,
+        "Persons": 1
+      }
+    },
+    {
+      "source_id": "kglqbRjAub5FArhcuItp",
+      "source_original_filename": "IMG-20221020-WA0133.jpg",
+      "annotation_group_version": 0,
+      "width": 640,
+      "height": 640,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 1,
+      "class_counts": {
+        "Gloves": 1
+      }
+    },
+    {
+      "source_id": "kHuwG1UXjcRMOCwAy6e1",
+      "source_original_filename": "191fac51f0fa6c4231e0b47e8043c00b (1).jpg",
+      "annotation_group_version": 0,
+      "width": 1152,
+      "height": 1728,
+      "saved_object_count": 3,
+      "model_assisted_marker_count": 3,
+      "polygon_count": 0,
+      "class_counts": {
+        "Pants": 1,
+        "Safety Boots": 2
+      }
+    },
+    {
+      "source_id": "klDqToCAQHHVuMxjCy46",
+      "source_original_filename": "000998.jpg",
+      "annotation_group_version": 0,
+      "width": 450,
+      "height": 300,
+      "saved_object_count": 8,
+      "model_assisted_marker_count": 6,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Boots": 2,
+        "Gloves": 2,
+        "Hard Hat": 1,
+        "Persons": 1,
+        "Pants": 1,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "kwHX1NzekZyDHKopt87T",
+      "source_original_filename": "30326b168ee5df5a567e321445d9cafd.jpg",
+      "annotation_group_version": 0,
+      "width": 1200,
+      "height": 1600,
+      "saved_object_count": 4,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Soft Hat": 1,
+        "No Face Mask": 1,
+        "No Safety Vest": 1,
+        "Persons": 1
+      }
+    },
+    {
+      "source_id": "kWleWGGhZTrQsxEva3lZ",
+      "source_original_filename": "Pantalones (823).jpg",
+      "annotation_group_version": 0,
+      "width": 474,
+      "height": 623,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Pants": 1,
+        "Safety Boots": 2,
+        "No Gloves": 2
+      }
+    },
+    {
+      "source_id": "kzgKoEVqasoSyaiRHXBm",
+      "source_original_filename": "c8ce8ed0a99369f3fc0b79094e0627d5.jpg",
+      "annotation_group_version": 0,
+      "width": 1200,
+      "height": 2133,
+      "saved_object_count": 3,
+      "model_assisted_marker_count": 1,
+      "polygon_count": 0,
+      "class_counts": {
+        "Pants": 1,
+        "Safety Boots": 2
+      }
+    },
+    {
+      "source_id": "l8TNyaBvDVMjltOxZPmK",
+      "source_original_filename": "0f7c99753d5c5487a6b81bfbf6eca141.jpg",
+      "annotation_group_version": 0,
+      "width": 320,
+      "height": 320,
+      "saved_object_count": 4,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Soft Hat": 1,
+        "No Face Mask": 1,
+        "No Safety Vest": 1,
+        "Persons": 1
+      }
+    },
+    {
+      "source_id": "lg0QCMv0KazO2kUhLtFW",
+      "source_original_filename": "6c8695f72951a9dd33a617a2a7efebc2.jpg",
+      "annotation_group_version": 0,
+      "width": 794,
+      "height": 595,
+      "saved_object_count": 10,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Soft Hat": 2,
+        "No Face Mask": 2,
+        "No Safety Vest": 2,
+        "No Gloves": 2,
+        "Persons": 2
+      }
+    },
+    {
+      "source_id": "lIFiZTHPZ5zS1g65qQVy",
+      "source_original_filename": "h65.jpg",
+      "annotation_group_version": 0,
+      "width": 395,
+      "height": 402,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1
+      }
+    },
+    {
+      "source_id": "liRPKEpMko6hqpAw9p0f",
+      "source_original_filename": "IMG-20250101-WA0038.jpg",
+      "annotation_group_version": 0,
+      "width": 578,
+      "height": 548,
+      "saved_object_count": 19,
+      "model_assisted_marker_count": 2,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 5,
+        "Hard Hat": 5,
+        "Safety Vests": 4,
+        "Pants": 1,
+        "No Safety Vest": 1,
+        "No Face Mask": 1,
+        "Gloves": 2
+      }
+    },
+    {
+      "source_id": "lpwpjgoOEAAuoXJuB5kV",
+      "source_original_filename": "close-man-wearing-safety-shoes-260nw-766848937.jpg",
+      "annotation_group_version": 0,
+      "width": 416,
+      "height": 416,
+      "saved_object_count": 3,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Boots": 2,
+        "Pants": 1
+      }
+    },
+    {
+      "source_id": "lRDz4R76biaVOOI6klQw",
+      "source_original_filename": "image_985.jpg",
+      "annotation_group_version": 0,
+      "width": 1920,
+      "height": 1080,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Hard Hat": 1,
+        "Goggles": 1,
+        "Gloves": 2,
+        "No Face Mask": 1,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "luR6sWtRB8mjLd7tYAeg",
+      "source_original_filename": "下載 (1).jpg",
+      "annotation_group_version": 0,
+      "width": 268,
+      "height": 188,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Animal": 1
+      }
+    },
+    {
+      "source_id": "m0seSC71CdCsGWTqQIsP",
+      "source_original_filename": "image_785.jpg",
+      "annotation_group_version": 0,
+      "width": 1500,
+      "height": 1000,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Hard Hat": 1,
+        "Goggles": 1,
+        "Safety Vests": 1,
+        "No Face Mask": 1,
+        "No Gloves": 2
+      }
+    },
+    {
+      "source_id": "m14RxytKhBsUC15KDuTb",
+      "source_original_filename": "image_731.jpg",
+      "annotation_group_version": 0,
+      "width": 612,
+      "height": 391,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1,
+        "Goggles": 1,
+        "Persons": 1,
+        "Safety Vests": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "m9iOew6qhUVkWzDb0Aik",
+      "source_original_filename": "ppe_0985.jpg",
+      "annotation_group_version": 0,
+      "width": 2448,
+      "height": 3264,
+      "saved_object_count": 21,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Vests": 3,
+        "Persons": 3,
+        "Hard Hat": 3,
+        "Goggles": 1,
+        "Pants": 3,
+        "Safety Boots": 1,
+        "No Gloves": 3,
+        "No Face Mask": 4
+      }
+    },
+    {
+      "source_id": "me5SKnVd0aYAAU3yjRZK",
+      "source_original_filename": "518362095_1228200122396579_5686879670255180214_n.jpg",
+      "annotation_group_version": 0,
+      "width": 992,
+      "height": 1488,
+      "saved_object_count": 3,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Boots": 2,
+        "No Safety Attire": 1
+      }
+    },
+    {
+      "source_id": "mq5FFKfzNTJc6ut22AlR",
+      "source_original_filename": "image_606.jpg",
+      "annotation_group_version": 0,
+      "width": 800,
+      "height": 696,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "Persons": 1,
+        "Safety Vests": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "mqVTeJJ28DnyHYQnBubo",
+      "source_original_filename": "kg_KjmtSr1vBD09iMqJbXUP5Ah1iPYHgwzhJnl8Opm5HIYyg-l5ee0GR_mwoXmeIYi_fjZfoVzx4UYRpd6vqe1Kc.jpg",
+      "annotation_group_version": 0,
+      "width": 416,
+      "height": 416,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 1,
+      "class_counts": {
+        "Gloves": 1
+      }
+    },
+    {
+      "source_id": "mS3riumTYLTiVSQXml7m",
+      "source_original_filename": "stock-photo-taiz-yemen-feb-he-smile-of-a-poor-yemeni-girl-who-lives-in-a-camp-for-displaced-people-1921573529.jpg",
+      "annotation_group_version": 0,
+      "width": 1500,
+      "height": 1146,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 1,
+      "polygon_count": 0,
+      "class_counts": {
+        "Child": 1
+      }
+    },
+    {
+      "source_id": "mWViytcS98MF0NMfA3YL",
+      "source_original_filename": "32.jpg",
+      "annotation_group_version": 0,
+      "width": 4000,
+      "height": 3000,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 5,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Vests": 1,
+        "Gloves": 3,
+        "Hard Hat": 1,
+        "No Safety Attire": 1
+      }
+    },
+    {
+      "source_id": "n3pfilvwgtLU8N59UHvr",
+      "source_original_filename": "485000037_1053831383456925_286573633759647095_n.jpg",
+      "annotation_group_version": 0,
+      "width": 2048,
+      "height": 1530,
+      "saved_object_count": 48,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 6,
+        "Pants": 3,
+        "Safety Boots": 6,
+        "No Safety Attire": 2,
+        "Soft Hat": 3,
+        "Hard Hat": 1,
+        "No Hard Hat": 2,
+        "No Safety Vest": 5,
+        "No Face Mask": 4,
+        "No Gloves": 9,
+        "No Safety Boots": 5,
+        "Face Masks": 2
+      }
+    },
+    {
+      "source_id": "nc7xQq3eh7ZlwFUhIVaK",
+      "source_original_filename": "h55.jpg",
+      "annotation_group_version": 0,
+      "width": 700,
+      "height": 700,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1
+      }
+    },
+    {
+      "source_id": "nEdQwfjMIy4GrATgOLKz",
+      "source_original_filename": "UNESCO-Regional-Director-visits-some-houses-restored-in-old-Sanaa-04.jpg",
+      "annotation_group_version": 0,
+      "width": 720,
+      "height": 1080,
+      "saved_object_count": 42,
+      "model_assisted_marker_count": 18,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Vests": 4,
+        "Goggles": 1,
+        "No Safety Attire": 2,
+        "Safety Boots": 10,
+        "Pants": 2,
+        "Face Masks": 2,
+        "Persons": 6,
+        "Hard Hat": 1,
+        "Soft Hat": 1,
+        "No Gloves": 5,
+        "No Hard Hat": 4,
+        "No Face Mask": 3,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "nf4D5wP5dYgXpU8t1V1D",
+      "source_original_filename": "ppe_0117.jpg",
+      "annotation_group_version": 0,
+      "width": 1920,
+      "height": 1280,
+      "saved_object_count": 25,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 4,
+        "Persons": 4,
+        "Goggles": 3,
+        "Safety Vests": 4,
+        "No Face Mask": 4,
+        "No Gloves": 3,
+        "Pants": 1,
+        "Gloves": 2
+      }
+    },
+    {
+      "source_id": "nfjjBITvaItIAhCrf9bN",
+      "source_original_filename": "f011d2e2302d341987e965cfa2ca958c.jpg",
+      "annotation_group_version": 0,
+      "width": 684,
+      "height": 1000,
+      "saved_object_count": 3,
+      "model_assisted_marker_count": 1,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Attire": 1,
+        "Child": 2
+      }
+    },
+    {
+      "source_id": "nghJG08FGEKYMZ3pRnfL",
+      "source_original_filename": "662ab495b8f289f630b10cce1abd023c.jpg",
+      "annotation_group_version": 0,
+      "width": 736,
+      "height": 1368,
+      "saved_object_count": 8,
+      "model_assisted_marker_count": 4,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Safety Boots": 2,
+        "Safety Vests": 1,
+        "Pants": 1,
+        "No Gloves": 2,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "ngUP7bI0j1YyseWj5ya9",
+      "source_original_filename": "IMG-20221020-WA0115.jpg",
+      "annotation_group_version": 0,
+      "width": 640,
+      "height": 640,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 1,
+      "class_counts": {
+        "Gloves": 1
+      }
+    },
+    {
+      "source_id": "niaVhug0tFUWAmznBDk3",
+      "source_original_filename": "117.jpg",
+      "annotation_group_version": 0,
+      "width": 3840,
+      "height": 2160,
+      "saved_object_count": 25,
+      "model_assisted_marker_count": 12,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 2,
+        "Persons": 4,
+        "Safety Boots": 3,
+        "Safety Vests": 2,
+        "Pants": 2,
+        "Soft Hat": 2,
+        "No Safety Attire": 1,
+        "No Face Mask": 3,
+        "No Safety Vest": 2,
+        "No Gloves": 3,
+        "Child": 1
+      }
+    },
+    {
+      "source_id": "nVVhllylFqdkZ6UNFLEQ",
+      "source_original_filename": "6a642ccb99bc807e8d4503e36515c0f2.jpg",
+      "annotation_group_version": 0,
+      "width": 735,
+      "height": 703,
+      "saved_object_count": 3,
+      "model_assisted_marker_count": 2,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Soft Hat": 1,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "oA4IOJHyOoU4rnAYXRNc",
+      "source_original_filename": "44.jpg",
+      "annotation_group_version": 0,
+      "width": 225,
+      "height": 225,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 6
+      }
+    },
+    {
+      "source_id": "oanvTMC2OBzw6PCFl404",
+      "source_original_filename": "486278947_658199666948782_1343857742029405813_n.jpg",
+      "annotation_group_version": 0,
+      "width": 579,
+      "height": 1080,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 1,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Attire": 1
+      }
+    },
+    {
+      "source_id": "oARsYq6ZQOePA7eXP1tf",
+      "source_original_filename": "29.jpg",
+      "annotation_group_version": 0,
+      "width": 120,
+      "height": 120,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 2
+      }
+    },
+    {
+      "source_id": "oLoY07pVlcyu4Qv7aT8e",
+      "source_original_filename": "Pantalones (2107).jpg",
+      "annotation_group_version": 0,
+      "width": 300,
+      "height": 168,
+      "saved_object_count": 18,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Pants": 6,
+        "Safety Boots": 12
+      }
+    },
+    {
+      "source_id": "oRGxKGjcmUNRihtmPvPe",
+      "source_original_filename": "v108.jpg",
+      "annotation_group_version": 0,
+      "width": 400,
+      "height": 400,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 1,
+      "class_counts": {
+        "Goggles": 1
+      }
+    },
+    {
+      "source_id": "orMUSm4hS7KXI9Ew0jCz",
+      "source_original_filename": "h20.jpg",
+      "annotation_group_version": 0,
+      "width": 225,
+      "height": 225,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1
+      }
+    },
+    {
+      "source_id": "oT196yYozHbcPJ3x4tvp",
+      "source_original_filename": "125184989_5333001976725955_5281390296592646018_n.jpg",
+      "annotation_group_version": 0,
+      "width": 720,
+      "height": 960,
+      "saved_object_count": 17,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 3,
+        "Hard Hat": 3,
+        "Gloves": 4,
+        "Safety Vests": 3,
+        "Safety Boots": 3,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "p9T3PrnL3qge7CAyoCmE",
+      "source_original_filename": "6bf156fca1924cae13d1450ef084b16c.jpg",
+      "annotation_group_version": 0,
+      "width": 1200,
+      "height": 1600,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Gloves": 1
+      }
+    },
+    {
+      "source_id": "pDFh3U4Tpa9rB1fYWGOQ",
+      "source_original_filename": "h38.jpg",
+      "annotation_group_version": 0,
+      "width": 300,
+      "height": 300,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1
+      }
+    },
+    {
+      "source_id": "pdugis0w47UK2m8NoqMP",
+      "source_original_filename": "v50.jpg",
+      "annotation_group_version": 0,
+      "width": 345,
+      "height": 345,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1
+      }
+    },
+    {
+      "source_id": "pegI53YmbCIkQvXBrLPq",
+      "source_original_filename": "420092813_702021028723677_7007133327919394718_n (1).jpg",
+      "annotation_group_version": 0,
+      "width": 2048,
+      "height": 1152,
+      "saved_object_count": 132,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 26,
+        "Face Masks": 25,
+        "Safety Vests": 26,
+        "Gloves": 16,
+        "Pants": 4,
+        "Persons": 25,
+        "No Gloves": 4,
+        "Safety Boots": 5,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "ps0gOlBAiTus2QPSpQLJ",
+      "source_original_filename": "image_609.jpg",
+      "annotation_group_version": 0,
+      "width": 767,
+      "height": 453,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "Safety Vests": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "pUOPGy48q5RUniAaEIPH",
+      "source_original_filename": "134.jpg",
+      "annotation_group_version": 0,
+      "width": 720,
+      "height": 1280,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Boots": 1
+      }
+    },
+    {
+      "source_id": "pyfUpkWVAQ69FcKcDBxT",
+      "source_original_filename": "stock-photo-baraqish-yemen-october-portrait-of-two-yemeni-men-wearing-traditional-clothing-and-1777423250.jpg",
+      "annotation_group_version": 0,
+      "width": 1500,
+      "height": 1240,
+      "saved_object_count": 14,
+      "model_assisted_marker_count": 6,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Gloves": 4,
+        "Persons": 2,
+        "No Safety Vest": 2,
+        "No Face Mask": 2,
+        "Soft Hat": 2,
+        "No Safety Attire": 2
+      }
+    },
+    {
+      "source_id": "q0jDvqruWNpQfk71aPsE",
+      "source_original_filename": "20240228_104000_1.jpg",
+      "annotation_group_version": 0,
+      "width": 975,
+      "height": 472,
+      "saved_object_count": 37,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 10,
+        "Safety Vests": 8,
+        "Gloves": 3,
+        "No Safety Attire": 1,
+        "Soft Hat": 6,
+        "No Safety Boots": 1,
+        "Safety Boots": 2,
+        "Pants": 2,
+        "No Gloves": 2,
+        "No Face Mask": 2
+      }
+    },
+    {
+      "source_id": "q4Gei9i01Gq0jYZzieMJ",
+      "source_original_filename": "image_768.jpg",
+      "annotation_group_version": 0,
+      "width": 1080,
+      "height": 1080,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Hard Hat": 1,
+        "Goggles": 1,
+        "Safety Vests": 1,
+        "Gloves": 2,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "q6CtmKiAlYABeWsTasem",
+      "source_original_filename": "worker-safety-boots-steps-nail-36475287.jpg",
+      "annotation_group_version": 0,
+      "width": 416,
+      "height": 416,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 2,
+      "class_counts": {
+        "Safety Boots": 2
+      }
+    },
+    {
+      "source_id": "qBtfzUgi6Mpg3A5TE0ln",
+      "source_original_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+      "annotation_group_version": 0,
+      "width": 640,
+      "height": 640,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Boots": 1
+      }
+    },
+    {
+      "source_id": "qealvsJAhBFs6A668kak",
+      "source_original_filename": "construction-worker-wearing-safety-equipment-19672694.jpg",
+      "annotation_group_version": 0,
+      "width": 1255,
+      "height": 1690,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 1,
+      "class_counts": {
+        "Persons": 1,
+        "Gloves": 1,
+        "Hard Hat": 1,
+        "Face Masks": 1,
+        "Safety Vests": 1
+      }
+    },
+    {
+      "source_id": "qg8CIzsK8s2cDh6dbIxp",
+      "source_original_filename": "image_1533.jpg",
+      "annotation_group_version": 0,
+      "width": 1000,
+      "height": 1000,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1,
+        "Goggles": 1,
+        "Safety Vests": 1,
+        "Persons": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "qidx9wrkqZhiYZUxfHDv",
+      "source_original_filename": "safety gloves (43).jpg",
+      "annotation_group_version": 0,
+      "width": 187,
+      "height": 270,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 2
+      }
+    },
+    {
+      "source_id": "qT6QEWwZ6q2l1OKOStmQ",
+      "source_original_filename": "image1170x530cropped (1).jpg",
+      "annotation_group_version": 0,
+      "width": 1170,
+      "height": 530,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Child": 1
+      }
+    },
+    {
+      "source_id": "qt8DhnMraU9igM0f1zu7",
+      "source_original_filename": "00000159.jpg",
+      "annotation_group_version": 0,
+      "width": 715,
+      "height": 431,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Animal": 2
+      }
+    },
+    {
+      "source_id": "qxe1TXaLbBAyFLVC5vwI",
+      "source_original_filename": "ppe_0027.jpg",
+      "annotation_group_version": 0,
+      "width": 660,
+      "height": 372,
+      "saved_object_count": 15,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 3,
+        "Safety Vests": 3,
+        "Hard Hat": 3,
+        "Goggles": 3,
+        "No Face Mask": 3
+      }
+    },
+    {
+      "source_id": "qXE1V6kfZzDEJSiGCaHO",
+      "source_original_filename": "h59.jpg",
+      "annotation_group_version": 0,
+      "width": 352,
+      "height": 284,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1
+      }
+    },
+    {
+      "source_id": "qxtHgDChDkeCWR0odZBk",
+      "source_original_filename": "image_525.jpg",
+      "annotation_group_version": 0,
+      "width": 1300,
+      "height": 865,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Safety Vests": 1,
+        "Hard Hat": 1,
+        "Goggles": 1,
+        "No Face Mask": 1,
+        "No Gloves": 2
+      }
+    },
+    {
+      "source_id": "qXxoASKdfDZhmGXsQBDN",
+      "source_original_filename": "71.jpg",
+      "annotation_group_version": 0,
+      "width": 2160,
+      "height": 3840,
+      "saved_object_count": 24,
+      "model_assisted_marker_count": 18,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 3,
+        "Persons": 3,
+        "Safety Vests": 3,
+        "Safety Boots": 8,
+        "Pants": 3,
+        "Gloves": 3,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "r3x4UvbA2YvJo7vW38uQ",
+      "source_original_filename": "70d9babd4fdec39969f208557901d825_png.jpg",
+      "annotation_group_version": 0,
+      "width": 416,
+      "height": 416,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 1,
+      "class_counts": {
+        "Gloves": 1
+      }
+    },
+    {
+      "source_id": "r4At4KzMXM10b6CdZC0y",
+      "source_original_filename": "v37.jpg",
+      "annotation_group_version": 0,
+      "width": 500,
+      "height": 500,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1
+      }
+    },
+    {
+      "source_id": "r4tzEUohprVGES4KjQfR",
+      "source_original_filename": "0b666cd7f9bc52bf982ec4f7f2481aa8.jpg",
+      "annotation_group_version": 0,
+      "width": 750,
+      "height": 1000,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 1,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Gloves": 1
+      }
+    },
+    {
+      "source_id": "rjjkVbdcd3dCIoxywUJE",
+      "source_original_filename": "h39.jpg",
+      "annotation_group_version": 0,
+      "width": 300,
+      "height": 300,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1
+      }
+    },
+    {
+      "source_id": "s3cdUdQunC8p3J1UbyFU",
+      "source_original_filename": "image_687.jpg",
+      "annotation_group_version": 0,
+      "width": 390,
+      "height": 280,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "Persons": 1,
+        "Safety Vests": 1,
+        "No Face Mask": 1,
+        "No Gloves": 2
+      }
+    },
+    {
+      "source_id": "sa4EdntLHoKRceWeAZs3",
+      "source_original_filename": "Pantalones (1893).jpg",
+      "annotation_group_version": 0,
+      "width": 474,
+      "height": 632,
+      "saved_object_count": 8,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Pants": 1,
+        "Safety Boots": 2,
+        "No Safety Vest": 1,
+        "No Hard Hat": 1,
+        "No Face Mask": 1,
+        "No Gloves": 2
+      }
+    },
+    {
+      "source_id": "sH4qWaeDYOnVFkAJ8bnA",
+      "source_original_filename": "images (1).jpeg",
+      "annotation_group_version": 0,
+      "width": 194,
+      "height": 259,
+      "saved_object_count": 3,
+      "model_assisted_marker_count": 2,
+      "polygon_count": 0,
+      "class_counts": {
+        "Soft Hat": 1,
+        "Persons": 1,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "sKzEQNUkwWPcfpxpMXUN",
+      "source_original_filename": "f48aa6d3ade8eec458db2801330184ef.jpg",
+      "annotation_group_version": 0,
+      "width": 683,
+      "height": 1024,
+      "saved_object_count": 4,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Soft Hat": 1,
+        "No Face Mask": 1,
+        "No Safety Vest": 1,
+        "Persons": 1
+      }
+    },
+    {
+      "source_id": "sWCwBWcdbdf3swIhLkAO",
+      "source_original_filename": "TimePhoto_٢٠٢٤١١٠٩_١٥٢٤٤٧.jpg",
+      "annotation_group_version": 0,
+      "width": 3840,
+      "height": 2160,
+      "saved_object_count": 13,
+      "model_assisted_marker_count": 9,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 2,
+        "Hard Hat": 1,
+        "Safety Boots": 4,
+        "Pants": 2,
+        "Safety Vests": 1,
+        "No Gloves": 2,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "sWmx8VYmhH5UuDTeko0d",
+      "source_original_filename": "images (3).jpeg",
+      "annotation_group_version": 0,
+      "width": 275,
+      "height": 183,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "Gloves": 1,
+        "Persons": 1,
+        "No Face Mask": 1,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "sWNdPjeCMJxEWP6pgHg4",
+      "source_original_filename": "v92.jpg",
+      "annotation_group_version": 0,
+      "width": 150,
+      "height": 150,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1
+      }
+    },
+    {
+      "source_id": "t8qdlzw16Zna8ixQNI3E",
+      "source_original_filename": "image_631.jpg",
+      "annotation_group_version": 0,
+      "width": 825,
+      "height": 415,
+      "saved_object_count": 10,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 2,
+        "Hard Hat": 1,
+        "Safety Vests": 1,
+        "Persons": 2,
+        "No Face Mask": 2,
+        "No Hard Hat": 1,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "teLXoQgi20kBdgxkpnAK",
+      "source_original_filename": "87fee46e9f7183e6843c81ed6a022307.jpg",
+      "annotation_group_version": 0,
+      "width": 500,
+      "height": 667,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Child": 2
+      }
+    },
+    {
+      "source_id": "tim2NhrH8LSslEGR7Nxc",
+      "source_original_filename": "man-wearing-safety-shoes-black-color-standing-ground_416458---1-.jpg",
+      "annotation_group_version": 0,
+      "width": 416,
+      "height": 416,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Boots": 2
+      }
+    },
+    {
+      "source_id": "tn82VP5057MDDXQvtZtu",
+      "source_original_filename": "image_274.jpg",
+      "annotation_group_version": 0,
+      "width": 590,
+      "height": 332,
+      "saved_object_count": 14,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Vests": 2,
+        "Goggles": 2,
+        "Hard Hat": 2,
+        "Persons": 2,
+        "Pants": 1,
+        "No Gloves": 3,
+        "No Face Mask": 2
+      }
+    },
+    {
+      "source_id": "tnN8YVzraYezUoOFdlk8",
+      "source_original_filename": "ppe_0417.jpg",
+      "annotation_group_version": 0,
+      "width": 1920,
+      "height": 534,
+      "saved_object_count": 14,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 2,
+        "Persons": 2,
+        "Safety Vests": 2,
+        "Goggles": 2,
+        "Gloves": 4,
+        "No Face Mask": 2
+      }
+    },
+    {
+      "source_id": "ttgKy8nTyqSozun9ZYQh",
+      "source_original_filename": "v130.jpg",
+      "annotation_group_version": 0,
+      "width": 422,
+      "height": 172,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1
+      }
+    },
+    {
+      "source_id": "tvmAf0pG3qPPpqWOlD6k",
+      "source_original_filename": "19680a3ecfe7409609ba65585c64b71b.jpg",
+      "annotation_group_version": 0,
+      "width": 444,
+      "height": 778,
+      "saved_object_count": 9,
+      "model_assisted_marker_count": 5,
+      "polygon_count": 0,
+      "class_counts": {
+        "Pants": 1,
+        "Hard Hat": 1,
+        "Safety Vests": 1,
+        "Safety Boots": 2,
+        "Gloves": 2,
+        "Persons": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "tY5ThyimiaFFUEvGIIpy",
+      "source_original_filename": "1949aa4b089eb7f2fb7be8625cd00e40.jpg",
+      "annotation_group_version": 0,
+      "width": 1024,
+      "height": 1280,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 3,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Gloves": 2,
+        "No Safety Vest": 2,
+        "No Face Mask": 1,
+        "Soft Hat": 1,
+        "Persons": 1
+      }
+    },
+    {
+      "source_id": "u0QlH31ZGI2zrVtRAFrV",
+      "source_original_filename": "imagem35.jpg",
+      "annotation_group_version": 0,
+      "width": 126,
+      "height": 202,
+      "saved_object_count": 4,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "Persons": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "u4obYScAA7jJeukqnfO3",
+      "source_original_filename": "SharedScreenshot.jpg",
+      "annotation_group_version": 0,
+      "width": 719,
+      "height": 798,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 6
+      }
+    },
+    {
+      "source_id": "ubLbRgeuCP4HZDTLcf2m",
+      "source_original_filename": "h31.jpg",
+      "annotation_group_version": 0,
+      "width": 225,
+      "height": 225,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1
+      }
+    },
+    {
+      "source_id": "uDDHOvlVwBawc3VfXMXR",
+      "source_original_filename": "75253028_538268353405344_834034751407915008_n.jpg",
+      "annotation_group_version": 0,
+      "width": 1440,
+      "height": 1440,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 1,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Attire": 1,
+        "Persons": 1,
+        "No Safety Vest": 1,
+        "No Gloves": 2,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "uepRqVkAd3j0DxeyC4K4",
+      "source_original_filename": "imagem49.jpg",
+      "annotation_group_version": 0,
+      "width": 185,
+      "height": 213,
+      "saved_object_count": 4,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "Persons": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "ukDkKj6nB1jleuEeUpkj",
+      "source_original_filename": "下載 (14).jpg",
+      "annotation_group_version": 0,
+      "width": 275,
+      "height": 183,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Animal": 1
+      }
+    },
+    {
+      "source_id": "uw6nGWcFcWJSY8DTCiFr",
+      "source_original_filename": "stock-photo-latex-glove-isolated-white-background.jpg",
+      "annotation_group_version": 0,
+      "width": 416,
+      "height": 416,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 1
+      }
+    },
+    {
+      "source_id": "uWYeVHwCGYCLwSstcBk8",
+      "source_original_filename": "4dd3afebefbeca7b90c94b9de54277c0.jpg",
+      "annotation_group_version": 0,
+      "width": 800,
+      "height": 1200,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 2,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Gloves": 2
+      }
+    },
+    {
+      "source_id": "v5CjbI37vwHjRk3LDExI",
+      "source_original_filename": "5-1.jpg",
+      "annotation_group_version": 0,
+      "width": 416,
+      "height": 416,
+      "saved_object_count": 3,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Boots": 3
+      }
+    },
+    {
+      "source_id": "v7NTUFBA3eBoaduU6zvD",
+      "source_original_filename": "safety gloves (52).jpg",
+      "annotation_group_version": 0,
+      "width": 225,
+      "height": 225,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 2
+      }
+    },
+    {
+      "source_id": "vD5godtIKOLFeLlAvBpe",
+      "source_original_filename": "safety gloves (57).jpg",
+      "annotation_group_version": 0,
+      "width": 276,
+      "height": 183,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 2
+      }
+    },
+    {
+      "source_id": "vpu1fsRIfGIH8IT0JyOM",
+      "source_original_filename": "image_1008.jpg",
+      "annotation_group_version": 0,
+      "width": 1200,
+      "height": 627,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "No Face Mask": 1,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "w73cOPhRwRnlvXcheRIS",
+      "source_original_filename": "TimePhoto_٢٠٢٤١١٠٧_١٥٣٣٠٨.jpg",
+      "annotation_group_version": 0,
+      "width": 2160,
+      "height": 3840,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 5,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Boots": 2,
+        "Safety Vests": 1,
+        "Gloves": 1,
+        "Hard Hat": 1,
+        "Persons": 1
+      }
+    },
+    {
+      "source_id": "wAL2W1lohZcetT6fIYGI",
+      "source_original_filename": "TimePhoto_٢٠٢٤١١٠٤_٠٩١٦٢٠.jpg",
+      "annotation_group_version": 0,
+      "width": 3840,
+      "height": 2160,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 5,
+      "polygon_count": 0,
+      "class_counts": {
+        "Child": 1,
+        "Safety Boots": 2,
+        "Safety Vests": 1,
+        "Persons": 1,
+        "Hard Hat": 1,
+        "Pants": 1
+      }
+    },
+    {
+      "source_id": "wR0pIxzbeTmczj2LlatS",
+      "source_original_filename": "ppe_0551.jpg",
+      "annotation_group_version": 0,
+      "width": 800,
+      "height": 564,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Hard Hat": 1,
+        "Goggles": 1,
+        "No Safety Vest": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "wRFuO9SE7tCqUgWgTqcy",
+      "source_original_filename": "0db2c249760f606579a277d8cd4a8cd0.jpg",
+      "annotation_group_version": 0,
+      "width": 500,
+      "height": 693,
+      "saved_object_count": 15,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Face Mask": 1,
+        "Soft Hat": 1,
+        "No Hard Hat": 1,
+        "Face Masks": 1,
+        "No Safety Vest": 2,
+        "Pants": 1,
+        "Safety Boots": 4,
+        "No Gloves": 1,
+        "Persons": 2,
+        "No Safety Attire": 1
+      }
+    },
+    {
+      "source_id": "wyxOQIwYb73Uz9uJWlQL",
+      "source_original_filename": "h29.jpg",
+      "annotation_group_version": 0,
+      "width": 225,
+      "height": 225,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1
+      }
+    },
+    {
+      "source_id": "x3X8YruThcRC5acmCl02",
+      "source_original_filename": "001060.jpg",
+      "annotation_group_version": 0,
+      "width": 600,
+      "height": 400,
+      "saved_object_count": 9,
+      "model_assisted_marker_count": 3,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 2,
+        "Persons": 2,
+        "Safety Vests": 2,
+        "Pants": 1,
+        "No Face Mask": 2
+      }
+    },
+    {
+      "source_id": "x48S1GdYylkPVtDBGKsw",
+      "source_original_filename": "w1240-p16x9-fa978043deff83fed485af12d16e39c61398fc30.jpg",
+      "annotation_group_version": 0,
+      "width": 1240,
+      "height": 698,
+      "saved_object_count": 4,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Face Masks": 1,
+        "No Hard Hat": 1,
+        "Persons": 1,
+        "Goggles": 1
+      }
+    },
+    {
+      "source_id": "x9laSpEaUE5AoJT5cB1m",
+      "source_original_filename": "image_624.jpg",
+      "annotation_group_version": 0,
+      "width": 1024,
+      "height": 512,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1,
+        "Persons": 1,
+        "Goggles": 1,
+        "Safety Vests": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "xbexosUReX6OEVPlhAp7",
+      "source_original_filename": "3-1.jpeg",
+      "annotation_group_version": 0,
+      "width": 2141,
+      "height": 1528,
+      "saved_object_count": 4,
+      "model_assisted_marker_count": 1,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Soft Hat": 1,
+        "No Safety Vest": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "xFLXpuqzB0pvvr3pXWlH",
+      "source_original_filename": "40ed6114f571645bfeaf79d1fd6ef52a.jpg",
+      "annotation_group_version": 0,
+      "width": 640,
+      "height": 960,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Vest": 1,
+        "No Gloves": 2,
+        "No Hard Hat": 1,
+        "No Face Mask": 1,
+        "No Safety Attire": 1,
+        "Persons": 1
+      }
+    },
+    {
+      "source_id": "xFUpeMSxLwsaJq0CXqRJ",
+      "source_original_filename": "safety gloves (13).jpg",
+      "annotation_group_version": 0,
+      "width": 225,
+      "height": 225,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 2
+      }
+    },
+    {
+      "source_id": "xHV6S8fbYoBSqpolVjGz",
+      "source_original_filename": "8059f4191e103ba63e43fd077e8a6aa7.jpg",
+      "annotation_group_version": 0,
+      "width": 1000,
+      "height": 1000,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 2,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 2
+      }
+    },
+    {
+      "source_id": "XqV5y8uoh4MLssCDQN0i",
+      "source_original_filename": "Pantalones (890).jpg",
+      "annotation_group_version": 0,
+      "width": 413,
+      "height": 550,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Pants": 1,
+        "No Gloves": 2,
+        "Safety Boots": 2
+      }
+    },
+    {
+      "source_id": "xV8wbqzPbOgg63l9pXof",
+      "source_original_filename": "image_414.jpg",
+      "annotation_group_version": 0,
+      "width": 700,
+      "height": 306,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Hard Hat": 1,
+        "Safety Vests": 1,
+        "Goggles": 1,
+        "Gloves": 2,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "XvSu9fkBWirQtV431dJW",
+      "source_original_filename": "pexels-karolina-grabowska-5795317 (2160p)_mp4-1.jpg",
+      "annotation_group_version": 0,
+      "width": 4096,
+      "height": 2160,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Animal": 2
+      }
+    },
+    {
+      "source_id": "Y4OG1Qm9k1cF2bJDHSDO",
+      "source_original_filename": "TimePhoto_٢٠٢٤١١٠٩_٠٩٤٣٠٠.jpg",
+      "annotation_group_version": 0,
+      "width": 2160,
+      "height": 3840,
+      "saved_object_count": 14,
+      "model_assisted_marker_count": 10,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 2,
+        "Persons": 3,
+        "Safety Vests": 2,
+        "Safety Boots": 3,
+        "Pants": 1,
+        "No Gloves": 3
+      }
+    },
+    {
+      "source_id": "y69ANMYbQe78Oh7gwAJL",
+      "source_original_filename": "Y1tEJLngfqFsPqOdv_v-Hzi0dJxH0rZH7Z_qk1ODmhmPGBOCU9Yw6CZyzsh3BpNVVajFBwODTYQQzAB5ZvXhUjK_.jpg",
+      "annotation_group_version": 0,
+      "width": 416,
+      "height": 416,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 1,
+      "class_counts": {
+        "Gloves": 1
+      }
+    },
+    {
+      "source_id": "y6j7gXvw1z8RZnU7Sb1E",
+      "source_original_filename": "s-Designer-for-Top-Brand-Beach-Flip-Flops-Casual-Men-Shoes-Leather-Plateform.jpg",
+      "annotation_group_version": 0,
+      "width": 800,
+      "height": 800,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Boots": 2
+      }
+    },
+    {
+      "source_id": "Y86Ru2vWUG9GcXIADsAl",
+      "source_original_filename": "٢٠٢٤١١٠٧_١٦٢٣٤٨.jpg",
+      "annotation_group_version": 0,
+      "width": 4000,
+      "height": 3000,
+      "saved_object_count": 8,
+      "model_assisted_marker_count": 3,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Safety Vests": 1,
+        "Hard Hat": 2,
+        "Gloves": 2,
+        "Pants": 1,
+        "Safety Boots": 1
+      }
+    },
+    {
+      "source_id": "yAX4B4297Ah07rljNwdQ",
+      "source_original_filename": "IMG-20250129-WA0003.jpg",
+      "annotation_group_version": 0,
+      "width": 2560,
+      "height": 1440,
+      "saved_object_count": 46,
+      "model_assisted_marker_count": 14,
+      "polygon_count": 4,
+      "class_counts": {
+        "Persons": 8,
+        "Hard Hat": 3,
+        "Soft Hat": 4,
+        "No Safety Attire": 6,
+        "Pants": 3,
+        "Safety Boots": 3,
+        "No Safety Vest": 7,
+        "Safety Vests": 1,
+        "No Hard Hat": 1,
+        "No Safety Boots": 5,
+        "No Face Mask": 2,
+        "No Gloves": 3
+      }
+    },
+    {
+      "source_id": "yeEvdkqXtNgsj7PZFDvI",
+      "source_original_filename": "IMG-20250416-WA0026.jpg",
+      "annotation_group_version": 0,
+      "width": 1920,
+      "height": 2560,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 4,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Vests": 1,
+        "Hard Hat": 1,
+        "Pants": 1,
+        "Persons": 1,
+        "Gloves": 2,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "YeMvkKgQwTSRHXFHlSmY",
+      "source_original_filename": "ppe_0414.jpg",
+      "annotation_group_version": 0,
+      "width": 4000,
+      "height": 2622,
+      "saved_object_count": 13,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 2,
+        "Persons": 2,
+        "Safety Vests": 2,
+        "Goggles": 2,
+        "No Gloves": 3,
+        "No Face Mask": 2
+      }
+    },
+    {
+      "source_id": "yFPPtjwB9QXOH5jdChuw",
+      "source_original_filename": "ppe_0297.jpg",
+      "annotation_group_version": 0,
+      "width": 390,
+      "height": 390,
+      "saved_object_count": 9,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 1,
+        "Safety Vests": 1,
+        "Hard Hat": 1,
+        "Goggles": 1,
+        "Gloves": 2,
+        "Safety Boots": 2,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "Yg0HiU2Iz9iVFY4vIiKp",
+      "source_original_filename": "image_758.jpg",
+      "annotation_group_version": 0,
+      "width": 1366,
+      "height": 768,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "Persons": 1,
+        "Gloves": 1,
+        "No Face Mask": 1,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "yjAmmw9riTA2LeDB4iVj",
+      "source_original_filename": "6155e3b8f345514c7b5d325e18bb399a - Copy.jpg",
+      "annotation_group_version": 0,
+      "width": 1200,
+      "height": 1200,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Boots": 2
+      }
+    },
+    {
+      "source_id": "yJwJFyHx4hl23Artld8O",
+      "source_original_filename": "h72.jpg",
+      "annotation_group_version": 0,
+      "width": 418,
+      "height": 394,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1
+      }
+    },
+    {
+      "source_id": "ykfXv2fcDHH7rDiiPOcC",
+      "source_original_filename": "stock-photo-full-body-photo-of-young-friendly-guy-wear-trendy-outfit-embracing-you-open-arms-welcome-company-2323406579.jpg",
+      "annotation_group_version": 0,
+      "width": 1500,
+      "height": 1101,
+      "saved_object_count": 9,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Pants": 1,
+        "No Safety Vest": 1,
+        "Safety Boots": 2,
+        "No Gloves": 2,
+        "No Face Mask": 1,
+        "No Hard Hat": 1,
+        "Persons": 1
+      }
+    },
+    {
+      "source_id": "YmcAn26gQKVBf2eaP11I",
+      "source_original_filename": "485369135_1054198616753535_5911170163476363657_n.jpg",
+      "annotation_group_version": 0,
+      "width": 2048,
+      "height": 1360,
+      "saved_object_count": 29,
+      "model_assisted_marker_count": 19,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 5,
+        "Safety Vests": 5,
+        "Pants": 4,
+        "Hard Hat": 5,
+        "Safety Boots": 5,
+        "Gloves": 1,
+        "No Gloves": 2,
+        "No Face Mask": 2
+      }
+    },
+    {
+      "source_id": "yQvSVZACf4mlNEtPNuXf",
+      "source_original_filename": "images (10).jpg",
+      "annotation_group_version": 0,
+      "width": 225,
+      "height": 225,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Safety Boots": 2
+      }
+    },
+    {
+      "source_id": "yQzyRhARCaCFs4AWRThv",
+      "source_original_filename": "depositphotos_510724894-stock-photo-constraction-worker-wear (1).jpg",
+      "annotation_group_version": 0,
+      "width": 380,
+      "height": 253,
+      "saved_object_count": 6,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Face Masks": 1,
+        "Hard Hat": 1,
+        "Persons": 1,
+        "No Gloves": 2,
+        "No Safety Vest": 1
+      }
+    },
+    {
+      "source_id": "yXlglPv41VXOiwhTXwJI",
+      "source_original_filename": "102.jpg",
+      "annotation_group_version": 0,
+      "width": 3840,
+      "height": 2160,
+      "saved_object_count": 14,
+      "model_assisted_marker_count": 6,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 2,
+        "Safety Vests": 2,
+        "Persons": 2,
+        "Safety Boots": 1,
+        "Pants": 2,
+        "No Gloves": 3,
+        "No Face Mask": 2
+      }
+    },
+    {
+      "source_id": "Z1vJiJW0OnVZMlr0SIvJ",
+      "source_original_filename": "v19.jpg",
+      "annotation_group_version": 0,
+      "width": 1000,
+      "height": 1000,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 1,
+      "class_counts": {
+        "Goggles": 1
+      }
+    },
+    {
+      "source_id": "Z3Jg4bVnOMBdlsEosthH",
+      "source_original_filename": "2844c4ba-b7bf-4ce9-91c7-3c18e7de5257.8e03d86b7b4b5eb790e468c036f28c2f.webp",
+      "annotation_group_version": 0,
+      "width": 1600,
+      "height": 1600,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 1,
+      "class_counts": {
+        "Hard Hat": 1,
+        "Gloves": 1,
+        "Persons": 1,
+        "No Safety Vest": 1,
+        "No Face Mask": 1
+      }
+    },
+    {
+      "source_id": "zhB5sQ1XInnsK269Ig6f",
+      "source_original_filename": "1a0cf39146fec57c4b7bc767d2ffaf5d.jpg",
+      "annotation_group_version": 0,
+      "width": 1080,
+      "height": 1315,
+      "saved_object_count": 7,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "No Hard Hat": 1,
+        "No Face Mask": 1,
+        "No Safety Vest": 1,
+        "No Gloves": 2,
+        "No Safety Attire": 1,
+        "Persons": 1
+      }
+    },
+    {
+      "source_id": "zISAoXX0zqHMvtql0UUu",
+      "source_original_filename": "image_1165.jpg",
+      "annotation_group_version": 0,
+      "width": 1600,
+      "height": 1067,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "Safety Vests": 1,
+        "Persons": 1,
+        "No Gloves": 1
+      }
+    },
+    {
+      "source_id": "Zj56bb4dBOVstW5ucZiu",
+      "source_original_filename": "d76996f268d6a9248a4dbbb9391449c0.jpg",
+      "annotation_group_version": 0,
+      "width": 1200,
+      "height": 1200,
+      "saved_object_count": 10,
+      "model_assisted_marker_count": 4,
+      "polygon_count": 0,
+      "class_counts": {
+        "Pants": 1,
+        "Safety Vests": 1,
+        "Hard Hat": 1,
+        "Safety Boots": 2,
+        "Persons": 1,
+        "No Gloves": 2,
+        "No Face Mask": 1,
+        "Goggles": 1
+      }
+    },
+    {
+      "source_id": "zkd5gzF2HP1Wij8jGOwq",
+      "source_original_filename": "1.jpg",
+      "annotation_group_version": 0,
+      "width": 1868,
+      "height": 4000,
+      "saved_object_count": 17,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 17,
+      "class_counts": {
+        "Persons": 2,
+        "Safety Boots": 4,
+        "Safety Vests": 5,
+        "Pants": 2,
+        "Hard Hat": 1,
+        "Soft Hat": 1,
+        "Gloves": 2
+      }
+    },
+    {
+      "source_id": "zmrQYc8xjmXZkSlVinnc",
+      "source_original_filename": "3.jpg",
+      "annotation_group_version": 0,
+      "width": 225,
+      "height": 225,
+      "saved_object_count": 2,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Gloves": 2
+      }
+    },
+    {
+      "source_id": "ZqhOTRrrdJeMVXJbVWfa",
+      "source_original_filename": "Video1_1.jpg",
+      "annotation_group_version": 0,
+      "width": 640,
+      "height": 640,
+      "saved_object_count": 10,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Vests": 1,
+        "Safety Boots": 2,
+        "Gloves": 2,
+        "Goggles": 1,
+        "Hard Hat": 1,
+        "Persons": 1,
+        "Face Masks": 1,
+        "Pants": 1
+      }
+    },
+    {
+      "source_id": "zs0ICbiboEbpAnE4v5ff",
+      "source_original_filename": "h47.jpg",
+      "annotation_group_version": 0,
+      "width": 700,
+      "height": 700,
+      "saved_object_count": 1,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Hard Hat": 1
+      }
+    },
+    {
+      "source_id": "ZSrd92iMWLtL7mEdfsUC",
+      "source_original_filename": "IMG-20241210-WA0019.jpg",
+      "annotation_group_version": 0,
+      "width": 810,
+      "height": 1080,
+      "saved_object_count": 12,
+      "model_assisted_marker_count": 0,
+      "polygon_count": 0,
+      "class_counts": {
+        "Persons": 2,
+        "Safety Vests": 2,
+        "Gloves": 3,
+        "Pants": 1,
+        "Safety Boots": 4
+      }
+    },
+    {
+      "source_id": "Zx9PgeXyBt0RN8E0vPp1",
+      "source_original_filename": "485836066_1053889173451146_5905071808916932186_n.jpg",
+      "annotation_group_version": 0,
+      "width": 2048,
+      "height": 1366,
+      "saved_object_count": 5,
+      "model_assisted_marker_count": 4,
+      "polygon_count": 0,
+      "class_counts": {
+        "Safety Vests": 1,
+        "Hard Hat": 1,
+        "Pants": 1,
+        "Gloves": 1,
+        "Persons": 1
+      }
+    }
+  ]
+}
