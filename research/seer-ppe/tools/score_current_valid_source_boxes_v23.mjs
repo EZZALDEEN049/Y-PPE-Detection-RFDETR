@@ -104,7 +104,7 @@ function compile(pilot,counts,risk,v20){
    need(old?.source_original_filename===row.original_filename&&
      old.width===row.image_width&&old.height===row.image_height&&
      old.saved_object_count===ex[2]&&
-     old.source_annotation_group_version===row.original_source_annotation_group_version,
+     old.annotation_group_version===row.original_source_annotation_group_version,
      'current Source annotation version/count/dimension changed');
    const curCounts={};
    const refIDs=new Set();
@@ -194,7 +194,7 @@ function compile(pilot,counts,risk,v20){
    source_independence_verified:false,worker_safety_compliance_scored:false,
    new_SEER_comparator_or_XAI_routing_experiment:false,physically_metered_energy:false,
    strict_independent_worker_safety_scoring_ready:false,test_source_or_evaluation_accessed:false,
-   prior_2025_legacy_eval_NOT_USED_as_current_label_prediction:false,
+   prior_2025_legacy_eval_NOT_USED_as_current_label_prediction:true,
    input_sha256:Object.fromEntries(Object.entries(fs).map(([k,p])=>[k,sha(p)])),
    source_pilot_box_match:micro,
    per_source:analyses,
