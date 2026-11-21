@@ -1,0 +1,545 @@
+{
+  "schema_version": "seer-ppe/actual-hosted-valid-pilot-current-original-gt-pred-bboxes/v0.23",
+  "date": "2026-11-21",
+  "frozen_pilot_protocol": "V23_VALID_CURRENT_BOX_GEOMETRY_FROZEN_PILOT_PROTOCOL.md",
+  "source_project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "scope": "5_DEVELOPMENT_EXPOSED_ORIGINAL_SOURCE_VALID_IMAGES_CURRENT_AUTHOR_BBOX_GEOMETRY_ONLY",
+  "no_source_image_bytes_or_urls_saved": true,
+  "no_test_accessed": true,
+  "original_images_annotations_and_splits_untouched": true,
+  "original_model_unchanged": true,
+  "historical_V20_eval_different_not_overwritten": true,
+  "scientific_independent_validation": false,
+  "person_level_PPE_compliance_measured": false,
+  "SEER_policy_comparison_executed": false,
+  "scoring_ready": false,
+  "selection_predeclared_ids": [
+    "07BnOpgFJyNaOhuzvh5i",
+    "084u5kuwQXhWa4EKdsQ5",
+    "09WO3iVNf9jOt21QAxmb",
+    "0ABzMrjnd6I0Ws6FH7qo",
+    "0aGYjxE5LmocXyvuLHs8"
+  ],
+  "selected_image_count": 5,
+  "original_current_reference_count": 23,
+  "new_hosted_inference_count": 5,
+  "actual_new_calls_this_tool_turn": 4,
+  "first_call_from_preceding_turn_inference_id": "ae8d4746-1035-4ee7-8fad-240a8d48c609",
+  "rows": [
+    {
+      "source_id": "07BnOpgFJyNaOhuzvh5i",
+      "original_filename": "image_1282.jpg",
+      "split": "valid",
+      "selection": "LEXICOGRAPHIC_FIRST_5_FROM_M2_UNFLAGGED_NOT_CERTIFIED",
+      "image_width": 1000,
+      "image_height": 667,
+      "original_source_annotation_group_version": 0,
+      "annotation_valid": true,
+      "current_author_labels": [
+        {
+          "annotation_id": "1",
+          "class_name": "Hard Hat",
+          "x": 680.5,
+          "y": 123.5,
+          "width": 114,
+          "height": 66,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "2",
+          "class_name": "Hard Hat",
+          "x": 293,
+          "y": 149.5,
+          "width": 103,
+          "height": 81,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "4",
+          "class_name": "Goggles",
+          "x": 652,
+          "y": 161.5,
+          "width": 71,
+          "height": 23,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "5",
+          "class_name": "Safety Vests",
+          "x": 300.5,
+          "y": 369,
+          "width": 173,
+          "height": 242,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "6",
+          "class_name": "Safety Vests",
+          "x": 683.5,
+          "y": 366.5,
+          "width": 152,
+          "height": 257,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "7",
+          "class_name": "Persons",
+          "x": 318.5,
+          "y": 380.61,
+          "width": 178,
+          "height": 572.77,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "8",
+          "class_name": "Persons",
+          "x": 678.5,
+          "y": 366.75,
+          "width": 152,
+          "height": 600.5,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "9",
+          "class_name": "Pants",
+          "x": 307.73,
+          "y": 557.95,
+          "width": 168.18,
+          "height": 215.91,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "A",
+          "class_name": "Pants",
+          "x": 680,
+          "y": 573.05,
+          "width": 145.45,
+          "height": 187.91,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "B",
+          "class_name": "No Face Mask",
+          "x": 333.82,
+          "y": 206.85,
+          "width": 41.45,
+          "height": 47.88,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "C",
+          "class_name": "No Gloves",
+          "x": 499.64,
+          "y": 450.98,
+          "width": 58.91,
+          "height": 76.14,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "D",
+          "class_name": "No Gloves",
+          "x": 681.09,
+          "y": 547.45,
+          "width": 66.91,
+          "height": 85.44,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "E",
+          "class_name": "No Face Mask",
+          "x": 636,
+          "y": 200.57,
+          "width": 33.45,
+          "height": 44.42,
+          "labeled_by_model": null
+        }
+      ],
+      "model_id": "altayyar-0oflt-lafos-qqauz/2",
+      "model_inference_id": "ae8d4746-1035-4ee7-8fad-240a8d48c609",
+      "hosted_inference_reported_seconds": 0.023138098418712616,
+      "hosted_inference_backend": "onnx",
+      "confidence_floor": 0.2,
+      "overlap_parameter": 0.5,
+      "predictions": [
+        {
+          "id": "d9498adc-43bb-4ce3-bda3-36f1a6c75c6b",
+          "class_name": "Safety Vests",
+          "confidence": 0.9296088218688965,
+          "x": 684.5,
+          "y": 362,
+          "width": 151,
+          "height": 280
+        },
+        {
+          "id": "47b8b614-909f-49b3-8b3c-56497b600b8c",
+          "class_name": "Persons",
+          "confidence": 0.9206578135490417,
+          "x": 679.5,
+          "y": 374.5,
+          "width": 171,
+          "height": 585
+        },
+        {
+          "id": "dfa9712d-864c-44e0-a3cf-f2f5ecc7c0ad",
+          "class_name": "Persons",
+          "confidence": 0.9111625552177429,
+          "x": 298,
+          "y": 386,
+          "width": 182,
+          "height": 562
+        },
+        {
+          "id": "8432211c-910a-4094-afca-e830d17f4000",
+          "class_name": "Safety Vests",
+          "confidence": 0.9043523669242859,
+          "x": 296,
+          "y": 372.5,
+          "width": 178,
+          "height": 253
+        },
+        {
+          "id": "7f17e4f0-1bee-42d9-8b1b-0ae20f1719eb",
+          "class_name": "Hard Hat",
+          "confidence": 0.9025022983551025,
+          "x": 673.5,
+          "y": 121.5,
+          "width": 131,
+          "height": 73
+        },
+        {
+          "id": "9b3b95b7-4b6f-40f8-84e6-ad1b18e1eb57",
+          "class_name": "Hard Hat",
+          "confidence": 0.9004469513893127,
+          "x": 299.5,
+          "y": 151,
+          "width": 113,
+          "height": 86
+        },
+        {
+          "id": "3d9c579d-3fc2-4e37-8201-12cbe9cd7d5c",
+          "class_name": "No Gloves",
+          "confidence": 0.8661456108093262,
+          "x": 683,
+          "y": 545.5,
+          "width": 66,
+          "height": 83
+        },
+        {
+          "id": "2eb120a9-21d3-4144-b64b-4b40a95d8f8a",
+          "class_name": "No Face Mask",
+          "confidence": 0.8524112701416016,
+          "x": 334,
+          "y": 207.5,
+          "width": 42,
+          "height": 49
+        },
+        {
+          "id": "e67b5082-bdc0-4143-8a98-9dd8524f868d",
+          "class_name": "No Gloves",
+          "confidence": 0.8351004123687744,
+          "x": 498,
+          "y": 449,
+          "width": 66,
+          "height": 74
+        },
+        {
+          "id": "81028e57-1fd8-4e3a-b0db-de0fc77c4cd6",
+          "class_name": "Pants",
+          "confidence": 0.8341006636619568,
+          "x": 307,
+          "y": 566.5,
+          "width": 154,
+          "height": 201
+        },
+        {
+          "id": "5c59f25f-7a59-4eb3-93f7-7f58aa407c15",
+          "class_name": "Pants",
+          "confidence": 0.8037847876548767,
+          "x": 674.5,
+          "y": 572.5,
+          "width": 131,
+          "height": 189
+        },
+        {
+          "id": "8992acdc-098c-4756-9ec7-d372cb7b487c",
+          "class_name": "No Face Mask",
+          "confidence": 0.7949324250221252,
+          "x": 640.5,
+          "y": 197,
+          "width": 35,
+          "height": 40
+        },
+        {
+          "id": "4e2ffe93-fe4e-4518-86b5-853dfb8657d3",
+          "class_name": "Goggles",
+          "confidence": 0.6437990665435791,
+          "x": 643.5,
+          "y": 163.5,
+          "width": 51,
+          "height": 25
+        }
+      ]
+    },
+    {
+      "source_id": "084u5kuwQXhWa4EKdsQ5",
+      "original_filename": "5731201_4.jpg",
+      "split": "valid",
+      "selection": "LEXICOGRAPHIC_FIRST_5_FROM_M2_UNFLAGGED_NOT_CERTIFIED",
+      "image_width": 244,
+      "image_height": 330,
+      "original_source_annotation_group_version": 0,
+      "annotation_valid": true,
+      "current_author_labels": [
+        {
+          "annotation_id": "1",
+          "class_name": "Child",
+          "x": 142.14,
+          "y": 165,
+          "width": 162.86,
+          "height": 330,
+          "labeled_by_model": null
+        }
+      ],
+      "model_id": "altayyar-0oflt-lafos-qqauz/2",
+      "model_inference_id": "a7923841-0b23-48c0-80ed-c99b655e2ddb",
+      "hosted_inference_reported_seconds": 0.008551080711185932,
+      "hosted_inference_backend": "onnx",
+      "confidence_floor": 0.2,
+      "overlap_parameter": 0.5,
+      "predictions": [
+        {
+          "id": "4c87f306-f497-409c-8b5b-adcff6076ff5",
+          "class_name": "Child",
+          "confidence": 0.9640604257583618,
+          "x": 140.5,
+          "y": 152.5,
+          "width": 167,
+          "height": 303
+        }
+      ]
+    },
+    {
+      "source_id": "09WO3iVNf9jOt21QAxmb",
+      "original_filename": "c1e5a26df8225afb5be5beceae128ad5.jpg",
+      "split": "valid",
+      "selection": "LEXICOGRAPHIC_FIRST_5_FROM_M2_UNFLAGGED_NOT_CERTIFIED",
+      "image_width": 736,
+      "image_height": 903,
+      "original_source_annotation_group_version": 0,
+      "annotation_valid": true,
+      "current_author_labels": [
+        {
+          "annotation_id": "1",
+          "class_name": "Pants",
+          "x": 388.5,
+          "y": 203.91,
+          "width": 302.58,
+          "height": 381.8,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "2",
+          "class_name": "Safety Boots",
+          "x": 386.03,
+          "y": 522.7,
+          "width": 276.83,
+          "height": 176.96,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "3",
+          "class_name": "Safety Boots",
+          "x": 248.83,
+          "y": 413.44,
+          "width": 229.82,
+          "height": 153.7,
+          "labeled_by_model": null
+        }
+      ],
+      "model_id": "altayyar-0oflt-lafos-qqauz/2",
+      "model_inference_id": "fd6052f1-f19c-4698-b147-71db759ccb8a",
+      "hosted_inference_reported_seconds": 0.013553844764828682,
+      "hosted_inference_backend": "onnx",
+      "confidence_floor": 0.2,
+      "overlap_parameter": 0.5,
+      "predictions": [
+        {
+          "id": "dbbe1fab-05c2-4130-afd3-ad712ad7acdd",
+          "class_name": "Pants",
+          "confidence": 0.9273931980133057,
+          "x": 347,
+          "y": 218,
+          "width": 360,
+          "height": 428
+        },
+        {
+          "id": "4e677702-32fe-49d6-b444-ccaeb03d6a72",
+          "class_name": "Safety Boots",
+          "confidence": 0.9197033643722534,
+          "x": 377,
+          "y": 511.5,
+          "width": 286,
+          "height": 163
+        },
+        {
+          "id": "181c2d93-bac0-4cfe-8613-9c4e66ecc4fc",
+          "class_name": "Safety Boots",
+          "confidence": 0.912612795829773,
+          "x": 261.5,
+          "y": 415.5,
+          "width": 211,
+          "height": 135
+        }
+      ]
+    },
+    {
+      "source_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "original_filename": "imagem40.jpg",
+      "split": "valid",
+      "selection": "LEXICOGRAPHIC_FIRST_5_FROM_M2_UNFLAGGED_NOT_CERTIFIED",
+      "image_width": 166,
+      "image_height": 236,
+      "original_source_annotation_group_version": 0,
+      "annotation_valid": true,
+      "current_author_labels": [
+        {
+          "annotation_id": "1",
+          "class_name": "Goggles",
+          "x": 83.6,
+          "y": 127.27,
+          "width": 98.15,
+          "height": 37.88,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "2",
+          "class_name": "Hard Hat",
+          "x": 85.97,
+          "y": 100.61,
+          "width": 128.13,
+          "height": 106.46,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "3",
+          "class_name": "Persons",
+          "x": 88.61,
+          "y": 134.99,
+          "width": 138.43,
+          "height": 194.15,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "4",
+          "class_name": "Safety Vests",
+          "x": 151.23,
+          "y": 214.61,
+          "width": 29.55,
+          "height": 42.77,
+          "labeled_by_model": null
+        },
+        {
+          "annotation_id": "5",
+          "class_name": "No Face Mask",
+          "x": 85.3,
+          "y": 163.55,
+          "width": 58.09,
+          "height": 47.8,
+          "labeled_by_model": null
+        }
+      ],
+      "model_id": "altayyar-0oflt-lafos-qqauz/2",
+      "model_inference_id": "6f5254ba-c04e-4690-91b4-1a39c5d8648f",
+      "hosted_inference_reported_seconds": 0.009697964414954185,
+      "hosted_inference_backend": "onnx",
+      "confidence_floor": 0.2,
+      "overlap_parameter": 0.5,
+      "predictions": [
+        {
+          "id": "4a70f349-2938-483f-934e-7cceeced6970",
+          "class_name": "Persons",
+          "confidence": 0.9441380500793457,
+          "x": 93.5,
+          "y": 135,
+          "width": 145,
+          "height": 202
+        },
+        {
+          "id": "ac23487e-dbbf-448b-a13e-31765fce591d",
+          "class_name": "Goggles",
+          "confidence": 0.9018769264221191,
+          "x": 86,
+          "y": 127,
+          "width": 104,
+          "height": 40
+        },
+        {
+          "id": "5d2a56b6-4b76-4206-afd0-51e1e4c28d8e",
+          "class_name": "No Face Mask",
+          "confidence": 0.8981361985206604,
+          "x": 87,
+          "y": 163.5,
+          "width": 70,
+          "height": 43
+        },
+        {
+          "id": "32f4f963-8c67-4b16-959d-1b197c1e3140",
+          "class_name": "Hard Hat",
+          "confidence": 0.8715000748634338,
+          "x": 89.5,
+          "y": 97.5,
+          "width": 123,
+          "height": 97
+        },
+        {
+          "id": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+          "class_name": "Safety Vests",
+          "confidence": 0.8528399467468262,
+          "x": 97,
+          "y": 212.5,
+          "width": 138,
+          "height": 47
+        }
+      ]
+    },
+    {
+      "source_id": "0aGYjxE5LmocXyvuLHs8",
+      "original_filename": "a16ea468abd845e68ea9ccbbe4f9762e.jpg",
+      "split": "valid",
+      "selection": "LEXICOGRAPHIC_FIRST_5_FROM_M2_UNFLAGGED_NOT_CERTIFIED",
+      "image_width": 736,
+      "image_height": 736,
+      "original_source_annotation_group_version": 0,
+      "annotation_valid": true,
+      "current_author_labels": [
+        {
+          "annotation_id": "1",
+          "class_name": "No Safety Boots",
+          "x": 308.53,
+          "y": 491,
+          "width": 227.62,
+          "height": 490,
+          "labeled_by_model": null
+        }
+      ],
+      "model_id": "altayyar-0oflt-lafos-qqauz/2",
+      "model_inference_id": "c734aa0c-b184-4a56-aa9a-7e039edc12b0",
+      "hosted_inference_reported_seconds": 0.015407918952405453,
+      "hosted_inference_backend": "onnx",
+      "confidence_floor": 0.2,
+      "overlap_parameter": 0.5,
+      "predictions": [
+        {
+          "id": "8bdb1086-0226-4293-b70c-3a44efd763c5",
+          "class_name": "No Safety Boots",
+          "confidence": 0.9197127223014832,
+          "x": 294,
+          "y": 488.5,
+          "width": 244,
+          "height": 483
+        }
+      ]
+    }
+  ]
+}
