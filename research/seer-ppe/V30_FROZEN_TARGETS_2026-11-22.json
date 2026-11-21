@@ -8,7 +8,8 @@
   "inference_settings": {
     "confidence": 0.2,
     "overlap": 0.5,
-    "active_learning": false
+    "endpoint": "serverless hosted direct model inference",
+    "workflow_sinks_invoked": false
   },
   "source_images": [
     {
@@ -355,7 +356,7 @@
   },
   "budget": {
     "unique_targets": 10,
-    "source_images": 9,
+    "source_images": 8,
     "baseline_model_calls": 8,
     "blurred_endpoint_model_calls": 8,
     "grid_occlusion_model_calls": 512,
@@ -376,5 +377,6 @@
     "worker_compliance_measured": false,
     "human_review_dispatched": false,
     "strict_worker_safety_scoring_ready": false
-  }
+  },
+  "source_image_exclusion_note": "The ninth V27 development image had no A5/A6 selected PPE target and is excluded from target-specific V30 curves; no new target is selected."
 }
