@@ -1,0 +1,1365 @@
+{
+  "schema_version": "seer-ppe/paired-train-detector-input-policy-offline-preflight/v0.17",
+  "date": "2026-11-21",
+  "execution_type": "DETERMINISTIC_OFFLINE_TRACE_FROM_EXISTING_REAL_V16_TRAIN_PREDICTIONS",
+  "input_file_sha256": {
+    "raw": "602ebafa2da1cc6e50630fd7e0e41d6f51693049a908f92bd0620aad964bc958",
+    "geometry": "75e34df2459eddffc3a43a291eb3b9ca1ca28d19a4bb586106ba7211d031b596",
+    "readiness": "4e3e7f746ea7cbcba319c0dbf6572c924be9280f7251c4543ffd9b8a1be74c63",
+    "freeze": "c2fa252d38b99962759c6f19341b236c7f8b8c815fd6943934367d83d2161873"
+  },
+  "original_model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "source_workflow_id": "61llCTFuQ4Aq4goQ9HiP",
+  "comparators": {
+    "A0": "FIXED_RFDETR_RAW_OUTPUT_NO_SAFETY_POLICY",
+    "A5": "CONSERVATIVE_SEER_POST_DETECTION_POLICY_DRY_RUN_ONLY"
+  },
+  "eligible_scientific_validation_source_images": 0,
+  "technically_matched_original_to_clean17_valid_images": 459,
+  "runtime_human_reference_loaded_as_routing_feature": false,
+  "signed_human_item_assignments_created": 0,
+  "detector_inference_calls_new_in_v17": 0,
+  "XAI_calls_new_in_v17": 0,
+  "human_review_requests_dispatched": 0,
+  "original_model_or_labels_modified": false,
+  "protected_test_read_or_used": false,
+  "validation_inference_performed": false,
+  "paired_benefit_or_safety_superiority_measured": false,
+  "accuracy_F1_mAP_computed": false,
+  "explanation_faithfulness_measured": false,
+  "electrical_energy_joules_measured": null,
+  "comparator_primary_not_yet_selected": true,
+  "validation_policy_frozen": false,
+  "scoring_ready": false,
+  "totals": {
+    "real_original_train_images_reused": 4,
+    "raw_model_detections": 51,
+    "person_box_candidates_not_verified_people": 7,
+    "typed_ppe_cues_review_suggested_not_sent": 38,
+    "geometry_single_owner_proposals_not_verified": 34,
+    "ambiguous_or_unassigned_ppe": 4,
+    "context_only_detections": 6,
+    "scene_coverage_uncertain": 4,
+    "worker_compliance_verdicts": 0,
+    "unsafe_scene_clearances": 0
+  },
+  "cases": [
+    {
+      "case": "A",
+      "case_id": "8f7cce94-d46e-4fac-9a0a-641bcd1f12c8",
+      "source_split": "train",
+      "shared_real_V16_inference_id": "2f21af30-3fc9-49e2-8c32-650138b3d005",
+      "raw_detected_boxes": 5,
+      "detector_person_candidates": 1,
+      "typed_ppe_review_suggestions": 4,
+      "context_boxes_not_ppe": 0,
+      "coverage_status": "PERSON_COVERAGE_UNVERIFIED",
+      "A0_baseline": {
+        "view": "ORIGINAL_FROZEN_DETECTOR_NUMERIC_OUTPUT_NO_POLICY",
+        "raw_detection_ids": [
+          "1bc68b13-26d3-4f33-a0a1-966c81464efe",
+          "3c93a7b4-3d1c-4fe3-a668-1edda6101556",
+          "4e7ab851-2063-4ed9-974f-2add2d873ce4",
+          "a048af63-91ee-4787-b133-845345f4c8f2",
+          "367eb0dd-45f3-4d62-9425-4e70a8d087f0"
+        ],
+        "worker_compliance_verdicts": 0,
+        "scene_safe_clearances": 0,
+        "xai_calls_executed_by_v17": 0
+      },
+      "A5_SEER_offline_proposal": {
+        "view": "POST_DETECTION_POLICY_SIMULATION_NO_NEW_INFERENCE",
+        "person_candidate_ids": [
+          "4e7ab851-2063-4ed9-974f-2add2d873ce4"
+        ],
+        "context_only_ids": [],
+        "typed_cues": [
+          {
+            "item_detection_id": "1bc68b13-26d3-4f33-a0a1-966c81464efe",
+            "original_detector_class": "Safety Vests",
+            "confidence": 0.94948,
+            "ppe_type": "safety_vest",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "4e7ab851-2063-4ed9-974f-2add2d873ce4",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "1bc68b13-26d3-4f33-a0a1-966c81464efe",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "1bc68b13-26d3-4f33-a0a1-966c81464efe",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "3c93a7b4-3d1c-4fe3-a668-1edda6101556",
+            "original_detector_class": "Hard Hat",
+            "confidence": 0.94362,
+            "ppe_type": "hard_hat",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "4e7ab851-2063-4ed9-974f-2add2d873ce4",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "3c93a7b4-3d1c-4fe3-a668-1edda6101556",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "3c93a7b4-3d1c-4fe3-a668-1edda6101556",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "a048af63-91ee-4787-b133-845345f4c8f2",
+            "original_detector_class": "Goggles",
+            "confidence": 0.91963,
+            "ppe_type": "goggles",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "4e7ab851-2063-4ed9-974f-2add2d873ce4",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "a048af63-91ee-4787-b133-845345f4c8f2",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "a048af63-91ee-4787-b133-845345f4c8f2",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+            "original_detector_class": "No Face Mask",
+            "confidence": 0.88017,
+            "ppe_type": "face_mask",
+            "detector_cue_sense": "NEGATIVE_MARKER",
+            "tentative_geometric_owner_detection_id": "4e7ab851-2063-4ed9-974f-2add2d873ce4",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "NEGATIVE_CLASS_IS_NOT_PROOF_OF_ABSENCE"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          }
+        ],
+        "human_review_suggestions_not_submitted": 4,
+        "scene_coverage_review_suggested_not_submitted": true,
+        "compliance_verdicts": 0,
+        "scene_safe_clearances": 0,
+        "review_requests_actually_dispatched": 0,
+        "xai_calls_executed_by_v17": 0
+      }
+    },
+    {
+      "case": "B",
+      "case_id": "87b6cc58-43bd-4583-8b13-bd9b7413c03d",
+      "source_split": "train",
+      "shared_real_V16_inference_id": "55f64252-288e-43ee-a21f-39d8c40371fa",
+      "raw_detected_boxes": 16,
+      "detector_person_candidates": 2,
+      "typed_ppe_review_suggestions": 12,
+      "context_boxes_not_ppe": 2,
+      "coverage_status": "PERSON_COVERAGE_UNVERIFIED",
+      "A0_baseline": {
+        "view": "ORIGINAL_FROZEN_DETECTOR_NUMERIC_OUTPUT_NO_POLICY",
+        "raw_detection_ids": [
+          "89887c71-6e1f-4e61-8f3e-267aa42788af",
+          "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+          "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+          "f5eccb2c-8881-451c-b737-32805bb52e31",
+          "7d460b2c-eabf-485b-b8e0-536e9e95d368",
+          "d6e74dc2-b09e-46b0-b226-3229be9e1328",
+          "fd3e7a1f-653a-4d29-ab77-a7eaf5c1662d",
+          "4b1b9669-a08e-40df-9c07-1bb2933da75b",
+          "dfafa423-9003-4ee5-8c3b-783e23dd0509",
+          "401da7f2-00a0-423d-91a1-f9da475bf91f",
+          "3577d292-cbf3-46a4-90e7-2780cb026b78",
+          "36f6dbce-8c9b-458f-8788-13ba2528b3b6",
+          "26dc785e-6ae7-4962-be81-e0c9c652028a",
+          "3027e2d7-0d14-4b0a-8e7e-53d44c03a291",
+          "c4f49afa-d4bd-400a-9d75-731453792e3a",
+          "1b2af685-6965-4986-9d35-258b036e5882"
+        ],
+        "worker_compliance_verdicts": 0,
+        "scene_safe_clearances": 0,
+        "xai_calls_executed_by_v17": 0
+      },
+      "A5_SEER_offline_proposal": {
+        "view": "POST_DETECTION_POLICY_SIMULATION_NO_NEW_INFERENCE",
+        "person_candidate_ids": [
+          "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+          "6fb1b00e-8bd2-4250-985f-6568fb591fa2"
+        ],
+        "context_only_ids": [
+          "f5eccb2c-8881-451c-b737-32805bb52e31",
+          "7d460b2c-eabf-485b-b8e0-536e9e95d368"
+        ],
+        "typed_cues": [
+          {
+            "item_detection_id": "89887c71-6e1f-4e61-8f3e-267aa42788af",
+            "original_detector_class": "Hard Hat",
+            "confidence": 0.95465,
+            "ppe_type": "hard_hat",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "89887c71-6e1f-4e61-8f3e-267aa42788af",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "89887c71-6e1f-4e61-8f3e-267aa42788af",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "d6e74dc2-b09e-46b0-b226-3229be9e1328",
+            "original_detector_class": "Hard Hat",
+            "confidence": 0.90347,
+            "ppe_type": "hard_hat",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": null,
+            "geometry_review_status": "MULTIPLE_OR_WEAK_GEOMETRIC_CANDIDATES_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "d6e74dc2-b09e-46b0-b226-3229be9e1328",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "d6e74dc2-b09e-46b0-b226-3229be9e1328",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "PERSON_EQUIPMENT_ASSOCIATION_UNRESOLVED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "fd3e7a1f-653a-4d29-ab77-a7eaf5c1662d",
+            "original_detector_class": "No Safety Vest",
+            "confidence": 0.89607,
+            "ppe_type": "safety_vest",
+            "detector_cue_sense": "NEGATIVE_MARKER",
+            "tentative_geometric_owner_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "fd3e7a1f-653a-4d29-ab77-a7eaf5c1662d",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "fd3e7a1f-653a-4d29-ab77-a7eaf5c1662d",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "NEGATIVE_CLASS_IS_NOT_PROOF_OF_ABSENCE"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "4b1b9669-a08e-40df-9c07-1bb2933da75b",
+            "original_detector_class": "Gloves",
+            "confidence": 0.88636,
+            "ppe_type": "glove",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "4b1b9669-a08e-40df-9c07-1bb2933da75b",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "4b1b9669-a08e-40df-9c07-1bb2933da75b",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "dfafa423-9003-4ee5-8c3b-783e23dd0509",
+            "original_detector_class": "Safety Boots",
+            "confidence": 0.86813,
+            "ppe_type": "safety_boot",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "dfafa423-9003-4ee5-8c3b-783e23dd0509",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "dfafa423-9003-4ee5-8c3b-783e23dd0509",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "401da7f2-00a0-423d-91a1-f9da475bf91f",
+            "original_detector_class": "Gloves",
+            "confidence": 0.86763,
+            "ppe_type": "glove",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "401da7f2-00a0-423d-91a1-f9da475bf91f",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "401da7f2-00a0-423d-91a1-f9da475bf91f",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "3577d292-cbf3-46a4-90e7-2780cb026b78",
+            "original_detector_class": "Gloves",
+            "confidence": 0.8649,
+            "ppe_type": "glove",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "3577d292-cbf3-46a4-90e7-2780cb026b78",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "3577d292-cbf3-46a4-90e7-2780cb026b78",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "36f6dbce-8c9b-458f-8788-13ba2528b3b6",
+            "original_detector_class": "Safety Boots",
+            "confidence": 0.86446,
+            "ppe_type": "safety_boot",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "36f6dbce-8c9b-458f-8788-13ba2528b3b6",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "36f6dbce-8c9b-458f-8788-13ba2528b3b6",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "26dc785e-6ae7-4962-be81-e0c9c652028a",
+            "original_detector_class": "Gloves",
+            "confidence": 0.8372,
+            "ppe_type": "glove",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "26dc785e-6ae7-4962-be81-e0c9c652028a",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "26dc785e-6ae7-4962-be81-e0c9c652028a",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "3027e2d7-0d14-4b0a-8e7e-53d44c03a291",
+            "original_detector_class": "No Safety Vest",
+            "confidence": 0.78597,
+            "ppe_type": "safety_vest",
+            "detector_cue_sense": "NEGATIVE_MARKER",
+            "tentative_geometric_owner_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "3027e2d7-0d14-4b0a-8e7e-53d44c03a291",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "3027e2d7-0d14-4b0a-8e7e-53d44c03a291",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "NEGATIVE_CLASS_IS_NOT_PROOF_OF_ABSENCE"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "c4f49afa-d4bd-400a-9d75-731453792e3a",
+            "original_detector_class": "Safety Boots",
+            "confidence": 0.67779,
+            "ppe_type": "safety_boot",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": null,
+            "geometry_review_status": "MULTIPLE_OR_WEAK_GEOMETRIC_CANDIDATES_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "c4f49afa-d4bd-400a-9d75-731453792e3a",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "c4f49afa-d4bd-400a-9d75-731453792e3a",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "PERSON_EQUIPMENT_ASSOCIATION_UNRESOLVED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "1b2af685-6965-4986-9d35-258b036e5882",
+            "original_detector_class": "Gloves",
+            "confidence": 0.31098,
+            "ppe_type": "glove",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "1b2af685-6965-4986-9d35-258b036e5882",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "1b2af685-6965-4986-9d35-258b036e5882",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "LOW_DETECTOR_CONFIDENCE"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          }
+        ],
+        "human_review_suggestions_not_submitted": 12,
+        "scene_coverage_review_suggested_not_submitted": true,
+        "compliance_verdicts": 0,
+        "scene_safe_clearances": 0,
+        "review_requests_actually_dispatched": 0,
+        "xai_calls_executed_by_v17": 0
+      }
+    },
+    {
+      "case": "C",
+      "case_id": "c032f81d-64c5-44be-96f3-7e6fe9dad799",
+      "source_split": "train",
+      "shared_real_V16_inference_id": "ebc53525-8f22-4abb-9b7a-7a0c559578be",
+      "raw_detected_boxes": 29,
+      "detector_person_candidates": 4,
+      "typed_ppe_review_suggestions": 21,
+      "context_boxes_not_ppe": 4,
+      "coverage_status": "PERSON_COVERAGE_UNVERIFIED",
+      "A0_baseline": {
+        "view": "ORIGINAL_FROZEN_DETECTOR_NUMERIC_OUTPUT_NO_POLICY",
+        "raw_detection_ids": [
+          "5b46a786-4fa1-4658-a79e-43a1ed9f2850",
+          "4d1df5eb-a8b7-47ad-95c3-172dc5c7035a",
+          "3a49c1ec-c446-4618-9077-000f37932bfb",
+          "b281e5d4-498b-4818-bf3e-dc378c733e46",
+          "c3ac469e-79e5-48f5-afbd-c39d882e0806",
+          "65e95fbe-7c19-4f9b-be09-e5dc007bfffc",
+          "b701bec0-881b-40ff-9d4e-fb1c9cb8f990",
+          "042069bd-d6c1-4423-aa53-9e9e8b3fca11",
+          "c30d7510-b4de-47dd-8d45-1d7b0a08714d",
+          "476f962b-06a7-4489-b415-434e3193bab7",
+          "bcadf73d-d873-44d3-b038-1b1fe525e911",
+          "eab7c2eb-8058-4c97-8cbe-9d35e3213ba3",
+          "3447ff66-b116-410f-af62-df6122e34cf7",
+          "956ed8ca-3cc6-41bd-88f5-3410ee5a93e7",
+          "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+          "fae60aa9-9e23-4bca-bfa6-bb644e8de00e",
+          "24ce2474-ae0a-4267-ba20-4efe450eeaf7",
+          "d3bea8d2-3722-49ac-abd2-096eec878337",
+          "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+          "15c07c8c-56e9-4fbe-8fac-105ff957d9d7",
+          "449a63b9-a765-4c59-8fbc-64496bf53d5b",
+          "839235e0-a201-49ba-a995-23d0bdb7fe11",
+          "72438c8e-03ec-49f6-be66-9d651ede26d8",
+          "021a8c09-78bf-4dac-82c3-e4ec15e819c9",
+          "7820b4e3-d165-402c-aab5-d1ee4e01897d",
+          "a6adf3f3-4f10-4d8b-8138-3cd3c4ec8fef",
+          "1bd75f45-e192-48d7-8c85-fa2c875c1aec",
+          "35e4de96-de91-46a1-910f-89738f80e053",
+          "aadb7fb8-811c-4993-aa2d-3ec266263b9a"
+        ],
+        "worker_compliance_verdicts": 0,
+        "scene_safe_clearances": 0,
+        "xai_calls_executed_by_v17": 0
+      },
+      "A5_SEER_offline_proposal": {
+        "view": "POST_DETECTION_POLICY_SIMULATION_NO_NEW_INFERENCE",
+        "person_candidate_ids": [
+          "b281e5d4-498b-4818-bf3e-dc378c733e46",
+          "bcadf73d-d873-44d3-b038-1b1fe525e911",
+          "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+          "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0"
+        ],
+        "context_only_ids": [
+          "5b46a786-4fa1-4658-a79e-43a1ed9f2850",
+          "c3ac469e-79e5-48f5-afbd-c39d882e0806",
+          "042069bd-d6c1-4423-aa53-9e9e8b3fca11",
+          "956ed8ca-3cc6-41bd-88f5-3410ee5a93e7"
+        ],
+        "typed_cues": [
+          {
+            "item_detection_id": "4d1df5eb-a8b7-47ad-95c3-172dc5c7035a",
+            "original_detector_class": "Hard Hat",
+            "confidence": 0.8932,
+            "ppe_type": "hard_hat",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "4d1df5eb-a8b7-47ad-95c3-172dc5c7035a",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "4d1df5eb-a8b7-47ad-95c3-172dc5c7035a",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "3a49c1ec-c446-4618-9077-000f37932bfb",
+            "original_detector_class": "Safety Vests",
+            "confidence": 0.89267,
+            "ppe_type": "safety_vest",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "b281e5d4-498b-4818-bf3e-dc378c733e46",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "3a49c1ec-c446-4618-9077-000f37932bfb",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "3a49c1ec-c446-4618-9077-000f37932bfb",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "65e95fbe-7c19-4f9b-be09-e5dc007bfffc",
+            "original_detector_class": "Safety Vests",
+            "confidence": 0.88094,
+            "ppe_type": "safety_vest",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "65e95fbe-7c19-4f9b-be09-e5dc007bfffc",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "65e95fbe-7c19-4f9b-be09-e5dc007bfffc",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "b701bec0-881b-40ff-9d4e-fb1c9cb8f990",
+            "original_detector_class": "Hard Hat",
+            "confidence": 0.86775,
+            "ppe_type": "hard_hat",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "b701bec0-881b-40ff-9d4e-fb1c9cb8f990",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "b701bec0-881b-40ff-9d4e-fb1c9cb8f990",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "c30d7510-b4de-47dd-8d45-1d7b0a08714d",
+            "original_detector_class": "Safety Vests",
+            "confidence": 0.86209,
+            "ppe_type": "safety_vest",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "c30d7510-b4de-47dd-8d45-1d7b0a08714d",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "c30d7510-b4de-47dd-8d45-1d7b0a08714d",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "476f962b-06a7-4489-b415-434e3193bab7",
+            "original_detector_class": "No Safety Boots",
+            "confidence": 0.85321,
+            "ppe_type": "safety_boot",
+            "detector_cue_sense": "NEGATIVE_MARKER",
+            "tentative_geometric_owner_detection_id": "b281e5d4-498b-4818-bf3e-dc378c733e46",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "476f962b-06a7-4489-b415-434e3193bab7",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "476f962b-06a7-4489-b415-434e3193bab7",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "NEGATIVE_CLASS_IS_NOT_PROOF_OF_ABSENCE"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "eab7c2eb-8058-4c97-8cbe-9d35e3213ba3",
+            "original_detector_class": "Safety Vests",
+            "confidence": 0.8483,
+            "ppe_type": "safety_vest",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "eab7c2eb-8058-4c97-8cbe-9d35e3213ba3",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "eab7c2eb-8058-4c97-8cbe-9d35e3213ba3",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "3447ff66-b116-410f-af62-df6122e34cf7",
+            "original_detector_class": "Hard Hat",
+            "confidence": 0.84756,
+            "ppe_type": "hard_hat",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "3447ff66-b116-410f-af62-df6122e34cf7",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "3447ff66-b116-410f-af62-df6122e34cf7",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "fae60aa9-9e23-4bca-bfa6-bb644e8de00e",
+            "original_detector_class": "Gloves",
+            "confidence": 0.82557,
+            "ppe_type": "glove",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "fae60aa9-9e23-4bca-bfa6-bb644e8de00e",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "fae60aa9-9e23-4bca-bfa6-bb644e8de00e",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "24ce2474-ae0a-4267-ba20-4efe450eeaf7",
+            "original_detector_class": "Hard Hat",
+            "confidence": 0.82213,
+            "ppe_type": "hard_hat",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "b281e5d4-498b-4818-bf3e-dc378c733e46",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "24ce2474-ae0a-4267-ba20-4efe450eeaf7",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "24ce2474-ae0a-4267-ba20-4efe450eeaf7",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "d3bea8d2-3722-49ac-abd2-096eec878337",
+            "original_detector_class": "Gloves",
+            "confidence": 0.81218,
+            "ppe_type": "glove",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": null,
+            "geometry_review_status": "NO_GEOMETRIC_PERSON_CANDIDATE",
+            "A0_original_detector_only": {
+              "cue_id": "d3bea8d2-3722-49ac-abd2-096eec878337",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "d3bea8d2-3722-49ac-abd2-096eec878337",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "PERSON_EQUIPMENT_ASSOCIATION_UNRESOLVED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "15c07c8c-56e9-4fbe-8fac-105ff957d9d7",
+            "original_detector_class": "Gloves",
+            "confidence": 0.76175,
+            "ppe_type": "glove",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "15c07c8c-56e9-4fbe-8fac-105ff957d9d7",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "15c07c8c-56e9-4fbe-8fac-105ff957d9d7",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "449a63b9-a765-4c59-8fbc-64496bf53d5b",
+            "original_detector_class": "Gloves",
+            "confidence": 0.735,
+            "ppe_type": "glove",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "449a63b9-a765-4c59-8fbc-64496bf53d5b",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "449a63b9-a765-4c59-8fbc-64496bf53d5b",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "839235e0-a201-49ba-a995-23d0bdb7fe11",
+            "original_detector_class": "No Safety Boots",
+            "confidence": 0.67109,
+            "ppe_type": "safety_boot",
+            "detector_cue_sense": "NEGATIVE_MARKER",
+            "tentative_geometric_owner_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "839235e0-a201-49ba-a995-23d0bdb7fe11",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "839235e0-a201-49ba-a995-23d0bdb7fe11",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "NEGATIVE_CLASS_IS_NOT_PROOF_OF_ABSENCE"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "72438c8e-03ec-49f6-be66-9d651ede26d8",
+            "original_detector_class": "No Face Mask",
+            "confidence": 0.65218,
+            "ppe_type": "face_mask",
+            "detector_cue_sense": "NEGATIVE_MARKER",
+            "tentative_geometric_owner_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "72438c8e-03ec-49f6-be66-9d651ede26d8",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "72438c8e-03ec-49f6-be66-9d651ede26d8",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "NEGATIVE_CLASS_IS_NOT_PROOF_OF_ABSENCE"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "021a8c09-78bf-4dac-82c3-e4ec15e819c9",
+            "original_detector_class": "No Face Mask",
+            "confidence": 0.64593,
+            "ppe_type": "face_mask",
+            "detector_cue_sense": "NEGATIVE_MARKER",
+            "tentative_geometric_owner_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "021a8c09-78bf-4dac-82c3-e4ec15e819c9",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "021a8c09-78bf-4dac-82c3-e4ec15e819c9",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "NEGATIVE_CLASS_IS_NOT_PROOF_OF_ABSENCE"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "7820b4e3-d165-402c-aab5-d1ee4e01897d",
+            "original_detector_class": "Gloves",
+            "confidence": 0.64328,
+            "ppe_type": "glove",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "7820b4e3-d165-402c-aab5-d1ee4e01897d",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "7820b4e3-d165-402c-aab5-d1ee4e01897d",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "a6adf3f3-4f10-4d8b-8138-3cd3c4ec8fef",
+            "original_detector_class": "No Safety Boots",
+            "confidence": 0.60291,
+            "ppe_type": "safety_boot",
+            "detector_cue_sense": "NEGATIVE_MARKER",
+            "tentative_geometric_owner_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "a6adf3f3-4f10-4d8b-8138-3cd3c4ec8fef",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "a6adf3f3-4f10-4d8b-8138-3cd3c4ec8fef",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "NEGATIVE_CLASS_IS_NOT_PROOF_OF_ABSENCE"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "1bd75f45-e192-48d7-8c85-fa2c875c1aec",
+            "original_detector_class": "No Face Mask",
+            "confidence": 0.37794,
+            "ppe_type": "face_mask",
+            "detector_cue_sense": "NEGATIVE_MARKER",
+            "tentative_geometric_owner_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "1bd75f45-e192-48d7-8c85-fa2c875c1aec",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "1bd75f45-e192-48d7-8c85-fa2c875c1aec",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "LOW_DETECTOR_CONFIDENCE",
+                "NEGATIVE_CLASS_IS_NOT_PROOF_OF_ABSENCE"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "35e4de96-de91-46a1-910f-89738f80e053",
+            "original_detector_class": "No Safety Boots",
+            "confidence": 0.35067,
+            "ppe_type": "safety_boot",
+            "detector_cue_sense": "NEGATIVE_MARKER",
+            "tentative_geometric_owner_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "35e4de96-de91-46a1-910f-89738f80e053",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "35e4de96-de91-46a1-910f-89738f80e053",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "LOW_DETECTOR_CONFIDENCE",
+                "NEGATIVE_CLASS_IS_NOT_PROOF_OF_ABSENCE"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          },
+          {
+            "item_detection_id": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+            "original_detector_class": "Face Masks",
+            "confidence": 0.24226,
+            "ppe_type": "face_mask",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+            "geometry_review_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+            "A0_original_detector_only": {
+              "cue_id": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "LOW_DETECTOR_CONFIDENCE"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          }
+        ],
+        "human_review_suggestions_not_submitted": 21,
+        "scene_coverage_review_suggested_not_submitted": true,
+        "compliance_verdicts": 0,
+        "scene_safe_clearances": 0,
+        "review_requests_actually_dispatched": 0,
+        "xai_calls_executed_by_v17": 0
+      }
+    },
+    {
+      "case": "D",
+      "case_id": "c197d82e-7870-42a3-bf94-462420d3f6a2",
+      "source_split": "train",
+      "shared_real_V16_inference_id": "5c8aa9ea-b7db-43d7-89d9-f1297778f7d5",
+      "raw_detected_boxes": 1,
+      "detector_person_candidates": 0,
+      "typed_ppe_review_suggestions": 1,
+      "context_boxes_not_ppe": 0,
+      "coverage_status": "PERSON_COVERAGE_UNVERIFIED",
+      "A0_baseline": {
+        "view": "ORIGINAL_FROZEN_DETECTOR_NUMERIC_OUTPUT_NO_POLICY",
+        "raw_detection_ids": [
+          "7a101411-15e7-457a-842a-0e61be4f1f11"
+        ],
+        "worker_compliance_verdicts": 0,
+        "scene_safe_clearances": 0,
+        "xai_calls_executed_by_v17": 0
+      },
+      "A5_SEER_offline_proposal": {
+        "view": "POST_DETECTION_POLICY_SIMULATION_NO_NEW_INFERENCE",
+        "person_candidate_ids": [],
+        "context_only_ids": [],
+        "typed_cues": [
+          {
+            "item_detection_id": "7a101411-15e7-457a-842a-0e61be4f1f11",
+            "original_detector_class": "Hard Hat",
+            "confidence": 0.96472,
+            "ppe_type": "hard_hat",
+            "detector_cue_sense": "POSITIVE",
+            "tentative_geometric_owner_detection_id": null,
+            "geometry_review_status": "NO_PERSON_DETECTION_COVERAGE_UNKNOWN",
+            "A0_original_detector_only": {
+              "cue_id": "7a101411-15e7-457a-842a-0e61be4f1f11",
+              "output": "RAW_MODEL_CUE_NO_COMPLIANCE_DECISION",
+              "human_review_dispatched": false,
+              "xai_calls_executed": 0,
+              "worker_clearance": null
+            },
+            "A5_offline_SEER_policy_proposal": {
+              "input_cue_id": "7a101411-15e7-457a-842a-0e61be4f1f11",
+              "proposed_route": "ABSTAIN_AND_SUGGEST_HUMAN_REVIEW_NOT_DISPATCHED",
+              "reasons": [
+                "TASK_POLICY_UNKNOWN",
+                "HUMAN_PERSON_COVERAGE_UNVERIFIED",
+                "PERSON_EQUIPMENT_ASSOCIATION_UNRESOLVED"
+              ],
+              "worker_clearance": null,
+              "violation_verdict": null,
+              "human_review_dispatched": false,
+              "explanation_produced": false,
+              "xai_calls_executed": 0
+            }
+          }
+        ],
+        "human_review_suggestions_not_submitted": 1,
+        "scene_coverage_review_suggested_not_submitted": true,
+        "compliance_verdicts": 0,
+        "scene_safe_clearances": 0,
+        "review_requests_actually_dispatched": 0,
+        "xai_calls_executed_by_v17": 0
+      }
+    }
+  ]
+}
