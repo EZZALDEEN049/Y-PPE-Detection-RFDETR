@@ -27,8 +27,9 @@ The scorer defines a lost target's fixed-target score as zero, while ambiguous m
 
 ## Verification performed in this continuation
 
-- Eight synthetic unit tests passed locally for target matching, lost/ambiguous handling, grid-map drops, deterministic random controls, blurred baseline, progressive endpoints, and AUC.
+- Eight synthetic unit tests passed locally and in GitHub Actions for target matching, lost/ambiguous handling, grid-map drops, deterministic random controls, blurred baseline, progressive endpoints, and AUC. [Unit-test run 44957983705](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44957983705).
 - Python syntax compilation passed for the V30 module and runner.
+- Source/reference readiness workflow passed after aligning stale V22–V26 manuscript assertions to the existing v0.27 master. [Readiness run 44957983683](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44957983683).
 - No RF-DETR model calls were made in this continuation.
 - No image bytes, original annotations, model weights, or Test assets were changed or committed.
 - No human review or worker-safety scoring was performed.
