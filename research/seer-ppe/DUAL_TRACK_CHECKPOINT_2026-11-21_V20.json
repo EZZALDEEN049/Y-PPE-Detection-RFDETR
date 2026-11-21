@@ -1,0 +1,67 @@
+{
+  "schema_version": "seer-ppe/checkpoint/v0.20",
+  "date": "2026-11-21",
+  "supersedes": "DUAL_TRACK_CHECKPOINT_2026-11-21_V19.json",
+  "status": "HISTORICAL_INTERNAL_VALID_METADATA_ONLY_MODEL_EVAL_REAGGREGATION_COMPLETED_NOT_NEW_RFDETR_VALID_INFERENCE_OR_SEER_SAFETY_SCORING",
+  "model": "altayyar-0oflt-lafos-qqauz/2",
+  "existing_model_eval_id": "KyzP9neuyNTN5eQpGCAY",
+  "existing_model_eval_version_number": 2,
+  "existing_model_eval_created_at": "2025-09-11T21:56:08.746Z",
+  "valid_only_confidence_threshold": 0.2,
+  "historical_eval_valid_inputs": 468,
+  "original_source_id_exactly_matched": 468,
+  "clean17_valid_original_ids_retained": 459,
+  "excluded_old_original_valid_ids": 9,
+  "current_read_only_source_valid_annotations": 459,
+  "current_source_annotation_boxes": 3471,
+  "current_source_model_assisted_markers": 729,
+  "historical_eval_reference_boxes": 3455,
+  "current_source_reference_count_matches": 446,
+  "current_source_reference_count_differs": 13,
+  "current_minus_historical_reference_box_difference": 16,
+  "descriptive_cohorts": {
+    "M0_459": {
+      "tp": 3252,
+      "fp": 642,
+      "fn": 203,
+      "precision": 0.835131,
+      "recall": 0.941245,
+      "f1": 0.885018
+    },
+    "M1_448": {
+      "tp": 3217,
+      "fp": 639,
+      "fn": 200,
+      "precision": 0.834284,
+      "recall": 0.941469,
+      "f1": 0.884642
+    },
+    "M2_367": {
+      "tp": 2851,
+      "fp": 589,
+      "fn": 183,
+      "precision": 0.828779,
+      "recall": 0.939684,
+      "f1": 0.880754
+    }
+  },
+  "new_model_inference_calls": 0,
+  "independent_acquisition_group_certified": false,
+  "mAP_recomputed": false,
+  "current_annotation_bbox_level_metrics_measured": false,
+  "original_model_or_annotations_or_splits_modified": false,
+  "new_human_review_required": false,
+  "worker_occupational_compliance_scored": false,
+  "XAI_fidelity_or_energy_measured": false,
+  "Test_accessed": false,
+  "strict_worker_safety_scoring_ready": false,
+  "github_actions_run": 44856892166,
+  "artifacts": {
+    "protocol": "VALID_HISTORICAL_INTERNAL_OBJECT_EVAL_PROTOCOL_FROZEN_V20.md",
+    "current_source_annotation_counts_part1": "V20_VALID_SOURCE_ANNOTATION_COUNTS_PART1_PRIVATE_WORKING.json",
+    "current_source_annotation_counts_part2": "V20_VALID_SOURCE_ANNOTATION_COUNTS_PART2_PRIVATE_WORKING.json",
+    "historical_eval_counters": "HISTORICAL_V2_VALID_PER_IMAGE_COUNTERS_V20.json",
+    "per_source_recomputed_micros": "HISTORICAL_VALID_INTERNAL_METRICS_V20.json",
+    "tool": "tools/compile_historical_valid_internal_metrics_v20.mjs"
+  }
+}
