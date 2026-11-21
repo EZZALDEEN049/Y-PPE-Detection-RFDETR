@@ -194,6 +194,18 @@ jobs:
         run: |
           node research/seer-ppe/tools/validate_v15_priority_11_source_packets.mjs --self-test
           node research/seer-ppe/tools/validate_v15_priority_11_source_packets.mjs --verify
+      - name: Verify V16 actual Roboflow Train-only predictions and abstention engineering regression
+        run: |
+          node research/seer-ppe/tools/review_real_train_detection_geometry_v16.mjs --self-test
+          node research/seer-ppe/tools/review_real_train_detection_geometry_v16.mjs --audit /tmp/seer-v16-geometry.json > /tmp/seer-v16-geometry.log
+          cmp research/seer-ppe/TRAIN_ONLY_PERSON_PPE_GEOMETRIC_REVIEW_V16.json /tmp/seer-v16-geometry.json
+          grep -q 'SEER_V16_REAL_TRAIN_ONLY_DETECTION_METADATA_GEOMETRY_ABSTENTION_PASS' /tmp/seer-v16-geometry.log
+      - name: Verify V16 existing human reference disallows unsafe PPE class conflicts
+        run: |
+          node research/seer-ppe/tools/triage_v16_train_cues_against_existing_reference.mjs --self-test
+          node research/seer-ppe/tools/triage_v16_train_cues_against_existing_reference.mjs --audit /tmp/seer-v16-human-cue.json > /tmp/seer-v16-human-cue.log
+          cmp research/seer-ppe/TRAIN_ONLY_DETECTOR_VS_ACCEPTED_HUMAN_REVIEW_V16.json /tmp/seer-v16-human-cue.json
+          grep -q 'SEER_V16_ACTUAL_TRAIN_CUE_VS_HUMAN_REFERENCE_REVIEW_ONLY_PASS' /tmp/seer-v16-human-cue.log
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'

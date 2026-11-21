@@ -1,0 +1,62 @@
+{
+  "schema_version": "seer-ppe/checkpoint/v0.16",
+  "date": "2026-11-21",
+  "supersedes": "DUAL_TRACK_CHECKPOINT_2026-11-21_V15.json",
+  "research_status": "REAL_HOSTED_TRAIN_ONLY_RFDETR_V2_DETECTION_CUES_AND_HUMAN_REFERENCE_DIAGNOSTICS_COMPLETE_NOT_SCIENTIFIC_SCORING",
+  "original_RFDETR_model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "roboflow_workflow_id": "61llCTFuQ4Aq4goQ9HiP",
+  "true_hosted_inference_cases": 4,
+  "inference_image_split": "train",
+  "raw_detector_candidates": 51,
+  "detected_person_candidates": 7,
+  "low_confidence_candidates": 4,
+  "typed_detector_PPE_review_cues": 38,
+  "strong_single_person_geometry_proposals_unsigned": 34,
+  "ambiguous_or_unassigned_PPE_review_cues": 4,
+  "person_boxes_exploratory_one_to_one_matched_to_existing_train_human": 7,
+  "qualitative_detector_cue_crosscheck": {
+    "total": 38,
+    "compatible_directions": 21,
+    "opposing_directions": 4,
+    "source_of_all_four_opposing_directions": "No Safety Boots vs existing Train C human visual PRESENT",
+    "human_UNKNOWN": 7,
+    "human_state_unrecorded": 2,
+    "no_clear_person_geometry": 4,
+    "model_errors_or_scientific_metrics_claimed": false
+  },
+  "human_reference": {
+    "existing_approved_owner_links_unchanged": 19,
+    "visual_states_recorded_unchanged": 38,
+    "total_expected_visual_states": 42,
+    "unrecorded_B_states": 4,
+    "case_D_zero_visible_person_human_signed": false,
+    "human_Gold_or_roboflow_eval_case_modified": false
+  },
+  "source_independence_readiness": {
+    "Clean17_Valid_image_photo_match_technically_verified": 459,
+    "existing_source_holds": 5,
+    "new_technical_quarantines_unsigned": 6,
+    "other_flagged_unsigned": 81,
+    "unflagged_uncertified": 367,
+    "independently_signed_source_valid_images": 0,
+    "human_signed_Validation_reference_images": 0
+  },
+  "original_model_retrained": false,
+  "source_images_labels_splits_modified": false,
+  "test_inference_images": 0,
+  "validation_inference_images": 0,
+  "power_energy_measured_joules": null,
+  "model_accuracy_mAP_F1": null,
+  "worker_compliance_performance": null,
+  "explanation_faithfulness": null,
+  "validation_freeze_authorized": false,
+  "scientific_scoring_ready": false,
+  "artifacts": {
+    "original_model_numeric_inference": "ROBOFLOW_TRAIN_ONLY_REAL_MODEL_PREFLIGHT_2026-11-21_V16.json",
+    "geometric_review": "TRAIN_ONLY_PERSON_PPE_GEOMETRIC_REVIEW_V16.json",
+    "human_reference_snapshot": "TRAIN_ONLY_LIVE_HUMAN_REFERENCE_GEOMETRY_V16.json",
+    "cue_against_human": "TRAIN_ONLY_DETECTOR_VS_ACCEPTED_HUMAN_REVIEW_V16.json",
+    "method": "TRAIN_ONLY_ACTUAL_DETECTOR_CUE_AUDIT_PROTOCOL_2026-11-21_V16.md",
+    "paper": "MANUSCRIPT_MASTER.md"
+  }
+}
