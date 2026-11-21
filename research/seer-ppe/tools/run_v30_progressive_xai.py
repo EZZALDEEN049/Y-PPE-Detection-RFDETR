@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """Execute the frozen SEER-PPE V30 progressive XAI pilot on local source images.
 
-Images are read-only inputs. No image, URL, credential, annotation, model weight,
-or Test asset is written to the repository. The full run requires explicit
-confirmation of its frozen maximum 1,068-model-call budget.
+The eight original-image baseline inferences have already been executed through
+the connected Roboflow integration and are frozen in
+V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json. This runner validates the local
+image bundle against that record, then runs only blurred endpoints, grid
+occlusions and progressive curves. Images are read-only; no Test asset or
+credential is written to the repository.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
 import json
+import math
 import os
 import sys
 import tempfile
@@ -23,6 +27,7 @@ from inference_sdk import InferenceConfiguration, InferenceHTTPClient
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANIFEST = ROOT / "V30_FROZEN_TARGETS_2026-11-22.json"
+DEFAULT_BASELINE_PREFLIGHT = ROOT / "V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json"
 MODEL_ID = "altayyar-0oflt-lafos-qqauz/2"
 API_URL = "https://serverless.roboflow.com"
 CONFIDENCE = 0.20
@@ -30,10 +35,12 @@ OVERLAP = 0.50
 ROWS = 8
 COLS = 8
 STEP_PERCENT = 10
-MAX_MODEL_CALLS = 1068
+BASELINE_PREFLIGHT_CALLS = 8
+MAX_TOTAL_MODEL_CALLS = 1068
+MAX_REMAINING_MODEL_CALLS = MAX_TOTAL_MODEL_CALLS - BASELINE_PREFLIGHT_CALLS
 
 sys.path.insert(0, str(ROOT))
-from seer_ppe.detection_match import Detection, match_target  # noqa: E402
+from seer_ppe.detection_match import Detection  # noqa: E402
 from seer_ppe.progressive_xai import (  # noqa: E402
     gaussian_blur_baseline, progressive_curve, rank_grid_cells,
     stable_random_order, target_score,
@@ -43,16 +50,18 @@ from seer_ppe.progressive_xai import (  # noqa: E402
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--images-dir", type=Path, required=True,
-                        help="Local read-only folder containing the eight original V30 images.")
+                        help="Local folder containing the eight original V30 images.")
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
+    parser.add_argument("--baseline-preflight", type=Path, default=DEFAULT_BASELINE_PREFLIGHT,
+                        help="Frozen Roboflow connector baseline record; eight original-image calls are already included.")
     parser.add_argument("--output", type=Path,
                         default=ROOT / "V30_ACTUAL_PROGRESSIVE_XAI_RESULTS_2026-11-22.json")
     parser.add_argument("--dry-run", action="store_true",
-                        help="Validate manifest and image files without model calls.")
+                        help="Validate manifest and image filenames/dimensions without model calls.")
     parser.add_argument("--preflight-only", action="store_true",
-                        help="Run only the eight original-image baseline checks.")
+                        help="Validate local images against the frozen connector baseline; makes no model calls.")
     parser.add_argument("--confirm-model-call-budget", type=int, default=None,
-                        help=f"Required exact maximum confirmation value {MAX_MODEL_CALLS} for the full run.")
+                        help=f"Required total V30 budget confirmation value {MAX_TOTAL_MODEL_CALLS} for the full run.")
     return parser.parse_args()
 
 
@@ -89,8 +98,9 @@ class HostedPredictor:
         self.calls = 0
 
     def __call__(self, image: np.ndarray) -> list[Detection]:
-        with tempfile.NamedTemporaryFile(suffix=".jpg") as temporary:
-            Image.fromarray(image).save(temporary.name, format="JPEG", quality=95)
+        # PNG preserves the decoded source pixels and avoids a second lossy JPEG encode.
+        with tempfile.NamedTemporaryFile(suffix=".png") as temporary:
+            Image.fromarray(image).save(temporary.name, format="PNG")
             result = self.client.infer(temporary.name, model_id=MODEL_ID)
         self.calls += 1
         return as_detection_rows(result)
@@ -134,65 +144,116 @@ def validate_local_inputs(manifest: dict, images_dir: Path):
         }, default=list))
 
 
-def build_predictor():
-    api_key = os.getenv("ROBOFLOW_API_KEY")
-    if not api_key:
-        raise SystemExit("ROBOFLOW_API_KEY is not set; no inference was started.")
-    return HostedPredictor(api_key)
+def validate_preflight_record(manifest: dict, preflight: dict):
+    if preflight.get("status") != "PASSED":
+        raise RuntimeError("Frozen connector baseline preflight is not PASSED")
+    model = preflight.get("model", {})
+    if model.get("model_id") != MODEL_ID:
+        raise RuntimeError("Baseline preflight model ID does not match V30")
+    if model.get("confidence_threshold") != CONFIDENCE or model.get("overlap_threshold") != OVERLAP:
+        raise RuntimeError("Baseline preflight thresholds do not match V30")
+    summary = preflight.get("summary", {})
+    if summary.get("source_images_inferred") != 8 or summary.get("targets_reproduced_exactly") != 10:
+        raise RuntimeError("Baseline preflight does not contain the expected 8 images and 10 targets")
+    if not preflight.get("guardrails", {}).get("no_test_accessed", False):
+        raise RuntimeError("Baseline preflight does not affirm that Test remained unopened")
+
+    records = {row["image_key"]: row for row in preflight.get("source_images", [])}
+    if len(records) != 8:
+        raise RuntimeError("Baseline preflight must contain eight unique source image records")
+    targets_by_image = group_targets(manifest)
+    for image in manifest["source_images"]:
+        record = records.get(image["image_key"])
+        if record is None:
+            raise RuntimeError(f"Baseline preflight missing image key {image['image_key']}")
+        expected = {
+            "asset_id": image["asset_id"],
+            "split": image["split"],
+            "filename": image["filename"],
+            "width": int(image["image_width"]),
+            "height": int(image["image_height"]),
+        }
+        for key, value in expected.items():
+            if record.get(key) != value:
+                raise RuntimeError(
+                    f"Baseline preflight {key} mismatch for {image['filename']}: "
+                    f"{record.get(key)!r} != {value!r}"
+                )
+        target_records = {row["target_id"]: row for row in record.get("targets", [])}
+        for target in targets_by_image[image["image_key"]]:
+            match = target_records.get(target["target_id"])
+            if match is None or match.get("status") != "MATCHED":
+                raise RuntimeError(f"Baseline preflight missing matched target {target['target_id']}")
+            if not match.get("geometry_exact") or not match.get("confidence_exact"):
+                raise RuntimeError(f"Baseline target was not reproduced exactly: {target['target_id']}")
+            if match.get("class") != target["target_class"]:
+                raise RuntimeError(f"Baseline class mismatch for {target['target_id']}")
+            for key, value in target["bbox_center_xywh"].items():
+                if not math.isclose(float(match["bbox_center_xywh"][key]), float(value),
+                                    rel_tol=0.0, abs_tol=1e-9):
+                    raise RuntimeError(f"Baseline geometry mismatch for {target['target_id']}")
+            if not math.isclose(float(match["confidence"]),
+                                float(target["frozen_baseline_confidence"]),
+                                rel_tol=0.0, abs_tol=1e-9):
+                raise RuntimeError(f"Baseline confidence mismatch for {target['target_id']}")
+            if not match.get("detection_id"):
+                raise RuntimeError(f"Baseline detection ID missing for {target['target_id']}")
+    return records
 
 
-def prepare_references(manifest: dict, images_dir: Path, predict):
-    """Run one baseline inference per source image and verify every frozen target."""
+def prepare_references(manifest: dict, images_dir: Path, preflight_path: Path):
+    """Validate local pixels' dimensions and reuse the already-run connector baseline."""
+    preflight = json.loads(preflight_path.read_text(encoding="utf-8"))
+    records = validate_preflight_record(manifest, preflight)
     prepared, baseline_records = {}, {}
     targets_by_image = group_targets(manifest)
     for image in manifest["source_images"]:
         image_key = image["image_key"]
         image_path = images_dir / image["filename"]
         rgb = read_rgb(image_path)
-        predictions = predict(rgb)
+        references = {
+            row["target_id"]: frozen_reference(row)
+            for row in targets_by_image[image_key]
+        }
+        remote = records[image_key]
         baseline_records[image_key] = {
             "filename": image["filename"],
-            "sha256": hashlib.sha256(image_path.read_bytes()).hexdigest(),
-            "prediction_count": len(predictions),
+            "asset_id": image["asset_id"],
+            "split": image["split"],
+            "width": int(rgb.shape[1]),
+            "height": int(rgb.shape[0]),
+            "local_file_sha256": hashlib.sha256(image_path.read_bytes()).hexdigest(),
+            "connector_inference_id": remote["inference_id"],
+            "connector_prediction_count": remote["prediction_count"],
+            "connector_inference_time_seconds": remote["inference_time_seconds"],
+            "local_bytes_hash_compared_to_source": False,
         }
-        references = {}
-        for row in targets_by_image[image_key]:
-            frozen = frozen_reference(row)
-            matched = match_target(frozen, predictions, min_iou=0.50, ambiguity_margin=0.03)
-            if matched.status != "MATCHED":
-                raise RuntimeError(
-                    f"Baseline reproduction blocked for {row['target_id']}: {matched.status}"
-                )
-            if abs(float(matched.score_after) - frozen.score) > 0.08:
-                raise RuntimeError(f"Baseline confidence drift >0.08 for {row['target_id']}")
-            references[row["target_id"]] = Detection(
-                frozen.class_name, frozen.x, frozen.y, frozen.width, frozen.height,
-                float(matched.score_after),
-            )
         prepared[image_key] = {"image": rgb, "references": references}
     return prepared, baseline_records
 
 
-def run_preflight(manifest, images_dir, predictor, output_path):
-    prepared, baseline = prepare_references(manifest, images_dir, predictor)
+def run_preflight(manifest, images_dir, preflight_path, output_path):
+    prepared, baseline = prepare_references(manifest, images_dir, preflight_path)
     result = {
-        "schema_version": "seer-ppe/v30-baseline-preflight/v0.30",
-        "status": "BASELINE_REPRODUCTION_PASSED",
-        "model_id": MODEL_ID,
-        "inference_settings": {"confidence": CONFIDENCE, "overlap": OVERLAP},
+        "schema_version": "seer-ppe/v30-local-image-preflight/v0.30",
+        "status": "LOCAL_IMAGE_BUNDLE_VALIDATED_AGAINST_CONNECTOR_BASELINE",
+        "baseline_preflight_file": preflight_path.name,
+        "baseline_original_model_calls_already_executed": BASELINE_PREFLIGHT_CALLS,
         "baseline_images": baseline,
         "verified_targets": sum(len(item["references"]) for item in prepared.values()),
-        "model_inference_calls": predictor.calls,
+        "model_inference_calls_this_run": 0,
+        "total_v30_model_calls_so_far": BASELINE_PREFLIGHT_CALLS,
         "progressive_xai_executed": False,
         "no_test_accessed": True,
         "original_model_or_data_modified": False,
+        "provenance_note": "Local SHA-256 hashes are recorded, but cannot be compared with a source hash because the connector-side preflight did not retrieve image bytes. Download each file from the exact frozen Asset Library asset ID/URL."
     }
     output_path.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, indent=2))
 
 
-def run_full(manifest, images_dir, predictor, output_path):
-    prepared, baseline_records = prepare_references(manifest, images_dir, predictor)
+def run_full(manifest, images_dir, preflight_path, predictor, output_path):
+    prepared, baseline_records = prepare_references(manifest, images_dir, preflight_path)
     targets_by_image = group_targets(manifest)
     target_results = []
     curve_eligible_targets = 0
@@ -304,11 +365,11 @@ def run_full(manifest, images_dir, predictor, output_path):
                 "curves": curves,
             })
 
-    expected_actual_calls = 8 + 8 + 512 + 54 * curve_eligible_targets
-    if predictor.calls != expected_actual_calls or predictor.calls > MAX_MODEL_CALLS:
+    expected_actual_calls = 8 + 512 + 54 * curve_eligible_targets
+    if predictor.calls != expected_actual_calls or predictor.calls > MAX_REMAINING_MODEL_CALLS:
         raise RuntimeError(
-            f"Inference call-count mismatch: expected {expected_actual_calls} from "
-            f"{curve_eligible_targets} curve-eligible targets, observed {predictor.calls}"
+            f"Inference call-count mismatch: expected {expected_actual_calls} additional calls "
+            f"from {curve_eligible_targets} curve-eligible targets, observed {predictor.calls}"
         )
 
     def mean_or_none(values):
@@ -341,19 +402,24 @@ def run_full(manifest, images_dir, predictor, output_path):
                 for result in selected),
         }
 
+    total_calls = BASELINE_PREFLIGHT_CALLS + predictor.calls
     result = {
         "schema_version": "seer-ppe/v30-actual-progressive-xai-results/v0.30",
         "run_date_utc": datetime.now(timezone.utc).isoformat(),
         "status": "COMPLETED" if len(target_results) == 10 else "INCOMPLETE",
         "protocol": "V30_FROZEN_PROGRESSIVE_XAI_PROTOCOL_2026-11-22.md",
         "target_manifest": manifest["schema_version"],
+        "baseline_preflight_file": preflight_path.name,
         "model_id": MODEL_ID,
         "inference_settings": {"confidence": CONFIDENCE, "overlap": OVERLAP},
         "explainer": manifest["explainer"],
         "curve_settings": manifest["curves"],
         "baseline_images": baseline_records,
-        "model_inference_calls": predictor.calls,
-        "planned_model_inference_calls_max": MAX_MODEL_CALLS,
+        "baseline_preflight_model_calls_already_executed": BASELINE_PREFLIGHT_CALLS,
+        "model_inference_calls_this_run": predictor.calls,
+        "total_v30_model_inference_calls": total_calls,
+        "planned_total_model_inference_calls_max": MAX_TOTAL_MODEL_CALLS,
+        "planned_remaining_model_inference_calls_max": MAX_REMAINING_MODEL_CALLS,
         "curve_eligible_targets": curve_eligible_targets,
         "target_results": target_results,
         "A5_A6_summary": arm_summary,
@@ -370,8 +436,10 @@ def run_full(manifest, images_dir, predictor, output_path):
     output_path.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
         "status": result["status"],
-        "model_inference_calls": predictor.calls,
-        "planned_model_inference_calls_max": MAX_MODEL_CALLS,
+        "baseline_preflight_model_calls_already_executed": BASELINE_PREFLIGHT_CALLS,
+        "model_inference_calls_this_run": predictor.calls,
+        "total_v30_model_inference_calls": total_calls,
+        "planned_total_model_inference_calls_max": MAX_TOTAL_MODEL_CALLS,
         "curve_eligible_targets": curve_eligible_targets,
         "A5_A6_summary": arm_summary,
         "output": str(output_path),
@@ -391,20 +459,22 @@ def main():
             "status": "DRY_RUN_INPUTS_VALID",
             "source_images": len(manifest["source_images"]),
             "unique_targets": len(manifest["targets"]),
-            "planned_model_inference_calls_max": MAX_MODEL_CALLS,
+            "baseline_preflight_calls_already_executed": BASELINE_PREFLIGHT_CALLS,
+            "planned_remaining_model_inference_calls_max": MAX_REMAINING_MODEL_CALLS,
+            "planned_total_model_inference_calls_max": MAX_TOTAL_MODEL_CALLS,
             "no_model_calls_made": True,
         }, indent=2))
         return
-    predictor = build_predictor()
     if args.preflight_only:
-        run_preflight(manifest, args.images_dir, predictor, args.output)
+        run_preflight(manifest, args.images_dir, args.baseline_preflight, args.output)
         return
-    if args.confirm_model_call_budget != MAX_MODEL_CALLS:
+    if args.confirm_model_call_budget != MAX_TOTAL_MODEL_CALLS:
         raise SystemExit(
-            f"Full run blocked: pass --confirm-model-call-budget {MAX_MODEL_CALLS} "
-            "after reviewing the frozen maximum call budget. No inference was started."
+            f"Full run blocked: pass --confirm-model-call-budget {MAX_TOTAL_MODEL_CALLS} "
+            "after reviewing the frozen total budget. No inference was started."
         )
-    run_full(manifest, args.images_dir, predictor, args.output)
+    predictor = build_predictor()
+    run_full(manifest, args.images_dir, args.baseline_preflight, predictor, args.output)
 
 
 if __name__ == "__main__":
