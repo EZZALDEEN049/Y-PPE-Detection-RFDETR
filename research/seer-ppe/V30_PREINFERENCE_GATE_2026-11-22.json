@@ -4,7 +4,7 @@
   "status": "PROTOCOL_FROZEN_CODE_READY_ACTUAL_INFERENCE_PENDING",
   "source_images": 8,
   "unique_targets": 10,
-  "synthetic_tests_passed": 8,
+  "synthetic_tests_passed": 9,
   "python_syntax_check": "passed",
   "actual_model_calls_in_this_continuation": 0,
   "planned_full_model_calls": 1068,
@@ -32,5 +32,6 @@
       "run_id": 44957983683,
       "url": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44957983683"
     }
-  }
+  },
+  "planned_full_model_calls_is_maximum": true
 }
