@@ -7,3 +7,5 @@ First generate and verify `V27_FROZEN_TARGETS_2026-11-21.json` with `tools/build
 Primary comparison is A5 versus A6, both one target per image, one proposed review slot per image, identical box-occlusion settings. A2 is context only. The five Valid targets may be joined to V23 TP/FP outcomes only after target selection. Do not dispatch human review or claim worker safety, independent generalization, XAI faithfulness beyond the measured perturbation, or Joule savings.
 
 Target-freeze CI trigger: regenerate the manifest from the already committed V16/V23/V25/V26 artifacts and verify all 10 A5/A6 targets before any new model call.
+
+Workflow-spec builder update: generate the ten exact target/control Roboflow Workflow specs from the frozen manifest and archive them without executing inference.
