@@ -44,6 +44,20 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install numpy pillow inference-sdk
+      - name: Validate Roboflow SDK inference configuration without model calls
+        run: |
+          python - <<'PY'
+          from inference_sdk import InferenceConfiguration, InferenceHTTPClient
+          cfg = InferenceConfiguration(
+              api_key_transport="header",
+              confidence_threshold=0.20,
+              iou_threshold=0.50,
+          )
+          InferenceHTTPClient(
+              api_url="https://serverless.roboflow.com", api_key="runtime-check-no-secret"
+          ).configure(cfg)
+          print("V30 inference client configuration validated; no model calls")
+          PY
       - name: Download only eight frozen Roboflow original images
         run: |
           set -euo pipefail
