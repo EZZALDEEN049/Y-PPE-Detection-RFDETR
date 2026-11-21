@@ -106,8 +106,8 @@ jobs:
 
           jobs=[
             (base/'MANUSCRIPT_MASTER.md',
-             out/'SEER_PPE_Research_Manuscript_v0.22_2026-11-21.docx',
-             'SEER-PPE Research Manuscript v0.22'),
+             out/'SEER_PPE_Research_Manuscript_v0.23_2026-11-21.docx',
+             'SEER-PPE Research Manuscript v0.23'),
             (base/'SEER_PPE_COMPLETE_HANDOFF_2026-11-21_V21.md',
              out/'SEER_PPE_Complete_Research_Handoff_V21_2026-11-21.docx',
              'SEER-PPE Comprehensive Research Handoff V21')
@@ -134,7 +134,7 @@ jobs:
           from docx import Document
           import zipfile
           b=Path('research/seer-ppe/exports')
-          manuscript=b/'SEER_PPE_Research_Manuscript_v0.22_2026-11-21.docx'
+          manuscript=b/'SEER_PPE_Research_Manuscript_v0.23_2026-11-21.docx'
           handoff=b/'SEER_PPE_Complete_Research_Handoff_V21_2026-11-21.docx'
           for p in (manuscript,handoff):
               assert p.exists() and p.stat().st_size>15000
@@ -149,7 +149,7 @@ jobs:
           mt='\n'.join(x.text for x in m.paragraphs)
           for value in ('Ezzaldeen Al-Tayar','Taiz University','azzaltayyar@gmail.com',
                         'Results','Discussion','Limitations','Appendix M.',
-                        '0.885018','459','Appendix N.','3,049'):
+                        '0.885018','459','Appendix N.','3,049','Appendix O.','0.956522','TP=22'):
               assert value in mt or any(value in c.text for t in m.tables for r in t.rows for c in r.cells),value
           h=Document(handoff)
           ht='\n'.join(x.text for x in h.paragraphs)
@@ -185,6 +185,6 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add research/seer-ppe/exports/*.docx
           git diff --cached --quiet && exit 0
-          git commit -m 'docs(seer-ppe): archive editable Word manuscript v0.22 and comprehensive V21 handoff'
+          git commit -m 'docs(seer-ppe): archive editable Word manuscript v0.23 and comprehensive V21 handoff'
           git pull --rebase origin main
           git push origin HEAD:main
