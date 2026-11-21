@@ -222,6 +222,13 @@ jobs:
           node research/seer-ppe/tools/compute_validation_source_sensitivity_v19.mjs --audit /tmp/seer-v19-overlap.json > /tmp/seer-v19-overlap.log
           cmp research/seer-ppe/VALIDATION_SOURCE_OVERLAP_NUMERIC_SENSITIVITY_V19.json /tmp/seer-v19-overlap.json
           grep -q 'SEER_V19_SOURCE_METADATA_ONLY_STRATIFICATION_NOT_INDEPENDENT_PASS' /tmp/seer-v19-overlap.log
+      - name: Verify V20 historical model Valid-only counters and annotation drift without Test access
+        run: |
+          node research/seer-ppe/tools/compile_historical_valid_internal_metrics_v20.mjs --self-test
+          node research/seer-ppe/tools/compile_historical_valid_internal_metrics_v20.mjs --audit /tmp/seer-v20-valid.json > /tmp/seer-v20-valid.log
+          cmp research/seer-ppe/HISTORICAL_VALID_INTERNAL_METRICS_V20.json /tmp/seer-v20-valid.json
+          grep -q 'SEER_V20_READ_ONLY_HISTORICAL_VALID_INTERNAL_STATS_NOT_INDEPENDENT_PASS' /tmp/seer-v20-valid.log
+          echo 'SEER_V20_VALID_ONLY_459_448_367_SOURCE_ID_PAIRED_COUNTERS_AUDIT_PASS'
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'
