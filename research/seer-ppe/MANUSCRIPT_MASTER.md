@@ -1,5 +1,11 @@
 # SEER-PPE: Safety-Constrained, Energy-Aware, and Evidence-Grounded Explainable Vision for Occupational Safety Monitoring
 
+**Ezzaldeen Al-Tayar**  
+*Faculty of Engineering and Information Technology*  
+*Taiz University*  
+Taiz, Yemen  
+**Corresponding author:** azzaltayyar@gmail.com
+
 **Working manuscript v0.20 — updated 21 November 2026**  
 **Article class:** original empirical research candidate | **Status:** Methods draft; **NOT a validated empirical article or Q1-ready**  
 **Data constraint:** original Y-PPE only; existing Y-PPE only, the verified hosted 17-class ALTAYYAR RF-DETR Small model v2, and a local original checkpoint that remains to be independently loaded/inspected.  
