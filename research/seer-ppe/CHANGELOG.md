@@ -36,3 +36,11 @@
 - Added a guarded local RF-DETR hosted-inference runner with an explicit 1,068-call confirmation requirement; local source images are not committed.
 - Added nine synthetic V30 tests and CI coverage. All nine passed locally; Python syntax compilation passed. Unrankable target maps and ambiguous blurred endpoints fail closed with explicit null curves.
 - Actual V30 model calls remain zero pending the local image bundle and Roboflow API key. Manuscript remains v0.27; no progressive XAI or worker-safety efficacy result is claimed.
+
+
+## v0.8 — 2026-11-22
+- Retrieved and verified the eight exact V30 source assets in the connected Roboflow workspace: four Train and four Valid, with frozen filenames, asset IDs and dimensions.
+- Executed eight real hosted RF-DETR baseline calls at confidence 0.20 / overlap 0.50; all ten frozen target boxes and confidence values reproduced exactly.
+- Archived inference IDs, target detection IDs, prediction counts and timings in `V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json`; no raw image bytes or credentials committed.
+- Updated the V30 runner to reuse the completed baseline record and avoid eight duplicate calls. Total budget remains 1,068, with at most 1,060 additional calls.
+- Progressive occlusion, deletion/insertion curves and AUC remain unexecuted; local image SHA-256 verification and full-run execution are still pending. Manuscript remains v0.27.
