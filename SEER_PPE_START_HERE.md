@@ -8,6 +8,13 @@
 
 https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/blob/main/SEER_PPE_START_HERE.md
 
+### نسخ Word القابلة للتعديل / Download editable DOCX
+
+- **[تنزيل الورقة العلمية الكاملة بصيغة Word — manuscript v0.20](research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.20_2026-11-21.docx)**
+- **[تنزيل تقرير التسليم والاستئناف الشامل بصيغة Word — V21](research/seer-ppe/exports/SEER_PPE_Complete_Research_Handoff_V21_2026-11-21.docx)**
+
+Generated directly from the canonical full Markdown sources in GitHub Actions and verified by DOCX structure checks and PDF-render checks in the [successful Word export run](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44859069545). These editable copies describe the current working paper and research handoff, not a peer-reviewed final manuscript.
+
 ### أهم 3 ملفات تبدأ منها
 1. **[سجل التسليم الشامل V21 بكل التفاصيل، النتائج، الحدود العلمية وخطوات الاستكمال](research/seer-ppe/SEER_PPE_COMPLETE_HANDOFF_2026-11-21_V21.md)** — **READ FIRST**.
 2. **[الورقة العلمية الكاملة — النسخة الحالية v0.20](research/seer-ppe/MANUSCRIPT_MASTER.md)** — working complete cumulative paper draft, **not a publishable final study**.
