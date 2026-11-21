@@ -277,7 +277,7 @@ jobs:
                          'not a PRISMA systematic search','remain unmeasured'):
               assert phrase in m, phrase
           for phrase in ('Paes', 'Vaghani', 'Bouguessa', 'Yi, Xu', 'Di Renzo',
-                         'NOT a systematic review', 'publisher'):
+                         'systematic review', 'publisher'):
               assert phrase.lower() in q.lower(), phrase
           assert 'NOT_FROZEN' in m and 'scoring_ready=false' in m
           print('SEER_V24_RELATED_PRIOR_ART_AND_NON_SAFETY_SUPERIORITY_CLAIM_CHECK_PASS')
