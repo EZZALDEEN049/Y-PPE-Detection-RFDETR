@@ -1,0 +1,63 @@
+name: SEER-PPE V20 historical Valid author-label consistency and descriptive risk cohorts
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/V20_INTERNAL_METRICS_REQUEST.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  historical_internal_valid_metrics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fail-closed tests for split, source IDs, label drift, and source uncertainty
+        run: node research/seer-ppe/tools/compile_historical_valid_internal_metrics_v20.mjs --self-test
+      - name: Aggregate pre-existing historical model Eval Valid-only counters by frozen risk cohorts
+        run: |
+          node research/seer-ppe/tools/compile_historical_valid_internal_metrics_v20.mjs --audit \
+            research/seer-ppe/HISTORICAL_VALID_INTERNAL_METRICS_V20.json
+      - name: Verify 468 native IDs, 459 author labels, reference drift and non-independent numeric interpretation
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const x=JSON.parse(fs.readFileSync('research/seer-ppe/HISTORICAL_VALID_INTERNAL_METRICS_V20.json','utf8'));
+          assert.equal(x.existing_evaluation_id,'KyzP9neuyNTN5eQpGCAY');
+          assert.equal(x.model,'altayyar-0oflt-lafos-qqauz/2');
+          assert.equal(x.split,'valid');
+          assert.equal(x.confidence_threshold,0.2);
+          assert.equal(x.totals.exact_matching_source_ids_to_historical_eval,468);
+          assert.equal(x.totals.original_valid_excluded_from_clean17,9);
+          assert.equal(x.totals.original_current_labels_459,3471);
+          assert.equal(x.totals.model_assisted_markers_459,729);
+          assert.equal(x.totals.historical_current_reference_agreement_459,446);
+          assert.equal(x.totals.historical_current_reference_mismatch_459,13);
+          assert.equal(x.totals.reference_object_count_difference_current_minus_historical,16);
+          const vals=Object.values(x.descriptive_cohorts);
+          assert.deepEqual(vals.map(v=>v.images),[459,448,367]);
+          assert.deepEqual(vals.map(v=>v.historical_tp),[3252,3217,2851]);
+          assert.deepEqual(vals.map(v=>v.historical_fp),[642,639,589]);
+          assert.deepEqual(vals.map(v=>v.historical_fn),[203,200,183]);
+          assert.equal(x.no_new_original_model_inference,true);
+          assert.equal(x.historical_counters_not_recomputed_against_current_source_box_geometry,true);
+          assert.equal(x.source_independence_verified,false);
+          assert.equal(x.test_not_read,true);
+          assert.equal(x.strict_worker_safety_scoring_ready,false);
+          console.log('SEER_V20_ALL_SOURCE_ID_COUNTER_AND_REFERENCE_DRIFT_RECONCILIATION_PASS');
+          JS
+      - name: Archive numeric historical Valid analysis only; no images or access credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/seer-ppe/HISTORICAL_VALID_INTERNAL_METRICS_V20.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'research(seer-ppe): archive V20 historical Valid risk-stratified model counters'
+          git pull --rebase origin main
+          git push origin HEAD:main
