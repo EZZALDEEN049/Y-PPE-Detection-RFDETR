@@ -1,0 +1,70 @@
+name: SEER-PPE V19 original annotation numerical Train audit and source-overlap sensitivity
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/V19_NUMERIC_EVALUATION_REQUEST.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  author_annotation_numeric_preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate synthetic bbox matching and reject protected splits
+        run: node research/seer-ppe/tools/score_original_train_boxes_v19.mjs --self-test
+      - name: Match real existing original Train source boxes to real V16 fixed model numeric predictions
+        run: |
+          node research/seer-ppe/tools/score_original_train_boxes_v19.mjs --audit \
+            research/seer-ppe/TRAIN_SOURCE_LABEL_DETECTION_NUMERIC_PREFLIGHT_V19.json
+      - name: Check synthetic source overlap sensitivity guards
+        run: node research/seer-ppe/tools/compute_validation_source_sensitivity_v19.mjs --self-test
+      - name: Recompute metadata-only original Valid source risk scenarios
+        run: |
+          node research/seer-ppe/tools/compute_validation_source_sensitivity_v19.mjs --audit \
+            research/seer-ppe/VALIDATION_SOURCE_OVERLAP_NUMERIC_SENSITIVITY_V19.json
+      - name: Verify actual evidence counts, preserve model-assisted provenance and forbid safety claims
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const root='research/seer-ppe/';
+          const det=JSON.parse(fs.readFileSync(root+'TRAIN_SOURCE_LABEL_DETECTION_NUMERIC_PREFLIGHT_V19.json','utf8'));
+          const overlap=JSON.parse(fs.readFileSync(root+'VALIDATION_SOURCE_OVERLAP_NUMERIC_SENSITIVITY_V19.json','utf8'));
+          const original=det.profiles.ALL_FOUR_EXISTING_TRAIN_SOURCE_BOXES_NONSCORING;
+          const withoutAssisted=det.profiles.EXCLUDE_ENTIRE_IMAGES_WITH_MODEL_ASSISTED_SOURCE_LABELS_NONSCORING;
+          assert.deepEqual([original.images,original.reference_boxes,original.prediction_boxes,original.source_boxes_marked_model_assisted],[4,48,51,7]);
+          assert.equal(withoutAssisted.images,3);
+          assert.equal(withoutAssisted.source_boxes_marked_model_assisted,0);
+          assert.equal(original.tp+original.fp,51);
+          assert.equal(original.tp+original.fn,48);
+          assert.equal(det.metrics_are_scientific_valid_or_test_performance,false);
+          assert.equal(det.ap_metrics_are_truncated_above_hosted_prediction_floor,true);
+          assert.equal(det.scoring_ready,false);
+          assert.equal(det.test_accessed,false);
+          assert.equal(overlap.independent_valid_scientific_cohort_size,0);
+          assert.equal(overlap.scoring_ready,false);
+          assert.equal(overlap.high_similarity_pair_edges,12);
+          assert.equal(overlap.original_direct_pairs_examined,280);
+          assert.equal(overlap.descriptive_sensitivity_scenarios.ALL_MATCHED_VALID_459.count,459);
+          assert.equal(overlap.descriptive_sensitivity_scenarios.EXCLUDE_HISTORICAL_HOLDS_AND_TECHNICAL_QUARANTINES_448.count,448);
+          assert.equal(overlap.descriptive_sensitivity_scenarios.UNFLAGGED_ONLY_BUT_UNCERTIFIED_367.count,367);
+          assert.equal(overlap.test_sources_or_images_accessed,false);
+          console.log('SEER_V19_TRAIN_ONLY_NUMERIC_MATCH_AND_VALID_OVERLAP_COUNTS_INTEGRITY_PASS');
+          JS
+      - name: Archive only derived numeric evidence, without images or access credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/seer-ppe/TRAIN_SOURCE_LABEL_DETECTION_NUMERIC_PREFLIGHT_V19.json \
+                  research/seer-ppe/VALIDATION_SOURCE_OVERLAP_NUMERIC_SENSITIVITY_V19.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'research(seer-ppe): archive V19 Train numeric bbox and Valid source sensitivity'
+          git pull --rebase origin main
+          git push origin HEAD:main
