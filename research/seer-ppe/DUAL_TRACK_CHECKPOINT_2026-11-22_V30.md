@@ -2,7 +2,7 @@
 
 ## Status
 
-**V30 protocol and implementation are ready; the eight-image baseline preflight is now executed and passed. Progressive XAI remains pending local access to the eight exact source images.**
+**V30 protocol, baseline reproduction and GitHub cloud-image preflight are complete. Progressive XAI model perturbations and AUC remain pending an explicitly authorized cloud Actions run. No researcher's local computer is required.**
 
 The manuscript remains v0.27. No progressive XAI result or AUC is claimed in this checkpoint. The eight baseline inferences are setup/reproduction checks, not a new performance benchmark.
 
@@ -20,6 +20,10 @@ The manuscript remains v0.27. No progressive XAI result or AUC is claimed in thi
 - `V30_FROZEN_PROGRESSIVE_XAI_PROTOCOL_2026-11-22.md`
 - `V30_FROZEN_TARGETS_2026-11-22.json`
 - `V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json`
+- `V30_CLOUD_PREFLIGHT_ACTUAL_2026-11-22.json`
+- `V30_CLOUD_ONLY_EXECUTION_GUIDE_2026-11-22.md`
+- `.github/workflows/seer-ppe-v30-cloud.yml`
+- `tools/fetch_v30_originals_cloud.py`
 - `seer_ppe/progressive_xai.py`
 - `tools/run_v30_progressive_xai.py`
 - `tests/test_v30_progressive_xai.py`
@@ -32,19 +36,21 @@ The scorer defines a lost target's fixed-target score as zero, while ambiguous m
 - Python syntax compilation passed for the V30 module and runner.
 - Source/reference readiness workflow passed on the current branch head. [Current readiness run 44960453517](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44960453517).
 - Eight real original-image RF-DETR calls were executed through connected Roboflow. All 8/8 source images resolved and all 10/10 frozen target boxes and confidence values reproduced exactly. [Detailed baseline record](V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json).
+- **Actual cloud readiness run 44962342687 succeeded:** all 8 original Train/Valid images fetched automatically on GitHub Actions, filenames/IDs/dimensions validated, SHA-256 hashes recorded, archived numeric evidence artifact; zero new inference calls. [Run](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44962342687) · [ledger](V30_CLOUD_PREFLIGHT_ACTUAL_2026-11-22.json).
 - No progressive XAI perturbation calls, maps, curves or AUCs have been executed yet.
 - No image bytes, original annotations, model weights, or Test assets were changed or committed.
 - No human review or worker-safety scoring was performed.
 
-## Remaining execution gates
+## Remaining execution gates — cloud only
 
-1. Download the eight exact original images from the Asset Library IDs/URLs in the frozen baseline record; keep them outside GitHub.
-2. Run `--dry-run` to verify local filenames and dimensions.
-3. Run `--preflight-only` to compare the local image bundle and frozen connector baseline record; this step makes zero model calls.
-4. Set `ROBOFLOW_API_KEY` in the local execution environment.
-5. Run the full V30 job with `--confirm-model-call-budget 1068`; the runner reuses the eight completed baseline calls and makes at most 1,060 additional calls.
-6. Validate all maps, curve points, AUCs, target IDs, local SHA-256 hashes and total call count (baseline plus new calls); archive the numeric result JSON.
-7. Only after actual results are verified, update the manuscript beyond v0.27 and decide whether any V30 claims are supportable.
+1. Review and merge [draft PR #19](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/pull/19) to `main` so the new manual GitHub Actions workflow is available on the default branch.
+2. Add a Roboflow API key as the **GitHub Actions repository secret** `ROBOFLOW_API_KEY`, without placing its value in chat, source code, or workflow inputs.
+3. Review Roboflow/GitHub Actions quota and usage costs; the authorization covers up to 1,060 **additional** model calls (1,068 total including 8 completed baseline calls).
+4. Manually dispatch `SEER-PPE V30 cloud-only XAI (manual full run)` with `run_progressive=true` and `confirm_budget=1068`.
+5. Review the numeric-only artifact. Audit original source SHA-256, all target statuses, maps, progressive curves, AUCs and actual model call count.
+6. Only after V30 inference evidence is audited, update the manuscript beyond v0.27.
+
+**No local image download or Python environment is required.** The validated cloud image-download preparation is recorded in `V30_CLOUD_PREFLIGHT_ACTUAL_2026-11-22.json`.
 
 ## Scientific limits retained
 
