@@ -10,3 +10,7 @@ This request triggers GitHub Actions **SEER-PPE manuscript and full handoff expo
 ## Refresh requested after V22 verified manuscript integration
 
 The previous V0.20 Word files remain archived and unchanged. The manuscript now advances to **v0.22** with executed V22 annotation class-support results, full Results §4.17, Discussion §5.1–5.6 and Appendix N. Re-run the same vetted converter and checks to save **`SEER_PPE_Research_Manuscript_v0.22_2026-11-21.docx`**, while preserving the V21 handoff DOCX. Validate new manuscript values and Appendix N text, and do not claim newly executed RF-DETR or SEER-PPE safety efficacy.
+
+## Refresh after actually executed V23 original Valid current-source bbox pilot
+
+The working manuscript is now **v0.23**, not v0.22, and includes V23's previously frozen five-original-Valid-image real fixed-model bbox comparison against current author-curated ground truth (23 original boxes, 23 hosted predictions, TP22/FP1/FN1; micro F1 0.956522). The five images are nonrandom and historically development-exposed; this is neither full 459-image independent Valid nor a verified safety-policy improvement. Archive an additional full editable **`SEER_PPE_Research_Manuscript_v0.23_2026-11-21.docx`** with Methods §3.18, Results §4.18, Discussion and Appendix O; preserve V0.20/V0.22 archived Word files and V21 handoff. Run DOCX and render QA and commit the new Word file. No fresh inference is performed by exporting Word.
