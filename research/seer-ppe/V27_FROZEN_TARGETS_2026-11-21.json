@@ -1,0 +1,585 @@
+{
+  "schema_version": "seer-ppe/v27-frozen-targeted-occlusion-sample-and-A6-class-error-calibrated-comparator/v0.27",
+  "frozen_date": "2026-11-21",
+  "model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "source_project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "source_images": 9,
+  "original_detector_boxes": 74,
+  "typed_PPE_cues": 59,
+  "image_selection": "EXACT_REUSE_OF_ALL_NINE_PREVIOUS_V25_DEVELOPMENT_IMAGES_NO_NEW_IMAGE_SELECTION",
+  "train_source_asset_ids": {
+    "train:A": "0jRe8fpRDE5fLgAJrYvT",
+    "train:B": "0xxsYWiz1FZBYERolu4z",
+    "train:C": "0jGu9euJp1MbvkLtfBcs",
+    "train:D": "0oVmRAxL0SM1PWqZCNyM"
+  },
+  "valid_source_ids": [
+    "07BnOpgFJyNaOhuzvh5i",
+    "084u5kuwQXhWa4EKdsQ5",
+    "09WO3iVNf9jOt21QAxmb",
+    "0ABzMrjnd6I0Ws6FH7qo",
+    "0aGYjxE5LmocXyvuLHs8"
+  ],
+  "no_image_bytes_or_urls_saved": true,
+  "no_test_accessed": true,
+  "original_model_or_data_changed": false,
+  "source_independence_verified": false,
+  "A2_included_as_historical_confidence_only_baseline": true,
+  "A5_policy": "V25_FROZEN_UNCHANGED_NEGATIVE_CUE_PLUS_UNRESOLVED_ASSOCIATION_PLUS_FIXED_SEVERITY",
+  "A6_policy": {
+    "name": "A6_CLASS_ERROR_CALIBRATED_SELECTIVE_REVIEW",
+    "formula": "0.50*(1-detection_confidence)+0.30*class_FDR_calibration+0.20*unresolved_person_association",
+    "unresolved_association_statuses": [
+      "ASSOCIATION_AMBIGUOUS",
+      "ASSOCIATION_UNKNOWN",
+      "PERSON_CANDIDATE_NOT_DETECTED"
+    ],
+    "calibrated_class_FDR_source": "V26 M0 minus five V23 prior-pilot source images; 454 other original Source Valid images",
+    "class_FDR": "FP/(TP+FP) from V26 current author-reference class-wise results",
+    "target_image_GT_used_as_a_feature": false,
+    "A6_is_proven_superior": false,
+    "source_calibration_independent_or_unexposed": false
+  },
+  "calibration_class_FDR": {
+    "Animal": 0.12,
+    "Child": 0.222222,
+    "Face Masks": 0.267327,
+    "No Hard Hat": 0.140625,
+    "No Safety Boots": 0.328,
+    "Soft Hat": 0.173913,
+    "Hard Hat": 0.094431,
+    "No Safety Vest": 0.212121,
+    "Pants": 0.238462,
+    "No Face Mask": 0.160883,
+    "No Safety Attire": 0.238095,
+    "No Gloves": 0.273159,
+    "Gloves": 0.242424,
+    "Safety Boots": 0.238636,
+    "Safety Vests": 0.129794,
+    "Goggles": 0.154206,
+    "Persons": 0.179756
+  },
+  "per_image_selections": [
+    {
+      "image_key": "train:A",
+      "filename": "image_604.jpg",
+      "split": "train",
+      "asset_id": "0jRe8fpRDE5fLgAJrYvT",
+      "original_detection_count": 5,
+      "typed_PPE_cue_count": 4,
+      "selected": {
+        "A2": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+        "A5": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+        "A6": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+        "A2_class": "No Face Mask",
+        "A5_class": "No Face Mask",
+        "A6_class": "No Face Mask",
+        "A6_priority": 0.30818,
+        "A6_class_FDR": 0.160883,
+        "A6_association": "ASSOCIATION_UNKNOWN"
+      }
+    },
+    {
+      "image_key": "train:B",
+      "filename": "000760.jpg",
+      "split": "train",
+      "asset_id": "0xxsYWiz1FZBYERolu4z",
+      "original_detection_count": 16,
+      "typed_PPE_cue_count": 13,
+      "selected": {
+        "A2": "1b2af685-6965-4986-9d35-258b036e5882",
+        "A5": "1b2af685-6965-4986-9d35-258b036e5882",
+        "A6": "1b2af685-6965-4986-9d35-258b036e5882",
+        "A2_class": "Gloves",
+        "A5_class": "Gloves",
+        "A6_class": "Gloves",
+        "A6_priority": 0.417237,
+        "A6_class_FDR": 0.242424,
+        "A6_association": "TENTATIVE_SINGLE"
+      }
+    },
+    {
+      "image_key": "train:C",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "split": "train",
+      "asset_id": "0jGu9euJp1MbvkLtfBcs",
+      "original_detection_count": 29,
+      "typed_PPE_cue_count": 25,
+      "selected": {
+        "A2": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+        "A5": "35e4de96-de91-46a1-910f-89738f80e053",
+        "A6": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+        "A2_class": "Face Masks",
+        "A5_class": "No Safety Boots",
+        "A6_class": "Face Masks",
+        "A6_priority": 0.459068,
+        "A6_class_FDR": 0.267327,
+        "A6_association": "TENTATIVE_SINGLE"
+      }
+    },
+    {
+      "image_key": "train:D",
+      "filename": "h1.jpg",
+      "split": "train",
+      "asset_id": "0oVmRAxL0SM1PWqZCNyM",
+      "original_detection_count": 1,
+      "typed_PPE_cue_count": 1,
+      "selected": {
+        "A2": "7a101411-15e7-457a-842a-0e61be4f1f11",
+        "A5": "7a101411-15e7-457a-842a-0e61be4f1f11",
+        "A6": "7a101411-15e7-457a-842a-0e61be4f1f11",
+        "A2_class": "Hard Hat",
+        "A5_class": "Hard Hat",
+        "A6_class": "Hard Hat",
+        "A6_priority": 0.245969,
+        "A6_class_FDR": 0.094431,
+        "A6_association": "PERSON_CANDIDATE_NOT_DETECTED"
+      }
+    },
+    {
+      "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+      "filename": "image_1282.jpg",
+      "split": "valid",
+      "asset_id": "07BnOpgFJyNaOhuzvh5i",
+      "original_detection_count": 13,
+      "typed_PPE_cue_count": 9,
+      "selected": {
+        "A2": "4e2ffe93-fe4e-4518-86b5-853dfb8657d3",
+        "A5": "e67b5082-bdc0-4143-8a98-9dd8524f868d",
+        "A6": "e67b5082-bdc0-4143-8a98-9dd8524f868d",
+        "A2_class": "Goggles",
+        "A5_class": "No Gloves",
+        "A6_class": "No Gloves",
+        "A6_priority": 0.364398,
+        "A6_class_FDR": 0.273159,
+        "A6_association": "ASSOCIATION_UNKNOWN"
+      }
+    },
+    {
+      "image_key": "valid:084u5kuwQXhWa4EKdsQ5",
+      "filename": "5731201_4.jpg",
+      "split": "valid",
+      "asset_id": "084u5kuwQXhWa4EKdsQ5",
+      "original_detection_count": 1,
+      "typed_PPE_cue_count": 0,
+      "selected": {
+        "A2": null,
+        "A5": null,
+        "A6": null,
+        "A2_class": null,
+        "A5_class": null,
+        "A6_class": null,
+        "A6_priority": null,
+        "A6_class_FDR": null,
+        "A6_association": null
+      }
+    },
+    {
+      "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+      "filename": "c1e5a26df8225afb5be5beceae128ad5.jpg",
+      "split": "valid",
+      "asset_id": "09WO3iVNf9jOt21QAxmb",
+      "original_detection_count": 3,
+      "typed_PPE_cue_count": 2,
+      "selected": {
+        "A2": "181c2d93-bac0-4cfe-8613-9c4e66ecc4fc",
+        "A5": "181c2d93-bac0-4cfe-8613-9c4e66ecc4fc",
+        "A6": "181c2d93-bac0-4cfe-8613-9c4e66ecc4fc",
+        "A2_class": "Safety Boots",
+        "A5_class": "Safety Boots",
+        "A6_class": "Safety Boots",
+        "A6_priority": 0.315284,
+        "A6_class_FDR": 0.238636,
+        "A6_association": "PERSON_CANDIDATE_NOT_DETECTED"
+      }
+    },
+    {
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "filename": "imagem40.jpg",
+      "split": "valid",
+      "asset_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "original_detection_count": 5,
+      "typed_PPE_cue_count": 4,
+      "selected": {
+        "A2": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+        "A5": "5d2a56b6-4b76-4206-afd0-51e1e4c28d8e",
+        "A6": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+        "A2_class": "Safety Vests",
+        "A5_class": "No Face Mask",
+        "A6_class": "Safety Vests",
+        "A6_priority": 0.312518,
+        "A6_class_FDR": 0.129794,
+        "A6_association": "ASSOCIATION_UNKNOWN"
+      }
+    },
+    {
+      "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+      "filename": "a16ea468abd845e68ea9ccbbe4f9762e.jpg",
+      "split": "valid",
+      "asset_id": "0aGYjxE5LmocXyvuLHs8",
+      "original_detection_count": 1,
+      "typed_PPE_cue_count": 1,
+      "selected": {
+        "A2": "8bdb1086-0226-4293-b70c-3a44efd763c5",
+        "A5": "8bdb1086-0226-4293-b70c-3a44efd763c5",
+        "A6": "8bdb1086-0226-4293-b70c-3a44efd763c5",
+        "A2_class": "No Safety Boots",
+        "A5_class": "No Safety Boots",
+        "A6_class": "No Safety Boots",
+        "A6_priority": 0.338543,
+        "A6_class_FDR": 0.328,
+        "A6_association": "PERSON_CANDIDATE_NOT_DETECTED"
+      }
+    }
+  ],
+  "unique_A5_A6_target_tests": [
+    {
+      "image_key": "train:A",
+      "asset_id": "0jRe8fpRDE5fLgAJrYvT",
+      "source_id": null,
+      "split": "train",
+      "filename": "image_604.jpg",
+      "image_width": 1000,
+      "image_height": 667,
+      "target_id": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+      "target_class": "No Face Mask",
+      "confidence": 0.88017,
+      "bbox_center_xywh": {
+        "x": 475.5,
+        "y": 353.5,
+        "width": 207,
+        "height": 143
+      },
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "A5_fixed_priority": 0.64983,
+      "A6_class_FDR": 0.160883,
+      "control": {
+        "detection_id": "3c93a7b4-3d1c-4fe3-a668-1edda6101556",
+        "class_name": "Hard Hat",
+        "confidence": 0.94362,
+        "bbox_center_xywh": {
+          "x": 526,
+          "y": 123.5,
+          "width": 392,
+          "height": 245
+        },
+        "area_ratio_relative_to_target": 3.244485,
+        "target_intersection_fraction": 0
+      }
+    },
+    {
+      "image_key": "train:B",
+      "asset_id": "0xxsYWiz1FZBYERolu4z",
+      "source_id": null,
+      "split": "train",
+      "filename": "000760.jpg",
+      "image_width": 500,
+      "image_height": 330,
+      "target_id": "1b2af685-6965-4986-9d35-258b036e5882",
+      "target_class": "Gloves",
+      "confidence": 0.31098,
+      "bbox_center_xywh": {
+        "x": 356,
+        "y": 169,
+        "width": 12,
+        "height": 14
+      },
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "A5_fixed_priority": 0.72902,
+      "A6_class_FDR": 0.242424,
+      "control": {
+        "detection_id": "c4f49afa-d4bd-400a-9d75-731453792e3a",
+        "class_name": "Safety Boots",
+        "confidence": 0.67779,
+        "bbox_center_xywh": {
+          "x": 357,
+          "y": 256.5,
+          "width": 22,
+          "height": 17
+        },
+        "area_ratio_relative_to_target": 2.22619,
+        "target_intersection_fraction": 0
+      }
+    },
+    {
+      "image_key": "train:C",
+      "asset_id": "0jGu9euJp1MbvkLtfBcs",
+      "source_id": null,
+      "split": "train",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "image_width": 2048,
+      "image_height": 1365,
+      "target_id": "35e4de96-de91-46a1-910f-89738f80e053",
+      "target_class": "No Safety Boots",
+      "confidence": 0.35067,
+      "bbox_center_xywh": {
+        "x": 608.5,
+        "y": 731,
+        "width": 35,
+        "height": 20
+      },
+      "arms": [
+        "A5"
+      ],
+      "A5_fixed_priority": 1.00933,
+      "A6_class_FDR": 0.328,
+      "control": {
+        "detection_id": "15c07c8c-56e9-4fbe-8fac-105ff957d9d7",
+        "class_name": "Gloves",
+        "confidence": 0.76175,
+        "bbox_center_xywh": {
+          "x": 548,
+          "y": 652.5,
+          "width": 20,
+          "height": 35
+        },
+        "area_ratio_relative_to_target": 1,
+        "target_intersection_fraction": 0
+      }
+    },
+    {
+      "image_key": "train:C",
+      "asset_id": "0jGu9euJp1MbvkLtfBcs",
+      "source_id": null,
+      "split": "train",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "image_width": 2048,
+      "image_height": 1365,
+      "target_id": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+      "target_class": "Face Masks",
+      "confidence": 0.24226,
+      "bbox_center_xywh": {
+        "x": 591,
+        "y": 549,
+        "width": 22,
+        "height": 14
+      },
+      "arms": [
+        "A6"
+      ],
+      "A5_fixed_priority": 0.78774,
+      "A6_class_FDR": 0.267327,
+      "control": {
+        "detection_id": "021a8c09-78bf-4dac-82c3-e4ec15e819c9",
+        "class_name": "No Face Mask",
+        "confidence": 0.64593,
+        "bbox_center_xywh": {
+          "x": 903,
+          "y": 583.5,
+          "width": 20,
+          "height": 21
+        },
+        "area_ratio_relative_to_target": 1.363636,
+        "target_intersection_fraction": 0
+      }
+    },
+    {
+      "image_key": "train:D",
+      "asset_id": "0oVmRAxL0SM1PWqZCNyM",
+      "source_id": null,
+      "split": "train",
+      "filename": "h1.jpg",
+      "image_width": 1000,
+      "image_height": 1000,
+      "target_id": "7a101411-15e7-457a-842a-0e61be4f1f11",
+      "target_class": "Hard Hat",
+      "confidence": 0.96472,
+      "bbox_center_xywh": {
+        "x": 512.5,
+        "y": 334,
+        "width": 963,
+        "height": 662
+      },
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "A5_fixed_priority": 0.39528,
+      "A6_class_FDR": 0.094431,
+      "control": null
+    },
+    {
+      "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+      "asset_id": "07BnOpgFJyNaOhuzvh5i",
+      "source_id": "07BnOpgFJyNaOhuzvh5i",
+      "split": "valid",
+      "filename": "image_1282.jpg",
+      "image_width": 1000,
+      "image_height": 667,
+      "target_id": "e67b5082-bdc0-4143-8a98-9dd8524f868d",
+      "target_class": "No Gloves",
+      "confidence": 0.8351,
+      "bbox_center_xywh": {
+        "x": 498,
+        "y": 449,
+        "width": 66,
+        "height": 74
+      },
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "A5_fixed_priority": 0.7049,
+      "A6_class_FDR": 0.273159,
+      "control": {
+        "detection_id": "7f17e4f0-1bee-42d9-8b1b-0ae20f1719eb",
+        "class_name": "Hard Hat",
+        "confidence": 0.902502,
+        "bbox_center_xywh": {
+          "x": 673.5,
+          "y": 121.5,
+          "width": 131,
+          "height": 73
+        },
+        "area_ratio_relative_to_target": 1.958026,
+        "target_intersection_fraction": 0
+      }
+    },
+    {
+      "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+      "asset_id": "09WO3iVNf9jOt21QAxmb",
+      "source_id": "09WO3iVNf9jOt21QAxmb",
+      "split": "valid",
+      "filename": "c1e5a26df8225afb5be5beceae128ad5.jpg",
+      "image_width": 736,
+      "image_height": 903,
+      "target_id": "181c2d93-bac0-4cfe-8613-9c4e66ecc4fc",
+      "target_class": "Safety Boots",
+      "confidence": 0.912613,
+      "bbox_center_xywh": {
+        "x": 261.5,
+        "y": 415.5,
+        "width": 211,
+        "height": 135
+      },
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "A5_fixed_priority": 0.427387,
+      "A6_class_FDR": 0.238636,
+      "control": null
+    },
+    {
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "asset_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "source_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "split": "valid",
+      "filename": "imagem40.jpg",
+      "image_width": 166,
+      "image_height": 236,
+      "target_id": "5d2a56b6-4b76-4206-afd0-51e1e4c28d8e",
+      "target_class": "No Face Mask",
+      "confidence": 0.898136,
+      "bbox_center_xywh": {
+        "x": 87,
+        "y": 163.5,
+        "width": 70,
+        "height": 43
+      },
+      "arms": [
+        "A5"
+      ],
+      "A5_fixed_priority": 0.631864,
+      "A6_class_FDR": 0.160883,
+      "control": {
+        "detection_id": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+        "class_name": "Safety Vests",
+        "confidence": 0.85284,
+        "bbox_center_xywh": {
+          "x": 97,
+          "y": 212.5,
+          "width": 138,
+          "height": 47
+        },
+        "area_ratio_relative_to_target": 2.154817,
+        "target_intersection_fraction": 0
+      }
+    },
+    {
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "asset_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "source_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "split": "valid",
+      "filename": "imagem40.jpg",
+      "image_width": 166,
+      "image_height": 236,
+      "target_id": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+      "target_class": "Safety Vests",
+      "confidence": 0.85284,
+      "bbox_center_xywh": {
+        "x": 97,
+        "y": 212.5,
+        "width": 138,
+        "height": 47
+      },
+      "arms": [
+        "A6"
+      ],
+      "A5_fixed_priority": 0.46716,
+      "A6_class_FDR": 0.129794,
+      "control": {
+        "detection_id": "ac23487e-dbbf-448b-a13e-31765fce591d",
+        "class_name": "Goggles",
+        "confidence": 0.901877,
+        "bbox_center_xywh": {
+          "x": 86,
+          "y": 127,
+          "width": 104,
+          "height": 40
+        },
+        "area_ratio_relative_to_target": 0.641381,
+        "target_intersection_fraction": 0
+      }
+    },
+    {
+      "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+      "asset_id": "0aGYjxE5LmocXyvuLHs8",
+      "source_id": "0aGYjxE5LmocXyvuLHs8",
+      "split": "valid",
+      "filename": "a16ea468abd845e68ea9ccbbe4f9762e.jpg",
+      "image_width": 736,
+      "image_height": 736,
+      "target_id": "8bdb1086-0226-4293-b70c-3a44efd763c5",
+      "target_class": "No Safety Boots",
+      "confidence": 0.919713,
+      "bbox_center_xywh": {
+        "x": 294,
+        "y": 488.5,
+        "width": 244,
+        "height": 483
+      },
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "A5_fixed_priority": 0.680287,
+      "A6_class_FDR": 0.328,
+      "control": null
+    }
+  ],
+  "budget": {
+    "per_arm_max_target_XAI_requests_per_image": 1,
+    "per_arm_max_proposed_human_reviews_per_image": 1,
+    "A5_target_slots": 8,
+    "A6_target_slots": 8,
+    "shared_target_slots": 6,
+    "different_target_slots": 2,
+    "unique_target_occlusion_tests": 10,
+    "controls_available": 7,
+    "no_control": 3,
+    "planned_original_model_inference_calls": 27,
+    "actual_XAI_calls_before_execution": 0,
+    "actual_human_reviews_dispatched": 0
+  },
+  "no_per_detection_GT_or_V23_match_error_used_in_selection": true,
+  "V23_match_join_only_after_execution_for_object_detection_diagnostic": true,
+  "no_worker_compliance_or_violation_inference": true,
+  "strict_worker_safety_scoring_ready": false
+}
