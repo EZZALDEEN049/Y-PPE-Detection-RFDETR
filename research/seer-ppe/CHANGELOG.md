@@ -28,3 +28,11 @@
 - Added target-preserving black-box occlusion XAI skeleton and instrumented hardware capability probe; increased synthetic unit test pass count to 56.
 - Updated master manuscript Methods/Results to include only verified descriptive data results, with risk, XAI and energy outcomes explicitly unmeasured.
 - Did not solicit human reviews, modify any source labels or datasets, start training, or assert regulatory compliance or energy savings.
+
+
+## v0.7 — 2026-11-22
+- Froze V30 target-specific progressive XAI protocol and ten-target manifest, reusing V27/V28 target IDs and archived baseline geometry without target reselection.
+- Added 8×8 single-cell occlusion maps, progressive deletion/insertion curves, random and inverse-saliency controls, and trapezoidal AUC implementation.
+- Added a guarded local RF-DETR hosted-inference runner with an explicit 1,068-call confirmation requirement; local source images are not committed.
+- Added eight synthetic V30 tests and CI coverage. All eight passed locally; Python syntax compilation passed.
+- Actual V30 model calls remain zero pending the local image bundle and Roboflow API key. Manuscript remains v0.27; no progressive XAI or worker-safety efficacy result is claimed.
