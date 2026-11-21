@@ -56,7 +56,18 @@ jobs:
           InferenceHTTPClient(
               api_url="https://serverless.roboflow.com", api_key="runtime-check-no-secret"
           ).configure(cfg)
-          print("V30 inference client configuration validated; no model calls")
+          import importlib.util
+          from pathlib import Path
+          path = Path("research/seer-ppe/tools/run_v30_progressive_xai.py")
+          spec = importlib.util.spec_from_file_location("v30_cloud_runner", path)
+          module = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+          assert callable(module.build_predictor)
+          predictor = module.HostedPredictor("placeholder-key-no-request")
+          assert predictor.client is not None
+          assert callable(predictor.client.infer)
+          assert predictor.calls == 0
+          print("V30 hosted predictor constructor and SDK client passed; zero model calls")
           PY
       - name: Download only eight frozen Roboflow original images
         run: |
