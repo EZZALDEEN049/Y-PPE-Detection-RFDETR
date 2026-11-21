@@ -1,0 +1,76 @@
+name: SEER-PPE V14 all-99 original source-family review diagnostics
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/V14_99_SOURCE_REVIEW_EXECUTION_REQUEST.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  direct_99_original_valid_review_sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Read-only image comparison dependencies
+        run: python -m pip install 'roboflow>=1.1,<2' 'Pillow>=10,<13' 'numpy>=1.24,<3' 'opencv-python-headless>=4.8,<5' 'scikit-image>=0.22,<1'
+      - name: Synthetic negative-control check
+        run: python research/seer-ppe/tools/verify_original_source_family_v14.py --self-test
+      - name: Download previously SHA-verified original-Source metadata, not image bytes
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 44834307184
+          name: seer-ppe-original-source-full-2093-metadata
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/metadata
+      - name: Compare all 99 flagged Valid source cases with historical Train candidates
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$ROBOFLOW_API_KEY"
+          python research/seer-ppe/tools/verify_original_source_family_v14.py \
+            --review-queue research/seer-ppe/SOURCE_FAMILY_REVIEW_QUEUE_2026-11-21_V06.json \
+            --prior-direct-pairs research/seer-ppe/DIRECT_ORIGINAL_TRAIN_VALID_SOURCE_EVIDENCE_V13.json \
+            --original-index research/seer-ppe/SOURCE_ID_MANIFEST_TRAIN_VALID_2026-11-19_V01.json \
+            --original-fingerprints "${RUNNER_TEMP}/metadata/original-source-hash-audit.json" \
+            --clean17-candidate-map research/seer-ppe/SEER_PPE_VALID_TO_CLEAN17_PROVISIONAL_V12.json \
+            --report "${RUNNER_TEMP}/v14/99-source-original-comparison.json"
+      - name: Verify strict original-only Train Valid scope and non-scoring claims
+        run: |
+          python - <<'PY'
+          import json,os,pathlib
+          x=json.loads((pathlib.Path(os.environ['RUNNER_TEMP'])/'v14/99-source-original-comparison.json').read_text())
+          assert x['original_review_valid_sources']==x['original_valid_sources_with_direct_cross_split_pairs']==99
+          assert x['train_valid_direct_pairs_total']==280 and len(x['pair_rows'])==280
+          assert x['prior_direct_pair_regressions_checked']==50
+          assert x['new_direct_pair_measurements']==230
+          assert x['source_ids_original_bytes_sha_verified']==304
+          assert x['source_fetch_failures']==0
+          assert x['original_valid_retained_clean17_under_review']==92
+          assert x['original_valid_historically_excluded_under_review']==7
+          assert x['original_source_hold_count_unchanged']==5 and x['new_formal_holds_added']==0
+          assert x['signed_independence_decisions_added']==0
+          assert x['test_source_ids_accessed']==x['test_images_decoded']==0
+          assert not x['dataset_splits_annotations_modified'] and not x['original_model_retrained']
+          assert not x['raw_image_bytes_uploaded'] and not x['private_image_urls_saved']
+          assert x['scientific_scoring_ready'] is False
+          print('SEER_V14_99_SOURCE_280_PAIR_ORIGINAL_TRAIN_VALID_NO_SCORING_PASS')
+          PY
+      - name: Archive research metadata only, with no private media
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp "${RUNNER_TEMP}/v14/99-source-original-comparison.json" \
+            research/seer-ppe/ORIGINAL_99_VALID_SOURCE_FAMILY_PAIRS_2026-11-21_V14.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/seer-ppe/ORIGINAL_99_VALID_SOURCE_FAMILY_PAIRS_2026-11-21_V14.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "research(seer-ppe): record 99 original Valid source review IDs across 280 Train candidate pairs"
+          git push origin HEAD:main
