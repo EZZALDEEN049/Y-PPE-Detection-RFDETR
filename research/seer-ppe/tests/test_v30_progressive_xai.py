@@ -43,6 +43,12 @@ class V30ProgressiveXAITests(unittest.TestCase):
         self.assertEqual(order[0], (0, 1))
         self.assertEqual(order[-1], (1, 1))
 
+    def test_unrankable_maps_fail_closed(self):
+        with self.assertRaises(ValueError):
+            rank_grid_cells(np.zeros((2, 2)))
+        with self.assertRaises(ValueError):
+            rank_grid_cells(np.array([[np.nan, 0.1]]))
+
     def test_random_control_is_stable(self):
         self.assertEqual(stable_random_order("target-1"), stable_random_order("target-1"))
         self.assertNotEqual(stable_random_order("target-1"), stable_random_order("target-2"))
