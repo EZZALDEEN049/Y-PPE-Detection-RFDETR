@@ -238,7 +238,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text()
-          for phrase in ('**Working manuscript v0.24', '### 3.17 Actual original-source',
+          for phrase in ('**Working manuscript v0.25', '### 3.17 Actual original-source',
                          '### 4.17 Current author-curated', '## 5. Discussion',
                          '## Appendix N.', '3,471', '3,049', '729',
                          '0.885018', '0.880754', '13'):
@@ -256,7 +256,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text()
-          for phrase in ('**Working manuscript v0.24','### 3.18 Frozen five-image',
+          for phrase in ('**Working manuscript v0.25','### 3.18 Frozen five-image',
                          '### 4.18 Actual fixed original RF-DETR','## Appendix O.',
                          'TP=22, FP=1, FN=1','0.956522'):
               assert phrase in m, phrase
@@ -269,7 +269,7 @@ jobs:
           from pathlib import Path
           m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text(encoding='utf8')
           q=Path('research/seer-ppe/V24_VERIFIED_2024_2026_RELATED_WORK_NOVELTY_BOUNDARY.md').read_text(encoding='utf8')
-          for phrase in ('**Working manuscript v0.24','### 2.2 Closest methodological',
+          for phrase in ('**Working manuscript v0.25','### 2.2 Closest methodological',
                          '### 2.3 Provisional, falsifiable', '## Selected verified references',
                          '## Appendix P.', 'Selective Explanations',
                          '10.52202/079017-1765','10.3389/fbuil.2026.1976288',
@@ -281,6 +281,33 @@ jobs:
               assert phrase.lower() in q.lower(), phrase
           assert 'NOT_FROZEN' in m and 'scoring_ready=false' in m
           print('SEER_V24_RELATED_PRIOR_ART_AND_NON_SAFETY_SUPERIORITY_CLAIM_CHECK_PASS')
+          PY
+      - name: Verify V25 A2 A5 frozen selected routes, no Test and no safety claims
+        run: |
+          node research/seer-ppe/tools/run_v25_paired_selective_routing.mjs --self-test
+          node research/seer-ppe/tools/run_v25_paired_selective_routing.mjs --audit /tmp/seer-v25-routes.json > /tmp/seer-v25-routes.log
+          cmp research/seer-ppe/ACTUAL_A0_A2_A5_PAIRED_OFFLINE_ROUTING_V25.json /tmp/seer-v25-routes.json
+          grep -q 'SEER_V25_REAL_FIXED_RFDETR_A0_A2_A5_ROUTING_MATCHED_BUDGETS_PASS' /tmp/seer-v25-routes.log
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          root=Path('research/seer-ppe')
+          m=(root/'MANUSCRIPT_MASTER.md').read_text()
+          d=json.loads((root/'ACTUAL_A0_A2_A5_PAIRED_OFFLINE_ROUTING_V25.json').read_text())
+          for phrase in ('**Working manuscript v0.25','### 3.19 V25 paired',
+                         '### 4.19 Actually executed A2/A5', '### 5.7 Routing implementation',
+                         '## Appendix Q.', '59 typed PPE', '3/9', '51 typed cues'):
+              assert phrase in m, phrase
+          z=d['aggregate']
+          assert z['images']==9 and z['original_detector_boxes']==74
+          assert z['typed_PPE_detection_cues']==59
+          assert z['image_target_disagreements']==3
+          assert z['A2_proposed_XAI_requests_NOT_executed']==z['A5_proposed_XAI_requests_NOT_executed']==8
+          assert z['actual_XAI_calls_in_V25']==z['actual_human_review_dispatched_in_V25']==0
+          assert z['actual_worker_safe_clearances_in_V25']==0
+          assert not d['SEER_safety_or_energy_superiority_supported']
+          assert not d['strict_scientific_worker_safety_scoring_ready']
+          print('SEER_V25_EXECUTED_A2_A5_MATH_AND_MANUSCRIPT_SCOPE_PASS')
           PY
       - name: Scientific status boundary
         run: |
