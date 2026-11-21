@@ -1,0 +1,18 @@
+{
+  "schema_version": "seer-ppe/signed-source-lineage-decision-overlay/v0.11",
+  "date": "2026-11-21",
+  "base_ledger": "SOURCE_ELIGIBILITY_DECISION_LEDGER_2026-11-21_V11.json",
+  "method": "APPEND_ONLY_FUTURE_IMAGE_SPECIFIC_EVIDENCE_AND_HUMAN_SIGNOFF",
+  "allowed_verdicts": [
+    "INDEPENDENT_SOURCE_SUPPORTED",
+    "SHARED_CAPTURE_SESSION_OR_SITE",
+    "SAME_IMAGE_OR_DERIVATIVE",
+    "SAME_ITEM_DISTINCT_PHOTO",
+    "UNRESOLVED"
+  ],
+  "rule": "No automated classification; one signed decision per Valid Source ID with traceable acquisition or site evidence. Existing holds never auto-cleared. SAME_ITEM_DISTINCT_PHOTO alone cannot certify source independence.",
+  "author_visual_acceptance_is_not_per_source_signoff": true,
+  "decisions": [],
+  "test_images_accessed": false,
+  "score_eligibility_override": false
+}
