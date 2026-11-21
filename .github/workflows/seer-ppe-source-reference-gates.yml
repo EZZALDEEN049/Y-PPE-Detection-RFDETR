@@ -238,7 +238,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text()
-          for phrase in ('**Working manuscript v0.22', '### 3.17 Actual original-source',
+          for phrase in ('**Working manuscript v0.23', '### 3.17 Actual original-source',
                          '### 4.17 Current author-curated', '## 5. Discussion',
                          '## Appendix N.', '3,471', '3,049', '729',
                          '0.885018', '0.880754', '13'):
@@ -247,6 +247,22 @@ jobs:
           print('SEER_V22_MANUSCRIPT_METHODS_RESULTS_DISCUSSION_REFERENCES_SUPPORT_PASS')
           PY
           echo 'SEER_V22_VALID_CLASS_LABEL_COMPOSITION_AND_EDITORIAL_BOUNDARY_AUDIT_PASS'
+      - name: Verify V23 five predeclared original Valid current author bbox result without Test access
+        run: |
+          node research/seer-ppe/tools/score_current_valid_source_boxes_v23.mjs --self-test
+          node research/seer-ppe/tools/score_current_valid_source_boxes_v23.mjs --audit /tmp/seer-v23-valid-bbox.json > /tmp/seer-v23-valid-bbox.log
+          cmp research/seer-ppe/VALID_CURRENT_SOURCE_REAL_MODEL_BOX_MATCH_V23.json /tmp/seer-v23-valid-bbox.json
+          grep -q 'SEER_V23_FIXED_RFDETR_REAL_VALID_SOURCE_CURRENT_AUTHOR_BOX_MATCH_PASS' /tmp/seer-v23-valid-bbox.log
+          python - <<'PY'
+          from pathlib import Path
+          m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text()
+          for phrase in ('**Working manuscript v0.23','### 3.18 Frozen five-image',
+                         '### 4.18 Actual fixed original RF-DETR','## Appendix O.',
+                         'TP=22, FP=1, FN=1','0.956522'):
+              assert phrase in m, phrase
+          print('SEER_V23_FIVE_ACTUAL_VALID_AUTHOR_BOX_MATCH_MANUSCRIPT_PASS')
+          PY
+          echo 'SEER_V23_HOSTED_ORIGINAL_VALID_CURRENT_LABELS_ACTUAL_5_IMAGE_PILOT_PASS'
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'
