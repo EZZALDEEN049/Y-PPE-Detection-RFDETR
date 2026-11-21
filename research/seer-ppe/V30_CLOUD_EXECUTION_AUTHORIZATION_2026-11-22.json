@@ -17,6 +17,9 @@
   "run_trigger": "Exact one-time authorization commit message on frozen research branch; no automatic retrigger on unrelated commits.",
   "completion_policy": "Do not update scientific claims or manuscript without verified numeric results.",
   "note": "This is explicit approval to attempt the frozen cloud run, not evidence that hosted inference has succeeded or that billing quota is available.",
-  "execution_attempt": 2,
-  "workflow_definition_fixed": "9d083f99a442e21274df52d32b8540910e244762"
+  "execution_attempt": 3,
+  "workflow_definition_fixed": "9d083f99a442e21274df52d32b8540910e244762",
+  "runtime_fix_commit": "6853993bdebfaca220df5e3c635da5280ac380a4",
+  "runtime_smoke_run_id": 44964205427,
+  "prior_inference_attempt_consumption": "0: failed before predictor initialization"
 }
