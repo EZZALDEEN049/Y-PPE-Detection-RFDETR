@@ -1,0 +1,43 @@
+{
+  "schema_version": "seer-ppe/evidence-qualified-source-family-review/v0.13",
+  "date": "2026-11-21",
+  "objective": "SELECT_DOCUMENTED_AND_SIGNED_SOURCE_FAMILY_INDEPENDENCE_DECISIONS_WITHOUT_REOPENING_GENERAL_IMAGE_REVIEW",
+  "original_valid_images": 468,
+  "provisional_clean17_valid_candidates": 459,
+  "preexisting_valid_holds": 5,
+  "flagged_unsigned_candidates_in_provisional_valid": 87,
+  "unflagged_but_independence_uncertified_in_provisional_valid": 367,
+  "human_source_family_new_signoffs": 0,
+  "known_cross_split_named_site": {
+    "site_id": "site_school_22may_aseefrah",
+    "valid_source_ids": [
+      "0De0PEUDyeg9v1J3T6zr",
+      "NZu6Faj6evgINF1qFE0V"
+    ],
+    "train_source_ids": [
+      "KrfW3xD7Vvxy6r6wISkv",
+      "H1KOFc0NQZnWRHJNcHPc"
+    ],
+    "evidence": "VISUAL_SOURCE_FAMILY_ADJUDICATION_2026-11-18_V01.json",
+    "human_source_family_signed": false,
+    "disposition": "PRESERVE_PREEXISTING_VALID_HOLD_NO_NEW_SIGNOFF"
+  },
+  "review_requirements": {
+    "per_valid_source_id": true,
+    "source_family_relationship_verdict": [
+      "SAME_IMAGE_OR_DERIVATIVE",
+      "SHARED_CAPTURE_SESSION_OR_SITE",
+      "SAME_ITEM_DISTINCT_PHOTO",
+      "INDEPENDENT_SOURCE_SUPPORTED",
+      "UNRESOLVED"
+    ],
+    "concrete_acquisition_evidence_required": true,
+    "existing_valid_hold_requires_explicit_clearance_process": true,
+    "reviewer_id_and_signed_date_required": true,
+    "do_not_use_model_similarity_as_human_verdict": true,
+    "no_automatic_clean17_membership": true
+  },
+  "dispositions_unchanged": true,
+  "test_images_accessed": false,
+  "scientific_scoring_ready": false
+}

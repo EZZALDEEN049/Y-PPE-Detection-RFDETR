@@ -1,0 +1,107 @@
+{
+  "schema_version": "seer-ppe/person-ppe-human-decision-handoff/v0.13",
+  "date": "2026-11-21",
+  "source_eval_dataset": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+  "snapshot": "PERSON_PPE_REFERENCE_LIVE_SNAPSHOT_2026-11-21_V09.json",
+  "case_A_revalidation_not_required": true,
+  "case_C_revalidation_not_required": true,
+  "general_image_review_already_accepted_by_author": true,
+  "prior_reference_human_links_preserved": 19,
+  "prior_recorded_visual_states": 38,
+  "prior_expected_visual_states": 42,
+  "case_B_revision": 2,
+  "case_B_visual_state_pending": [
+    {
+      "slot_id": "B_P001_face_mask",
+      "case": "B",
+      "person_id": "P001",
+      "ppe_type": "face_mask",
+      "current_live_reference": "NOT_RECORDED",
+      "human_final_visual_state": null,
+      "allowed_visual_states": [
+        "PRESENT",
+        "ABSENT",
+        "UNKNOWN"
+      ],
+      "human_reviewer_signoff": null,
+      "reviewer_evidence_reference": null,
+      "previous_AI_visibility_assessment_only": "Face angled down; cheeks/jaw partly visible; nose/mouth partly obscured. No mask clearly described by the AI image inspection, but anatomical coverage not sufficient for a defensible absent/present verdict.",
+      "not_inferred_from_AI": true,
+      "original_annotation_or_model_modified": false
+    },
+    {
+      "slot_id": "B_P001_safety_boot",
+      "case": "B",
+      "person_id": "P001",
+      "ppe_type": "safety_boot",
+      "current_live_reference": "NOT_RECORDED",
+      "human_final_visual_state": null,
+      "allowed_visual_states": [
+        "PRESENT",
+        "ABSENT",
+        "UNKNOWN"
+      ],
+      "human_reviewer_signoff": null,
+      "reviewer_evidence_reference": null,
+      "previous_AI_visibility_assessment_only": "AI image inspection suggests feet may show open-toed or strapped footwear under apron near rebar; crop and pixel resolution can mislead. Does not establish type, protective rating, ownership of K/L/M, or confirmed absence of certified footwear.",
+      "not_inferred_from_AI": true,
+      "original_annotation_or_model_modified": false
+    },
+    {
+      "slot_id": "B_P002_face_mask",
+      "case": "B",
+      "person_id": "P002",
+      "ppe_type": "face_mask",
+      "current_live_reference": "NOT_RECORDED",
+      "human_final_visual_state": null,
+      "allowed_visual_states": [
+        "PRESENT",
+        "ABSENT",
+        "UNKNOWN"
+      ],
+      "human_reviewer_signoff": null,
+      "reviewer_evidence_reference": null,
+      "previous_AI_visibility_assessment_only": "Background worker face is blurry/small; nose and mouth cannot be determined reliably from the AI summary; a face mask cannot be confidently verified or excluded.",
+      "not_inferred_from_AI": true,
+      "original_annotation_or_model_modified": false
+    },
+    {
+      "slot_id": "B_P002_safety_boot",
+      "case": "B",
+      "person_id": "P002",
+      "ppe_type": "safety_boot",
+      "current_live_reference": "NOT_RECORDED",
+      "human_final_visual_state": null,
+      "allowed_visual_states": [
+        "PRESENT",
+        "ABSENT",
+        "UNKNOWN"
+      ],
+      "human_reviewer_signoff": null,
+      "reviewer_evidence_reference": null,
+      "previous_AI_visibility_assessment_only": "Lower extremities/feet are partly obscured and blur into background; no defensible safety-footwear classification or certification can be drawn from this AI-only inspection.",
+      "not_inferred_from_AI": true,
+      "original_annotation_or_model_modified": false
+    }
+  ],
+  "case_D": {
+    "case": "D",
+    "case_revision": 1,
+    "source_filename": "h1.jpg",
+    "original_person_annotation_count": 0,
+    "detector_person_candidate_count": 0,
+    "zero_person_scene_human_signed": null,
+    "allowed_human_decisions": [
+      "CONFIRM_ZERO_VISIBLE_PERSONS",
+      "NOT_CONFIRMED_OR_INSUFFICIENT_EVIDENCE"
+    ],
+    "human_reviewer_signoff": null,
+    "reviewer_evidence_reference": null,
+    "unseen_person_coverage_may_not_be_concluded_from_zero_detections": true
+  },
+  "original_gt_case_writes": 0,
+  "model_predictions_promoted_to_reference": false,
+  "source_independence_decisions_added": 0,
+  "human_reference_complete": false,
+  "scoring_ready": false
+}
