@@ -19,5 +19,6 @@
     "eight exact original image files available locally",
     "ROBOFLOW_API_KEY in local runner environment",
     "baseline reproduction preflight passes"
-  ]
+  ],
+  "source_reference_gate_compatibility_fix": "The existing V22 CI assertion was aligned from manuscript v0.26 to the already-current v0.27; manuscript contents and empirical claims were not changed."
 }
