@@ -1,0 +1,59 @@
+{
+  "schema_version": "seer-ppe/checkpoint/v0.19",
+  "date": "2026-11-21",
+  "supersedes": "DUAL_TRACK_CHECKPOINT_2026-11-21_V17.json",
+  "research_status": "AUTHOR_CURATED_ORIGINAL_BOXES_VS_EXISTING_TRAIN_RFDETR_NUMERIC_PREFLIGHT_AND_VALID_SOURCE_SENSITIVITY_COMPLETE_NOT_SCIENTIFIC_SCORING",
+  "source_model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "original_model_training_or_dataset_modified": false,
+  "new_inference_calls": 0,
+  "train_images": 4,
+  "source_gt_boxes": 48,
+  "source_gt_model_assisted_boxes_marked": 7,
+  "existing_fixed_model_prediction_boxes": 51,
+  "bbox_iou_threshold": 0.5,
+  "hosted_prediction_confidence_floor": 0.2,
+  "train_development_only": {
+    "tp": 47,
+    "fp": 4,
+    "fn": 1,
+    "precision": 0.921569,
+    "recall": 0.979167,
+    "f1": 0.949495,
+    "macro_ap50_truncated_above_conf_0p2": 0.977498,
+    "macro_ap50_95_truncated_above_conf_0p2": 0.741226
+  },
+  "excluded_all_model_assisted_source_image_sensitivity": {
+    "images": 3,
+    "gt_boxes": 33,
+    "pred_boxes": 35,
+    "tp": 32,
+    "fp": 3,
+    "fn": 1,
+    "precision": 0.914286,
+    "recall": 0.969697,
+    "f1": 0.941176
+  },
+  "source_overlap_descriptive_cohort_sizes": {
+    "all_technically_matched_valid": 459,
+    "exclude_5_holds_and_6_quarantines": 448,
+    "additional_exclude_81_other_flagged": 367
+  },
+  "high_similarity_edges_from_280_pair_direct_check": 12,
+  "high_similarity_graph_components": 8,
+  "independent_valid_source_group_certifications": 0,
+  "second_human_reviewer_needed": false,
+  "repeat_author_image_inspection_needed": false,
+  "actual_worker_compliance_safety_metrics_computed": false,
+  "validated_metric_computed": false,
+  "existing_validation_person_level_gold_complete": false,
+  "test_read_or_inferred": false,
+  "energy_joules_measured": null,
+  "independent_validation_scoring_ready": false,
+  "github_actions_numeric_preflight_run": 44853282012,
+  "artifacts": {
+    "original_gt": "TRAIN_ORIGINAL_SOURCE_ANNOTATIONS_READONLY_V19.json",
+    "numeric_train": "TRAIN_SOURCE_LABEL_DETECTION_NUMERIC_PREFLIGHT_V19.json",
+    "source_sensitivity": "VALIDATION_SOURCE_OVERLAP_NUMERIC_SENSITIVITY_V19.json",
+    "method": "V19_AUTHOR_ANNOTATION_NUMERIC_EVAL_PROTOCOL.md"
+  }
+}
