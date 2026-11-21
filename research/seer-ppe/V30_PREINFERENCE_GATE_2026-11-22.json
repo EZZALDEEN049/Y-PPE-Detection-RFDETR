@@ -1,0 +1,23 @@
+{
+  "schema_version": "seer-ppe/v30-preinference-gate/v0.30",
+  "date": "2026-11-22",
+  "status": "PROTOCOL_FROZEN_CODE_READY_ACTUAL_INFERENCE_PENDING",
+  "source_images": 8,
+  "unique_targets": 10,
+  "synthetic_tests_passed": 8,
+  "python_syntax_check": "passed",
+  "actual_model_calls_in_this_continuation": 0,
+  "planned_full_model_calls": 1068,
+  "manuscript_version": "v0.27",
+  "no_test_accessed": true,
+  "original_model_or_data_modified": false,
+  "source_independence_verified": false,
+  "worker_compliance_measured": false,
+  "human_review_dispatched": false,
+  "strict_worker_safety_scoring_ready": false,
+  "blocking_requirements": [
+    "eight exact original image files available locally",
+    "ROBOFLOW_API_KEY in local runner environment",
+    "baseline reproduction preflight passes"
+  ]
+}
