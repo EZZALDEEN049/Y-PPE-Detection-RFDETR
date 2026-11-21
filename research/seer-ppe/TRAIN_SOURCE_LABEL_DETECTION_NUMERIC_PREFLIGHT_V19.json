@@ -1,0 +1,279 @@
+{
+  "schema_version": "seer-ppe/train-original-annotation-bbox-qa/v0.19",
+  "date": "2026-11-21",
+  "purpose": "DEVELOPMENT_ONLY_TRAIN_NUMERIC_REFERENCE_ALIGNMENT_NOT_SCIENTIFIC_VALIDATION",
+  "source": "LIVE_ORIGINAL_SOURCE_ANNOTATION_BBOXES_READ_ONLY_V19_VS_REAL_SAVED_ORIGINAL_RFDETR_TRAIN_PREDICTIONS_V16",
+  "original_model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "evidence_sha256": {
+    "gt": "bffaed2ca62dc0d590d7a5b99b4d9fc430c7f1691556676a873dcc564fa7c724",
+    "pred": "602ebafa2da1cc6e50630fd7e0e41d6f51693049a908f92bd0620aad964bc958",
+    "author": "dac7f3851b42454bca9d642e0f9c59254c6d85774f0172d7424c64993f0f3601"
+  },
+  "metrics_are_scientific_valid_or_test_performance": false,
+  "source_reference_independent_from_training": false,
+  "historical_same_Train_images_used_in_model_development": true,
+  "source_reference_is_single_author_curated": true,
+  "model_assisted_reference_tags_preserved": true,
+  "classes_with_negative_prefix_are_box_labels_not_workplace_violations": true,
+  "polygon_segmentation_metric_computed": false,
+  "ap_metrics_are_truncated_above_hosted_prediction_floor": true,
+  "additional_inference_calls": 0,
+  "valid_inference_calls": 0,
+  "test_accessed": false,
+  "independent_valid_scoring_approved": false,
+  "worker_compliance_scored": false,
+  "original_images_or_labels_modified": false,
+  "scoring_ready": false,
+  "profiles": {
+    "ALL_FOUR_EXISTING_TRAIN_SOURCE_BOXES_NONSCORING": {
+      "images": 4,
+      "reference_boxes": 48,
+      "prediction_boxes": 51,
+      "source_boxes_marked_model_assisted": 7,
+      "classes_with_gt": 11,
+      "predicted_classes": 12,
+      "bbox_iou": 0.5,
+      "prediction_floor_confidence": 0.2,
+      "tp": 47,
+      "fp": 4,
+      "fn": 1,
+      "precision": 0.921569,
+      "recall": 0.979167,
+      "f1": 0.949495,
+      "proxy_macro_ap50_above_conf_0p2": 0.977498,
+      "proxy_macro_ap50_95_above_conf_0p2": 0.741226,
+      "per_class": [
+        {
+          "class_name": "Face Masks",
+          "original_reference_boxes": 0,
+          "fixed_model_predicted_boxes": 1,
+          "true_positive_bbox_iou_0p5": 0,
+          "false_positive_bbox_iou_0p5": 1,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": null,
+          "mean_ap50_to_95_proxy_above_conf_0p2": null
+        },
+        {
+          "class_name": "Gloves",
+          "original_reference_boxes": 9,
+          "fixed_model_predicted_boxes": 10,
+          "true_positive_bbox_iou_0p5": 9,
+          "false_positive_bbox_iou_0p5": 1,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.627581
+        },
+        {
+          "class_name": "Goggles",
+          "original_reference_boxes": 1,
+          "fixed_model_predicted_boxes": 1,
+          "true_positive_bbox_iou_0p5": 1,
+          "false_positive_bbox_iou_0p5": 0,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.8
+        },
+        {
+          "class_name": "Hard Hat",
+          "original_reference_boxes": 8,
+          "fixed_model_predicted_boxes": 8,
+          "true_positive_bbox_iou_0p5": 8,
+          "false_positive_bbox_iou_0p5": 0,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.832508
+        },
+        {
+          "class_name": "No Face Mask",
+          "original_reference_boxes": 3,
+          "fixed_model_predicted_boxes": 4,
+          "true_positive_bbox_iou_0p5": 3,
+          "false_positive_bbox_iou_0p5": 1,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.556436
+        },
+        {
+          "class_name": "No Safety Attire",
+          "original_reference_boxes": 5,
+          "fixed_model_predicted_boxes": 5,
+          "true_positive_bbox_iou_0p5": 5,
+          "false_positive_bbox_iou_0p5": 0,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.80396
+        },
+        {
+          "class_name": "No Safety Boots",
+          "original_reference_boxes": 4,
+          "fixed_model_predicted_boxes": 4,
+          "true_positive_bbox_iou_0p5": 3,
+          "false_positive_bbox_iou_0p5": 1,
+          "false_negative_bbox_iou_0p5": 1,
+          "ap50_proxy_above_conf_0p2": 0.752475,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.414851
+        },
+        {
+          "class_name": "No Safety Vest",
+          "original_reference_boxes": 2,
+          "fixed_model_predicted_boxes": 2,
+          "true_positive_bbox_iou_0p5": 2,
+          "false_positive_bbox_iou_0p5": 0,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.850495
+        },
+        {
+          "class_name": "Pants",
+          "original_reference_boxes": 1,
+          "fixed_model_predicted_boxes": 1,
+          "true_positive_bbox_iou_0p5": 1,
+          "false_positive_bbox_iou_0p5": 0,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.9
+        },
+        {
+          "class_name": "Persons",
+          "original_reference_boxes": 7,
+          "fixed_model_predicted_boxes": 7,
+          "true_positive_bbox_iou_0p5": 7,
+          "false_positive_bbox_iou_0p5": 0,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.834983
+        },
+        {
+          "class_name": "Safety Boots",
+          "original_reference_boxes": 3,
+          "fixed_model_predicted_boxes": 3,
+          "true_positive_bbox_iou_0p5": 3,
+          "false_positive_bbox_iou_0p5": 0,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.69901
+        },
+        {
+          "class_name": "Safety Vests",
+          "original_reference_boxes": 5,
+          "fixed_model_predicted_boxes": 5,
+          "true_positive_bbox_iou_0p5": 5,
+          "false_positive_bbox_iou_0p5": 0,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.833663
+        }
+      ]
+    },
+    "EXCLUDE_ENTIRE_IMAGES_WITH_MODEL_ASSISTED_SOURCE_LABELS_NONSCORING": {
+      "images": 3,
+      "reference_boxes": 33,
+      "prediction_boxes": 35,
+      "source_boxes_marked_model_assisted": 0,
+      "classes_with_gt": 8,
+      "predicted_classes": 9,
+      "bbox_iou": 0.5,
+      "prediction_floor_confidence": 0.2,
+      "tp": 32,
+      "fp": 3,
+      "fn": 1,
+      "precision": 0.914286,
+      "recall": 0.969697,
+      "f1": 0.941176,
+      "proxy_macro_ap50_above_conf_0p2": 0.969059,
+      "proxy_macro_ap50_95_above_conf_0p2": 0.690604,
+      "per_class": [
+        {
+          "class_name": "Face Masks",
+          "original_reference_boxes": 0,
+          "fixed_model_predicted_boxes": 1,
+          "true_positive_bbox_iou_0p5": 0,
+          "false_positive_bbox_iou_0p5": 1,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": null,
+          "mean_ap50_to_95_proxy_above_conf_0p2": null
+        },
+        {
+          "class_name": "Gloves",
+          "original_reference_boxes": 5,
+          "fixed_model_predicted_boxes": 5,
+          "true_positive_bbox_iou_0p5": 5,
+          "false_positive_bbox_iou_0p5": 0,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.508911
+        },
+        {
+          "class_name": "Goggles",
+          "original_reference_boxes": 1,
+          "fixed_model_predicted_boxes": 1,
+          "true_positive_bbox_iou_0p5": 1,
+          "false_positive_bbox_iou_0p5": 0,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.8
+        },
+        {
+          "class_name": "Hard Hat",
+          "original_reference_boxes": 6,
+          "fixed_model_predicted_boxes": 6,
+          "true_positive_bbox_iou_0p5": 6,
+          "false_positive_bbox_iou_0p5": 0,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.832673
+        },
+        {
+          "class_name": "No Face Mask",
+          "original_reference_boxes": 3,
+          "fixed_model_predicted_boxes": 4,
+          "true_positive_bbox_iou_0p5": 3,
+          "false_positive_bbox_iou_0p5": 1,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.556436
+        },
+        {
+          "class_name": "No Safety Attire",
+          "original_reference_boxes": 4,
+          "fixed_model_predicted_boxes": 4,
+          "true_positive_bbox_iou_0p5": 4,
+          "false_positive_bbox_iou_0p5": 0,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.782921
+        },
+        {
+          "class_name": "No Safety Boots",
+          "original_reference_boxes": 4,
+          "fixed_model_predicted_boxes": 4,
+          "true_positive_bbox_iou_0p5": 3,
+          "false_positive_bbox_iou_0p5": 1,
+          "false_negative_bbox_iou_0p5": 1,
+          "ap50_proxy_above_conf_0p2": 0.752475,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.414851
+        },
+        {
+          "class_name": "Persons",
+          "original_reference_boxes": 5,
+          "fixed_model_predicted_boxes": 5,
+          "true_positive_bbox_iou_0p5": 5,
+          "false_positive_bbox_iou_0p5": 0,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.79538
+        },
+        {
+          "class_name": "Safety Vests",
+          "original_reference_boxes": 5,
+          "fixed_model_predicted_boxes": 5,
+          "true_positive_bbox_iou_0p5": 5,
+          "false_positive_bbox_iou_0p5": 0,
+          "false_negative_bbox_iou_0p5": 0,
+          "ap50_proxy_above_conf_0p2": 1,
+          "mean_ap50_to_95_proxy_above_conf_0p2": 0.833663
+        }
+      ]
+    }
+  }
+}
