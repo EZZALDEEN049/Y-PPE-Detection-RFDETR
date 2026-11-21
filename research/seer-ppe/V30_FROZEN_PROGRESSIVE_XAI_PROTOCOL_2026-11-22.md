@@ -31,7 +31,7 @@ For each target and cell:
 - If no same-class target match remains, the target score is **0 by the pre-defined detection-score convention**; record status `LOST`.
 - If multiple matches are ambiguous within an IoU margin of 0.03, the score is missing; record `AMBIGUOUS` and do not impute it.
 - Cell importance = verified baseline target confidence minus the perturbed target score. Preserve negative values in the map.
-- Rank cells by descending positive score drop; resolve ties row-major. If any cell is ambiguous, or no positive drop exists, the target map is not rankable and its progressive AUC is not reported.
+- Rank cells by descending positive score drop; resolve ties row-major. If any cell is ambiguous, or no positive drop exists, the target map is not rankable; record explicit null curves for that target and continue with other targets. If the fully blurred endpoint is ambiguous, also skip that target's curves and record the reason.
 
 This is a black-box grid occlusion-sensitivity map, not Grad-CAM, SHAP, D-RISE, a human explanation ground truth, or an internal-feature attribution. The single-cell gray perturbation used to form the map is intentionally different from the blurred baseline used for progressive curves.
 
@@ -67,9 +67,9 @@ Compute trapezoidal AUC over actual pixel-area fractions:
 | Fully blurred endpoints: 8 images | 8 |
 | Single-cell grid occlusion: 8 images × 64 cells | 512 |
 | Intermediate curve points: 10 targets × 3 orders × 2 directions × 9 interior steps | 540 |
-| **Total planned original-model calls** | **1,068** |
+| **Maximum original-model calls** | **1,068** |
 
-The 0% and 100% endpoints are shared and are not re-inferred per ordering. The runner enforces the exact 1,068-call budget and requires an explicit command-line confirmation before the full run. No additional inference is authorized by this frozen protocol.
+The 0% and 100% endpoints are shared and are not re-inferred per ordering. The maximum is 1,068 calls. The fixed baseline/blur/map portion is 528 calls; each curve-eligible target adds 54 intermediate calls. If a target map or blurred endpoint is unrankable, its curves are skipped and the actual call count is lower. The runner checks the exact formula and never exceeds the maximum. An explicit command-line confirmation is required before the full run. No additional inference is authorized by this frozen protocol.
 
 ## 6. Scoring and reporting
 
