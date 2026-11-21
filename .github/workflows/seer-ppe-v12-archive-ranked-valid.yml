@@ -1,0 +1,82 @@
+name: SEER-PPE V12 archive verified Valid metadata candidate mapping
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/V12_RANKING_REQUEST.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  archive_valid_candidate_join:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout source and temporary metadata-only ranking script
+        uses: actions/checkout@v4
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch original Train-Valid metadata artifact, no image pixels
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 44834307184
+          name: seer-ppe-original-source-full-2093-metadata
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source-metadata
+      - name: Fetch Clean17 audited file metadata, no image pixels
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 42153641457
+          name: seer-ppe-clean17-phase5-audit
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/clean-metadata
+      - name: Fetch previous no-score metadata-only join
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 44842423862
+          name: seer-ppe-v12-original-to-clean17-metadata-join
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/prior-metadata
+      - name: Verify only metadata files materialized
+        shell: bash
+        run: |
+          set -euo pipefail
+          if find "${RUNNER_TEMP}/source-metadata" "${RUNNER_TEMP}/clean-metadata" "${RUNNER_TEMP}/prior-metadata" -type f -iregex '.*\.(jpg\|jpeg\|png\|webp\|tif\|tiff)' | grep -q .; then
+            echo IMAGE_BYTES_PRESENT_IN_METADATA_ARTIFACT >&2
+            exit 2
+          fi
+      - name: Generate conservative one-to-one Valid candidate manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          CLEAN="$(find "${RUNNER_TEMP}/clean-metadata" -type f -name clean17_file_manifest.csv -print -quit)"
+          test -n "$CLEAN"
+          python research/seer-ppe/tools/refine_valid_clean17_candidates_v12.py \
+            --source-report "${RUNNER_TEMP}/source-metadata/original-source-hash-audit.json" \
+            --clean-manifest "$CLEAN" \
+            --prior-report "${RUNNER_TEMP}/prior-metadata/reconciliation.json" \
+            --out-dir research/seer-ppe
+          python - <<'PY'
+          import json
+          x=json.load(open('research/seer-ppe/SEER_PPE_VALID_TO_CLEAN17_PROVISIONAL_V12.json'))
+          assert len(x['valid_rows'])==468
+          assert x['clean_valid_export_files_covered_by_distinct_candidates']==459
+          assert x['source_to_clean17_pixel_identity_verified_count']==0
+          assert x['existing_source_holds_preserved']==5
+          assert x['scientific_scoring_ready'] is False
+          print('SEER_V12_ARCHIVAL_PUBLIC_METADATA_VALIDATION_PASS')
+          PY
+      - name: Commit only safe candidate tables and reproducible summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/seer-ppe/SEER_PPE_VALID_TO_CLEAN17_PROVISIONAL_V12.json \
+            research/seer-ppe/SEER_PPE_VALID_TO_CLEAN17_PROVISIONAL_V12.csv \
+            research/seer-ppe/SEER_PPE_VALID_TO_CLEAN17_PROVISIONAL_V12.md
+          git diff --cached --quiet && { echo 'NO_NEW_V12_METADATA_TO_ARCHIVE'; exit 0; }
+          git commit -m 'research(seer-ppe): archive V12 provisional 459 Valid Clean17 candidates'
+          git push origin HEAD:main
