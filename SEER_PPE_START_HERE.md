@@ -1,6 +1,8 @@
 # SEER-PPE — START HERE (Arabic / English)
 ## افتح هذا الملف من أي حساب ChatGPT أو GitHub لاستئناف رسالة الماجستير
 
+> **Latest active research — V23, manuscript v0.23 (21 Nov 2026):** [complete updated working paper](research/seer-ppe/MANUSCRIPT_MASTER.md) · [real five-image fixed-model Valid pilot against current author boxes](research/seer-ppe/VALID_CURRENT_SOURCE_REAL_MODEL_BOX_MATCH_V23.json) · [full V23 checkpoint](research/seer-ppe/DUAL_TRACK_CHECKPOINT_2026-11-21_V23.md). Pre-frozen original RF-DETR Small read-only inference returned 23 predictions against 23 currently saved author boxes, TP22 FP1 FN1 (micro F1 95.65%) on **five nonrandom, development-exposed Valid originals only**. This is not a population benchmark, SEER policy efficacy, worker compliance, XAI faithfulness or energy finding. The archived V21 handoff remains historical.
+
 > **Latest active research — V22, manuscript v0.22 (21 Nov 2026):** [updated complete working paper](research/seer-ppe/MANUSCRIPT_MASTER.md) · [V22 measured current-label composition](research/seer-ppe/VALID_CURRENT_CLASS_SUPPORT_RISK_COHORTS_V22.json) · [V22 exact scientific checkpoint](research/seer-ppe/DUAL_TRACK_CHECKPOINT_2026-11-21_V22.md). **V21 below is a historical frozen handoff**, not the latest working paper. V22 integrated all 17-class Valid support, the 2025 historical model Valid numbers and six Discussion subsections into the main manuscript. No new SEER efficacy, source independence or Test score was claimed.
 
 **Last verified research handoff:** 21 November 2026 — **V21 archival/continuation snapshot, based on manuscript v0.20**.  
