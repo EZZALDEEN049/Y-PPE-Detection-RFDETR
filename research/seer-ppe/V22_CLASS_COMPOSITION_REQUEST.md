@@ -7,3 +7,7 @@ Sources are frozen `V20_VALID_SOURCE_ANNOTATION_COUNTS_PART1_PRIVATE_WORKING.jso
 The analysis must calculate exact 17-class current Saved Source object box counts and per-class image support for M0=459, M1=448, M2=367; overall model-assisted provenance marker counts (only image level, not class level); risk exclusions' effect on class and object coverage; and current/reference image counts. **Never call the 2025 historic Eval's GT identical to current source GT**, claim A5 gain, or assume any Class label `No ...` is a verified occupational violation.
 
 No new image review, new second reviewer, original image/label/model changes or Test access. Script must fail closed on source IDs, annotation class total conservation, old Eval identity, risk flag status and unsupported independent-source claims. Reproducible output will be `VALID_CURRENT_CLASS_SUPPORT_RISK_COHORTS_V22.json`.
+
+## CI synthetic negative-case correction
+
+The first attempt correctly failed on a self-test fixture that *accidentally supplied a valid one-object class total*. The fixture has been made unequivocally impossible (999,999 class objects); no experiment input, model output, source ID, author annotation, risk cohort or metric was modified. This request re-runs the fixed metadata-only audit.
