@@ -25,13 +25,13 @@
   "github_actions": {
     "public_synthetic_unit_tests": {
       "status": "success",
-      "run_id": 44958488385,
-      "url": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44958488385"
+      "run_id": 44960453523,
+      "url": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44960453523"
     },
     "source_reference_readiness": {
       "status": "success",
-      "run_id": 44958488365,
-      "url": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44958488365"
+      "run_id": 44960453517,
+      "url": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44960453517"
     }
   },
   "planned_full_model_calls_is_maximum": true,
@@ -40,5 +40,6 @@
   "progressive_xai_model_calls": 0,
   "planned_remaining_model_calls_max": 1060,
   "baseline_preflight_record": "V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json",
-  "note": "The eight baseline inferences are already completed and archived. The local runner reuses them; it must not repeat the baseline calls. The 1,068-call maximum is total V30 calls, leaving at most 1,060 additional calls."
+  "note": "The eight baseline inferences are already completed and archived. The local runner reuses them; it must not repeat the baseline calls. The 1,068-call maximum is total V30 calls, leaving at most 1,060 additional calls.",
+  "current_branch_head": "8cb4f2d04720e2552aeb3145d29ef6e9872b2df6"
 }
