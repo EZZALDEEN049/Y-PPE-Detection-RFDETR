@@ -1,0 +1,620 @@
+{
+  "schema_version": "seer-ppe/author-valid-class-support-and-composition-risk-v0.22",
+  "date": "2026-11-21",
+  "scope": "CURRENT_AUTHOR_SOURCE_VALID_LABELS_ONLY_NOT_NEW_MODEL_SCORE",
+  "original_model_id_unchanged": "altayyar-0oflt-lafos-qqauz/2",
+  "original_images_modified": false,
+  "original_annotations_modified": false,
+  "new_model_inference": false,
+  "test_images_or_outcomes_accessed": false,
+  "second_human_image_reviewer_needed": false,
+  "primary_reference": "AUTHOR_CURATED_SINGLE_RESEARCHER_ORIGINAL_SOURCE_BOXES",
+  "source_independence_verified": false,
+  "scientific_SEER_worker_safety_scoring_ready": false,
+  "current_box_support_not_historical_eval_groundtruth_geometry": true,
+  "model_assisted_marker_is_provenance_not_automatic_error": true,
+  "source_sha256": {
+    "part1": "7adc1c79c55d5d99b3b26bf8a24f30a1168434ec2849257a4375a4c9735b8aec",
+    "part2": "dba2972420635a1a79d3c9409a78920e3d0fe9c93fb696117d15906713fceced",
+    "risk": "25cc4fb61344bc9581f3e37fbbcf61f5f2541f1438024b1fde4617a84569772e",
+    "historical": "c3a86f8358f6a306b1b4639390b656b718ca308a49f2f4d511be7fd4aa5aa394",
+    "author": "dac7f3851b42454bca9d642e0f9c59254c6d85774f0172d7424c64993f0f3601"
+  },
+  "cohorts": {
+    "ALL_MATCHED_VALID_459": {
+      "valid_original_source_images": 459,
+      "stored_current_source_annotation_boxes": 3471,
+      "mean_boxes_per_image": 7.562092,
+      "median_boxes_per_image": 4,
+      "p90_boxes_per_image": 17,
+      "max_boxes_in_one_image": 132,
+      "images_with_no_stored_annotation_boxes": 0,
+      "model_assisted_annotation_provenance_markers": 729,
+      "fraction_annotation_boxes_with_model_assisted_marker": 0.210026,
+      "images_containing_any_model_assisted_marker": 113,
+      "fraction_images_containing_assisted_marker": 0.246187,
+      "observed_object_classes": 17,
+      "class_support": [
+        {
+          "class_name": "Persons",
+          "saved_current_reference_boxes": 488,
+          "images_containing_class": 240,
+          "fraction_of_images_with_class": 0.522876,
+          "fraction_of_boxes_from_class": 0.140593
+        },
+        {
+          "class_name": "Hard Hat",
+          "saved_current_reference_boxes": 388,
+          "images_containing_class": 207,
+          "fraction_of_images_with_class": 0.45098,
+          "fraction_of_boxes_from_class": 0.111783
+        },
+        {
+          "class_name": "Safety Boots",
+          "saved_current_reference_boxes": 365,
+          "images_containing_class": 117,
+          "fraction_of_images_with_class": 0.254902,
+          "fraction_of_boxes_from_class": 0.105157
+        },
+        {
+          "class_name": "No Gloves",
+          "saved_current_reference_boxes": 328,
+          "images_containing_class": 127,
+          "fraction_of_images_with_class": 0.276688,
+          "fraction_of_boxes_from_class": 0.094497
+        },
+        {
+          "class_name": "Safety Vests",
+          "saved_current_reference_boxes": 315,
+          "images_containing_class": 150,
+          "fraction_of_images_with_class": 0.326797,
+          "fraction_of_boxes_from_class": 0.090752
+        },
+        {
+          "class_name": "No Face Mask",
+          "saved_current_reference_boxes": 280,
+          "images_containing_class": 172,
+          "fraction_of_images_with_class": 0.374728,
+          "fraction_of_boxes_from_class": 0.080668
+        },
+        {
+          "class_name": "Gloves",
+          "saved_current_reference_boxes": 278,
+          "images_containing_class": 125,
+          "fraction_of_images_with_class": 0.272331,
+          "fraction_of_boxes_from_class": 0.080092
+        },
+        {
+          "class_name": "Pants",
+          "saved_current_reference_boxes": 207,
+          "images_containing_class": 113,
+          "fraction_of_images_with_class": 0.246187,
+          "fraction_of_boxes_from_class": 0.059637
+        },
+        {
+          "class_name": "Goggles",
+          "saved_current_reference_boxes": 189,
+          "images_containing_class": 146,
+          "fraction_of_images_with_class": 0.318083,
+          "fraction_of_boxes_from_class": 0.054451
+        },
+        {
+          "class_name": "No Safety Vest",
+          "saved_current_reference_boxes": 160,
+          "images_containing_class": 109,
+          "fraction_of_images_with_class": 0.237473,
+          "fraction_of_boxes_from_class": 0.046096
+        },
+        {
+          "class_name": "No Safety Boots",
+          "saved_current_reference_boxes": 93,
+          "images_containing_class": 39,
+          "fraction_of_images_with_class": 0.084967,
+          "fraction_of_boxes_from_class": 0.026793
+        },
+        {
+          "class_name": "No Safety Attire",
+          "saved_current_reference_boxes": 87,
+          "images_containing_class": 51,
+          "fraction_of_images_with_class": 0.111111,
+          "fraction_of_boxes_from_class": 0.025065
+        },
+        {
+          "class_name": "Face Masks",
+          "saved_current_reference_boxes": 80,
+          "images_containing_class": 32,
+          "fraction_of_images_with_class": 0.069717,
+          "fraction_of_boxes_from_class": 0.023048
+        },
+        {
+          "class_name": "Animal",
+          "saved_current_reference_boxes": 66,
+          "images_containing_class": 33,
+          "fraction_of_images_with_class": 0.071895,
+          "fraction_of_boxes_from_class": 0.019015
+        },
+        {
+          "class_name": "Soft Hat",
+          "saved_current_reference_boxes": 60,
+          "images_containing_class": 40,
+          "fraction_of_images_with_class": 0.087146,
+          "fraction_of_boxes_from_class": 0.017286
+        },
+        {
+          "class_name": "No Hard Hat",
+          "saved_current_reference_boxes": 56,
+          "images_containing_class": 39,
+          "fraction_of_images_with_class": 0.084967,
+          "fraction_of_boxes_from_class": 0.016134
+        },
+        {
+          "class_name": "Child",
+          "saved_current_reference_boxes": 31,
+          "images_containing_class": 22,
+          "fraction_of_images_with_class": 0.04793,
+          "fraction_of_boxes_from_class": 0.008931
+        }
+      ]
+    },
+    "EXCLUDE_HISTORICAL_HOLDS_AND_TECHNICAL_QUARANTINES_448": {
+      "valid_original_source_images": 448,
+      "stored_current_source_annotation_boxes": 3433,
+      "mean_boxes_per_image": 7.662946,
+      "median_boxes_per_image": 5,
+      "p90_boxes_per_image": 18,
+      "max_boxes_in_one_image": 132,
+      "images_with_no_stored_annotation_boxes": 0,
+      "model_assisted_annotation_provenance_markers": 725,
+      "fraction_annotation_boxes_with_model_assisted_marker": 0.211186,
+      "images_containing_any_model_assisted_marker": 112,
+      "fraction_images_containing_assisted_marker": 0.25,
+      "observed_object_classes": 17,
+      "class_support": [
+        {
+          "class_name": "Persons",
+          "saved_current_reference_boxes": 483,
+          "images_containing_class": 235,
+          "fraction_of_images_with_class": 0.524554,
+          "fraction_of_boxes_from_class": 0.140693
+        },
+        {
+          "class_name": "Hard Hat",
+          "saved_current_reference_boxes": 382,
+          "images_containing_class": 201,
+          "fraction_of_images_with_class": 0.448661,
+          "fraction_of_boxes_from_class": 0.111273
+        },
+        {
+          "class_name": "Safety Boots",
+          "saved_current_reference_boxes": 361,
+          "images_containing_class": 114,
+          "fraction_of_images_with_class": 0.254464,
+          "fraction_of_boxes_from_class": 0.105156
+        },
+        {
+          "class_name": "No Gloves",
+          "saved_current_reference_boxes": 328,
+          "images_containing_class": 127,
+          "fraction_of_images_with_class": 0.283482,
+          "fraction_of_boxes_from_class": 0.095543
+        },
+        {
+          "class_name": "Safety Vests",
+          "saved_current_reference_boxes": 311,
+          "images_containing_class": 146,
+          "fraction_of_images_with_class": 0.325893,
+          "fraction_of_boxes_from_class": 0.090591
+        },
+        {
+          "class_name": "No Face Mask",
+          "saved_current_reference_boxes": 279,
+          "images_containing_class": 171,
+          "fraction_of_images_with_class": 0.381696,
+          "fraction_of_boxes_from_class": 0.08127
+        },
+        {
+          "class_name": "Gloves",
+          "saved_current_reference_boxes": 273,
+          "images_containing_class": 122,
+          "fraction_of_images_with_class": 0.272321,
+          "fraction_of_boxes_from_class": 0.079522
+        },
+        {
+          "class_name": "Pants",
+          "saved_current_reference_boxes": 204,
+          "images_containing_class": 110,
+          "fraction_of_images_with_class": 0.245536,
+          "fraction_of_boxes_from_class": 0.059423
+        },
+        {
+          "class_name": "Goggles",
+          "saved_current_reference_boxes": 183,
+          "images_containing_class": 140,
+          "fraction_of_images_with_class": 0.3125,
+          "fraction_of_boxes_from_class": 0.053306
+        },
+        {
+          "class_name": "No Safety Vest",
+          "saved_current_reference_boxes": 159,
+          "images_containing_class": 108,
+          "fraction_of_images_with_class": 0.241071,
+          "fraction_of_boxes_from_class": 0.046315
+        },
+        {
+          "class_name": "No Safety Boots",
+          "saved_current_reference_boxes": 93,
+          "images_containing_class": 39,
+          "fraction_of_images_with_class": 0.087054,
+          "fraction_of_boxes_from_class": 0.02709
+        },
+        {
+          "class_name": "No Safety Attire",
+          "saved_current_reference_boxes": 87,
+          "images_containing_class": 51,
+          "fraction_of_images_with_class": 0.113839,
+          "fraction_of_boxes_from_class": 0.025342
+        },
+        {
+          "class_name": "Face Masks",
+          "saved_current_reference_boxes": 77,
+          "images_containing_class": 29,
+          "fraction_of_images_with_class": 0.064732,
+          "fraction_of_boxes_from_class": 0.022429
+        },
+        {
+          "class_name": "Animal",
+          "saved_current_reference_boxes": 66,
+          "images_containing_class": 33,
+          "fraction_of_images_with_class": 0.073661,
+          "fraction_of_boxes_from_class": 0.019225
+        },
+        {
+          "class_name": "Soft Hat",
+          "saved_current_reference_boxes": 60,
+          "images_containing_class": 40,
+          "fraction_of_images_with_class": 0.089286,
+          "fraction_of_boxes_from_class": 0.017477
+        },
+        {
+          "class_name": "No Hard Hat",
+          "saved_current_reference_boxes": 56,
+          "images_containing_class": 39,
+          "fraction_of_images_with_class": 0.087054,
+          "fraction_of_boxes_from_class": 0.016312
+        },
+        {
+          "class_name": "Child",
+          "saved_current_reference_boxes": 31,
+          "images_containing_class": 22,
+          "fraction_of_images_with_class": 0.049107,
+          "fraction_of_boxes_from_class": 0.00903
+        }
+      ]
+    },
+    "UNFLAGGED_ONLY_BUT_UNCERTIFIED_367": {
+      "valid_original_source_images": 367,
+      "stored_current_source_annotation_boxes": 3049,
+      "mean_boxes_per_image": 8.307902,
+      "median_boxes_per_image": 5,
+      "p90_boxes_per_image": 21,
+      "max_boxes_in_one_image": 132,
+      "images_with_no_stored_annotation_boxes": 0,
+      "model_assisted_annotation_provenance_markers": 655,
+      "fraction_annotation_boxes_with_model_assisted_marker": 0.214825,
+      "images_containing_any_model_assisted_marker": 97,
+      "fraction_images_containing_assisted_marker": 0.264305,
+      "observed_object_classes": 17,
+      "class_support": [
+        {
+          "class_name": "Persons",
+          "saved_current_reference_boxes": 437,
+          "images_containing_class": 207,
+          "fraction_of_images_with_class": 0.564033,
+          "fraction_of_boxes_from_class": 0.143326
+        },
+        {
+          "class_name": "Hard Hat",
+          "saved_current_reference_boxes": 330,
+          "images_containing_class": 161,
+          "fraction_of_images_with_class": 0.438692,
+          "fraction_of_boxes_from_class": 0.108232
+        },
+        {
+          "class_name": "Safety Boots",
+          "saved_current_reference_boxes": 315,
+          "images_containing_class": 94,
+          "fraction_of_images_with_class": 0.256131,
+          "fraction_of_boxes_from_class": 0.103313
+        },
+        {
+          "class_name": "No Gloves",
+          "saved_current_reference_boxes": 298,
+          "images_containing_class": 114,
+          "fraction_of_images_with_class": 0.310627,
+          "fraction_of_boxes_from_class": 0.097737
+        },
+        {
+          "class_name": "Safety Vests",
+          "saved_current_reference_boxes": 273,
+          "images_containing_class": 123,
+          "fraction_of_images_with_class": 0.33515,
+          "fraction_of_boxes_from_class": 0.089538
+        },
+        {
+          "class_name": "No Face Mask",
+          "saved_current_reference_boxes": 253,
+          "images_containing_class": 153,
+          "fraction_of_images_with_class": 0.416894,
+          "fraction_of_boxes_from_class": 0.082978
+        },
+        {
+          "class_name": "Gloves",
+          "saved_current_reference_boxes": 240,
+          "images_containing_class": 103,
+          "fraction_of_images_with_class": 0.280654,
+          "fraction_of_boxes_from_class": 0.078714
+        },
+        {
+          "class_name": "Pants",
+          "saved_current_reference_boxes": 185,
+          "images_containing_class": 97,
+          "fraction_of_images_with_class": 0.264305,
+          "fraction_of_boxes_from_class": 0.060676
+        },
+        {
+          "class_name": "Goggles",
+          "saved_current_reference_boxes": 154,
+          "images_containing_class": 113,
+          "fraction_of_images_with_class": 0.307902,
+          "fraction_of_boxes_from_class": 0.050508
+        },
+        {
+          "class_name": "No Safety Vest",
+          "saved_current_reference_boxes": 146,
+          "images_containing_class": 96,
+          "fraction_of_images_with_class": 0.26158,
+          "fraction_of_boxes_from_class": 0.047885
+        },
+        {
+          "class_name": "No Safety Boots",
+          "saved_current_reference_boxes": 82,
+          "images_containing_class": 35,
+          "fraction_of_images_with_class": 0.095368,
+          "fraction_of_boxes_from_class": 0.026894
+        },
+        {
+          "class_name": "No Safety Attire",
+          "saved_current_reference_boxes": 75,
+          "images_containing_class": 42,
+          "fraction_of_images_with_class": 0.114441,
+          "fraction_of_boxes_from_class": 0.024598
+        },
+        {
+          "class_name": "Face Masks",
+          "saved_current_reference_boxes": 69,
+          "images_containing_class": 23,
+          "fraction_of_images_with_class": 0.06267,
+          "fraction_of_boxes_from_class": 0.02263
+        },
+        {
+          "class_name": "Animal",
+          "saved_current_reference_boxes": 60,
+          "images_containing_class": 30,
+          "fraction_of_images_with_class": 0.081744,
+          "fraction_of_boxes_from_class": 0.019679
+        },
+        {
+          "class_name": "Soft Hat",
+          "saved_current_reference_boxes": 54,
+          "images_containing_class": 35,
+          "fraction_of_images_with_class": 0.095368,
+          "fraction_of_boxes_from_class": 0.017711
+        },
+        {
+          "class_name": "No Hard Hat",
+          "saved_current_reference_boxes": 50,
+          "images_containing_class": 36,
+          "fraction_of_images_with_class": 0.098093,
+          "fraction_of_boxes_from_class": 0.016399
+        },
+        {
+          "class_name": "Child",
+          "saved_current_reference_boxes": 28,
+          "images_containing_class": 19,
+          "fraction_of_images_with_class": 0.051771,
+          "fraction_of_boxes_from_class": 0.009183
+        }
+      ]
+    }
+  },
+  "source_risk_bucket_counts": {
+    "POTENTIAL_SOURCE_FAMILY_LINK_PENDING": 81,
+    "UNFLAGGED_NOT_PROVEN_INDEPENDENT": 367,
+    "HISTORICAL_HOLD": 5,
+    "HIGH_OVERLAP_TECHNICAL_QUARANTINE": 6
+  },
+  "m0_to_m2_composition_sensitivity": {
+    "images_excluded": 92,
+    "fraction_images_retained": 0.799564,
+    "current_box_annotations_excluded": 422,
+    "fraction_boxes_retained": 0.878421,
+    "mean_boxes_per_excluded_image": 4.586957,
+    "classes_retention": [
+      {
+        "class_name": "Goggles",
+        "m0_current_boxes": 189,
+        "m2_current_boxes": 154,
+        "boxes_removed": 35,
+        "boxes_retained_fraction": 0.814815,
+        "m0_images_containing_class": 146,
+        "m2_images_containing_class": 113
+      },
+      {
+        "class_name": "Hard Hat",
+        "m0_current_boxes": 388,
+        "m2_current_boxes": 330,
+        "boxes_removed": 58,
+        "boxes_retained_fraction": 0.850515,
+        "m0_images_containing_class": 207,
+        "m2_images_containing_class": 161
+      },
+      {
+        "class_name": "No Safety Attire",
+        "m0_current_boxes": 87,
+        "m2_current_boxes": 75,
+        "boxes_removed": 12,
+        "boxes_retained_fraction": 0.862069,
+        "m0_images_containing_class": 51,
+        "m2_images_containing_class": 42
+      },
+      {
+        "class_name": "Face Masks",
+        "m0_current_boxes": 80,
+        "m2_current_boxes": 69,
+        "boxes_removed": 11,
+        "boxes_retained_fraction": 0.8625,
+        "m0_images_containing_class": 32,
+        "m2_images_containing_class": 23
+      },
+      {
+        "class_name": "Safety Boots",
+        "m0_current_boxes": 365,
+        "m2_current_boxes": 315,
+        "boxes_removed": 50,
+        "boxes_retained_fraction": 0.863014,
+        "m0_images_containing_class": 117,
+        "m2_images_containing_class": 94
+      },
+      {
+        "class_name": "Gloves",
+        "m0_current_boxes": 278,
+        "m2_current_boxes": 240,
+        "boxes_removed": 38,
+        "boxes_retained_fraction": 0.863309,
+        "m0_images_containing_class": 125,
+        "m2_images_containing_class": 103
+      },
+      {
+        "class_name": "Safety Vests",
+        "m0_current_boxes": 315,
+        "m2_current_boxes": 273,
+        "boxes_removed": 42,
+        "boxes_retained_fraction": 0.866667,
+        "m0_images_containing_class": 150,
+        "m2_images_containing_class": 123
+      },
+      {
+        "class_name": "No Safety Boots",
+        "m0_current_boxes": 93,
+        "m2_current_boxes": 82,
+        "boxes_removed": 11,
+        "boxes_retained_fraction": 0.88172,
+        "m0_images_containing_class": 39,
+        "m2_images_containing_class": 35
+      },
+      {
+        "class_name": "No Hard Hat",
+        "m0_current_boxes": 56,
+        "m2_current_boxes": 50,
+        "boxes_removed": 6,
+        "boxes_retained_fraction": 0.892857,
+        "m0_images_containing_class": 39,
+        "m2_images_containing_class": 36
+      },
+      {
+        "class_name": "Pants",
+        "m0_current_boxes": 207,
+        "m2_current_boxes": 185,
+        "boxes_removed": 22,
+        "boxes_retained_fraction": 0.89372,
+        "m0_images_containing_class": 113,
+        "m2_images_containing_class": 97
+      },
+      {
+        "class_name": "Persons",
+        "m0_current_boxes": 488,
+        "m2_current_boxes": 437,
+        "boxes_removed": 51,
+        "boxes_retained_fraction": 0.895492,
+        "m0_images_containing_class": 240,
+        "m2_images_containing_class": 207
+      },
+      {
+        "class_name": "Soft Hat",
+        "m0_current_boxes": 60,
+        "m2_current_boxes": 54,
+        "boxes_removed": 6,
+        "boxes_retained_fraction": 0.9,
+        "m0_images_containing_class": 40,
+        "m2_images_containing_class": 35
+      },
+      {
+        "class_name": "Child",
+        "m0_current_boxes": 31,
+        "m2_current_boxes": 28,
+        "boxes_removed": 3,
+        "boxes_retained_fraction": 0.903226,
+        "m0_images_containing_class": 22,
+        "m2_images_containing_class": 19
+      },
+      {
+        "class_name": "No Face Mask",
+        "m0_current_boxes": 280,
+        "m2_current_boxes": 253,
+        "boxes_removed": 27,
+        "boxes_retained_fraction": 0.903571,
+        "m0_images_containing_class": 172,
+        "m2_images_containing_class": 153
+      },
+      {
+        "class_name": "No Gloves",
+        "m0_current_boxes": 328,
+        "m2_current_boxes": 298,
+        "boxes_removed": 30,
+        "boxes_retained_fraction": 0.908537,
+        "m0_images_containing_class": 127,
+        "m2_images_containing_class": 114
+      },
+      {
+        "class_name": "Animal",
+        "m0_current_boxes": 66,
+        "m2_current_boxes": 60,
+        "boxes_removed": 6,
+        "boxes_retained_fraction": 0.909091,
+        "m0_images_containing_class": 33,
+        "m2_images_containing_class": 30
+      },
+      {
+        "class_name": "No Safety Vest",
+        "m0_current_boxes": 160,
+        "m2_current_boxes": 146,
+        "boxes_removed": 14,
+        "boxes_retained_fraction": 0.9125,
+        "m0_images_containing_class": 109,
+        "m2_images_containing_class": 96
+      }
+    ]
+  },
+  "historic_2025_legacy_eval_vs_current_source_count_disagreements_13_source_ids": [
+    "31XZZLopPmfQJalQ9jbJ",
+    "4mlMBirlwFHEI1EX0vpl",
+    "6dS5GWe0FQFcHsczFn4Z",
+    "B0oetPIv1T7a5QvYwaiK",
+    "DDf9S1yCGLJlqesYanSY",
+    "Om1FEbgPCj7g0RN3bajX",
+    "Vzd1KT4LA95UXpZTvfz7",
+    "a1T6O579jFeBtfKuMfDG",
+    "gItmkHfD0kaiaDCfz2KR",
+    "io6zULN9vMMk0r0ZokY6",
+    "m9iOew6qhUVkWzDb0Aik",
+    "qXxoASKdfDZhmGXsQBDN",
+    "wAL2W1lohZcetT6fIYGI"
+  ],
+  "analysis_limits": [
+    "This audit counts CURRENT author-curated Source boxes, not 2025 versioned Eval GT",
+    "Model-assistance marker counts are per-image aggregates, not per-class provenance",
+    "Class names beginning No do not prove true task-specific occupational violations",
+    "Box counts in M0/M1/M2 are descriptive compositions not new prediction accuracy",
+    "All M2 sources are technically unflagged but not independently verified"
+  ]
+}
