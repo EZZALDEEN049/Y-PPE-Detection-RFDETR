@@ -28,9 +28,9 @@ The scorer defines a lost target's fixed-target score as zero, while ambiguous m
 
 ## Verification performed in this continuation
 
-- Nine synthetic unit tests passed locally and in GitHub Actions for target matching, lost/ambiguous handling, grid-map drops, deterministic random controls, blurred baseline, progressive endpoints, and AUC. [Unit-test run 44958488385](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44958488385).
+- Nine synthetic unit tests and Python syntax compilation passed in GitHub Actions on the current branch head. [Current unit-test run 44960453523](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44960453523).
 - Python syntax compilation passed for the V30 module and runner.
-- Source/reference readiness workflow passed after aligning stale V22–V26 manuscript assertions to the existing v0.27 master. [Readiness run 44958488365](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44958488365).
+- Source/reference readiness workflow passed on the current branch head. [Current readiness run 44960453517](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44960453517).
 - Eight real original-image RF-DETR calls were executed through connected Roboflow. All 8/8 source images resolved and all 10/10 frozen target boxes and confidence values reproduced exactly. [Detailed baseline record](V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json).
 - No progressive XAI perturbation calls, maps, curves or AUCs have been executed yet.
 - No image bytes, original annotations, model weights, or Test assets were changed or committed.
