@@ -1,0 +1,23 @@
+# SEER-PPE V19 checkpoint — original author annotations × fixed-model Train numeric matching, computational Valid source sensitivity
+
+**21 November 2026. Status: engineering and descriptive Train-only reference-box diagnostics completed; NOT independent heldout evaluation, NOT occupational compliance evaluation.**
+
+## Actually executed
+
+- Read original current Roboflow Source annotations for **Train A/B/C/D** (read-only). Saved **48 original labeled boxes**, of which 7 in B retain a `labeledByModel=RFBoxPrompt/v1` provenance marker. Original annotated boxes per image: A5/B15/C27/D1. Polygon-labeled items are compared only via their saved bounding rectangles, not masks. No new human reviewer, no reinspection.
+- Reused previously recorded actual hosted original RF-DETR Small **51 Train predicted boxes** from V16, with the same Source ID/filename/image dimensions; no new model inference. Per-class greedy box match at **IoU ≥0.50** and prediction confidence already filtered at the hosted **0.20** floor.
+- Matched originals against detector numerics: **TP=47, FP=4, FN=1**; **precision=0.921569**, **recall=0.979167**, **F1=0.949495**. These numbers are a **four-image Train development diagnostic**, not validated mAP or SEER safety improvement.
+- Truncated above-floor interpolated AP proxies recorded for engineering inspection only: macro AP50 **0.977498**, macro AP50–95 **0.741226** (classes present in four-image reference only; NOT canonical full confidence-range COCO mAP).
+- Annotation-provenance sensitivity: exclude the entire Train image B containing 7 model-assisted source label markers. On remaining A/C/D, **33 reference boxes, 35 predictions**, **TP=32, FP=3, FN=1**, **precision=0.914286**, **recall=0.969697**, **F1=0.941176**. The small difference is not inferential evidence of an annotation bias magnitude.
+- Computed purely from already archived original Train–Valid image similarity metadata (without opening any image) **three descriptive corrected Valid sensitivity cohorts**: M0 **459**, M1 **448** (remove five old holds + six additional high-overlap technical quarantines), M2 **367** (also remove 81 other flagged possible source-family cases). **12 high-similarity original image pair edges** form **8 graph components**; they represent technical *hypotheses*, not acquisition-independent family certificates. Nine distinct original Valid source IDs occur in those 12 edges, eight retained in Clean17.
+
+## Evidence, reproducibility and restrictions
+
+- [Read-only original Train GT snapshot](TRAIN_ORIGINAL_SOURCE_ANNOTATIONS_READONLY_V19.json) · [Original Train numeric matching audit](TRAIN_SOURCE_LABEL_DETECTION_NUMERIC_PREFLIGHT_V19.json) · [Valid source sensitivity ledger](VALIDATION_SOURCE_OVERLAP_NUMERIC_SENSITIVITY_V19.json)
+- [V19 protocol and two-endpoint interpretation](V19_AUTHOR_ANNOTATION_NUMERIC_EVAL_PROTOCOL.md) · [V19 matcher](tools/score_original_train_boxes_v19.mjs) · [V19 source-overlap scenario builder](tools/compute_validation_source_sensitivity_v19.mjs).
+- [Successful V19 GitHub Actions numerical and regression suite](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44853282012). Synthetic tests prevent Test/Valid injection into the Train matching job, forged source-independent labels and missing model-assisted provenance; generated output preserved in GitHub with numeric evidence only.
+- **No** Roboflow model training, annotation modification, source split changes, additional inference, Validation scientific scoring, Test access, independent reviewer intervention, worker mandate verification, SEER-vs-baseline benefit calculation, XAI fidelity measurement or Joule measurement.
+- Original labels are **single-curator** reference, and historical Train samples were seen in training. Existing model-assisted source annotation markers are explicitly preserved. Negative-PPE detector class boxes are *object categories*, not proof of task-specific PPE violations.
+- The strict independent-source, worker-safety scoring flag remains **`scoring_ready=false`**. The author-confirmed original image curation is sufficient for a **historical internal object-detection** reference, but cannot magically certify independent acquisition or fill missing per-person mandate observations.
+
+**Next:** freeze a separate internal Valid object-detection evaluation protocol that uses existing author-created labels, record fixed-model same-Sources Valid prediction outputs, and compare M0/M1/M2 without retrospectively adjusting thresholds; preserve Test as development-exposed and protected from new tuning. Do not repeat the owner's existing visual review.
