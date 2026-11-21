@@ -238,7 +238,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text()
-          for phrase in ('**Working manuscript v0.23', '### 3.17 Actual original-source',
+          for phrase in ('**Working manuscript v0.24', '### 3.17 Actual original-source',
                          '### 4.17 Current author-curated', '## 5. Discussion',
                          '## Appendix N.', '3,471', '3,049', '729',
                          '0.885018', '0.880754', '13'):
@@ -256,13 +256,32 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text()
-          for phrase in ('**Working manuscript v0.23','### 3.18 Frozen five-image',
+          for phrase in ('**Working manuscript v0.24','### 3.18 Frozen five-image',
                          '### 4.18 Actual fixed original RF-DETR','## Appendix O.',
                          'TP=22, FP=1, FN=1','0.956522'):
               assert phrase in m, phrase
           print('SEER_V23_FIVE_ACTUAL_VALID_AUTHOR_BOX_MATCH_MANUSCRIPT_PASS')
           PY
           echo 'SEER_V23_HOSTED_ORIGINAL_VALID_CURRENT_LABELS_ACTUAL_5_IMAGE_PILOT_PASS'
+      - name: Verify V24 official-publisher related work and cautious novelty boundary in manuscript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text(encoding='utf8')
+          q=Path('research/seer-ppe/V24_VERIFIED_2024_2026_RELATED_WORK_NOVELTY_BOUNDARY.md').read_text(encoding='utf8')
+          for phrase in ('**Working manuscript v0.24','### 2.2 Closest methodological',
+                         '### 2.3 Provisional, falsifiable', '## Selected verified references',
+                         '## Appendix P.', 'Selective Explanations',
+                         '10.52202/079017-1765','10.3389/fbuil.2026.1976288',
+                         '10.1016/j.aei.2026.104612','10.3390/jimaging12050195',
+                         'not a PRISMA systematic search','remain unmeasured'):
+              assert phrase in m, phrase
+          for phrase in ('Paes', 'Vaghani', 'Bouguessa', 'Yi, Xu', 'Di Renzo',
+                         'NOT a systematic review', 'publisher'):
+              assert phrase.lower() in q.lower(), phrase
+          assert 'NOT_FROZEN' in m and 'scoring_ready=false' in m
+          print('SEER_V24_RELATED_PRIOR_ART_AND_NON_SAFETY_SUPERIORITY_CLAIM_CHECK_PASS')
+          PY
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'
