@@ -12,7 +12,7 @@
 
 ## 2. Baseline reproduction gate
 
-Before perturbation, run one original-image inference for each of the eight images. For every frozen target:
+Before perturbation, run one original-image inference for each of the eight images. This baseline gate was executed through the connected Roboflow inference integration on 22 November 2026 and is archived in `V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json` (8/8 images and 10/10 targets reproduced exactly). The local runner reuses this recorded baseline rather than spending eight duplicate calls. For every frozen target:
 
 1. Match the same exact class to the frozen original box at IoU >= 0.50.
 2. Require one unique match; if the match is missing or ambiguous, stop before the perturbation stage.
@@ -69,7 +69,7 @@ Compute trapezoidal AUC over actual pixel-area fractions:
 | Intermediate curve points: up to 10 targets × 3 orders × 2 directions × 9 interior steps | up to 540 |
 | **Maximum original-model calls** | **1,068** |
 
-The 0% and 100% endpoints are shared and are not re-inferred per ordering. The maximum is 1,068 calls. The fixed baseline/blur/map portion is 528 calls; each curve-eligible target adds 54 intermediate calls. If a target map or blurred endpoint is unrankable, its curves are skipped and the actual call count is lower. The runner checks the exact formula and never exceeds the maximum. An explicit command-line confirmation is required before the full run. No additional inference is authorized by this frozen protocol.
+The 0% and 100% endpoints are shared and are not re-inferred per ordering. The maximum is 1,068 calls **including the eight baseline calls already completed**. The remaining execution maximum is 1,060 calls: eight blurred endpoints, 512 grid-map calls, and up to 540 curve-intermediate calls. Each curve-eligible target adds 54 intermediate calls. If a target map or blurred endpoint is unrankable, its curves are skipped and the actual call count is lower. The runner reuses the archived baseline preflight, checks the exact remaining-call formula, and never exceeds the total maximum. An explicit command-line confirmation of the total 1,068-call budget is required before the full run. No additional inference is authorized by this frozen protocol.
 
 ## 6. Scoring and reporting
 
@@ -108,3 +108,13 @@ python research/seer-ppe/tools/run_v30_progressive_xai.py --images-dir /path/to/
 ```
 
 The full run writes `research/seer-ppe/V30_ACTUAL_PROGRESSIVE_XAI_RESULTS_2026-11-22.json`. Commit that result only after checking its call count, all target IDs, curve completeness, and ambiguity records. Do not edit the frozen protocol or target manifest to accommodate an inconvenient result.
+
+
+## 8. Execution status addendum — 22 November 2026
+
+- The connected Roboflow integration executed the eight original-image baseline inferences using model `altayyar-0oflt-lafos-qqauz/2`, confidence 0.20 and overlap 0.50.
+- All eight source images resolved to their frozen Asset Library IDs, splits, filenames and dimensions.
+- All ten frozen target detections reproduced with exact class, bounding-box geometry and confidence. No baseline mismatch was observed.
+- Inference IDs, per-image prediction counts, timings and target detection IDs are archived in `V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json`.
+- These eight calls count toward the 1,068-call V30 total. The local runner reuses this record, leaving a maximum of 1,060 additional calls.
+- Progressive occlusion maps, deletion/insertion curves and AUCs have **not** yet been executed. Local source-image byte hashes remain to be computed after the user downloads the exact eight Asset Library sources; they are not compared to a source hash in the connector record.
