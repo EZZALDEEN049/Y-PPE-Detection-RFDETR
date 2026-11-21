@@ -1,0 +1,58 @@
+name: SEER-PPE V22 current Valid class reference support and source-risk composition
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/V22_CLASS_COMPOSITION_REQUEST.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  class_support_audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: V22 negative controls for original Valid-only class labels and independence
+        run: node research/seer-ppe/tools/analyze_valid_class_support_v22.mjs --self-test
+      - name: Compute all current source class counts for fixed cohorts
+        run: |
+          node research/seer-ppe/tools/analyze_valid_class_support_v22.mjs --audit \
+            research/seer-ppe/VALID_CURRENT_CLASS_SUPPORT_RISK_COHORTS_V22.json
+      - name: Verify counts and safety distinction in numeric output
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const j=JSON.parse(fs.readFileSync('research/seer-ppe/VALID_CURRENT_CLASS_SUPPORT_RISK_COHORTS_V22.json','utf8'));
+          assert.equal(j.schema_version,'seer-ppe/author-valid-class-support-and-composition-risk-v0.22');
+          const names=['ALL_MATCHED_VALID_459','EXCLUDE_HISTORICAL_HOLDS_AND_TECHNICAL_QUARANTINES_448','UNFLAGGED_ONLY_BUT_UNCERTIFIED_367'];
+          const c=names.map(x=>j.cohorts[x]);
+          assert.deepEqual(c.map(x=>x.valid_original_source_images),[459,448,367]);
+          assert.deepEqual(c.map(x=>x.stored_current_source_annotation_boxes),[3471,3433,3049]);
+          assert.deepEqual(c.map(x=>x.model_assisted_annotation_provenance_markers),[729,725,655]);
+          assert.equal(c[0].observed_object_classes,17);
+          assert.equal(c[0].class_support.find(x=>x.class_name==='Persons').saved_current_reference_boxes,488);
+          assert.equal(c[0].class_support.find(x=>x.class_name==='Child').saved_current_reference_boxes,31);
+          assert.equal(j.m0_to_m2_composition_sensitivity.images_excluded,92);
+          assert.equal(j.m0_to_m2_composition_sensitivity.current_box_annotations_excluded,422);
+          assert.equal(j.historic_2025_legacy_eval_vs_current_source_count_disagreements_13_source_ids.length,13);
+          assert.equal(j.source_independence_verified,false);
+          assert.equal(j.scientific_SEER_worker_safety_scoring_ready,false);
+          assert.equal(j.new_model_inference,false);
+          assert.equal(j.test_images_or_outcomes_accessed,false);
+          console.log('SEER_V22_17_CLASS_CURRENT_AUTHOR_LABEL_COUNTS_ALL_COHORTS_PASS');
+          JS
+      - name: Commit current-source-only descriptive composition analysis
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/seer-ppe/VALID_CURRENT_CLASS_SUPPORT_RISK_COHORTS_V22.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'research(seer-ppe): archive V22 source-label class support and provenance sensitivity'
+          git pull --rebase origin main
+          git push origin HEAD:main
