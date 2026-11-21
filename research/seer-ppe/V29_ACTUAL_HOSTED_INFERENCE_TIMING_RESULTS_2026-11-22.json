@@ -1,0 +1,251 @@
+{
+  "schema_version": "seer-ppe/v29-hosted-inference-timing-microbenchmark/v0.29",
+  "date": "2026-11-22",
+  "protocol": "V29_FROZEN_HOSTED_INFERENCE_TIMING_PROTOCOL_2026-11-22.md",
+  "model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "inference_settings": {
+    "confidence_floor": 0.2,
+    "overlap_parameter": 0.5,
+    "active_learning": false
+  },
+  "execution_window": {
+    "started_at_utc": "2026-11-21T21:51:41.121Z",
+    "finished_at_utc": "2026-11-21T21:51:56.328Z"
+  },
+  "summary": {
+    "planned_calls": 10,
+    "completed_calls": 10,
+    "failed_calls": 0,
+    "mean_request_roundtrip_ms": 1520.6,
+    "median_request_roundtrip_ms": 1469,
+    "min_request_roundtrip_ms": 1383,
+    "max_request_roundtrip_ms": 1835,
+    "provider_reported_time_available": false,
+    "provider_reported_time_count": 0,
+    "mean_provider_reported_inference_seconds": null,
+    "median_provider_reported_inference_seconds": null
+  },
+  "by_image": [
+    {
+      "image_key": "train:A",
+      "filename": "image_604.jpg",
+      "repetitions": 2,
+      "mean_roundtrip_ms": 1621,
+      "provider_times_seconds": [
+        null,
+        null
+      ]
+    },
+    {
+      "image_key": "train:B",
+      "filename": "000760.jpg",
+      "repetitions": 2,
+      "mean_roundtrip_ms": 1414,
+      "provider_times_seconds": [
+        null,
+        null
+      ]
+    },
+    {
+      "image_key": "train:C",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "repetitions": 2,
+      "mean_roundtrip_ms": 1638,
+      "provider_times_seconds": [
+        null,
+        null
+      ]
+    },
+    {
+      "image_key": "train:D",
+      "filename": "h1.jpg",
+      "repetitions": 2,
+      "mean_roundtrip_ms": 1469,
+      "provider_times_seconds": [
+        null,
+        null
+      ]
+    },
+    {
+      "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+      "filename": "c1e5a26df8225afb5be5beceae128ad5.jpg",
+      "repetitions": 2,
+      "mean_roundtrip_ms": 1461,
+      "provider_times_seconds": [
+        null,
+        null
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "call_index": 1,
+      "round": 1,
+      "image_key": "train:A",
+      "filename": "image_604.jpg",
+      "image_width": 1000,
+      "image_height": 667,
+      "request_roundtrip_ms": 1835,
+      "provider_reported_inference_seconds": null,
+      "prediction_count": 0,
+      "inference_id": null,
+      "response_keys": [
+        "model_id",
+        "result"
+      ]
+    },
+    {
+      "call_index": 2,
+      "round": 1,
+      "image_key": "train:B",
+      "filename": "000760.jpg",
+      "image_width": 500,
+      "image_height": 330,
+      "request_roundtrip_ms": 1415,
+      "provider_reported_inference_seconds": null,
+      "prediction_count": 0,
+      "inference_id": null,
+      "response_keys": [
+        "model_id",
+        "result"
+      ]
+    },
+    {
+      "call_index": 3,
+      "round": 1,
+      "image_key": "train:C",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "image_width": 2048,
+      "image_height": 1365,
+      "request_roundtrip_ms": 1668,
+      "provider_reported_inference_seconds": null,
+      "prediction_count": 0,
+      "inference_id": null,
+      "response_keys": [
+        "model_id",
+        "result"
+      ]
+    },
+    {
+      "call_index": 4,
+      "round": 1,
+      "image_key": "train:D",
+      "filename": "h1.jpg",
+      "image_width": 1000,
+      "image_height": 1000,
+      "request_roundtrip_ms": 1523,
+      "provider_reported_inference_seconds": null,
+      "prediction_count": 0,
+      "inference_id": null,
+      "response_keys": [
+        "model_id",
+        "result"
+      ]
+    },
+    {
+      "call_index": 5,
+      "round": 1,
+      "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+      "filename": "c1e5a26df8225afb5be5beceae128ad5.jpg",
+      "image_width": 736,
+      "image_height": 903,
+      "request_roundtrip_ms": 1539,
+      "provider_reported_inference_seconds": null,
+      "prediction_count": 0,
+      "inference_id": null,
+      "response_keys": [
+        "model_id",
+        "result"
+      ]
+    },
+    {
+      "call_index": 6,
+      "round": 2,
+      "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+      "filename": "c1e5a26df8225afb5be5beceae128ad5.jpg",
+      "image_width": 736,
+      "image_height": 903,
+      "request_roundtrip_ms": 1383,
+      "provider_reported_inference_seconds": null,
+      "prediction_count": 0,
+      "inference_id": null,
+      "response_keys": [
+        "model_id",
+        "result"
+      ]
+    },
+    {
+      "call_index": 7,
+      "round": 2,
+      "image_key": "train:D",
+      "filename": "h1.jpg",
+      "image_width": 1000,
+      "image_height": 1000,
+      "request_roundtrip_ms": 1415,
+      "provider_reported_inference_seconds": null,
+      "prediction_count": 0,
+      "inference_id": null,
+      "response_keys": [
+        "model_id",
+        "result"
+      ]
+    },
+    {
+      "call_index": 8,
+      "round": 2,
+      "image_key": "train:C",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "image_width": 2048,
+      "image_height": 1365,
+      "request_roundtrip_ms": 1608,
+      "provider_reported_inference_seconds": null,
+      "prediction_count": 0,
+      "inference_id": null,
+      "response_keys": [
+        "model_id",
+        "result"
+      ]
+    },
+    {
+      "call_index": 9,
+      "round": 2,
+      "image_key": "train:B",
+      "filename": "000760.jpg",
+      "image_width": 500,
+      "image_height": 330,
+      "request_roundtrip_ms": 1413,
+      "provider_reported_inference_seconds": null,
+      "prediction_count": 0,
+      "inference_id": null,
+      "response_keys": [
+        "model_id",
+        "result"
+      ]
+    },
+    {
+      "call_index": 10,
+      "round": 2,
+      "image_key": "train:A",
+      "filename": "image_604.jpg",
+      "image_width": 1000,
+      "image_height": 667,
+      "request_roundtrip_ms": 1407,
+      "provider_reported_inference_seconds": null,
+      "prediction_count": 0,
+      "inference_id": null,
+      "response_keys": [
+        "model_id",
+        "result"
+      ]
+    }
+  ],
+  "limitations": {
+    "roundtrip_is_not_model_latency": true,
+    "server_time_semantics": "Only reported if the hosted API returns a numeric time field; see raw response keys.",
+    "memory_not_exposed": true,
+    "physical_energy_joules_not_measured": true,
+    "financial_credit_or_usd_cost_not_available": true,
+    "source_independence_verified": false,
+    "no_test_accessed": true
+  }
+}
