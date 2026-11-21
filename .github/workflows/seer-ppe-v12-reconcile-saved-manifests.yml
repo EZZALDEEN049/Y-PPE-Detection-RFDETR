@@ -1,0 +1,80 @@
+name: SEER-PPE V12 source-to-Clean17 metadata-only join
+on:
+  push:
+    paths:
+      - research/seer-ppe/V12_RECONCILIATION_REQUEST.md
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  reconcile_saved_audits_only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - name: Checkout immutable research records
+        uses: actions/checkout@v4
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run synthetic no-Test reconciliation contract
+        run: python research/seer-ppe/tools/reconcile_original_sources_to_clean17_v12.py --self-test
+      - name: Download already executed original-Source Train Valid hash report only
+        uses: actions/download-artifact@v4
+        with:
+          name: seer-ppe-original-source-full-2093-metadata
+          run-id: 44834307184
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source-metadata
+      - name: Download previously verified Clean17 file manifest only
+        uses: actions/download-artifact@v4
+        with:
+          name: seer-ppe-clean17-phase5-audit
+          run-id: 42153641457
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/clean17-metadata
+      - name: Validate artifact paths and forbid accidental Test image access
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE_REPORT="$(find "${RUNNER_TEMP}/source-metadata" -type f -name original-source-hash-audit.json -print -quit)"
+          CLEAN_FILE="$(find "${RUNNER_TEMP}/clean17-metadata" -type f -name clean17_file_manifest.csv -print -quit)"
+          test -n "$SOURCE_REPORT" && test -n "$CLEAN_FILE"
+          echo "SOURCE_REPORT=$SOURCE_REPORT" >> "$GITHUB_ENV"
+          echo "CLEAN_FILE=$CLEAN_FILE" >> "$GITHUB_ENV"
+          if find "${RUNNER_TEMP}/source-metadata" "${RUNNER_TEMP}/clean17-metadata" -type f -iregex '.*\.(jpg\|jpeg\|png\|webp\|tif\|tiff)' | grep -q .; then
+            echo "IMAGE_BYTES_PRESENT_IN_METADATA_ARTIFACT" >&2
+            exit 2
+          fi
+      - name: Reconcile strictly existing metadata only and keep verdicts uncertified
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "${RUNNER_TEMP}/v12-report"
+          python research/seer-ppe/tools/reconcile_original_sources_to_clean17_v12.py \
+            --source-report "$SOURCE_REPORT" \
+            --clean-manifest "$CLEAN_FILE" \
+            --source-index research/seer-ppe/SOURCE_ID_MANIFEST_TRAIN_VALID_2026-11-19_V01.json \
+            --corrections cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_conservative_file_correction_manifest_2026-09-19.csv \
+            --report "${RUNNER_TEMP}/v12-report/reconciliation.json" \
+            --candidate-csv "${RUNNER_TEMP}/v12-report/candidates.csv"
+          python - <<'PY'
+          import os,json,pathlib
+          x=json.loads((pathlib.Path(os.environ['RUNNER_TEMP'])/'v12-report/reconciliation.json').read_text())
+          assert x['source_original_count']==2093
+          assert x['clean17_train_valid_count']==2054
+          assert x['automatically_scoring_eligible_valid_images']==0
+          assert x['scientific_scoring_ready'] is False
+          assert x['not_read_test_image_bytes'] is True
+          assert len(x['rows'])==2093
+          print('SEER_V12_FULL_ORIGINAL_TO_CLEAN17_READ_ONLY_JOIN_PASS')
+          PY
+      - name: Retain only metadata output, never images, passwords or image URLs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-ppe-v12-original-to-clean17-metadata-join
+          path: ${{ runner.temp }}/v12-report/*
+          retention-days: 14
+          if-no-files-found: warn
