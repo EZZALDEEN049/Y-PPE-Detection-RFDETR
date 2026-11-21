@@ -229,6 +229,24 @@ jobs:
           cmp research/seer-ppe/HISTORICAL_VALID_INTERNAL_METRICS_V20.json /tmp/seer-v20-valid.json
           grep -q 'SEER_V20_READ_ONLY_HISTORICAL_VALID_INTERNAL_STATS_NOT_INDEPENDENT_PASS' /tmp/seer-v20-valid.log
           echo 'SEER_V20_VALID_ONLY_459_448_367_SOURCE_ID_PAIRED_COUNTERS_AUDIT_PASS'
+      - name: Verify V22 current Valid 17-class source composition and manuscript measured claims
+        run: |
+          node research/seer-ppe/tools/analyze_valid_class_support_v22.mjs --self-test
+          node research/seer-ppe/tools/analyze_valid_class_support_v22.mjs --audit /tmp/seer-v22-valid-classes.json > /tmp/seer-v22-valid-classes.log
+          cmp research/seer-ppe/VALID_CURRENT_CLASS_SUPPORT_RISK_COHORTS_V22.json /tmp/seer-v22-valid-classes.json
+          grep -q 'SEER_V22_AUTHOR_VALID_CLASS_SOURCE_DISTRIBUTION_AUDIT_PASS' /tmp/seer-v22-valid-classes.log
+          python - <<'PY'
+          from pathlib import Path
+          m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text()
+          for phrase in ('**Working manuscript v0.22', '### 3.17 Actual original-source',
+                         '### 4.17 Current author-curated', '## 5. Discussion',
+                         '## Appendix N.', '3,471', '3,049', '729',
+                         '0.885018', '0.880754', '13'):
+              assert phrase in m, phrase
+          assert 'No new RF-DETR inference' in m or 'No new detector inference' in m
+          print('SEER_V22_MANUSCRIPT_METHODS_RESULTS_DISCUSSION_REFERENCES_SUPPORT_PASS')
+          PY
+          echo 'SEER_V22_VALID_CLASS_LABEL_COMPOSITION_AND_EDITORIAL_BOUNDARY_AUDIT_PASS'
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'
