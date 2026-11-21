@@ -243,7 +243,7 @@ jobs:
                          '## Appendix N.', '3,471', '3,049', '729',
                          '0.885018', '0.880754', '13'):
               assert phrase in m, phrase
-          assert 'No new RF-DETR inference' in m or 'No new detector inference' in m
+          assert 'no new detector inference' in m.lower() or 'no new rfdetr inference' in m.lower()
           print('SEER_V22_MANUSCRIPT_METHODS_RESULTS_DISCUSSION_REFERENCES_SUPPORT_PASS')
           PY
           echo 'SEER_V22_VALID_CLASS_LABEL_COMPOSITION_AND_EDITORIAL_BOUNDARY_AUDIT_PASS'
