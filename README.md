@@ -2,7 +2,7 @@
 
 > **Latest research — V30 baseline preflight passed; progressive XAI execution pending (22 November 2026):** [V30 progressive XAI protocol](research/seer-ppe/V30_FROZEN_PROGRESSIVE_XAI_PROTOCOL_2026-11-22.md) · [frozen 10-target manifest](research/seer-ppe/V30_FROZEN_TARGETS_2026-11-22.json) · [V30 checkpoint](research/seer-ppe/DUAL_TRACK_CHECKPOINT_2026-11-22_V30.md) · [pre-inference gate](research/seer-ppe/V30_PREINFERENCE_GATE_2026-11-22.json). Manuscript remains v0.27; the eight baseline reproduction calls passed, but no progressive XAI curve or AUC is claimed.
 
-> **V30:** Frozen 8×8 target-specific occlusion maps and progressive deletion/insertion protocol for 10 unique targets in eight target-bearing development images; A5/A6 remain eight slots each. Synthetic tests: 9 passed locally and in CI; source/reference readiness passed. Total maximum: 1,068 original-model calls; actual V30 calls so far: 8 baseline calls; progressive calls: 0; remaining maximum: 1,060. No Test, model, or source-data changes.
+> **V30:** Frozen 8×8 target-specific occlusion maps and progressive deletion/insertion protocol for 10 unique targets in eight target-bearing development images; A5/A6 remain eight slots each. Synthetic tests: 9 passed locally and in CI; source/reference readiness passed. Total maximum: 1,068 original-model calls; actual V30 calls so far: 8 baseline calls; progressive calls: 0; remaining maximum: 1,060. Current V30 unit-test and source-readiness CI both pass. No Test, model, or source-data changes.
 >
 > **V27:** 10 frozen target detections, 27 original-model passes, 9/10 target detections lost after Gaussian box blur; mean target drop 0.622325 vs control drop 0.008304. A5/A6 each used eight slots; no worker-safety superiority claim.
 >
