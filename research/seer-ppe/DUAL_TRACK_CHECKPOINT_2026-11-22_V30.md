@@ -2,9 +2,9 @@
 
 ## Status
 
-**V30 protocol and target manifest frozen; executable implementation added; synthetic tests passed. Actual V30 RF-DETR inference has not yet been run.**
+**V30 protocol and implementation are ready; the eight-image baseline preflight is now executed and passed. Progressive XAI remains pending local access to the eight exact source images.**
 
-The manuscript remains v0.27. No progressive XAI result, AUC, or new model-performance number is claimed in this checkpoint.
+The manuscript remains v0.27. No progressive XAI result or AUC is claimed in this checkpoint. The eight baseline inferences are setup/reproduction checks, not a new performance benchmark.
 
 ## Confirmed V30 scope
 
@@ -13,12 +13,13 @@ The manuscript remains v0.27. No progressive XAI result, AUC, or new model-perfo
 - A5/A6: eight selected slots per arm, six shared, two A5-only and two A6-only.
 - Original hosted model remains `altayyar-0oflt-lafos-qqauz/2`, confidence 0.20, overlap 0.50.
 - 8×8 single-cell occlusion map, Gaussian-blur progressive deletion/insertion, random and inverse-saliency controls.
-- Frozen maximum budget: **1,068 original-model calls** (528 fixed baseline/blur/map calls plus 54 intermediate calls per curve-eligible target; fewer if a target map or blurred endpoint is unrankable).
+- Frozen total maximum: **1,068 original-model calls**. The eight original-image baseline calls are complete; the local runner has a remaining maximum of **1,060 calls** (8 blurred endpoints + 512 map calls + up to 540 curve-intermediate calls).
 
 ## Implemented artifacts
 
 - `V30_FROZEN_PROGRESSIVE_XAI_PROTOCOL_2026-11-22.md`
 - `V30_FROZEN_TARGETS_2026-11-22.json`
+- `V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json`
 - `seer_ppe/progressive_xai.py`
 - `tools/run_v30_progressive_xai.py`
 - `tests/test_v30_progressive_xai.py`
@@ -30,18 +31,19 @@ The scorer defines a lost target's fixed-target score as zero, while ambiguous m
 - Nine synthetic unit tests passed locally and in GitHub Actions for target matching, lost/ambiguous handling, grid-map drops, deterministic random controls, blurred baseline, progressive endpoints, and AUC. [Unit-test run 44958488385](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44958488385).
 - Python syntax compilation passed for the V30 module and runner.
 - Source/reference readiness workflow passed after aligning stale V22–V26 manuscript assertions to the existing v0.27 master. [Readiness run 44958488365](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44958488365).
-- No RF-DETR model calls were made in this continuation.
+- Eight real original-image RF-DETR calls were executed through connected Roboflow. All 8/8 source images resolved and all 10/10 frozen target boxes and confidence values reproduced exactly. [Detailed baseline record](V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json).
+- No progressive XAI perturbation calls, maps, curves or AUCs have been executed yet.
 - No image bytes, original annotations, model weights, or Test assets were changed or committed.
 - No human review or worker-safety scoring was performed.
 
 ## Remaining execution gates
 
-1. Export or locally download the eight exact original images listed in the frozen manifest; keep them outside GitHub.
-2. Set `ROBOFLOW_API_KEY` in the local execution environment.
-3. Run `--dry-run` to verify all image filenames and dimensions.
-4. Run `--preflight-only` to verify all ten target reproductions before spending the full budget.
-5. After reviewing preflight, run the V30 job with the explicit maximum-budget confirmation; actual calls are checked against the number of curve-eligible targets.
-6. Validate all maps, curve points, AUCs, target IDs, and actual call count; archive the numeric result JSON.
+1. Download the eight exact original images from the Asset Library IDs/URLs in the frozen baseline record; keep them outside GitHub.
+2. Run `--dry-run` to verify local filenames and dimensions.
+3. Run `--preflight-only` to compare the local image bundle and frozen connector baseline record; this step makes zero model calls.
+4. Set `ROBOFLOW_API_KEY` in the local execution environment.
+5. Run the full V30 job with `--confirm-model-call-budget 1068`; the runner reuses the eight completed baseline calls and makes at most 1,060 additional calls.
+6. Validate all maps, curve points, AUCs, target IDs, local SHA-256 hashes and total call count (baseline plus new calls); archive the numeric result JSON.
 7. Only after actual results are verified, update the manuscript beyond v0.27 and decide whether any V30 claims are supportable.
 
 ## Scientific limits retained
