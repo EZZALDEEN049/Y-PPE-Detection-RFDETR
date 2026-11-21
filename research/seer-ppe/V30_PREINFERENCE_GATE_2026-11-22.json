@@ -20,5 +20,17 @@
     "ROBOFLOW_API_KEY in local runner environment",
     "baseline reproduction preflight passes"
   ],
-  "source_reference_gate_compatibility_fix": "V22-V26 read-only manuscript assertions now target the current v0.27 master; this does not alter empirical claims or the manuscript."
+  "source_reference_gate_compatibility_fix": "V22-V26 read-only manuscript assertions now target the current v0.27 master; this does not alter empirical claims or the manuscript.",
+  "github_actions": {
+    "public_synthetic_unit_tests": {
+      "status": "success",
+      "run_id": 44957983705,
+      "url": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44957983705"
+    },
+    "source_reference_readiness": {
+      "status": "success",
+      "run_id": 44957983683,
+      "url": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44957983683"
+    }
+  }
 }
