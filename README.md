@@ -1,8 +1,7 @@
 # Y-PPE Detection Research Repository
 
-> **Latest research — V27–V29; working manuscript v0.27 (22 November 2026):** [read the complete working paper](research/seer-ppe/MANUSCRIPT_MASTER.md) · [V27–V29 actual perturbation/timing report](research/seer-ppe/V27_V29_ACTUAL_XAI_AND_PERFORMANCE_REPORT_2026-11-22.md) · [latest checkpoint](research/seer-ppe/DUAL_TRACK_CHECKPOINT_2026-11-22_V29.md) · [editable Word v0.27](research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.27_2026-11-22.docx) (export requested; verify CI before use).
-
-> **V27:** 10 frozen target detections, 27 original-model passes, 9/10 target detections lost after Gaussian box blur; mean target drop 0.622325 vs control drop 0.008304. A5/A6 each used eight slots; no worker-safety superiority claim.
+> **Latest research — V30 protocol frozen; implementation ready; actual inference pending (22 November 2026):** [V30 progressive XAI protocol](research/seer-ppe/V30_FROZEN_PROGRESSIVE_XAI_PROTOCOL_2026-11-22.md) · [frozen 10-target manifest](research/seer-ppe/V30_FROZEN_TARGETS_2026-11-22.json) · [V30 checkpoint](research/seer-ppe/DUAL_TRACK_CHECKPOINT_2026-11-22_V30.md) · [pre-inference gate](research/seer-ppe/V30_PREINFERENCE_GATE_2026-11-22.json). Manuscript remains v0.27; no V30 model inference or AUC is claimed yet.\n
+> **V30:** Frozen 8×8 target-specific occlusion maps and progressive deletion/insertion protocol for 10 unique targets in eight target-bearing development images; A5/A6 remain eight slots each. Synthetic tests: 8 passed. Full execution budget: 1,068 original-model calls; actual V30 calls so far: 0. No Test, model, or source-data changes.\n>\n> **V27:** 10 frozen target detections, 27 original-model passes, 9/10 target detections lost after Gaussian box blur; mean target drop 0.622325 vs control drop 0.008304. A5/A6 each used eight slots; no worker-safety superiority claim.
 >
 > **V28:** 30 archived repeat passes plus 30 unarchived first-attempt passes; black deletion lost 10/10, target-only insertion retained 7/10. These are one-step box perturbations, not progressive Faithfulness curves.
 >
