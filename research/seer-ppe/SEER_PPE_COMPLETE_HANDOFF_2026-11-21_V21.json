@@ -1,0 +1,188 @@
+{
+  "schema_version": "seer-ppe/portable-cross-account-research-handoff/v0.21",
+  "date": "2026-11-21",
+  "snapshot_scope": "FULL_RESEARCH_HANDOFF_THROUGH_V20_NOT_FINAL_PUBLISHABLE_PAPER",
+  "repository_full_name": "EZZALDEEN049/Y-PPE-Detection-RFDETR",
+  "repository_public_verified": true,
+  "default_branch": "main",
+  "entrypoint": "SEER_PPE_START_HERE.md",
+  "handoff_markdown": "research/seer-ppe/SEER_PPE_COMPLETE_HANDOFF_2026-11-21_V21.md",
+  "working_manuscript": "research/seer-ppe/MANUSCRIPT_MASTER.md",
+  "working_manuscript_version": "v0.20",
+  "research_project_title": "SEER-PPE: Safety-Constrained, Energy-Aware, and Evidence-Grounded Explainable Vision for Occupational Safety Monitoring",
+  "author": {
+    "display_name": "Ezzaldeen Al-Tayar",
+    "faculty": "Faculty of Engineering and Information Technology",
+    "university": "Taiz University",
+    "location": "Taiz, Yemen",
+    "corresponding_email": "azzaltayyar@gmail.com",
+    "source": "user-approved author affiliation shown in supplied image"
+  },
+  "original_model": {
+    "project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+    "model_id": "altayyar-0oflt-lafos-qqauz/2",
+    "architecture": "RF-DETR Small",
+    "classes": 17,
+    "retraining_authorized": false
+  },
+  "original_dataset": {
+    "images": 2327,
+    "annotations": 16520,
+    "train": 1625,
+    "valid": 468,
+    "test": 234
+  },
+  "clean17_dataset": {
+    "images": 2288,
+    "annotations": 16300,
+    "train": 1595,
+    "valid": 459,
+    "test": 234
+  },
+  "author_reference_policy": {
+    "full_manual_image_reinspection_required": false,
+    "second_human_reviewer_required": false,
+    "original_object_annotations_accepted_as_single_curator_reference": true,
+    "per_worker_PPE_states_inferred_from_generic_approval": false,
+    "site_mandates_inferred_from_negative_detection_class": false
+  },
+  "source_audit": {
+    "original_train_and_valid_images_fingerprinted": 2093,
+    "byte_or_normalized_rgb_exact_cross_split_pairs": 0,
+    "dhash_close_pairs": 46,
+    "flagged_original_valid_source_review_queue": 99,
+    "direct_train_valid_candidate_comparisons": 280,
+    "strong_original_source_similarity_pairs": 12,
+    "graph_components_technical_hypotheses": 8,
+    "validated_source_to_clean17_valid_matching": 459,
+    "risk_buckets": {
+      "historical_holds": 5,
+      "technical_overlap_quarantines": 6,
+      "other_flagged": 81,
+      "unflagged_not_independently_verified": 367
+    },
+    "independently_certified_valid_source_families": 0
+  },
+  "train_experiments": {
+    "actual_V16_four_train_model_boxes": 51,
+    "person_boxes": 7,
+    "ppe_cues": 38,
+    "context_boxes": 6,
+    "V17_tentative_geometry_one_person_candidates": 34,
+    "uncertain_unassigned": 4,
+    "undispatched_review_suggestions": 38,
+    "V19_original_train_gt_boxes": 48,
+    "seven_model_assisted_gt_markers_one_train_image": true,
+    "V19_bbox_iou": 0.5,
+    "hosted_prediction_floor": 0.2,
+    "V19_train_only": {
+      "tp": 47,
+      "fp": 4,
+      "fn": 1,
+      "precision": 0.921569,
+      "recall": 0.979167,
+      "f1": 0.949495
+    },
+    "V19_without_entire_assisted_label_image": {
+      "images": 3,
+      "gt": 33,
+      "preds": 35,
+      "tp": 32,
+      "fp": 3,
+      "fn": 1,
+      "precision": 0.914286,
+      "recall": 0.969697,
+      "f1": 0.941176
+    },
+    "scientific_validation_metrics": false
+  },
+  "validation_historical": {
+    "model_eval_id": "KyzP9neuyNTN5eQpGCAY",
+    "historical_eval_version": 2,
+    "eval_created_at": "2025-09-11T21:56:08.746Z",
+    "confidence_threshold": 0.2,
+    "strict_split": "valid",
+    "historical_original_source_ids_matched": 468,
+    "retained_corrected_valid_ids": 459,
+    "excluded_original_valid_ids": 9,
+    "current_source_original_annotation_boxes": 3471,
+    "model_assisted_annotation_markers": 729,
+    "historical_eval_tp_plus_fn_reference_boxes": 3455,
+    "identical_historical_vs_current_reference_count_images": 446,
+    "nonmatching_reference_count_images": 13,
+    "total_current_minus_historical_labels": 16,
+    "cohorts": {
+      "M0_459": {
+        "n": 459,
+        "tp": 3252,
+        "fp": 642,
+        "fn": 203,
+        "precision": 0.835131,
+        "recall": 0.941245,
+        "f1": 0.885018
+      },
+      "M1_448": {
+        "n": 448,
+        "tp": 3217,
+        "fp": 639,
+        "fn": 200,
+        "precision": 0.834284,
+        "recall": 0.941469,
+        "f1": 0.884642
+      },
+      "M2_367": {
+        "n": 367,
+        "tp": 2851,
+        "fp": 589,
+        "fn": 183,
+        "precision": 0.828779,
+        "recall": 0.939684,
+        "f1": 0.880754
+      }
+    },
+    "metric_scope": "HISTORICAL_2025_PROVIDER_EVAL_PER_IMAGE_COUNTER_REAGGREGATION_ONLY",
+    "current_annotation_bbox_rescored": false,
+    "geometric_historical_eval_predictions_available": false,
+    "source_independence_proven": false,
+    "SEER_vs_comparator_results": false
+  },
+  "strict_worker_safety_validation": {
+    "state": "NOT_FROZEN",
+    "scoring_ready": false,
+    "independent_source_families_signed": 0,
+    "validation_person_PPE_gold_complete": false,
+    "site_task_mandate_proven": false,
+    "measured_energy_joules": null,
+    "XAI_faithfulness_verified": false
+  },
+  "scientific_task_next": [
+    "Read current main GitHub manuscript/protocol/checkpoint without starting from scratch",
+    "Reconcile current saved Valid Source annotations against newly obtained original unchanged RF-DETR Valid predictions if current-label metrics will be claimed",
+    "Preserve historic 2025 Valid counters as a distinct non-independent historical study",
+    "Prepare actual SEER A5-versus-strong-safety-matched selective comparator experiment only with genuinely applicable worker-level policy reference",
+    "Compute target-matched XAI fidelity and measured or transparently computational efficiency only after actual executions",
+    "Update manuscript results discussion bibliography and journal structure while separating measured results and proposals",
+    "Create future dated checkpoints and verified CI evidence; do not open Test to tune"
+  ],
+  "no_new_research_scoring_or_inference_by_this_handoff": true,
+  "no_test_data_read_by_handoff": true,
+  "original_model_or_dataset_modified_by_handoff": false,
+  "historic_ci": {
+    "V17": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44851631822",
+    "V19": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44853282012",
+    "V20": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44856892166"
+  },
+  "main_files": {
+    "manuscript": "research/seer-ppe/MANUSCRIPT_MASTER.md",
+    "protocol": "research/seer-ppe/PROTOCOL_MASTER.md",
+    "V18_author_approval": "research/seer-ppe/AUTHOR_CURATOR_REFERENCE_POLICY_2026-11-21_V18.md",
+    "V17_trace": "research/seer-ppe/PAIRED_TRAIN_DETECTOR_POLICY_TRACE_V17.json",
+    "V19_train": "research/seer-ppe/TRAIN_SOURCE_LABEL_DETECTION_NUMERIC_PREFLIGHT_V19.json",
+    "V19_valid_overlap": "research/seer-ppe/VALIDATION_SOURCE_OVERLAP_NUMERIC_SENSITIVITY_V19.json",
+    "V20_checkpoint": "research/seer-ppe/DUAL_TRACK_CHECKPOINT_2026-11-21_V20.md",
+    "V20_historical_valid_metrics": "research/seer-ppe/HISTORICAL_VALID_INTERNAL_METRICS_V20.json",
+    "V20_frozen_internal": "research/seer-ppe/VALID_HISTORICAL_INTERNAL_OBJECT_EVAL_PROTOCOL_FROZEN_V20.md",
+    "V11_strict_scoring_gate": "research/seer-ppe/VALIDATION_PERSON_PPE_SCORING_FREEZE_2026-11-21_V11.json"
+  },
+  "provenance_caution": "This JSON records already documented research state; the handoff does not constitute a new V21 experimental measurement and the project has not reached publication-ready status."
+}
