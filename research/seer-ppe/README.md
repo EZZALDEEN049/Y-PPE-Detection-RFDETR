@@ -1,5 +1,7 @@
 # SEER-PPE: cumulative research (v0.6, 10 Nov 2026)
 
+> **Methodological correction V18 (21 Nov 2026):** [Original dataset author's completed review and annotations accepted as primary single-curator reference](AUTHOR_CURATOR_REFERENCE_POLICY_2026-11-21_V18.md). No second annotator or full-image reinspection is mandatory. Original boxes/classes may support a carefully scoped historical internal object-detection analysis; worker-level violations, independently verified sources and true task PPE mandates are separate claims. No new metrics or protected Test use is asserted.
+
 > **Latest experimental continuation V17 (21 Nov 2026):** [Paired original RF-DETR numeric Train detections vs proposed SEER conservative routing trace](DUAL_TRACK_CHECKPOINT_2026-11-21_V17.md) · [validated JSON trace](PAIRED_TRAIN_DETECTOR_POLICY_TRACE_V17.json) · [successful GitHub Actions](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44851631822). **51 fixed detector predictions**, **38 PPE review suggestions not dispatched**, **zero worker clearances or actual XAI/reviews**, and **zero authorized Validation scientific source records**; `scoring_ready=false`. No Test or Valid inference, model retraining, safety superiority or measured Joule saving.
 
 
