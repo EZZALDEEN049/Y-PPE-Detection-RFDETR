@@ -59,18 +59,18 @@ jobs:
           )"
           test -n "$CLEAN"
           python research/seer-ppe/tools/verify_valid_original_to_clean17_pixels_v13.py \
-            --mode pilot \
+            --mode full \
             --crosswalk research/seer-ppe/SEER_PPE_VALID_TO_CLEAN17_PROVISIONAL_V12.json \
             --original-index research/seer-ppe/SOURCE_ID_MANIFEST_TRAIN_VALID_2026-11-19_V01.json \
             --original-report "${RUNNER_TEMP}/source-metadata/original-source-hash-audit.json" \
             --clean-manifest "$CLEAN" \
             --clean-root "$ROOT" \
-            --report "${RUNNER_TEMP}/v13-evidence/valid-only-pilot.json"
+            --report "${RUNNER_TEMP}/v13-evidence/valid-only-full.json"
       - name: Upload evidence metadata only and no image bytes
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: seer-ppe-v13-valid-only-direct-photo-pilot
+          name: seer-ppe-v13-valid-only-direct-photo-full
           path: ${{ runner.temp }}/v13-evidence/*.json
           retention-days: 14
           if-no-files-found: warn
@@ -78,12 +78,12 @@ jobs:
         run: |
           python - <<'PY'
           import json,os,pathlib
-          x=json.loads((pathlib.Path(os.environ['RUNNER_TEMP'])/'v13-evidence/valid-only-pilot.json').read_text())
-          assert x['requested']==16
-          assert x['source_and_export_sha_verified']==16
+          x=json.loads((pathlib.Path(os.environ['RUNNER_TEMP'])/'v13-evidence/valid-only-full.json').read_text())
+          assert x['requested']==459
+          assert x['source_and_export_sha_verified']==459
           assert x['test_images_decoded']==0
           assert x['test_image_inference']==0
           assert x['images_uploaded'] is False
           assert x['scientific_scoring_ready'] is False
-          print('SEER_V13_VALID_ONLY_ACTUAL_IMAGE_COMPARISON_GUARD_PASS')
+          print('SEER_V13_ALL_459_VALID_IMAGE_COMPARISON_GUARD_PASS')
           PY
