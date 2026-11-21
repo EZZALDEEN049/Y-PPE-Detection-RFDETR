@@ -24,8 +24,6 @@ const modelStep=(name,images)=>({
 function filterStep(name,det,w,h){
  const b=det.bbox_center_xywh;
  const coord=Math.max(6,Math.round(0.01*Math.min(w,h)));
- const wt=Math.max(4,Math.round(0.25*b.width));
- const ht=Math.max(4,Math.round(0.25*b.height));
  const xMin=b.x-b.width/2,xMax=b.x+b.width/2;
  const yMin=b.y-b.height/2,yMax=b.y+b.height/2;
  const bounds=[
@@ -36,8 +34,10 @@ function filterStep(name,det,w,h){
   ['x_max','(Number) >=',xMax-coord],['x_max','(Number) <=',xMax+coord],
   ['y_min','(Number) >=',yMin-coord],['y_min','(Number) <=',yMin+coord],
   ['y_max','(Number) >=',yMax-coord],['y_max','(Number) <=',yMax+coord],
-  ['width','(Number) >=',b.width-wt],['width','(Number) <=',b.width+wt],
-  ['height','(Number) >=',b.height-ht],['height','(Number) <=',b.height+ht]
+  // Width/height are represented by the four edge coordinates. The
+  // Workflow query engine returns null for ExtractDetectionProperty(width/height)
+  // on this model output, so the frozen edge windows are the only geometry
+  // filter; do not widen them after seeing any target outputs.
  ];
  return {
   type:'roboflow_core/detections_filter@v1',name,predictions:'$steps.detect.predictions',
