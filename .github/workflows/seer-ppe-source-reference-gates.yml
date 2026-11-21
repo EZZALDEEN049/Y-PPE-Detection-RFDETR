@@ -206,6 +206,12 @@ jobs:
           node research/seer-ppe/tools/triage_v16_train_cues_against_existing_reference.mjs --audit /tmp/seer-v16-human-cue.json > /tmp/seer-v16-human-cue.log
           cmp research/seer-ppe/TRAIN_ONLY_DETECTOR_VS_ACCEPTED_HUMAN_REVIEW_V16.json /tmp/seer-v16-human-cue.json
           grep -q 'SEER_V16_ACTUAL_TRAIN_CUE_VS_HUMAN_REFERENCE_REVIEW_ONLY_PASS' /tmp/seer-v16-human-cue.log
+      - name: Verify V17 deterministic paired Train policy guardrails and saved output integrity
+        run: |
+          node research/seer-ppe/tools/paired_train_policy_trace_v17.mjs --self-test
+          node research/seer-ppe/tools/paired_train_policy_trace_v17.mjs --audit /tmp/seer-v17-paired.json > /tmp/seer-v17-paired.log
+          cmp research/seer-ppe/PAIRED_TRAIN_DETECTOR_POLICY_TRACE_V17.json /tmp/seer-v17-paired.json
+          grep -q 'SEER_V17_PAIRED_TRAIN_OFFLINE_NOT_SCIENTIFIC_SCORE_PASS' /tmp/seer-v17-paired.log
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'
