@@ -1,0 +1,71 @@
+name: SEER-PPE V27-V29 perturbation and timing evidence checks
+
+on:
+  push:
+    paths:
+      - research/seer-ppe/V27_FROZEN_TARGETS_2026-11-21.json
+      - research/seer-ppe/V27_ACTUAL_TARGETED_OCCLUSION_RESULTS_2026-11-22.json
+      - research/seer-ppe/V27_A5_A6_COMPARISON_2026-11-22.json
+      - research/seer-ppe/V28_ACTUAL_TARGET_BOX_DELETION_INSERTION_RESULTS_2026-11-22.json
+      - research/seer-ppe/V28_A5_A6_DELETION_INSERTION_COMPARISON_2026-11-22.json
+      - research/seer-ppe/V29_ACTUAL_HOSTED_INFERENCE_TIMING_RESULTS_2026-11-22.json
+      - research/seer-ppe/VALID_CURRENT_SOURCE_REAL_MODEL_BOX_MATCH_V23.json
+      - research/seer-ppe/tools/score_v27_actual_occlusion.mjs
+      - research/seer-ppe/tools/score_v28_deletion_insertion.mjs
+      - .github/workflows/seer-ppe-v27-v29-evidence-check.yml
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Syntax-check deterministic scorers
+        run: |
+          node --check research/seer-ppe/tools/score_v27_actual_occlusion.mjs
+          node --check research/seer-ppe/tools/score_v28_deletion_insertion.mjs
+      - name: Recompute V27 and V28 arm-level summaries
+        run: |
+          node research/seer-ppe/tools/score_v27_actual_occlusion.mjs /tmp/v27-recomputed.json
+          node research/seer-ppe/tools/score_v28_deletion_insertion.mjs /tmp/v28-recomputed.json
+      - name: Verify saved V27-V29 evidence and budget invariants
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import fs from 'node:fs';
+          const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+          const v27=read('research/seer-ppe/V27_ACTUAL_TARGETED_OCCLUSION_RESULTS_2026-11-22.json');
+          const v27c=read('/tmp/v27-recomputed.json');
+          const v28=read('research/seer-ppe/V28_ACTUAL_TARGET_BOX_DELETION_INSERTION_RESULTS_2026-11-22.json');
+          const v28c=read('/tmp/v28-recomputed.json');
+          const v29=read('research/seer-ppe/V29_ACTUAL_HOSTED_INFERENCE_TIMING_RESULTS_2026-11-22.json');
+          assert.equal(v27.summary.target_workflows_completed,10);
+          assert.equal(v27.summary.actual_model_inference_passes_confirmed,27);
+          assert.equal(v27c.equal_budget.A5,8);
+          assert.equal(v27c.equal_budget.A6,8);
+          assert.equal(v27c.equal_budget.shared,6);
+          assert.equal(v27c.equal_budget.unique_A5,2);
+          assert.equal(v27c.equal_budget.unique_A6,2);
+          assert.equal(v27c.postselection_valid_detection_error_alignment.A5.TP,4);
+          assert.equal(v27c.postselection_valid_detection_error_alignment.A5.FP,0);
+          assert.equal(v27c.postselection_valid_detection_error_alignment.A6.TP,3);
+          assert.equal(v27c.postselection_valid_detection_error_alignment.A6.FP,1);
+          assert.equal(v28.summary.archived_repeat_model_inference_passes,30);
+          assert.equal(v28.summary.uncaptured_initial_attempt_model_inference_passes,30);
+          assert.equal(v28.summary.total_actual_v28_model_inference_passes_including_uncaptured_attempts,60);
+          assert.equal(v28c.A5.deletion_lost,8);
+          assert.equal(v28c.A6.deletion_lost,8);
+          assert.equal(v28c.A5.insertion_retained,6);
+          assert.equal(v28c.A6.insertion_retained,6);
+          assert.equal(v29.summary.completed_calls,10);
+          assert.equal(v29.summary.provider_reported_time_available,false);
+          assert.equal(v29.summary.prediction_payloads_returned,10);
+          assert.equal(v29.summary.prediction_count_recorded,false);
+          console.log('SEER_PPE_V27_V28_V29_EVIDENCE_CHECKS_PASS');
+          NODE
