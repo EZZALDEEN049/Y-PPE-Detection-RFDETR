@@ -1,0 +1,55 @@
+name: SEER-PPE V16.1 actual Train detector-cue vs accepted-human reference triage
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/V16_TRAIN_CUE_REFERENCE_TRIAGE_REQUEST.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  train_reference_diagnostic_not_score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test synthetic contradictions and disallow fabricated policies
+        run: node research/seer-ppe/tools/triage_v16_train_cues_against_existing_reference.mjs --self-test
+      - name: Diagnose actual original fixed-model Train cues using accepted human reference only
+        run: |
+          node research/seer-ppe/tools/triage_v16_train_cues_against_existing_reference.mjs --audit \
+            research/seer-ppe/TRAIN_ONLY_DETECTOR_VS_ACCEPTED_HUMAN_REVIEW_V16.json
+      - name: Require 38 cue review records, seven geometry proposals and no science claims
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const r=JSON.parse(fs.readFileSync('research/seer-ppe/TRAIN_ONLY_DETECTOR_VS_ACCEPTED_HUMAN_REVIEW_V16.json','utf8'));
+          assert.equal(r.input_real_roboflow_inferences,4);
+          assert.equal(r.exploratory_person_box_alignment_candidates,7);
+          assert.equal(r.historical_human_approved_item_owner_links,19);
+          assert.equal(r.existing_human_visual_states_recorded,38);
+          assert.equal(r.B_missing_human_states_preserved,4);
+          assert.equal(r.D_zero_person_human_signed,false);
+          assert.equal(r.per_item_cue_totals.total,38);
+          assert.equal(r.human_verified_model_to_reference_person_identity_pairs,0);
+          assert.equal(r.detector_precision_recall_F1_mAP_scored,false);
+          assert.equal(r.person_item_link_F1_scored,false);
+          assert.equal(r.worker_compliance_scored,false);
+          assert.equal(r.test_accessed,false);
+          assert.equal(r.scientific_scoring_ready,false);
+          assert.ok(r.cases.every(c=>c.cue_review_queue.every(item=>item.ground_truth_overridden===false)));
+          console.log('SEER_V16_REAL_TRAIN_CUE_HUMAN_38_REVIEW_ONLY_UNSCORED_AUDIT_PASS');
+          JS
+      - name: Save numeric review queue only to GitHub
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/seer-ppe/TRAIN_ONLY_DETECTOR_VS_ACCEPTED_HUMAN_REVIEW_V16.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'research(seer-ppe): V16 Train detector cue and human reference disagreements review only'
+          git push origin HEAD:main
