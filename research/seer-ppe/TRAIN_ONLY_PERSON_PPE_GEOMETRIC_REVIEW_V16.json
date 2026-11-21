@@ -1,0 +1,1443 @@
+{
+  "schema_version": "seer-ppe/conservative-geometric-person-ppe-review-proposals/v0.16",
+  "date": "2026-11-21",
+  "execution_basis": "REAL_HOSTED_ROBOFLOW_TRAIN_ONLY_RFDETR_V2_PREDICTIONS",
+  "developer_test_images": 0,
+  "test_or_valid_inference_performed_by_this_tool": false,
+  "original_model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "source_workflow_id": "61llCTFuQ4Aq4goQ9HiP",
+  "source_ground_truth_inspected_for_scientific_metric": false,
+  "human_validated_PPE_or_person_coverage_count": 0,
+  "automated_person_PPE_compliance_verdicts": 0,
+  "policy_required_assumptions_made": 0,
+  "model_accuracy_mAP_F1_measured": false,
+  "energy_joules_measured": null,
+  "original_model_retrained": false,
+  "source_images_or_annotations_modified": false,
+  "human_case_ground_truth_modified": false,
+  "source_independence_signed": false,
+  "validation_freeze_authorized": false,
+  "scientific_scoring_ready": false,
+  "thresholds": {
+    "candidate_confidence": 0.2,
+    "high_confidence": 0.6,
+    "minimum_positive_overlap": 0.25,
+    "unique_ppe_overlap": 0.75,
+    "ambiguous_second_overlap": 0.45,
+    "unambiguous_margin": 0.3
+  },
+  "totals": {
+    "detection_candidates": 51,
+    "person_candidates": 7,
+    "specific_ppe_candidates": 38,
+    "context_only_not_specific_ppe": 6,
+    "single_geometric_owner_proposals": 34,
+    "ambiguous_or_unassigned_specific_ppe": 4,
+    "low_confidence_specific_ppe_review_items": 4,
+    "generic_negative_attire_context_only": 5,
+    "human_matched_item_owners": 0,
+    "person_PPE_visual_states_inferred_as_GT": 0,
+    "compliance_verdicts": 0
+  },
+  "cases": [
+    {
+      "case": "A",
+      "case_id": "8f7cce94-d46e-4fac-9a0a-641bcd1f12c8",
+      "original_split": "train",
+      "model_id": "altayyar-0oflt-lafos-qqauz/2",
+      "workflow_id": "61llCTFuQ4Aq4goQ9HiP",
+      "input_image_dimensions": [
+        1000,
+        667
+      ],
+      "workflow_person_coverage_code": "PERSON_CANDIDATES_DETECTED_COVERAGE_UNVERIFIED",
+      "human_scene_person_coverage_signed": false,
+      "non_scoring_review_status": "DETECTED_PERSONS_BUT_FULL_COVERAGE_NOT_VERIFIED",
+      "confidence_review_status": "NO_LOW_SCORE_CANDIDATES_RETURNED",
+      "potential_review_suggestions_not_human_annotations": true,
+      "counts": {
+        "detection_candidates": 5,
+        "person_candidates": 1,
+        "specific_ppe_candidates": 4,
+        "context_only_not_specific_ppe": 0,
+        "single_geometric_owner_proposals": 4,
+        "ambiguous_or_unassigned_specific_ppe": 0,
+        "low_confidence_specific_ppe_review_items": 0,
+        "generic_negative_attire_context_only": 0,
+        "human_matched_item_owners": 0,
+        "person_PPE_visual_states_inferred_as_GT": 0,
+        "compliance_verdicts": 0
+      },
+      "per_person_candidate_review": [
+        {
+          "person_detection_id": "4e7ab851-2063-4ed9-974f-2add2d873ce4",
+          "person_candidate_confidence": 0.924,
+          "person_human_coverage_confirmed": false,
+          "person_identity_human_matched": null,
+          "visual_ppe_cues": {
+            "hard_hat": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "3c93a7b4-3d1c-4fe3-a668-1edda6101556"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "safety_vest": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "1bc68b13-26d3-4f33-a0a1-966c81464efe"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "goggles": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "a048af63-91ee-4787-b133-845345f4c8f2"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "face_mask": {
+              "detector_cue_status": "NEGATIVE_DETECTOR_MARKER_UNVERIFIED",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [
+                "367eb0dd-45f3-4d62-9425-4e70a8d087f0"
+              ],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "glove": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "safety_boot": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            }
+          },
+          "worker_compliance_status": "NOT_ESTIMABLE_POLICY_AND_HUMAN_EVIDENCE_MISSING"
+        }
+      ],
+      "per_item_candidate_review": [
+        {
+          "item_detection_id": "1bc68b13-26d3-4f33-a0a1-966c81464efe",
+          "detector_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.94948,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "4e7ab851-2063-4ed9-974f-2add2d873ce4",
+              "overlap_fraction": 0.98478
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "4e7ab851-2063-4ed9-974f-2add2d873ce4",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "3c93a7b4-3d1c-4fe3-a668-1edda6101556",
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.94362,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "4e7ab851-2063-4ed9-974f-2add2d873ce4",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "4e7ab851-2063-4ed9-974f-2add2d873ce4",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "a048af63-91ee-4787-b133-845345f4c8f2",
+          "detector_class": "Goggles",
+          "ppe_type": "goggles",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.91963,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "4e7ab851-2063-4ed9-974f-2add2d873ce4",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "4e7ab851-2063-4ed9-974f-2add2d873ce4",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+          "detector_class": "No Face Mask",
+          "ppe_type": "face_mask",
+          "cue_sense": "NEGATIVE_MARKER",
+          "confidence": 0.88017,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "4e7ab851-2063-4ed9-974f-2add2d873ce4",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "4e7ab851-2063-4ed9-974f-2add2d873ce4",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        }
+      ],
+      "context_only_candidate_classes": [],
+      "source_ground_truth_modified": false,
+      "scientific_performance_scored": false
+    },
+    {
+      "case": "B",
+      "case_id": "87b6cc58-43bd-4583-8b13-bd9b7413c03d",
+      "original_split": "train",
+      "model_id": "altayyar-0oflt-lafos-qqauz/2",
+      "workflow_id": "61llCTFuQ4Aq4goQ9HiP",
+      "input_image_dimensions": [
+        500,
+        330
+      ],
+      "workflow_person_coverage_code": "PERSON_CANDIDATES_DETECTED_COVERAGE_UNVERIFIED",
+      "human_scene_person_coverage_signed": false,
+      "non_scoring_review_status": "DETECTED_PERSONS_BUT_FULL_COVERAGE_NOT_VERIFIED",
+      "confidence_review_status": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "potential_review_suggestions_not_human_annotations": true,
+      "counts": {
+        "detection_candidates": 16,
+        "person_candidates": 2,
+        "specific_ppe_candidates": 12,
+        "context_only_not_specific_ppe": 2,
+        "single_geometric_owner_proposals": 10,
+        "ambiguous_or_unassigned_specific_ppe": 2,
+        "low_confidence_specific_ppe_review_items": 1,
+        "generic_negative_attire_context_only": 1,
+        "human_matched_item_owners": 0,
+        "person_PPE_visual_states_inferred_as_GT": 0,
+        "compliance_verdicts": 0
+      },
+      "per_person_candidate_review": [
+        {
+          "person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+          "person_candidate_confidence": 0.94528,
+          "person_human_coverage_confirmed": false,
+          "person_identity_human_matched": null,
+          "visual_ppe_cues": {
+            "hard_hat": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "89887c71-6e1f-4e61-8f3e-267aa42788af"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "safety_vest": {
+              "detector_cue_status": "NEGATIVE_DETECTOR_MARKER_UNVERIFIED",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [
+                "fd3e7a1f-653a-4d29-ab77-a7eaf5c1662d"
+              ],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "goggles": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "face_mask": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "glove": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "4b1b9669-a08e-40df-9c07-1bb2933da75b",
+                "26dc785e-6ae7-4962-be81-e0c9c652028a"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "safety_boot": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "dfafa423-9003-4ee5-8c3b-783e23dd0509",
+                "36f6dbce-8c9b-458f-8788-13ba2528b3b6"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            }
+          },
+          "worker_compliance_status": "NOT_ESTIMABLE_POLICY_AND_HUMAN_EVIDENCE_MISSING"
+        },
+        {
+          "person_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+          "person_candidate_confidence": 0.93947,
+          "person_human_coverage_confirmed": false,
+          "person_identity_human_matched": null,
+          "visual_ppe_cues": {
+            "hard_hat": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "safety_vest": {
+              "detector_cue_status": "NEGATIVE_DETECTOR_MARKER_UNVERIFIED",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [
+                "3027e2d7-0d14-4b0a-8e7e-53d44c03a291"
+              ],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "goggles": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "face_mask": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "glove": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "401da7f2-00a0-423d-91a1-f9da475bf91f",
+                "3577d292-cbf3-46a4-90e7-2780cb026b78",
+                "1b2af685-6965-4986-9d35-258b036e5882"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "safety_boot": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            }
+          },
+          "worker_compliance_status": "NOT_ESTIMABLE_POLICY_AND_HUMAN_EVIDENCE_MISSING"
+        }
+      ],
+      "per_item_candidate_review": [
+        {
+          "item_detection_id": "89887c71-6e1f-4e61-8f3e-267aa42788af",
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.95465,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "d6e74dc2-b09e-46b0-b226-3229be9e1328",
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.90347,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+              "overlap_fraction": 0.92
+            },
+            {
+              "person_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+              "overlap_fraction": 0.88167
+            }
+          ],
+          "geometry_status": "MULTIPLE_OR_WEAK_GEOMETRIC_CANDIDATES_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": null,
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "fd3e7a1f-653a-4d29-ab77-a7eaf5c1662d",
+          "detector_class": "No Safety Vest",
+          "ppe_type": "safety_vest",
+          "cue_sense": "NEGATIVE_MARKER",
+          "confidence": 0.89607,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "4b1b9669-a08e-40df-9c07-1bb2933da75b",
+          "detector_class": "Gloves",
+          "ppe_type": "glove",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.88636,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "dfafa423-9003-4ee5-8c3b-783e23dd0509",
+          "detector_class": "Safety Boots",
+          "ppe_type": "safety_boot",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.86813,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "401da7f2-00a0-423d-91a1-f9da475bf91f",
+          "detector_class": "Gloves",
+          "ppe_type": "glove",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.86763,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "3577d292-cbf3-46a4-90e7-2780cb026b78",
+          "detector_class": "Gloves",
+          "ppe_type": "glove",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.8649,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "36f6dbce-8c9b-458f-8788-13ba2528b3b6",
+          "detector_class": "Safety Boots",
+          "ppe_type": "safety_boot",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.86446,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "26dc785e-6ae7-4962-be81-e0c9c652028a",
+          "detector_class": "Gloves",
+          "ppe_type": "glove",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.8372,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "3027e2d7-0d14-4b0a-8e7e-53d44c03a291",
+          "detector_class": "No Safety Vest",
+          "ppe_type": "safety_vest",
+          "cue_sense": "NEGATIVE_MARKER",
+          "confidence": 0.78597,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+              "overlap_fraction": 1
+            },
+            {
+              "person_detection_id": "1b3831b6-a71a-42e1-bb2a-9a22e3b988f4",
+              "overlap_fraction": 0.37931
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "c4f49afa-d4bd-400a-9d75-731453792e3a",
+          "detector_class": "Safety Boots",
+          "ppe_type": "safety_boot",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.67779,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+              "overlap_fraction": 0.53476
+            }
+          ],
+          "geometry_status": "MULTIPLE_OR_WEAK_GEOMETRIC_CANDIDATES_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": null,
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "1b2af685-6965-4986-9d35-258b036e5882",
+          "detector_class": "Gloves",
+          "ppe_type": "glove",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.31098,
+          "confidence_band": "LOW_REVIEW",
+          "candidate_people": [
+            {
+              "person_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "6fb1b00e-8bd2-4250-985f-6568fb591fa2",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        }
+      ],
+      "context_only_candidate_classes": [
+        {
+          "detection_id": "f5eccb2c-8881-451c-b737-32805bb52e31",
+          "detector_class": "No Safety Attire",
+          "confidence": 0.92629,
+          "explicit_PPE_absence_inferred": false
+        },
+        {
+          "detection_id": "7d460b2c-eabf-485b-b8e0-536e9e95d368",
+          "detector_class": "Pants",
+          "confidence": 0.9078,
+          "explicit_PPE_absence_inferred": false
+        }
+      ],
+      "source_ground_truth_modified": false,
+      "scientific_performance_scored": false
+    },
+    {
+      "case": "C",
+      "case_id": "c032f81d-64c5-44be-96f3-7e6fe9dad799",
+      "original_split": "train",
+      "model_id": "altayyar-0oflt-lafos-qqauz/2",
+      "workflow_id": "61llCTFuQ4Aq4goQ9HiP",
+      "input_image_dimensions": [
+        2048,
+        1365
+      ],
+      "workflow_person_coverage_code": "PERSON_CANDIDATES_DETECTED_COVERAGE_UNVERIFIED",
+      "human_scene_person_coverage_signed": false,
+      "non_scoring_review_status": "DETECTED_PERSONS_BUT_FULL_COVERAGE_NOT_VERIFIED",
+      "confidence_review_status": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "potential_review_suggestions_not_human_annotations": true,
+      "counts": {
+        "detection_candidates": 29,
+        "person_candidates": 4,
+        "specific_ppe_candidates": 21,
+        "context_only_not_specific_ppe": 4,
+        "single_geometric_owner_proposals": 20,
+        "ambiguous_or_unassigned_specific_ppe": 1,
+        "low_confidence_specific_ppe_review_items": 3,
+        "generic_negative_attire_context_only": 4,
+        "human_matched_item_owners": 0,
+        "person_PPE_visual_states_inferred_as_GT": 0,
+        "compliance_verdicts": 0
+      },
+      "per_person_candidate_review": [
+        {
+          "person_detection_id": "b281e5d4-498b-4818-bf3e-dc378c733e46",
+          "person_candidate_confidence": 0.8923,
+          "person_human_coverage_confirmed": false,
+          "person_identity_human_matched": null,
+          "visual_ppe_cues": {
+            "hard_hat": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "24ce2474-ae0a-4267-ba20-4efe450eeaf7"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "safety_vest": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "3a49c1ec-c446-4618-9077-000f37932bfb"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "goggles": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "face_mask": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "glove": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "safety_boot": {
+              "detector_cue_status": "NEGATIVE_DETECTOR_MARKER_UNVERIFIED",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [
+                "476f962b-06a7-4489-b415-434e3193bab7"
+              ],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            }
+          },
+          "worker_compliance_status": "NOT_ESTIMABLE_POLICY_AND_HUMAN_EVIDENCE_MISSING"
+        },
+        {
+          "person_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+          "person_candidate_confidence": 0.85095,
+          "person_human_coverage_confirmed": false,
+          "person_identity_human_matched": null,
+          "visual_ppe_cues": {
+            "hard_hat": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "4d1df5eb-a8b7-47ad-95c3-172dc5c7035a"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "safety_vest": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "c30d7510-b4de-47dd-8d45-1d7b0a08714d"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "goggles": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "face_mask": {
+              "detector_cue_status": "NEGATIVE_DETECTOR_MARKER_UNVERIFIED",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [
+                "021a8c09-78bf-4dac-82c3-e4ec15e819c9",
+                "1bd75f45-e192-48d7-8c85-fa2c875c1aec"
+              ],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "glove": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "7820b4e3-d165-402c-aab5-d1ee4e01897d"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "safety_boot": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            }
+          },
+          "worker_compliance_status": "NOT_ESTIMABLE_POLICY_AND_HUMAN_EVIDENCE_MISSING"
+        },
+        {
+          "person_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+          "person_candidate_confidence": 0.83131,
+          "person_human_coverage_confirmed": false,
+          "person_identity_human_matched": null,
+          "visual_ppe_cues": {
+            "hard_hat": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "b701bec0-881b-40ff-9d4e-fb1c9cb8f990"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "safety_vest": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "eab7c2eb-8058-4c97-8cbe-9d35e3213ba3"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "goggles": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "face_mask": {
+              "detector_cue_status": "NEGATIVE_DETECTOR_MARKER_UNVERIFIED",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [
+                "72438c8e-03ec-49f6-be66-9d651ede26d8"
+              ],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "glove": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "fae60aa9-9e23-4bca-bfa6-bb644e8de00e"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "safety_boot": {
+              "detector_cue_status": "NEGATIVE_DETECTOR_MARKER_UNVERIFIED",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [
+                "839235e0-a201-49ba-a995-23d0bdb7fe11"
+              ],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            }
+          },
+          "worker_compliance_status": "NOT_ESTIMABLE_POLICY_AND_HUMAN_EVIDENCE_MISSING"
+        },
+        {
+          "person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+          "person_candidate_confidence": 0.78192,
+          "person_human_coverage_confirmed": false,
+          "person_identity_human_matched": null,
+          "visual_ppe_cues": {
+            "hard_hat": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "3447ff66-b116-410f-af62-df6122e34cf7"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "safety_vest": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "65e95fbe-7c19-4f9b-be09-e5dc007bfffc"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "goggles": {
+              "detector_cue_status": "NO_STRONG_SINGLE_OWNER_CUE",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "face_mask": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "aadb7fb8-811c-4993-aa2d-3ec266263b9a"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "glove": {
+              "detector_cue_status": "POSITIVE_DETECTOR_CUE_UNVERIFIED",
+              "strong_positive_candidate_ids": [
+                "15c07c8c-56e9-4fbe-8fac-105ff957d9d7",
+                "449a63b9-a765-4c59-8fbc-64496bf53d5b"
+              ],
+              "strong_negative_marker_candidate_ids": [],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            },
+            "safety_boot": {
+              "detector_cue_status": "NEGATIVE_DETECTOR_MARKER_UNVERIFIED",
+              "strong_positive_candidate_ids": [],
+              "strong_negative_marker_candidate_ids": [
+                "a6adf3f3-4f10-4d8b-8138-3cd3c4ec8fef",
+                "35e4de96-de91-46a1-910f-89738f80e053"
+              ],
+              "human_visual_state": null,
+              "task_mandate": "POLICY_UNKNOWN",
+              "false_clearance_assessment": null
+            }
+          },
+          "worker_compliance_status": "NOT_ESTIMABLE_POLICY_AND_HUMAN_EVIDENCE_MISSING"
+        }
+      ],
+      "per_item_candidate_review": [
+        {
+          "item_detection_id": "4d1df5eb-a8b7-47ad-95c3-172dc5c7035a",
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.8932,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "3a49c1ec-c446-4618-9077-000f37932bfb",
+          "detector_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.89267,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "b281e5d4-498b-4818-bf3e-dc378c733e46",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "b281e5d4-498b-4818-bf3e-dc378c733e46",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "65e95fbe-7c19-4f9b-be09-e5dc007bfffc",
+          "detector_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.88094,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "b701bec0-881b-40ff-9d4e-fb1c9cb8f990",
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.86775,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "c30d7510-b4de-47dd-8d45-1d7b0a08714d",
+          "detector_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.86209,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "476f962b-06a7-4489-b415-434e3193bab7",
+          "detector_class": "No Safety Boots",
+          "ppe_type": "safety_boot",
+          "cue_sense": "NEGATIVE_MARKER",
+          "confidence": 0.85321,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "b281e5d4-498b-4818-bf3e-dc378c733e46",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "b281e5d4-498b-4818-bf3e-dc378c733e46",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "eab7c2eb-8058-4c97-8cbe-9d35e3213ba3",
+          "detector_class": "Safety Vests",
+          "ppe_type": "safety_vest",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.8483,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "3447ff66-b116-410f-af62-df6122e34cf7",
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.84756,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "fae60aa9-9e23-4bca-bfa6-bb644e8de00e",
+          "detector_class": "Gloves",
+          "ppe_type": "glove",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.82557,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "24ce2474-ae0a-4267-ba20-4efe450eeaf7",
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.82213,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "b281e5d4-498b-4818-bf3e-dc378c733e46",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "b281e5d4-498b-4818-bf3e-dc378c733e46",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "d3bea8d2-3722-49ac-abd2-096eec878337",
+          "detector_class": "Gloves",
+          "ppe_type": "glove",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.81218,
+          "confidence_band": "HIGH",
+          "candidate_people": [],
+          "geometry_status": "NO_GEOMETRIC_PERSON_CANDIDATE",
+          "single_strong_candidate_person_detection_id": null,
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "15c07c8c-56e9-4fbe-8fac-105ff957d9d7",
+          "detector_class": "Gloves",
+          "ppe_type": "glove",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.76175,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "449a63b9-a765-4c59-8fbc-64496bf53d5b",
+          "detector_class": "Gloves",
+          "ppe_type": "glove",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.735,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "839235e0-a201-49ba-a995-23d0bdb7fe11",
+          "detector_class": "No Safety Boots",
+          "ppe_type": "safety_boot",
+          "cue_sense": "NEGATIVE_MARKER",
+          "confidence": 0.67109,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "72438c8e-03ec-49f6-be66-9d651ede26d8",
+          "detector_class": "No Face Mask",
+          "ppe_type": "face_mask",
+          "cue_sense": "NEGATIVE_MARKER",
+          "confidence": 0.65218,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "d8a1e210-49f3-4dc3-816e-2051f5132f23",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "021a8c09-78bf-4dac-82c3-e4ec15e819c9",
+          "detector_class": "No Face Mask",
+          "ppe_type": "face_mask",
+          "cue_sense": "NEGATIVE_MARKER",
+          "confidence": 0.64593,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "7820b4e3-d165-402c-aab5-d1ee4e01897d",
+          "detector_class": "Gloves",
+          "ppe_type": "glove",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.64328,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "a6adf3f3-4f10-4d8b-8138-3cd3c4ec8fef",
+          "detector_class": "No Safety Boots",
+          "ppe_type": "safety_boot",
+          "cue_sense": "NEGATIVE_MARKER",
+          "confidence": 0.60291,
+          "confidence_band": "HIGH",
+          "candidate_people": [
+            {
+              "person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "1bd75f45-e192-48d7-8c85-fa2c875c1aec",
+          "detector_class": "No Face Mask",
+          "ppe_type": "face_mask",
+          "cue_sense": "NEGATIVE_MARKER",
+          "confidence": 0.37794,
+          "confidence_band": "LOW_REVIEW",
+          "candidate_people": [
+            {
+              "person_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "bcadf73d-d873-44d3-b038-1b1fe525e911",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "35e4de96-de91-46a1-910f-89738f80e053",
+          "detector_class": "No Safety Boots",
+          "ppe_type": "safety_boot",
+          "cue_sense": "NEGATIVE_MARKER",
+          "confidence": 0.35067,
+          "confidence_band": "LOW_REVIEW",
+          "candidate_people": [
+            {
+              "person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        },
+        {
+          "item_detection_id": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+          "detector_class": "Face Masks",
+          "ppe_type": "face_mask",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.24226,
+          "confidence_band": "LOW_REVIEW",
+          "candidate_people": [
+            {
+              "person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+              "overlap_fraction": 1
+            }
+          ],
+          "geometry_status": "SINGLE_STRONG_GEOMETRIC_CANDIDATE_REVIEW_ONLY",
+          "single_strong_candidate_person_detection_id": "e59c7f1b-763f-4538-9e9e-e60cb55c4ba0",
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        }
+      ],
+      "context_only_candidate_classes": [
+        {
+          "detection_id": "5b46a786-4fa1-4658-a79e-43a1ed9f2850",
+          "detector_class": "No Safety Attire",
+          "confidence": 0.91511,
+          "explicit_PPE_absence_inferred": false
+        },
+        {
+          "detection_id": "c3ac469e-79e5-48f5-afbd-c39d882e0806",
+          "detector_class": "No Safety Attire",
+          "confidence": 0.88585,
+          "explicit_PPE_absence_inferred": false
+        },
+        {
+          "detection_id": "042069bd-d6c1-4423-aa53-9e9e8b3fca11",
+          "detector_class": "No Safety Attire",
+          "confidence": 0.86453,
+          "explicit_PPE_absence_inferred": false
+        },
+        {
+          "detection_id": "956ed8ca-3cc6-41bd-88f5-3410ee5a93e7",
+          "detector_class": "No Safety Attire",
+          "confidence": 0.84055,
+          "explicit_PPE_absence_inferred": false
+        }
+      ],
+      "source_ground_truth_modified": false,
+      "scientific_performance_scored": false
+    },
+    {
+      "case": "D",
+      "case_id": "c197d82e-7870-42a3-bf94-462420d3f6a2",
+      "original_split": "train",
+      "model_id": "altayyar-0oflt-lafos-qqauz/2",
+      "workflow_id": "61llCTFuQ4Aq4goQ9HiP",
+      "input_image_dimensions": [
+        1000,
+        1000
+      ],
+      "workflow_person_coverage_code": "PERSON_COVERAGE_UNKNOWN",
+      "human_scene_person_coverage_signed": false,
+      "non_scoring_review_status": "ZERO_DETECTED_PERSONS_HUMAN_SCENE_REVIEW_NEEDED",
+      "confidence_review_status": "NO_LOW_SCORE_CANDIDATES_RETURNED",
+      "potential_review_suggestions_not_human_annotations": true,
+      "counts": {
+        "detection_candidates": 1,
+        "person_candidates": 0,
+        "specific_ppe_candidates": 1,
+        "context_only_not_specific_ppe": 0,
+        "single_geometric_owner_proposals": 0,
+        "ambiguous_or_unassigned_specific_ppe": 1,
+        "low_confidence_specific_ppe_review_items": 0,
+        "generic_negative_attire_context_only": 0,
+        "human_matched_item_owners": 0,
+        "person_PPE_visual_states_inferred_as_GT": 0,
+        "compliance_verdicts": 0
+      },
+      "per_person_candidate_review": [],
+      "per_item_candidate_review": [
+        {
+          "item_detection_id": "7a101411-15e7-457a-842a-0e61be4f1f11",
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat",
+          "cue_sense": "POSITIVE",
+          "confidence": 0.96472,
+          "confidence_band": "HIGH",
+          "candidate_people": [],
+          "geometry_status": "NO_PERSON_DETECTION_COVERAGE_UNKNOWN",
+          "single_strong_candidate_person_detection_id": null,
+          "human_confirmed_owner_id": null,
+          "human_verified_visual_state": null,
+          "workplace_requirement": "POLICY_UNKNOWN",
+          "clearance_or_violation_decision": null
+        }
+      ],
+      "context_only_candidate_classes": [],
+      "source_ground_truth_modified": false,
+      "scientific_performance_scored": false
+    }
+  ]
+}
