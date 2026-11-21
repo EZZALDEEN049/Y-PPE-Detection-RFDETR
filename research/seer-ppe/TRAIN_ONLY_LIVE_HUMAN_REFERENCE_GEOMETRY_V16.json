@@ -1,0 +1,845 @@
+{
+  "schema_version": "seer-ppe/live-train-human-gt-read-only-geometry-snapshot/v0.16",
+  "date": "2026-11-21",
+  "eval_dataset_id": "9c2679df-f2b9-4e25-b88d-9c6ac9033a95",
+  "actual_live_roboflow_cases_read_only": true,
+  "case_revision_signature": "2/2/4/1",
+  "model_prediction_promoted_to_reference": false,
+  "reference_modified": false,
+  "existing_researcher_approved_item_owner_links": 19,
+  "recorded_visual_states": 38,
+  "total_visual_states_expected_for_A_B_C": 42,
+  "missing_case_B_visual_states": 4,
+  "case_D_zero_person_human_signed": false,
+  "test_case_accessed": false,
+  "validation_case_accessed": false,
+  "scientific_scoring_ready": false,
+  "explicit_scope": "TRAIN_PILOT_GEOMETRY_DIAGNOSTICS_NOT_SCIENTIFIC_DETECTION_METRICS",
+  "cases": [
+    {
+      "case": "A",
+      "original_train_source_id": "0jRe8fpRDE5fLgAJrYvT",
+      "filename": "image_604.jpg",
+      "case_id": "8f7cce94-d46e-4fac-9a0a-641bcd1f12c8",
+      "case_revision": 2,
+      "ground_truth_state": "incomplete",
+      "persons": [
+        {
+          "id": "P001",
+          "bbox_xyxy_norm": [
+            0.22992,
+            0.00681,
+            0.88783,
+            0.99999
+          ],
+          "visibility": "TRUNCATED"
+        }
+      ],
+      "items": [
+        {
+          "id": "E001",
+          "bbox_xyxy_norm": [
+            0.2445,
+            0.67691,
+            0.8825,
+            0.99925
+          ],
+          "detector_class": "Safety Vests",
+          "ppe_type": "safety_vest"
+        },
+        {
+          "id": "E002",
+          "bbox_xyxy_norm": [
+            0.3475,
+            0.29235,
+            0.6015,
+            0.43778
+          ],
+          "detector_class": "Goggles",
+          "ppe_type": "goggles"
+        },
+        {
+          "id": "E003",
+          "bbox_xyxy_norm": [
+            0.30377,
+            0.00224,
+            0.72723,
+            0.36289
+          ],
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat"
+        }
+      ],
+      "human_approved_associations": [
+        {
+          "equipment_id": "E001",
+          "person_id": "P001",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E002",
+          "person_id": "P001",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E003",
+          "person_id": "P001",
+          "status": "MATCHED"
+        }
+      ],
+      "recorded_visual_states": [
+        {
+          "person_id": "P001",
+          "ppe_type": "hard_hat",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_vest",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "goggles",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "face_mask",
+          "visual_state": "ABSENT"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "glove",
+          "visual_state": "UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_boot",
+          "visual_state": "UNKNOWN"
+        }
+      ],
+      "task_mandates": [
+        {
+          "person_id": "P001",
+          "ppe_type": "hard_hat",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_vest",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "goggles",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "face_mask",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "glove",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_boot",
+          "mandate_status": "POLICY_UNKNOWN"
+        }
+      ],
+      "zero_person_scene_human_signed": false
+    },
+    {
+      "case": "B",
+      "original_train_source_id": "0xxsYWiz1FZBYERolu4z",
+      "filename": "000760.jpg",
+      "case_id": "87b6cc58-43bd-4583-8b13-bd9b7413c03d",
+      "case_revision": 2,
+      "ground_truth_state": "incomplete",
+      "persons": [
+        {
+          "id": "P001",
+          "bbox_xyxy_norm": [
+            0.25916,
+            0.09545,
+            0.64124,
+            0.89667
+          ],
+          "visibility": "PARTIAL"
+        },
+        {
+          "id": "P002",
+          "bbox_xyxy_norm": [
+            0.59045,
+            0.24691,
+            0.73083,
+            0.78958
+          ],
+          "visibility": "PARTIAL"
+        }
+      ],
+      "items": [
+        {
+          "id": "E001",
+          "bbox_xyxy_norm": [
+            0.43253,
+            0.10182,
+            0.50839,
+            0.23406
+          ],
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat"
+        },
+        {
+          "id": "E002",
+          "bbox_xyxy_norm": [
+            0.5935,
+            0.24448,
+            0.64282,
+            0.31333
+          ],
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat"
+        },
+        {
+          "id": "E003",
+          "bbox_xyxy_norm": [
+            0.45272,
+            0.39532,
+            0.51,
+            0.46486
+          ],
+          "detector_class": "Gloves",
+          "ppe_type": "glove"
+        },
+        {
+          "id": "E004",
+          "bbox_xyxy_norm": [
+            0.26,
+            0.15015,
+            0.32,
+            0.23348
+          ],
+          "detector_class": "Gloves",
+          "ppe_type": "glove"
+        }
+      ],
+      "human_approved_associations": [
+        {
+          "equipment_id": "E001",
+          "person_id": "P001",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E002",
+          "person_id": "P002",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E003",
+          "person_id": "P001",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E004",
+          "person_id": "P001",
+          "status": "MATCHED"
+        }
+      ],
+      "recorded_visual_states": [
+        {
+          "person_id": "P001",
+          "ppe_type": "hard_hat",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_vest",
+          "visual_state": "ABSENT"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "goggles",
+          "visual_state": "UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "glove",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "hard_hat",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "safety_vest",
+          "visual_state": "ABSENT"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "goggles",
+          "visual_state": "UNKNOWN"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "glove",
+          "visual_state": "UNKNOWN"
+        }
+      ],
+      "task_mandates": [
+        {
+          "person_id": "P001",
+          "ppe_type": "hard_hat",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_vest",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "goggles",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "glove",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "hard_hat",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "safety_vest",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "goggles",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "glove",
+          "mandate_status": "POLICY_UNKNOWN"
+        }
+      ],
+      "zero_person_scene_human_signed": false
+    },
+    {
+      "case": "C",
+      "original_train_source_id": "0jGu9euJp1MbvkLtfBcs",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "case_id": "c032f81d-64c5-44be-96f3-7e6fe9dad799",
+      "case_revision": 4,
+      "ground_truth_state": "incomplete",
+      "persons": [
+        {
+          "id": "P001",
+          "bbox_xyxy_norm": [
+            0.24658,
+            0.33187,
+            0.32666,
+            0.5766
+          ],
+          "visibility": "VISIBLE"
+        },
+        {
+          "id": "P002",
+          "bbox_xyxy_norm": [
+            0.39673,
+            0.34836,
+            0.47314,
+            0.66896
+          ],
+          "visibility": "VISIBLE"
+        },
+        {
+          "id": "P003",
+          "bbox_xyxy_norm": [
+            0.44971,
+            0.40879,
+            0.54932,
+            0.63671
+          ],
+          "visibility": "VISIBLE"
+        },
+        {
+          "id": "P004",
+          "bbox_xyxy_norm": [
+            0.58838,
+            0.4674,
+            0.69385,
+            0.67043
+          ],
+          "visibility": "PARTIAL"
+        }
+      ],
+      "items": [
+        {
+          "id": "E001",
+          "bbox_xyxy_norm": [
+            0.40332,
+            0.40733,
+            0.45313,
+            0.53407
+          ],
+          "detector_class": "Safety Vests",
+          "ppe_type": "safety_vest"
+        },
+        {
+          "id": "E002",
+          "bbox_xyxy_norm": [
+            0.26709,
+            0.40147,
+            0.30029,
+            0.46886
+          ],
+          "detector_class": "Safety Vests",
+          "ppe_type": "safety_vest"
+        },
+        {
+          "id": "E003",
+          "bbox_xyxy_norm": [
+            0.45801,
+            0.45788,
+            0.50928,
+            0.55824
+          ],
+          "detector_class": "Safety Vests",
+          "ppe_type": "safety_vest"
+        },
+        {
+          "id": "E004",
+          "bbox_xyxy_norm": [
+            0.63037,
+            0.56777,
+            0.66162,
+            0.61319
+          ],
+          "detector_class": "Safety Vests",
+          "ppe_type": "safety_vest"
+        },
+        {
+          "id": "E005",
+          "bbox_xyxy_norm": [
+            0.60742,
+            0.48938,
+            0.63428,
+            0.51355
+          ],
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat"
+        },
+        {
+          "id": "E006",
+          "bbox_xyxy_norm": [
+            0.50928,
+            0.44176,
+            0.53369,
+            0.48352
+          ],
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat"
+        },
+        {
+          "id": "E007",
+          "bbox_xyxy_norm": [
+            0.4248,
+            0.37509,
+            0.45264,
+            0.41172
+          ],
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat"
+        },
+        {
+          "id": "E008",
+          "bbox_xyxy_norm": [
+            0.2793,
+            0.37802,
+            0.29639,
+            0.39487
+          ],
+          "detector_class": "Hard Hat",
+          "ppe_type": "hard_hat"
+        },
+        {
+          "id": "E009",
+          "bbox_xyxy_norm": [
+            0.41602,
+            0.49744,
+            0.43457,
+            0.55018
+          ],
+          "detector_class": "Gloves",
+          "ppe_type": "glove"
+        },
+        {
+          "id": "E010",
+          "bbox_xyxy_norm": [
+            0.2627,
+            0.46593,
+            0.27197,
+            0.49084
+          ],
+          "detector_class": "Gloves",
+          "ppe_type": "glove"
+        },
+        {
+          "id": "E011",
+          "bbox_xyxy_norm": [
+            0.28809,
+            0.44249,
+            0.30176,
+            0.47326
+          ],
+          "detector_class": "Gloves",
+          "ppe_type": "glove"
+        },
+        {
+          "id": "E013",
+          "bbox_xyxy_norm": [
+            0.49316,
+            0.52308,
+            0.53467,
+            0.5707
+          ],
+          "detector_class": "Gloves",
+          "ppe_type": "glove"
+        }
+      ],
+      "human_approved_associations": [
+        {
+          "equipment_id": "E001",
+          "person_id": "P002",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E002",
+          "person_id": "P001",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E003",
+          "person_id": "P003",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E004",
+          "person_id": "P004",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E005",
+          "person_id": "P004",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E006",
+          "person_id": "P003",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E007",
+          "person_id": "P002",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E008",
+          "person_id": "P001",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E009",
+          "person_id": "P002",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E010",
+          "person_id": "P001",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E011",
+          "person_id": "P001",
+          "status": "MATCHED"
+        },
+        {
+          "equipment_id": "E013",
+          "person_id": "P003",
+          "status": "MATCHED"
+        }
+      ],
+      "recorded_visual_states": [
+        {
+          "person_id": "P001",
+          "ppe_type": "hard_hat",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_vest",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "goggles",
+          "visual_state": "UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "face_mask",
+          "visual_state": "UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "glove",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_boot",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "hard_hat",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "safety_vest",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "goggles",
+          "visual_state": "UNKNOWN"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "face_mask",
+          "visual_state": "UNKNOWN"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "glove",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "safety_boot",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "hard_hat",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "safety_vest",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "goggles",
+          "visual_state": "UNKNOWN"
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "face_mask",
+          "visual_state": "UNKNOWN"
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "glove",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "safety_boot",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "hard_hat",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "safety_vest",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "goggles",
+          "visual_state": "UNKNOWN"
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "face_mask",
+          "visual_state": "UNKNOWN"
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "glove",
+          "visual_state": "PRESENT"
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "safety_boot",
+          "visual_state": "PRESENT"
+        }
+      ],
+      "task_mandates": [
+        {
+          "person_id": "P001",
+          "ppe_type": "hard_hat",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_vest",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "goggles",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "face_mask",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "glove",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P001",
+          "ppe_type": "safety_boot",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "hard_hat",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "safety_vest",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "goggles",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "face_mask",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "glove",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P002",
+          "ppe_type": "safety_boot",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "hard_hat",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "safety_vest",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "goggles",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "face_mask",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "glove",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P003",
+          "ppe_type": "safety_boot",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "hard_hat",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "safety_vest",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "goggles",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "face_mask",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "glove",
+          "mandate_status": "POLICY_UNKNOWN"
+        },
+        {
+          "person_id": "P004",
+          "ppe_type": "safety_boot",
+          "mandate_status": "POLICY_UNKNOWN"
+        }
+      ],
+      "zero_person_scene_human_signed": false
+    },
+    {
+      "case": "D",
+      "original_train_source_id": "0oVmRAxL0SM1PWqZCNyM",
+      "filename": "h1.jpg",
+      "case_id": "c197d82e-7870-42a3-bf94-462420d3f6a2",
+      "case_revision": 1,
+      "ground_truth_state": "incomplete",
+      "persons": [],
+      "items": [],
+      "human_approved_associations": [],
+      "recorded_visual_states": [],
+      "task_mandates": [],
+      "zero_person_scene_human_signed": false
+    }
+  ]
+}
