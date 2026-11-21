@@ -1,6 +1,8 @@
 # SEER-PPE — START HERE (Arabic / English)
 ## افتح هذا الملف من أي حساب ChatGPT أو GitHub لاستئناف رسالة الماجستير
 
+> **Latest active research — V22, manuscript v0.22 (21 Nov 2026):** [updated complete working paper](research/seer-ppe/MANUSCRIPT_MASTER.md) · [V22 measured current-label composition](research/seer-ppe/VALID_CURRENT_CLASS_SUPPORT_RISK_COHORTS_V22.json) · [V22 exact scientific checkpoint](research/seer-ppe/DUAL_TRACK_CHECKPOINT_2026-11-21_V22.md). **V21 below is a historical frozen handoff**, not the latest working paper. V22 integrated all 17-class Valid support, the 2025 historical model Valid numbers and six Discussion subsections into the main manuscript. No new SEER efficacy, source independence or Test score was claimed.
+
 **Last verified research handoff:** 21 November 2026 — **V21 archival/continuation snapshot, based on manuscript v0.20**.  
 **Researcher:** Ezzaldeen Al-Tayar; Faculty of Engineering and Information Technology, Taiz University, Taiz, Yemen; azzaltayyar@gmail.com.
 
