@@ -1,0 +1,20 @@
+# SEER-PPE V13 — independently inspectable execution and non-scoring CI evidence (21 November 2026)
+
+## Verified successful GitHub Actions (actual executions, not planned runs)
+
+1. [Original Valid to Clean17 direct-photo pilot, run 44843760745](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44843760745): **completed / success**. All 16 original and exported Valid photo bytes were SHA-verified against frozen historical manifests, with 16 high automated visual-content-consistency outcomes and 0 errors; includes all 5 previous source holds.
+2. [Full 459-image original Valid→Clean17 direct photo-content check, run 44843940099](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44843940099): **completed / success**. Actual log: `requested=459`, `source_and_export_sha_verified=459`, `high_content_consistency=459`, `errors=0`, `test_images_decoded=0`, `scientific_scoring_ready=false`.
+3. [Metadata-only archiver, run 44844196715](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44844196715): **completed / success**; persisted all **459 separate Source-ID/file correspondence, image-content score and SHA verification flag records** in [the durable V13 JSON](ORIGINAL_CLEAN17_VALID_IMAGE_CONTENT_V13.json). No media, signed URLs or credentials were archived.
+4. [Direct original Train↔Valid source-overlap assessment, run 44844340636](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44844340636): **completed / success**; 76 original Source files rechecked against historical SHA values and 50 cross-split candidate comparisons completed, 7 high pixel-alignment candidates, 43 nonhigh, zero raw-byte exact pairs; no new signed source-family verdicts.
+5. [V13 source and human-reference safeguards, run 44844686668](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44844686668): **completed / success**. Both `Verify V13 individual Person PPE and source signoff remain fail closed` and `Verify V13 all 459 original valid image content and 50 cross-split source-pair safeguards` steps **success**. This verifies the saved records and rejects synthetic false source-clearance.
+6. [Existing public engineering test suite, run 44844686548](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44844686548): **completed / success**.
+
+## Scope and claim integrity
+
+**Technical source→export correspondence:** strong and reproducible actual-image content evidence for all 459 corrected Valid files (gray SSIM minimum **0.90624**, median **0.98079**; normalized RGB MAE maximum **0.03084**). The two archived SHA-256 digests independently verify original and exported inputs; their bytes are not asserted to be equal. This does **not** certify independent acquisition or worksite lineage.
+
+**Source overlap:** Seven direct same-frame-consistency candidate pairs comprise **two** previously held Valid images, **four** additional retained Clean17 candidates already flagged for human source-family adjudication, and **one** historically excluded Clean17 source. The 22 May School – Aseefrah named site remains a documented shared source family despite distinct views. **No additional formal holds or human signoffs** are invented here.
+
+**Person–PPE:** four unrecorded Case B visual PPE cells and Case D no-person human signoff still require explicit individual research decisions; existing 19 approved links and 38/42 visual cells remain unchanged. The original detector was not retrained; no image annotation, split, workflow Eval Case or model weights were edited. No new Test image was decoded, used for inference or scoring. All scientific mAP, F1, compliance, XAI fidelity and electrical-energy results remain absent. The [Validation freeze](VALIDATION_PERSON_PPE_SCORING_FREEZE_2026-11-21_V11.json) stays unsigned and `scoring_ready=false`.
+
+[Paper v0.13](MANUSCRIPT_MASTER.md) · [Detailed V13 scientific report](DIRECT_IMAGE_AND_SOURCE_EVIDENCE_REPORT_2026-11-21_V13.md) · [V13 checkpoint](DUAL_TRACK_CHECKPOINT_2026-11-21_V13.md) · [Human-signoff packet](PERSON_PPE_PENDING_HUMAN_SIGNOFF_2026-11-21_V13.json).
