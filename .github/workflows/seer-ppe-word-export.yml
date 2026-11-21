@@ -1,0 +1,190 @@
+name: SEER-PPE manuscript and full handoff export to editable Word
+on:
+  push:
+    paths:
+      - research/seer-ppe/WORD_EXPORT_REQUEST_2026-11-21_V01.md
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  generate_and_verify_word:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install markdown-to-Word converter
+        run: |
+          python -m pip install --disable-pip-version-check pypandoc_binary python-docx
+      - name: Generate fully editable Word manuscripts from original checked-in Markdown
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from docx import Document
+          from docx.shared import Inches, Pt, RGBColor
+          from docx.enum.text import WD_ALIGN_PARAGRAPH
+          from docx.enum.style import WD_STYLE_TYPE
+          from docx.enum.table import WD_TABLE_ALIGNMENT
+          from docx.oxml import OxmlElement
+          from docx.oxml.ns import qn
+          import pypandoc
+
+          base=Path('research/seer-ppe')
+          out=base/'exports'
+          out.mkdir(parents=True,exist_ok=True)
+
+          # Reference doc styles control editable Pandoc DOCX appearance.
+          ref=Document()
+          sec=ref.sections[0]
+          sec.page_height=Inches(11.69)
+          sec.page_width=Inches(8.27)
+          sec.top_margin=Inches(.8)
+          sec.bottom_margin=Inches(.8)
+          sec.left_margin=Inches(.86)
+          sec.right_margin=Inches(.80)
+          sec.header_distance=Inches(.35)
+          sec.footer_distance=Inches(.35)
+
+          normal=ref.styles['Normal']
+          normal.font.name='Aptos'
+          normal.font.size=Pt(10.5)
+          normal.font.color.rgb=RGBColor(34,46,60)
+          normal.paragraph_format.space_after=Pt(6)
+          normal.paragraph_format.line_spacing=1.12
+
+          for idx,pt,color in [(1,16,RGBColor(19,51,82)),
+                                (2,13,RGBColor(29,77,115)),
+                                (3,11,RGBColor(35,84,117)),
+                                (4,10,RGBColor(35,84,117))]:
+              st=ref.styles[f'Heading {idx}']
+              st.font.name='Aptos Display'
+              st.font.size=Pt(pt)
+              st.font.bold=True
+              st.font.color.rgb=color
+              st.paragraph_format.space_before=Pt(12)
+              st.paragraph_format.space_after=Pt(5)
+              st.paragraph_format.keep_with_next=True
+
+          title=ref.styles['Title']
+          title.font.name='Aptos Display'
+          title.font.size=Pt(19)
+          title.font.bold=True
+          title.font.color.rgb=RGBColor(19,51,82)
+          title.paragraph_format.space_after=Pt(9)
+
+          for sty in ('Table Grid','Table Normal'):
+              if sty in ref.styles:
+                  st=ref.styles[sty]
+                  st.font.name='Aptos'
+                  st.font.size=Pt(9)
+
+          if 'Source Code' not in ref.styles:
+              st=ref.styles.add_style('Source Code',WD_STYLE_TYPE.PARAGRAPH)
+          else: st=ref.styles['Source Code']
+          st.font.name='Consolas'
+          st.font.size=Pt(8)
+          st.paragraph_format.space_after=Pt(4)
+
+          h=sec.header.paragraphs[0]
+          h.text='SEER-PPE  |  RESEARCH WORKING DRAFT'
+          h.style=normal
+          h.alignment=WD_ALIGN_PARAGRAPH.RIGHT
+          for run in h.runs:
+              run.font.size=Pt(8)
+              run.font.color.rgb=RGBColor(95,110,125)
+          f=sec.footer.paragraphs[0]
+          f.alignment=WD_ALIGN_PARAGRAPH.RIGHT
+          run=f.add_run('SEER-PPE  |  ')
+          run.font.size=Pt(8)
+          field=OxmlElement('w:fldSimple')
+          field.set(qn('w:instr'),'PAGE')
+          f._p.append(field)
+          refpath=Path('/tmp/seer_ppe_reference.docx')
+          ref.save(refpath)
+
+          jobs=[
+            (base/'MANUSCRIPT_MASTER.md',
+             out/'SEER_PPE_Research_Manuscript_v0.20_2026-11-21.docx',
+             'SEER-PPE Research Manuscript v0.20'),
+            (base/'SEER_PPE_COMPLETE_HANDOFF_2026-11-21_V21.md',
+             out/'SEER_PPE_Complete_Research_Handoff_V21_2026-11-21.docx',
+             'SEER-PPE Comprehensive Research Handoff V21')
+          ]
+          for source,target,subject in jobs:
+              assert source.exists() and len(source.read_text(encoding='utf8'))>15000,source
+              pypandoc.convert_file(str(source),to='docx',format='markdown',
+                  outputfile=str(target),
+                  extra_args=['--standalone','--toc','--toc-depth=3',
+                              '--reference-doc='+str(refpath)])
+              d=Document(target)
+              d.core_properties.author='Ezzaldeen Al-Tayar'
+              d.core_properties.title=subject
+              d.core_properties.subject='Academic research working draft and reproducibility handoff'
+              d.save(target)
+              assert target.stat().st_size>15000,target
+              print(f'GENERATED {target} | bytes={target.stat().st_size} | paragraphs={len(d.paragraphs)} | tables={len(d.tables)}')
+          print('SEER_PPE_TWO_COMPLETE_WORD_DOCX_EXPORTS_GENERATED_FROM_SOURCE_MARKDOWN')
+          PY
+      - name: Verify all Word contents against the true source files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from docx import Document
+          import zipfile
+          b=Path('research/seer-ppe/exports')
+          manuscript=b/'SEER_PPE_Research_Manuscript_v0.20_2026-11-21.docx'
+          handoff=b/'SEER_PPE_Complete_Research_Handoff_V21_2026-11-21.docx'
+          for p in (manuscript,handoff):
+              assert p.exists() and p.stat().st_size>15000
+              with zipfile.ZipFile(p) as z:
+                  assert z.testzip() is None
+              d=Document(p)
+              text='\n'.join(p.text for p in d.paragraphs)+'\n'+ '\n'.join(' '.join(c.text for c in row.cells) for t in d.tables for row in t.rows)
+              assert len(text)>8000,(p,len(text))
+              assert 'SEER-PPE' in text
+              print('DOCX_STRUCTURE_OK',p,len(text),'chars',len(d.tables),'tables')
+          m=Document(manuscript)
+          mt='\n'.join(x.text for x in m.paragraphs)
+          for value in ('Ezzaldeen Al-Tayar','Taiz University','azzaltayyar@gmail.com',
+                        'Results','Discussion','Limitations','Appendix M.',
+                        '0.885018','459'):
+              assert value in mt or any(value in c.text for t in m.tables for r in t.rows for c in r.cells),value
+          h=Document(handoff)
+          ht='\n'.join(x.text for x in h.paragraphs)
+          for value in ('V21','2026','V20','NOT_FROZEN','scoring_ready=false'):
+              assert value in ht or any(value in c.text for t in h.tables for r in t.rows for c in r.cells),value
+          print('SEER_PPE_WORD_AUTHOR_V20_HISTORICAL_LIMITS_AND_HANDOFF_CONTENT_VERIFIED')
+          PY
+      - name: Render Word to PDF for layout validation
+        run: |
+          set -euo pipefail
+          if ! command -v libreoffice >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq libreoffice-writer poppler-utils >/dev/null
+          fi
+          mkdir -p /tmp/seer_ppe_word_render
+          libreoffice -env:UserInstallation=file:///tmp/lo_seer_ppe_word_export \
+            --headless --convert-to pdf --outdir /tmp/seer_ppe_word_render \
+            research/seer-ppe/exports/*.docx
+          for pdf in /tmp/seer_ppe_word_render/*.pdf; do
+            test -s "$pdf"
+            pdfinfo "$pdf" | grep Pages
+            pdftotext -layout "$pdf" /tmp/seer_ppe_word_render/tmp.txt
+            grep -q 'SEER-PPE' /tmp/seer_ppe_word_render/tmp.txt
+            pdftoppm -f 1 -l 1 -scale-to 1000 -png -singlefile "$pdf" /tmp/seer_ppe_word_render/preview
+            test -s /tmp/seer_ppe_word_render/preview.png
+          done
+          echo 'SEER_PPE_DOCX_RENDER_PDF_TEXT_AND_FIRST_PAGE_PREVIEW_CHECK_PASS'
+      - name: Archive Word files in the public repo for direct download in another account
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/seer-ppe/exports/*.docx
+          git diff --cached --quiet && exit 0
+          git commit -m 'docs(seer-ppe): archive editable Word manuscript v0.20 and comprehensive V21 handoff'
+          git pull --rebase origin main
+          git push origin HEAD:main
