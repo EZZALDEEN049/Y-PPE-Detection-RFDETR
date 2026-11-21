@@ -1,0 +1,62 @@
+name: SEER-PPE V25 true saved model A2-A5 paired routing and fail-closed safety tests
+on:
+  push:
+    paths:
+      - 'research/seer-ppe/V25_RUN_PAIRED_ROUTING_REQUEST.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fixed_model_A2_A5_paired_routing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Enforce frozen V25 safety policy and negative unit tests
+        run: node research/seer-ppe/tools/run_v25_paired_selective_routing.mjs --self-test
+      - name: Actually run A2 and A5 on saved original-model Train and Valid detections
+        run: |
+          node research/seer-ppe/tools/run_v25_paired_selective_routing.mjs --audit \
+            research/seer-ppe/ACTUAL_A0_A2_A5_PAIRED_OFFLINE_ROUTING_V25.json
+      - name: Check true real-input pairing, matched budgets and absence of fake PPE compliance
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const x=JSON.parse(fs.readFileSync('research/seer-ppe/ACTUAL_A0_A2_A5_PAIRED_OFFLINE_ROUTING_V25.json','utf8'));
+          assert.equal(x.schema_version,'seer-ppe/v25-real-saved-prediction-A2-A5-safety-matched-offline-routing/v0.25');
+          assert.equal(x.model_id,'altayyar-0oflt-lafos-qqauz/2');
+          assert.equal(x.aggregate.images,9);
+          assert.equal(x.aggregate.Train_images,4);
+          assert.equal(x.aggregate.historically_exposed_original_Valid_images,5);
+          assert.equal(x.aggregate.original_detector_boxes,74);
+          assert.equal(x.aggregate.proposed_request_budget_matched_for_every_image,true);
+          assert.equal(x.aggregate.A2_proposed_XAI_requests_NOT_executed,x.aggregate.A5_proposed_XAI_requests_NOT_executed);
+          assert.equal(x.aggregate.A2_proposed_review_items_NOT_dispatched,x.aggregate.A5_proposed_review_items_NOT_dispatched);
+          assert.equal(x.aggregate.actual_worker_safe_clearances_in_V25,0);
+          assert.equal(x.aggregate.actual_XAI_calls_in_V25,0);
+          assert.equal(x.aggregate.actual_human_review_dispatched_in_V25,0);
+          assert.equal(x.no_new_hosted_inference_performed,true);
+          assert.equal(x.no_test_or_external_holdout_used,true);
+          assert.equal(x.actual_person_level_compliance_efficacy_measured,false);
+          assert.equal(x.SEER_safety_or_energy_superiority_supported,false);
+          assert.equal(x.strict_scientific_worker_safety_scoring_ready,false);
+          assert(x.paired_images.every(r=>r.A2.scene_safe_clearance===null&&r.A5.scene_safe_clearance===null&&
+           r.A2.task_policy_status==='POLICY_UNKNOWN'&&r.A5.task_policy_status==='POLICY_UNKNOWN'&&
+           r.A2.actual_review_dispatched===false&&r.A5.actual_review_dispatched===false));
+          console.log('SEER_V25_ACTUAL_MATCHED_A2_A5_ROUTING_74_BOXES_SAFETY_ABSTENTION_NONINFERENCE_PASS');
+          JS
+      - name: Save reproducible actual A2 A5 routing proposals
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/seer-ppe/ACTUAL_A0_A2_A5_PAIRED_OFFLINE_ROUTING_V25.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'research(seer-ppe): archive actual V25 A0/A2/A5 matched budget policy routing'
+          git pull --rebase origin main
+          git push origin HEAD:main
