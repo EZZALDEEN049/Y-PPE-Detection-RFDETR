@@ -170,6 +170,26 @@ jobs:
         run: |
           node research/seer-ppe/tools/validate_v14_quarantine_and_freeze.mjs --self-test
           node research/seer-ppe/tools/validate_v14_quarantine_and_freeze.mjs --verify
+      - name: Verify V15 SHA-pinned per-source and Train-PPE signing safeguards fail closed
+        run: |
+          node research/seer-ppe/tools/compile_v15_source_qualification_and_ppe.mjs --self-test
+          node research/seer-ppe/tools/compile_v15_source_qualification_and_ppe.mjs --audit /tmp/seer-v15-readiness.json > /tmp/seer-v15-readiness-log.txt
+          cmp research/seer-ppe/VALIDATION_459_SIGNED_SOURCE_COHORT_READINESS_V15.json /tmp/seer-v15-readiness.json
+          grep -q 'SEER_V15_459_DIRECT_MEDIA_SOURCE_ATTESTATION_AND_PPE_READINESS_FAIL_CLOSED_PASS' /tmp/seer-v15-readiness-log.txt
+      - name: Verify V15 independently signed original Valid human-gold contract is not fabricated
+        run: |
+          node research/seer-ppe/tools/validate_v15_validation_person_reference.mjs --self-test
+          node research/seer-ppe/tools/validate_v15_validation_person_reference.mjs --audit > /tmp/seer-v15-human-gold.txt
+          grep -q 'SEER_V15_NO_HUMAN_SIGNED_VALID_REFERENCE_YET_FAIL_CLOSED_PASS' /tmp/seer-v15-human-gold.txt
+      - name: Enforce V15 scientific freeze not authorized by incomplete evidence
+        run: |
+          set -euo pipefail
+          if node research/seer-ppe/tools/compile_v15_source_qualification_and_ppe.mjs --gate > /tmp/seer-v15-denied.txt 2>&1; then
+            echo 'UNSAFE_V15_SCIENTIFIC_SCORE_AUTHORIZED_WITH_NO_SIGNED_COHORT' >&2
+            exit 2
+          fi
+          grep -q 'V15_FREEZE_GATED_NO_SCIENTIFIC_SCORE' /tmp/seer-v15-denied.txt
+          echo 'SEER_V15_FINAL_INDEPENDENT_VALIDATION_FREEZE_FAIL_CLOSED_PASS'
       - name: Scientific status boundary
         run: |
           echo 'RESEARCH_GATES_ONLY: no original image bytes, no Test inspection, no model inference'

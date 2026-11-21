@@ -1,0 +1,64 @@
+{
+  "schema_version": "seer-ppe/checkpoint/v0.15",
+  "date": "2026-11-21",
+  "supersedes": "DUAL_TRACK_CHECKPOINT_2026-11-21_V14.json",
+  "status": "SOURCE_FAMILY_AND_VALIDATION_PERSON_HUMAN_ATTESTATION_CONTRACTS_EXECUTED_SCIENCE_FREEZE_NOT_READY",
+  "source_to_clean17_direct_image_correspondence": {
+    "verified_files": 459,
+    "historically_excluded_original_valid": 9
+  },
+  "clean17_valid_quarantine": {
+    "total": 459,
+    "existing_research_holds": 5,
+    "additional_technical_high_overlap_unsigned": 6,
+    "other_flagged_source_lineage_unsigned": 81,
+    "unflagged_but_independence_uncertified": 367,
+    "new_human_source_independence_signatures": 0,
+    "independent_source_scoring_cohort": 0
+  },
+  "person_ppe_train_controls": {
+    "cases": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "live_revisions": [
+      2,
+      2,
+      4,
+      1
+    ],
+    "human_approved_item_owner_links": 19,
+    "visual_worker_PPE_states_saved": 38,
+    "visual_worker_PPE_states_expected": 42,
+    "missing_B_visual_cells": 4,
+    "D_zero_person_human_review_signed": false,
+    "additional_human_decisions_signed": 0
+  },
+  "independently_signed_original_Valid_person_PPE_gold": {
+    "images": 0,
+    "persons": 0,
+    "strict_schema_executable": true
+  },
+  "freeze": {
+    "state": "NOT_FROZEN",
+    "authorized": false,
+    "test_authorized": false,
+    "scoring_ready": false
+  },
+  "original_detector_model_modified": false,
+  "original_images_annotations_splits_modified": false,
+  "roboflow_evals_modified": false,
+  "test_images_decoded": false,
+  "scientific_model_accuracy": null,
+  "energy_joules": null,
+  "xai_faithfulness": null,
+  "evidence": {
+    "source_readiness": "VALIDATION_459_SIGNED_SOURCE_COHORT_READINESS_V15.json",
+    "source_attestation_register": "SOURCE_FAMILY_SIGNED_ATTESTATIONS_V15.json",
+    "train_reference_attestation_register": "TRAIN_REFERENCE_SIGNED_ATTESTATIONS_V15.json",
+    "valid_gold_attestation_register": "VALIDATION_PERSON_PPE_SIGNED_REFERENCE_V15.json",
+    "manuscript": "MANUSCRIPT_MASTER.md"
+  }
+}

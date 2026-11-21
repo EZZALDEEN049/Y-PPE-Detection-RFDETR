@@ -6,7 +6,7 @@
  * Live Roboflow Train-only reference decisions are a separate gold population.
  */
 import assert from 'node:assert/strict';
-import {readFileSync,writeFileSync,existsSync} from 'node:fs';
+import {readFileSync,writeFileSync,existsSync,realpathSync} from 'node:fs';
 import {resolve,relative,sep} from 'node:path';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
@@ -17,7 +17,7 @@ const SHA=s=>createHash('sha256').update(s).digest('hex');
 const fail=s=>{throw Error('V15_EVIDENCE_GATE_BLOCKED:'+s);};
 const check=(v,s)=>{if(!v)fail(s);};
 const nonempty=s=>typeof s==='string'&&s.trim().length>=3;
-const iso=s=>typeof s==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(s)&&!Number.isNaN(Date.parse(s+'T00:00:00Z'));
+const iso=s=>typeof s==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(s)&&!Number.isNaN(Date.parse(s+'T00:00:00Z'))&&new Date(s+'T00:00:00Z').toISOString().slice(0,10)===s;
 const ENUM=['INDEPENDENT_SOURCE_SUPPORTED','SHARED_CAPTURE_SESSION_OR_SITE','SAME_IMAGE_OR_DERIVATIVE','SAME_ITEM_DISTINCT_PHOTO','UNRESOLVED'];
 function pinnedRef(path,hash){
  check(typeof path==='string'&&/^[A-Za-z0-9][A-Za-z0-9_./-]*\.(?:md|json|csv)$/.test(path),'malformed evidence path');
@@ -25,8 +25,11 @@ function pinnedRef(path,hash){
  const target=resolve(ROOT,path);
  const rel=relative(ROOT,target);
  check(rel&&!rel.startsWith('..'+sep)&&rel!=='..'&&existsSync(target),'evidence file absent');
+ const real=realpathSync(target),sublocation=relative(ROOT,real);
+ check(sublocation&&!sublocation.startsWith('..'+sep)&&sublocation!=='..',
+  'evidence symlink escapes repository');
  check(typeof hash==='string'&&/^[a-f0-9]{64}$/.test(hash),'missing pinned evidence SHA');
- check(SHA(readFileSync(target))===hash,'evidence file SHA differs from reviewer attestation');
+ check(SHA(readFileSync(real))===hash,'evidence file SHA differs from reviewer attestation');
  return true;
 }
 function validateSourceDecision(d,source){
@@ -225,6 +228,9 @@ function selfTest(){
  assert.equal(stillBlocked.individually_attested_nonconflicting_sources_pending_protocol,0);
  const mutated=structuredClone(variant);mutated.decisions[0].evidence_sha256='0'.repeat(64);
  assert.throws(()=>evaluate(q,mutated,emptyHuman,packet,m,f));
+ const invalidCalendarDate=structuredClone(variant);
+ invalidCalendarDate.decisions[0].signed_date='2026-02-30';
+ assert.throws(()=>evaluate(q,invalidCalendarDate,emptyHuman,packet,m,f));
  const guessed=structuredClone(emptyHuman);guessed.case_B_visual_decisions=[
    {slot_id:'B_P001_face_mask',human_visual_state:'ABSENT',reviewer_id:'guess',signed_date:'2026-11-21'}];
  assert.throws(()=>evaluate(q,emptySource,guessed,packet,m,f));
