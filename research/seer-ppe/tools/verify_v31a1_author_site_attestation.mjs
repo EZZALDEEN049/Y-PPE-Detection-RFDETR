@@ -52,7 +52,7 @@ function audit(evidence,overlay,priority,ready,record){
   assert.deepEqual(validIds.slice().sort(),record.valid_members.map(x=>x.source_id).sort());
   assert.equal(record.verdict,'SHARED_CAPTURE_SESSION_OR_SITE');
   assert.equal(record.site_family_id,'site_school_22may_aseefrah');
-  assert.equal(record.author_scope.same_project_site,true);
+  assert.equal(record.author_scope.confirms_same_project_site,true);
   assert.equal(record.author_scope.permits_different_angles_or_times,true);
   assert.equal(record.author_scope.same_original_frame_asserted,false);
   assert.equal(record.author_scope.same_capture_session_asserted,false);
