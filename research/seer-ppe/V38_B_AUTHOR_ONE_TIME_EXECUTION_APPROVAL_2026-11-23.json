@@ -1,0 +1,28 @@
+{
+  "schema_version": "seer-ppe/v38b-author-execution-approval/v1",
+  "approval_source": "user_explicit_instruction_2026_11_23_advance_to_actual_execution",
+  "author_consent_context": "After being asked explicitly whether to authorize a single V38-B experiment on the 24 frozen Valid images and 48 frozen target detections, with a maximum of 6000 Roboflow model calls using available Research Plan credits, no retraining and no Test, the author responded in Arabic: انتقل الى التشغيل الفعلي",
+  "authorized": true,
+  "approved_by_author": true,
+  "study": "V38_B_FROZEN_24_VALID_48_TARGETS",
+  "model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "intended_calls": 5200,
+  "max_attempted_model_calls": 6000,
+  "approved_credit_cost_limit": 1.125,
+  "credit_limit_status": "planning equivalent only, based on public RF-DETR Small standard tariff; not direct provider billing charge control",
+  "credit_source": "Research Plan November 2026 included monthly balance as shown in user-provided screenshots; no credit purchase, upgrade or Flex activation allowed",
+  "one_time": true,
+  "excluded_test": true,
+  "no_training": true,
+  "no_dataset_modifications": true,
+  "no_autoretry": true,
+  "wire_encoding": "JPEG_quality_95_chroma_444_fixed_all_requests",
+  "research_scope": "development_exposed_internal_Validation_diagnostic; no external generalization or worker compliance claims",
+  "frozen_git_blob_sha1": {
+    "research/seer-ppe/V38_B_FROZEN_CANDIDATE_SAMPLE_2026-11-23.json": "2445e0a02ce69b3eb44b07763c0ea51d096fae4a",
+    "research/seer-ppe/V38_B_CURRENT_SOURCE_EXIF_AWARE_SHA256_PREFLIGHT_2026-11-23.json": "3f873c00963f3ebc2151950276bcbb002cd739ec",
+    "research/seer-ppe/tools/run_v38b_xai.py": "902307a560b0b1d9bd80cb500509c5d0ccf81f9e",
+    "research/seer-ppe/tools/fetch_v38b_originals_cloud.py": "1dc037bb7469e560d43eb145b7bcf98e6cc3b62c"
+  },
+  "outcome_policy": "All observed losses, ambiguity, zero overlap, negative effects and failures must be preserved as recorded, without target replacement or silent retries."
+}
