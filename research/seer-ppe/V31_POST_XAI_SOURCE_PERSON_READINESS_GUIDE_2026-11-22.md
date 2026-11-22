@@ -50,3 +50,16 @@ These are prospective signatures, **not declarations that the researcher must re
 `scoring_ready=false` and `NOT_FROZEN` remain the only supported statuses for source-independent worker-level SEER-PPE effectiveness. This V31 work creates no new Roboflow inferences, source-image mutations, model retraining, Test viewing, signed reviewer decisions or compliance scores. V30 progressive AUC is **completed** but does not supersede the human/source gates.
 
 Read-only executable verification: [`tools/verify_v31_post_xai_readiness.mjs`](tools/verify_v31_post_xai_readiness.mjs) with `--verify` and mutation-sensitive `--self-test`. Any later legitimate human/source registry update must regenerate the administrative ledger; the validator intentionally fails closed against stale claim counts.
+
+
+## V31-A completed — read-only reconciliation of all 11 P0 source packets (22 November 2026)
+
+The 11 frozen cases have now been reconciled against **33 saved original Train–Valid pair measurements** from V14 and the prior V18 visual-site record. No new photo review was requested or performed. [The detailed machine-readable dossier](V31_A_SOURCE_LINEAGE_RECONCILIATION_2026-11-22.json) and [human-readable case table](V31_A_SOURCE_LINEAGE_RECONCILIATION_2026-11-22.md) preserve every original Valid ID, strongest Train candidate, SSIM/MAE, ORB matches/inliers, embedding score where present, image dimensions, raw-byte inequality and current hold status. [The V31-A validator](tools/verify_v31a_source_reconciliation.mjs) passed its mutation tests and full read-only CI [run 44967406330](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44967406330); public engineering tests also passed [run 44967406346](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44967406346).
+
+### Specific source correction
+
+The prior visual record shows Valid `IMG-20250416-WA0063.jpg` and `IMG-20250416-WA0051.jpg`, together with Train `IMG-20250416-WA0067.jpg` and `IMG-20250416-WA0066(1).jpg`, all bearing the named **مدرسة 22 مايو – عصيفرة** site. Preserve the two Valid site-family holds. In contrast, the earlier visual record identifies Valid `IMG-20250416-WA0026.jpg` as **مدرسة الشهيد العلفي**, a different named site; do not group WA0026 with the 22 May school based only on the WA filename prefix. However, its Train `IMG-20250416-WA0079.jpg` match remains a strong unresolved image-lineage issue (SSIM 0.93240; 756 ORB matches/751 inliers), so its historical hold is **not released**.
+
+### V31-A status boundary
+
+**11/11 technical packets reconciled; 5 historical holds and 6 technical quarantines preserved; 33 pair records checked; 0 new human attestations; 0 releases; 0 newly eligible scoring images.** This work does not certify source independence. The next necessary input is the author's specific acquisition/site/session knowledge for unresolved pairs, recorded transparently as an actual human attestation rather than inferred from image metrics. No model calls, Test access, original image reopening, dataset writes or repeated general image review occurred.
