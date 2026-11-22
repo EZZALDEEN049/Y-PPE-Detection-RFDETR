@@ -673,7 +673,17 @@ def main() -> int:
         }, indent=2))
         return 2
 
-    predictor = BudgetedHostedPredictor(args.output, MAX_ADDITIONAL_CALLS)
+    try:
+        predictor = BudgetedHostedPredictor(args.output, MAX_ADDITIONAL_CALLS)
+    except Exception as error:
+        print(json.dumps({
+            "status": "BLOCKED_NO_MODEL_CALLS",
+            "error_type": type(error).__name__,
+            "reason": "hosted predictor could not be initialized; no inference was started",
+            "no_test_accessed": True,
+        }, indent=2))
+        return 2
+
     try:
         result = run_experiment(manifest, prepared, hash_records, v30, predictor, args.output)
     except Exception as error:
