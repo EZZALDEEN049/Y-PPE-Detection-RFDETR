@@ -1,0 +1,45 @@
+name: SEER-PPE V38 offline image-cluster robustness audit
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - .github/workflows/seer-ppe-v38-offline-robustness.yml
+      - tools/v38_offline_image_cluster_sensitivity.py
+      - research/seer-ppe/V34A_SPATIAL_MAP_ALIGNMENT_RANK_CORRELATION_2026-11-22.json
+      - research/seer-ppe/V38_A_IMAGE_CLUSTER_SENSITIVITY_REPORT_2026-11-23.md
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run offline-only leave-one-image-out from original V34A JSON
+        run: |
+          python tools/v38_offline_image_cluster_sensitivity.py > /tmp/v38_loio.json
+          python - <<'PY'
+          import json
+          d=json.load(open('/tmp/v38_loio.json'))
+          assert d['n_targets']==10 and d['n_unique_images']==8
+          x=d['metrics']
+          for name,expected in [('spearman_rho',0.541565901847459),('kendall_tau_b',0.4238764616398565),('top_four_fraction',0.65)]:
+              assert abs(x[name]['target_weighted_full_mean']-expected)<1e-12
+              assert len(x[name]['leave_one_image_out'])==8
+          assert abs(x['spearman_rho']['image_equal_weight_mean']-0.5459512132313592)<1e-12
+          assert abs(x['spearman_rho']['leave_one_image_out_min']-0.5129867890740296)<1e-12
+          assert abs(x['spearman_rho']['leave_one_image_out_max']-0.5789156373886889)<1e-12
+          assert abs(x['top_four_fraction']['leave_one_image_out_min']-0.625)<1e-12
+          assert abs(x['top_four_fraction']['leave_one_image_out_max']-0.71875)<1e-12
+          print('V38_OFFLINE_IMAGE_CLUSTER_SENSITIVITY_QA_PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v38-offline-image-cluster-sensitivity
+          path: /tmp/v38_loio.json
+          retention-days: 30
