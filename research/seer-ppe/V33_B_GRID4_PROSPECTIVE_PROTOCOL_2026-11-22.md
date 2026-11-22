@@ -49,3 +49,12 @@ Until these gates pass, **V33-B remains an unexecuted prospective protocol**. V3
   - `ROBOFLOW_API_KEY=... python tools/run_v33b_grid4_xai.py --images-dir PATH_TO_FROZEN_V30_IMAGES --confirm-additional-call-budget 496 --output PATH_TO_V33B_RESULTS_JSON`
 - Every inference attempt is written to a partial call ledger before the request; failures are retained and not automatically retried. The public engineering workflow includes synthetic V33-B tests and does not run hosted inference.
 - Implementation, tests and CI wiring do not constitute V33-B scientific results. Execution remains **NOT STARTED** until separate budget authorization and successful preflight.
+
+
+## Ephemeral cloud execution workflow
+
+- The dedicated one-time cloud workflow is \`.github/workflows/seer-ppe-v33b-authorized-once.yml\`. Ordinary pushes do not invoke it; it listens only for the dedicated authorization record path.
+- After explicit author approval, the authorization record must be created at \`V33_B_CLOUD_EXECUTION_AUTHORIZATION_2026-11-22.json\` with the exact frozen scope, 4x4 grid, eight Train/Valid images, ten targets, zero Test images and \`max_additional_calls: 496\`. Its commit message must be exactly \`V33B-AUTHORIZED-ONCE: execute frozen 4x4 XAI\`.
+- The workflow downloads only the eight frozen V30 originals to an ephemeral GitHub Actions runner, performs zero-call SHA/target preflight, checks the repository secret \`ROBOFLOW_API_KEY\` without printing it, and then runs the gated 496-call runner.
+- A successful numeric result or a failed partial call ledger is committed back to the research branch; either artifact blocks duplicate execution. Raw images and credentials are never uploaded or committed.
+- **No authorization record currently exists, so this workflow has not been triggered and has not spent any calls.**
