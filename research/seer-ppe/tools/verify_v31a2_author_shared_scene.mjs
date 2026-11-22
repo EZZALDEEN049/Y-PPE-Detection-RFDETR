@@ -32,7 +32,7 @@ function audit(evidence,overlay,priority,ready,record){
   assert.equal(d.reviewer_id,'dataset_author_chat_attestation');
   assert.equal(d.signed_date,'2026-11-22');
   assert.equal(d.per_source_reviewer_inspected_evidence,true);
-  assert.ok(d.evidence_basis.includes('same scene content with changes and processing'));
+  assert.ok(d.evidence_basis.includes('same scene with changes and processing'));
   assert.equal(d.evidence_ref,evidencePath);
   assert.equal(d.evidence_sha256,expectedSha);
   assert.equal(d.acquisition_site_id,null);
