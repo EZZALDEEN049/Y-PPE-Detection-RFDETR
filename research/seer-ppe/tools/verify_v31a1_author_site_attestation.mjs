@@ -74,7 +74,7 @@ function audit(evidence,overlay,priority,ready,record){
     assert.equal(x.human_acquisition_site_id,'site_school_22may_aseefrah');
     assert.equal(x.human_capture_session_id,null);
     assert.equal(x.human_source_family_attestation,'AUTHOR_ATTESTED_SHARED_SITE_WITH_TRAIN');
-    assert.equal(x.eligible_for_source_independent_scoring,false);
+    assert.equal(x.currently_eligible_for_independent_scoring,false);
   }
   return {status:'PASS_V31_A1_AUTHOR_SITE_ATTESTATION_AND_HARD_HOLD_PRESERVATION',
     valid_author_attestations:2,train_site_family_members:2,
