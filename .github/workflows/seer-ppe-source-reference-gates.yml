@@ -239,6 +239,10 @@ jobs:
         run: |
           node research/seer-ppe/tools/verify_v31a3_dataset_level_acquisition_curation.mjs --self-test
           node research/seer-ppe/tools/verify_v31a3_dataset_level_acquisition_curation.mjs --verify
+      - name: Verify V33 actual target-matched A5/A6 numeric robustness with mutation tests (no model calls)
+        run: |
+          node research/seer-ppe/tools/verify_v33_existing_xai.mjs --self-test
+          node research/seer-ppe/tools/verify_v33_existing_xai.mjs --verify
       - name: Verify V16 actual Roboflow Train-only predictions and abstention engineering regression
         run: |
           node research/seer-ppe/tools/review_real_train_detection_geometry_v16.mjs --self-test
