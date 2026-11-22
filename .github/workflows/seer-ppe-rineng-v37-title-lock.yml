@@ -1,0 +1,152 @@
+name: SEER-PPE RINENG V37 Author-Approved Title Word Package
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - .github/workflows/seer-ppe-rineng-v37-title-lock.yml
+      - research/seer-ppe/submissions/results-in-engineering/RINENG_MANUSCRIPT_V37_TITLE_APPROVED_2026-11-23.md
+      - research/seer-ppe/submissions/results-in-engineering/RINENG_TITLE_PAGE_V37_TITLE_APPROVED_2026-11-23.md
+      - research/seer-ppe/submissions/results-in-engineering/RINENG_COVER_LETTER_V37_TITLE_APPROVED_DRAFT_2026-11-23.md
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Word and rendering tooling
+        run: |
+          python -m pip install --disable-pip-version-check python-docx pypandoc_binary
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice-writer poppler-utils >/dev/null
+      - name: Exact title-only manuscript regression and generate Word package
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from docx import Document
+          from docx.shared import Pt, Inches
+          from docx.enum.text import WD_ALIGN_PARAGRAPH
+          import pypandoc, shutil, zipfile
+          root=Path('research/seer-ppe')
+          src=root/'submissions/results-in-engineering'
+          out=root/'exports'
+          out.mkdir(parents=True,exist_ok=True)
+          old='Engineering evaluation of target-matched perturbation sensitivity and grid-resolution stability in personal protective equipment detection'
+          new='Cross-Resolution Consistency of Target-Matched Perturbation Sensitivity Maps for Personal Protective Equipment Detection'
+          v36=(src/'RINENG_MANUSCRIPT_V36_v0.2_2026-11-23.md').read_text()
+          v37=(src/'RINENG_MANUSCRIPT_V37_TITLE_APPROVED_2026-11-23.md').read_text()
+          assert v36.count(old)==1 and v37==v36.replace(old,new)
+          c36=(src/'RINENG_COVER_LETTER_DRAFT_2026-11-23.md').read_text()
+          c37=(src/'RINENG_COVER_LETTER_V37_TITLE_APPROVED_DRAFT_2026-11-23.md').read_text()
+          assert c36.count(old)==2 and c37==c36.replace(old,new)
+          t36=(src/'RINENG_V37_TITLE_PAGE_CANDIDATE_2026-11-23.md').read_text()
+          t37=(src/'RINENG_TITLE_PAGE_V37_TITLE_APPROVED_2026-11-23.md').read_text()
+          assert t36.count(old)==1 and t37==t36.replace(old,new)
+          orig=out/'RINENG_V36_Manuscript_v0.2_2026-11-23.docx'
+          assert orig.exists() and orig.stat().st_size>100_000
+          doc=Document(orig)
+          paras=[p for p in doc.paragraphs if old in p.text]
+          assert len(paras)==1, [(p.style.name,p.text[:80]) for p in paras]
+          p=paras[0]
+          original_text=p.text
+          assert p.runs
+          for r in p.runs: r.text=''
+          p.runs[0].text=original_text.replace(old,new)
+          doc.core_properties.title=new
+          manuscript=out/'RINENG_V37_Manuscript_Title_Approved_2026-11-23.docx'
+          doc.save(manuscript)
+          check=Document(manuscript)
+          assert len(check.tables)==3 and len(check.inline_shapes)==1
+          assert sum(new in p.text for p in check.paragraphs)==1
+          assert not any(old in p.text for p in check.paragraphs)
+          assert sum(p.text.strip()=='## References' for p in check.paragraphs)==0  # Word paragraph style conversion
+          assert '0.8706' in '\n'.join(p.text for p in check.paragraphs)
+          assert '0.5416' in '\n'.join(p.text for p in check.paragraphs)
+          title=Document()
+          sec=title.sections[0]; sec.page_width=Inches(8.27); sec.page_height=Inches(11.69)
+          sec.top_margin=sec.bottom_margin=Inches(.82)
+          sec.left_margin=sec.right_margin=Inches(.88)
+          title.styles['Normal'].font.name='Liberation Serif'
+          title.styles['Normal'].font.size=Pt(11)
+          h=title.add_paragraph(style='Title'); h.alignment=WD_ALIGN_PARAGRAPH.CENTER; h.add_run(new)
+          a=title.add_paragraph();a.alignment=WD_ALIGN_PARAGRAPH.CENTER
+          r=a.add_run('Ezzaldeen Al-Tayar');r.bold=True
+          r=a.add_run('a');r.font.superscript=True
+          r=a.add_run('*');r.font.superscript=True
+          a=title.add_paragraph();a.alignment=WD_ALIGN_PARAGRAPH.CENTER
+          r=a.add_run('a');r.font.superscript=True
+          a.add_run(' Faculty of Engineering and Information Technology, Taiz University, [FULL OFFICIAL POSTAL ADDRESS TO VERIFY], Taiz, Yemen')
+          p=title.add_paragraph('Corresponding author: Ezzaldeen Al-Tayar');p.alignment=WD_ALIGN_PARAGRAPH.CENTER
+          p=title.add_paragraph('Email: azzaltayyar@gmail.com');p.alignment=WD_ALIGN_PARAGRAPH.CENTER
+          title.add_heading('AUTHOR VERIFICATION COPY — NOT FINAL',level=2)
+          for s in ['Confirm exact names, all coauthors and author order.','Replace postal-address placeholder with the correct official complete institutional postal address.','Verify corresponding author and email.','Remove this internal note before final editorial upload.']:
+            title.add_paragraph(s,style='List Bullet')
+          title.core_properties.title=new
+          title_file=out/'RINENG_V37_Title_Page_Author_Verification_2026-11-23.docx'
+          title.save(title_file)
+          cover_file=out/'RINENG_V37_Cover_Letter_Draft_2026-11-23.docx'
+          pypandoc.convert_file(str(src/'RINENG_COVER_LETTER_V37_TITLE_APPROVED_DRAFT_2026-11-23.md'),to='docx',format='markdown',outputfile=str(cover_file),extra_args=['--standalone'])
+          hd=out/'RINENG_V36_Highlights_v0.1_2026-11-23.docx'
+          assert hd.exists()
+          highlights=out/'RINENG_V37_Highlights_2026-11-23.docx'
+          shutil.copyfile(hd,highlights)
+          for f in [manuscript,title_file,cover_file,highlights]:
+            with zipfile.ZipFile(f) as z: assert z.testzip() is None
+            assert f.stat().st_size>7000
+            print('V37_TITLE_APPROVED_DOCX_OK',f,f.stat().st_size)
+          print('V37_TITLE_ONLY_SCIENTIFIC_REGRESSION_PASS')
+          PY
+      - name: Render manuscript first page and title page for structural QA
+        run: |
+          mkdir -p /tmp/rineng_v37_render
+          for f in research/seer-ppe/exports/RINENG_V37_Manuscript_Title_Approved_2026-11-23.docx research/seer-ppe/exports/RINENG_V37_Title_Page_Author_Verification_2026-11-23.docx; do
+            libreoffice -env:UserInstallation=file:///tmp/lo_rineng_v37 --headless --convert-to pdf --outdir /tmp/rineng_v37_render "$f"
+          done
+          test -s /tmp/rineng_v37_render/RINENG_V37_Manuscript_Title_Approved_2026-11-23.pdf
+          pdftotext -layout /tmp/rineng_v37_render/RINENG_V37_Manuscript_Title_Approved_2026-11-23.pdf /tmp/rineng_v37_render/main.txt
+          pdftotext -layout /tmp/rineng_v37_render/RINENG_V37_Title_Page_Author_Verification_2026-11-23.pdf /tmp/rineng_v37_render/title.txt
+          grep -q 'Cross-Resolution Consistency' /tmp/rineng_v37_render/main.txt
+          grep -q 'Cross-Resolution Consistency' /tmp/rineng_v37_render/title.txt
+          grep -q '0.8706' /tmp/rineng_v37_render/main.txt
+          grep -q '0.5416' /tmp/rineng_v37_render/main.txt
+          echo 'V37_RENDER_AND_NUMBERS_QA_PASS'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rineng-v37-approved-title-word-package
+          path: |
+            research/seer-ppe/exports/RINENG_V37_Manuscript_Title_Approved_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V37_Title_Page_Author_Verification_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V37_Cover_Letter_Draft_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V37_Highlights_2026-11-23.docx
+            /tmp/rineng_v37_render/*.pdf
+          retention-days: 30
+      - name: Archive approved-title editable Word versions in research branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          paths=(
+            research/seer-ppe/exports/RINENG_V37_Manuscript_Title_Approved_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V37_Title_Page_Author_Verification_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V37_Cover_Letter_Draft_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V37_Highlights_2026-11-23.docx
+          )
+          d=$(mktemp -d)
+          for f in "${paths[@]}";do cp "$f" "$d/$(basename "$f")";done
+          for attempt in 1 2 3;do
+            git fetch origin "$GITHUB_REF_NAME"
+            git reset --hard "origin/$GITHUB_REF_NAME"
+            for f in "${paths[@]}";do cp "$d/$(basename "$f")" "$f";done
+            git add "${paths[@]}"
+            if git diff --cached --quiet;then echo 'V37_DOCX_ARCHIVE_ALREADY_DONE';exit 0;fi
+            git commit -m "Archive V37 author-approved title in editable RINENG submission Word package"
+            if git push origin "HEAD:$GITHUB_REF_NAME";then echo 'V37_DOCX_ARCHIVE_PASS';exit 0;fi
+          done
+          exit 1
