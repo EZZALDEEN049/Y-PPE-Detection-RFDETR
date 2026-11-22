@@ -1,0 +1,23 @@
+{
+  "schema_version": "seer-ppe/v33b-one-time-cloud-authorization/v0.33b",
+  "authorized": true,
+  "authorized_by": "Project author — explicit approval in ChatGPT conversation on 2026-11-22",
+  "authorized_at_utc": "2026-11-22",
+  "scope": "V33B_frozen_grid4_robustness_only",
+  "preflight_run_id": 45019722753,
+  "preflight_run_conclusion": "success",
+  "preflight_commit_sha": "e02ba42cc3ca515319a40e31edd52662e03d8b36",
+  "frozen_model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "grid_rows": 4,
+  "grid_cols": 4,
+  "allowed_train_images": 4,
+  "allowed_valid_images": 4,
+  "frozen_target_count": 10,
+  "test_images_allowed": 0,
+  "max_additional_calls": 496,
+  "automatic_retries": false,
+  "retraining_allowed": false,
+  "original_images_annotations_splits_may_be_modified": false,
+  "one_time_only": true,
+  "execution_rule": "Run only once after successful read-only preflight; abort before inference if any frozen input, credential, budget, or protected-split check fails."
+}
