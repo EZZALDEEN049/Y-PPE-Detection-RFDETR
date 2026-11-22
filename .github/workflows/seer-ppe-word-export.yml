@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - research/seer-ppe/WORD_EXPORT_REQUEST_2026-11-21_V01.md
+      - research/seer-ppe/V35_D_WORD_EXPORT_REQUEST_2026-11-22.md
   workflow_dispatch:
 permissions:
   contents: write
