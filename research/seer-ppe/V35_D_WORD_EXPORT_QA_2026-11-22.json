@@ -1,0 +1,47 @@
+{
+  "schema_version": "seer-ppe/v35d-word-export-qa/v0.35d",
+  "audit_date": "2026-11-22",
+  "branch": "research/v30-progressive-xai-2026-11-22",
+  "manuscript_version": "v0.38",
+  "status": "PASS",
+  "deliverable": "research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.38_2026-11-22.docx",
+  "archive_commit": "75dcc2e8ec0abcc1ecb042b6868684865ca1abb9",
+  "metrics": {
+    "bytes": 2825912,
+    "paragraphs": 455,
+    "tables": 16,
+    "embedded_figures": 11,
+    "extracted_text_chars": 218183,
+    "pdf_pages": 96
+  },
+  "checks": {
+    "docx_zip_integrity": "PASS",
+    "key_content": "PASS",
+    "embedded_figures": "11/11 PASS",
+    "pdf_text_smoke": "PASS",
+    "first_page_preview": "PASS"
+  },
+  "ci_runs": {
+    "word_export": 45033306609,
+    "source_reference_gates": 45033306627,
+    "unit_tests": 45033306726
+  },
+  "pdf_archived": false,
+  "integrity": {
+    "new_model_calls": 0,
+    "retraining": false,
+    "test_accessed": false,
+    "images_modified": false,
+    "annotations_modified": false,
+    "splits_modified": false,
+    "model_modified": false
+  },
+  "remaining_v35e": [
+    "human visual page-by-page inspection of 96-page render",
+    "select journal and split main manuscript versus Supplementary Material",
+    "reconcile nested duplicate V34-B PDF while retaining canonical manifest-selected version",
+    "resolve V27 timestamp only if original execution evidence is recovered",
+    "confirm ethics/consent, funding, competing interests, author contributions",
+    "confirm official IEEE author metadata for two eSmarTA 2026 publications"
+  ]
+}
