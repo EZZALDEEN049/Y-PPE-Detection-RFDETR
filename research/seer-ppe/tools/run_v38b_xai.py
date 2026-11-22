@@ -204,11 +204,15 @@ def hosted_provider():
         if rgb.ndim!=3 or rgb.shape[2]!=3:
             raise ValueError("Only a single RGB image per hosted call is allowed")
         container=BytesIO()
-        Image.fromarray(rgb).save(container,format="PNG")
-        png=container.getvalue()
-        if not (0<len(png)<=15*1024*1024):
-            raise ValueError("PNG payload exceeds strict size limit; refusing model call")
-        encoded=base64.b64encode(png)
+        # Fixed prospective V38-B amendment: quality-95 4:4:4 JPEG for EVERY
+        # baseline, grid cell, deletion/insertion point and operator ablation.
+        # It is lossy; acknowledge the resulting compression confound.
+        Image.fromarray(rgb).save(container,format="JPEG",
+                                  quality=95,subsampling=0,optimize=False)
+        payload=container.getvalue()
+        if not (0<len(payload)<=15*1024*1024):
+            raise ValueError("JPEG95 4:4:4 payload exceeds 15MB; refusing model call")
+        encoded=base64.b64encode(payload)
         req=Request(private_url,data=encoded,
                     headers={
                         "Content-Type":"application/x-www-form-urlencoded",
@@ -490,6 +494,7 @@ def run_all(manifest,identity,images_dir,predictor,output):
     curve_ids=set(manifest["random_progressive_target_ids_12_different_images"])
     result={"schema_version":"seer-ppe/v38b-two-grid-xai-execution/v1",
             "status":"IN_PROGRESS","model_id":MODEL,
+            "wire_encoding":"JPEG_quality_95_chroma_444_fixed_all_requests",
             "study_cohort":"development_exposed_valid_only",
             "frozen_plan_sha256":sha256_path(MANIFEST),
             "images_total":24,"targets_total":48,"images_processed":0,
@@ -532,6 +537,7 @@ def authorize_execute(args,manifest):
         "excluded_test":True,
         "no_training":True,
         "one_time":True,
+        "wire_encoding":"JPEG_quality_95_chroma_444_fixed_all_requests",
     }.items():
         if a.get(key)!=value:
             raise PermissionError("Authorization field mismatch: "+key)
