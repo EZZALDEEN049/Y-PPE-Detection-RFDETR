@@ -82,3 +82,8 @@ Visual inspection of the v0.38 PDF found two issues that automated text checks h
 - The generated Table of Contents heading appeared without entries on the first page.
 
 The v0.39 workflow must remove the empty TOC generation, set every Word table to 100% of the printable width with explicit column widths, repeat table header rows, prevent row splitting, and use compact readable table fonts. It must assert every table width is 100%, embed all eleven figures, render the PDF, and verify that the first page begins with the article title rather than an empty TOC. Preserve v0.38 as an earlier export; archive v0.39 as a new file. Do not alter any scientific values, images, annotations, model or splits.
+
+
+### V35-E OOXML width-unit correction — 22 November 2026
+
+The first visual correction revealed that WordprocessingML percentage table widths are stored in fiftieths of a percent: `w:tblW=5000` represents 100%, not 50%. The v0.39 attempt used `10000` (200%), which caused table-cell content to flow incorrectly even though the DOCX structure check passed. The original v0.38 grid columns summed to 7,920 twips and were too narrow for the long 7–10-column tables. The v0.40 export must therefore set `tblW=5000` (100%) while explicitly sizing the `tblGrid` and cell widths to 9,520 twips, preserving all cell text and all 11 images. Recheck actual rendered pages containing the 4.17 cohort table and the V26 class metrics table before acceptance.
