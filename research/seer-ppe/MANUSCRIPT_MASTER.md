@@ -6,7 +6,7 @@
 Taiz, Yemen  
 **Corresponding author:** azzaltayyar@gmail.com
 
-**Working manuscript v0.36 — updated 22 November 2026**  
+**Working manuscript v0.37 — updated 22 November 2026**  
 **Article class:** original empirical research candidate | **Status:** evidence-bounded working draft; **NOT a validated empirical article or Q1-ready**  
 **Data constraint:** original Y-PPE only; existing Y-PPE only, the verified hosted 17-class ALTAYYAR RF-DETR Small model v2, and a local original checkpoint that remains to be independently loaded/inspected.  
 **Draft integrity statement:** original-model object detection, V27–V30 target perturbation, V33-A reanalysis, the completed V33-B 4×4 grid-resolution experiment, V34-A spatial map alignment/rank-correlation analysis and V34-B data-derived scientific figure generation have been completed on development-exposed samples. The study is scoped to image/object-level PPE detection and perturbation-based explanation sensitivity; worker-level compliance, Person–PPE gold, actual review efficacy, independent/external explanation faithfulness, process memory and physical energy are outside the current empirical claim set. Do not cite the old model's 96.22% historical mAP@50 as a new SEER-PPE achievement.
@@ -610,13 +610,17 @@ The defensible finding is **moderate, target-dependent positive spatial rank agr
 
 ### 4.28 V34-B data-derived paired heatmaps and figure-level numerical verification (22 November 2026)
 
-V34-B generated ten individual paired heatmap figures and one aggregate summary figure directly from the V34-A aligned-map archive. Each target figure presents the native 8×8 fine-cell signed sensitivity map beside its direct 4×4 map. Gold outlines on the 8×8 panel identify the 2×2 fine-cell footprints of the four highest-ranked pooled 4×4 regions; gold outlines on the 4×4 panel identify its own four highest-ranked regions. The summary figure shows target-level Spearman ρ, Kendall τ-b and top-four overlap.
+V34-B generated ten individual paired heatmap figures and one aggregate summary figure directly from the V34-A aligned-map archive. Each target figure presents the native 8×8 fine-cell signed sensitivity map beside its direct 4×4 map. Gold outlines on the 8×8 panel identify the 2×2 fine-cell footprints of the four highest-ranked pooled 4×4 regions; gold outlines on the 4×4 panel identify its own four highest-ranked regions. The summary figure shows target-level Spearman ρ, Kendall τ-b and top-four overlap. The aggregate comparison is presented in **Figure 1**, while the ten target-specific maps are presented in **Figures 2–11 in Appendix X**.
+
+![](figures/V34B_2026-11-22/V34B_SPATIAL_AGREEMENT_SUMMARY_2026-11-22.png)
+
+**Figure 1.** Summary of V34-A spatial rank agreement across the ten frozen target detections. The figure reports per-target signed area-normalized Spearman ρ, Kendall τ-b and top-four region overlap. The aggregate means are ρ=0.5416, τ-b=0.4239 and 65% top-four overlap. These are descriptive comparisons across eight development-exposed images, not an independent-site validation or an external explanation-ground-truth assessment.
 
 The renderer reconstituted 64 fine cells and both 4×4 arrays for each of ten targets. It independently recalculated all ten Spearman and Kendall coefficients from the 16 aligned coarse regions, recomputed both top-four sets and their intersections, and verified exact agreement with the V34-A archive for all ten targets. The two new synthetic tests passed. The common display scale is symmetric around zero at **±15.470900859749108**, the 97.5th percentile of absolute values among the 800 displayed cells. **17/800 values (2.125%)** exceed this limit and are saturated in color only; all ranking and correlation calculations use the un-clipped archived values.
 
 The target-level values are unchanged from V34-A: mean Spearman ρ=**0.5416**, mean Kendall τ-b=**0.4239**, and mean top-four overlap=**65%**. The Train C Face Masks target remains the lowest-agreement case (ρ=**0.2295**, τ-b=**0.1514**, overlap **0/4**); Train D Hard Hat has 2/4 overlap, while the other eight targets have 3/4 overlap. The figures provide a transparent visual presentation of the existing numerical analysis, not an additional independent sample or a new test of explanation quality.
 
-The complete set comprises ten individual 300-dpi PNGs, a summary PNG, an 11-page PDF (summary plus ten targets), a metrics CSV and a JSON manifest. Files are stored in [figures/V34B_2026-11-22/](figures/V34B_2026-11-22/); the [V34-B generation report](V34B_SCIENTIFIC_FIGURE_GENERATION_REPORT_2026-11-22.md) records source hashes, scale policy, per-target metrics and integrity checks. The final engineering workflow [45024648943](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45024648943) passed, including figure-generation tests and artifact upload. This stage used **zero new detector inference calls**, did not access Test, and did not change the source images, annotations or splits.
+The complete set comprises ten individual 300-dpi PNGs, a summary PNG, an 11-page PDF (summary plus ten targets), a metrics CSV and a JSON manifest. Files are stored in [figures/V34B_2026-11-22/](figures/V34B_2026-11-22/); the [V34-B generation report](V34B_2026-11-22/V34B_FIGURE_GENERATION_REPORT_2026-11-22.md) records source hashes, scale policy, per-target metrics and integrity checks. The final engineering workflow [45024648943](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45024648943) passed, including figure-generation tests and artifact upload. This stage used **zero new detector inference calls**, did not access Test, and did not change the source images, annotations or splits.
 
 ## 5. Discussion — interpretation of completed measurements and untested SEER-PPE hypothesis
 
@@ -1006,3 +1010,49 @@ These data are distinct from and do not replace the original 459-image V26 curre
 - **Compute/data boundary:** zero new detector inference calls; no Test access, retraining or dataset/annotation/split mutation.
 - **Evidence:** [V34-B report](V34B_SCIENTIFIC_FIGURE_GENERATION_REPORT_2026-11-22.md), [renderer](tools/render_v34b_scientific_figures.py), [synthetic tests](tests/test_v34b_scientific_figures.py), [generated figures](figures/V34B_2026-11-22/), [engineering CI 45024648943](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45024648943).
 - **Interpretation boundary:** figures visualize the frozen perturbation-response measurements; they do not establish human-grounded explanations, causal faithfulness, worker compliance, resolution invariance, A5/A6 superiority or external generalization.
+
+### X.1 Target-specific paired sensitivity maps
+
+Figures 2–11 show the ten frozen target-level map pairs. In every panel, the left image is the native 8×8 fine-cell signed sensitivity density and the right image is the direct 4×4 density. Gold outlines on the left identify the 2×2 fine-cell footprints of the four highest-ranked pooled 4×4 regions; gold outlines on the right identify the four highest-ranked direct 4×4 regions. The correlations compare 16 aligned coarse regions after area-weighted pooling, not 64 fine cells against 16 coarse cells. All figures use the same symmetric display scale (±15.470900859749108); 17/800 displayed values are saturated for visualization only, while all calculations use un-clipped values.
+
+The targets come from eight development-exposed images (four Train and four Valid). Train C contributes two targets, and Valid image 0ABzMrjnd6I0Ws6FH7qo contributes two targets; therefore the ten target figures are not ten independent image acquisitions. Each caption reports the archived per-target coefficients and top-four overlap for descriptive inspection.
+
+![](figures/V34B_2026-11-22/V34B_F01_train_a_no_face_mask.png)
+
+**Figure 2.** Paired signed detector-response sensitivity maps for the **No Face Mask** target in Train image A. Spearman ρ=0.5471; Kendall τ-b=0.4167; top-four region overlap=3/4 (75%).
+
+![](figures/V34B_2026-11-22/V34B_F02_train_b_gloves.png)
+
+**Figure 3.** Paired signed detector-response sensitivity maps for the **Gloves** target in Train image B. Spearman ρ=0.6019; Kendall τ-b=0.5272; top-four region overlap=3/4 (75%).
+
+![](figures/V34B_2026-11-22/V34B_F03_train_c_no_safety_boots.png)
+
+**Figure 4.** Paired signed detector-response sensitivity maps for the **No Safety Boots** target in Train image C. Spearman ρ=0.5548; Kendall τ-b=0.4268; top-four region overlap=3/4 (75%).
+
+![](figures/V34B_2026-11-22/V34B_F04_train_c_face_masks.png)
+
+**Figure 5.** Paired signed detector-response sensitivity maps for the **Face Masks** target in Train image C. Spearman ρ=0.2295; Kendall τ-b=0.1514; top-four region overlap=0/4 (0%). This is the lowest-agreement target in the ten-target sample.
+
+![](figures/V34B_2026-11-22/V34B_F05_train_d_hard_hat.png)
+
+**Figure 6.** Paired signed detector-response sensitivity maps for the **Hard Hat** target in Train image D. Spearman ρ=0.5765; Kendall τ-b=0.4667; top-four region overlap=2/4 (50%).
+
+![](figures/V34B_2026-11-22/V34B_F06_valid_07bnopgfjynaohuzvh5i_no_gloves.png)
+
+**Figure 7.** Paired signed detector-response sensitivity maps for the **No Gloves** target in Valid image 07BnOpgFJyNaOhuzvh5i. Spearman ρ=0.5382; Kendall τ-b=0.4000; top-four region overlap=3/4 (75%).
+
+![](figures/V34B_2026-11-22/V34B_F07_valid_09wo3ivnf9jot21qaxmb_safety_boots.png)
+
+**Figure 8.** Paired signed detector-response sensitivity maps for the **Safety Boots** target in Valid image 09WO3iVNf9jOt21QAxmb. Spearman ρ=0.6265; Kendall τ-b=0.5500; top-four region overlap=3/4 (75%).
+
+![](figures/V34B_2026-11-22/V34B_F08_valid_0abzmrjnd6i0ws6fh7qo_no_face_mask.png)
+
+**Figure 9.** Paired signed detector-response sensitivity maps for the **No Face Mask** target in Valid image 0ABzMrjnd6I0Ws6FH7qo. Spearman ρ=0.6324; Kendall τ-b=0.4500; top-four region overlap=3/4 (75%).
+
+![](figures/V34B_2026-11-22/V34B_F09_valid_0abzmrjnd6i0ws6fh7qo_safety_vests.png)
+
+**Figure 10.** Paired signed detector-response sensitivity maps for the **Safety Vests** target in Valid image 0ABzMrjnd6I0Ws6FH7qo. Spearman ρ=0.6794; Kendall τ-b=0.5333; top-four region overlap=3/4 (75%).
+
+![](figures/V34B_2026-11-22/V34B_F10_valid_0agyjxe5lmocxyvulhs8_no_safety_boots.png)
+
+**Figure 11.** Paired signed detector-response sensitivity maps for the **No Safety Boots** target in Valid image 0aGYjxE5LmocXyvuLHs8. Spearman ρ=0.4294; Kendall τ-b=0.3167; top-four region overlap=3/4 (75%).
