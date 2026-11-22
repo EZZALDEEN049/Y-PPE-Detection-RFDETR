@@ -504,7 +504,7 @@ def self_test(output_dir):
     # A patterned image ensures blurred, gray-cell and original inputs differ.
     y,x=np.mgrid[:32,:32]
     rgb=np.stack(((17*x+13*y)%256,(x*31+y*7)%256,
-                  np.where((x+y)%2==0,245,10))).astype(np.uint8)
+                  np.where((x+y)%2==0,245,10)),axis=-1).astype(np.uint8)
     src=rgb.copy()
     box={"x":8.,"y":8.,"width":12.,"height":12.}
     t={"source_id":"mock-valid-image","image_key":"valid:mock-valid-image",
