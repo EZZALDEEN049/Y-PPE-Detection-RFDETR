@@ -1,0 +1,49 @@
+{
+  "schema_version": "seer-ppe/v35c-literature-editorial-audit/v0.35c",
+  "audit_date": "2026-11-22",
+  "branch": "research/v30-progressive-xai-2026-11-22",
+  "manuscript_version": "v0.38",
+  "status": "PARTIAL_PASS_AUTHOR_AND_JOURNAL_GATES_OPEN",
+  "reference_count": 17,
+  "new_methodological_references": [
+    "Fong & Vedaldi 2017",
+    "Petsiuk et al. 2018",
+    "Adebayo et al. 2018",
+    "Hooker et al. 2019",
+    "Spearman 1904",
+    "Kendall 1938"
+  ],
+  "author_publications_included": 4,
+  "e_smart_a_2026_author_metadata": "SECONDARY_INDEX_ONLY_PENDING_IEEE_CONFIRMATION",
+  "focused_review_is_prisma": false,
+  "manuscript_edits": {
+    "conclusion_added": true,
+    "internal_workplan_removed_from_article": true,
+    "references_expanded": true,
+    "methods_citations_added": true,
+    "ethics_consent_disclosure_added": true,
+    "funding_conflict_author_contribution_confirmation_added": true,
+    "v35a_v35b_status_updated": true
+  },
+  "unresolved_gates": [
+    "institutional ethics approval or exemption and participant-consent/privacy basis",
+    "funding declaration",
+    "competing-interests declaration",
+    "author-contribution declaration",
+    "official IEEE metadata confirmation for two eSmarTA 2026 author lists",
+    "target journal selection and style requirements",
+    "decision whether appendices A-X are supplementary material",
+    "V27 original execution timestamp evidence",
+    "V35-D v0.38 editable Word export workflow update",
+    "V35-E rendered layout and archive QA"
+  ],
+  "execution_constraints": {
+    "new_model_inference_calls": 0,
+    "retraining": false,
+    "test_accessed": false,
+    "source_images_modified": false,
+    "annotations_modified": false,
+    "dataset_splits_modified": false,
+    "original_model_modified": false
+  }
+}
