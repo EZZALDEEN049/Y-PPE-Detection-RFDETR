@@ -68,3 +68,8 @@ The v0.38 DOCX generation and content checks now pass, including a valid editabl
 ## V35-E — temporary rendered PDF and representative page previews — 22 November 2026
 
 For final visual QA, the v0.38 export workflow should retain a short-lived GitHub Actions artifact containing the 96-page PDF render plus first, middle and final page previews. Use the artifact only for inspection; do not publish it as a final journal PDF before the target journal is selected. Retention is seven days. The editable DOCX remains the canonical manuscript deliverable.
+
+
+### V35-E DOCX package inspection — 22 November 2026
+
+Include the generated editable DOCX itself in the temporary render-QA artifact alongside the PDF and first/middle/last page previews. This permits inspection of the underlying Word table and section XML where the rendered preview shows narrow/stacked content. The artifact is temporary; the canonical archived manuscript remains the DOCX in the research branch.
