@@ -308,3 +308,22 @@ Re-read original saved human reference after the Workflow calls: **19** approved
 - Blurred target confidence remained >=80% of baseline for 3/10 targets; inverse-saliency AUC is algebraically complementary, not independent. Largest actual-versus-nominal area-AUC discrepancy 0.004748.
 - Updated manuscript to v0.33 and archived [V33-A numeric ledger](V33_A5_A6_NUMERIC_ROBUSTNESS_2026-11-22.json), [report](V33_A5_A6_NUMERIC_ROBUSTNESS_REPORT_2026-11-22.md) and [fail-closed verifier](tools/verify_v33_existing_xai.mjs).
 - Prospective 4x4 re-inference is [frozen separately](V33_B_GRID4_PROSPECTIVE_PROTOCOL_2026-11-22.md) with an upper 496-call budget; **not executed**. No worker-compliance/safety or energy claim is added.
+
+
+## V33-B — actual 4×4 grid-resolution experiment completed (22 November 2026)
+
+- Author-approved preflight passed before the one-time hosted run; 496/496 additional calls succeeded, with zero failures and zero retries.
+- Ten frozen target maps were rankable; 40 eleven-point curves produced 39 valid AUCs. One saliency-deletion AUC remained null because of an ambiguous match and was not imputed.
+- Saliency favored one deterministic random order in 8/9 scorable deletion curves and 10/10 insertion curves. The sign of the saliency advantage across 4×4/8×8 was preserved in 6/9 comparable deletion and 9/10 insertion targets.
+- Independent numeric audit passed. No Test access, retraining or original data/annotation/split changes. A5/A6 still share six target IDs and no policy winner is inferred.
+- Evidence: [V33-B actual result](V33_B_GRID4_ACTUAL_RESULTS_2026-11-22.json), [report](V33_B_GRID4_ACTUAL_RESULTS_REPORT_2026-11-22.md), [numeric audit](V33_B_GRID4_NUMERIC_AUDIT_2026-11-22.json).
+
+## V34-A — spatial map alignment and rank correlation completed (22 November 2026)
+
+- Offline-only alignment of all ten V30 8×8/V33-B 4×4 target maps using exact original-pixel bounds; each 4×4 region is the union of its four 8×8 children.
+- Primary values are signed score drops normalized by exact cell area; fine-cell values are area-weighted into the corresponding coarse region. Negative values are retained. Spearman uses average ranks for ties; Kendall tau-b corrects for ties.
+- Mean Spearman rho **0.5416** (median 0.5656; range 0.2295–0.6794); mean Kendall tau-b **0.4239** (median 0.4384; range 0.1514–0.5500). All ten target correlations were positive. Mean top-four overlap **65%**; the Train C Face Masks target had zero top-four overlap.
+- All target IDs and map/trial values matched; max 4×4/four-child area partition discrepancy 6.94e-18; zero null cell scores. The 26 V30 and 17 V33-B LOST outcomes remain numeric under the frozen zero-score convention.
+- **Zero new model calls**, no Test access, no retraining and no source/annotation/split mutation. The result is moderate, target-dependent spatial agreement, not map interchangeability, causal faithfulness, external explanation truth or worker-safety evidence.
+- Added [V34-A JSON](V34A_SPATIAL_MAP_ALIGNMENT_RANK_CORRELATION_2026-11-22.json), [report](V34A_SPATIAL_MAP_ALIGNMENT_RANK_CORRELATION_REPORT_2026-11-22.md), [analyzer](tools/analyze_v34a_spatial_map_alignment.py) and [tests](tests/test_v34a_spatial_map_alignment.py). [Engineering CI 45022078145](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45022078145) passed.
+- Canonical manuscript updated to **v0.35** (Methods 3.26, Results 4.27, Discussion 5.12, Appendix W). Remaining work: paired signed heatmap figures, final numeric/reference reconciliation and editable Word export.
