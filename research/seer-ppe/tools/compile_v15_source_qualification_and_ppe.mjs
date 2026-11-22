@@ -190,9 +190,10 @@ function selfTest(){
  const m=read('ORIGINAL_CLEAN17_VALID_IMAGE_CONTENT_V13.json');
  const f=read('VALIDATION_PERSON_PPE_SCORING_FREEZE_2026-11-21_V11.json');
  const packet=read('PERSON_PPE_PENDING_HUMAN_SIGNOFF_2026-11-21_V13.json');
- const emptySource=read('SOURCE_FAMILY_SIGNED_ATTESTATIONS_V15.json');
+ const currentSource=read('SOURCE_FAMILY_SIGNED_ATTESTATIONS_V15.json');
+ const baselineSource=structuredClone(currentSource);baselineSource.decisions=[];
  const emptyHuman=read('TRAIN_REFERENCE_SIGNED_ATTESTATIONS_V15.json');
- const current=evaluate(q,emptySource,emptyHuman,packet,m,f);
+ const current=evaluate(q,baselineSource,emptyHuman,packet,m,f);
  assert.equal(current.scoring_ready,false);
  assert.equal(current.image_rows.length,459);
  assert.equal(current.per_image_source_family_human_decisions_signed,0);
@@ -213,15 +214,15 @@ function selfTest(){
     train_family_comparison_basis:'SYNTHETIC ONLY: matched site list checked',
     train_family_evidence_ref:evidence,train_family_evidence_sha256:hash,
     personally_attested_independence:true};
- const variant=structuredClone(emptySource);variant.decisions=[good];
+ const variant=structuredClone(baselineSource);variant.decisions=[good];
  const future=evaluate(q,variant,emptyHuman,packet,m,f);
  assert.equal(future.individually_attested_nonconflicting_sources_pending_protocol,1);
  assert.equal(future.scoring_ready,false);
  const bad={...good,source_id:q.rows.find(x=>x.previous_research_hold).original_valid_source_id};
- const reject=structuredClone(emptySource);reject.decisions=[bad];
+ const reject=structuredClone(baselineSource);reject.decisions=[bad];
  assert.throws(()=>evaluate(q,reject,emptyHuman,packet,m,f));
  const conflict=q.rows.find(x=>x.eligibility_disposition==='TECHNICAL_OVERLAP_QUARANTINE_PENDING_REVIEW');
- const quarantined=structuredClone(emptySource);quarantined.decisions=[
+ const quarantined=structuredClone(baselineSource);quarantined.decisions=[
    {...good,source_id:conflict.original_valid_source_id,source_original_filename:conflict.original_valid_filename,
     clean17_export_filename:conflict.clean17_valid_filename}];
  const stillBlocked=evaluate(q,quarantined,emptyHuman,packet,m,f);
@@ -233,11 +234,11 @@ function selfTest(){
  assert.throws(()=>evaluate(q,invalidCalendarDate,emptyHuman,packet,m,f));
  const guessed=structuredClone(emptyHuman);guessed.case_B_visual_decisions=[
    {slot_id:'B_P001_face_mask',human_visual_state:'ABSENT',reviewer_id:'guess',signed_date:'2026-11-21'}];
- assert.throws(()=>evaluate(q,emptySource,guessed,packet,m,f));
- const injected=structuredClone(emptySource);injected.decisions=[{...good,source_id:'TEST_IMAGE_SOURCE_ID'}];
+ assert.throws(()=>evaluate(q,baselineSource,guessed,packet,m,f));
+ const injected=structuredClone(baselineSource);injected.decisions=[{...good,source_id:'TEST_IMAGE_SOURCE_ID'}];
  assert.throws(()=>evaluate(q,injected,emptyHuman,packet,m,f));
  const broken=structuredClone(q);broken.rows[0].clean17_valid_filename='unexpected.jpg';
- assert.throws(()=>evaluate(broken,emptySource,emptyHuman,packet,m,f));
+ assert.throws(()=>evaluate(broken,baselineSource,emptyHuman,packet,m,f));
  console.log('SEER_V15_SYNTHETIC_SIGNED_EVIDENCE_SHA_AND_HARD_HOLD_REJECTION_PASS');
  console.log('SEER_V15_SYNTHETIC_FALSE_PERSON_LABEL_AND_TEST_SOURCE_REJECTION_PASS');
 }
