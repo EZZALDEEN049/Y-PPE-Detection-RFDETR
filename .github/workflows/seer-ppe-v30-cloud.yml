@@ -1,4 +1,4 @@
-name: SEER-PPE V30 cloud-only XAI (manual full run)
+name: SEER-PPE V30 frozen-input read-only verification
 
 on:
   push:
@@ -10,19 +10,6 @@ on:
       - 'research/seer-ppe/tools/run_v30_progressive_xai.py'
       - 'research/seer-ppe/V30_FROZEN_TARGETS_2026-11-22.json'
       - 'research/seer-ppe/V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json'
-  workflow_dispatch:
-    inputs:
-      run_progressive:
-        type: boolean
-        description: 'Enable actual V30 perturbation inference (at most 1,060 new model calls)'
-        required: true
-        default: false
-      confirm_budget:
-        type: string
-        description: 'For actual inference only, type 1068 to confirm full V30 call cap (8 already used)'
-        required: false
-        default: 'not-authorized'
-
 permissions:
   contents: read
 
@@ -32,7 +19,7 @@ concurrency:
 
 jobs:
   cloud_v30:
-    name: Download frozen images to ephemeral cloud runner; optionally run XAI
+    name: Download frozen sources to ephemeral cloud runner without model inference
     runs-on: ubuntu-latest
     timeout-minutes: 240
     steps:
@@ -87,27 +74,6 @@ jobs:
           python research/seer-ppe/tools/run_v30_progressive_xai.py \
             --images-dir "${RUNNER_TEMP}/v30_originals" --preflight-only \
             --output "${RUNNER_TEMP}/v30_local_preflight.json"
-      - name: Confirm safe manual execution gate
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_progressive }}
-        run: |
-          if [ "${{ inputs.confirm_budget }}" != "1068" ]; then
-            echo "::error::V30 full run blocked: confirm_budget must equal 1068."
-            exit 1
-          fi
-      - name: Run actual V30 progressive XAI on cloud runner
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_progressive && inputs.confirm_budget == '1068' }}
-        env:
-          ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
-        run: |
-          set -euo pipefail
-          if [ -z "${ROBOFLOW_API_KEY}" ]; then
-            echo "::error::Set repository Actions secret ROBOFLOW_API_KEY before the full run."
-            exit 1
-          fi
-          python research/seer-ppe/tools/run_v30_progressive_xai.py \
-            --images-dir "${RUNNER_TEMP}/v30_originals" \
-            --confirm-model-call-budget 1068 \
-            --output "${RUNNER_TEMP}/v30_numeric_results.json"
       - name: Upload numeric evidence only; never upload original images or API keys
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
