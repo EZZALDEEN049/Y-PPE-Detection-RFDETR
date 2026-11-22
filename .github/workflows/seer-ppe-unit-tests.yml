@@ -10,7 +10,7 @@ on:
       - '.github/workflows/seer-ppe-unit-tests.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   public_synthetic_unit_tests:
     runs-on: ubuntu-latest
@@ -50,3 +50,18 @@ jobs:
           path: /tmp/V34B_2026-11-22/
           if-no-files-found: error
           retention-days: 30
+      - name: Commit generated V34-B figures to the research branch
+        if: github.event_name == 'push' && github.ref == 'refs/heads/research/v30-progressive-xai-2026-11-22'
+        run: |
+          set -euo pipefail
+          mkdir -p research/seer-ppe/figures
+          cp -a /tmp/V34B_2026-11-22 research/seer-ppe/figures/V34B_2026-11-22
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/seer-ppe/figures/V34B_2026-11-22
+          if ! git diff --cached --quiet; then
+            git commit -m "Add V34-B data-derived scientific figures"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          else
+            echo "V34-B figures already match the reproducible render."
+          fi
