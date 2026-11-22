@@ -49,6 +49,27 @@ jobs:
           assert len(d["sources"])==24 and d["model_calls"]==0
           print("V38B_24_CANONICAL_RGB_SHA_CHECKS_PASS_NO_MODEL_CALLS")
           PY
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from PIL import Image,ImageOps
+          from io import BytesIO
+          files=sorted((Path(os.environ["RUNNER_TEMP"])/"v38b_originals").glob("*.jpg"))
+          assert len(files)==24
+          largest=0
+          exceeding=0
+          for file in files:
+              with Image.open(file) as raw:
+                  oriented=ImageOps.exif_transpose(raw).convert("RGB")
+              buf=BytesIO()
+              oriented.save(buf,format="PNG")
+              n=buf.tell()
+              largest=max(largest,n)
+              exceeding+=n>15*1024*1024
+          print("V38B_LOSSLESS_PNG_PAYLOAD_MAX_BYTES",largest)
+          print("V38B_LOSSLESS_PNG_PAYLOADS_OVER_15MB",exceeding)
+          print("V38B_PAYLOAD_BENCHMARK_ZERO_MODEL_CALLS")
+          PY
           rm -rf "${RUNNER_TEMP}/v38b_originals"
       - name: Full local mock predictor — both grid maps, blur ablation, 10 random orderings, curves and attempt cap
         run: |
