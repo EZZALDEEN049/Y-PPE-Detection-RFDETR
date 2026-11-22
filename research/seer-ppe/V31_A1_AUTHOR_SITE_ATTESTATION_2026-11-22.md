@@ -33,3 +33,8 @@ SHA-256: `326c7ad0347a86822768e4f1703045248247bc3014cd5ccb139148332cc07605`
 The hash protects the stored transcription's integrity; it is not an independent identity credential or proof of truth.
 
 **Next:** resolve the remaining nine P0 source-family cases using the author's specific acquisition/site/session knowledge, without repeating the already completed general image review.
+
+
+## Automated verification
+
+<badge color="success">PASS</badge> The SHA-pinned evidence, two source decisions and retained hard holds passed [source/reference CI #44968818900](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44968818900), including the V31-A1 mutation self-test. The companion [public engineering CI #44968818901](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44968818901) also passed.
