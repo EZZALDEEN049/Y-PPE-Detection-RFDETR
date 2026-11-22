@@ -25,7 +25,11 @@
     "known_cross_split_overlap_controls_preserved": true,
     "risk_sensitivity_cohorts_required": true,
     "worker_level_person_ppe_gold_created_by_this_record": false,
-    "independent_reviewer_agreement_claimed": false
+    "independent_reviewer_agreement_claimed": false,
+    "probability_sample_of_yemeni_worksites": false,
+    "national_prevalence_estimation_supported": false,
+    "multi_project_diversity_is_not_independent_site_sampling": true,
+    "generalization_scope": "INTERNAL_ANALYTICAL_AND_ENGINEERING_EVALUATION_ON_AUTHOR_CURATED_FIELD_IMAGE_CORPUS; NO_NATIONAL_PREVALENCE_OR_SITE_INDEPENDENT_CLAIM"
   },
   "known_overlap_state": {
     "school_22may_valid_sources": 2,
