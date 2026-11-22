@@ -21,7 +21,8 @@ def average(values):
 
 def analyze(path=SOURCE):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
-    pts = list(data["per_target"].values())
+    raw_targets = data["per_target"]
+    pts = list(raw_targets.values()) if isinstance(raw_targets, dict) else list(raw_targets)
     group_ids = sorted({item["image_key"] for item in pts})
     assert len(pts) == 10 and len(group_ids) == 8, (len(pts), len(group_ids))
     assert data["status"] == "PASSED"
