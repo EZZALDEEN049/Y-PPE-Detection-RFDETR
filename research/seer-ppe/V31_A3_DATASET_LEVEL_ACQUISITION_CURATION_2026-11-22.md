@@ -36,6 +36,6 @@ Therefore:
 
 ## Author evidence
 
-The verbatim statement and normalized interpretation are preserved in [the dataset-level attestation](${evidence}), SHA-256 `201e16d8c24a0704fedab42ecccdc0fe5caf8a0abef205951bcf73f1ebdb901c`. The decision is also represented in [the machine-readable V31-A3 record](V31_A3_DATASET_LEVEL_ACQUISITION_CURATION_2026-11-22.json).
+The verbatim statement and normalized interpretation are preserved in [the dataset-level attestation](evidence/AUTHOR_DATASET_LEVEL_ACQUISITION_AND_PRIOR_CURATION_2026-11-22.md), SHA-256 `201e16d8c24a0704fedab42ecccdc0fe5caf8a0abef205951bcf73f1ebdb901c`. The decision is also represented in [the machine-readable V31-A3 record](V31_A3_DATASET_LEVEL_ACQUISITION_CURATION_2026-11-22.json).
 
 **Result:** per-image site identification is removed as a blanket prerequisite for internal image-level analysis; no known overlap hold is released and no independent-source claim is added.
