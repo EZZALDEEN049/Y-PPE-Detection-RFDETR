@@ -1,0 +1,26 @@
+{
+  "schema_version": "seer-ppe/historical-model-metadata-snapshot/v1",
+  "retrieved_at": "2026-11-22",
+  "source": "Read-only Roboflow connected workspace model metadata; no inference or model mutation",
+  "project_id": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "model_name": "ALTAYYAR 2",
+  "model_version": "2",
+  "model_type": "rfdetr-small",
+  "task_type": "object-detection",
+  "model_created_at": "2025-09-11T15:35:30.953Z",
+  "training_status": "finished",
+  "metrics": {
+    "map50": 96.22,
+    "precision": 95.2,
+    "recall": 93.4,
+    "f1": 94.2
+  },
+  "interpretation": {
+    "use": "Historical prior-work baseline only",
+    "not_new_SEER_result": true,
+    "published_2025_AI_Driven_RF_DETR_paper_rounds_test_map50_to": 96.2,
+    "distinction": "The 2025 DASA paper reports 96.2% to one decimal in its test table; the connected Roboflow model-v2 metadata gives the more precise 96.22% value.",
+    "caution": "Platform metadata is not a peer-reviewed publication and should be described as an author-accessed model record, not as an independently reproduced current-study result."
+  }
+}
