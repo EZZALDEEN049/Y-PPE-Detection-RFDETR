@@ -119,17 +119,18 @@
       ],
       "named_site_evidence": "PREVIOUS_NAMED_SCHOOL_22_MAY_ASEEFRAH_SHARED_TRAIN_VALID",
       "named_site_evidence_reference": "VISUAL_SOURCE_FAMILY_ADJUDICATION_2026-11-18_V01.json",
-      "essential_decision": "REVIEW_SHARED_CAPTURE_OR_SITE_AND_PRESERVE_HOLD",
-      "human_source_family_relationship_verdict": null,
-      "human_acquisition_site_id": null,
+      "essential_decision": "AUTHOR_CONFIRMED_SHARED_SCHOOL_22_MAY_SITE_WITH_TRAIN; PRESERVE_HARD_HOLD",
+      "human_source_family_relationship_verdict": "SHARED_CAPTURE_SESSION_OR_SITE",
+      "human_acquisition_site_id": "site_school_22may_aseefrah",
       "human_capture_session_id": null,
-      "human_source_family_id": null,
-      "human_train_source_family_overlap_verdict": null,
-      "human_reviewer_id": null,
-      "human_signed_date": null,
-      "human_source_evidence_file": null,
-      "human_evidence_sha256": null,
-      "eligible_for_source_independent_scoring": false
+      "human_source_family_id": "site_school_22may_aseefrah",
+      "human_train_source_family_overlap_verdict": "SHARED_SITE_FAMILY_WITH_TRAIN",
+      "human_reviewer_id": "dataset_author_chat_attestation",
+      "human_signed_date": "2026-11-22",
+      "human_source_evidence_file": "evidence/AUTHOR_CHAT_ATTESTATION_SCHOOL_22_MAY_ASEEFRAH_2026-11-22.md",
+      "human_evidence_sha256": "326c7ad0347a86822768e4f1703045248247bc3014cd5ccb139148332cc07605",
+      "eligible_for_source_independent_scoring": false,
+      "human_scope_note": "Author confirms same project/site family as Train WA0067 and WA0066(1); photographs may differ in time/angle. No same-frame or common capture-session claim."
     },
     {
       "source_id": "NZu6Faj6evgINF1qFE0V",
@@ -147,17 +148,18 @@
       ],
       "named_site_evidence": "PREVIOUS_NAMED_SCHOOL_22_MAY_ASEEFRAH_SHARED_TRAIN_VALID",
       "named_site_evidence_reference": "VISUAL_SOURCE_FAMILY_ADJUDICATION_2026-11-18_V01.json",
-      "essential_decision": "REVIEW_SHARED_CAPTURE_OR_SITE_AND_PRESERVE_HOLD",
-      "human_source_family_relationship_verdict": null,
-      "human_acquisition_site_id": null,
+      "essential_decision": "AUTHOR_CONFIRMED_SHARED_SCHOOL_22_MAY_SITE_WITH_TRAIN; PRESERVE_HARD_HOLD",
+      "human_source_family_relationship_verdict": "SHARED_CAPTURE_SESSION_OR_SITE",
+      "human_acquisition_site_id": "site_school_22may_aseefrah",
       "human_capture_session_id": null,
-      "human_source_family_id": null,
-      "human_train_source_family_overlap_verdict": null,
-      "human_reviewer_id": null,
-      "human_signed_date": null,
-      "human_source_evidence_file": null,
-      "human_evidence_sha256": null,
-      "eligible_for_source_independent_scoring": false
+      "human_source_family_id": "site_school_22may_aseefrah",
+      "human_train_source_family_overlap_verdict": "SHARED_SITE_FAMILY_WITH_TRAIN",
+      "human_reviewer_id": "dataset_author_chat_attestation",
+      "human_signed_date": "2026-11-22",
+      "human_source_evidence_file": "evidence/AUTHOR_CHAT_ATTESTATION_SCHOOL_22_MAY_ASEEFRAH_2026-11-22.md",
+      "human_evidence_sha256": "326c7ad0347a86822768e4f1703045248247bc3014cd5ccb139148332cc07605",
+      "eligible_for_source_independent_scoring": false,
+      "human_scope_note": "Author confirms same project/site family as Train WA0067 and WA0066(1); photographs may differ in time/angle. No same-frame or common capture-session claim."
     },
     {
       "source_id": "HRYvLu8UFRgGlQQoJN7G",
@@ -327,5 +329,6 @@
       "human_evidence_sha256": null,
       "eligible_for_source_independent_scoring": false
     }
-  ]
+  ],
+  "status": "3_OF_11_AUTHOR_ATTESTED_NON_INDEPENDENT_SHARED_SCENE_OR_SITE_RELATIONSHIPS; 8_OF_11_P0_CASES_REMAIN_UNSIGNED_OR_UNRESOLVED; ALL_11_EXCLUDED_FROM_INDEPENDENT_SCORING"
 }
