@@ -1,0 +1,189 @@
+{
+  "schema_version": "seer-ppe/v31-post-v30-source-person-scientific-readiness/v0.31",
+  "date": "2026-11-22",
+  "snapshot_label": "READ_ONLY_ACTUAL_SIGNOFF_GAP_ASSESSMENT_NOT_NEW_HUMAN_ADJUDICATION",
+  "v30_provenance": {
+    "actual_numeric_file": "V30_ACTUAL_PROGRESSIVE_XAI_RESULTS_2026-11-22.json",
+    "independent_numeric_audit": "V30_INDEPENDENT_NUMERIC_AUDIT_2026-11-22.json",
+    "independent_numeric_audit_passed": true,
+    "v30_source_images": 8,
+    "v30_unique_targets": 10,
+    "v30_total_model_calls": 1068,
+    "v30_xai_claim_class": "DEVELOPMENT_EXPOSED_DESCRIPTIVE_TARGET_PERTURBATION_ONLY"
+  },
+  "original_valid_source_images": 468,
+  "clean17_valid_mapped_images": 459,
+  "previously_excluded_valid_sources": 9,
+  "current_cohort_buckets": {
+    "preexisting_source_holds": 5,
+    "v14_technical_overlap_quarantine": 6,
+    "other_flagged_unsigned": 81,
+    "unflagged_but_independence_unsigned": 367
+  },
+  "independently_signed_source_family_verdicts": 0,
+  "signed_valid_human_worker_references": 0,
+  "independent_source_eligible_valid_images": 0,
+  "true_worker_safety_scoring_ready": false,
+  "human_train_pilot_history": {
+    "approved_item_owner_links": 19,
+    "visually_recorded_states": 38,
+    "expected_states": 42,
+    "unentered_cells": [
+      "B:P001:face_mask",
+      "B:P001:safety_boot",
+      "B:P002:face_mask",
+      "B:P002:safety_boot"
+    ],
+    "human_signoffs_new_since_v15": 0,
+    "case_D_signed_human_empty_person_reference": false,
+    "all_task_mandates_documented": false,
+    "general_author_visual_image_review_accepted": true,
+    "repeat_author_original_image_review_requested": false
+  },
+  "source_priority_review_packets": {
+    "severity": "P0_GUARDED_EXISTING_OVERLAP_HOLDS_AND_QUARANTINES",
+    "case_count": 11,
+    "source_ids": [
+      {
+        "valid_source_id": "0De0PEUDyeg9v1J3T6zr",
+        "original_filename": "IMG-20250416-WA0063.jpg",
+        "risk_bucket": "RETAIN_PREEXISTING_RESEARCH_HOLD",
+        "currently_eligible_for_independent_scoring": false,
+        "human_source_family_attestation": "UNSIGNED",
+        "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
+      },
+      {
+        "valid_source_id": "f8Lh7cHa3XXXsl88xpDt",
+        "original_filename": "v9.jpg",
+        "risk_bucket": "TECHNICAL_OVERLAP_QUARANTINE_PENDING_REVIEW",
+        "currently_eligible_for_independent_scoring": false,
+        "human_source_family_attestation": "UNSIGNED",
+        "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
+      },
+      {
+        "valid_source_id": "HRYvLu8UFRgGlQQoJN7G",
+        "original_filename": "Safety-Glasses-Toolbox-Talk.jpg",
+        "risk_bucket": "TECHNICAL_OVERLAP_QUARANTINE_PENDING_REVIEW",
+        "currently_eligible_for_independent_scoring": false,
+        "human_source_family_attestation": "UNSIGNED",
+        "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
+      },
+      {
+        "valid_source_id": "jeB2NmucImurFBeFkyIz",
+        "original_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+        "risk_bucket": "RETAIN_PREEXISTING_RESEARCH_HOLD",
+        "currently_eligible_for_independent_scoring": false,
+        "human_source_family_attestation": "UNSIGNED",
+        "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
+      },
+      {
+        "valid_source_id": "NZu6Faj6evgINF1qFE0V",
+        "original_filename": "IMG-20250416-WA0051.jpg",
+        "risk_bucket": "RETAIN_PREEXISTING_RESEARCH_HOLD",
+        "currently_eligible_for_independent_scoring": false,
+        "human_source_family_attestation": "UNSIGNED",
+        "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
+      },
+      {
+        "valid_source_id": "orMUSm4hS7KXI9Ew0jCz",
+        "original_filename": "h20.jpg",
+        "risk_bucket": "TECHNICAL_OVERLAP_QUARANTINE_PENDING_REVIEW",
+        "currently_eligible_for_independent_scoring": false,
+        "human_source_family_attestation": "UNSIGNED",
+        "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
+      },
+      {
+        "valid_source_id": "qBtfzUgi6Mpg3A5TE0ln",
+        "original_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+        "risk_bucket": "RETAIN_PREEXISTING_RESEARCH_HOLD",
+        "currently_eligible_for_independent_scoring": false,
+        "human_source_family_attestation": "UNSIGNED",
+        "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
+      },
+      {
+        "valid_source_id": "SlMNfdbpvClsUZin1RcK",
+        "original_filename": "v150.jpg",
+        "risk_bucket": "TECHNICAL_OVERLAP_QUARANTINE_PENDING_REVIEW",
+        "currently_eligible_for_independent_scoring": false,
+        "human_source_family_attestation": "UNSIGNED",
+        "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
+      },
+      {
+        "valid_source_id": "TBsuPnS1fL27ZV03VWqm",
+        "original_filename": "image_153-1-.jpg",
+        "risk_bucket": "TECHNICAL_OVERLAP_QUARANTINE_PENDING_REVIEW",
+        "currently_eligible_for_independent_scoring": false,
+        "human_source_family_attestation": "UNSIGNED",
+        "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
+      },
+      {
+        "valid_source_id": "V7nP50xtllhmv7ex0OZf",
+        "original_filename": "v141.jpg",
+        "risk_bucket": "TECHNICAL_OVERLAP_QUARANTINE_PENDING_REVIEW",
+        "currently_eligible_for_independent_scoring": false,
+        "human_source_family_attestation": "UNSIGNED",
+        "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
+      },
+      {
+        "valid_source_id": "yeEvdkqXtNgsj7PZFDvI",
+        "original_filename": "IMG-20250416-WA0026.jpg",
+        "risk_bucket": "RETAIN_PREEXISTING_RESEARCH_HOLD",
+        "currently_eligible_for_independent_scoring": false,
+        "human_source_family_attestation": "UNSIGNED",
+        "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
+      }
+    ],
+    "status": "UNSIGNED; EXISTING TECHNICAL EVIDENCE ONLY; NO RELEASE OR SCIENTIFIC SCORING"
+  },
+  "policy_decision_rules": {
+    "image_quality_acceptance_does_not_prove_source_family_independence": true,
+    "visible_PPE_does_not_prove_task_mandate": true,
+    "original_detector_bbox_not_equivalent_to_worker_PPE_gold": true,
+    "original_test_must_remain_unopened": true,
+    "future_signoffs_require_reviewer_evidence_and_SHA256": true,
+    "no_source_hold_is_lifted_by_this_record": true,
+    "no_original_data_or_model_modified": true,
+    "no_training_or_model_inference_for_this_step": true
+  },
+  "next_work_packages": [
+    {
+      "id": "V31-A",
+      "name": "Reconcile pre-existing 11 P0 source-family evidence packets and source-group identifiers",
+      "state": "EVIDENCE_EXISTING_HUMAN_SIGNOFF_PENDING",
+      "cannot_auto_sign": true
+    },
+    {
+      "id": "V31-B",
+      "name": "Build source family signed evidence overlay from actual recorded capture/lineage evidence, not image-quality acceptance",
+      "state": "0_OF_459_SIGNED",
+      "cannot_auto_sign": true
+    },
+    {
+      "id": "V31-C",
+      "name": "Complete valid worker-to-six-PPE reference and relevant task-mandate evidence with human signatures on eligible subset",
+      "state": "0_SIGNED_VALID_CASES",
+      "cannot_auto_sign": true
+    },
+    {
+      "id": "V31-D",
+      "name": "Preserve Train B four unentered human visual fields and unsigned D zero-person coverage as non-scoring pilot limitations",
+      "state": "DOCUMENTED_PENDING_NO_NEW_HUMAN_DECISIONS",
+      "cannot_auto_sign": true
+    },
+    {
+      "id": "V31-E",
+      "name": "Only then freeze strictly eligible worker-safety cohort and plan actual review and stronger selective comparator under measured cost",
+      "state": "BLOCKED_BY_V31_A_TO_C",
+      "cannot_auto_sign": true
+    }
+  ],
+  "immutable_evidence_inputs": {
+    "src": "research/seer-ppe/VALIDATION_459_SIGNED_SOURCE_COHORT_READINESS_V15.json",
+    "signer": "research/seer-ppe/SOURCE_FAMILY_SIGNED_ATTESTATIONS_V15.json",
+    "human": "research/seer-ppe/VALIDATION_PERSON_PPE_SIGNED_REFERENCE_V15.json",
+    "train": "research/seer-ppe/TRAIN_REFERENCE_SIGNED_ATTESTATIONS_V15.json",
+    "live": "research/seer-ppe/PERSON_PPE_LIVE_READINESS_2026-11-21_V01.json",
+    "v30": "research/seer-ppe/V30_INDEPENDENT_NUMERIC_AUDIT_2026-11-22.json"
+  },
+  "description": "Machine-checked administrative readiness snapshot compiled from existing saved source and human records and the audited V30 pilot. No new human consent or judgment implied."
+}
