@@ -63,7 +63,7 @@ function audit(evidence,record,ready,manuscript,protocol,curator){
   assert.ok(manuscript.includes('M0=459'));
   assert.ok(manuscript.includes('M1=448'));
   assert.ok(manuscript.includes('M2=367'));
-  assert.ok(manuscript.includes('not a documented probability sample of all Yemeni worksites'));
+  assert.ok(manuscript.includes('rather than a documented probability sample of all Yemeni worksites'));
   assert.ok(protocol.includes('do not estimate national prevalence'));
   assert.ok(protocol.includes('a named worksite/project ID for every image is **not required**'));
   assert.ok(protocol.includes('do not repeat full-corpus review'));
