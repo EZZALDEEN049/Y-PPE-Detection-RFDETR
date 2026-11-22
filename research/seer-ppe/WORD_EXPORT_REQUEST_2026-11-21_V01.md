@@ -97,3 +97,14 @@ The v0.40 PDF still shows narrow headings and table content flowing outside the 
 ## V35-E — split the two wide V26 result tables for publication readability — 22 November 2026
 
 The v0.41 native Pandoc template fixed the narrow heading/paragraph flow and produced actual visible tables. Visual inspection identified two remaining 10-column V26 tables that are technically visible but cramped. In v0.42, split the overall cohort table into counts and metrics, and split the 17-class table into counts and metrics. Shorten only the descriptive labels in the earlier 7-column source-cohort table. Preserve every numeric value exactly. The expected Word table count increases from 16 to 18. Re-export and inspect the V26 pages plus first/middle/last previews.
+
+
+## V35-E — journal-neutral main article and supplementary package v0.43 — 22 November 2026
+
+The full v0.42 research dossier has been preserved unchanged as `MANUSCRIPT_FULL_RESEARCH_DOSSIER_v0.42_2026-11-22.md`. The clean v0.43 main article now contains the title/author block, a concise stage-neutral abstract, the scored image-level and perturbation methods, the V26/V34 results, the main summary figure and references. Historical non-scoring source-lineage/Person–PPE engineering contracts and appendices A–X have been moved—not deleted—to `SUPPLEMENTARY_MATERIALS_MASTER.md`. The main article retains Figure 1; the ten target-specific paired heatmaps are Supplementary Figures S1–S10.
+
+Export two editable Word deliverables:
+- `exports/SEER_PPE_Research_Manuscript_v0.43_2026-11-22.docx` — 18 tables and one main summary figure.
+- `exports/SEER_PPE_Supplementary_Material_v0.43_2026-11-22.docx` — historical methods, appendices A–X and ten paired maps.
+
+Verify one embedded figure in the main DOCX and ten in the supplement, all table text, references, title/abstract, conclusion, PDF text and representative page previews. Do not alter any scientific values or run new model inference.
