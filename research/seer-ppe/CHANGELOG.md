@@ -224,3 +224,11 @@
 - Archived journal-selection due diligence in [PUBLICATION_JOURNAL_FIT_DUE_DILIGENCE_2026-11-22.md](PUBLICATION_JOURNAL_FIT_DUE_DILIGENCE_2026-11-22.md): actual SEER-PPE novelty and 10-target XAI constraints, nine venue comparisons, separation of JCR and SCImago quartiles, verified publisher scope and APC policies, and eligibility-dependent 2026 Yemen geographic APC waivers for IEEE/Elsevier.
 - Conditional shortlist: IEEE Access (JCR Q2, possible IEEE Group-A APC waiver), Results in Engineering (2025 SCImago Q1, possible Elsevier Group-A waiver), and Journal of Imaging (closest image/XAI fit, without confirmed automatic Yemen waiver). Select a journal only after institutional quartile rules, complete affiliations, ethics/privacy and author declarations are known.
 - No manuscript submission, new model inference, model retraining, Test access or source-data mutation was performed for this journal review.
+
+
+## Springer Nature specialist-journal screening — 23 November 2026
+
+- Archived publisher-verified [Springer Nature specialist-journal screening](SPRINGER_NATURE_SPECIALIST_JOURNAL_SCREEN_2026-11-23.md), covering 13 vision/AI journals with scope, journal-specific publication model, latest displayed impact factors, indexing caveats, Yemen full OA waiver policy, and SEER-PPE fit.
+- Notable no-APC diamond open access venues: Visual Computing for Industry, Biomedicine, and Art (Springer JIF 2025 6.7, ESCI, secondary JCR Q1) and Visual Intelligence (Scimago Q1; JCR Q1 not confirmed). Springer Nature confirms Yemen full fee waiver for eligible corresponding authors in covered fully OA journals, but excludes hybrid OA from that country waiver.
+- High-priority established hybrid options remain Machine Vision and Applications (specialist, secondary JCR Q3), The Visual Computer (secondary JCR Q2), Applied Intelligence (secondary JCR Q2). Hard editorial red flags documented: 10-page Signal Image Video limit, Pattern Analysis and Applications public code/data requirement, JRTIP genuine real-time requirement, and Multimedia Tools and Applications JCR/SCIE status uncertainty.
+- No manuscript submission, RF-DETR calls, Test access, retraining or data mutations.
