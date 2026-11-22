@@ -1,12 +1,16 @@
-# SEER-PPE — experimental master protocol v0.7 (author decisions through Q39)
+# SEER-PPE — experimental master protocol v0.8 (V32 image-level detection/XAI scope amendment)
 
-**Revised:** 17 November 2026 (Q40 data ownership addendum). **Status:** working, *not preregistered*, hypotheses and operational methods only. Historical Y-PPE Test was exposed during earlier dataset/model refinement. No newly independent holdout, new safety superiority result, XAI faithfulness result or joules measurement is claimed.
+**Revised:** 22 November 2026 (V32 scope amendment). **Status:** working, *not preregistered*, evidence-bounded protocol. Historical Y-PPE Test was exposed during earlier dataset/model refinement. No newly independent holdout, worker-safety superiority result, externally validated explanation-faithfulness result or joules measurement is claimed.
+
+**V32 scope amendment — 22 November 2026 (supersedes conflicting worker-safety requirements below):** The current thesis paper is limited to image-level PPE object detection, target-specific black-box perturbation analysis, and selective explanation/inspection prioritization. Person–PPE gold, worker/task mandates, compliance/violation labels, worker false-clearance, actual review efficacy, acquisition-independent generalization, and physical Joules are **outside the current endpoint and are not completion blockers**. Historical worker-level procedures and pilot artifacts remain in the protocol for traceability/future work only. Current XAI outputs establish perturbation sensitivity, not externally validated causal faithfulness. See [V32 scope decision](V32_IMAGE_LEVEL_DETECTION_XAI_SCOPE_DECISION_2026-11-22.md).
 
 ## Research question and objective
 
-Can **SEER-PPE**, a safety-constrained and uncertainty-aware post-detection policy, achieve lower **incremental** explanation compute cost than a strong **preselected matched-budget selective XAI competitor**, while satisfying prespecified worker-level false-clearance, uncontained-violation, review-load and explanation-faithfulness requirements?
+Can the unchanged 17-class RF-DETR Small detector be evaluated reproducibly on the author-curated Y-PPE image corpus, and can target-specific black-box perturbation and selective explanation routing characterize how selected PPE detections respond to removal or isolation of their visual regions under a fixed XAI-call budget?
 
-A joule endpoint is permissible only if physically metered electrical energy and device/sensor scope are documented; otherwise preregister an explicit computational efficiency endpoint before final assessment (e.g. additional predictor/XAI calls per eligible worker), with latency and memory as secondary indicators. Never translate model-call reduction or FLOPs into claimed measured electrical saving.
+**Primary endpoints:** exact-class image-level precision/recall/F1; class-wise support; target detection retention and confidence response under occlusion/deletion/insertion; progressive deletion/insertion AUC; and selected-target overlap/call counts for A5/A6-style policies.
+
+**Scope exclusions:** this study does not estimate worker-level compliance, person-to-PPE ownership, task/site PPE mandates, confirmed violations, false-clearance risk, actual human-review efficacy, external/acquisition-independent generalization or electrical energy. Review is a request/priority state only. Hosted request round-trip is not pure model latency; call counts are not Joules.
 
 ## Fixed source and checkpoint boundaries
 
@@ -24,9 +28,10 @@ A joule endpoint is permissible only if physically metered electrical energy and
 
 ## Reference construction and status semantics
 
-- Reuse the completed 30-image context pilot (14 work-plausible, 14 negative/non-work controls, 2 uncertain) for sampling-plan feasibility only. Choose a random core sample plus distinctly reported hard/rare-case enrichment. Determine final target number using eligible workers, verified violations and risk-interval precision; predefine selection, enrichment and stopping rules. Unknown task/site policy is never inferred solely from Y-PPE class labels.
-- Researcher is the current **single curator and single reviewer**; not independent A/B safety reviewers. Label **all visible persons**, including persons missed by detector. For each worker/equipment item capture visually `PRESENT, ABSENT, UNKNOWN`; model detection `DETECTED, NOT_DETECTED`; association `MATCHED, ASSOCIATION_UNKNOWN`; worker eligibility and task/site mandate `REQUIRED, NOT_REQUIRED, POLICY_UNKNOWN` with source/justification. Only when confirmed **required** and confirmed **absent** label a real occupational violation. Hypothetical site policies are simulated scenarios only.
-- Unknown state must not be silently mapped to compliant or violation. Count review-needed, missing worker and uncontained true violation separately. Reference-review uncertainty and unknown site mandate must be disclosed as construct validity limits.
+- Use the existing author-curated object-class and bounding-box annotations as the single-curator reference for the image-level detection endpoint, with exact Source-ID joins and a frozen same-class IoU matching rule.
+- Report image-level TP/FP/FN, precision, recall and F1, plus class-wise support and source-overlap sensitivity cohorts M0/M1/M2. Keep model-assisted annotation provenance and known label discrepancies disclosed.
+- For XAI targets, freeze the original detection identity, class, box and baseline confidence. Preserve `MATCHED`, `LOST` and `AMBIGUOUS` as distinct outcomes after perturbation; never infer a missing worker state from a detector miss.
+- The archived Person–PPE pilot is exploratory only. It is not completed into worker-level gold, and no task/site policy is inferred. No compliance or violation label is produced under this protocol.
 
 ## V18 owner-approved single-curator annotation reference policy (21 November 2026)
 
@@ -36,50 +41,55 @@ The original image collector/selector/classifier has explicitly confirmed that a
 
 For the internal detection endpoint **a second reviewer and a newly signed person-level overlay for every image are not absolute requirements**. The strict V15 gate pertains to claims of fully verified worker-level safety and certified acquisition independence, not to ordinary reproduction of the author's original object-detection labels. The data owner must not be asked to redo the previously completed general image review.
 
-## Evidence routing and safety invariants
+## Evidence routing and image-level invariants
 
-- Route `BASIC` for sufficient detector evidence, `EXPLAIN` for selected target-specific XAI, and `REVIEW` to abstain/request human review. Routing inputs can include detected boxes/class/score, visibility, association margin, hazard severity/priority, risk/uncertainty, known task mandates, elapsed compute and budget; **never** adjudicated reference/test labels.
-- Rules fixed before calibration: no confirmed violation from a bare `No Hard Hat` detection without known mandate; no `COMPLIANT` for unresolved visual evidence, source/worker coverage, association or policy; no unsupported clearance due to exhausted XAI or review budget. Precautionary alerts for potentially severe hazards are logged apart from verified violations.
-- Person–equipment association uses geometric containment, PPE-specific body region, overlap, confidence and top-two candidate margin. Unresolved ties `ASSOCIATION_UNKNOWN` route for explanation/review. Missing person detection is not repaired by heatmaps on existing objects. Optional budgeted repeat detector or secondary person detector is included only if executable, matched across eligible baselines and fully costed. Explicitly inspect an evaluation sample of **zero-person-prediction frames**.
-- Adaptive compute budget and review cap have prespecified values chosen from feasible development/calibration evidence. Overflow remains `UNKNOWN`/`PENDING_REVIEW`, not `COMPLIANT`; log queue size, pending duration and completed assessments. `REVIEW_REQUESTED` is not `REVIEW_COMPLETED` or `ACTION_CONFIRMED`. Simulated queue time is labeled simulation, not observed real operations.
+- Route `BASIC` for a retained detector output, `EXPLAIN` for a selected detection requiring perturbation-based analysis, and `REVIEW` for a request to visually inspect an uncertain or priority image region.
+- Routing inputs may include detector confidence, predicted class, box area/visibility, uncertainty proxies and remaining XAI-call budget. Do not use reference/test labels, worker compliance assumptions or task/site mandates as routing inputs.
+- A review request is not a completed review, confirmed violation, safety clearance or protective intervention. The system must not emit worker-level `COMPLIANT` or `VIOLATION` conclusions.
+- Preserve detector identity, original image/split and model parameters; report missed/ambiguous target matches explicitly. No retraining, source-label edits or protected-Test tuning.
 
-## Target-specific faithfulness
+## Target-specific perturbation sensitivity
 
-- Use original target class/box identity, model-agnostic Occlusion, controlled deletion/insertion perturbations, evidence/worker/PPE localization and non-target control regions. Re-predict on each perturbed image; match same-class boxes using a predeclared same-instance IoU/spatial rule. Log `MATCHED`, `LOST` and `AMBIGUOUS` distinctly, without assigning a different target or imputing zero score for vanished predictions.
-- Use more than one perturbation/masking scheme; report robustness and artifact limitations. Gradient explanation may be compared only if the **exact audited original 17-class** checkpoint has a compatible differentiable loader and suitable gradients. Hosted inference JSON alone does not yield gradient access.
+- Use original target class/box identity and predeclared black-box perturbations: Gaussian occlusion, black-fill deletion, target-only insertion and progressive grid-based deletion/insertion.
+- Re-predict on each perturbed image and match the same class/instance using the frozen spatial/IoU rule. Log `MATCHED`, `LOST` and `AMBIGUOUS` separately.
+- Include random and inverse-saliency controls where supported. Report deletion/insertion curves and trapezoidal AUC, but interpret them as perturbation sensitivity only.
+- Test robustness to grid resolution, mask/background fill, blur choices and target selection. An externally grounded explanation reference is required before claiming causal explanation faithfulness.
+- Gradient methods remain outside the current hosted-only evidence unless the exact original checkpoint and differentiable implementation are independently verified.
 
 ## Experimental arms, comparator and ablations
 
-- A0 detector only; A1 Explain-All eligible targets; A2 Confidence-Only; A3 Budget-Only; A4 unsafe safety-guard-off **diagnostic** comparator (separate, not deployment option); A5 full SEER-PPE.
-- Preselect a **strong selective primary comparator** on Validation before inspecting final SEER Test results. For fair main contrasts hold same basic safety guardrails, detector, input images, site policies and GPU. Constrain review capacity equally and report a second matched-compute/XAI-call budget analysis. Avoid cheap 'wins' obtained by dumping more cases into review.
-- Four core ablations remove risk, uncertainty, association-specific evidence or adaptive compute budgeting individually while preserving nonnegotiable safety rules. Optionally test predeclared risk×uncertainty and association×uncertainty interactions. Recalibrate each on Validation; avoid post-test selection.
+- Compare A0 detector-only, A1 Explain-All, A2 confidence-only, A3 budget-only, A5 and A6 selective explanation/target-prioritization policies.
+- Match target and XAI-call budgets where feasible; report selected-target overlap, unmatched slots, detection correctness where reference matching exists, and actual model-call counts.
+- Current A5/A6 evidence is small, development-exposed and has shared target slots. It is descriptive; do not claim statistical superiority or worker-safety benefit.
+- A4 safety-guard-off remains historical design documentation and is not a current study arm.
 
-## Calibration, gate ordering and inference
+## Calibration and inference
 
-**Gate 1: worker safety and explainability feasibility.** Fix worker-level false-clearance and uncontained-confirmed-violation denominators; severity/mandate requirement; allowed review/overflow; explanation target-match/fidelity lower bounds; confidence level and noninferiority margin (if feasible) before final analysis. These values have **not yet been established** and will be feasible only if confirmed sample sizes support their interval widths. A queue request does not constitute mitigation.
+Freeze image/target selection, confidence thresholds, perturbation settings, AUC computation and comparator policy before each planned evaluation. Use Validation/development material only for selection and sensitivity checks; disclose historical exposure and source overlap. Do not access protected Test for tuning. No worker-level safety gate, false-clearance threshold or task-policy calibration is part of the V32 endpoint.
 
-**Gate 2: efficiency after Gate 1.** Among gate-passing policies compare measured incremental XAI cost vs preregistered selective comparator, with Explain-All secondary. If sensor gate passes, use integrated real power trace under specified detector/XAI scope and report Joules; otherwise use a **predeclared computational outcome** and explicitly mark Joules/energy savings as unmeasured. Include base detector and optional secondary detector in total cost. Log human review separately.
-
-Detector score calibration, worker-level correctness and risk-controlled/conformal statistics are separate. Check prerequisites, verified event counts, calibration leakage and acquisition exchangeability rather than asserting distribution-free guarantees.
+Efficiency is reported as actual XAI/model-call counts and hosted request round-trip where available. Do not infer Joules, memory use, internal detector latency or financial cost from request timing or call counts.
 
 ## Paired statistics and repeatability
 
-- Same-image/worker observations across arms; paired contrasts and uncertainty intervals; workers nested within frames; known source families clustered where supported. `SOURCE_UNKNOWN` groups cannot be assumed independent; conduct exclusions/sensitivity.
-- Repeat timing/memory/energy measurement after warm-up with balanced order and fixed hardware, preprocessing, software/driver, batch size, randomization and sensor scope. Hardware repeats are **not independent workers**; do not inflate sample size.
-- Preregister primary contrast, primary endpoint/fallback, margin and multiplicity strategy, number of hardware repeats, missing/ambiguous handling, one-time Test freeze. Rare-label support prevents broad unconditional claims.
+- Use paired same-image/target contrasts where policies share eligible targets; report target overlap and the effective number of unique images/targets.
+- Cluster curve/target observations by source image where appropriate; avoid treating multiple grid cells or perturbation points as independent images.
+- Report descriptive values and uncertainty transparently; do not overstate A5/A6 differences from small overlapping samples.
+- Maintain M0/M1/M2 source-overlap sensitivity and disclose that unflagged sources are not thereby proven independent.
+- Hosted timing repeats characterize request round-trip only, not detector-only latency or energy.
 
 ## Audit trail, privacy and responsible release
 
 Per-case log with pseudonymous IDs, frozen-split/source-group/sha pointers, exact weight/config/environment versions, boxes/classes/confidence, wearer/equipment states, association candidates and margin, task-policy provenance, risk/uncertainty/review/XAI routing reasons, target perturbations and `LOST/AMBIGUOUS`, alerts/abstentions, queue completion status, costs, measured-or-simulated tags, and raw energy provenance if present. Keep image files, identity/provenance maps, ground-truth adjudication and runtime logs in separate permission-controlled stores; never feed post-hoc labels into routing. **Author's Q40 declaration (17 November 2026):** The researcher affirms full ownership and disposition rights over the **primary Y-PPE research data**. Record this as author self-attestation, not independently verified chain of title. Original author-created images/annotations may be slated for public release at their discretion, subject to identifiable-person privacy requirements; distinguish any externally sourced or provenance-unknown photos before broader redistribution. The fine-tuned/original RF-DETR checkpoint and Roboflow service artifacts may carry platform-specific distribution conditions separate from image-data ownership. **Q41 selected a comprehensive, reproducible research package (option D):** rights-cleared Y-PPE data and annotations, source code, frozen configuration/environment requirements, SHA-256 data/model manifests, access-controlled or pseudonymized audit and experiment logs, automated tests, Colab notebooks, and scripts to regenerate tables/figures from genuine results. Maintain a public/restricted manifest and publication checklist. Exact model weights may be redistributed only where license/hosting terms allow; otherwise document authorized retrieval. Data export, checkpoint access, real evaluation, energy measurement and release status must each be verified separately. No public release has yet occurred. **No dataset, image or weight release has been performed by this protocol edit.**
 
-## Evidence and open gates (15 November 2026)
+## Evidence and open gates — V32 scope
 
-**Verified:** Clean17 archive checksum and extraction; earlier fixed split integrity, explicit candidate source triage; 30-image analyst-only pilot; 56 synthetic code tests; original Roboflow 17-class model project/version/training metadata; issuance of authorized temporary original weights download URL.
+**Verified:** Clean17 integrity and source mapping; current original-source 459-image detection evaluation; V27–V29 actual perturbation and hosted timing; V30 progressive black-box curves, 60 AUCs and independent numeric/source-hash audit; aggregate multi-project provenance decision.
 
-**Open:** Local bytes/loader/17-class weight inspection; real model-specific explanations; usable worker/task-policy reference; feasible rare-event risk bounds; source-family uncertainty quantification; actual metered electrical power; locked settings/comparator; executed full matched baseline and ablation evaluation. No XAI/risk/energy superiority result is available.
+**Open within scope:** explanation-perturbation robustness; a stronger and better-powered matched-budget A5/A6 target-selection comparison; final table/figure reconciliation; complete literature/DOI verification; editable manuscript export.
 
-Related manuscript: `research/seer-ppe/MANUSCRIPT_MASTER.md`. Original dataset integrity report: `cross_domain_reliability/stage2_data_audit/results/Y-PPE_v2_clean_stage2_closure_2026-09-20.md`.
+**Outside scope and not blocking:** worker-level Person–PPE gold, task/site mandates, compliance/violation labels, actual human-review efficacy, independent acquisition cohort, local gradient access, process memory and physical Joule measurement. The current paper must not imply these were measured.
 
+Related manuscript: `research/seer-ppe/MANUSCRIPT_MASTER.md`.
 
 ## Q42 — Staged reproducibility verification (author-approved; not yet executed)
 
