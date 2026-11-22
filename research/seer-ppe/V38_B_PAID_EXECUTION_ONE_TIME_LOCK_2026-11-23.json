@@ -1,0 +1,12 @@
+{
+  "schema_version": "seer-ppe/v38b-paid-execution-single-use-lock/v1",
+  "status": "EXECUTION_AUTHORIZATION_CONSUMED_NO_AUTOMATIC_RERUN",
+  "github_actions_run_id": "45085935253",
+  "github_actions_run_attempt": "1",
+  "github_run_url": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45085935253",
+  "authorization_file_sha256": "0f36fa43594c736c8e13026f2e496983183cbbb00f07b3c017c38ef08612c39a",
+  "hard_max_attempts": 6000,
+  "no_test": true,
+  "no_training": true,
+  "not_a_result_or_achievement_claim": true
+}
