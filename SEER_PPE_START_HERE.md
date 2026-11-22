@@ -1,7 +1,9 @@
 # SEER-PPE — START HERE (Arabic / English)
 ## افتح هذا الملف من أي حساب ChatGPT أو GitHub لاستئناف رسالة الماجستير
 
-> **Latest active research — V27–V29; working manuscript v0.27 (22 November 2026):** [main paper](research/seer-ppe/MANUSCRIPT_MASTER.md) · [actual V27–V29 results report](research/seer-ppe/V27_V29_ACTUAL_XAI_AND_PERFORMANCE_REPORT_2026-11-22.md) · [V29 checkpoint](research/seer-ppe/DUAL_TRACK_CHECKPOINT_2026-11-22_V29.md).
+> **Active research — V30 completed / V31 evidence-signoff preparation; working manuscript v0.30 (22 November 2026):** [paper](research/seer-ppe/MANUSCRIPT_MASTER.md) · [V30 actual full numeric results](research/seer-ppe/V30_ACTUAL_PROGRESSIVE_XAI_RESULTS_2026-11-22.json) · [independent audit PASS](research/seer-ppe/V30_INDEPENDENT_NUMERIC_AUDIT_2026-11-22.json) · [V31 source/person readiness ledger](research/seer-ppe/V31_SOURCE_PERSON_SAFETY_READINESS_2026-11-22.json).
+>
+> **V30 actual:** eight original Source images, 10 rankable target-specific 8×8 importance maps, 60 real progressive curves and 60 AUCs; 1,068 hosted-model calls exactly, verified and archived. **V31:** 459 matched Valid images remain source-family unsigned and no signed independent Valid worker gold exists; do not infer worker compliance, review efficacy, energy savings or A5/A6 superiority. No Test access or retraining.
 >
 > **V27:** 27 real original-model passes on ten frozen target detections; 9/10 targets lost after Gaussian box blur; mean target drop 0.622325 versus control drop 0.008304. A5/A6 matched budget: eight slots each.
 >
@@ -62,4 +64,4 @@ Copy the **exact link** to this file and ask the other chat to **read the GitHub
 - [V19 actual Train source box matching and numerical overlap screen, success](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44853282012)
 - [V20 historical Valid source-ID metric aggregation, success](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44856892166)
 
-**Your first next step:** Read the full handoff, verify current repository head/CI, and continue with **current original Valid Source labels vs fixed-model new bbox geometry** on frozen M0/M1/M2 at previously specified settings, if required by the thesis. Do not fabricate results, model changes or task mandates.
+**Your next research step:** Use the completed V30 actual numeric results and manuscript v0.30; continue the V31 read-only signed-source and valid-human-reference evidence preparation, focusing on the 11 preserved P0 source-risk packets before any independently sourced worker-safety scoring. All V26 459-image detection geometry and V30 AUC are already measured. Do not rerun paid V30 inference, open Test, alter images/model or invent worker/task mandates.
