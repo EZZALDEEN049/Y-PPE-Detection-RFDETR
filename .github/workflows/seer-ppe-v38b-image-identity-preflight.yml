@@ -1,0 +1,106 @@
+name: SEER-PPE V38B read-only 24-source SHA and zero-inference protocol preflight
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - .github/workflows/seer-ppe-v38b-image-identity-preflight.yml
+      - research/seer-ppe/tools/v38b_readonly_image_preflight.py
+      - research/seer-ppe/V38_B_FROZEN_CANDIDATE_SAMPLE_2026-11-23.json
+      - research/seer-ppe/ORIGINAL_CLEAN17_VALID_IMAGE_CONTENT_V13.json
+      - research/seer-ppe/V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json
+      - research/seer-ppe/V30_FROZEN_TARGETS_2026-11-22.json
+      - research/seer-ppe/V26_ORIGINAL_VALID_GEOMETRY_SHARD_*.json
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: seer-ppe-v38b-readonly-source-preflight
+  cancel-in-progress: false
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install IMAGE-DECODER ONLY (no inference SDK, no model, no credentials)
+        run: python -m pip install --disable-pip-version-check "Pillow>=10,<13"
+      - name: Validate archived target IDs, V26/V13 cross-reference, pixel-mask geometry and simulation of 6000 attempted-call cap
+        run: |
+          set -euo pipefail
+          python research/seer-ppe/tools/v38b_readonly_image_preflight.py \
+            --mode static --output "${RUNNER_TEMP}/v38b_static_protocol.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          d=json.loads((Path(os.environ['RUNNER_TEMP'])/'v38b_static_protocol.json').read_text())
+          assert d['status']=='PASS_OFFLINE_PROTOCOL_AND_V26_V13_IDENTITY_CHAIN'
+          assert d['chosen_images']==24 and d['chosen_targets']==48
+          assert d['v13_prior_original_and_export_sha_verification_flags_matched']==24
+          assert d['v26_historical_box_class_confidence_matches']==48
+          assert d['hard_attempted_call_max']==6000
+          assert d['budget_cap_rejects_attempt_6001'] is True
+          assert d['actual_hosted_model_calls']==0
+          print('V38B_OFFLINE_STATIC_PROTOCOL_QA_PASS')
+          PY
+      - name: Fetch 24 original images READ-ONLY into memory; compute current SHA-256 and exact dimension compatibility
+        run: |
+          set -euo pipefail
+          python research/seer-ppe/tools/v38b_readonly_image_preflight.py \
+            --mode source-readonly --output "${RUNNER_TEMP}/v38b_image_readonly.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          d=json.loads((Path(os.environ['RUNNER_TEMP'])/'v38b_image_readonly.json').read_text())
+          assert d['status']=='PASS_24_CURRENT_SOURCE_IMAGE_BYTES_AND_STATIC_PROTOCOL'
+          assert d['current_source_images_retrieved_readonly']==24
+          assert len(d['current_source_image_sha256'])==24
+          assert all(x['matches_v26_dimensions'] for x in d['current_source_image_sha256'])
+          assert all(x['same_sha_as_original_v26_download'] is None for x in d['current_source_image_sha256'])
+          assert d['raw_images_saved_or_uploaded'] is False
+          assert d['actual_hosted_model_calls']==0
+          print('V38B_CURRENT_RAW_SOURCE_SHA256_AND_DIMENSION_QA_PASS')
+          print('Historical V26 image-raw SHA values are absent; this is a new reference fingerprint, not a demonstrated old-vs-new hash match.')
+          PY
+      - name: Upload ONLY hashed/numeric evidence; never upload images or URLs
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: v38b-no-inference-24-image-identity-and-budget-qa
+          path: |
+            ${{ runner.temp }}/v38b_static_protocol.json
+            ${{ runner.temp }}/v38b_image_readonly.json
+          retention-days: 90
+          if-no-files-found: warn
+      - name: Archive current-source SHA evidence and protocol audit on research branch
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          dest=research/seer-ppe/V38_B_CURRENT_SOURCE_READONLY_SHA256_PREFLIGHT_2026-11-23.json
+          cp "${RUNNER_TEMP}/v38b_image_readonly.json" "/tmp/$(basename "$dest")"
+          for attempt in 1 2 3; do
+            git fetch origin "$GITHUB_REF_NAME"
+            git reset --hard "origin/$GITHUB_REF_NAME"
+            if git ls-files --error-unmatch "$dest" >/dev/null 2>&1; then
+              cmp "$dest" "/tmp/$(basename "$dest")" || {
+                echo "::error::An archived source identity fingerprint exists but differs. Do not overwrite without investigation."
+                exit 1
+              }
+              echo "V38B_SOURCE_SHA_PREFLIGHT_ALREADY_FROZEN_AND_EQUAL"
+              exit 0
+            fi
+            cp "/tmp/$(basename "$dest")" "$dest"
+            git add "$dest"
+            git commit -m "Archive V38B 24 current-source read-only SHA-256 and 6000-call dry-run QA; zero inference"
+            if git push origin "HEAD:$GITHUB_REF_NAME"; then
+              echo "V38B_SOURCE_SHA_PREFLIGHT_ARCHIVED_NUMERIC_ONLY"
+              exit 0
+            fi
+          done
+          exit 1
