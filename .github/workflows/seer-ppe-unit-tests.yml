@@ -4,6 +4,10 @@ on:
     paths:
       - 'research/seer-ppe/**'
       - '.github/workflows/seer-ppe-unit-tests.yml'
+  pull_request:
+    paths:
+      - 'research/seer-ppe/**'
+      - '.github/workflows/seer-ppe-unit-tests.yml'
   workflow_dispatch:
 permissions:
   contents: read
