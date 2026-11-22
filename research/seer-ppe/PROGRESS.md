@@ -351,3 +351,14 @@ Re-read original saved human reference after the Workflow calls: **19** approved
 - Two non-numeric warnings retained: (1) V27 start timestamp is later than its finish timestamp as labelled UTC; raw evidence was not edited pending primary-log verification; (2) V34-B output files exist in a duplicated same-named nested folder and the two PDF blob IDs differ. Canonical PDF selection is required before Word figure integration.
 - Evidence: [V35-A machine audit](V35_A_NUMERIC_AUDIT_2026-11-22.json) and [V35-A audit report](V35_A_NUMERIC_AUDIT_REPORT_2026-11-22.md).
 - **Next:** V35-B — canonicalize V34-B outputs, insert the ten target figures and summary figure, and add numbered captions/in-text references. V35-C reference audit, V35-D Word export and V35-E final QA remain.
+
+
+## V35-B figure integration — 22 November 2026
+
+- Updated the canonical manuscript to **v0.37**. Inserted the V34-B summary map as Figure 1 and all ten paired target maps as Figures 2–11 in Appendix X.1.
+- Verified 11/11 Markdown image paths against files in the canonical manifest-adjacent folder; all 11 captions are present and sequentially numbered.
+- Cross-checked all ten target captions against the V34-B manifest: Spearman rho, Kendall tau-b and top-four overlap match to the displayed precision for 10/10 targets. The summary caption matches mean rho=0.5416, mean tau-b=0.4239 and 65% top-four overlap.
+- Selected `figures/V34B_2026-11-22/` as the canonical figure path because the manifest and generation report reference it. The same-named nested duplicate tree is retained; its PDF differs by Git blob SHA and will be resolved during V35-E, not silently deleted.
+- Evidence: [V35-B machine checks](V35_B_FIGURE_INTEGRATION_2026-11-22.json), [V35-B integration report](V35_B_FIGURE_INTEGRATION_REPORT_2026-11-22.md), and [updated manuscript](MANUSCRIPT_MASTER.md).
+- **Zero new model calls**, no Test access, retraining, image changes, annotation changes or split changes.
+- **Next:** V35-C literature/reference audit, followed by V35-D editable Word export and V35-E final QA. The Word export must include the repository-root-relative Pandoc resource path so all eleven Markdown image references are embedded.
