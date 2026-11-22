@@ -1,0 +1,62 @@
+{
+  "schema_version": "seer-ppe/v31-a2-author-shared-scene-attestation/v0.31a2",
+  "date": "2026-11-22",
+  "status": "AUTHOR_CONFIRMED_SHARED_SCENE_WITH_MODIFICATIONS_OR_PROCESSING; VALID_HARD_HOLD_RETAINED",
+  "attestation_scope": "SHARED_SCENE_CONTENT_WITH_CHANGES_OR_PROCESSING; NOT_BYTE_IDENTITY_OR_CAPTURE_SESSION_ATTESTATION",
+  "verdict": "SHARED_SCENE_WITH_MODIFICATIONS_OR_PROCESSING",
+  "scene_family_id": "scene_wa0026_wa0079_modified_processed",
+  "reviewer_id": "dataset_author_chat_attestation",
+  "signed_date": "2026-11-22",
+  "response_verbatim": "ليس نفي الصورة وانما نفس المشهد مهع تغيرات عليه ومعالجات",
+  "normalized_interpretation": "ليست الصورة نفسها؛ وإنما المشهد نفسه مع تغييرات ومعالجات.",
+  "evidence_ref": "evidence/AUTHOR_CHAT_ATTESTATION_WA0026_WA0079_SHARED_SCENE_2026-11-22.md",
+  "evidence_sha256": "d75d626a38c65c3b81c74b7619e5ceae38fb38d30de2d910dea76129d9c706d7",
+  "valid_member": {
+    "source_id": "yeEvdkqXtNgsj7PZFDvI",
+    "original_filename": "IMG-20250416-WA0026.jpg",
+    "clean17_filename": "IMG-20250416-WA0026_jpg.rf.a3294f67d828b9a7fd892bc2820063c9.jpg",
+    "prior_bucket": "RETAIN_PREEXISTING_RESEARCH_HOLD",
+    "decision_status": "HARD_HOLD_STILL_BLOCKED"
+  },
+  "train_member": {
+    "source_id": "xyKCHH49Xr7oCONLC9nN",
+    "original_filename": "IMG-20250416-WA0079.jpg"
+  },
+  "author_scope": {
+    "confirms_same_scene_content": true,
+    "confirms_changes_or_processing": true,
+    "says_not_same_image_as_presented": true,
+    "byte_identical_asserted": false,
+    "exact_original_frame_identity_asserted": false,
+    "known_crop_lineage_asserted": false,
+    "capture_session_id": null,
+    "acquisition_site_id": null,
+    "site_label_context_from_prior_valid_visual_triage": "site_school_shahid_alalafi",
+    "original_images_reopened_during_this_followup": false
+  },
+  "technical_context": {
+    "valid_source_id": "yeEvdkqXtNgsj7PZFDvI",
+    "train_source_id": "xyKCHH49Xr7oCONLC9nN",
+    "gray_ssim": 0.9324,
+    "orb_good_matches": 756,
+    "orb_inliers": 751,
+    "raw_bytes_identical": false,
+    "interpretation": "Existing pair metrics corroborate strong visual correspondence but are not treated as proof of exact frame identity or acquisition lineage."
+  },
+  "consequences": {
+    "cross_split_shared_scene": true,
+    "valid_member_excluded_from_source_independent_scoring": true,
+    "prior_holds_released": 0,
+    "independent_source_attestations": 0,
+    "independent_source_eligible_valid_images": 0,
+    "worker_safety_scoring_ready": false,
+    "train_or_valid_split_changed": false,
+    "original_data_or_annotations_modified": false,
+    "roboflow_modified": false,
+    "model_inference_calls": 0,
+    "retraining": false,
+    "test_accessed": false
+  },
+  "integrity_note": "The SHA-256 pins the in-repository transcription of the direct chat response. It does not independently authenticate the author's identity or prove the truth of the statement.",
+  "next_step": "Continue the remaining seven unresolved P0 source-family cases; preserve WA0026's existing hard hold."
+}
