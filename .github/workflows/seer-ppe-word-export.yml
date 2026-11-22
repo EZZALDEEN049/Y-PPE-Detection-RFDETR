@@ -1,4 +1,4 @@
-name: SEER-PPE v0.39 manuscript editable Word export and QA
+name: SEER-PPE v0.40 manuscript editable Word export and QA
 on:
   push:
     paths:
@@ -107,8 +107,8 @@ jobs:
 
           jobs=[
             (base/'MANUSCRIPT_MASTER.md',
-             out/'SEER_PPE_Research_Manuscript_v0.39_2026-11-22.docx',
-             'SEER-PPE Research Manuscript v0.39')
+             out/'SEER_PPE_Research_Manuscript_v0.40_2026-11-22.docx',
+             'SEER-PPE Research Manuscript v0.40')
           ]
           for source,target,subject in jobs:
               assert source.exists() and len(source.read_text(encoding='utf8'))>15000,source
@@ -145,7 +145,7 @@ jobs:
                   if tblW is None:
                       tblW=OxmlElement('w:tblW')
                       tblPr.append(tblW)
-                  tblW.set(qn('w:w'),'10000')
+                  tblW.set(qn('w:w'),'5000')
                   tblW.set(qn('w:type'),'pct')
                   tblLayout=tblPr.find(qn('w:tblLayout'))
                   if tblLayout is None:
@@ -200,16 +200,16 @@ jobs:
               d.save(target)
               assert target.stat().st_size>15000,target
               print(f'GENERATED {target} | bytes={target.stat().st_size} | paragraphs={len(d.paragraphs)} | tables={len(d.tables)}')
-          print('SEER_PPE_V039_EDITABLE_MANUSCRIPT_GENERATED_FROM_SOURCE_MARKDOWN')
+          print('SEER_PPE_V040_EDITABLE_MANUSCRIPT_GENERATED_FROM_SOURCE_MARKDOWN')
           PY
-      - name: Verify v0.39 Word structure, all source content and embedded figures
+      - name: Verify v0.40 Word structure, all source content and embedded figures
         run: |
           python - <<'PY'
           from pathlib import Path
           from docx import Document
           import zipfile
           b=Path('research/seer-ppe/exports')
-          manuscript=b/'SEER_PPE_Research_Manuscript_v0.39_2026-11-22.docx'
+          manuscript=b/'SEER_PPE_Research_Manuscript_v0.40_2026-11-22.docx'
           assert manuscript.exists() and manuscript.stat().st_size>15000
           with zipfile.ZipFile(manuscript) as z:
               assert z.testzip() is None
@@ -220,7 +220,7 @@ jobs:
           from docx.oxml.ns import qn
           for i,t in enumerate(d.tables):
               tw=t._tbl.tblPr.find(qn('w:tblW'))
-              assert tw is not None and tw.get(qn('w:w'))=='10000' and tw.get(qn('w:type'))=='pct',(i,tw.xml if tw is not None else None)
+              assert tw is not None and tw.get(qn('w:w'))=='5000' and tw.get(qn('w:type'))=='pct',(i,tw.xml if tw is not None else None)
               widths=[int(g.get(qn('w:w'))) for g in t._tbl.tblGrid.gridCol_lst]
               assert sum(widths)==9520,(i,widths,sum(widths))
           print('DOCX_TABLE_WIDTHS_OK',len(d.tables),'tables at 100% printable width')
@@ -237,7 +237,7 @@ jobs:
               assert value in mt, value
           print('DOCX_CONTENT_OK',len(mt),'chars',len(d.tables),'tables')
           PY
-      - name: Render v0.39 Word manuscript to PDF and check key content
+      - name: Render v0.40 Word manuscript to PDF and check key content
         run: |
           set -euo pipefail
           if ! command -v libreoffice >/dev/null 2>&1; then
@@ -245,8 +245,8 @@ jobs:
             sudo apt-get install -y -qq libreoffice-writer poppler-utils >/dev/null
           fi
           mkdir -p /tmp/seer_ppe_word_render
-          libreoffice -env:UserInstallation=file:///tmp/lo_seer_ppe_word_export --headless --convert-to pdf --outdir /tmp/seer_ppe_word_render research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.39_2026-11-22.docx
-          pdf=/tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.39_2026-11-22.pdf
+          libreoffice -env:UserInstallation=file:///tmp/lo_seer_ppe_word_export --headless --convert-to pdf --outdir /tmp/seer_ppe_word_render research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.40_2026-11-22.docx
+          pdf=/tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.40_2026-11-22.pdf
           test -s "$pdf"
           pdfinfo "$pdf" | grep Pages
           pdftotext -layout "$pdf" /tmp/seer_ppe_word_render/manuscript.txt
@@ -265,28 +265,28 @@ jobs:
           pdftoppm -f "$pages" -l "$pages" -scale-to 1000 -png -singlefile "$pdf" /tmp/seer_ppe_word_render/last_page
           test -s /tmp/seer_ppe_word_render/middle_page.png
           test -s /tmp/seer_ppe_word_render/last_page.png
-          echo 'SEER_PPE_V039_DOCX_PDF_TEXT_AND_THREE_PAGE_PREVIEW_QA_PASS'
+          echo 'SEER_PPE_V040_DOCX_PDF_TEXT_AND_THREE_PAGE_PREVIEW_QA_PASS'
       - name: Upload temporary PDF and page previews for V35-E visual inspection
         uses: actions/upload-artifact@v4
         with:
-          name: seer-ppe-v039-render-qa
+          name: seer-ppe-v040-render-qa
           path: |
-            /tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.39_2026-11-22.pdf
-            research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.39_2026-11-22.docx
+            /tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.40_2026-11-22.pdf
+            research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.40_2026-11-22.docx
             /tmp/seer_ppe_word_render/first_page.png
             /tmp/seer_ppe_word_render/middle_page.png
             /tmp/seer_ppe_word_render/last_page.png
           if-no-files-found: error
           retention-days: 7
-      - name: Archive editable v0.39 Word manuscript on the current research branch
+      - name: Archive editable v0.40 Word manuscript on the current research branch
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.39_2026-11-22.docx
+          git add research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.40_2026-11-22.docx
           git diff --cached --quiet && exit 0
-          git commit -m 'docs(seer-ppe): archive editable Word manuscript v0.39'
+          git commit -m 'docs(seer-ppe): archive editable Word manuscript v0.40'
           git fetch origin "$GITHUB_REF_NAME"
           git rebase "origin/$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"
