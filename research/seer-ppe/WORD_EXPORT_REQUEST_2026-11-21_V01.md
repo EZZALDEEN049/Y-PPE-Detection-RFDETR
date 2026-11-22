@@ -87,3 +87,8 @@ The v0.39 workflow must remove the empty TOC generation, set every Word table to
 ### V35-E OOXML width-unit correction — 22 November 2026
 
 The first visual correction revealed that WordprocessingML percentage table widths are stored in fiftieths of a percent: `w:tblW=5000` represents 100%, not 50%. The v0.39 attempt used `10000` (200%), which caused table-cell content to flow incorrectly even though the DOCX structure check passed. The original v0.38 grid columns summed to 7,920 twips and were too narrow for the long 7–10-column tables. The v0.40 export must therefore set `tblW=5000` (100%) while explicitly sizing the `tblGrid` and cell widths to 9,520 twips, preserving all cell text and all 11 images. Recheck actual rendered pages containing the 4.17 cohort table and the V26 class metrics table before acceptance.
+
+
+### V35-E native Word table export trial — 22 November 2026
+
+The v0.40 PDF still shows narrow headings and table content flowing outside the visible grid despite a valid DOCX structure. The issue appears tied to the custom reference DOCX/table rewriting rather than the scientific source. The v0.41 trial therefore removes the custom reference DOCX and all manual table-grid/cell-width rewriting, allowing Pandoc's native Word template and table layout to remain intact. The DOCX checks must verify all 16 native tables and their nonempty cell text, 11 embedded figures, and the PDF preview. Preserve v0.38–v0.40 as intermediate exports until the rendered v0.41 is visually checked.
