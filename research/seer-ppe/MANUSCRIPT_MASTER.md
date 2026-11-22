@@ -6,7 +6,7 @@
 Taiz, Yemen  
 **Corresponding author:** azzaltayyar@gmail.com
 
-**Working manuscript v0.41 — native Pandoc Word-table export revision 22 November 2026**  
+**Working manuscript v0.42 — readable V26 results tables and Word export revision 22 November 2026**  
 **Article class:** original empirical research candidate | **Status:** evidence-bounded manuscript; submission readiness remains conditional on author declarations, target-journal requirements and final visual layout approval.  
 **Data constraint:** original Y-PPE corpus and the verified hosted 17-class ALTAYYAR RF-DETR Small model v2; local checkpoint or gradient access is not used or claimed in the current experiments.  
 **Draft integrity statement:** original-model object detection, V27–V30 target perturbation, V33-A reanalysis, the completed V33-B 4×4 grid-resolution experiment, V34-A spatial map alignment/rank-correlation analysis, V34-B figure generation, V35-A numeric reconciliation and V35-B figure integration are recorded in the research branch. The study is scoped to image/object-level PPE detection and perturbation-response sensitivity; worker-level compliance, Person–PPE gold, actual review efficacy, independent/external explanation faithfulness, process memory and physical energy are outside the current empirical claim set. Do not cite the old model's 96.22% historical mAP@50 as a new SEER-PPE achievement.
@@ -112,7 +112,7 @@ Log pseudonymous image, source-group and target IDs; dataset/model identifiers a
 
 ### 3.11 Readiness gates and actual status (V32 scope)
 
-**Completed:** Clean17 integrity and source mapping; current original-source 459-image detection evaluation; V27–V29 target perturbation and hosted timing; V30 progressive black-box perturbation curves and independent numeric audit; V33-A matched-target reanalysis; V33-B's actual 4×4 grid-resolution experiment and independent numeric audit; V34-A spatial map alignment/rank correlation; V34-B scientific figure generation; V35-A numeric reconciliation; and V35-B integration of all eleven figures into manuscript v0.37. **Remaining for final submission preparation:** confirm author-level ethics/consent, funding, competing-interest and contribution declarations; verify the two eSmarTA 2026 author lists against final IEEE metadata; select the target journal; and complete final rendered layout/link/archive QA. The v0.38–v0.40 are preserved as intermediate exports; v0.41 uses Pandoc's native Word reference template and table structures, with the empty generated TOC removed. Repeated random seeds or alternative masking/blur baselines require a separate prospective design and are not retroactively claimed. Worker-level Person–PPE gold, task mandates, actual review efficacy, independent acquisition generalization, local checkpoint/gradient access and physical energy are outside the current endpoint scope. No retraining or Test access is authorized.
+**Completed:** Clean17 integrity and source mapping; current original-source 459-image detection evaluation; V27–V29 target perturbation and hosted timing; V30 progressive black-box perturbation curves and independent numeric audit; V33-A matched-target reanalysis; V33-B's actual 4×4 grid-resolution experiment and independent numeric audit; V34-A spatial map alignment/rank correlation; V34-B scientific figure generation; V35-A numeric reconciliation; and V35-B integration of all eleven figures into manuscript v0.37. **Remaining for final submission preparation:** confirm author-level ethics/consent, funding, competing-interest and contribution declarations; verify the two eSmarTA 2026 author lists against final IEEE metadata; select the target journal; and complete final rendered layout/link/archive QA. The v0.38–v0.41 are preserved as intermediate exports; v0.42 splits the two wide V26 result tables into readable count/metric tables and shortens long cohort labels without changing any values. Repeated random seeds or alternative masking/blur baselines require a separate prospective design and are not retroactively claimed. Worker-level Person–PPE gold, task mandates, actual review efficacy, independent acquisition generalization, local checkpoint/gradient access and physical energy are outside the current endpoint scope. No retraining or Test access is authorized.
 
 ### 3.12 Operational source-lineage and Person–PPE evaluation contract (V11; executable but not authorized for scoring)
 
@@ -393,9 +393,9 @@ This exploratory observation supports the architecture's **need for abstention a
 
 | Current Valid source annotation cohort | Images | Current saved boxes | Mean boxes / image | Model-assisted markers | Images with assisted markers | Classes present |
 |:--|--:|--:|--:|--:|--:|--:|
-| M0: all Clean17-matched source IDs | 459 | 3,471 | 7.562 | 729 | 113 | 17 |
-| M1: exclude previous holds and high-overlap technical quarantines | 448 | 3,433 | 7.663 | 725 | 112 | 17 |
-| M2: additionally exclude other possible source-family risk flags (independence NOT certified) | 367 | 3,049 | 8.308 | 655 | 97 | 17 |
+| M0: complete matched Clean17 | 459 | 3,471 | 7.562 | 729 | 113 | 17 |
+| M1: exclude holds/high overlap | 448 | 3,433 | 7.663 | 725 | 112 | 17 |
+| M2: extra source-risk exclusions; NOT independent | 367 | 3,049 | 8.308 | 655 | 97 | 17 |
 
 **Class support at the original-current Source label level** is detailed below; `images` counts distinct original Valid images with at least one box of the class, not independently verified workers, and therefore can exceed or differ from the person-count denominator. `M2/M0` is the share of **boxes of that class retained**, not recall, model accuracy or false-negative rate.
 
@@ -475,35 +475,69 @@ At exactly the **same cap of one proposed extra explanation and one proposed hum
 
 V26 executed a **uniform, new read-only inference** of the exact 459 original Valid Source images on the existing unchanged 17-class RF-DETR Small model and computed class-exact one-to-one native-bbox IoU≥0.50 matches to the current single-curator original Source boxes. **All 459 original source identities and current annotation counts passed; zero source image or inference records were lost.** The evaluation used hosted confidence 0.20 and overlap 0.50, and is **not** the 2025 Roboflow provider-evaluation GT, COCO mAP or SEER-PPE policy efficacy.
 
-| Pre-specified original Source Valid risk cohort | Images | Current author GT | New model boxes | TP | FP | FN | Precision | Recall | F1 |
-|:--|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| M0: complete matched Valid | 459 | 3471 | 4103 | 3297 | 806 | 174 | 80.36% | 94.99% | 87.06% |
-| M1: exclude holds/high overlap | 448 | 3433 | 4063 | 3261 | 802 | 172 | 80.26% | 94.99% | 87.01% |
-| M2: unflagged, NOT independent | 367 | 3049 | 3618 | 2894 | 724 | 155 | 79.99% | 94.92% | 86.82% |
+**V26 cohort counts (original archived values):**
+
+| Pre-specified Source Valid cohort | Images | Current author GT | Model boxes | TP | FP | FN |
+|:--|--:|--:|--:|--:|--:|--:|
+| M0: complete matched Valid | 459 | 3471 | 4103 | 3297 | 806 | 174 |
+| M1: exclude holds/high overlap | 448 | 3433 | 4063 | 3261 | 802 | 172 |
+| M2: unflagged, NOT independent | 367 | 3049 | 3618 | 2894 | 724 | 155 |
+
+**V26 cohort metrics (same matching settings):**
+
+| Pre-specified Source Valid cohort | Micro-precision | Recall | F1 |
+|:--|--:|--:|--:|
+| M0: complete matched Valid | 80.36% | 94.99% | 87.06% |
+| M1: exclude holds/high overlap | 80.26% | 94.99% | 87.01% |
+| M2: unflagged, NOT independent | 79.99% | 94.92% | 86.82% |
 
 In M0 the unchanged detector produced **4,103** current predictions against **3,471 current original Source reference objects**. Of these, **3,297** predictions matched one-to-one, leaving **806 false-positive model boxes and 174 unmatched reference objects**: micro-precision **80.36%**, recall **94.99%** and **F1 87.06%**. M1 and M2 F1 were **87.01%** and **86.82%**, respectively, at precisely the same matching settings. These descriptive strata differ in box count/class composition and possible shared acquisition sources; their metric differences cannot quantify source leakage or certify independent external generalization.
 
 **Individual classes of the current reference (all 17):**
 
-| Original detector class | M0 current GT | M0 TP | M0 FP | M0 FN | M0 Precision | M0 Recall | M0 F1 | M2 current GT | M2 F1 |
-|:--|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| Animal | 66 | 66 | 9 | 0 | 88.00% | 100.00% | 93.62% | 60 | 93.02% |
-| Child | 31 | 29 | 8 | 2 | 78.38% | 93.55% | 85.29% | 28 | 85.25% |
-| Face Masks | 80 | 74 | 27 | 6 | 73.27% | 92.50% | 81.77% | 69 | 81.76% |
-| No Hard Hat | 56 | 55 | 9 | 1 | 85.94% | 98.21% | 91.67% | 50 | 93.33% |
-| No Safety Boots | 93 | 85 | 41 | 8 | 67.46% | 91.40% | 77.63% | 82 | 77.08% |
-| Soft Hat | 60 | 57 | 12 | 3 | 82.61% | 95.00% | 88.37% | 54 | 87.93% |
-| Hard Hat | 388 | 377 | 39 | 11 | 90.63% | 97.16% | 93.78% | 330 | 93.14% |
-| No Safety Vest | 160 | 156 | 42 | 4 | 78.79% | 97.50% | 87.15% | 146 | 87.12% |
-| Pants | 207 | 201 | 62 | 6 | 76.43% | 97.10% | 85.53% | 185 | 85.78% |
-| No Face Mask | 280 | 269 | 51 | 11 | 84.06% | 96.07% | 89.67% | 253 | 89.67% |
-| No Safety Attire | 87 | 80 | 25 | 7 | 76.19% | 91.95% | 83.33% | 75 | 81.93% |
-| No Gloves | 328 | 308 | 115 | 20 | 72.81% | 93.90% | 82.02% | 298 | 83.28% |
-| Gloves | 278 | 250 | 80 | 28 | 75.76% | 89.93% | 82.24% | 240 | 80.91% |
-| Safety Boots | 365 | 337 | 105 | 28 | 76.24% | 92.33% | 83.52% | 315 | 82.69% |
-| Safety Vests | 315 | 297 | 45 | 18 | 86.84% | 94.29% | 90.41% | 273 | 90.21% |
-| Goggles | 189 | 183 | 33 | 6 | 84.72% | 96.83% | 90.37% | 154 | 89.16% |
-| Persons | 488 | 473 | 103 | 15 | 82.12% | 96.93% | 88.91% | 437 | 89.05% |
+**Per-class V26 counts:**
+
+| Original detector class | M0 GT | M0 TP | M0 FP | M0 FN | M2 GT |
+|:--|--:|--:|--:|--:|--:|
+| Animal | 66 | 66 | 9 | 0 | 60 |
+| Child | 31 | 29 | 8 | 2 | 28 |
+| Face Masks | 80 | 74 | 27 | 6 | 69 |
+| No Hard Hat | 56 | 55 | 9 | 1 | 50 |
+| No Safety Boots | 93 | 85 | 41 | 8 | 82 |
+| Soft Hat | 60 | 57 | 12 | 3 | 54 |
+| Hard Hat | 388 | 377 | 39 | 11 | 330 |
+| No Safety Vest | 160 | 156 | 42 | 4 | 146 |
+| Pants | 207 | 201 | 62 | 6 | 185 |
+| No Face Mask | 280 | 269 | 51 | 11 | 253 |
+| No Safety Attire | 87 | 80 | 25 | 7 | 75 |
+| No Gloves | 328 | 308 | 115 | 20 | 298 |
+| Gloves | 278 | 250 | 80 | 28 | 240 |
+| Safety Boots | 365 | 337 | 105 | 28 | 315 |
+| Safety Vests | 315 | 297 | 45 | 18 | 273 |
+| Goggles | 189 | 183 | 33 | 6 | 154 |
+| Persons | 488 | 473 | 103 | 15 | 437 |
+
+**Per-class V26 metrics:**
+
+| Original detector class | M0 precision | M0 recall | M0 F1 | M2 F1 |
+|:--|--:|--:|--:|--:|
+| Animal | 88.00% | 100.00% | 93.62% | 93.02% |
+| Child | 78.38% | 93.55% | 85.29% | 85.25% |
+| Face Masks | 73.27% | 92.50% | 81.77% | 81.76% |
+| No Hard Hat | 85.94% | 98.21% | 91.67% | 93.33% |
+| No Safety Boots | 67.46% | 91.40% | 77.63% | 77.08% |
+| Soft Hat | 82.61% | 95.00% | 88.37% | 87.93% |
+| Hard Hat | 90.63% | 97.16% | 93.78% | 93.14% |
+| No Safety Vest | 78.79% | 97.50% | 87.15% | 87.12% |
+| Pants | 76.43% | 97.10% | 85.53% | 85.78% |
+| No Face Mask | 84.06% | 96.07% | 89.67% | 89.67% |
+| No Safety Attire | 76.19% | 91.95% | 83.33% | 81.93% |
+| No Gloves | 72.81% | 93.90% | 82.02% | 83.28% |
+| Gloves | 75.76% | 89.93% | 82.24% | 80.91% |
+| Safety Boots | 76.24% | 92.33% | 83.52% | 82.69% |
+| Safety Vests | 86.84% | 94.29% | 90.41% | 90.21% |
+| Goggles | 84.72% | 96.83% | 90.37% | 89.16% |
+| Persons | 82.12% | 96.93% | 88.91% | 89.05% |
 
 The strongest M0 object F1 among PPE classes includes **Hard Hat (93.78%)** and **Safety Vests (90.41%)**; more uncertain examples include **No Safety Boots (77.63%)**, **No Gloves (82.02%)** and **Gloves (82.24%)**. Reported per-class F1 uses exact **model class labels and bbox matches**, not verified worker task requirement, compliance, incident prediction or PPE ownership. The small `Child`, `No Hard Hat` and other rare-class denominators do not establish generalizable risk-specific behavior.
 
