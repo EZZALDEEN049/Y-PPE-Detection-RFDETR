@@ -110,7 +110,10 @@
     "seer_v13_exact_cross_workspace_binary_identity": false,
     "historical_coco_export_requests_ready": true,
     "historical_coco_archives_downloaded": false,
-    "historical_coco_archives_sha256_hashed": false
+    "historical_coco_archives_sha256_hashed": false,
+    "historical_coco_exports_ready": true,
+    "historical_coco_archive_download_attempted_in_runtime": true,
+    "historical_coco_archive_download_blocker": "Active container could not resolve app.roboflow.com (DNS/network restriction); no archive bytes were retrieved. Fresh export links were generated for user-side download/upload."
   },
   "explicit_nonclaims": [
     "No exact YOLO/RF split identity proof",
@@ -144,6 +147,6 @@
     "current_dataset_parity_and_source_mapping_committed": true,
     "historical_coco_export_retrieval_note": "research/y-ppe-q1/E1_HISTORICAL_COCO_EXPORT_RETRIEVAL_2026-11-22.md"
   },
-  "next_working_step": "Download the two ready COCO export archives in the active working session, hash and inspect them, then compare exact Train/Validation/Test image membership and raw bytes.",
+  "next_working_step": "User downloads the ready historical YOLO v1 and RF-DETR v2 COCO ZIPs from the provided Roboflow export links and uploads both archives to this conversation; then hash and inspect them.",
   "progress_estimate_change": "Increased from 47.75% to 48.75% because current-version metadata parity and SEER V13 source-overlap mapping were verified; no empirical gate passed."
 }

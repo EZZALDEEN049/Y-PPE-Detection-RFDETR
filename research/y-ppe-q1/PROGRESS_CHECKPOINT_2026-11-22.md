@@ -250,3 +250,12 @@ The four named-site pairs identify School 22 May – Aseefrah across Train and V
 The weighted project estimate advances conservatively from 47.75% to **48.75% (49% rounded)** to reflect the current-version cross-project parity audit and the source-overlap mapping. This is project-management progress only. No empirical gate passed: E1 remains NOT PASSED, E2 NOT PASSED, E3 NOT STARTED, and publication remains NO-GO.
 
 **Next action:** obtain the exact historical COCO exports for YOLO project v1 and RF-DETR project v2. The current v2/v3 exports are not substitutes. After both archives are available, create per-split SHA-256 manifests, compare exact membership and image content across the two training tracks, inspect Test bytes, and reconcile source-family/site candidates before E1 can be accepted.
+
+
+## 13. Historical COCO exports are ready; archive transfer is pending (22 November 2026)
+
+Both exact historical exports were regenerated and returned `ready=true`: YOLOv11m project v1 (reported export size 329.326929) and RF-DETR Small project v2 (329.523979), both in COCO format.
+
+A direct download attempt from the active working container failed because it could not resolve `app.roboflow.com` (DNS/network restriction). No archive bytes were retrieved, and no SHA-256, extraction, membership comparison, or image-byte audit has been performed. The temporary export links are provided to the user in the conversation and are not stored in GitHub.
+
+**Next action:** user downloads both historical COCO ZIPs and uploads them to this conversation. E1 remains NOT PASSED; E2 NOT PASSED; E3 NOT STARTED; publication NO-GO.
