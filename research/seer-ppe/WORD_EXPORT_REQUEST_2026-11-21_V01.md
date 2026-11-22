@@ -92,3 +92,8 @@ The first visual correction revealed that WordprocessingML percentage table widt
 ### V35-E native Word table export trial — 22 November 2026
 
 The v0.40 PDF still shows narrow headings and table content flowing outside the visible grid despite a valid DOCX structure. The issue appears tied to the custom reference DOCX/table rewriting rather than the scientific source. The v0.41 trial therefore removes the custom reference DOCX and all manual table-grid/cell-width rewriting, allowing Pandoc's native Word template and table layout to remain intact. The DOCX checks must verify all 16 native tables and their nonempty cell text, 11 embedded figures, and the PDF preview. Preserve v0.38–v0.40 as intermediate exports until the rendered v0.41 is visually checked.
+
+
+## V35-E — split the two wide V26 result tables for publication readability — 22 November 2026
+
+The v0.41 native Pandoc template fixed the narrow heading/paragraph flow and produced actual visible tables. Visual inspection identified two remaining 10-column V26 tables that are technically visible but cramped. In v0.42, split the overall cohort table into counts and metrics, and split the 17-class table into counts and metrics. Shorten only the descriptive labels in the earlier 7-column source-cohort table. Preserve every numeric value exactly. The expected Word table count increases from 16 to 18. Re-export and inspect the V26 pages plus first/middle/last previews.
