@@ -340,7 +340,7 @@ jobs:
           m=(root/'MANUSCRIPT_MASTER.md').read_text()
           d=json.loads((root/'ACTUAL_A0_A2_A5_PAIRED_OFFLINE_ROUTING_V25.json').read_text())
           for phrase in ('**Working manuscript v0.32','### 3.19 V25 paired',
-                         '### 4.19 Actually executed A2/A5', '### 5.7 Routing implementation',
+                         '### 4.19 Actually executed A2/A5', '### 5.7 Detection-instance routing',
                          '## Appendix Q.', '59 typed PPE', '3/9', '51 typed cues'):
               assert phrase in m, phrase
           z=d['aggregate']
