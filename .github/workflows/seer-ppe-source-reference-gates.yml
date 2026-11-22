@@ -287,7 +287,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text()
-          for phrase in ('**Working manuscript v0.33', '### 3.17 Actual original-source',
+          for phrase in ('**Working manuscript v0.34', '### 3.17 Actual original-source',
                          '### 4.17 Current author-curated', '## 5. Discussion',
                          '## Appendix N.', '3,471', '3,049', '729',
                          '0.885018', '0.880754', '13'):
