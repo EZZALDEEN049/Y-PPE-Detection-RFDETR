@@ -58,6 +58,8 @@ jobs:
           assert len(files)==24
           largest=0
           exceeding=0
+          jpeg95_max=0
+          jpeg95_exceed=0
           for file in files:
               with Image.open(file) as raw:
                   oriented=ImageOps.exif_transpose(raw).convert("RGB")
@@ -66,8 +68,14 @@ jobs:
               n=buf.tell()
               largest=max(largest,n)
               exceeding+=n>15*1024*1024
+              jpeg=BytesIO()
+              oriented.save(jpeg,format="JPEG",quality=95,subsampling=0,optimize=False)
+              jpeg95_max=max(jpeg95_max,jpeg.tell())
+              jpeg95_exceed+=jpeg.tell()>15*1024*1024
           print("V38B_LOSSLESS_PNG_PAYLOAD_MAX_BYTES",largest)
           print("V38B_LOSSLESS_PNG_PAYLOADS_OVER_15MB",exceeding)
+          print("V38B_JPEG95_444_PAYLOAD_MAX_BYTES",jpeg95_max)
+          print("V38B_JPEG95_444_PAYLOADS_OVER_15MB",jpeg95_exceed)
           print("V38B_PAYLOAD_BENCHMARK_ZERO_MODEL_CALLS")
           PY
           rm -rf "${RUNNER_TEMP}/v38b_originals"
