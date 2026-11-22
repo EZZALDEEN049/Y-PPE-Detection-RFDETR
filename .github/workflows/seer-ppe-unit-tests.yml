@@ -35,3 +35,5 @@ jobs:
           PYTHONPATH=. python -m unittest discover -s tests -p 'test_v30_result_audit.py' -v
           PYTHONPATH=. python -m unittest discover -s tests -p 'test_v33b_grid4_xai.py' -v
           python -m py_compile seer_ppe/progressive_xai.py tools/run_v30_progressive_xai.py tools/audit_v30_xai_result.py tools/run_v33b_grid4_xai.py
+          python tools/audit_v33b_grid4_xai.py --output /tmp/V33_B_GRID4_NUMERIC_AUDIT_2026-11-22.json
+          python -m py_compile tools/audit_v33b_grid4_xai.py
