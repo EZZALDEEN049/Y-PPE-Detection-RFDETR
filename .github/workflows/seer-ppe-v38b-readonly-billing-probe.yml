@@ -1,0 +1,73 @@
+name: SEER-PPE V38B read-only Roboflow billing capability probe
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - .github/workflows/seer-ppe-v38b-readonly-billing-probe.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  billing-schema-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install official lightweight Roboflow SDK (no inference SDK)
+        run: python -m pip install --disable-pip-version-check roboflow-slim
+      - name: Read ONLY plan/usage field names (no account balances printed)
+        env:
+          ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os
+          import contextlib, io
+          key=os.environ.get('ROBOFLOW_API_KEY')
+          if not key:
+              print('ROBOFLOW_BILLING_PROBE: REPOSITORY_KEY_UNAVAILABLE')
+              raise SystemExit(0)
+          try:
+              from roboflow.adapters import rfapi
+          except Exception as exc:
+              print('ROBOFLOW_BILLING_PROBE: SDK_IMPORT_FAILURE', type(exc).__name__)
+              raise SystemExit(0)
+          read_actions=[
+              ('plan', lambda: rfapi.get_plan_info(key)),
+              ('usage', lambda: rfapi.get_billing_usage(key, 'softyyemen')),
+          ]
+          tokens=('credit','flex','balance','quota','billing','plan','usage','allowance','prepaid','remaining','limit','overage','entitlement')
+          def discover(obj, path='', depth=0):
+              if depth>5:return []
+              if isinstance(obj,dict):
+                  results=[]
+                  for k,v in obj.items():
+                      name=str(k)
+                      p=path+'.'+name if path else name
+                      if isinstance(v,(dict,list)):
+                          results.extend(discover(v,p,depth+1))
+                      elif any(t in name.lower() for t in tokens):
+                          typ=type(v).__name__
+                          results.append((p[:140],typ))
+                  return results
+              if isinstance(obj,list) and obj:
+                  return discover(obj[0],path+'[0]',depth+1)
+              return []
+          for kind, fn in read_actions:
+              try:
+                  # Suppress SDK debug/errors, which may inadvertently contain credentials.
+                  with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+                      payload=fn()
+                  print('ROBOFLOW_BILLING_PROBE_'+kind.upper()+': READ_SUCCESS')
+                  if isinstance(payload,dict):
+                      print('ROBOFLOW_BILLING_PROBE_'+kind.upper()+'_TOP_KEYS:',','.join(str(x) for x in list(payload.keys())[:40]))
+                      print('ROBOFLOW_BILLING_PROBE_'+kind.upper()+'_MATCHING_LEAVES:',repr(discover(payload)[:80]))
+                  else:
+                      print('ROBOFLOW_BILLING_PROBE_'+kind.upper()+'_TYPE:',type(payload).__name__)
+              except Exception as exc:
+                  print('ROBOFLOW_BILLING_PROBE_'+kind.upper()+': READ_FAILED',type(exc).__name__)
+          print('ROBOFLOW_BILLING_PROBE_COMPLETE; NO ACCOUNT VALUES, SECRETS, OR MODEL CALLS LOGGED')
+          PY
