@@ -351,10 +351,10 @@ This exploratory observation supports the architecture's **need for abstention a
 
 **Current object reference, not newly measured Valid detector predictions.** The original-Source Valid image IDs matched the archived original Source manifest **468/468**, and exactly **459** align with the corrected Clean17 Valid export. Read-only retrieval of current original saved annotations for these 459 images returned **3,471 object boxes across the complete 17-class vocabulary**, with **729** boxes (21.00%) bearing existing model-assisted provenance markers and **113/459** images containing at least one such marker. The author's completed curation is accepted as the primary, *single-reviewer* reference. Marked assistance is annotation provenance, not automatic proof of labeling error or independent manual-only creation.
 
-| Current Valid source annotation cohort | Images | Current saved boxes | Mean boxes / image | Model-assisted markers | Images with assisted markers | Classes present |
+| Cohort | Images | Current saved boxes | Mean boxes / image | Model-assisted markers | Images with assisted markers | Classes present |
 |:--|--:|--:|--:|--:|--:|--:|
 | M0: complete matched Clean17 | 459 | 3,471 | 7.562 | 729 | 113 | 17 |
-| M1: exclude holds/high overlap | 448 | 3,433 | 7.663 | 725 | 112 | 17 |
+| M1 | 448 | 3,433 | 7.663 | 725 | 112 | 17 |
 | M2: extra source-risk exclusions; NOT independent | 367 | 3,049 | 8.308 | 655 | 97 | 17 |
 
 **Class support at the original-current Source label level** is detailed below; `images` counts distinct original Valid images with at least one box of the class, not independently verified workers, and therefore can exceed or differ from the person-count denominator. `M2/M0` is the share of **boxes of that class retained**, not recall, model accuracy or false-negative rate.
@@ -435,21 +435,23 @@ At exactly the **same cap of one proposed extra explanation and one proposed hum
 
 V26 executed a **uniform, new read-only inference** of the exact 459 original Valid Source images on the existing unchanged 17-class RF-DETR Small model and computed class-exact one-to-one native-bbox IoU≥0.50 matches to the current single-curator original Source boxes. **All 459 original source identities and current annotation counts passed; zero source image or inference records were lost.** The evaluation used hosted confidence 0.20 and overlap 0.50, and is **not** the 2025 Roboflow provider-evaluation GT, COCO mAP or SEER-PPE policy efficacy.
 
+**Cohort definitions:** M0 includes all 459 matched Validation images; M1 excludes 11 previously held or high-overlap images; M2 additionally excludes possible source-family risk flags (367 images) and is not an independent cohort.
+
 **V26 cohort counts (original archived values):**
 
 | Pre-specified Source Valid cohort | Images | Current author GT | Model boxes | TP | FP | FN |
 |:--|--:|--:|--:|--:|--:|--:|
-| M0: complete matched Valid | 459 | 3471 | 4103 | 3297 | 806 | 174 |
-| M1: exclude holds/high overlap | 448 | 3433 | 4063 | 3261 | 802 | 172 |
-| M2: unflagged, NOT independent | 367 | 3049 | 3618 | 2894 | 724 | 155 |
+| M0 | 459 | 3471 | 4103 | 3297 | 806 | 174 |
+| M1 | 448 | 3433 | 4063 | 3261 | 802 | 172 |
+| M2 | 367 | 3049 | 3618 | 2894 | 724 | 155 |
 
 **V26 cohort metrics (same matching settings):**
 
 | Pre-specified Source Valid cohort | Micro-precision | Recall | F1 |
 |:--|--:|--:|--:|
-| M0: complete matched Valid | 80.36% | 94.99% | 87.06% |
-| M1: exclude holds/high overlap | 80.26% | 94.99% | 87.01% |
-| M2: unflagged, NOT independent | 79.99% | 94.92% | 86.82% |
+| M0 | 80.36% | 94.99% | 87.06% |
+| M1 | 80.26% | 94.99% | 87.01% |
+| M2 | 79.99% | 94.92% | 86.82% |
 
 In M0 the unchanged detector produced **4,103** current predictions against **3,471 current original Source reference objects**. Of these, **3,297** predictions matched one-to-one, leaving **806 false-positive model boxes and 174 unmatched reference objects**: micro-precision **80.36%**, recall **94.99%** and **F1 87.06%**. M1 and M2 F1 were **87.01%** and **86.82%**, respectively, at precisely the same matching settings. These descriptive strata differ in box count/class composition and possible shared acquisition sources; their metric differences cannot quantify source leakage or certify independent external generalization.
 
@@ -574,7 +576,7 @@ The V33-A post-hoc numeric study recomputed all **60 previously measured** V30 A
 
 **Matched-target composition matters:** A5 and A6 each contain eight selected target slots, but six IDs overlap and share exactly the **same previously inferred explanation curves**. The difference between A5/A6 arm means therefore arises entirely from two A5-only versus two A6-only selected targets, not differences in explanation algorithms on any shared target. Holding the six shared targets fixed and conditionally reallocating the four distinct targets in all six possible balanced 2+2 partitions yielded two-sided tail fractions **4/6=0.667** for observed deletion AUC A5–A6 difference (+0.099106) and **2/6=0.333** for insertion difference (+0.072841). These are **conditional post-hoc combinatorial diagnostics**, not conventional randomized-trial p-values or statistical confirmation of a winner. Leave-one-image-out comparison of the *insertion improvement over random* reversed A5/A6 preference in **one of eight** image omissions.
 
-**Interpretive cautions:** In V30, three of ten targets retained at least **80%** of baseline target confidence after whole-image Gaussian blur, while six targets had zero matched blurred confidence. Thus AUC is affected by substantial response-floor/ceiling heterogeneity. The inverse-saliency deletion AUC equals saliency insertion AUC, and the inverse-saliency insertion AUC equals saliency deletion AUC, within floating-point tolerance; the inverse ordering is not an independent random control. Only one frozen random permutation per target was evaluated. V33-A itself remains a zero-new-inference reanalysis; the separately executed V33-B 4×4 experiment and its resolution-sensitivity findings are reported in Section 4.26 and Supplementary Appendix V.
+**Interpretive cautions:** In V30, three of ten targets retained at least **80%** of baseline target confidence after whole-image Gaussian blur, while six targets had zero matched blurred confidence. Thus AUC is affected by substantial response-floor/ceiling heterogeneity. The inverse-saliency deletion AUC equals saliency insertion AUC, and the inverse-saliency insertion AUC equals saliency deletion AUC, within floating-point tolerance; the inverse ordering is not an independent random control. Only one frozen random permutation per target was evaluated. V33-A itself remains a zero-new-inference reanalysis; the separately executed V33-B 4×4 experiment and its resolution-sensitivity findings are reported in Section 4.26 and Supplementary Supplementary Appendix V.
 
 The complete [V33 target-level record](V33_A5_A6_NUMERIC_ROBUSTNESS_2026-11-22.json), [interpretive report](V33_A5_A6_NUMERIC_ROBUSTNESS_REPORT_2026-11-22.md) and [mutation-checked recomputation script](tools/verify_v33_existing_xai.mjs) preserve the ten source-linked targets, exact six-target overlap, conditional reassignment outcomes and non-inferential boundary. No worker-level compliance, actual human-review efficacy, causal explanation faithfulness, source-independent generalization or physical energy conclusion follows.
 
@@ -606,7 +608,7 @@ The defensible finding is **moderate, target-dependent positive spatial rank agr
 
 ### 4.28 paired-map generation data-derived paired heatmaps and figure-level numerical verification (22 November 2026)
 
-paired-map generation generated ten individual paired heatmap figures and one aggregate summary figure directly from the spatial alignment analysis aligned-map archive. Each target figure presents the native 8×8 fine-cell signed sensitivity map beside its direct 4×4 map. Gold outlines on the 8×8 panel identify the 2×2 fine-cell footprints of the four highest-ranked pooled 4×4 regions; gold outlines on the 4×4 panel identify its own four highest-ranked regions. The summary figure shows target-level Spearman ρ, Kendall τ-b and top-four overlap. The aggregate comparison is presented in **Figure 1**, while the ten target-specific maps are presented in **Figures 2–11 in Supplementary Appendix X**.
+paired-map generation generated ten individual paired heatmap figures and one aggregate summary figure directly from the spatial alignment analysis aligned-map archive. Each target figure presents the native 8×8 fine-cell signed sensitivity map beside its direct 4×4 map. Gold outlines on the 8×8 panel identify the 2×2 fine-cell footprints of the four highest-ranked pooled 4×4 regions; gold outlines on the 4×4 panel identify its own four highest-ranked regions. The summary figure shows target-level Spearman ρ, Kendall τ-b and top-four overlap. The aggregate comparison is presented in **Figure 1**, while the ten target-specific maps are presented in **Figures 2–11 in Supplementary Supplementary Appendix X**.
 
 ![](figures/V34B_2026-11-22/V34B_SPATIAL_AGREEMENT_SUMMARY_2026-11-22.png)
 
