@@ -36,3 +36,16 @@ Original-image baseline calls are already archived and are not repeated. Blocked
 6. Review scientific limitations before adding V33-B values to the manuscript.
 
 Until these gates pass, **V33-B remains an unexecuted prospective protocol**. V33-A is the completed read-only numeric study.
+
+
+## Implementation handoff (runner prepared; experiment still unexecuted)
+
+- Dedicated runner: \`tools/run_v33b_grid4_xai.py\`. It reuses the exact frozen V30 manifest, connector baseline record, V30 result archive, and local original-image bundle; it does not change the model or dataset.
+- Zero-call validation:
+  - \`python tools/run_v33b_grid4_xai.py --images-dir PATH_TO_FROZEN_V30_IMAGES --dry-run\`
+  - \`python tools/run_v33b_grid4_xai.py --images-dir PATH_TO_FROZEN_V30_IMAGES --preflight-only --output PATH_TO_READINESS_JSON\`
+- The runner checks the eight local SHA-256 values against the values archived from the V30 cloud-runner image bundle, then checks the ten target IDs, original geometry, confidence, classes and A5/A6 assignments against the frozen V30 records. **These are repeatability hashes of the V30 downloaded bundle, not independent source-side checksums.**
+- The actual inference command is deliberately gated and must not be used until the author separately authorizes the 496-call maximum:
+  - \`ROBOFLOW_API_KEY=... python tools/run_v33b_grid4_xai.py --images-dir PATH_TO_FROZEN_V30_IMAGES --confirm-additional-call-budget 496 --output PATH_TO_V33B_RESULTS_JSON\`
+- Every inference attempt is written to a partial call ledger before the request; failures are retained and not automatically retried. The public engineering workflow includes synthetic V33-B tests and does not run hosted inference.
+- Implementation, tests and CI wiring do not constitute V33-B scientific results. Execution remains **NOT STARTED** until separate budget authorization and successful preflight.
