@@ -72,11 +72,11 @@ The numerical archives include fixed target IDs, per-image source hashes from th
 
 All 459 image IDs and inference records were successfully joined to the current reference. The detector produced 4,103 boxes against 3,471 annotations, resulting in 3,297 true positives, 806 false positives and 174 false negatives on the M0 cohort. The complete 17-class distribution and the original per-image matching ledger are archived in the reproducibility material.
 
-| Internal cohort | Images | Reference objects | Predicted boxes | TP | FP | FN | Micro precision | Micro recall | Micro F1 |
-|:--|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| M0 | 459 | 3,471 | 4,103 | 3,297 | 806 | 174 | 0.8036 | 0.9499 | 0.8706 |
-| M1 | 448 | 3,433 | 4,063 | 3,261 | 802 | 172 | 0.8026 | 0.9499 | 0.8701 |
-| M2 | 367 | 3,049 | 3,618 | 2,894 | 724 | 155 | 0.7999 | 0.9492 | 0.8682 |
+| Cohort | Study size | TP / FP / FN | Micro precision / recall / F1 |
+|:--|:--|:--|:--|
+| M0 | 459 images; 3,471 GT; 4,103 predictions | 3,297 / 806 / 174 | 0.8036 / 0.9499 / 0.8706 |
+| M1 | 448 images; 3,433 GT; 4,063 predictions | 3,261 / 802 / 172 | 0.8026 / 0.9499 / 0.8701 |
+| M2 | 367 images; 3,049 GT; 3,618 predictions | 2,894 / 724 / 155 | 0.7999 / 0.9492 / 0.8682 |
 
 *Table 1. Prespecified current-source Validation cohorts and class-exact IoU≥0.50 results. M1 and M2 are metadata-based sensitivity groups, not independently acquired test cohorts.*
 
@@ -90,10 +90,10 @@ Gaussian blur of the ten frozen target boxes led to loss of the matched target i
 
 The 8×8 experiment yielded ten rankable maps and 60 valid eleven-point progressive curves. Aggregate arm-selected AUCs appear in Table 2.
 
-| Selected arm | Saliency deletion AUC ↓ | Seeded-random deletion AUC | Saliency insertion AUC ↑ | Seeded-random insertion AUC | Favorable saliency slots (deletion/insertion) |
-|:--|--:|--:|--:|--:|:--|
-| A5 (eight slots) | 0.496288 | 0.635836 | 0.944195 | 0.800164 | 6/8; 8/8 |
-| A6 (eight slots) | 0.397182 | 0.619275 | 0.871354 | 0.752773 | 7/8; 7/8 |
+| Arm (eight target slots) | Deletion AUC (saliency / random) ↓ | Insertion AUC (saliency / random) ↑ | Favorable saliency slots (D / I) |
+|:--|:--|:--|:--|
+| A5 | 0.496288 / 0.635836 | 0.944195 / 0.800164 | 6/8 / 8/8 |
+| A6 | 0.397182 / 0.619275 | 0.871354 / 0.752773 | 7/8 / 7/8 |
 
 *Table 2. Descriptive target-selection-arm AUCs. The six common targets are reused, so arm means do not identify selection-policy superiority.*
 
