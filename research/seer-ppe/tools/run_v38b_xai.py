@@ -76,7 +76,8 @@ def read_image(path, expected):
     with Image.open(path) as image:
         oriented=ImageOps.exif_transpose(image)
         rgb=np.asarray(oriented.convert("RGB"),dtype=np.uint8)
-    if rgb.shape!=(int(expected["height"]),int(expected["width"]),3):
+    if rgb.shape!=(int(expected["current_exif_corrected_height"]),
+                   int(expected["current_exif_corrected_width"]),3):
         raise ValueError("EXIF-corrected image dimensions differ from frozen source")
     digest=sha256(rgb.tobytes()).hexdigest()
     if digest!=expected["new_current_exif_corrected_rgb_sha256"]:
