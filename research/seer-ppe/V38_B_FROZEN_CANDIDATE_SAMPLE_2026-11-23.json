@@ -1,0 +1,1140 @@
+{
+  "schema_version": "seer-ppe/v38b-prospective-candidate-freeze/v1",
+  "recorded_date": "2026-11-23",
+  "status": "FROZEN_CANDIDATES_AND_BUDGET_ONLY_NO_NEW_MODEL_CALLS",
+  "study_cohort": "previously_development_exposed_original_source_valid_internal_diagnostic_not_independent_field_generalization",
+  "source_shards": [
+    "research/seer-ppe/V26_ORIGINAL_VALID_GEOMETRY_SHARD_00_OF_12.json",
+    "research/seer-ppe/V26_ORIGINAL_VALID_GEOMETRY_SHARD_01_OF_12.json",
+    "research/seer-ppe/V26_ORIGINAL_VALID_GEOMETRY_SHARD_02_OF_12.json",
+    "research/seer-ppe/V26_ORIGINAL_VALID_GEOMETRY_SHARD_03_OF_12.json",
+    "research/seer-ppe/V26_ORIGINAL_VALID_GEOMETRY_SHARD_04_OF_12.json",
+    "research/seer-ppe/V26_ORIGINAL_VALID_GEOMETRY_SHARD_05_OF_12.json",
+    "research/seer-ppe/V26_ORIGINAL_VALID_GEOMETRY_SHARD_06_OF_12.json",
+    "research/seer-ppe/V26_ORIGINAL_VALID_GEOMETRY_SHARD_07_OF_12.json",
+    "research/seer-ppe/V26_ORIGINAL_VALID_GEOMETRY_SHARD_08_OF_12.json",
+    "research/seer-ppe/V26_ORIGINAL_VALID_GEOMETRY_SHARD_09_OF_12.json",
+    "research/seer-ppe/V26_ORIGINAL_VALID_GEOMETRY_SHARD_10_OF_12.json",
+    "research/seer-ppe/V26_ORIGINAL_VALID_GEOMETRY_SHARD_11_OF_12.json"
+  ],
+  "historical_source_rows": 459,
+  "eligible_image_pool_count": 225,
+  "selection_seed": "SEER-PPE|V38-B|2026-11-23|preregistered-v1",
+  "selection_algorithm": "deterministic FNV1a32 tie-broken balanced greedy 24 images, two different PPE classes per image, quota >=4 each across eleven; historical V26 class-exact IoU>=.50 and prediction confidence>=.55, no XAI scores used",
+  "selection_guards": {
+    "original_split": "valid",
+    "excluded_previous_v30_original_valid_images": true,
+    "excluded_previous_v23_pilot_images": true,
+    "min_image_width_height": [
+      320,
+      240
+    ],
+    "min_prediction_confidence": 0.55,
+    "min_prediction_box_width_height": [
+      16,
+      16
+    ],
+    "min_prediction_relative_area": 0.0003,
+    "min_prediction_to_current_author_reference_class_exact_iou": 0.5,
+    "different_classes_per_image": true,
+    "source_family_or_acquisition_independence": "NOT_VERIFIED",
+    "raw_photograph_publication_rights": "NOT_ASSERTED",
+    "protected_test": "NOT_ACCESSED"
+  },
+  "model": {
+    "id": "altayyar-0oflt-lafos-qqauz/2",
+    "confidence": 0.2,
+    "overlap": 0.5,
+    "weights_changed": false
+  },
+  "images": [
+    {
+      "image_plan_rank": 1,
+      "source_id": "pegI53YmbCIkQvXBrLPq",
+      "image_key": "valid:pegI53YmbCIkQvXBrLPq",
+      "width": 2048,
+      "height": 1152,
+      "target_ids": [
+        "bc39cc95-2049-4d08-9f12-c86f1e1e3352",
+        "6eba48fd-28ee-4560-b61d-031de2c3fc40"
+      ]
+    },
+    {
+      "image_plan_rank": 2,
+      "source_id": "hjWi7Ge2k7qzua1gnmcv",
+      "image_key": "valid:hjWi7Ge2k7qzua1gnmcv",
+      "width": 1080,
+      "height": 810,
+      "target_ids": [
+        "55fbb00a-201f-4451-b6e8-ac73e46290e0",
+        "45a720b1-a19d-4436-81ab-1cc91ab6662b"
+      ]
+    },
+    {
+      "image_plan_rank": 3,
+      "source_id": "HRYvLu8UFRgGlQQoJN7G",
+      "image_key": "valid:HRYvLu8UFRgGlQQoJN7G",
+      "width": 1200,
+      "height": 800,
+      "target_ids": [
+        "f1a0f1b9-d7bd-4be1-8c42-18588349574a",
+        "85d7c6ee-542a-4520-97b2-a612e4cf1498"
+      ]
+    },
+    {
+      "image_plan_rank": 4,
+      "source_id": "Wgkf9OzFApFNhujLep5Z",
+      "image_key": "valid:Wgkf9OzFApFNhujLep5Z",
+      "width": 1080,
+      "height": 810,
+      "target_ids": [
+        "1bab1733-2923-4b86-92fe-6f796942d0b8",
+        "44ffcae8-3752-4528-902a-2c6f3c516cfa"
+      ]
+    },
+    {
+      "image_plan_rank": 5,
+      "source_id": "7zvpzuGSIArTJXzotPvA",
+      "image_key": "valid:7zvpzuGSIArTJXzotPvA",
+      "width": 1280,
+      "height": 853,
+      "target_ids": [
+        "42fafbda-096b-42d0-ae40-d92131add67e",
+        "7e95e25e-14fe-4511-83ff-f55d8ec2cefc"
+      ]
+    },
+    {
+      "image_plan_rank": 6,
+      "source_id": "fMas2p9FZ7AP5oQ9f4Sn",
+      "image_key": "valid:fMas2p9FZ7AP5oQ9f4Sn",
+      "width": 1080,
+      "height": 720,
+      "target_ids": [
+        "68a7a1b7-fb45-4c4f-8d9a-9a6edea79d01",
+        "762761eb-6ec6-4524-8b3b-278381bd71ec"
+      ]
+    },
+    {
+      "image_plan_rank": 7,
+      "source_id": "m9iOew6qhUVkWzDb0Aik",
+      "image_key": "valid:m9iOew6qhUVkWzDb0Aik",
+      "width": 2448,
+      "height": 3264,
+      "target_ids": [
+        "884c1cc9-d4bd-4a57-865f-9e193de0fe89",
+        "c13783b0-1d2d-447b-a7fd-addf33b421f4"
+      ]
+    },
+    {
+      "image_plan_rank": 8,
+      "source_id": "6dS5GWe0FQFcHsczFn4Z",
+      "image_key": "valid:6dS5GWe0FQFcHsczFn4Z",
+      "width": 960,
+      "height": 720,
+      "target_ids": [
+        "409387e4-7d15-4b97-b37e-d2b149076911",
+        "ceee06e5-4cb5-4ed1-bbe1-0050befc8b7d"
+      ]
+    },
+    {
+      "image_plan_rank": 9,
+      "source_id": "3YoDMvCmF2XxtXUYjwLc",
+      "image_key": "valid:3YoDMvCmF2XxtXUYjwLc",
+      "width": 2048,
+      "height": 1530,
+      "target_ids": [
+        "abecb87a-fda8-4752-8ff6-e47ad4bfc63c",
+        "41973b42-59f6-47a5-ae30-fb583109f997"
+      ]
+    },
+    {
+      "image_plan_rank": 10,
+      "source_id": "aiYZh8v28NLH2m2R8PA0",
+      "image_key": "valid:aiYZh8v28NLH2m2R8PA0",
+      "width": 4080,
+      "height": 3060,
+      "target_ids": [
+        "a93bdbd0-ab8f-4cb9-8d34-98515e5db7f9",
+        "d207ad11-dea4-4907-b27a-dca882787c30"
+      ]
+    },
+    {
+      "image_plan_rank": 11,
+      "source_id": "NNQvvMvdPbrTXtQTh2wm",
+      "image_key": "valid:NNQvvMvdPbrTXtQTh2wm",
+      "width": 1920,
+      "height": 700,
+      "target_ids": [
+        "a966f689-5532-40e1-b4da-1bc95b590b01",
+        "1d6c8d41-98da-4792-beb3-2eabc47567d6"
+      ]
+    },
+    {
+      "image_plan_rank": 12,
+      "source_id": "0sNxzjpGxcS6rJaxGKCg",
+      "image_key": "valid:0sNxzjpGxcS6rJaxGKCg",
+      "width": 767,
+      "height": 511,
+      "target_ids": [
+        "767a521a-72b3-4d2d-ae5d-df065d907db3",
+        "d27a7260-e1dc-493a-8f80-11c3aabfdee4"
+      ]
+    },
+    {
+      "image_plan_rank": 13,
+      "source_id": "iqRDAlSKpZu2WIMk9nbC",
+      "image_key": "valid:iqRDAlSKpZu2WIMk9nbC",
+      "width": 1280,
+      "height": 953,
+      "target_ids": [
+        "cb3591d5-3f9e-49e3-8465-52f6717c944b",
+        "f6daae73-3c2d-4a6b-b92c-0bc1dcbb779a"
+      ]
+    },
+    {
+      "image_plan_rank": 14,
+      "source_id": "XZxceS5DUhWpk92aSM5s",
+      "image_key": "valid:XZxceS5DUhWpk92aSM5s",
+      "width": 1080,
+      "height": 810,
+      "target_ids": [
+        "18c59c53-a29e-4da0-b0b8-621a76e51618",
+        "0162d4c1-3270-4d80-b5aa-d4bdf657a477"
+      ]
+    },
+    {
+      "image_plan_rank": 15,
+      "source_id": "yAX4B4297Ah07rljNwdQ",
+      "image_key": "valid:yAX4B4297Ah07rljNwdQ",
+      "width": 2560,
+      "height": 1440,
+      "target_ids": [
+        "e69f4d5d-277e-416c-abd2-ce0fb7063512",
+        "02eeeb67-d8d1-4652-8b99-9df315d9a53e"
+      ]
+    },
+    {
+      "image_plan_rank": 16,
+      "source_id": "VWRL2IuFV9KMX3fSvNHu",
+      "image_key": "valid:VWRL2IuFV9KMX3fSvNHu",
+      "width": 1080,
+      "height": 1920,
+      "target_ids": [
+        "752010e8-265c-4116-a6b0-c22d8ffc527b",
+        "9422dd69-d501-4c1d-919f-777d95b345a7"
+      ]
+    },
+    {
+      "image_plan_rank": 17,
+      "source_id": "DDf9S1yCGLJlqesYanSY",
+      "image_key": "valid:DDf9S1yCGLJlqesYanSY",
+      "width": 2160,
+      "height": 3840,
+      "target_ids": [
+        "45e52dd5-a6b3-4afc-976a-c7338fc23aa5",
+        "43c10768-4be2-4ec0-85d6-c0bde2d35398"
+      ]
+    },
+    {
+      "image_plan_rank": 18,
+      "source_id": "m0seSC71CdCsGWTqQIsP",
+      "image_key": "valid:m0seSC71CdCsGWTqQIsP",
+      "width": 1500,
+      "height": 1000,
+      "target_ids": [
+        "752381b3-de12-47f9-8bb4-d1ad23bed1b7",
+        "04cdc43c-e287-4e70-95c2-2b70d7a8ad3c"
+      ]
+    },
+    {
+      "image_plan_rank": 19,
+      "source_id": "XetMseAprm98l5OPMPJG",
+      "image_key": "valid:XetMseAprm98l5OPMPJG",
+      "width": 960,
+      "height": 720,
+      "target_ids": [
+        "a9ce2d18-0380-487a-9ecb-e8948570d902",
+        "c52e75e8-0014-497a-a5b1-b0d4ab7a80dc"
+      ]
+    },
+    {
+      "image_plan_rank": 20,
+      "source_id": "sa4EdntLHoKRceWeAZs3",
+      "image_key": "valid:sa4EdntLHoKRceWeAZs3",
+      "width": 474,
+      "height": 632,
+      "target_ids": [
+        "47a88c06-6a60-4440-a254-8e8e2a89cb98",
+        "d9b6ebe4-8b4e-48a4-872e-5048fa586e92"
+      ]
+    },
+    {
+      "image_plan_rank": 21,
+      "source_id": "96yr1HCv912RPimdtoqn",
+      "image_key": "valid:96yr1HCv912RPimdtoqn",
+      "width": 1020,
+      "height": 768,
+      "target_ids": [
+        "b782da18-4e7f-427e-8339-5e3be381c948",
+        "7523e9eb-1f78-4222-9ac0-972a2f096c70"
+      ]
+    },
+    {
+      "image_plan_rank": 22,
+      "source_id": "qealvsJAhBFs6A668kak",
+      "image_key": "valid:qealvsJAhBFs6A668kak",
+      "width": 1255,
+      "height": 1690,
+      "target_ids": [
+        "75c9f7f4-161b-444d-954f-cb4c818e60fa",
+        "a66c9aa5-f95b-48e0-a3cf-e378aef0e953"
+      ]
+    },
+    {
+      "image_plan_rank": 23,
+      "source_id": "s3cdUdQunC8p3J1UbyFU",
+      "image_key": "valid:s3cdUdQunC8p3J1UbyFU",
+      "width": 390,
+      "height": 280,
+      "target_ids": [
+        "c0bb3467-4a46-4301-b647-4c574e67b98b",
+        "d6e336d1-aa40-424c-b31f-4c7961cf5d15"
+      ]
+    },
+    {
+      "image_plan_rank": 24,
+      "source_id": "iIZtvl5XFhAecAJZhksl",
+      "image_key": "valid:iIZtvl5XFhAecAJZhksl",
+      "width": 1000,
+      "height": 450,
+      "target_ids": [
+        "e8d236fd-7b12-454e-a12b-1d8791da238f",
+        "ecc4876f-ffc1-4d19-85a2-be1e423c13a3"
+      ]
+    }
+  ],
+  "targets": [
+    {
+      "target_plan_rank": 1,
+      "image_plan_rank": 1,
+      "source_id": "pegI53YmbCIkQvXBrLPq",
+      "image_key": "valid:pegI53YmbCIkQvXBrLPq",
+      "target_id": "bc39cc95-2049-4d08-9f12-c86f1e1e3352",
+      "class_name": "Hard Hat",
+      "baseline_confidence_from_v26": 0.6427721977233887,
+      "bbox_xywh": {
+        "x": 615.5,
+        "y": 565.5,
+        "width": 69,
+        "height": 83
+      },
+      "baseline_author_reference_iou": 0.5267235188998202
+    },
+    {
+      "target_plan_rank": 2,
+      "image_plan_rank": 1,
+      "source_id": "pegI53YmbCIkQvXBrLPq",
+      "image_key": "valid:pegI53YmbCIkQvXBrLPq",
+      "target_id": "6eba48fd-28ee-4560-b61d-031de2c3fc40",
+      "class_name": "No Gloves",
+      "baseline_confidence_from_v26": 0.7440487742424011,
+      "bbox_xywh": {
+        "x": 1978.5,
+        "y": 795.5,
+        "width": 85,
+        "height": 107
+      },
+      "baseline_author_reference_iou": 0.9464412864211136
+    },
+    {
+      "target_plan_rank": 3,
+      "image_plan_rank": 2,
+      "source_id": "hjWi7Ge2k7qzua1gnmcv",
+      "image_key": "valid:hjWi7Ge2k7qzua1gnmcv",
+      "target_id": "55fbb00a-201f-4451-b6e8-ac73e46290e0",
+      "class_name": "Safety Vests",
+      "baseline_confidence_from_v26": 0.9052172303199768,
+      "bbox_xywh": {
+        "x": 771.5,
+        "y": 315.5,
+        "width": 121,
+        "height": 153
+      },
+      "baseline_author_reference_iou": 0.9263795819154107
+    },
+    {
+      "target_plan_rank": 4,
+      "image_plan_rank": 2,
+      "source_id": "hjWi7Ge2k7qzua1gnmcv",
+      "image_key": "valid:hjWi7Ge2k7qzua1gnmcv",
+      "target_id": "45a720b1-a19d-4436-81ab-1cc91ab6662b",
+      "class_name": "No Face Mask",
+      "baseline_confidence_from_v26": 0.7360638976097107,
+      "bbox_xywh": {
+        "x": 539.5,
+        "y": 236.5,
+        "width": 21,
+        "height": 19
+      },
+      "baseline_author_reference_iou": 0.7714432988142091
+    },
+    {
+      "target_plan_rank": 5,
+      "image_plan_rank": 3,
+      "source_id": "HRYvLu8UFRgGlQQoJN7G",
+      "image_key": "valid:HRYvLu8UFRgGlQQoJN7G",
+      "target_id": "f1a0f1b9-d7bd-4be1-8c42-18588349574a",
+      "class_name": "No Safety Vest",
+      "baseline_confidence_from_v26": 0.9208254814147949,
+      "bbox_xywh": {
+        "x": 714,
+        "y": 704,
+        "width": 966,
+        "height": 192
+      },
+      "baseline_author_reference_iou": 0.6798717779503107
+    },
+    {
+      "target_plan_rank": 6,
+      "image_plan_rank": 3,
+      "source_id": "HRYvLu8UFRgGlQQoJN7G",
+      "image_key": "valid:HRYvLu8UFRgGlQQoJN7G",
+      "target_id": "85d7c6ee-542a-4520-97b2-a612e4cf1498",
+      "class_name": "Goggles",
+      "baseline_confidence_from_v26": 0.9194761514663696,
+      "bbox_xywh": {
+        "x": 832,
+        "y": 312,
+        "width": 514,
+        "height": 170
+      },
+      "baseline_author_reference_iou": 0.7030655371727519
+    },
+    {
+      "target_plan_rank": 7,
+      "image_plan_rank": 4,
+      "source_id": "Wgkf9OzFApFNhujLep5Z",
+      "image_key": "valid:Wgkf9OzFApFNhujLep5Z",
+      "target_id": "1bab1733-2923-4b86-92fe-6f796942d0b8",
+      "class_name": "Safety Boots",
+      "baseline_confidence_from_v26": 0.9073619842529297,
+      "bbox_xywh": {
+        "x": 324,
+        "y": 698,
+        "width": 96,
+        "height": 44
+      },
+      "baseline_author_reference_iou": 0.9047949965253649
+    },
+    {
+      "target_plan_rank": 8,
+      "image_plan_rank": 4,
+      "source_id": "Wgkf9OzFApFNhujLep5Z",
+      "image_key": "valid:Wgkf9OzFApFNhujLep5Z",
+      "target_id": "44ffcae8-3752-4528-902a-2c6f3c516cfa",
+      "class_name": "No Safety Boots",
+      "baseline_confidence_from_v26": 0.6976575255393982,
+      "bbox_xywh": {
+        "x": 477.5,
+        "y": 700.5,
+        "width": 77,
+        "height": 49
+      },
+      "baseline_author_reference_iou": 0.7231005035780566
+    },
+    {
+      "target_plan_rank": 9,
+      "image_plan_rank": 5,
+      "source_id": "7zvpzuGSIArTJXzotPvA",
+      "image_key": "valid:7zvpzuGSIArTJXzotPvA",
+      "target_id": "42fafbda-096b-42d0-ae40-d92131add67e",
+      "class_name": "No Hard Hat",
+      "baseline_confidence_from_v26": 0.8558405041694641,
+      "bbox_xywh": {
+        "x": 520.5,
+        "y": 171.5,
+        "width": 117,
+        "height": 59
+      },
+      "baseline_author_reference_iou": 0.7233486160426288
+    },
+    {
+      "target_plan_rank": 10,
+      "image_plan_rank": 5,
+      "source_id": "7zvpzuGSIArTJXzotPvA",
+      "image_key": "valid:7zvpzuGSIArTJXzotPvA",
+      "target_id": "7e95e25e-14fe-4511-83ff-f55d8ec2cefc",
+      "class_name": "Gloves",
+      "baseline_confidence_from_v26": 0.8488821983337402,
+      "bbox_xywh": {
+        "x": 340,
+        "y": 674.5,
+        "width": 92,
+        "height": 99
+      },
+      "baseline_author_reference_iou": 0.8375249483795895
+    },
+    {
+      "target_plan_rank": 11,
+      "image_plan_rank": 6,
+      "source_id": "fMas2p9FZ7AP5oQ9f4Sn",
+      "image_key": "valid:fMas2p9FZ7AP5oQ9f4Sn",
+      "target_id": "68a7a1b7-fb45-4c4f-8d9a-9a6edea79d01",
+      "class_name": "No Face Mask",
+      "baseline_confidence_from_v26": 0.7781186699867249,
+      "bbox_xywh": {
+        "x": 360.5,
+        "y": 135.5,
+        "width": 39,
+        "height": 29
+      },
+      "baseline_author_reference_iou": 0.7805780354144535
+    },
+    {
+      "target_plan_rank": 12,
+      "image_plan_rank": 6,
+      "source_id": "fMas2p9FZ7AP5oQ9f4Sn",
+      "image_key": "valid:fMas2p9FZ7AP5oQ9f4Sn",
+      "target_id": "762761eb-6ec6-4524-8b3b-278381bd71ec",
+      "class_name": "Face Masks",
+      "baseline_confidence_from_v26": 0.6373804807662964,
+      "bbox_xywh": {
+        "x": 712,
+        "y": 137.5,
+        "width": 48,
+        "height": 31
+      },
+      "baseline_author_reference_iou": 0.6038137714332754
+    },
+    {
+      "target_plan_rank": 13,
+      "image_plan_rank": 7,
+      "source_id": "m9iOew6qhUVkWzDb0Aik",
+      "image_key": "valid:m9iOew6qhUVkWzDb0Aik",
+      "target_id": "884c1cc9-d4bd-4a57-865f-9e193de0fe89",
+      "class_name": "No Gloves",
+      "baseline_confidence_from_v26": 0.845874547958374,
+      "bbox_xywh": {
+        "x": 230,
+        "y": 2251.5,
+        "width": 220,
+        "height": 259
+      },
+      "baseline_author_reference_iou": 0.6224915947111047
+    },
+    {
+      "target_plan_rank": 14,
+      "image_plan_rank": 7,
+      "source_id": "m9iOew6qhUVkWzDb0Aik",
+      "image_key": "valid:m9iOew6qhUVkWzDb0Aik",
+      "target_id": "c13783b0-1d2d-447b-a7fd-addf33b421f4",
+      "class_name": "Goggles",
+      "baseline_confidence_from_v26": 0.8170925378799438,
+      "bbox_xywh": {
+        "x": 477.5,
+        "y": 1016,
+        "width": 299,
+        "height": 110
+      },
+      "baseline_author_reference_iou": 0.581352187361909
+    },
+    {
+      "target_plan_rank": 15,
+      "image_plan_rank": 8,
+      "source_id": "6dS5GWe0FQFcHsczFn4Z",
+      "image_key": "valid:6dS5GWe0FQFcHsczFn4Z",
+      "target_id": "409387e4-7d15-4b97-b37e-d2b149076911",
+      "class_name": "Hard Hat",
+      "baseline_confidence_from_v26": 0.8498119711875916,
+      "bbox_xywh": {
+        "x": 199,
+        "y": 237,
+        "width": 44,
+        "height": 32
+      },
+      "baseline_author_reference_iou": 0.8472746918609072
+    },
+    {
+      "target_plan_rank": 16,
+      "image_plan_rank": 8,
+      "source_id": "6dS5GWe0FQFcHsczFn4Z",
+      "image_key": "valid:6dS5GWe0FQFcHsczFn4Z",
+      "target_id": "ceee06e5-4cb5-4ed1-bbe1-0050befc8b7d",
+      "class_name": "No Safety Vest",
+      "baseline_confidence_from_v26": 0.7301281094551086,
+      "bbox_xywh": {
+        "x": 37,
+        "y": 337.5,
+        "width": 64,
+        "height": 69
+      },
+      "baseline_author_reference_iou": 0.7669106492046931
+    },
+    {
+      "target_plan_rank": 17,
+      "image_plan_rank": 9,
+      "source_id": "3YoDMvCmF2XxtXUYjwLc",
+      "image_key": "valid:3YoDMvCmF2XxtXUYjwLc",
+      "target_id": "abecb87a-fda8-4752-8ff6-e47ad4bfc63c",
+      "class_name": "No Hard Hat",
+      "baseline_confidence_from_v26": 0.8467878103256226,
+      "bbox_xywh": {
+        "x": 1206,
+        "y": 455,
+        "width": 60,
+        "height": 38
+      },
+      "baseline_author_reference_iou": 0.7160520504935026
+    },
+    {
+      "target_plan_rank": 18,
+      "image_plan_rank": 9,
+      "source_id": "3YoDMvCmF2XxtXUYjwLc",
+      "image_key": "valid:3YoDMvCmF2XxtXUYjwLc",
+      "target_id": "41973b42-59f6-47a5-ae30-fb583109f997",
+      "class_name": "Safety Vests",
+      "baseline_confidence_from_v26": 0.8100935816764832,
+      "bbox_xywh": {
+        "x": 1218,
+        "y": 592,
+        "width": 108,
+        "height": 182
+      },
+      "baseline_author_reference_iou": 0.9232339332027786
+    },
+    {
+      "target_plan_rank": 19,
+      "image_plan_rank": 10,
+      "source_id": "aiYZh8v28NLH2m2R8PA0",
+      "image_key": "valid:aiYZh8v28NLH2m2R8PA0",
+      "target_id": "a93bdbd0-ab8f-4cb9-8d34-98515e5db7f9",
+      "class_name": "No Safety Boots",
+      "baseline_confidence_from_v26": 0.8180800080299377,
+      "bbox_xywh": {
+        "x": 3385,
+        "y": 2404.5,
+        "width": 302,
+        "height": 173
+      },
+      "baseline_author_reference_iou": 0.7377013323429672
+    },
+    {
+      "target_plan_rank": 20,
+      "image_plan_rank": 10,
+      "source_id": "aiYZh8v28NLH2m2R8PA0",
+      "image_key": "valid:aiYZh8v28NLH2m2R8PA0",
+      "target_id": "d207ad11-dea4-4907-b27a-dca882787c30",
+      "class_name": "Safety Boots",
+      "baseline_confidence_from_v26": 0.6013179421424866,
+      "bbox_xywh": {
+        "x": 1265.5,
+        "y": 1933.5,
+        "width": 117,
+        "height": 129
+      },
+      "baseline_author_reference_iou": 0.803969947977495
+    },
+    {
+      "target_plan_rank": 21,
+      "image_plan_rank": 11,
+      "source_id": "NNQvvMvdPbrTXtQTh2wm",
+      "image_key": "valid:NNQvvMvdPbrTXtQTh2wm",
+      "target_id": "a966f689-5532-40e1-b4da-1bc95b590b01",
+      "class_name": "Gloves",
+      "baseline_confidence_from_v26": 0.871394693851471,
+      "bbox_xywh": {
+        "x": 775.5,
+        "y": 650,
+        "width": 325,
+        "height": 100
+      },
+      "baseline_author_reference_iou": 0.8802883592718753
+    },
+    {
+      "target_plan_rank": 22,
+      "image_plan_rank": 11,
+      "source_id": "NNQvvMvdPbrTXtQTh2wm",
+      "image_key": "valid:NNQvvMvdPbrTXtQTh2wm",
+      "target_id": "1d6c8d41-98da-4792-beb3-2eabc47567d6",
+      "class_name": "Face Masks",
+      "baseline_confidence_from_v26": 0.7508388757705688,
+      "bbox_xywh": {
+        "x": 661,
+        "y": 295,
+        "width": 230,
+        "height": 190
+      },
+      "baseline_author_reference_iou": 0.7261674593305819
+    },
+    {
+      "target_plan_rank": 23,
+      "image_plan_rank": 12,
+      "source_id": "0sNxzjpGxcS6rJaxGKCg",
+      "image_key": "valid:0sNxzjpGxcS6rJaxGKCg",
+      "target_id": "767a521a-72b3-4d2d-ae5d-df065d907db3",
+      "class_name": "Goggles",
+      "baseline_confidence_from_v26": 0.9277873635292053,
+      "bbox_xywh": {
+        "x": 320.5,
+        "y": 218,
+        "width": 179,
+        "height": 58
+      },
+      "baseline_author_reference_iou": 0.9223656328260451
+    },
+    {
+      "target_plan_rank": 24,
+      "image_plan_rank": 12,
+      "source_id": "0sNxzjpGxcS6rJaxGKCg",
+      "image_key": "valid:0sNxzjpGxcS6rJaxGKCg",
+      "target_id": "d27a7260-e1dc-493a-8f80-11c3aabfdee4",
+      "class_name": "No Face Mask",
+      "baseline_confidence_from_v26": 0.8725441694259644,
+      "bbox_xywh": {
+        "x": 312.5,
+        "y": 290,
+        "width": 127,
+        "height": 92
+      },
+      "baseline_author_reference_iou": 0.8098465240510297
+    },
+    {
+      "target_plan_rank": 25,
+      "image_plan_rank": 13,
+      "source_id": "iqRDAlSKpZu2WIMk9nbC",
+      "image_key": "valid:iqRDAlSKpZu2WIMk9nbC",
+      "target_id": "cb3591d5-3f9e-49e3-8465-52f6717c944b",
+      "class_name": "Safety Boots",
+      "baseline_confidence_from_v26": 0.8695438504219055,
+      "bbox_xywh": {
+        "x": 394,
+        "y": 906.5,
+        "width": 92,
+        "height": 81
+      },
+      "baseline_author_reference_iou": 0.7858272698513129
+    },
+    {
+      "target_plan_rank": 26,
+      "image_plan_rank": 13,
+      "source_id": "iqRDAlSKpZu2WIMk9nbC",
+      "image_key": "valid:iqRDAlSKpZu2WIMk9nbC",
+      "target_id": "f6daae73-3c2d-4a6b-b92c-0bc1dcbb779a",
+      "class_name": "No Gloves",
+      "baseline_confidence_from_v26": 0.823927104473114,
+      "bbox_xywh": {
+        "x": 1063.5,
+        "y": 698.5,
+        "width": 71,
+        "height": 85
+      },
+      "baseline_author_reference_iou": 0.8174004018026557
+    },
+    {
+      "target_plan_rank": 27,
+      "image_plan_rank": 14,
+      "source_id": "XZxceS5DUhWpk92aSM5s",
+      "image_key": "valid:XZxceS5DUhWpk92aSM5s",
+      "target_id": "18c59c53-a29e-4da0-b0b8-621a76e51618",
+      "class_name": "Hard Hat",
+      "baseline_confidence_from_v26": 0.8885561227798462,
+      "bbox_xywh": {
+        "x": 218.5,
+        "y": 374,
+        "width": 51,
+        "height": 40
+      },
+      "baseline_author_reference_iou": 0.8188904172397983
+    },
+    {
+      "target_plan_rank": 28,
+      "image_plan_rank": 14,
+      "source_id": "XZxceS5DUhWpk92aSM5s",
+      "image_key": "valid:XZxceS5DUhWpk92aSM5s",
+      "target_id": "0162d4c1-3270-4d80-b5aa-d4bdf657a477",
+      "class_name": "No Safety Vest",
+      "baseline_confidence_from_v26": 0.6224369406700134,
+      "bbox_xywh": {
+        "x": 839,
+        "y": 489,
+        "width": 98,
+        "height": 144
+      },
+      "baseline_author_reference_iou": 0.8064422189749142
+    },
+    {
+      "target_plan_rank": 29,
+      "image_plan_rank": 15,
+      "source_id": "yAX4B4297Ah07rljNwdQ",
+      "image_key": "valid:yAX4B4297Ah07rljNwdQ",
+      "target_id": "e69f4d5d-277e-416c-abd2-ce0fb7063512",
+      "class_name": "No Safety Boots",
+      "baseline_confidence_from_v26": 0.5958752036094666,
+      "bbox_xywh": {
+        "x": 610,
+        "y": 859,
+        "width": 60,
+        "height": 34
+      },
+      "baseline_author_reference_iou": 0.5585575109815012
+    },
+    {
+      "target_plan_rank": 30,
+      "image_plan_rank": 15,
+      "source_id": "yAX4B4297Ah07rljNwdQ",
+      "image_key": "valid:yAX4B4297Ah07rljNwdQ",
+      "target_id": "02eeeb67-d8d1-4652-8b99-9df315d9a53e",
+      "class_name": "Safety Vests",
+      "baseline_confidence_from_v26": 0.6529913544654846,
+      "bbox_xywh": {
+        "x": 1034,
+        "y": 721.5,
+        "width": 112,
+        "height": 231
+      },
+      "baseline_author_reference_iou": 0.9091110952837802
+    },
+    {
+      "target_plan_rank": 31,
+      "image_plan_rank": 16,
+      "source_id": "VWRL2IuFV9KMX3fSvNHu",
+      "image_key": "valid:VWRL2IuFV9KMX3fSvNHu",
+      "target_id": "752010e8-265c-4116-a6b0-c22d8ffc527b",
+      "class_name": "No Hard Hat",
+      "baseline_confidence_from_v26": 0.8506977558135986,
+      "bbox_xywh": {
+        "x": 762.5,
+        "y": 652.5,
+        "width": 193,
+        "height": 87
+      },
+      "baseline_author_reference_iou": 0.8671869485868721
+    },
+    {
+      "target_plan_rank": 32,
+      "image_plan_rank": 16,
+      "source_id": "VWRL2IuFV9KMX3fSvNHu",
+      "image_key": "valid:VWRL2IuFV9KMX3fSvNHu",
+      "target_id": "9422dd69-d501-4c1d-919f-777d95b345a7",
+      "class_name": "Face Masks",
+      "baseline_confidence_from_v26": 0.7763755917549133,
+      "bbox_xywh": {
+        "x": 727.5,
+        "y": 765,
+        "width": 127,
+        "height": 92
+      },
+      "baseline_author_reference_iou": 0.6846866639685917
+    },
+    {
+      "target_plan_rank": 33,
+      "image_plan_rank": 17,
+      "source_id": "DDf9S1yCGLJlqesYanSY",
+      "image_key": "valid:DDf9S1yCGLJlqesYanSY",
+      "target_id": "45e52dd5-a6b3-4afc-976a-c7338fc23aa5",
+      "class_name": "Gloves",
+      "baseline_confidence_from_v26": 0.7415082454681396,
+      "bbox_xywh": {
+        "x": 177,
+        "y": 2119,
+        "width": 142,
+        "height": 106
+      },
+      "baseline_author_reference_iou": 0.7118665487173006
+    },
+    {
+      "target_plan_rank": 34,
+      "image_plan_rank": 17,
+      "source_id": "DDf9S1yCGLJlqesYanSY",
+      "image_key": "valid:DDf9S1yCGLJlqesYanSY",
+      "target_id": "43c10768-4be2-4ec0-85d6-c0bde2d35398",
+      "class_name": "No Face Mask",
+      "baseline_confidence_from_v26": 0.6412916779518127,
+      "bbox_xywh": {
+        "x": 1122,
+        "y": 754,
+        "width": 124,
+        "height": 98
+      },
+      "baseline_author_reference_iou": 0.643229679445429
+    },
+    {
+      "target_plan_rank": 35,
+      "image_plan_rank": 18,
+      "source_id": "m0seSC71CdCsGWTqQIsP",
+      "image_key": "valid:m0seSC71CdCsGWTqQIsP",
+      "target_id": "752381b3-de12-47f9-8bb4-d1ad23bed1b7",
+      "class_name": "Goggles",
+      "baseline_confidence_from_v26": 0.9023326635360718,
+      "bbox_xywh": {
+        "x": 525.5,
+        "y": 223.5,
+        "width": 169,
+        "height": 63
+      },
+      "baseline_author_reference_iou": 0.9366495034939316
+    },
+    {
+      "target_plan_rank": 36,
+      "image_plan_rank": 18,
+      "source_id": "m0seSC71CdCsGWTqQIsP",
+      "image_key": "valid:m0seSC71CdCsGWTqQIsP",
+      "target_id": "04cdc43c-e287-4e70-95c2-2b70d7a8ad3c",
+      "class_name": "No Gloves",
+      "baseline_confidence_from_v26": 0.8978028893470764,
+      "bbox_xywh": {
+        "x": 523,
+        "y": 341,
+        "width": 134,
+        "height": 138
+      },
+      "baseline_author_reference_iou": 0.7978058079169374
+    },
+    {
+      "target_plan_rank": 37,
+      "image_plan_rank": 19,
+      "source_id": "XetMseAprm98l5OPMPJG",
+      "image_key": "valid:XetMseAprm98l5OPMPJG",
+      "target_id": "a9ce2d18-0380-487a-9ecb-e8948570d902",
+      "class_name": "Hard Hat",
+      "baseline_confidence_from_v26": 0.8597086668014526,
+      "bbox_xywh": {
+        "x": 445.5,
+        "y": 349,
+        "width": 37,
+        "height": 26
+      },
+      "baseline_author_reference_iou": 0.6344885553961931
+    },
+    {
+      "target_plan_rank": 38,
+      "image_plan_rank": 19,
+      "source_id": "XetMseAprm98l5OPMPJG",
+      "image_key": "valid:XetMseAprm98l5OPMPJG",
+      "target_id": "c52e75e8-0014-497a-a5b1-b0d4ab7a80dc",
+      "class_name": "No Safety Vest",
+      "baseline_confidence_from_v26": 0.7690669894218445,
+      "bbox_xywh": {
+        "x": 565,
+        "y": 440,
+        "width": 58,
+        "height": 78
+      },
+      "baseline_author_reference_iou": 0.7920036914235196
+    },
+    {
+      "target_plan_rank": 39,
+      "image_plan_rank": 20,
+      "source_id": "sa4EdntLHoKRceWeAZs3",
+      "image_key": "valid:sa4EdntLHoKRceWeAZs3",
+      "target_id": "47a88c06-6a60-4440-a254-8e8e2a89cb98",
+      "class_name": "No Hard Hat",
+      "baseline_confidence_from_v26": 0.9199577569961548,
+      "bbox_xywh": {
+        "x": 221.5,
+        "y": 34,
+        "width": 73,
+        "height": 38
+      },
+      "baseline_author_reference_iou": 0.766113914924297
+    },
+    {
+      "target_plan_rank": 40,
+      "image_plan_rank": 20,
+      "source_id": "sa4EdntLHoKRceWeAZs3",
+      "image_key": "valid:sa4EdntLHoKRceWeAZs3",
+      "target_id": "d9b6ebe4-8b4e-48a4-872e-5048fa586e92",
+      "class_name": "Safety Boots",
+      "baseline_confidence_from_v26": 0.739768922328949,
+      "bbox_xywh": {
+        "x": 212.5,
+        "y": 573,
+        "width": 47,
+        "height": 66
+      },
+      "baseline_author_reference_iou": 0.845823611759218
+    },
+    {
+      "target_plan_rank": 41,
+      "image_plan_rank": 21,
+      "source_id": "96yr1HCv912RPimdtoqn",
+      "image_key": "valid:96yr1HCv912RPimdtoqn",
+      "target_id": "b782da18-4e7f-427e-8339-5e3be381c948",
+      "class_name": "Safety Vests",
+      "baseline_confidence_from_v26": 0.9043830037117004,
+      "bbox_xywh": {
+        "x": 496,
+        "y": 317,
+        "width": 56,
+        "height": 88
+      },
+      "baseline_author_reference_iou": 0.9321557607386591
+    },
+    {
+      "target_plan_rank": 42,
+      "image_plan_rank": 21,
+      "source_id": "96yr1HCv912RPimdtoqn",
+      "image_key": "valid:96yr1HCv912RPimdtoqn",
+      "target_id": "7523e9eb-1f78-4222-9ac0-972a2f096c70",
+      "class_name": "No Safety Boots",
+      "baseline_confidence_from_v26": 0.8006454110145569,
+      "bbox_xywh": {
+        "x": 860,
+        "y": 458,
+        "width": 70,
+        "height": 42
+      },
+      "baseline_author_reference_iou": 0.8470910485768239
+    },
+    {
+      "target_plan_rank": 43,
+      "image_plan_rank": 22,
+      "source_id": "qealvsJAhBFs6A668kak",
+      "image_key": "valid:qealvsJAhBFs6A668kak",
+      "target_id": "75c9f7f4-161b-444d-954f-cb4c818e60fa",
+      "class_name": "Gloves",
+      "baseline_confidence_from_v26": 0.8996546268463135,
+      "bbox_xywh": {
+        "x": 507,
+        "y": 552,
+        "width": 370,
+        "height": 398
+      },
+      "baseline_author_reference_iou": 0.7495753721214071
+    },
+    {
+      "target_plan_rank": 44,
+      "image_plan_rank": 22,
+      "source_id": "qealvsJAhBFs6A668kak",
+      "image_key": "valid:qealvsJAhBFs6A668kak",
+      "target_id": "a66c9aa5-f95b-48e0-a3cf-e378aef0e953",
+      "class_name": "Face Masks",
+      "baseline_confidence_from_v26": 0.8727089166641235,
+      "bbox_xywh": {
+        "x": 856,
+        "y": 637,
+        "width": 296,
+        "height": 270
+      },
+      "baseline_author_reference_iou": 0.8233198125649401
+    },
+    {
+      "target_plan_rank": 45,
+      "image_plan_rank": 23,
+      "source_id": "s3cdUdQunC8p3J1UbyFU",
+      "image_key": "valid:s3cdUdQunC8p3J1UbyFU",
+      "target_id": "c0bb3467-4a46-4301-b647-4c574e67b98b",
+      "class_name": "Goggles",
+      "baseline_confidence_from_v26": 0.8733428120613098,
+      "bbox_xywh": {
+        "x": 206,
+        "y": 100.5,
+        "width": 82,
+        "height": 45
+      },
+      "baseline_author_reference_iou": 0.8388637830858618
+    },
+    {
+      "target_plan_rank": 46,
+      "image_plan_rank": 23,
+      "source_id": "s3cdUdQunC8p3J1UbyFU",
+      "image_key": "valid:s3cdUdQunC8p3J1UbyFU",
+      "target_id": "d6e336d1-aa40-424c-b31f-4c7961cf5d15",
+      "class_name": "No Face Mask",
+      "baseline_confidence_from_v26": 0.8568210601806641,
+      "bbox_xywh": {
+        "x": 213.5,
+        "y": 145,
+        "width": 47,
+        "height": 50
+      },
+      "baseline_author_reference_iou": 0.7326524832849248
+    },
+    {
+      "target_plan_rank": 47,
+      "image_plan_rank": 24,
+      "source_id": "iIZtvl5XFhAecAJZhksl",
+      "image_key": "valid:iIZtvl5XFhAecAJZhksl",
+      "target_id": "e8d236fd-7b12-454e-a12b-1d8791da238f",
+      "class_name": "Hard Hat",
+      "baseline_confidence_from_v26": 0.9324679970741272,
+      "bbox_xywh": {
+        "x": 559,
+        "y": 145,
+        "width": 40,
+        "height": 46
+      },
+      "baseline_author_reference_iou": 0.9314641744548287
+    },
+    {
+      "target_plan_rank": 48,
+      "image_plan_rank": 24,
+      "source_id": "iIZtvl5XFhAecAJZhksl",
+      "image_key": "valid:iIZtvl5XFhAecAJZhksl",
+      "target_id": "ecc4876f-ffc1-4d19-85a2-be1e423c13a3",
+      "class_name": "No Gloves",
+      "baseline_confidence_from_v26": 0.7534529566764832,
+      "bbox_xywh": {
+        "x": 726.5,
+        "y": 165.5,
+        "width": 21,
+        "height": 33
+      },
+      "baseline_author_reference_iou": 0.766294374844249
+    }
+  ],
+  "class_distribution": {
+    "Face Masks": 4,
+    "Gloves": 4,
+    "Goggles": 5,
+    "Hard Hat": 5,
+    "No Face Mask": 5,
+    "No Gloves": 5,
+    "No Hard Hat": 4,
+    "No Safety Boots": 4,
+    "No Safety Vest": 4,
+    "Safety Boots": 4,
+    "Safety Vests": 4
+  },
+  "random_progressive_target_ids_12_different_images": [
+    "bc39cc95-2049-4d08-9f12-c86f1e1e3352",
+    "55fbb00a-201f-4451-b6e8-ac73e46290e0",
+    "f1a0f1b9-d7bd-4be1-8c42-18588349574a",
+    "1bab1733-2923-4b86-92fe-6f796942d0b8",
+    "42fafbda-096b-42d0-ae40-d92131add67e",
+    "68a7a1b7-fb45-4c4f-8d9a-9a6edea79d01",
+    "884c1cc9-d4bd-4a57-865f-9e193de0fe89",
+    "409387e4-7d15-4b97-b37e-d2b149076911",
+    "abecb87a-fda8-4752-8ff6-e47ad4bfc63c",
+    "a93bdbd0-ab8f-4cb9-8d34-98515e5db7f9",
+    "a966f689-5532-40e1-b4da-1bc95b590b01",
+    "767a521a-72b3-4d2d-ae5d-df065d907db3"
+  ],
+  "alternative_fill_image_ids_8": [
+    "pegI53YmbCIkQvXBrLPq",
+    "hjWi7Ge2k7qzua1gnmcv",
+    "HRYvLu8UFRgGlQQoJN7G",
+    "Wgkf9OzFApFNhujLep5Z",
+    "7zvpzuGSIArTJXzotPvA",
+    "fMas2p9FZ7AP5oQ9f4Sn",
+    "m9iOew6qhUVkWzDb0Aik",
+    "6dS5GWe0FQFcHsczFn4Z"
+  ],
+  "budget": {
+    "calls_by_phase_max": {
+      "primary_single_cell_maps_24_images_x_64_plus_16": 1920,
+      "new_original_and_full_blur_baselines_24_x_2": 48,
+      "seeded_random_8x8_progressive_12_targets_x_11_orders_x_2_dirs_x_9_points": 2376,
+      "saliency_4x4_progressive_12_targets_x_2_dirs_x_9_points": 216,
+      "alternative_fill_maps_8_images_x_64_plus_16": 640
+    },
+    "planned_unique_call_upper_bound": 5200,
+    "technical_retry_reserve_only": 800,
+    "hard_maximum_new_hosted_model_calls_including_retries": 6000,
+    "actual_new_model_calls_in_this_freeze": 0,
+    "other_algorithm_baselines_model_calls": 0,
+    "external_xai_method_execution_authorized": false
+  },
+  "release_gate": "HOLD_NEW_INFERENCE_UNTIL_SEPARATE_EXPLICIT_AUTHOR_APPROVAL_OF_6000_HARD_LIMIT_AND_READ_ONLY_SOURCE_PREFLIGHT",
+  "missing_data_rules": "preserve target LOST=0, AMBIGUOUS=null; never impute null AUC or posthoc-replace frozen targets"
+}
