@@ -1,0 +1,156 @@
+{
+  "schema_version": "seer-ppe/v35b-figure-integration/v0.35b",
+  "audit_date": "2026-11-22",
+  "status": "PASS_WITH_DUPLICATE_ARCHIVE_RETAINED",
+  "manuscript_version": "v0.37",
+  "manuscript_git_blob_sha": "5ad181fd536a163bd0fbda30392bca31faf40901",
+  "source_figure_manifest_git_blob_sha": "ae20ff86694f099524a82c63fd2741305e7bb6ae",
+  "execution_constraints": {
+    "new_model_inference_calls": 0,
+    "retraining": false,
+    "test_accessed": false,
+    "source_images_modified": false,
+    "annotations_modified": false,
+    "splits_modified": false
+  },
+  "integration": {
+    "summary_figure": "figures/V34B_2026-11-22/V34B_SPATIAL_AGREEMENT_SUMMARY_2026-11-22.png",
+    "target_figures": 10,
+    "total_embedded_images": 11,
+    "figure_captions": 11,
+    "figure_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "sequential_numbering": true,
+    "all_relative_image_paths_exist": true,
+    "summary_caption_matches_manifest": {
+      "mean_spearman_rho": 0.5416,
+      "mean_kendall_tau_b": 0.4239,
+      "mean_top4_overlap_percent": 65
+    },
+    "target_caption_checks": {
+      "all_10_figures_have_captions": true,
+      "all_spearman_values_match_manifest_to_4_decimals": true,
+      "all_kendall_values_match_manifest_to_4_decimals": true,
+      "all_top4_overlap_counts_match_manifest": true
+    },
+    "target_captions": [
+      {
+        "figure": 2,
+        "class": "No Face Mask",
+        "split": "Train",
+        "image_key": "train:A",
+        "rho": 0.5471,
+        "tau_b": 0.4167,
+        "top4": "3/4"
+      },
+      {
+        "figure": 3,
+        "class": "Gloves",
+        "split": "Train",
+        "image_key": "train:B",
+        "rho": 0.6019,
+        "tau_b": 0.5272,
+        "top4": "3/4"
+      },
+      {
+        "figure": 4,
+        "class": "No Safety Boots",
+        "split": "Train",
+        "image_key": "train:C",
+        "rho": 0.5548,
+        "tau_b": 0.4268,
+        "top4": "3/4"
+      },
+      {
+        "figure": 5,
+        "class": "Face Masks",
+        "split": "Train",
+        "image_key": "train:C",
+        "rho": 0.2295,
+        "tau_b": 0.1514,
+        "top4": "0/4"
+      },
+      {
+        "figure": 6,
+        "class": "Hard Hat",
+        "split": "Train",
+        "image_key": "train:D",
+        "rho": 0.5765,
+        "tau_b": 0.4667,
+        "top4": "2/4"
+      },
+      {
+        "figure": 7,
+        "class": "No Gloves",
+        "split": "Valid",
+        "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+        "rho": 0.5382,
+        "tau_b": 0.4,
+        "top4": "3/4"
+      },
+      {
+        "figure": 8,
+        "class": "Safety Boots",
+        "split": "Valid",
+        "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+        "rho": 0.6265,
+        "tau_b": 0.55,
+        "top4": "3/4"
+      },
+      {
+        "figure": 9,
+        "class": "No Face Mask",
+        "split": "Valid",
+        "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+        "rho": 0.6324,
+        "tau_b": 0.45,
+        "top4": "3/4"
+      },
+      {
+        "figure": 10,
+        "class": "Safety Vests",
+        "split": "Valid",
+        "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+        "rho": 0.6794,
+        "tau_b": 0.5333,
+        "top4": "3/4"
+      },
+      {
+        "figure": 11,
+        "class": "No Safety Boots",
+        "split": "Valid",
+        "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+        "rho": 0.4294,
+        "tau_b": 0.3167,
+        "top4": "3/4"
+      }
+    ],
+    "manuscript_report_link_valid": true,
+    "appendix_x_subsection": "X.1 Target-specific paired sensitivity maps"
+  },
+  "canonical_output_selection": {
+    "canonical_folder": "figures/V34B_2026-11-22/",
+    "selection_basis": "The V34-B manifest, generation report and project progress record point to this folder; all eleven referenced PNGs exist here.",
+    "canonical_pdf": "figures/V34B_2026-11-22/V34B_PAIRED_HEATMAPS_2026-11-22.pdf",
+    "canonical_pdf_git_blob_sha": "90c9385329b840c96239f5a8a7b93d91c53a1470",
+    "nested_duplicate_retained": true,
+    "nested_duplicate_pdf_git_blob_sha": "e89154a6f5f16a0df3dd8d0fe664d43c02245b67",
+    "nested_duplicate_cleanup_deferred_to_V35E": true
+  },
+  "remaining_for_word_export": [
+    "The Markdown image paths are relative to research/seer-ppe; the V35-D export workflow must add research/seer-ppe to Pandoc's resource path when run from repository root.",
+    "Word layout, figure sizing, page breaks, captions and embedded-image presence remain unverified until V35-D."
+  ],
+  "next_stage": "V35-C — verify every cited source, DOI, title, author list, venue, year, and novelty/related-work statement against authoritative publisher or proceedings records."
+}
