@@ -1,4 +1,4 @@
-name: SEER-PPE v0.42 manuscript editable Word export and QA
+name: SEER-PPE v0.43 manuscript editable Word export and QA
 on:
   push:
     paths:
@@ -107,8 +107,11 @@ jobs:
 
           jobs=[
             (base/'MANUSCRIPT_MASTER.md',
-             out/'SEER_PPE_Research_Manuscript_v0.42_2026-11-22.docx',
-             'SEER-PPE Research Manuscript v0.42')
+             out/'SEER_PPE_Research_Manuscript_v0.43_2026-11-22.docx',
+             'SEER-PPE Research Manuscript v0.43'),
+            (base/'SUPPLEMENTARY_MATERIALS_MASTER.md',
+             out/'SEER_PPE_Supplementary_Material_v0.43_2026-11-22.docx',
+             'SEER-PPE Supplementary Material v0.43')
           ]
           for source,target,subject in jobs:
               assert source.exists() and len(source.read_text(encoding='utf8'))>15000,source
@@ -124,43 +127,51 @@ jobs:
               d.save(target)
               assert target.stat().st_size>15000,target
               print(f'GENERATED {target} | bytes={target.stat().st_size} | paragraphs={len(d.paragraphs)} | tables={len(d.tables)}')
-          print('SEER_PPE_V042_EDITABLE_MANUSCRIPT_GENERATED_FROM_SOURCE_MARKDOWN')
+          print('SEER_PPE_V043_EDITABLE_MANUSCRIPT_GENERATED_FROM_SOURCE_MARKDOWN')
           PY
-      - name: Verify v0.42 Word structure, all source content and embedded figures
+      - name: Verify v0.43 Word structure, all source content and embedded figures
         run: |
           python - <<'PY'
           from pathlib import Path
           from docx import Document
           import zipfile
           b=Path('research/seer-ppe/exports')
-          manuscript=b/'SEER_PPE_Research_Manuscript_v0.42_2026-11-22.docx'
-          assert manuscript.exists() and manuscript.stat().st_size>15000
-          with zipfile.ZipFile(manuscript) as z:
-              assert z.testzip() is None
-              media=[n for n in z.namelist() if n.startswith('word/media/') and not n.endswith('/')]
-              assert len(media)==11, (len(media), media)
-              print('DOCX_EMBEDDED_FIGURES_OK',len(media))
+          manuscript=b/'SEER_PPE_Research_Manuscript_v0.43_2026-11-22.docx'
+          supplement=b/'SEER_PPE_Supplementary_Material_v0.43_2026-11-22.docx'
+          for path,expected_media in ((manuscript,1),(supplement,10)):
+              assert path.exists() and path.stat().st_size>15000,path
+              with zipfile.ZipFile(path) as z:
+                  assert z.testzip() is None,path
+                  media=[n for n in z.namelist() if n.startswith('word/media/') and not n.endswith('/')]
+                  assert len(media)==expected_media,(path,len(media),media)
+                  print('DOCX_EMBEDDED_FIGURES_OK',path.name,len(media))
           d=Document(manuscript)
-          assert len(d.tables)==18, len(d.tables)
+          assert len(d.tables)==18,len(d.tables)
           nonempty_cells=sum(1 for t in d.tables for row in t.rows for cell in row.cells if cell.text.strip())
-          assert nonempty_cells>60, nonempty_cells
-          assert 'Current Valid source annotation cohort' in d.tables[4].rows[0].cells[0].text
-          assert 'Original class name' in d.tables[5].rows[0].cells[0].text
-          print('DOCX_NATIVE_TABLE_CONTENT_OK',len(d.tables),'tables',nonempty_cells,'nonempty cells')
+          assert nonempty_cells>60,nonempty_cells
+          assert 'Cohort' in d.tables[4].rows[0].cells[0].text
+          assert 'Class' in d.tables[5].rows[0].cells[0].text
+          print('DOCX_NATIVE_MAIN_TABLES_OK',len(d.tables),'tables',nonempty_cells,'nonempty cells')
           mt='\\n'.join(p.text for p in d.paragraphs)+'\\n'+'\\n'.join(' '.join(c.text for c in row.cells) for t in d.tables for row in t.rows)
-          assert len(mt)>20000, len(mt)
+          assert len(mt)>20000,len(mt)
           for value in (
               'Ezzaldeen Al-Tayar','Taiz University','azzaltayyar@gmail.com',
-              'Results','Discussion','Limitations','Conclusion','References',
-              '0.870610','3,297','4,103','0.5416','0.4239','65%',
-              'Appendix X.','Figure 11.','Petsiuk','Adebayo','Kendall',
+              'Results','Discussion','Limitations','Conclusion','References','Supplementary Material',
+              '0.870610','3,297','4,103','0.5416','0.4239','65%','Figure 1.',
+              'Petsiuk','Adebayo','Kendall',
               '10.1109/ICCV.2017.371','10.1093/biomet/30.1-2.81',
               '10.3389/fbuil.2026.1976288','10.1016/j.engappai.2026.115725'
           ):
-              assert value in mt, value
-          print('DOCX_CONTENT_OK',len(mt),'chars',len(d.tables),'tables')
+              assert value in mt,value
+          sd=Document(supplement)
+          st='\\n'.join(p.text for p in sd.paragraphs)+'\\n'+'\\n'.join(' '.join(c.text for c in row.cells) for t in sd.tables for row in t.rows)
+          assert 'Supplementary Method S1.' in st
+          assert 'Appendix X.' in st
+          assert 'Supplementary Figure S1.' in st and 'Supplementary Figure S10.' in st
+          assert len(st)>30000,len(st)
+          print('DOCX_MAIN_AND_SUPPLEMENT_CONTENT_OK',len(mt),len(st))
           PY
-      - name: Render v0.42 Word manuscript to PDF and check key content
+      - name: Render v0.43 main and supplementary Word files to PDF
         run: |
           set -euo pipefail
           if ! command -v libreoffice >/dev/null 2>&1; then
@@ -168,48 +179,61 @@ jobs:
             sudo apt-get install -y -qq libreoffice-writer poppler-utils >/dev/null
           fi
           mkdir -p /tmp/seer_ppe_word_render
-          libreoffice -env:UserInstallation=file:///tmp/lo_seer_ppe_word_export --headless --convert-to pdf --outdir /tmp/seer_ppe_word_render research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.42_2026-11-22.docx
-          pdf=/tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.42_2026-11-22.pdf
-          test -s "$pdf"
+          libreoffice -env:UserInstallation=file:///tmp/lo_seer_ppe_word_export --headless --convert-to pdf --outdir /tmp/seer_ppe_word_render research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.43_2026-11-22.docx
+          libreoffice -env:UserInstallation=file:///tmp/lo_seer_ppe_word_export --headless --convert-to pdf --outdir /tmp/seer_ppe_word_render research/seer-ppe/exports/SEER_PPE_Supplementary_Material_v0.43_2026-11-22.docx
+          pdf=/tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.43_2026-11-22.pdf
+          supp_pdf=/tmp/seer_ppe_word_render/SEER_PPE_Supplementary_Material_v0.43_2026-11-22.pdf
+          test -s "$pdf" && test -s "$supp_pdf"
           pdfinfo "$pdf" | grep Pages
+          pdfinfo "$supp_pdf" | grep Pages
           pdftotext -layout "$pdf" /tmp/seer_ppe_word_render/manuscript.txt
+          pdftotext -layout "$supp_pdf" /tmp/seer_ppe_word_render/supplement.txt
           pdftotext -f 1 -l 1 -layout "$pdf" /tmp/seer_ppe_word_render/first_page.txt
           ! grep -q 'Table of Contents' /tmp/seer_ppe_word_render/first_page.txt
           grep -q 'SEER-PPE: Selective Evidence' /tmp/seer_ppe_word_render/first_page.txt
-          grep -q 'SEER-PPE' /tmp/seer_ppe_word_render/manuscript.txt
           grep -q 'Conclusion' /tmp/seer_ppe_word_render/manuscript.txt
           grep -q 'References' /tmp/seer_ppe_word_render/manuscript.txt
-          grep -q 'Figure 11' /tmp/seer_ppe_word_render/manuscript.txt
+          grep -q 'Figure 1' /tmp/seer_ppe_word_render/manuscript.txt
+          grep -q 'Supplementary Figure S10' /tmp/seer_ppe_word_render/supplement.txt
           pdftoppm -f 1 -l 1 -scale-to 1000 -png -singlefile "$pdf" /tmp/seer_ppe_word_render/first_page
-          test -s /tmp/seer_ppe_word_render/first_page.png
           pages=$(pdfinfo "$pdf" | awk '/^Pages:/ {print $2}')
           middle=$(( (pages + 1) / 2 ))
           pdftoppm -f "$middle" -l "$middle" -scale-to 1000 -png -singlefile "$pdf" /tmp/seer_ppe_word_render/middle_page
           pdftoppm -f "$pages" -l "$pages" -scale-to 1000 -png -singlefile "$pdf" /tmp/seer_ppe_word_render/last_page
+          supp_pages=$(pdfinfo "$supp_pdf" | awk '/^Pages:/ {print $2}')
+          pdftoppm -f 1 -l 1 -scale-to 1000 -png -singlefile "$supp_pdf" /tmp/seer_ppe_word_render/supp_first_page
+          pdftoppm -f "$supp_pages" -l "$supp_pages" -scale-to 1000 -png -singlefile "$supp_pdf" /tmp/seer_ppe_word_render/supp_last_page
+          test -s /tmp/seer_ppe_word_render/first_page.png
           test -s /tmp/seer_ppe_word_render/middle_page.png
           test -s /tmp/seer_ppe_word_render/last_page.png
-          echo 'SEER_PPE_V042_DOCX_PDF_TEXT_AND_THREE_PAGE_PREVIEW_QA_PASS'
+          test -s /tmp/seer_ppe_word_render/supp_first_page.png
+          test -s /tmp/seer_ppe_word_render/supp_last_page.png
+          echo 'SEER_PPE_V043_MAIN_AND_SUPPLEMENT_PDF_QA_PASS'
       - name: Upload temporary PDF and page previews for V35-E visual inspection
         uses: actions/upload-artifact@v4
         with:
-          name: seer-ppe-v042-render-qa
+          name: seer-ppe-v043-main-supplement-qa
           path: |
-            /tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.42_2026-11-22.pdf
-            research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.42_2026-11-22.docx
+            /tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.43_2026-11-22.pdf
+            /tmp/seer_ppe_word_render/SEER_PPE_Supplementary_Material_v0.43_2026-11-22.pdf
+            research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.43_2026-11-22.docx
+            research/seer-ppe/exports/SEER_PPE_Supplementary_Material_v0.43_2026-11-22.docx
             /tmp/seer_ppe_word_render/first_page.png
             /tmp/seer_ppe_word_render/middle_page.png
             /tmp/seer_ppe_word_render/last_page.png
+            /tmp/seer_ppe_word_render/supp_first_page.png
+            /tmp/seer_ppe_word_render/supp_last_page.png
           if-no-files-found: error
           retention-days: 7
-      - name: Archive editable v0.42 Word manuscript on the current research branch
+      - name: Archive editable v0.43 Word manuscript on the current research branch
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.42_2026-11-22.docx
+          git add research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.43_2026-11-22.docx research/seer-ppe/exports/SEER_PPE_Supplementary_Material_v0.43_2026-11-22.docx
           git diff --cached --quiet && exit 0
-          git commit -m 'docs(seer-ppe): archive editable Word manuscript v0.42'
+          git commit -m 'docs(seer-ppe): archive main and supplementary Word files v0.43'
           git fetch origin "$GITHUB_REF_NAME"
           git rebase "origin/$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"
