@@ -1,0 +1,77 @@
+name: SEER-PPE V38B zero-inference target freeze and budget validation
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - .github/workflows/seer-ppe-v38b-target-freeze.yml
+      - tools/v38b_freeze_sample_and_budget.py
+      - research/seer-ppe/V26_ORIGINAL_VALID_GEOMETRY_SHARD_*.json
+      - research/seer-ppe/V30_FROZEN_TARGETS_2026-11-22.json
+      - research/seer-ppe/V38_B_FROZEN_CANDIDATE_SAMPLE_2026-11-23.json
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: seer-ppe-v38b-pre-registration
+  cancel-in-progress: false
+jobs:
+  sample-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Recreate frozen sample solely from historical V26 numbers
+        run: |
+          set -euo pipefail
+          out=research/seer-ppe/V38_B_FROZEN_CANDIDATE_SAMPLE_2026-11-23.json
+          python tools/v38b_freeze_sample_and_budget.py --output "$out"
+          python tools/v38b_freeze_sample_and_budget.py --check "$out"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          o=json.loads(Path('research/seer-ppe/V38_B_FROZEN_CANDIDATE_SAMPLE_2026-11-23.json').read_text())
+          assert o['budget']['hard_maximum_new_hosted_model_calls_including_retries']==6000
+          assert o['budget']['planned_unique_call_upper_bound']==5200
+          assert o['budget']['actual_new_model_calls_in_this_freeze']==0
+          assert len(o['images'])==24 and len(o['targets'])==48
+          assert len(o['random_progressive_target_ids_12_different_images'])==12
+          assert len(o['alternative_fill_image_ids_8'])==8
+          assert len(o['class_distribution'])==11
+          assert all(4<=n<=5 for n in o['class_distribution'].values())
+          print('V38B_PREINFERENCE_FROZEN_SAMPLE_BUDGET_PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v38b-frozen-candidates-no-inference
+          path: research/seer-ppe/V38_B_FROZEN_CANDIDATE_SAMPLE_2026-11-23.json
+          retention-days: 90
+      - name: Commit exact reproducible candidate manifest if not archived
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          path=research/seer-ppe/V38_B_FROZEN_CANDIDATE_SAMPLE_2026-11-23.json
+          cp "$path" /tmp/V38_B_FROZEN_CANDIDATE_SAMPLE_2026-11-23.json
+          for attempt in 1 2 3; do
+            git fetch origin "$GITHUB_REF_NAME"
+            git reset --hard "origin/$GITHUB_REF_NAME"
+            if test -f "$path"; then
+              cmp "$path" /tmp/V38_B_FROZEN_CANDIDATE_SAMPLE_2026-11-23.json
+              echo "V38B_FROZEN_CANDIDATE_MANIFEST_ALREADY_ARCHIVED"
+              exit 0
+            fi
+            cp /tmp/V38_B_FROZEN_CANDIDATE_SAMPLE_2026-11-23.json "$path"
+            git add "$path"
+            git commit -m "Freeze V38B balanced 24-image 48-target candidate manifest (zero inference)"
+            if git push origin "HEAD:$GITHUB_REF_NAME"; then
+              echo "V38B_FROZEN_CANDIDATE_MANIFEST_ARCHIVE_PASS"
+              exit 0
+            fi
+          done
+          exit 1
