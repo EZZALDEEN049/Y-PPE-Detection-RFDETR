@@ -15,7 +15,7 @@ This inventory identifies the Y-PPE thesis-to-Q1 research artifacts currently pr
 |---|---|---|
 | Master proposal v3.5.0 | `source_documents/MASTER_PROPOSAL_v3.5.0.md` | Canonical proposal text copied from the current Library source; working proposal, not completed article |
 | Journal manuscript scaffold v0.1 | `source_documents/JOURNAL_MANUSCRIPT_SCAFFOLD_v0.1.md` | Methods-only manuscript scaffold; results section intentionally not written |
-| Research tracker v2.6.0 | `source_documents/Y_PPE_Research_Tracker_v2.6.0_EXTRACTED.md` | Searchable extraction of all 10 workbook tabs; original XLSX remains in Library |
+| Research tracker v2.6.0 | `source_documents/Y_PPE_Research_Tracker_v2.6.0_EXTRACTED.md` | Searchable extraction of all 10 workbook tabs — Overview, Roadmap, Audit_Issues, Sources, Versions, Tool_Validation, Frozen_Dependencies, Statistical_Plan, Interactive_Decisions, Q5_Threshold; original XLSX remains in Library |
 
 ## 3. Current Q1 reassessment and evidence records
 
