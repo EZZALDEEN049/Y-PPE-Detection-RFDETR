@@ -1,0 +1,86 @@
+{
+  "stage": "V36",
+  "date": "2026-11-23",
+  "journal": "Results in Engineering",
+  "publisher": "Elsevier",
+  "journal_selection": "FINAL",
+  "submission_status": "NOT_SUBMITTED",
+  "editorial_package_status": "AUTOMATED_QA_PASS_AUTHOR_AND_JOURNAL_GATES_OPEN",
+  "branch": "research/v30-progressive-xai-2026-11-22",
+  "original_master": {
+    "path": "research/seer-ppe/MANUSCRIPT_MASTER.md",
+    "version": "v0.43",
+    "unchanged_git_blob_sha": "a5080d5a33df310e985f72f84a0f7f3fac07932f"
+  },
+  "manuscript": {
+    "source": "submissions/results-in-engineering/RINENG_MANUSCRIPT_V36_v0.2_2026-11-23.md",
+    "docx": "exports/RINENG_V36_Manuscript_v0.2_2026-11-23.docx",
+    "bytes": 259629,
+    "rendered_pdf_pages": 8,
+    "native_tables": 3,
+    "embedded_figures": 1,
+    "abstract_words": 237,
+    "keywords": 6,
+    "total_whitespace_words_including_references": 3937,
+    "bibliography_entries": 17,
+    "in_text_referenced_entries": 17
+  },
+  "supplement": {
+    "source": "submissions/results-in-engineering/RINENG_SUPPLEMENT_V36_S1_v0.1_2026-11-23.md",
+    "docx": "exports/RINENG_V36_Supplement_v0.1_2026-11-23.docx",
+    "bytes": 2476784,
+    "rendered_pdf_pages": 8,
+    "native_tables": 2,
+    "embedded_figures": 10
+  },
+  "highlights": {
+    "source": "submissions/results-in-engineering/RINENG_HIGHLIGHTS_V36_v0.1_2026-11-23.md",
+    "docx": "exports/RINENG_V36_Highlights_v0.1_2026-11-23.docx",
+    "bytes": 10764,
+    "bullet_count": 5,
+    "bullet_character_lengths": [
+      72,
+      68,
+      61,
+      64,
+      64
+    ]
+  },
+  "ci": {
+    "final_workflow_run": 45074736436,
+    "conclusion": "success",
+    "artifact_id": 14774702903,
+    "checks": [
+      "DOCX_ZIP_PASS",
+      "DOCX_NATIVE_TABLES_PASS",
+      "DOCX_EMBEDDED_IMAGES_PASS",
+      "MAIN_AND_SUPP_PDF_CONVERSION_PASS",
+      "PDF_TEXT_SMOKE_PASS",
+      "FIRST_MIDDLE_LAST_PREVIEWS_CREATED",
+      "BRANCH_BINARY_ARCHIVE_PASS"
+    ],
+    "source_note": "Earlier failed run 45074592580 had binary rebase conflict after passing document checks; resolved in final workflow"
+  },
+  "scientific_integrity": {
+    "new_model_calls": 0,
+    "retrained": false,
+    "source_images_changed": false,
+    "annotations_or_splits_changed": false,
+    "test_access": false,
+    "original_model_changed": false,
+    "original_numeric_records_changed": false
+  },
+  "unverified": [
+    "Results in Engineering journal-specific Guide for Authors (direct HTTP 403)",
+    "Manual visual inspection of all 16 PDF-rendered pages",
+    "Ethics approval/exemption and worker image consent/privacy basis",
+    "Funding and competing interests",
+    "Final author and CRediT signoff",
+    "Final 2026 IEEE source metadata",
+    "Research numeric/code archive sharing rights and immutable DOI",
+    "Final AI disclosure human authorship approval",
+    "Publisher eligibility for Yemen geographical APC waiver",
+    "No-concurrent-submission author confirmation"
+  ],
+  "report": "research/seer-ppe/V36_RESULTS_IN_ENGINEERING_SUBMISSION_PREPARATION_REPORT_2026-11-23.md"
+}
