@@ -34,6 +34,9 @@ function audit(evidence,record,ready,manuscript,protocol,curator){
   assert.equal(record.methodological_decision.source_unknown_must_not_be_relabelled_independent,true);
   assert.equal(record.methodological_decision.known_cross_split_overlap_controls_preserved,true);
   assert.equal(record.methodological_decision.worker_level_person_ppe_gold_created_by_this_record,false);
+  assert.equal(record.methodological_decision.probability_sample_of_yemeni_worksites,false);
+  assert.equal(record.methodological_decision.national_prevalence_estimation_supported,false);
+  assert.equal(record.methodological_decision.multi_project_diversity_is_not_independent_site_sampling,true);
   assert.equal(record.known_overlap_state.school_22may_valid_sources,2);
   assert.equal(record.known_overlap_state.wa0026_train_shared_scene_with_modifications_or_processing,true);
   assert.equal(record.known_overlap_state.other_unresolved_p0_cases,8);
@@ -60,6 +63,8 @@ function audit(evidence,record,ready,manuscript,protocol,curator){
   assert.ok(manuscript.includes('M0=459'));
   assert.ok(manuscript.includes('M1=448'));
   assert.ok(manuscript.includes('M2=367'));
+  assert.ok(manuscript.includes('not a documented probability sample of all Yemeni worksites'));
+  assert.ok(protocol.includes('do not estimate national prevalence'));
   assert.ok(protocol.includes('a named worksite/project ID for every image is **not required**'));
   assert.ok(protocol.includes('do not repeat full-corpus review'));
   assert.ok(curator.includes('Do not ask the owner to repeat image review'));
