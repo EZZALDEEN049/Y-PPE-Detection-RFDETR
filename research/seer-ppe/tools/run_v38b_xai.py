@@ -619,6 +619,52 @@ def self_test(output_dir):
     assert failing.attempts==1 and failing.successes==0
     events=[json.loads(line) for line in failed_ledger.read_text().splitlines()]
     assert [x["event"] for x in events]==["ATTEMPT_RESERVED","ATTEMPT_FAILED"]
+    # Test the *actual HTTP provider function* using a monkeypatched opener:
+    # no real URL request or real credentials, and no implicit retries.
+    from unittest.mock import patch
+    from urllib.error import HTTPError
+    class SingleRequestFailure:
+        def __init__(self):
+            self.calls=0
+        def open(self,req,timeout):
+            self.calls+=1
+            raise HTTPError(req.full_url,503,"synthetic",hdrs=None,fp=None)
+    fail_http=SingleRequestFailure()
+    with patch.dict(os.environ,{"ROBOFLOW_API_KEY":"dummy_mock_key_no_real_auth"}):
+        with patch("urllib.request.build_opener",return_value=fail_http):
+            strict_hosted=hosted_provider()
+            try:
+                strict_hosted(rgb)
+            except RuntimeError as e:
+                assert "HTTP status 503" in str(e)
+            else:
+                raise AssertionError("Mocked HTTP 503 must abort")
+    assert fail_http.calls==1, "Hosted provider must not retry HTTP failures"
+
+    class MockResponse:
+        status=200
+        def __init__(self,url): self.url=url
+        def geturl(self):return self.url
+        def read(self,n):
+            return json.dumps({"predictions":[{
+                "class":"Hard Hat","x":8,"y":8,"width":12,
+                "height":12,"confidence":0.90
+            }]}).encode("utf8")
+        def __enter__(self):return self
+        def __exit__(self,*args):return False
+    class SingleRequestSuccess:
+        def __init__(self):self.calls=0
+        def open(self,req,timeout):
+            self.calls+=1
+            return MockResponse(req.full_url)
+    success_http=SingleRequestSuccess()
+    with patch.dict(os.environ,{"ROBOFLOW_API_KEY":"dummy_mock_key_no_real_auth"}):
+        with patch("urllib.request.build_opener",return_value=success_http):
+            strict_hosted=hosted_provider()
+            received=strict_hosted(rgb)
+    assert success_http.calls==1 and len(received)==1
+    assert received[0].class_name=="Hard Hat"
+
     constant=aligned_metrics(np.zeros((8,8)),np.zeros((4,4)),(32,32))
     assert constant["status"]=="CONSTANT_RANKS" and constant["spearman_rho"] is None
     sample={"status":"PASS_MOCK_FULL_XAI_2_TARGETS_WITHOUT_MODEL_CALLS",
@@ -627,6 +673,7 @@ def self_test(output_dir):
             "both_grid_maps":True,"ablation":True,
             "guard_rejects_fourth_of_three":True,
             "failed_attempt_logged":True,"duplicate_ledger_rejected":True,
+            "single_post_transport_one_call_failure_and_success":True,
             "actual_hosted_model_calls":0}
     save_atomic(output_dir/"v38b_mock_test_summary.json",sample)
     print(json.dumps(sample,indent=2))
