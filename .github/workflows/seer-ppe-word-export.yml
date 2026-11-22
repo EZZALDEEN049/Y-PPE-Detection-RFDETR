@@ -123,7 +123,7 @@ jobs:
               d.save(target)
               assert target.stat().st_size>15000,target
               print(f'GENERATED {target} | bytes={target.stat().st_size} | paragraphs={len(d.paragraphs)} | tables={len(d.tables)}')
-          print('SEER_PPE_TWO_COMPLETE_WORD_DOCX_EXPORTS_GENERATED_FROM_SOURCE_MARKDOWN')
+          print('SEER_PPE_V038_EDITABLE_MANUSCRIPT_GENERATED_FROM_SOURCE_MARKDOWN')
           PY
       - name: Verify v0.38 Word structure, all source content and embedded figures
         run: |
@@ -161,9 +161,7 @@ jobs:
             sudo apt-get install -y -qq libreoffice-writer poppler-utils >/dev/null
           fi
           mkdir -p /tmp/seer_ppe_word_render
-          libreoffice -env:UserInstallation=file:///tmp/lo_seer_ppe_word_export \\
-            --headless --convert-to pdf --outdir /tmp/seer_ppe_word_render \\
-            research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.38_2026-11-22.docx
+          libreoffice -env:UserInstallation=file:///tmp/lo_seer_ppe_word_export --headless --convert-to pdf --outdir /tmp/seer_ppe_word_render research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.38_2026-11-22.docx
           pdf=/tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.38_2026-11-22.pdf
           test -s "$pdf"
           pdfinfo "$pdf" | grep Pages
