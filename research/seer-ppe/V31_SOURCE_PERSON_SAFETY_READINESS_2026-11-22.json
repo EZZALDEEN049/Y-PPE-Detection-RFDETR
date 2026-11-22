@@ -175,14 +175,14 @@
   "next_work_packages": [
     {
       "id": "V31-A",
-      "name": "Reconcile pre-existing 11 P0 source-family evidence packets and source-group identifiers",
-      "state": "3_OF_11_AUTHOR_ATTESTED_NON_INDEPENDENT_SHARED_SCENE_OR_SITE_RELATIONSHIPS; 8_OF_11_REMAIN_UNRESOLVED; ALL_5_HISTORICAL_HOLDS_AND_6_TECHNICAL_QUARANTINES_PRESERVED",
+      "name": "Maintain targeted P0 overlap quarantine; resolve further only if an acquisition-independent cohort claim is pursued",
+      "state": "3_OF_11_AUTHOR_CONFIRMED_SHARED_SITE_OR_SCENE; 8_OF_11_REMAIN_UNRESOLVED_AND_HELD; NOT_A_BLOCKER_TO_INTERNAL_IMAGE_LEVEL_DETECTION; ALL_11_EXCLUDED_FROM_INDEPENDENT_SOURCE_SCORING",
       "cannot_auto_sign": true
     },
     {
       "id": "V31-B",
-      "name": "Build source family signed evidence overlay from actual recorded capture/lineage evidence, not image-quality acceptance",
-      "state": "AGGREGATE_MULTI_PROJECT_PROVENANCE_ACCEPTED; PER_IMAGE_SITE_IDS_NOT_REQUIRED_FOR_INTERNAL_DETECTION; M0_M1_M2_RISK_SENSITIVITY; 8_P0_CASES_UNRESOLVED; ZERO_INDEPENDENT_SOURCE_CLEARANCES",
+      "name": "Proceed with author-annotation-backed internal image-level detection using overlap-risk sensitivity cohorts",
+      "state": "AGGREGATE_MULTI_PROJECT_PROVENANCE_ACCEPTED; NO_PER_IMAGE_SITE_IDS_OR_REPEAT_FULL_REVIEW_REQUIRED; REPORT_M0_459_M1_448_M2_367; 8_P0_CASES_REMAIN_HELD_FOR_INDEPENDENCE_ONLY; ZERO_INDEPENDENT_SOURCE_CLEARANCES",
       "cannot_auto_sign": true
     },
     {
