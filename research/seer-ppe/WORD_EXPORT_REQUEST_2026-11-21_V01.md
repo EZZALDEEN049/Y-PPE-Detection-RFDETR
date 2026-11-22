@@ -108,3 +108,8 @@ Export two editable Word deliverables:
 - `exports/SEER_PPE_Supplementary_Material_v0.43_2026-11-22.docx` — historical methods, appendices A–X and ten paired maps.
 
 Verify one embedded figure in the main DOCX and ten in the supplement, all table text, references, title/abstract, conclusion, PDF text and representative page previews. Do not alter any scientific values or run new model inference.
+
+
+### V35-E main/supplement export assertion adjustment — 22 November 2026
+
+The first-column label in the existing six-column class-support table remains `Original class name`; the workflow now checks that source-authored header rather than a generic `Class` label. The 7-column cohort table is shortened to `Cohort`, and the M0/M1/M2 definitions are stated in prose before the table. No numerical values are changed.
