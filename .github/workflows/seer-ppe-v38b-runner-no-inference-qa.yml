@@ -6,6 +6,7 @@ on:
     paths:
       - .github/workflows/seer-ppe-v38b-runner-no-inference-qa.yml
       - research/seer-ppe/tools/run_v38b_xai.py
+      - research/seer-ppe/tools/fetch_v38b_originals_cloud.py
       - research/seer-ppe/seer_ppe/progressive_xai.py
       - research/seer-ppe/seer_ppe/detection_match.py
       - research/seer-ppe/V38_B_FROZEN_CANDIDATE_SAMPLE_2026-11-23.json
@@ -29,6 +30,26 @@ jobs:
       - name: Manifest, SOURCE-SHA and exact budget preflight (zero inference)
         run: |
           python research/seer-ppe/tools/run_v38b_xai.py --preflight --output "${RUNNER_TEMP}/no_inference.json"
+      - name: Fetch and verify the exact 24 frozen original JPEGs on ephemeral runner (read-only, zero inference)
+        run: |
+          set -euo pipefail
+          python research/seer-ppe/tools/fetch_v38b_originals_cloud.py \
+            --destination "${RUNNER_TEMP}/v38b_originals" --check-only
+          python research/seer-ppe/tools/fetch_v38b_originals_cloud.py \
+            --destination "${RUNNER_TEMP}/v38b_originals" \
+            --report "${RUNNER_TEMP}/v38b_source_readonly_qa.json"
+          python research/seer-ppe/tools/run_v38b_xai.py --preflight \
+            --images-dir "${RUNNER_TEMP}/v38b_originals" \
+            --output "${RUNNER_TEMP}/v38b_no_inference_check.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          d=json.loads((Path(os.environ['RUNNER_TEMP'])/'v38b_source_readonly_qa.json').read_text())
+          assert d["status"]=="V38B_24_EPHEMERAL_SOURCE_HASHES_VERIFIED"
+          assert len(d["sources"])==24 and d["model_calls"]==0
+          print("V38B_24_CANONICAL_RGB_SHA_CHECKS_PASS_NO_MODEL_CALLS")
+          PY
+          rm -rf "${RUNNER_TEMP}/v38b_originals"
       - name: Full local mock predictor — both grid maps, blur ablation, 10 random orderings, curves and attempt cap
         run: |
           python research/seer-ppe/tools/run_v38b_xai.py --self-test --output "${RUNNER_TEMP}/mock.json"
