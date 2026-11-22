@@ -205,3 +205,15 @@
 - Final [source/reference gate run 45034033034](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45034033034) passed, including V22–V26 checks; final [public synthetic test run 45034033098](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45034033098) passed.
 - Render bundle retained in [GitHub Actions artifact 14759055979](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45034033339/artifacts/14759055979). Final manuscript archive commit is cbc65acf87f70d06ad6f1930516ce00d2e4f6dc0.
 - Earlier failed runs remain in Actions history as audit evidence; they were corrected and superseded by the successful final rerun.
+
+
+## V35-E — main manuscript and supplementary package QA — 22 November 2026
+
+- Produced the journal-neutral **v0.43 main manuscript** and separate **v0.43 Supplementary Material**. The complete v0.42 research dossier is preserved unchanged.
+- Main Word file: 62 pages, 16 tables, one summary figure. Supplement: 34 pages, two tables, ten paired heatmaps. Combined: 96 pages, 18 tables, 11 figures.
+- Removed the empty generated TOC, cleaned the title page/abstract, clarified image-level scope and moved historical non-scoring Person–PPE/source-lineage contracts and appendices A–X to the supplement.
+- Main/supplement DOCX integrity, embedded-image counts, PDF rendering, text checks and representative first/middle/last visual QA passed. No low-text pages detected.
+- [Word export QA run 45038161463](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45038161463), [source/reference gates 45038166451](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45038166451) and [engineering tests 45037976977](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45037976977) passed. [QA artifact 14760248670](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45038161463/artifacts/14760248670) retains PDFs and previews.
+- No new model inference, retraining, Test access, source-image/annotation/split mutation or original-model change.
+- Remaining: author ethics/consent and declarations; official IEEE author-order verification for two eSmarTA references; target-journal selection and compression of the 62-page main article; removal of internal reference-audit note/stage labels; V27 timestamp and V34-B duplicate-PDF reconciliation.
+- Added [V35-E layout QA report](V35_E_LAYOUT_QA_REPORT_2026-11-22.md) and [machine-readable record](V35_E_LAYOUT_QA_2026-11-22.json).
