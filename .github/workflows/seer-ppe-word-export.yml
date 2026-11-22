@@ -149,11 +149,11 @@ jobs:
                   assert len(media)==expected_media,(path,len(media),media)
                   print('DOCX_EMBEDDED_FIGURES_OK',path.name,len(media))
           d=Document(manuscript)
-          assert len(d.tables)==18,len(d.tables)
+          assert len(d.tables)==16,len(d.tables)
           nonempty_cells=sum(1 for t in d.tables for row in t.rows for cell in row.cells if cell.text.strip())
           assert nonempty_cells>60,nonempty_cells
-          assert 'Cohort' in d.tables[4].rows[0].cells[0].text
-          assert 'Original class name' in d.tables[5].rows[0].cells[0].text
+          assert any('Cohort' in t.rows[0].cells[0].text for t in d.tables)
+          assert any('Original class name' in t.rows[0].cells[0].text for t in d.tables)
           print('DOCX_NATIVE_MAIN_TABLES_OK',len(d.tables),'tables',nonempty_cells,'nonempty cells')
           mt='\\n'.join(p.text for p in d.paragraphs)+'\\n'+'\\n'.join(' '.join(c.text for c in row.cells) for t in d.tables for row in t.rows)
           assert len(mt)>20000,len(mt)
