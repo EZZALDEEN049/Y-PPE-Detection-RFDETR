@@ -109,3 +109,12 @@
 - Updated canonical manuscript to v0.32 and protocol to v0.8; added [V32 scope decision](V32_IMAGE_LEVEL_DETECTION_XAI_SCOPE_DECISION_2026-11-22.md) and [machine-readable record](V32_IMAGE_LEVEL_DETECTION_XAI_SCOPE_DECISION_2026-11-22.json); synchronized the V31 readiness ledger, handoff guide and repository entry points.
 - Primary remaining work: explanation perturbation robustness, a larger matched-budget A5/A6-style image-target comparison, results/figure reconciliation, reference verification and editable Word export.
 - No model inference, retraining, Test access, image reopening, original data/annotation/split changes or Roboflow writes were performed for V32.
+
+
+## V33-A — A5/A6 shared-target and perturbation robustness reanalysis — 2026-11-22
+
+- Independently recomputed all 60 V30 AUCs and performed target-level full-area/first-30%-area saliency-vs-fixed-random comparisons; 8/10 deletion and 9/10 insertion cases favor saliency on full area (descriptive only).
+- Explicitly decomposed A5/A6 as six shared exact explanation targets plus two unique selected targets per arm. The conditional six-way 2+2 reassignment does not establish a statistically superior policy; explanation outputs for shared targets are identical.
+- Quantified blur baseline saturation (3/10 retain >=80% baseline confidence), inverse-order complementary AUC identities, image-omission sensitivity and 0.004748 maximum nominal-vs-actual area AUC discrepancy.
+- [V33 numeric archive](V33_A5_A6_NUMERIC_ROBUSTNESS_2026-11-22.json), [V33 report](V33_A5_A6_NUMERIC_ROBUSTNESS_REPORT_2026-11-22.md) and [V33 fail-closed mutation verifier](tools/verify_v33_existing_xai.mjs) added to CI. Canonical manuscript updated to v0.33; worker-safety V32 scope remains unchanged.
+- [V33-B prospective actual 4x4 protocol](V33_B_GRID4_PROSPECTIVE_PROTOCOL_2026-11-22.md) specifies up to 496 new hosted calls **only if separately authorized**; no V33 inference, Test access, model retraining, image re-review or Roboflow mutations occurred in V33-A.
