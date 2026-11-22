@@ -1,0 +1,80 @@
+name: SEER-PPE V33-B 4x4 read-only cloud preflight
+
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - .github/workflows/seer-ppe-v33b-preflight.yml
+      - research/seer-ppe/tools/run_v33b_grid4_xai.py
+      - research/seer-ppe/tools/fetch_v30_originals_cloud.py
+      - research/seer-ppe/V30_FROZEN_TARGETS_2026-11-22.json
+      - research/seer-ppe/V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json
+      - research/seer-ppe/V30_ACTUAL_PROGRESSIVE_XAI_RESULTS_2026-11-22.json
+      - research/seer-ppe/V33_B_GRID4_PROSPECTIVE_PROTOCOL_2026-11-22.md
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seer-ppe-v33b-grid4-read-only-preflight
+  cancel-in-progress: false
+
+jobs:
+  v33b_read_only_preflight:
+    name: Verify frozen V30 images and targets with zero hosted inference
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install local image and numeric dependencies only
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install numpy pillow
+
+      - name: Download only the eight frozen V30 original Train and Valid images
+        run: |
+          set -euo pipefail
+          mkdir -p "${RUNNER_TEMP}/v33b_originals"
+          python research/seer-ppe/tools/fetch_v30_originals_cloud.py \
+            --destination "${RUNNER_TEMP}/v33b_originals" \
+            --hashes-output "${RUNNER_TEMP}/v33b_image_sha256.json"
+
+      - name: Validate all V33-B frozen inputs and SHA matches with zero model calls
+        run: |
+          set -euo pipefail
+          python research/seer-ppe/tools/run_v33b_grid4_xai.py \
+            --images-dir "${RUNNER_TEMP}/v33b_originals" --dry-run
+          python research/seer-ppe/tools/run_v33b_grid4_xai.py \
+            --images-dir "${RUNNER_TEMP}/v33b_originals" --preflight-only \
+            --output "${RUNNER_TEMP}/v33b_readiness.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'v33b_readiness.json'
+          x=json.loads(p.read_text(encoding='utf-8'))
+          assert x['status']=='READY_NO_MODEL_CALLS'
+          assert x['source_images']==8 and x['targets']==10
+          assert x['source_hashes_matched_to_v30_bundle']==8
+          assert x['expected_max_additional_calls']==496
+          assert x['no_model_calls_made'] is True
+          assert x['no_test_accessed'] is True
+          print('V33-B read-only preflight passed: 8 hashes, 10 targets, zero model calls.')
+          PY
+
+      - name: Upload numeric preflight evidence only; never upload original images
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: v33b-grid4-read-only-preflight
+          path: |
+            ${{ runner.temp }}/v33b_image_sha256.json
+            ${{ runner.temp }}/v33b_readiness.json
+          if-no-files-found: warn
+          retention-days: 30
