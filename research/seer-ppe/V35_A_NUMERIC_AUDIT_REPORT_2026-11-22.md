@@ -6,7 +6,7 @@
 
 ## 1. Audit decision
 
-<badge color="success">Numeric checks passed</badge>
+**Numeric checks: PASS**
 
 The numerical evidence reviewed in V26–V34-B reconciles with the committed primary ledgers and the corresponding manuscript tables/claims checked in this pass. No numeric correction to the manuscript is required from the V35-A checks.
 
