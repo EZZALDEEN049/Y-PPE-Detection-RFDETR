@@ -16,7 +16,7 @@
 - V35-B: figure integration — complete.
 - V35-C: focused literature and editorial audit — complete, 17 working references.
 - V35-D: editable Word export and automated QA — complete.
-- V35-E: representative visual layout QA and main/supplement packaging — in progress.
+- V35-E: representative visual layout QA and main/supplement packaging — complete with journal/author gates open.
 
 ## Current scientific headline values
 
@@ -43,13 +43,19 @@
 4. Author-contribution statement.
 5. Official IEEE metadata/author-order confirmation for the two eSmarTA 2026 publications.
 6. Target journal and its word, figure, reference and supplementary-material rules.
-7. Final choice of main-text versus supplementary tables/appendices after the journal is selected.
+7. Journal-specific compression and final placement of tables/appendices; the current main article is 62 pages and the separate supplement is 34 pages.
 
 ## Technical audit warnings retained
 
 - V27 start/end chronology warning remains unresolved unless the original execution log is recovered; no timestamp was guessed.
 - V34-B contains a nested duplicate PDF with a different file hash; the manifest-selected outer directory remains canonical pending archive reconciliation.
-- The two eSmarTA 2026 author lists are not yet confirmed against official IEEE metadata.
+- The two eSmarTA 2026 author lists remain provisional: secondary proceedings-index records list Al-Tayar, E.; Al-Azazi, S.A.; Ali, A.; Alawag, A.M. for DOI 10.1109/eSmarTA70636.2026.11652079, and Al-Tayar, E.; Al-Azazi, S.A.; Saeed, M.A.; Ali, A.; Hassan, A. for DOI 10.1109/eSmarTA70636.2026.11652190. The proceedings-level DOI is confirmed on the conference publisher gateway, but individual IEEE Xplore pages require JavaScript verification and were not machine-readable in this pass.
+
+## Additional editorial issues before submission
+
+- The main manuscript still contains a reference-audit note at the end of the reference list; move it to this status file before journal submission.
+- Some Results/Discussion headings still contain internal V-stage labels and the 62-page main article needs journal-specific compression. The detailed provenance/pilot sections remain available in the supplement/full dossier.
+- The M0/M1/M2 cohort and per-class tables are readable but long class names wrap; a journal template may require further table redesign.
 
 ## Version history
 
@@ -58,3 +64,4 @@
 - v0.41: native Pandoc Word template fixed heading/paragraph flow and removed the empty TOC.
 - v0.42: split wide V26 cohort/class tables; 18 tables, one main summary figure and ten supplementary map figures.
 - v0.43: clean article front matter and abstract, scientific scope statement, separation of non-scoring legacy contracts and audit appendices into supplementary material, and figure numbering split between main and supplement.
+- v0.43 package QA: main 62 pages / 16 tables / 1 summary figure; supplement 34 pages / 2 tables / 10 paired maps; combined 96 pages / 18 tables / 11 figures.
