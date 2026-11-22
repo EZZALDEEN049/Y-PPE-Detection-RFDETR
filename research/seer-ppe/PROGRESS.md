@@ -339,3 +339,15 @@ Re-read original saved human reference after the Workflow calls: **19** approved
 - Output files committed in figures/V34B_2026-11-22/: ten 300-dpi PNGs, summary PNG, 11-page PDF, CSV metrics, JSON manifest and generation report. Renderer and tests committed.
 - Engineering CI [45024788647](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45024788647) passed, including generated figure commit.
 - **Zero new model calls**, no Test access, retraining or source/annotation/split changes. Canonical manuscript updated to **v0.36**. Remaining work: final numeric/reference reconciliation and editable Word export.
+
+
+## V35-A final numeric reconciliation — 22 November 2026
+
+- Completed a read-only cross-check of V26–V34-B against the committed machine-readable ledgers and the current manuscript v0.36. **Numeric reconciliation PASS**; zero RF-DETR calls, no retraining, no Test access and no original image/annotation/split changes.
+- Independently recomputed the SHA-256 of the full V26 459-source detailed ledger; it matches the compact summary. All 459 unique Valid Source IDs reconcile, all 17 class rows match, and M0/M1/M2 totals and precision/recall/F1 formulas agree. M2 remains **not independently acquired**.
+- V27–V29 totals reconcile to 97 actual calls; V28's 30 first-attempt calls without persisted outputs remain counted but excluded from numeric analysis. V29 is request round-trip, not pure model latency.
+- V30: 8 baseline + 1,060 additional = 1,068 calls; 60 AUCs independently recomputed with maximum absolute error 2.22e-16. V33-A's 60-curve reanalysis matches; V33-B: 496/496 calls, 40 curves, 39 valid AUCs and one unscored ambiguous point, with maximum AUC error 2.22e-16.
+- V34-A: mean Spearman rho 0.5416, mean Kendall tau-b 0.4239 and 65% top-four overlap. All ten V34-B manifest target metrics match V34-A exactly; no new model inference.
+- Two non-numeric warnings retained: (1) V27 start timestamp is later than its finish timestamp as labelled UTC; raw evidence was not edited pending primary-log verification; (2) V34-B output files exist in a duplicated same-named nested folder and the two PDF blob IDs differ. Canonical PDF selection is required before Word figure integration.
+- Evidence: [V35-A machine audit](V35_A_NUMERIC_AUDIT_2026-11-22.json) and [V35-A audit report](V35_A_NUMERIC_AUDIT_REPORT_2026-11-22.md).
+- **Next:** V35-B — canonicalize V34-B outputs, insert the ten target figures and summary figure, and add numbered captions/in-text references. V35-C reference audit, V35-D Word export and V35-E final QA remain.
