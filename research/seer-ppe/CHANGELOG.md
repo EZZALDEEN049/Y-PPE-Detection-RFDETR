@@ -173,3 +173,15 @@
 - Outputs committed under [figures/V34B_2026-11-22/](figures/V34B_2026-11-22/): ten PNGs, summary PNG, 11-page PDF, CSV, JSON manifest and generation report. Reproducible [renderer](tools/render_v34b_scientific_figures.py) and [synthetic tests](tests/test_v34b_scientific_figures.py) are committed.
 - Engineering CI [45024788647](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45024788647) passed, including figure generation, artifact upload and commit of generated figure files to the research branch.
 - Zero new detector calls; no Test access, retraining, or dataset/annotation/split mutation. Updated manuscript to **v0.36** (Methods 3.27, Results 4.28, Discussion 5.13, Appendix X). Remaining paper work is final numeric/reference reconciliation and editable Word export.
+
+
+## V35-C — focused literature and editorial audit — 22 November 2026 (manuscript v0.38)
+
+- Expanded the working reference list from 9 to **17 sources**, adding foundational perturbation, deletion/insertion, saliency-sanity, quantitative-baseline and rank-correlation sources.
+- Checked the focused reference set against official proceedings, publisher and institutional records where accessible. The two eSmarTA 2026 author lists remain secondary-index-only pending final IEEE metadata or author-PDF confirmation.
+- Reframed the related-work section as a focused, non-systematic review; no PRISMA/systematic-search claim is made.
+- Added explicit method citations and clarified that parameter/label randomization sanity checks were not performed and one deterministic random ordering is only a limited control.
+- Added a substantive Section 7 conclusion based on the audited image-level results and their limits. Removed the internal V35 workplan from the article body; editorial closure status is now recorded in the V35-C audit report.
+- Added author-confirmation gates for ethics/consent, funding, competing interests and author contributions. The target journal is not yet selected, so final style/length requirements remain open.
+- Zero new model calls; no Test access, retraining, image/annotation/split mutation or original-model changes.
+- Added [V35-C report](V35_C_LITERATURE_AND_EDITORIAL_AUDIT_REPORT_2026-11-22.md) and [machine-readable audit](V35_C_LITERATURE_AND_EDITORIAL_AUDIT_2026-11-22.json).
