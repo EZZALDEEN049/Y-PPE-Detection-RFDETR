@@ -2,6 +2,11 @@
 
 **Date:** 22 November 2026. **Evidence state:** read-only audit of saved historical source, signed-reference and Train pilot records, plus independently verified actual V30 XAI. **Not an expert signoff, new source classification or worker-compliance evaluation.**
 
+## V32 author-selected scope amendment — 22 November 2026
+
+The author selected **Path 1: limit the current manuscript to image-level PPE object detection and perturbation-based XAI**. The canonical manuscript is now v0.32 and the experimental protocol v0.8. Accordingly, the Person–PPE and worker/task-policy procedures below remain historical/future-research documentation only. Their incomplete status and `scoring_ready=false` are **not blockers** to the current manuscript. No worker-level compliance, false-clearance, actual review-efficacy, external explanation-faithfulness or energy claim is made. Current XAI evidence is described as perturbation sensitivity only. See [V32 scope decision](V32_IMAGE_LEVEL_DETECTION_XAI_SCOPE_DECISION_2026-11-22.md) and [machine record](V32_IMAGE_LEVEL_DETECTION_XAI_SCOPE_DECISION_2026-11-22.json).
+
+
 ## Completed foundation
 
 V30 is now a **completed real-model development-exposed experiment**: eight original Train/Valid images, ten frozen target detections, 1,068 total real hosted calls, 640 8×8 target-cell outcomes, and 60 eleven-point progressive deletion/insertion curves. Its full numeric data are permanently stored in [V30 actual evidence](V30_ACTUAL_PROGRESSIVE_XAI_RESULTS_2026-11-22.json), with an independent [PASS_NUMERIC_INTEGRITY_ONLY audit](V30_INDEPENDENT_NUMERIC_AUDIT_2026-11-22.json). Independent arithmetic integrity is **not** independent visual-explanation or occupational-safety reference ground truth. No further V30 inference is needed.
@@ -37,21 +42,20 @@ For any future eligible Valid reference record, distinguish:
 
 These are prospective signatures, **not declarations that the researcher must redo all photographs**. Image review already accepted by the researcher remains recorded; the pending requirement is separately auditable *individual source lineage, per-person coverage and task-rule evidence* needed for a scientific outcome.
 
-## Next bounded work packages
+## Current work packages after V32
 
-1. **V31-A — targeted P0 overlap quarantine:** keep the 11 high-risk cases held for any future acquisition-independent cohort. Three relationships are now author-confirmed; eight remain unresolved. Further source-family adjudication is required only if an acquisition-independent/site-generalization claim is pursued, not for current internal image-level detection.
-2. **V31-B — internal image-level analysis and source-risk sensitivity:** per-image project/site identification is not required. The author confirms a multi-project, multi-location Yemeni corpus and completed original curation; see [V31-A3](V31_A3_DATASET_LEVEL_ACQUISITION_CURATION_2026-11-22.md) and its [evidence record](evidence/AUTHOR_DATASET_LEVEL_ACQUISITION_AND_PRIOR_CURATION_2026-11-22.md). Use the existing author-curated labels for the narrow internal detection endpoint and report M0=459, M1=448 (11 P0 cases excluded) and M2=367 (92 flagged cases excluded) as risk-sensitivity cohorts, not independent-site samples. Three Valid source relationships are author-confirmed non-independent (two shared-site and WA0026/WA0079 shared scene with processing); eight P0 cases remain unresolved and held. Do not repeat full-corpus review or infer independence for the 456 other images.
-3. **V31-C — human reference:** on a legitimately selected and eligible Valid subset, obtain the existing protocol's signed person coverage, wearer-item associations, per-PPE visibility and applicable task-policy records. Keep `POLICY_UNKNOWN` or `UNKNOWN` where justified.
-4. **V31-D — Train pilot administrative gaps:** retain the four unentered B fields and unsigned D zero-person coverage as missing until individually signed by the researcher; they are **not** a substitute for Valid scoring gold.
-5. **V31-E — future comparison after gates:** freeze a separate source-eligible worker-outcome cohort and compare a strong selective A2/A6-style policy against A5 under matched review demand, actual detector/XAI calls and verified safety constraints. Physical Joules only if instrumented. **Do not reuse protected Test for threshold development.**
+1. **Detection/XAI scope:** continue from V26–V30 using the frozen original model and image-level references.
+2. **Explanation robustness:** evaluate grid, mask/background, blur and target-selection sensitivity; do not call perturbation AUC externally validated faithfulness.
+3. **Matched-budget routing comparison:** expand A5/A6-style image-target comparison and report overlap, correctness alignment and call counts without unsupported superiority claims.
+4. **Editorial completion:** reconcile results tables/figures, verify references and export the manuscript.
 
-## Hard scientific gate
+The former V31-C/V31-D/V31-E worker-reference tasks are **superseded for the current manuscript**. Person–PPE pilot artifacts remain archived and may support a separately scoped future study, but no new worker-level annotations or task mandates are requested now.
 
-`scoring_ready=false` and `NOT_FROZEN` remain the only supported statuses for source-independent worker-level SEER-PPE effectiveness. This V31 work creates no new Roboflow inferences, source-image mutations, model retraining, Test viewing, signed reviewer decisions or compliance scores. V30 progressive AUC is **completed** but does not supersede the human/source gates.
+## Current scope status
 
-Read-only executable verification: [`tools/verify_v31_post_xai_readiness.mjs`](tools/verify_v31_post_xai_readiness.mjs) with `--verify` and mutation-sensitive `--self-test`. Any later legitimate human/source registry update must regenerate the administrative ledger; the validator intentionally fails closed against stale claim counts.
+The strict worker-safety readiness flag remains `scoring_ready=false`, accurately reflecting that no signed Valid worker-level gold or independent worker-safety cohort exists. Under V32, this is **not a current manuscript gate**. Source-family overlap controls and M0/M1/M2 sensitivity remain relevant and must not be removed. The current manuscript is limited to image-level detection and perturbation-sensitivity XAI; it makes no worker-compliance, actual review-efficacy, acquisition-independent generalization, causal-faithfulness or Joule claim.
 
-
+Read-only V31 validators remain historical checks of the archived readiness record; they do not define the V32 scientific scope.
 ## V31-A completed — read-only reconciliation of all 11 P0 source packets (22 November 2026)
 
 The 11 frozen cases have now been reconciled against **33 saved original Train–Valid pair measurements** from V14 and the prior V18 visual-site record. No new photo review was requested or performed. [The detailed machine-readable dossier](V31_A_SOURCE_LINEAGE_RECONCILIATION_2026-11-22.json) and [human-readable case table](V31_A_SOURCE_LINEAGE_RECONCILIATION_2026-11-22.md) preserve every original Valid ID, strongest Train candidate, SSIM/MAE, ORB matches/inliers, embedding score where present, image dimensions, raw-byte inequality and current hold status. [The V31-A validator](tools/verify_v31a_source_reconciliation.mjs) passed its mutation tests and full read-only CI [run 44967406330](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44967406330); public engineering tests also passed [run 44967406346](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44967406346).
