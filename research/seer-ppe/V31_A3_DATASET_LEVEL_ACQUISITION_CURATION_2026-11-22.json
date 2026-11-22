@@ -1,0 +1,48 @@
+{
+  "schema_version": "seer-ppe/v31-a3-dataset-level-acquisition-curation-attestation/v0.31a3",
+  "date": "2026-11-22",
+  "status": "AUTHOR_ATTESTED_MULTI_PROJECT_MULTI_LOCATION_YEMEN_DATASET; PRIOR_FULL_IMAGE_CURATION_ACCEPTED; NO_PER_IMAGE_SITE_REGISTER_REQUIRED_FOR_INTERNAL_IMAGE_LEVEL_ANALYSIS",
+  "scope": "DATASET_LEVEL_ONLY; ORIGINAL_Y-PPE CORPUS AND CLEAN17 DERIVATIVE",
+  "reviewer_id": "dataset_author_chat_attestation",
+  "evidence_ref": "evidence/AUTHOR_DATASET_LEVEL_ACQUISITION_AND_PRIOR_CURATION_2026-11-22.md",
+  "evidence_sha256": "201e16d8c24a0704fedab42ecccdc0fe5caf8a0abef205951bcf73f1ebdb901c",
+  "author_attestation": {
+    "multi_project_collection": true,
+    "multi_work_location_collection": true,
+    "country": "Yemen",
+    "project_context": "civil-society organization projects",
+    "intended_purpose": "analysis of PPE detection and occupational-safety conditions to develop practical solutions",
+    "per_image_project_or_worksite_identity_required": false,
+    "per_image_project_or_worksite_identity_published": false,
+    "prior_image_review_completed_during_dataset_preparation": true,
+    "repeat_full_corpus_visual_review_required": false
+  },
+  "methodological_decision": {
+    "corpus_provenance_reporting_level": "AGGREGATE_MULTI_PROJECT_MULTI_LOCATION",
+    "internal_image_level_detection_evaluation_requires_per_image_site_id": false,
+    "source_independent_multi_site_generalization_claim_supported": false,
+    "source_unknown_must_not_be_relabelled_independent": true,
+    "known_cross_split_overlap_controls_preserved": true,
+    "risk_sensitivity_cohorts_required": true,
+    "worker_level_person_ppe_gold_created_by_this_record": false,
+    "independent_reviewer_agreement_claimed": false
+  },
+  "known_overlap_state": {
+    "school_22may_valid_sources": 2,
+    "school_22may_shared_train_family": true,
+    "wa0026_valid_source_id": "yeEvdkqXtNgsj7PZFDvI",
+    "wa0026_train_source_id": "xyKCHH49Xr7oCONLC9nN",
+    "wa0026_train_shared_scene_with_modifications_or_processing": true,
+    "other_unresolved_p0_cases": 8,
+    "existing_holds_released": 0,
+    "independent_source_eligible_valid_images_added": 0
+  },
+  "corpus_context": {
+    "original_images": 2327,
+    "clean17_images": 2288,
+    "clean17_valid_mapped_images": 459,
+    "original_valid_images": 468,
+    "previously_excluded_original_valid_images": 9
+  },
+  "integrity_note": "The SHA-256 pins the repository transcription of the author's direct statement. It does not independently authenticate collection permissions, identities, source lineage, or the truth of the underlying statement."
+}
