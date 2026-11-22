@@ -298,3 +298,13 @@ Re-read original saved human reference after the Workflow calls: **19** approved
 
 [Remote fail-closed V09 CI run 44838922575](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44838922575) completed success; [CI proof](GITHUB_ACTIONS_V09_VERIFIED_2026-11-21_V01.md). Master manuscript **v0.9**, Results §4.8 updated; [checkpoint V09](DUAL_TRACK_CHECKPOINT_2026-11-21_V09.md). Author-approved full visual image review remains accepted, the 99-Valid source-family queue/five holds remain, Test protected, **`scoring_ready=false`**.
 
+
+
+## V33-A — actual numeric robustness completed (22 November 2026)
+
+- Recomputed all 60 AUCs from the real V30 eight-image/ten-target curve ledger with maximal error 2.22e-16; no new model inference or Test access.
+- Saliency outperformed the single frozen random control in 8/10 deletion and 9/10 insertion target comparisons, and in 8/10 for each direction within the first 30% of actually changed image area.
+- A5 and A6 share six of eight target IDs with **identical** explanations; the four unique targets fully explain arm-average differences. Conditional six-assignment two-sided tail fractions: deletion 4/6 and insertion 2/6 (post-hoc diagnostic, not randomized-trial significance).
+- Blurred target confidence remained >=80% of baseline for 3/10 targets; inverse-saliency AUC is algebraically complementary, not independent. Largest actual-versus-nominal area-AUC discrepancy 0.004748.
+- Updated manuscript to v0.33 and archived [V33-A numeric ledger](V33_A5_A6_NUMERIC_ROBUSTNESS_2026-11-22.json), [report](V33_A5_A6_NUMERIC_ROBUSTNESS_REPORT_2026-11-22.md) and [fail-closed verifier](tools/verify_v33_existing_xai.mjs).
+- Prospective 4x4 re-inference is [frozen separately](V33_B_GRID4_PROSPECTIVE_PROTOCOL_2026-11-22.md) with an upper 496-call budget; **not executed**. No worker-compliance/safety or energy claim is added.
