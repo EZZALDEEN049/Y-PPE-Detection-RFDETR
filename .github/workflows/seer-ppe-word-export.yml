@@ -1,4 +1,4 @@
-name: SEER-PPE manuscript and full handoff export to editable Word
+name: SEER-PPE v0.38 manuscript editable Word export and QA
 on:
   push:
     paths:
@@ -106,17 +106,15 @@ jobs:
 
           jobs=[
             (base/'MANUSCRIPT_MASTER.md',
-             out/'SEER_PPE_Research_Manuscript_v0.27_2026-11-22.docx',
-             'SEER-PPE Research Manuscript v0.27'),
-            (base/'SEER_PPE_COMPLETE_HANDOFF_2026-11-21_V21.md',
-             out/'SEER_PPE_Complete_Research_Handoff_V21_2026-11-21.docx',
-             'SEER-PPE Comprehensive Research Handoff V21')
+             out/'SEER_PPE_Research_Manuscript_v0.38_2026-11-22.docx',
+             'SEER-PPE Research Manuscript v0.38')
           ]
           for source,target,subject in jobs:
               assert source.exists() and len(source.read_text(encoding='utf8'))>15000,source
               pypandoc.convert_file(str(source),to='docx',format='markdown',
                   outputfile=str(target),
                   extra_args=['--standalone','--toc','--toc-depth=3',
+                              '--resource-path=research/seer-ppe',
                               '--reference-doc='+str(refpath)])
               d=Document(target)
               d.core_properties.author='Ezzaldeen Al-Tayar'
@@ -127,37 +125,35 @@ jobs:
               print(f'GENERATED {target} | bytes={target.stat().st_size} | paragraphs={len(d.paragraphs)} | tables={len(d.tables)}')
           print('SEER_PPE_TWO_COMPLETE_WORD_DOCX_EXPORTS_GENERATED_FROM_SOURCE_MARKDOWN')
           PY
-      - name: Verify all Word contents against the true source files
+      - name: Verify v0.38 Word structure, all source content and embedded figures
         run: |
           python - <<'PY'
           from pathlib import Path
           from docx import Document
           import zipfile
           b=Path('research/seer-ppe/exports')
-          manuscript=b/'SEER_PPE_Research_Manuscript_v0.27_2026-11-22.docx'
-          handoff=b/'SEER_PPE_Complete_Research_Handoff_V21_2026-11-21.docx'
-          for p in (manuscript,handoff):
-              assert p.exists() and p.stat().st_size>15000
-              with zipfile.ZipFile(p) as z:
-                  assert z.testzip() is None
-              d=Document(p)
-              text='\n'.join(p.text for p in d.paragraphs)+'\n'+ '\n'.join(' '.join(c.text for c in row.cells) for t in d.tables for row in t.rows)
-              assert len(text)>8000,(p,len(text))
-              assert 'SEER-PPE' in text
-              print('DOCX_STRUCTURE_OK',p,len(text),'chars',len(d.tables),'tables')
-          m=Document(manuscript)
-          mt='\n'.join(x.text for x in m.paragraphs)
-          for value in ('Ezzaldeen Al-Tayar','Taiz University','azzaltayyar@gmail.com',
-                        'Results','Discussion','Limitations','Appendix M.',
-                        '0.885018','459','Appendix N.','3,049','Appendix O.','0.956522','TP=22', 'Appendix P.', 'Selective Explanations', '10.52202/079017-1765', 'Appendix Q.', 'A2', '59 typed PPE cues', 'Appendix R.', '0.870610', '3,297', '4,103', 'Appendix S.', 'Appendix T.', '0.622325', '0.716721', '0.704532', '1.5206', '97 actual model calls', 'V27', 'V28', 'V29'):
-              assert value in mt or any(value in c.text for t in m.tables for r in t.rows for c in r.cells),value
-          h=Document(handoff)
-          ht='\n'.join(x.text for x in h.paragraphs)
-          for value in ('V21','2026','V20','NOT_FROZEN','scoring_ready=false'):
-              assert value in ht or any(value in c.text for t in h.tables for r in t.rows for c in r.cells),value
-          print('SEER_PPE_WORD_AUTHOR_V22_HISTORICAL_LIMITS_AND_HANDOFF_CONTENT_VERIFIED')
+          manuscript=b/'SEER_PPE_Research_Manuscript_v0.38_2026-11-22.docx'
+          assert manuscript.exists() and manuscript.stat().st_size>15000
+          with zipfile.ZipFile(manuscript) as z:
+              assert z.testzip() is None
+              media=[n for n in z.namelist() if n.startswith('word/media/') and not n.endswith('/')]
+              assert len(media)==11, (len(media), media)
+              print('DOCX_EMBEDDED_FIGURES_OK',len(media))
+          d=Document(manuscript)
+          mt='\\n'.join(p.text for p in d.paragraphs)+'\\n'+'\\n'.join(' '.join(c.text for c in row.cells) for t in d.tables for row in t.rows)
+          assert len(mt)>20000, len(mt)
+          for value in (
+              'Ezzaldeen Al-Tayar','Taiz University','azzaltayyar@gmail.com',
+              'Results','Discussion','Limitations','Conclusion','References',
+              '0.870610','3,297','4,103','0.5416','0.4239','65%',
+              'V35-A','V35-B','V35-C','Appendix X.','Figure 11.',
+              '10.1109/ICCV.2017.371','10.1093/biomet/30.1-2.81',
+              '10.3389/fbuil.2026.1976288','10.1016/j.engappai.2026.115725'
+          ):
+              assert value in mt, value
+          print('DOCX_CONTENT_OK',len(mt),'chars',len(d.tables),'tables')
           PY
-      - name: Render Word to PDF for layout validation
+      - name: Render v0.38 Word manuscript to PDF and check key content
         run: |
           set -euo pipefail
           if ! command -v libreoffice >/dev/null 2>&1; then
@@ -165,26 +161,29 @@ jobs:
             sudo apt-get install -y -qq libreoffice-writer poppler-utils >/dev/null
           fi
           mkdir -p /tmp/seer_ppe_word_render
-          libreoffice -env:UserInstallation=file:///tmp/lo_seer_ppe_word_export \
-            --headless --convert-to pdf --outdir /tmp/seer_ppe_word_render \
-            research/seer-ppe/exports/*.docx
-          for pdf in /tmp/seer_ppe_word_render/*.pdf; do
-            test -s "$pdf"
-            pdfinfo "$pdf" | grep Pages
-            pdftotext -layout "$pdf" /tmp/seer_ppe_word_render/tmp.txt
-            grep -q 'SEER-PPE' /tmp/seer_ppe_word_render/tmp.txt
-            pdftoppm -f 1 -l 1 -scale-to 1000 -png -singlefile "$pdf" /tmp/seer_ppe_word_render/preview
-            test -s /tmp/seer_ppe_word_render/preview.png
-          done
-          echo 'SEER_PPE_DOCX_RENDER_PDF_TEXT_AND_FIRST_PAGE_PREVIEW_CHECK_PASS'
-      - name: Archive Word files in the public repo for direct download in another account
+          libreoffice -env:UserInstallation=file:///tmp/lo_seer_ppe_word_export \\
+            --headless --convert-to pdf --outdir /tmp/seer_ppe_word_render \\
+            research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.38_2026-11-22.docx
+          pdf=/tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.38_2026-11-22.pdf
+          test -s "$pdf"
+          pdfinfo "$pdf" | grep Pages
+          pdftotext -layout "$pdf" /tmp/seer_ppe_word_render/manuscript.txt
+          grep -q 'SEER-PPE' /tmp/seer_ppe_word_render/manuscript.txt
+          grep -q 'Conclusion' /tmp/seer_ppe_word_render/manuscript.txt
+          grep -q 'References' /tmp/seer_ppe_word_render/manuscript.txt
+          grep -q 'Figure 11' /tmp/seer_ppe_word_render/manuscript.txt
+          pdftoppm -f 1 -l 1 -scale-to 1000 -png -singlefile "$pdf" /tmp/seer_ppe_word_render/first_page
+          test -s /tmp/seer_ppe_word_render/first_page.png
+          echo 'SEER_PPE_V038_DOCX_PDF_TEXT_AND_FIRST_PAGE_QA_PASS'
+      - name: Archive editable v0.38 Word manuscript on the current research branch
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add research/seer-ppe/exports/*.docx
+          git add research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.38_2026-11-22.docx
           git diff --cached --quiet && exit 0
-          git commit -m 'docs(seer-ppe): archive editable Word manuscript v0.26 and comprehensive V21 handoff'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          git commit -m 'docs(seer-ppe): archive editable Word manuscript v0.38'
+          git fetch origin "$GITHUB_REF_NAME"
+          git rebase "origin/$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
