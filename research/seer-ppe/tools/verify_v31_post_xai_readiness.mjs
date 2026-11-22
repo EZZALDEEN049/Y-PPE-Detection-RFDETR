@@ -26,7 +26,9 @@ function audit(source, sig, validHuman, trainHuman, trainLive, v30, ready) {
   assert.equal(source.previously_excluded_original_valid, 9);
   assert.equal(source.image_rows.length, 459);
   assert.equal(new Set(source.image_rows.map(r=>r.source_id)).size, 459);
-  const attestedIds=['0De0PEUDyeg9v1J3T6zr','NZu6Faj6evgINF1qFE0V'];
+  const attestedIds=['0De0PEUDyeg9v1J3T6zr','NZu6Faj6evgINF1qFE0V','yeEvdkqXtNgsj7PZFDvI'];
+  const siteIds=['0De0PEUDyeg9v1J3T6zr','NZu6Faj6evgINF1qFE0V'];
+  const sharedSceneId='yeEvdkqXtNgsj7PZFDvI';
   assert.ok(source.image_rows.every(r=>
     r.split === undefined &&
     r.eligible_for_scientific_scoring === false &&
@@ -34,8 +36,14 @@ function audit(source, sig, validHuman, trainHuman, trainLive, v30, ready) {
   const signedRows=source.image_rows.filter(r=>r.signed_source_family_verdict!==null);
   assert.deepEqual(signedRows.map(r=>r.source_id).sort(),attestedIds.slice().sort());
   for(const row of signedRows){
-    assert.equal(row.signed_source_family_verdict,'SHARED_CAPTURE_SESSION_OR_SITE');
-    assert.equal(row.source_family_id,'site_school_22may_aseefrah');
+    if(row.source_id===sharedSceneId){
+      assert.equal(row.signed_source_family_verdict,'SHARED_SCENE_WITH_MODIFICATIONS_OR_PROCESSING');
+      assert.equal(row.source_family_id,'scene_wa0026_wa0079_modified_processed');
+    }else{
+      assert.ok(siteIds.includes(row.source_id));
+      assert.equal(row.signed_source_family_verdict,'SHARED_CAPTURE_SESSION_OR_SITE');
+      assert.equal(row.source_family_id,'site_school_22may_aseefrah');
+    }
     assert.equal(row.decision_status,'HARD_HOLD_STILL_BLOCKED');
     assert.equal(row.source_reviewer_signoff_missing,false);
     assert.equal(row.eligible_for_scientific_scoring,false);
@@ -46,22 +54,31 @@ function audit(source, sig, validHuman, trainHuman, trainLive, v30, ready) {
     counts[row.V14_risk_bucket]++;
   }
   assert.deepEqual(counts, expected);
-  assert.equal(source.per_image_source_family_human_decisions_signed, 2);
+  assert.equal(source.per_image_source_family_human_decisions_signed, 3);
   assert.equal(source.human_independence_attestations, 0);
   assert.equal(source.scoring_ready, false);
   assert.equal(source.test_images_accessed, false);
   assert.deepEqual(sig.decisions.map(d=>d.source_id).sort(),attestedIds.slice().sort());
   for(const d of sig.decisions){
-    assert.equal(d.verdict,'SHARED_CAPTURE_SESSION_OR_SITE');
     assert.equal(d.reviewer_id,'dataset_author_chat_attestation');
     assert.equal(d.signed_date,'2026-11-22');
-    assert.equal(d.acquisition_site_id,'site_school_22may_aseefrah');
-    assert.equal(d.acquisition_family_id,'site_school_22may_aseefrah');
     assert.equal(d.capture_session_id,null);
-    assert.equal(d.train_family_overlap_verdict,'SHARED_SITE_FAMILY_WITH_TRAIN');
     assert.equal(d.no_train_capture_or_site_family_overlap_supported,false);
     assert.equal(d.personally_attested_independence,false);
-    assert.equal(d.evidence_sha256,'326c7ad0347a86822768e4f1703045248247bc3014cd5ccb139148332cc07605');
+    if(d.source_id===sharedSceneId){
+      assert.equal(d.verdict,'SHARED_SCENE_WITH_MODIFICATIONS_OR_PROCESSING');
+      assert.equal(d.acquisition_site_id,null);
+      assert.equal(d.acquisition_family_id,'scene_wa0026_wa0079_modified_processed');
+      assert.equal(d.train_family_overlap_verdict,'SHARED_SCENE_WITH_TRAIN_MODIFIED_OR_PROCESSED');
+      assert.equal(d.evidence_sha256,'d75d626a38c65c3b81c74b7619e5ceae38fb38d30de2d910dea76129d9c706d7');
+    }else{
+      assert.ok(siteIds.includes(d.source_id));
+      assert.equal(d.verdict,'SHARED_CAPTURE_SESSION_OR_SITE');
+      assert.equal(d.acquisition_site_id,'site_school_22may_aseefrah');
+      assert.equal(d.acquisition_family_id,'site_school_22may_aseefrah');
+      assert.equal(d.train_family_overlap_verdict,'SHARED_SITE_FAMILY_WITH_TRAIN');
+      assert.equal(d.evidence_sha256,'326c7ad0347a86822768e4f1703045248247bc3014cd5ccb139148332cc07605');
+    }
   }
   assert.equal(sig.scoring_authorized, false);
   assert.equal(sig.test_source_ids_used, false);
@@ -103,6 +120,12 @@ function audit(source, sig, validHuman, trainHuman, trainLive, v30, ready) {
   const readyP = ready.source_priority_review_packets.source_ids;
   assert.deepEqual(readyP.map(x=>({id:x.valid_source_id, filename:x.original_filename,
     bucket:x.risk_bucket})), priority);
+  assert.equal(readyP.filter(x=>x.human_source_family_relationship_verdict==='SHARED_CAPTURE_SESSION_OR_SITE').length,2);
+  assert.equal(readyP.filter(x=>x.human_source_family_relationship_verdict==='SHARED_SCENE_WITH_MODIFICATIONS_OR_PROCESSING').length,1);
+  const scenePacket=readyP.find(x=>x.valid_source_id===sharedSceneId);
+  assert.equal(scenePacket.human_source_family_id,'scene_wa0026_wa0079_modified_processed');
+  assert.equal(scenePacket.human_capture_session_id,null);
+  assert.equal(scenePacket.currently_eligible_for_independent_scoring,false);
   assert.deepEqual(ready.human_train_pilot_history.unentered_cells,
     caseB.missing_visual_cells.map(x=>'B:'+x));
   assert.equal(ready.human_train_pilot_history.general_author_visual_image_review_accepted, true);
@@ -113,7 +136,7 @@ function audit(source, sig, validHuman, trainHuman, trainLive, v30, ready) {
   assert.ok(ready.next_work_packages.every(x=>x.cannot_auto_sign===true));
   return {status:'PASS_V31_READ_ONLY_GAP_LEDGER',
     v30_audit_passed:true, mapped_valid:459, source_bucket_counts:counts,
-    priority_conflict_cases:11, source_signed:2, independent_source_signed:0, valid_human_signed:0,
+    priority_conflict_cases:11, source_signed:3, independent_source_signed:0, valid_human_signed:0,
     preserved_train_links:19, preserved_train_visual_states:38,
     train_B_unentered_visual_states:4, true_worker_safety_scoring_ready:false,
     no_test_or_model_calls:true};
