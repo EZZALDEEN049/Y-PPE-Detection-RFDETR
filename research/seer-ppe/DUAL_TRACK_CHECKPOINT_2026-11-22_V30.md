@@ -55,3 +55,16 @@ The scorer defines a lost target's fixed-target score as zero, while ambiguous m
 ## Scientific limits retained
 
 All V30 images are development-exposed. Source-family independence is not established. Results can characterize target-specific model sensitivity and explanation-curve behavior only; they cannot establish worker-level PPE compliance, employer task-mandate correctness, safety efficacy, or statistical superiority of A5/A6. Protected Test remains unopened. Strict worker-safety `scoring_ready=false`.
+
+
+## Post-run factual closeout addendum — 22 November 2026 (supersedes the pre-run status above)
+
+The earlier V30 checkpoint sections were written **before** the authorized XAI call and are intentionally preserved as an audit trail, not current execution guidance.
+
+- **Actual V30 executed:** [run 44964287536](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44964287536) completed successfully, generating 1,060 *new* original model requests plus the 8 previously archived baseline calls = exactly **1,068**.
+- Eight images, ten unique frozen target detections, all 64-cell target maps, all 60 11-point progressive curves, all 60 AUCs completed. Six blurred targets were LOST, four MATCHED, zero maps blocked.
+- **Independent post-run audit passed:** [run 44965260120](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44965260120), [audited numeric file](V30_INDEPENDENT_NUMERIC_AUDIT_2026-11-22.json), [full actual numeric file](V30_ACTUAL_PROGRESSIVE_XAI_RESULTS_2026-11-22.json). It re-integrated AUC, checked ten targets, arm overlaps, 8 image hashes and call accounting; no additional inference.
+- **Canonical manuscript is now v0.30**, with V30 Methods §3.24, Results §4.24, Discussion §5.10 and Appendix U.
+- **V31 source/human readiness remains closed:** [V31 ledger](V31_SOURCE_PERSON_SAFETY_READINESS_2026-11-22.json) has 11 guarded source-overlap P0 cases, 0 independently signed Valid source-family verdicts and 0 signed Valid Person–PPE cases among the 459; [V31 read-only CI](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44965651906) passed.
+- **Repeat-spending safeguard applied:** the former optional V30 cloud workflow is now source-preflight-only, and the historic single authorized-run workflow explicitly blocks execution whenever an archived V30 result exists. This does not retroactively change the executed run.
+- Original Train/Valid/Test boundaries, RF-DETR Small, images, annotations, source holds, all previous human Train judgments and worker-safety `scoring_ready=false` are unchanged.
