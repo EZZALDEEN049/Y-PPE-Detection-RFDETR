@@ -194,6 +194,10 @@ jobs:
         run: |
           node research/seer-ppe/tools/validate_v15_priority_11_source_packets.mjs --self-test
           node research/seer-ppe/tools/validate_v15_priority_11_source_packets.mjs --verify
+      - name: Verify V31 completed V30 XAI does not falsely open source/person safety gate
+        run: |
+          node research/seer-ppe/tools/verify_v31_post_xai_readiness.mjs --self-test
+          node research/seer-ppe/tools/verify_v31_post_xai_readiness.mjs --verify
       - name: Verify V16 actual Roboflow Train-only predictions and abstention engineering regression
         run: |
           node research/seer-ppe/tools/review_real_train_detection_geometry_v16.mjs --self-test
