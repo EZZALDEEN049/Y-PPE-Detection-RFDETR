@@ -217,3 +217,10 @@
 - No new model inference, retraining, Test access, source-image/annotation/split mutation or original-model change.
 - Remaining: author ethics/consent and declarations; official IEEE author-order verification for two eSmarTA references; target-journal selection and compression of the 62-page main article; removal of internal reference-audit note/stage labels; V27 timestamp and V34-B duplicate-PDF reconciliation.
 - Added [V35-E layout QA report](V35_E_LAYOUT_QA_REPORT_2026-11-22.md) and [machine-readable record](V35_E_LAYOUT_QA_2026-11-22.json).
+
+
+## Journal publication target and funding/eligibility research — 22 November 2026
+
+- Archived journal-selection due diligence in [PUBLICATION_JOURNAL_FIT_DUE_DILIGENCE_2026-11-22.md](PUBLICATION_JOURNAL_FIT_DUE_DILIGENCE_2026-11-22.md): actual SEER-PPE novelty and 10-target XAI constraints, nine venue comparisons, separation of JCR and SCImago quartiles, verified publisher scope and APC policies, and eligibility-dependent 2026 Yemen geographic APC waivers for IEEE/Elsevier.
+- Conditional shortlist: IEEE Access (JCR Q2, possible IEEE Group-A APC waiver), Results in Engineering (2025 SCImago Q1, possible Elsevier Group-A waiver), and Journal of Imaging (closest image/XAI fit, without confirmed automatic Yemen waiver). Select a journal only after institutional quartile rules, complete affiliations, ethics/privacy and author declarations are known.
+- No manuscript submission, new model inference, model retraining, Test access or source-data mutation was performed for this journal review.
