@@ -73,3 +73,12 @@ For final visual QA, the v0.38 export workflow should retain a short-lived GitHu
 ### V35-E DOCX package inspection — 22 November 2026
 
 Include the generated editable DOCX itself in the temporary render-QA artifact alongside the PDF and first/middle/last page previews. This permits inspection of the underlying Word table and section XML where the rendered preview shows narrow/stacked content. The artifact is temporary; the canonical archived manuscript remains the DOCX in the research branch.
+
+
+## V35-E — correct Word layout and export v0.39 — 22 November 2026
+
+Visual inspection of the v0.38 PDF found two issues that automated text checks had not detected:
+- Pandoc wrote all 16 tables at 50% of the printable page width, causing 7–10-column tables to wrap vertically and become unreadable.
+- The generated Table of Contents heading appeared without entries on the first page.
+
+The v0.39 workflow must remove the empty TOC generation, set every Word table to 100% of the printable width with explicit column widths, repeat table header rows, prevent row splitting, and use compact readable table fonts. It must assert every table width is 100%, embed all eleven figures, render the PDF, and verify that the first page begins with the article title rather than an empty TOC. Preserve v0.38 as an earlier export; archive v0.39 as a new file. Do not alter any scientific values, images, annotations, model or splits.
