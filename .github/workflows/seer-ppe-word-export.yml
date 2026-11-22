@@ -186,6 +186,7 @@ jobs:
           name: seer-ppe-v038-render-qa
           path: |
             /tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.38_2026-11-22.pdf
+            research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.38_2026-11-22.docx
             /tmp/seer_ppe_word_render/first_page.png
             /tmp/seer_ppe_word_render/middle_page.png
             /tmp/seer_ppe_word_render/last_page.png
