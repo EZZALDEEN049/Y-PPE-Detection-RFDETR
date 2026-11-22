@@ -292,10 +292,13 @@ def aligned_metrics(fine,coarse,shape):
             for dr in (0,1):
                 for dc in (0,1):
                     rr=2*r+dr;cc=2*c+dc
-                    weighted+=float(fine[rr,cc])*float(fine_areas[rr,cc])
-            aligned.append(weighted/float(coarse_areas[r,c]))
+                    weighted+=float(fine[rr,cc])
+            aligned.append(weighted)
     fine_aligned=np.asarray(aligned)
     direct=np.asarray(coarse,dtype=float).ravel()
+    # Exactly mirror frozen V34-A: direct drop / 4x4 area versus
+    # SUM of four fine-cell drops / the SAME 4x4 pixel area.
+    # Do not area-normalize twice or average fine drops before summation.
     area_density_coarse=direct/coarse_areas.ravel()
     area_density_fine=fine_aligned/coarse_areas.ravel()
     # Primary comparison is area-normalized signed sensitivity density.
