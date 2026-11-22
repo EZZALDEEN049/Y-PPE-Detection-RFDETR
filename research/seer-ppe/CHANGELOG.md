@@ -136,3 +136,5 @@
 - The workflow downloads only the frozen eight Train/Valid originals, performs zero-call SHA/target preflight, checks `ROBOFLOW_API_KEY` without exposing it, and runs the separate 4x4 runner under the fixed 496-call cap.
 - A successful numeric result or a failed partial call ledger is archived to the research branch and blocks duplicate paid execution. Raw images and credentials are not committed or uploaded.
 - No authorization JSON has been created; the cloud workflow has not been triggered and V33-B remains unexecuted.
+
+- Added `.github/workflows/seer-ppe-v33b-preflight.yml`, a separate no-secret/no-inference cloud preflight that validates the exact eight-image V30 bundle, ten targets and 496-call plan before any budget authorization.
