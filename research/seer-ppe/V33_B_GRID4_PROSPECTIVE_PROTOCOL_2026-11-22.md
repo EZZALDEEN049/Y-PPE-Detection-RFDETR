@@ -60,3 +60,8 @@ Until these gates pass, **V33-B remains an unexecuted prospective protocol**. V3
 - **No authorization record currently exists, so this workflow has not been triggered and has not spent any calls.**
 
 - A separate zero-inference workflow, `.github/workflows/seer-ppe-v33b-preflight.yml`, downloads the same eight originals on an ephemeral runner and validates hashes/targets/budget without requiring `ROBOFLOW_API_KEY`. It uploads numeric readiness evidence only; this preflight is not a paid experiment.
+
+
+## Author authorization and preflight request — 2026-11-22
+
+The author explicitly approved a one-time V33-B execution with a hard maximum of 496 additional hosted inference calls. This commit requests the **read-only cloud preflight first**. The paid inference workflow is not authorized to start until the preflight completes successfully and the eight source hashes, ten frozen targets, model settings, protected Test boundary, and absence of prior/partial V33-B execution are verified. No authorization JSON is created by this preflight request; no model inference is performed by the preflight workflow.
