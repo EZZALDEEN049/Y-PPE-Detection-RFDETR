@@ -212,7 +212,7 @@
     "live": "research/seer-ppe/PERSON_PPE_LIVE_READINESS_2026-11-21_V01.json",
     "v30": "research/seer-ppe/V30_INDEPENDENT_NUMERIC_AUDIT_2026-11-22.json"
   },
-  "description": "V31 records source-family and worker-reference readiness without fabricating independence or worker-level gold. V32 author-selected scope narrows the current manuscript to image-level PPE detection and perturbation-based XAI. The strict worker-safety scoring flag remains false but is explicitly not a blocker; existing Person–PPE pilot records remain exploratory only. Source-overlap M0/M1/M2 controls and all known cross-split holds remain preserved.",
+  "description": "V31 records source-family and worker-reference readiness without fabricating independence or worker-level gold. V32 author-selected scope narrows the current manuscript to image-level PPE detection and perturbation-based XAI. The strict worker-safety scoring flag remains false but is explicitly not a blocker; existing Person–PPE pilot records remain exploratory only. Source-overlap M0/M1/M2 controls and all known cross-split holds remain preserved. V33-A has completed real V30 numeric reanalysis of all 60 curves (no additional model calls), including six shared A5/A6 targets and conditional nonshared-target reassignment. The manuscript is v0.33. True 4x4 resolution testing remains prospective and is not presented as an executed result.",
   "v31a_reconciliation": {
     "status": "PASS_V31A_EVIDENCE_RECONCILIATION_ONLY",
     "dossier_json": "V31_A_SOURCE_LINEAGE_RECONCILIATION_2026-11-22.json",
@@ -350,5 +350,29 @@
       "REFERENCES_AND_EDITING",
       "WORD_EXPORT"
     ]
+  },
+  "v33a_actual_numeric_robustness": {
+    "status": "COMPLETED_POSTHOC_V30_NUMERIC_REANALYSIS_NO_NEW_INFERENCE",
+    "date": "2026-11-22",
+    "report": "V33_A5_A6_NUMERIC_ROBUSTNESS_REPORT_2026-11-22.md",
+    "numeric_record": "V33_A5_A6_NUMERIC_ROBUSTNESS_2026-11-22.json",
+    "reproducer": "tools/verify_v33_existing_xai.mjs",
+    "canonical_manuscript_version": "v0.33",
+    "inherited_v30_model_calls": 1068,
+    "incremental_v33_model_calls": 0,
+    "unique_targets": 10,
+    "images": 8,
+    "A5_A6_shared_targets": 6,
+    "A5_A6_unique_targets_per_arm": 2,
+    "random_controls_per_target": 1,
+    "matched_target_policy_superiority_claim_supported": false,
+    "explanation_claim": "CONTROLLED_IMAGE_PERTURBATION_RESPONSE_NOT_CAUSAL_OR_EXTERNAL_FAITHFULNESS",
+    "blurred_ratio_ge_0_8_targets": 3,
+    "source_independent_generalization_claim_supported": false,
+    "person_ppe_gold_in_scope": false,
+    "explicit_grid4_cloud_status": "PROSPECTIVE_ONLY_NOT_EXECUTED",
+    "prospective_grid4_max_additional_hosted_calls": 496,
+    "original_model_or_data_modified": false,
+    "test_accessed": false
   }
 }
