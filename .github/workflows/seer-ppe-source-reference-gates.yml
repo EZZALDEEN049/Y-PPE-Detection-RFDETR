@@ -286,14 +286,21 @@ jobs:
           grep -q 'SEER_V22_AUTHOR_VALID_CLASS_SOURCE_DISTRIBUTION_AUDIT_PASS' /tmp/seer-v22-valid-classes.log
           python - <<'PY'
           from pathlib import Path
-          m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text()
+          root=Path('research/seer-ppe')
+          main=(root/'MANUSCRIPT_MASTER.md').read_text()
+          supp=(root/'SUPPLEMENTARY_MATERIALS_MASTER.md').read_text()
+          full=(root/'MANUSCRIPT_FULL_RESEARCH_DOSSIER_v0.42_2026-11-22.md').read_text()
+          evidence=main+'\\n'+supp+'\\n'+full
           for phrase in ('**Working manuscript v0.', '### 3.17 Actual original-source',
                          '### 4.17 Current author-curated', '## 5. Discussion',
                          '## Appendix N.', '3,471', '3,049', '729',
                          '0.885018', '0.880754', '13'):
-              assert phrase in m, phrase
-          assert 'no new detector inference' in m.lower() or 'no new rfdetr inference' in m.lower()
-          print('SEER_V22_MANUSCRIPT_METHODS_RESULTS_DISCUSSION_REFERENCES_SUPPORT_PASS')
+              assert phrase in evidence, phrase
+          assert 'no new detector inference' in evidence.lower() or 'no new rfdetr inference' in evidence.lower()
+          assert '**Working manuscript v0.' not in main
+          assert 'Supplementary Material' in main
+          assert 'Supplementary Method S1.' in supp
+          print('SEER_V22_MAIN_SUPPLEMENT_AND_ARCHIVED_DOSSIER_SUPPORT_PASS')
           PY
           echo 'SEER_V22_VALID_CLASS_LABEL_COMPOSITION_AND_EDITORIAL_BOUNDARY_AUDIT_PASS'
       - name: Verify V23 five predeclared original Valid current author bbox result without Test access
@@ -304,19 +311,21 @@ jobs:
           grep -q 'SEER_V23_FIXED_RFDETR_REAL_VALID_SOURCE_CURRENT_AUTHOR_BOX_MATCH_PASS' /tmp/seer-v23-valid-bbox.log
           python - <<'PY'
           from pathlib import Path
-          m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text()
+          root=Path('research/seer-ppe')
+          m=(root/'MANUSCRIPT_MASTER.md').read_text()+'\\n'+(root/'SUPPLEMENTARY_MATERIALS_MASTER.md').read_text()+'\\n'+(root/'MANUSCRIPT_FULL_RESEARCH_DOSSIER_v0.42_2026-11-22.md').read_text()
           for phrase in ('**Working manuscript v0.','### 3.18 Frozen five-image',
                          '### 4.18 Actual fixed original RF-DETR','## Appendix O.',
                          'TP=22, FP=1, FN=1','0.956522'):
               assert phrase in m, phrase
-          print('SEER_V23_FIVE_ACTUAL_VALID_AUTHOR_BOX_MATCH_MANUSCRIPT_PASS')
+          print('SEER_V23_FIVE_ACTUAL_VALID_AUTHOR_BOX_MATCH_ARCHIVE_PASS')
           PY
           echo 'SEER_V23_HOSTED_ORIGINAL_VALID_CURRENT_LABELS_ACTUAL_5_IMAGE_PILOT_PASS'
       - name: Verify V24 official-publisher related work and cautious novelty boundary in manuscript
         run: |
           python - <<'PY'
           from pathlib import Path
-          m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text(encoding='utf8')
+          root=Path('research/seer-ppe')
+          m=(root/'MANUSCRIPT_MASTER.md').read_text(encoding='utf8')+'\\n'+(root/'SUPPLEMENTARY_MATERIALS_MASTER.md').read_text(encoding='utf8')+'\\n'+(root/'MANUSCRIPT_FULL_RESEARCH_DOSSIER_v0.42_2026-11-22.md').read_text(encoding='utf8')
           q=Path('research/seer-ppe/V24_VERIFIED_2024_2026_RELATED_WORK_NOVELTY_BOUNDARY.md').read_text(encoding='utf8')
           for phrase in ('**Working manuscript v0.','### 2.2 Closest methodological',
                          '### 2.3 Provisional, falsifiable', '## References',
@@ -341,7 +350,7 @@ jobs:
           from pathlib import Path
           import json
           root=Path('research/seer-ppe')
-          m=(root/'MANUSCRIPT_MASTER.md').read_text()
+          m=(root/'MANUSCRIPT_MASTER.md').read_text()+'\\n'+(root/'SUPPLEMENTARY_MATERIALS_MASTER.md').read_text()+'\\n'+(root/'MANUSCRIPT_FULL_RESEARCH_DOSSIER_v0.42_2026-11-22.md').read_text()
           d=json.loads((root/'ACTUAL_A0_A2_A5_PAIRED_OFFLINE_ROUTING_V25.json').read_text())
           for phrase in ('**Working manuscript v0.','### 3.19 V25 paired',
                          '### 4.19 Actually executed A2/A5', '### 5.7 Detection-instance routing',
@@ -371,7 +380,7 @@ jobs:
           from pathlib import Path
           root=Path('research/seer-ppe')
           v=json.loads((root/'V26_VALID_CURRENT_SOURCE_459_NUMERIC_SUMMARY.json').read_text())
-          m=(root/'MANUSCRIPT_MASTER.md').read_text()
+          m=(root/'MANUSCRIPT_MASTER.md').read_text()+'\\n'+(root/'SUPPLEMENTARY_MATERIALS_MASTER.md').read_text()+'\\n'+(root/'MANUSCRIPT_FULL_RESEARCH_DOSSIER_v0.42_2026-11-22.md').read_text()
           assert v['actual_current_reference_459_complete']
           m0=v['cohorts']['M0']
           assert (m0['images'],m0['GT'],m0['predictions'],m0['TP'],m0['FP'],m0['FN'])==(459,3471,4103,3297,806,174)
