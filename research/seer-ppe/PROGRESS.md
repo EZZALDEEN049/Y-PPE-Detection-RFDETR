@@ -1,5 +1,17 @@
 # SEER-PPE cumulative research progress — v0.10 (updated 2026-11-22)
 
+## V35-A numeric reconciliation — 22 November 2026
+
+- **Numeric status: PASS** for V26 through V34-B against the committed primary ledgers and canonical `MANUSCRIPT_MASTER.md` v0.36. The independent audit recomputed the V26 SHA-256, 459-source aggregates, all 17 class rows, cohort/sensitivity metrics, V27–V29 call/timing totals, all V30 AUCs, V33-B curves/AUCs, V34-A spatial correlations and V34-B figure-manifest metrics.
+- V26 M0 remains 459 images / GT 3,471 / predictions 4,103 / TP 3,297 / FP 806 / FN 174 / P 0.803558 / R 0.949870 / F1 0.870610. M1 F1 0.870064; M2 F1 0.868157. All 459 images remain development-exposed; zero are certified source-independent.
+- V27–V29 total actual calls reconcile to 97. V27 9/10 targets lost after Gaussian occlusion; V28 60 actual calls (30 archived repeats + 30 uncaptured first attempts), 10/10 deletion losses and 7/10 insertion retained; V29 mean request round-trip 1,520.6 ms, not pure model latency.
+- V30 total 1,068 calls and all 60 AUCs independently recompute (maximum absolute error 2.22e-16). V33-B 496/496 calls, 40 curves, 39 valid AUCs and one retained null; maximum AUC recomputation error 2.22e-16.
+- V34-A mean Spearman rho 0.5415659, mean Kendall tau-b 0.4238765 and mean top-four overlap 65%. V34-B manifest reproduces all ten target-level statistics.
+- **Two non-numeric warnings remain:** (1) V27 raw `started_at_utc` is later than `finished_at_utc`; preserve the source record unchanged pending primary execution-log/timezone evidence. (2) V34-B outputs exist in both the expected folder and a duplicate nested folder; 14/15 file blobs match but the PDF blobs differ. Canonicalize the figure tree/PDF before manuscript insertion.
+- Audit evidence: [V35-A report](V35_A_NUMERIC_AUDIT_REPORT_2026-11-22.md) and [machine-readable audit](V35_A_NUMERIC_AUDIT_2026-11-22.json). No new inference, retraining, Test access, image review, or original image/annotation/split mutation.
+- **Next:** V35-B — select the canonical V34-B output tree, resolve/record the duplicate PDF choice, then integrate numbered summary and target figures with captions and in-text references.
+
+
 
 ## V32 author-selected scope decision — 22 November 2026
 
