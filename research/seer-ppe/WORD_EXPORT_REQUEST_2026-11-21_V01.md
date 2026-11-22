@@ -35,3 +35,21 @@ Create an editable complete **research/seer-ppe/exports/SEER_PPE_Research_Manusc
 The canonical working manuscript is now v0.27 and includes Methods §§3.21–3.23, Results §§4.21–4.23, Discussion §5.9 and Appendices S/T. It reports actual V27 Gaussian target-box occlusion (27 original-model passes), V28 one-step black-fill deletion and target-only insertion (30 archived repeat passes plus 30 unarchived first-attempt passes; total 60 actual V28 calls), and V29 ten direct hosted request-timing calls. It explicitly distinguishes target-box sensitivity from full explanation Faithfulness, one-step deletion/insertion from progressive curves/AUC, request round-trip from model latency, and unavailable memory/Joules/financial cost from measured resources.
 
 Generate the full editable manuscript Word file research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.27_2026-11-22.docx from the entire current MANUSCRIPT_MASTER.md. Preserve the existing v0.20/v0.22/v0.23/v0.24/v0.25/v0.26 Word files and the frozen V21 handoff. Verify author/affiliation, all prior V26 tables and Appendices A–R, plus Appendix S, Appendix T, V27/V28/V29 and the numeric values 0.622325, 0.716721, 0.704532, 1.5206, 97 actual model calls. Run DOCX structure and PDF-render QA, then commit the new Word file. Do not overwrite older DOCX versions. Exporting Word performs no new RF-DETR inference, no Test access and no source/model changes.
+
+
+## V35-D — export the complete v0.38 manuscript to editable Word — 22 November 2026
+
+The canonical manuscript is now **v0.38**. Export the complete `research/seer-ppe/MANUSCRIPT_MASTER.md` to:
+
+`research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.38_2026-11-22.docx`
+
+Requirements:
+- Preserve the author, affiliation, correspondence, abstract, all tables, Sections 1–7, the 17-reference working bibliography and Appendices A–X.
+- Resolve all eleven V34-B figures using Pandoc resource path `research/seer-ppe`; verify exactly eleven embedded media files in the DOCX package.
+- Verify that the Word document is structurally valid, editable, and contains the key V26/V34 results, conclusion, references and Appendix X captions.
+- Render the v0.38 DOCX to PDF for automated text and page-preview QA. The PDF is a QA artifact; the requested archival deliverable is the editable DOCX.
+- Preserve all prior Word versions and the V21 handoff. Do not regenerate or overwrite the old handoff file.
+- Commit the new DOCX to the current research branch `research/v30-progressive-xai-2026-11-22`, not to `main`.
+- This is a document-export task only: zero new RF-DETR calls, no retraining, no Test access, and no image, annotation, split or model changes.
+
+The workflow must not push generated artifacts to `main`; it must archive the DOCX on the branch that triggered the export.
