@@ -2,7 +2,7 @@
 
 **Canonical proposal:** Version 3.5.0 (22 November 2026), maintained in the research project workspace.  
 **GitHub role:** public-safe progress, decision, and evidence checkpoint; not a mirror of the unpublished full manuscript or raw data.  
-**Current estimated progress toward a defensible Q1 empirical submission:** **47%** (weighted milestone estimate; see checkpoint for calculation and limitations).  
+**Current estimated progress toward a defensible Q1 empirical submission:** **48%** (weighted milestone estimate; see checkpoint for calculation and limitations).  
 **Current status:** protocol development substantially advanced; Q15 model/data retrieval is partially executed; the paired evaluation and publication gates remain unmet.
 
 ## Start here
@@ -11,6 +11,8 @@
 - [Decision register Q1–Q15](DECISION_REGISTER_Q1_Q15.md)
 - [Roboflow and SEER-PPE evidence audit](ROBOFLOW_SEER_EVIDENCE_AUDIT_2026-11-22.md)
 - [Machine-readable project state](PROJECT_STATE_2026-11-22.json)
+- [Internal peer review of manuscript v0.1](MANUSCRIPT_PEER_REVIEW_v0.1_2026-11-22.md)
+- [Manuscript v0.2 revision log](MANUSCRIPT_REVISION_LOG_v0.2_2026-11-22.md)
 - [Repository-level YOLOv11m vs RF-DETR comparison protocol](../../docs/comparison_protocol.md)
 
 ## Scope separation
