@@ -53,3 +53,8 @@ Requirements:
 - This is a document-export task only: zero new RF-DETR calls, no retraining, no Test access, and no image, annotation, split or model changes.
 
 The workflow must not push generated artifacts to `main`; it must archive the DOCX on the branch that triggered the export.
+
+
+### V35-D QA correction — 22 November 2026
+
+The first v0.38 export successfully generated a 2.8 MB editable DOCX and verified that all **11 figures are embedded**. The content gate failed only because it incorrectly expected the internal workflow label `V35-C` to appear inside the scientific article; that internal stage label was correctly removed from the manuscript body. The QA assertion has been corrected to check the actual scientific content and the newly added methodological references instead. Re-run the same export and archive only after all content, media, PDF-render and branch-preservation checks pass.
