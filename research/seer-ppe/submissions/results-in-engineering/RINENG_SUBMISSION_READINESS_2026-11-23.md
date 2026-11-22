@@ -27,7 +27,7 @@
 | AI assistance disclosure | **V36 MANUSCRIPT SECTION INSERTED; AUTHOR CONFIRMATION OPEN** | Section immediately before References follows Elsevier June 2026 policy; author must inspect/edit/approve actual statement |
 | APC exemption | **CONDITIONAL** | Elsevier Research4Life 100% waiver only if all final author institutions qualify Group A. Automated in post-acceptance publisher workflow. No invoice/acceptance exists |
 | Cover letter | **DRAFT EXISTS** | [Draft RINENG cover letter](RINENG_COVER_LETTER_DRAFT_2026-11-23.md), requires author affirmation |
-| Final Word/PDF QA | **V36 DEDICATED WORKFLOW RUNNING (result pending)** | [V36 job](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45074264715) generates/editable DOCX, validates 1+10 embedded figures, renders PDF and archives files; do not claim PASS until run succeeds |
+| Final Word/PDF QA | **V36 AUTOMATED QA PASS** | [Final successful V36 run 45074736436](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45074736436) archived three DOCX files; 8-page main PDF + 8-page supplement PDF; 1+10 embedded figures; [detailed QA](../../V36_RESULTS_IN_ENGINEERING_SUBMISSION_PREPARATION_REPORT_2026-11-23.md). Human page-by-page visual inspection still open |
 | Actual Elsevier submission | **NOT STARTED** | Must not be done absent author-approved complete package |
 
 ## B. V36 audit additions
