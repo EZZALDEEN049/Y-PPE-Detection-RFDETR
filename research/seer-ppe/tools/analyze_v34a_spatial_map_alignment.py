@@ -224,9 +224,17 @@ def analyze_target(target8: dict, target4: dict, image: dict) -> tuple[dict, dic
                     max_map_error = max(max_map_error, abs(fine_map_value - fine_drop))
                     fine_drop_sum += fine_drop
                     fine_area_sum += fine_area
+                    fine_top, fine_bottom, fine_left, fine_right = cell_bounds(
+                        height, width, 8, 8, fine_row, fine_col
+                    )
                     fine_children.append({
                         "row_8x8": fine_row,
                         "col_8x8": fine_col,
+                        "pixel_bounds_xyxy": [fine_left, fine_top, fine_right, fine_bottom],
+                        "normalized_pixel_bounds_xyxy": [
+                            fine_left / width, fine_top / height,
+                            fine_right / width, fine_bottom / height,
+                        ],
                         "area_fraction": fine_area,
                         "score_drop": fine_drop,
                         "status": fine_status,
@@ -244,8 +252,9 @@ def analyze_target(target8: dict, target4: dict, image: dict) -> tuple[dict, dic
             coarse_areas.append(coarse_area)
             aligned_cells.append({
                 "coarse_cell_4x4": {"row": row, "col": col},
-                "normalized_bounds_xyxy": [
-                    col / 4.0, row / 4.0, (col + 1) / 4.0, (row + 1) / 4.0
+                "pixel_bounds_xyxy": [left, top, right, bottom],
+                "normalized_pixel_bounds_xyxy": [
+                    left / width, top / height, right / width, bottom / height
                 ],
                 "area_fraction": coarse_area,
                 "direct_4x4_score_drop": coarse_drop,
