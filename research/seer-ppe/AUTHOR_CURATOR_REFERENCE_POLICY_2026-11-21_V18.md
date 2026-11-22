@@ -6,7 +6,7 @@
 
 > «مايحتاج مراجع بشري انا اللي اهترت الصور وقيمتها وصنفتها وضحتها وتم التاكد وفحص مل سورة قبل وبعد واثناء»
 
-The owner states that the images were personally collected/selected, assessed, classified and checked through their fieldwork and development stages. Previous declaration: «تم مراجع كل الصور تمام». These statements establish author-asserted completion of the image review process. **Do not ask the owner to repeat image review or recruit an independent reviewer as a mandatory prerequisite.**
+The owner states that the images were personally collected/selected, assessed, classified and checked through their fieldwork and development stages. Previous declaration: «تم مراجع كل الصور تمام». The dataset is described at aggregate level as a multi-project, multi-location collection in Yemen associated with civil-society organization projects; individual site/project names are not required for the internal image-level detection endpoint. These statements establish author-asserted completion of the original image review process. **Do not ask the owner to repeat image review, reconstruct every site name, or recruit an independent reviewer as a mandatory prerequisite.** See the V31-A3 dataset-level acquisition and curation record.
 
 ## Use existing author-curated evidence, not a fabricated new gold set
 
