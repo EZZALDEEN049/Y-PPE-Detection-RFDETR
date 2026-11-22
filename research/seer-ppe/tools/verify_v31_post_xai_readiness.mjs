@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import path from 'node:path';
+import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -25,22 +26,43 @@ function audit(source, sig, validHuman, trainHuman, trainLive, v30, ready) {
   assert.equal(source.previously_excluded_original_valid, 9);
   assert.equal(source.image_rows.length, 459);
   assert.equal(new Set(source.image_rows.map(r=>r.source_id)).size, 459);
+  const attestedIds=['0De0PEUDyeg9v1J3T6zr','NZu6Faj6evgINF1qFE0V'];
   assert.ok(source.image_rows.every(r=>
     r.split === undefined &&
     r.eligible_for_scientific_scoring === false &&
-    r.signed_source_family_verdict === null &&
     r.technical_correspondence_sha_verified === true));
+  const signedRows=source.image_rows.filter(r=>r.signed_source_family_verdict!==null);
+  assert.deepEqual(signedRows.map(r=>r.source_id).sort(),attestedIds.slice().sort());
+  for(const row of signedRows){
+    assert.equal(row.signed_source_family_verdict,'SHARED_CAPTURE_SESSION_OR_SITE');
+    assert.equal(row.source_family_id,'site_school_22may_aseefrah');
+    assert.equal(row.decision_status,'HARD_HOLD_STILL_BLOCKED');
+    assert.equal(row.source_reviewer_signoff_missing,false);
+    assert.equal(row.eligible_for_scientific_scoring,false);
+  }
   const counts = Object.fromEntries(Object.keys(expected).map(k=>[k,0]));
   for (const row of source.image_rows) {
     assert.ok(Object.prototype.hasOwnProperty.call(counts, row.V14_risk_bucket));
     counts[row.V14_risk_bucket]++;
   }
   assert.deepEqual(counts, expected);
-  assert.equal(source.per_image_source_family_human_decisions_signed, 0);
+  assert.equal(source.per_image_source_family_human_decisions_signed, 2);
   assert.equal(source.human_independence_attestations, 0);
   assert.equal(source.scoring_ready, false);
   assert.equal(source.test_images_accessed, false);
-  assert.deepEqual(sig.decisions, []);
+  assert.deepEqual(sig.decisions.map(d=>d.source_id).sort(),attestedIds.slice().sort());
+  for(const d of sig.decisions){
+    assert.equal(d.verdict,'SHARED_CAPTURE_SESSION_OR_SITE');
+    assert.equal(d.reviewer_id,'dataset_author_chat_attestation');
+    assert.equal(d.signed_date,'2026-11-22');
+    assert.equal(d.acquisition_site_id,'site_school_22may_aseefrah');
+    assert.equal(d.acquisition_family_id,'site_school_22may_aseefrah');
+    assert.equal(d.capture_session_id,null);
+    assert.equal(d.train_family_overlap_verdict,'SHARED_SITE_FAMILY_WITH_TRAIN');
+    assert.equal(d.no_train_capture_or_site_family_overlap_supported,false);
+    assert.equal(d.personally_attested_independence,false);
+    assert.equal(d.evidence_sha256,'326c7ad0347a86822768e4f1703045248247bc3014cd5ccb139148332cc07605');
+  }
   assert.equal(sig.scoring_authorized, false);
   assert.equal(sig.test_source_ids_used, false);
   assert.deepEqual(validHuman.cases, []);
@@ -65,6 +87,8 @@ function audit(source, sig, validHuman, trainHuman, trainLive, v30, ready) {
   assert.equal(ready.true_worker_safety_scoring_ready, false);
   assert.equal(ready.independent_source_eligible_valid_images, 0);
   assert.equal(ready.independently_signed_source_family_verdicts, 0);
+  assert.equal(ready.human_source_family_attestations, 2);
+  assert.equal(ready.shared_site_attested_valid_sources, 2);
   assert.equal(ready.signed_valid_human_worker_references, 0);
   assert.equal(ready.original_valid_source_images, 468);
   assert.equal(ready.clean17_valid_mapped_images, 459);
@@ -89,13 +113,15 @@ function audit(source, sig, validHuman, trainHuman, trainLive, v30, ready) {
   assert.ok(ready.next_work_packages.every(x=>x.cannot_auto_sign===true));
   return {status:'PASS_V31_READ_ONLY_GAP_LEDGER',
     v30_audit_passed:true, mapped_valid:459, source_bucket_counts:counts,
-    priority_conflict_cases:11, source_signed:0, valid_human_signed:0,
+    priority_conflict_cases:11, source_signed:2, independent_source_signed:0, valid_human_signed:0,
     preserved_train_links:19, preserved_train_visual_states:38,
     train_B_unentered_visual_states:4, true_worker_safety_scoring_ready:false,
     no_test_or_model_calls:true};
 }
 
-const source=read('VALIDATION_459_SIGNED_SOURCE_COHORT_READINESS_V15.json');
+const dynamicAuditPath=path.join('/tmp',`seer-ppe-v31-source-audit-${process.pid}.json`);
+execFileSync(process.execPath,[path.join(root,'tools','compile_v15_source_qualification_and_ppe.mjs'),'--audit',dynamicAuditPath],{stdio:'ignore'});
+const source=JSON.parse(fs.readFileSync(dynamicAuditPath,'utf8'));
 const sig=read('SOURCE_FAMILY_SIGNED_ATTESTATIONS_V15.json');
 const validHuman=read('VALIDATION_PERSON_PPE_SIGNED_REFERENCE_V15.json');
 const trainHuman=read('TRAIN_REFERENCE_SIGNED_ATTESTATIONS_V15.json');
