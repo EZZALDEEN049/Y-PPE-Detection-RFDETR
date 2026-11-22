@@ -1,5 +1,13 @@
 # SEER-PPE cumulative research progress — v0.9 (updated 2026-11-21)
 
+## V31 continuation update — 22 November 2026
+
+- The author confirms that the corpus was assembled across multiple projects and work locations in Yemen in the context of civil-society organization projects, and that image review/curation was completed during original dataset preparation.
+- **Per-image worksite/project IDs are not required** for the internal image-level detection question. The canonical manuscript and protocol now use aggregate provenance reporting; no full-corpus reinspection is requested. This does not establish acquisition-independent multi-site generalization.
+- Three Valid cross-split relationships are author-attested as non-independent: two Valid images share the School 22 May–Aseefrah site family with Train, and WA0026/WA0079 share a scene with changes/processing. All affected Valid records remain held. Eight P0 cases remain unresolved; no hold was released.
+- Internal image-level detection continues with exact Source-ID/label/prediction joins and M0=459, M1=448, M2=367 overlap-risk sensitivity cohorts. The 0 independent-source approvals and 0 signed Valid worker/PPE gold cases remain unchanged; worker-safety `scoring_ready=false`.
+- Records: [V31-A3 methodology decision](V31_A3_DATASET_LEVEL_ACQUISITION_CURATION_2026-11-22.md), [machine record](V31_A3_DATASET_LEVEL_ACQUISITION_CURATION_2026-11-22.json), [author evidence](evidence/AUTHOR_DATASET_LEVEL_ACQUISITION_AND_PRIOR_CURATION_2026-11-22.md), and [updated manuscript](MANUSCRIPT_MASTER.md).
+
 | Phase | Outcome | Proof / blocker |
 |---|---|---|
 | 1 Foundation | Done | Original thesis, 17-class Y-PPE, 4 author IEEE papers |
