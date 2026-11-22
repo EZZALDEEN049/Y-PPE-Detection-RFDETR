@@ -259,3 +259,12 @@ Both exact historical exports were regenerated and returned `ready=true`: YOLOv1
 A direct download attempt from the active working container failed because it could not resolve `app.roboflow.com` (DNS/network restriction). No archive bytes were retrieved, and no SHA-256, extraction, membership comparison, or image-byte audit has been performed. The temporary export links are provided to the user in the conversation and are not stored in GitHub.
 
 **Next action:** user downloads both historical COCO ZIPs and uploads them to this conversation. E1 remains NOT PASSED; E2 NOT PASSED; E3 NOT STARTED; publication NO-GO.
+
+
+## 14. Consolidated research handoff and repository synchronization — 22 November 2026
+
+A complete handoff was created at `SESSION_HANDOFF_2026-11-22_v0.4.md`. It consolidates the exact historical model/version identities, current-version parity results, SEER-PPE V13 source-overlap evidence, COCO export readiness, the archive-download limitation, gate decisions, and next required inputs.
+
+The exact historical COCO exports are ready on Roboflow (YOLO v1 and RF-DETR v2), but no archive bytes were retrieved because the active environment could not resolve `app.roboflow.com`. Consequently no ZIP hashes or historical archive content audit exists yet. Temporary signed URLs are not stored in GitHub. The user must upload both historical COCO ZIPs to the active conversation.
+
+No gate status changed: E1 NOT PASSED; E2 NOT PASSED; E3 NOT STARTED; Q1 publication NO-GO. The Research Hold remains binding.

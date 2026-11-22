@@ -13,7 +13,9 @@
 - [Machine-readable project state](PROJECT_STATE_2026-11-22.json)
 - [Internal peer review of manuscript v0.1](MANUSCRIPT_PEER_REVIEW_v0.1_2026-11-22.md)
 - [Manuscript v0.2 revision log](MANUSCRIPT_REVISION_LOG_v0.2_2026-11-22.md)
-- [Latest session handoff — E1 continuation v0.3](SESSION_HANDOFF_2026-11-22_v0.3.md)
+- [Latest session handoff — complete E1/E2 status v0.4](SESSION_HANDOFF_2026-11-22_v0.4.md)
+- [Historical COCO export retrieval status](E1_HISTORICAL_COCO_EXPORT_RETRIEVAL_2026-11-22.md)
+- [Previous session handoff — E1 continuation v0.3](SESSION_HANDOFF_2026-11-22_v0.3.md)
 - [Current Roboflow dataset parity](Y_PPE_CURRENT_DATASET_PARITY_2026-11-22.json)
 - [SEER V13 source-overlap transfer to Y-PPE](Y_PPE_SEER_V13_SOURCE_OVERLAP_TRANSFER_2026-11-22.json)
 - [Previous session handoff — manuscript v0.2 and icon](SESSION_HANDOFF_2026-11-22_v0.2.md)
@@ -22,7 +24,7 @@
 
 ## Latest saved session
 
-The latest session adds current-version cross-project dataset parity evidence, a transfer record for SEER-PPE V13 source-overlap candidates, and a new E1 handoff. The current metadata comparison does not replace the required historical training-version byte-hash audit. The editable Word manuscript and internal review report remain conversation attachments; the repository stores public-safe review records and the SVG research icon, not the unpublished DOCX binaries.
+The latest session consolidated all verified evidence into `SESSION_HANDOFF_2026-11-22_v0.4.md`. Both exact historical COCO exports (YOLO v1 and RF-DETR v2) are ready on Roboflow, but the archive download was blocked by the active environment's DNS/network restriction. No ZIP hashes or archive inspection have been completed. E1 and E2 remain NOT PASSED; E3 remains NOT STARTED; publication remains NO-GO. Temporary signed URLs, credentials, raw data, model weights and unpublished DOCX binaries are intentionally not committed.
 
 ## Scope separation
 
