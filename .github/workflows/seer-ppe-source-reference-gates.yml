@@ -229,6 +229,10 @@ jobs:
         run: |
           node research/seer-ppe/tools/verify_v31a2_author_shared_scene.mjs --self-test
           node research/seer-ppe/tools/verify_v31a2_author_shared_scene.mjs --verify
+      - name: Verify V31-A3 aggregate multi-project provenance and completed prior curation
+        run: |
+          node research/seer-ppe/tools/verify_v31a3_dataset_level_acquisition_curation.mjs --self-test
+          node research/seer-ppe/tools/verify_v31a3_dataset_level_acquisition_curation.mjs --verify
       - name: Verify V16 actual Roboflow Train-only predictions and abstention engineering regression
         run: |
           node research/seer-ppe/tools/review_real_train_detection_geometry_v16.mjs --self-test
