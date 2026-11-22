@@ -57,14 +57,16 @@ jobs:
           import json, os
           from pathlib import Path
           d=json.loads((Path(os.environ['RUNNER_TEMP'])/'v38b_image_readonly.json').read_text())
-          assert d['status']=='PASS_24_CURRENT_SOURCE_IMAGE_BYTES_AND_STATIC_PROTOCOL'
+          assert d['status']=='PASS_24_CURRENT_SOURCE_IMAGE_BYTES_EXIF_NORMALIZED_AND_STATIC_PROTOCOL'
           assert d['current_source_images_retrieved_readonly']==24
           assert len(d['current_source_image_sha256'])==24
-          assert all(x['matches_v26_dimensions'] for x in d['current_source_image_sha256'])
+          assert all(x['matches_v26_dimensions_after_exif'] for x in d['current_source_image_sha256'])
+          assert d['current_source_images_exact_dimension_matches']==23
+          assert d['exif_transpose_required_image_count']==1
           assert all(x['same_sha_as_original_v26_download'] is None for x in d['current_source_image_sha256'])
           assert d['raw_images_saved_or_uploaded'] is False
           assert d['actual_hosted_model_calls']==0
-          print('V38B_CURRENT_RAW_SOURCE_SHA256_AND_DIMENSION_QA_PASS')
+          print('V38B_CURRENT_EXIF_NORMALIZED_SOURCE_IDENTITY_QA_PASS')
           print('Historical V26 image-raw SHA values are absent; this is a new reference fingerprint, not a demonstrated old-vs-new hash match.')
           PY
       - name: Upload ONLY hashed/numeric evidence; never upload images or URLs
@@ -83,7 +85,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          dest=research/seer-ppe/V38_B_CURRENT_SOURCE_READONLY_SHA256_PREFLIGHT_2026-11-23.json
+          dest=research/seer-ppe/V38_B_CURRENT_SOURCE_EXIF_AWARE_SHA256_PREFLIGHT_2026-11-23.json
           if [ ! -s "${RUNNER_TEMP}/v38b_image_readonly.json" ]; then
             echo "No complete 24-image read-only audit JSON was produced."
             exit 0
