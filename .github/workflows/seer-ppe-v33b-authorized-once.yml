@@ -1,0 +1,142 @@
+name: SEER-PPE V33-B explicitly authorized one-time 4x4 XAI
+
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - research/seer-ppe/V33_B_CLOUD_EXECUTION_AUTHORIZATION_2026-11-22.json
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: seer-ppe-v33b-grid4-explicit-authorized-once
+  cancel-in-progress: false
+
+jobs:
+  authorized_v33b_grid4:
+    if: >-
+      ${{ github.run_attempt == 1 &&
+          github.event.head_commit.message == 'V33B-AUTHORIZED-ONCE: execute frozen 4x4 XAI' }}
+    name: Run the author-authorized V33-B 4x4 grid experiment on ephemeral cloud compute
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Refuse duplicate execution or an existing partial paid-call ledger
+        run: |
+          set -euo pipefail
+          if [ -f research/seer-ppe/V33_B_GRID4_ACTUAL_RESULTS_2026-11-22.json ] || \
+             [ -f research/seer-ppe/V33_B_GRID4_PARTIAL_CALL_LEDGER_2026-11-22.json ]; then
+            echo "::error::V33-B already has a result or partial paid-call ledger. Do not run again; review the archived evidence first."
+            exit 1
+          fi
+
+      - name: Validate the one-time V33-B authorization and exact 496-call ceiling
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('research/seer-ppe/V33_B_CLOUD_EXECUTION_AUTHORIZATION_2026-11-22.json')
+          a=json.loads(p.read_text(encoding='utf-8'))
+          assert a.get('authorized') is True
+          assert a.get('scope') == 'V33B_frozen_grid4_robustness_only'
+          assert a.get('frozen_model_id') == 'altayyar-0oflt-lafos-qqauz/2'
+          assert a.get('grid_rows') == 4 and a.get('grid_cols') == 4
+          assert a.get('allowed_train_images') == 4
+          assert a.get('allowed_valid_images') == 4
+          assert a.get('frozen_target_count') == 10
+          assert a.get('test_images_allowed') == 0
+          assert a.get('max_additional_calls') == 496
+          assert a.get('automatic_retries') is False
+          assert a.get('retraining_allowed') is False
+          print('One-time V33-B authorization and 496-call ceiling validated.')
+          PY
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install image and hosted-inference dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install numpy pillow inference-sdk
+
+      - name: Check the hosted credential without printing it
+        env:
+          ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${ROBOFLOW_API_KEY}" ]; then
+            echo "::error::ROBOFLOW_API_KEY repository secret is absent. No inference was started."
+            exit 1
+          fi
+          echo "Hosted credential is present; value is not displayed."
+
+      - name: Download only the eight frozen V30 original Train and Valid images
+        run: |
+          set -euo pipefail
+          mkdir -p "${RUNNER_TEMP}/v33b_originals"
+          python research/seer-ppe/tools/fetch_v30_originals_cloud.py \
+            --destination "${RUNNER_TEMP}/v33b_originals" \
+            --hashes-output "${RUNNER_TEMP}/v33b_image_sha256.json"
+
+      - name: Verify V30 source hashes, ten frozen targets and 4x4 preflight with zero model calls
+        run: |
+          set -euo pipefail
+          python research/seer-ppe/tools/run_v33b_grid4_xai.py \
+            --images-dir "${RUNNER_TEMP}/v33b_originals" --dry-run
+          python research/seer-ppe/tools/run_v33b_grid4_xai.py \
+            --images-dir "${RUNNER_TEMP}/v33b_originals" --preflight-only \
+            --output "${RUNNER_TEMP}/v33b_readiness.json"
+
+      - name: Execute V33-B once with the explicit 496-additional-call guard
+        env:
+          ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+        run: |
+          set -euo pipefail
+          python research/seer-ppe/tools/run_v33b_grid4_xai.py \
+            --images-dir "${RUNNER_TEMP}/v33b_originals" \
+            --confirm-additional-call-budget 496 \
+            --output "${RUNNER_TEMP}/v33b_results.json"
+
+      - name: Archive only numeric results or the partial call ledger to the research branch
+        if: ${{ always() }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          result="${RUNNER_TEMP}/v33b_results.json"
+          partial="${RUNNER_TEMP}/v33b_results.json.partial.json"
+          if [ -f "$result" ]; then
+            cp "$result" research/seer-ppe/V33_B_GRID4_ACTUAL_RESULTS_2026-11-22.json
+            git add research/seer-ppe/V33_B_GRID4_ACTUAL_RESULTS_2026-11-22.json
+          fi
+          if [ -f "$partial" ]; then
+            cp "$partial" research/seer-ppe/V33_B_GRID4_PARTIAL_CALL_LEDGER_2026-11-22.json
+            git add research/seer-ppe/V33_B_GRID4_PARTIAL_CALL_LEDGER_2026-11-22.json
+          fi
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Archive V33-B numeric evidence or partial call ledger"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+
+      - name: Upload numeric-only evidence backup; never upload source images or credentials
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: v33b-grid4-numeric-evidence
+          path: |
+            ${{ runner.temp }}/v33b_image_sha256.json
+            ${{ runner.temp }}/v33b_readiness.json
+            ${{ runner.temp }}/v33b_results.json
+            ${{ runner.temp }}/v33b_results.json.partial.json
+          if-no-files-found: warn
+          retention-days: 30
