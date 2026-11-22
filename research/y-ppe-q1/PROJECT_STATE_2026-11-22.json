@@ -1,0 +1,73 @@
+{
+  "project": "Y-PPE thesis-to-Q1 comparative reassessment",
+  "canonical_proposal_version": "3.5.0",
+  "checkpoint_date": "2026-11-22",
+  "progress_percent": 47,
+  "weighted_progress_exact": 47.25,
+  "progress_basis": "Weighted milestone estimate toward a defensible Q1 empirical submission; not a probability of acceptance or a measure of completed text.",
+  "latest_researcher_decisions": {
+    "Q14": "D",
+    "Q15": "C"
+  },
+  "decisions_recorded": "Q1-Q15; Q1 and Q2 wording require archive reconciliation",
+  "q15_execution": "PARTIALLY_EXECUTED",
+  "gates": {
+    "E0": "PARTIALLY_COMPLETE",
+    "E1": "NOT_PASSED",
+    "E2": "NOT_PASSED",
+    "E3": "NOT_STARTED_FOR_NEW_ADMISSIBLE_COMMON_TEST",
+    "E4_Q14": "EXPLORATORY_RF_ONLY_VALIDATION_DIAGNOSTIC",
+    "E5": "DEFERRED",
+    "E6": "NOT_STARTED",
+    "Q1_PUBLICATION": "NO_GO"
+  },
+  "verified": {
+    "roboflow_raw_images": 2327,
+    "classes": 17,
+    "raw_splits": {
+      "train": 1625,
+      "validation": 468,
+      "test": 234
+    },
+    "yolo_model": "altayyar-0oflt-lafos-qqauz-ty5nh/1",
+    "yolo_architecture": "yolov11m",
+    "yolo_training_status": "finished_in_public_version_metadata",
+    "rfdetr_model": "altayyar-0oflt-lafos-qqauz/2",
+    "rfdetr_architecture": "rfdetr-small",
+    "rfdetr_training_status": "finished",
+    "both_exports_ready": true,
+    "exports_downloaded": false,
+    "split_hash_comparison": false,
+    "paired_yolo_predictions_on_459": false,
+    "new_training_runs": 0,
+    "new_paired_test_results": 0,
+    "seer_v26_rf_only_validation_images": 459,
+    "seer_v26_all_class_gt": 3471,
+    "seer_v26_all_class_tp": 3297,
+    "seer_v26_all_class_fp": 806,
+    "seer_v26_all_class_fn": 174,
+    "seer_v26_six_missing_ppe_gt": 1004,
+    "seer_v26_six_missing_ppe_tp": 953,
+    "seer_v26_six_missing_ppe_fp": 283,
+    "seer_v26_six_missing_ppe_fn": 51,
+    "seer_v26_six_missing_ppe_fppi": 0.616557734
+  },
+  "explicit_nonclaims": [
+    "No exact YOLO/RF split identity proof",
+    "No source-family/site/session independence proof transferred from SEER-PPE",
+    "No paired YOLOv11m/RF-DETR predictions on an admissible common test set",
+    "No Q5 thresholds selected for both models from an eligible validation set",
+    "No new retraining or independent test result",
+    "No model superiority or Q1 submission readiness"
+  ],
+  "next_actions": [
+    "Download both Roboflow exports into controlled storage without committing raw data or signed URLs",
+    "Hash and compare source and split membership",
+    "Authenticate the 459-image SEER crosswalk against the Q1 source roster",
+    "Reconcile class order and bounding-box conventions",
+    "Obtain authorized checkpoint/training provenance",
+    "Generate paired predictions on an eligible common roster",
+    "Select Q5 thresholds on Validation only and evaluate on admissible held-out data"
+  ],
+  "repository_folder": "research/y-ppe-q1/"
+}
