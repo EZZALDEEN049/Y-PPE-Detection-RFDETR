@@ -61,7 +61,7 @@ jobs:
           for attempt in 1 2 3; do
             git fetch origin "$GITHUB_REF_NAME"
             git reset --hard "origin/$GITHUB_REF_NAME"
-            if test -f "$path"; then
+            if git ls-files --error-unmatch "$path" >/dev/null 2>&1; then
               cmp "$path" /tmp/V38_B_FROZEN_CANDIDATE_SAMPLE_2026-11-23.json
               echo "V38B_FROZEN_CANDIDATE_MANIFEST_ALREADY_ARCHIVED"
               exit 0
