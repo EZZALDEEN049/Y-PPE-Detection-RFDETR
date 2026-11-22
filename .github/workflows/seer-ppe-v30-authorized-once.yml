@@ -24,6 +24,13 @@ jobs:
     timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
+      - name: Enforce immutable completed V30 results; never spend budget twice
+        run: |
+          set -euo pipefail
+          if [ -f research/seer-ppe/V30_ACTUAL_PROGRESSIVE_XAI_RESULTS_2026-11-22.json ]; then
+            echo "::error::V30 already completed and archived. A new experiment requires a separately frozen protocol and authorization. NO model calls."
+            exit 1
+          fi
       - name: Check explicit V30 authorization, fixed call limit and API credential
         env:
           ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
