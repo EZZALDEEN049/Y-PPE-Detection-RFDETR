@@ -58,3 +58,8 @@ The workflow must not push generated artifacts to `main`; it must archive the DO
 ### V35-D QA correction — 22 November 2026
 
 The first v0.38 export successfully generated a 2.8 MB editable DOCX and verified that all **11 figures are embedded**. The content gate failed only because it incorrectly expected the internal workflow label `V35-C` to appear inside the scientific article; that internal stage label was correctly removed from the manuscript body. The QA assertion has been corrected to check the actual scientific content and the newly added methodological references instead. Re-run the same export and archive only after all content, media, PDF-render and branch-preservation checks pass.
+
+
+### V35-D render-command correction — 22 November 2026
+
+The v0.38 DOCX generation and content checks now pass, including a valid editable DOCX with 16 tables and exactly 11 embedded figures. The PDF-render step exposed a shell line-continuation error in the workflow (the generated command contained a doubled trailing backslash). The render invocation has been changed to one command line; no manuscript content or research data are affected. Re-run the export and commit only after the PDF text/layout smoke checks pass.
