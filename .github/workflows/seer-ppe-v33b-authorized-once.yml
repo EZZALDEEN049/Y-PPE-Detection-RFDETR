@@ -67,17 +67,6 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install numpy pillow inference-sdk
 
-      - name: Check the hosted credential without printing it
-        env:
-          ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
-        run: |
-          set -euo pipefail
-          if [ -z "${ROBOFLOW_API_KEY}" ]; then
-            echo "::error::ROBOFLOW_API_KEY repository secret is absent. No inference was started."
-            exit 1
-          fi
-          echo "Hosted credential is present; value is not displayed."
-
       - name: Download only the eight frozen V30 original Train and Valid images
         run: |
           set -euo pipefail
@@ -94,6 +83,17 @@ jobs:
           python research/seer-ppe/tools/run_v33b_grid4_xai.py \
             --images-dir "${RUNNER_TEMP}/v33b_originals" --preflight-only \
             --output "${RUNNER_TEMP}/v33b_readiness.json"
+
+      - name: Check the hosted credential without printing it
+        env:
+          ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${ROBOFLOW_API_KEY}" ]; then
+            echo "::error::ROBOFLOW_API_KEY repository secret is absent. No inference was started."
+            exit 1
+          fi
+          echo "Hosted credential is present; value is not displayed."
 
       - name: Execute V33-B once with the explicit 496-additional-call guard
         env:
