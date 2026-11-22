@@ -241,7 +241,7 @@ def get_allowed_source_namespace():
 
 
 def download_one(namespace: str, record: dict) -> dict:
-    from PIL import Image, UnidentifiedImageError
+    from PIL import Image, ImageOps, UnidentifiedImageError
     import warnings
     Image.MAX_IMAGE_PIXELS = 30_000_000
     sid = record["source_id"]
@@ -268,18 +268,27 @@ def download_one(namespace: str, record: dict) -> dict:
             img.verify()
         with Image.open(io.BytesIO(raw)) as img:
             observed_size = img.size
-            # This image is decoded *only* to verify reference frame identity;
-            # it is not sent to the detector or included in an artifact.
+            exif_orientation = img.getexif().get(274)
+            corrected = ImageOps.exif_transpose(img)
+            corrected_size = corrected.size
+            # Only decode in memory; no image pixels are sent to model or saved.
             rgb_sha = hashlib.sha256(img.convert("RGB").tobytes()).hexdigest()
-    if observed_size != (record["width"], record["height"]):
-        raise RuntimeError("Original image dimensions differ from V26 frozen geometry")
+            corrected_rgb_sha = hashlib.sha256(corrected.convert("RGB").tobytes()).hexdigest()
+    exact = observed_size == (record["width"], record["height"])
+    orientation_matches = corrected_size == (record["width"], record["height"])
     return {
         "source_id": sid,
-        "width": observed_size[0], "height": observed_size[1],
+        "archived_v26_width": record["width"], "archived_v26_height": record["height"],
+        "current_raw_width": observed_size[0], "current_raw_height": observed_size[1],
+        "current_exif_corrected_width": corrected_size[0],
+        "current_exif_corrected_height": corrected_size[1],
+        "exif_orientation_tag": exif_orientation,
         "download_size_bytes": len(raw),
         "new_current_source_raw_sha256": hashlib.sha256(raw).hexdigest(),
         "new_current_decoded_rgb_sha256": rgb_sha,
-        "matches_v26_dimensions": True,
+        "new_current_exif_corrected_rgb_sha256": corrected_rgb_sha,
+        "matches_v26_dimensions": exact,
+        "matches_v26_dimensions_after_exif": orientation_matches,
         "same_sha_as_original_v26_download": None,  # V26 didn't archive raw SHA
     }
 
@@ -297,10 +306,17 @@ def main():
         for record in read(MANIFEST)["images"]:
             image_rows.append(download_one(namespace, record))
         assert len(image_rows) == 24
-        assert len({x["new_current_source_raw_sha256"] for x in image_rows}) == 24, "Duplicate raw image bytes among selected records: stop"
+        different_sha_count = len({x["new_current_source_raw_sha256"] for x in image_rows})
+        mismatch_rows = [x for x in image_rows if not x["matches_v26_dimensions"]]
         audit.update({
-            "status": "PASS_24_CURRENT_SOURCE_IMAGE_BYTES_AND_STATIC_PROTOCOL",
+            "status": ("PASS_24_CURRENT_SOURCE_IMAGE_BYTES_AND_STATIC_PROTOCOL"
+                       if not mismatch_rows and different_sha_count == 24
+                       else "HOLD_CURRENT_SOURCE_IMAGE_IDENTITY_MISMATCH"),
             "current_source_images_retrieved_readonly": 24,
+            "current_source_images_exact_dimension_matches": 24 - len(mismatch_rows),
+            "current_source_images_exif_corrected_matches": sum(x["matches_v26_dimensions_after_exif"] for x in image_rows),
+            "current_source_images_distinct_raw_sha256": different_sha_count,
+            "current_source_mismatch_image_ids": [x["source_id"] for x in mismatch_rows],
             "current_source_image_sha256": image_rows,
             "historical_v26_raw_sha256_available": False,
             "historical_v26_raw_sha256_matched": None,
