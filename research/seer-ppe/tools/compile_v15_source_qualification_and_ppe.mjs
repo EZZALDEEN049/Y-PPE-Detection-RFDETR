@@ -18,7 +18,7 @@ const fail=s=>{throw Error('V15_EVIDENCE_GATE_BLOCKED:'+s);};
 const check=(v,s)=>{if(!v)fail(s);};
 const nonempty=s=>typeof s==='string'&&s.trim().length>=3;
 const iso=s=>typeof s==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(s)&&!Number.isNaN(Date.parse(s+'T00:00:00Z'))&&new Date(s+'T00:00:00Z').toISOString().slice(0,10)===s;
-const ENUM=['INDEPENDENT_SOURCE_SUPPORTED','SHARED_CAPTURE_SESSION_OR_SITE','SAME_IMAGE_OR_DERIVATIVE','SAME_ITEM_DISTINCT_PHOTO','UNRESOLVED'];
+const ENUM=['INDEPENDENT_SOURCE_SUPPORTED','SHARED_CAPTURE_SESSION_OR_SITE','SAME_IMAGE_OR_DERIVATIVE','SAME_ITEM_DISTINCT_PHOTO','SHARED_SCENE_WITH_MODIFICATIONS_OR_PROCESSING','UNRESOLVED'];
 function pinnedRef(path,hash){
  check(typeof path==='string'&&/^[A-Za-z0-9][A-Za-z0-9_./-]*\.(?:md|json|csv)$/.test(path),'malformed evidence path');
  check(!path.includes('..')&&!path.startsWith('/'),'evidence path traversal');
