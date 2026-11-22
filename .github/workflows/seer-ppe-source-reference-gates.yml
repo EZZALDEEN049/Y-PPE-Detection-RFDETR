@@ -179,14 +179,20 @@ jobs:
             import assert from "node:assert/strict";
             const x=JSON.parse(fs.readFileSync("/tmp/seer-v15-readiness.json","utf8"));
             assert.equal(x.clean17_valid_count,459);
-            assert.equal(x.per_image_source_family_human_decisions_signed,2);
+            assert.equal(x.per_image_source_family_human_decisions_signed,3);
             assert.equal(x.human_independence_attestations,0);
             assert.equal(x.scoring_ready,false);
             assert.equal(x.test_images_accessed,false);
             const signed=x.image_rows.filter(r=>r.signed_source_family_verdict!==null);
-            assert.deepEqual(signed.map(r=>r.source_id).sort(),["0De0PEUDyeg9v1J3T6zr","NZu6Faj6evgINF1qFE0V"].sort());
+            assert.deepEqual(signed.map(r=>r.source_id).sort(),["0De0PEUDyeg9v1J3T6zr","NZu6Faj6evgINF1qFE0V","yeEvdkqXtNgsj7PZFDvI"].sort());
             for(const r of signed){
-              assert.equal(r.signed_source_family_verdict,"SHARED_CAPTURE_SESSION_OR_SITE");
+              if(r.source_id==="yeEvdkqXtNgsj7PZFDvI"){
+                assert.equal(r.signed_source_family_verdict,"SHARED_SCENE_WITH_MODIFICATIONS_OR_PROCESSING");
+                assert.equal(r.source_family_id,"scene_wa0026_wa0079_modified_processed");
+              }else{
+                assert.equal(r.signed_source_family_verdict,"SHARED_CAPTURE_SESSION_OR_SITE");
+                assert.equal(r.source_family_id,"site_school_22may_aseefrah");
+              }
               assert.equal(r.decision_status,"HARD_HOLD_STILL_BLOCKED");
               assert.equal(r.eligible_for_scientific_scoring,false);
             }
