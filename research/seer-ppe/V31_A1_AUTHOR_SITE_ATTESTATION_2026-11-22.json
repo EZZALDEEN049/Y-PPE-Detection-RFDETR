@@ -60,5 +60,14 @@
     "test_accessed": false
   },
   "integrity_note": "The SHA-256 pins the in-repository transcription of the direct chat response. It does not independently authenticate the author's identity or prove the truth of the statement.",
-  "next_step": "Continue with the other 9 P0 source-family cases; preserve both School 22 May Valid hard holds."
+  "next_step": "Continue with the other 9 P0 source-family cases; preserve both School 22 May Valid hard holds.",
+  "validation": {
+    "status": "PASS",
+    "source_reference_ci_run": 44968818900,
+    "public_engineering_ci_run": 44968818901,
+    "verifier": "tools/verify_v31a1_author_site_attestation.mjs",
+    "mutation_self_test": "PASS",
+    "sha256_verified": true,
+    "current_source_audit_compiled_dynamically": true
+  }
 }
