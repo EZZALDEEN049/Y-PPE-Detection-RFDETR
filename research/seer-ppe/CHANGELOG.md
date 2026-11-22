@@ -99,3 +99,13 @@
 - Internal image-level detection analysis continues with exact Source-ID/label/prediction joins and M0=459, M1=448, M2=367 overlap-risk sensitivity cohorts; these are not independent-site cohorts. Worker-level safety and signed Valid Person–PPE gold remain separately gated.
 
 - Final V31 source/reference gate [CI run 44971815503](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44971815503) passed, including the synchronized three-attestation P0 validator, V31 readiness, V31-A1, V31-A2, V31-A3 and V22 manuscript/source-composition checks.
+
+
+## V32 — author selects image-level detection and perturbation-XAI scope — 2026-11-22
+
+- The author selected Path 1: limit the current thesis paper to image-level PPE object detection, target-specific black-box perturbation sensitivity and selective explanation/inspection prioritization.
+- Explicitly removed complete worker-level Person–PPE gold, task/site mandates, worker compliance/violation, false-clearance, actual human-review efficacy, external/site-independent generalization and physical Joules from the current paper's required endpoints. These are out of scope, not unfinished blockers.
+- Retained existing Person–PPE pilot records as exploratory engineering artifacts only; missing fields remain missing and are not imputed or scored. The historical worker-safety flag remains `scoring_ready=false`, but the V32 readiness ledger explicitly states this is not a blocker to the current manuscript.
+- Updated canonical manuscript to v0.32 and protocol to v0.8; added [V32 scope decision](V32_IMAGE_LEVEL_DETECTION_XAI_SCOPE_DECISION_2026-11-22.md) and [machine-readable record](V32_IMAGE_LEVEL_DETECTION_XAI_SCOPE_DECISION_2026-11-22.json); synchronized the V31 readiness ledger, handoff guide and repository entry points.
+- Primary remaining work: explanation perturbation robustness, a larger matched-budget A5/A6-style image-target comparison, results/figure reconciliation, reference verification and editable Word export.
+- No model inference, retraining, Test access, image reopening, original data/annotation/split changes or Roboflow writes were performed for V32.
