@@ -1,0 +1,11 @@
+figure,target_id,image_key,split,target_class,image_width,image_height,spearman_rho,kendall_tau_b,top4_overlap_count,top4_overlap_fraction,top4_direct_4x4_indices_row_major,top4_pooled_8x8_indices_row_major,scale_limit_abs
+V34B_F01_train_a_no_face_mask.png,367eb0dd-45f3-4d62-9425-4e70a8d087f0,train:A,train,No Face Mask,1000,667,0.5470588235294118,0.4166666666666667,3,0.75,9;10;6;5,9;6;10;14,15.470900859749108
+V34B_F02_train_b_gloves.png,1b2af685-6965-4986-9d35-258b036e5882,train:B,train,Gloves,500,330,0.6019133344036286,0.5272012675161055,3,0.75,10;11;6;14,10;11;9;14,15.470900859749108
+V34B_F03_train_c_no_safety_boots.png,35e4de96-de91-46a1-910f-89738f80e053,train:C,train,No Safety Boots,2048,1365,0.5548198705872078,0.42678197846541877,3,0.75,5;9;10;4,9;5;10;3,15.470900859749108
+V34B_F04_train_c_face_masks.png,aadb7fb8-811c-4993-aa2d-3ec266263b9a,train:C,train,Face Masks,2048,1365,0.2295140487778718,0.15144803708370713,0,0.0,3;5;6;7,9;1;12;4,15.470900859749108
+V34B_F05_train_d_hard_hat.png,7a101411-15e7-457a-842a-0e61be4f1f11,train:D,train,Hard Hat,1000,1000,0.5764705882352941,0.4666666666666667,2,0.5,2;1;6;10,10;1;5;11,15.470900859749108
+V34B_F06_valid_07bnopgfjynaohuzvh5i_no_gloves.png,e67b5082-bdc0-4143-8a98-9dd8524f868d,valid:07BnOpgFJyNaOhuzvh5i,valid,No Gloves,1000,667,0.538235294117647,0.4,3,0.75,9;10;1;11,10;9;1;0,15.470900859749108
+V34B_F07_valid_09wo3ivnf9jot21qaxmb_safety_boots.png,181c2d93-bac0-4cfe-8613-9c4e66ecc4fc,valid:09WO3iVNf9jOt21QAxmb,valid,Safety Boots,736,903,0.6264705882352941,0.55,3,0.75,5;1;6;10,5;10;1;4,15.470900859749108
+V34B_F08_valid_0abzmrjnd6i0ws6fh7qo_no_face_mask.png,5d2a56b6-4b76-4206-afd0-51e1e4c28d8e,valid:0ABzMrjnd6I0Ws6FH7qo,valid,No Face Mask,166,236,0.6323529411764706,0.45,3,0.75,10;9;5;14,10;9;13;14,15.470900859749108
+V34B_F09_valid_0abzmrjnd6i0ws6fh7qo_safety_vests.png,0b0df3fa-0c6e-4528-a822-969fd4d8f026,valid:0ABzMrjnd6I0Ws6FH7qo,valid,Safety Vests,166,236,0.6794117647058824,0.5333333333333333,3,0.75,14;15;1;0,14;15;10;0,15.470900859749108
+V34B_F10_valid_0agyjxe5lmocxyvulhs8_no_safety_boots.png,8bdb1086-0226-4293-b70c-3a44efd763c5,valid:0aGYjxE5LmocXyvuLHs8,valid,No Safety Boots,736,736,0.4294117647058823,0.31666666666666665,3,0.75,9;14;5;10,13;14;10;9,15.470900859749108

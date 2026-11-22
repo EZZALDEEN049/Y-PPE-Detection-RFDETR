@@ -1,0 +1,324 @@
+{
+  "schema_version": "seer-ppe/v34b-data-derived-figures/v1.0",
+  "status": "PASSED",
+  "analysis_date": "2026-11-22",
+  "execution_mode": "offline_only_no_model_inference",
+  "source_archive": "V34A_SPATIAL_MAP_ALIGNMENT_RANK_CORRELATION_2026-11-22.json",
+  "source_archive_git_blob_sha": "0b1ce69853b275baafe9e0abc1474a29dbd84b69",
+  "source_archive_sha256": "c3b7dfa5647e9102c63bc6160b868f2fdc07824e7c2217ea94273b84515f2c7b",
+  "source_archive_schema": "seer-ppe/v34a-spatial-map-alignment-rank-correlation/v0.34a",
+  "source_target_count": 10,
+  "source_unique_images": 8,
+  "figure_count": 10,
+  "summary_figure": "V34B_SPATIAL_AGREEMENT_SUMMARY_2026-11-22.png",
+  "multipage_pdf": "V34B_PAIRED_HEATMAPS_2026-11-22.pdf",
+  "metrics_csv": "V34B_FIGURE_METRICS_2026-11-22.csv",
+  "display": {
+    "colormap": "RdBu_r",
+    "center": 0.0,
+    "shared_symmetric_abs_limit": 15.470900859749108,
+    "scale_percentile_of_absolute_displayed_values": 97.5,
+    "displayed_cell_value_count": 800,
+    "saturated_cell_value_count": 17,
+    "saturated_fraction": 0.02125,
+    "clipping_affects_display_only": true,
+    "all_rankings_and_metrics_use_unclipped_archived_values": true,
+    "top4_left_panel": "four 2x2 fine-cell footprints for top-ranked pooled 4x4 regions",
+    "top4_right_panel": "four highest-ranked direct 4x4 regions"
+  },
+  "reproducibility_checks": {
+    "target_ids_matched": true,
+    "all_10_targets_rendered": true,
+    "spearman_recomputed_against_archive": true,
+    "kendall_tau_b_recomputed_against_archive": true,
+    "top4_sets_recomputed_against_archive": true,
+    "top4_overlap_recomputed_against_archive": true,
+    "fine_cells_per_target": 64,
+    "aligned_coarse_regions_per_target": 16,
+    "new_model_inference_calls": 0,
+    "test_split_accessed": false,
+    "dataset_or_annotation_mutations": 0
+  },
+  "targets": [
+    {
+      "figure": "V34B_F01_train_a_no_face_mask.png",
+      "target_id": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+      "image_key": "train:A",
+      "split": "train",
+      "target_class": "No Face Mask",
+      "original_dimensions_px": [
+        1000,
+        667
+      ],
+      "spearman_rho_recomputed": 0.5470588235294118,
+      "kendall_tau_b_recomputed": 0.4166666666666667,
+      "top4_direct_4x4_indices_row_major": [
+        9,
+        10,
+        6,
+        5
+      ],
+      "top4_pooled_8x8_indices_row_major": [
+        9,
+        6,
+        10,
+        14
+      ],
+      "top4_overlap_count": 3,
+      "top4_overlap_fraction": 0.75,
+      "figure_caption": "Paired signed sensitivity maps for No Face Mask in train:A. Left: native 8x8 child-cell densities; gold outlines show the 2x2 fine-cell footprints of the four highest-ranked pooled 4x4 regions. Right: direct 4x4 densities; gold outlines show its four highest-ranked regions. Correlations are computed across the 16 aligned coarse regions using un-clipped archived values."
+    },
+    {
+      "figure": "V34B_F02_train_b_gloves.png",
+      "target_id": "1b2af685-6965-4986-9d35-258b036e5882",
+      "image_key": "train:B",
+      "split": "train",
+      "target_class": "Gloves",
+      "original_dimensions_px": [
+        500,
+        330
+      ],
+      "spearman_rho_recomputed": 0.6019133344036286,
+      "kendall_tau_b_recomputed": 0.5272012675161055,
+      "top4_direct_4x4_indices_row_major": [
+        10,
+        11,
+        6,
+        14
+      ],
+      "top4_pooled_8x8_indices_row_major": [
+        10,
+        11,
+        9,
+        14
+      ],
+      "top4_overlap_count": 3,
+      "top4_overlap_fraction": 0.75,
+      "figure_caption": "Paired signed sensitivity maps for Gloves in train:B. Left: native 8x8 child-cell densities; gold outlines show the 2x2 fine-cell footprints of the four highest-ranked pooled 4x4 regions. Right: direct 4x4 densities; gold outlines show its four highest-ranked regions. Correlations are computed across the 16 aligned coarse regions using un-clipped archived values."
+    },
+    {
+      "figure": "V34B_F03_train_c_no_safety_boots.png",
+      "target_id": "35e4de96-de91-46a1-910f-89738f80e053",
+      "image_key": "train:C",
+      "split": "train",
+      "target_class": "No Safety Boots",
+      "original_dimensions_px": [
+        2048,
+        1365
+      ],
+      "spearman_rho_recomputed": 0.5548198705872078,
+      "kendall_tau_b_recomputed": 0.42678197846541877,
+      "top4_direct_4x4_indices_row_major": [
+        5,
+        9,
+        10,
+        4
+      ],
+      "top4_pooled_8x8_indices_row_major": [
+        9,
+        5,
+        10,
+        3
+      ],
+      "top4_overlap_count": 3,
+      "top4_overlap_fraction": 0.75,
+      "figure_caption": "Paired signed sensitivity maps for No Safety Boots in train:C. Left: native 8x8 child-cell densities; gold outlines show the 2x2 fine-cell footprints of the four highest-ranked pooled 4x4 regions. Right: direct 4x4 densities; gold outlines show its four highest-ranked regions. Correlations are computed across the 16 aligned coarse regions using un-clipped archived values."
+    },
+    {
+      "figure": "V34B_F04_train_c_face_masks.png",
+      "target_id": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+      "image_key": "train:C",
+      "split": "train",
+      "target_class": "Face Masks",
+      "original_dimensions_px": [
+        2048,
+        1365
+      ],
+      "spearman_rho_recomputed": 0.2295140487778718,
+      "kendall_tau_b_recomputed": 0.15144803708370713,
+      "top4_direct_4x4_indices_row_major": [
+        3,
+        5,
+        6,
+        7
+      ],
+      "top4_pooled_8x8_indices_row_major": [
+        9,
+        1,
+        12,
+        4
+      ],
+      "top4_overlap_count": 0,
+      "top4_overlap_fraction": 0.0,
+      "figure_caption": "Paired signed sensitivity maps for Face Masks in train:C. Left: native 8x8 child-cell densities; gold outlines show the 2x2 fine-cell footprints of the four highest-ranked pooled 4x4 regions. Right: direct 4x4 densities; gold outlines show its four highest-ranked regions. Correlations are computed across the 16 aligned coarse regions using un-clipped archived values."
+    },
+    {
+      "figure": "V34B_F05_train_d_hard_hat.png",
+      "target_id": "7a101411-15e7-457a-842a-0e61be4f1f11",
+      "image_key": "train:D",
+      "split": "train",
+      "target_class": "Hard Hat",
+      "original_dimensions_px": [
+        1000,
+        1000
+      ],
+      "spearman_rho_recomputed": 0.5764705882352941,
+      "kendall_tau_b_recomputed": 0.4666666666666667,
+      "top4_direct_4x4_indices_row_major": [
+        2,
+        1,
+        6,
+        10
+      ],
+      "top4_pooled_8x8_indices_row_major": [
+        10,
+        1,
+        5,
+        11
+      ],
+      "top4_overlap_count": 2,
+      "top4_overlap_fraction": 0.5,
+      "figure_caption": "Paired signed sensitivity maps for Hard Hat in train:D. Left: native 8x8 child-cell densities; gold outlines show the 2x2 fine-cell footprints of the four highest-ranked pooled 4x4 regions. Right: direct 4x4 densities; gold outlines show its four highest-ranked regions. Correlations are computed across the 16 aligned coarse regions using un-clipped archived values."
+    },
+    {
+      "figure": "V34B_F06_valid_07bnopgfjynaohuzvh5i_no_gloves.png",
+      "target_id": "e67b5082-bdc0-4143-8a98-9dd8524f868d",
+      "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+      "split": "valid",
+      "target_class": "No Gloves",
+      "original_dimensions_px": [
+        1000,
+        667
+      ],
+      "spearman_rho_recomputed": 0.538235294117647,
+      "kendall_tau_b_recomputed": 0.4,
+      "top4_direct_4x4_indices_row_major": [
+        9,
+        10,
+        1,
+        11
+      ],
+      "top4_pooled_8x8_indices_row_major": [
+        10,
+        9,
+        1,
+        0
+      ],
+      "top4_overlap_count": 3,
+      "top4_overlap_fraction": 0.75,
+      "figure_caption": "Paired signed sensitivity maps for No Gloves in valid:07BnOpgFJyNaOhuzvh5i. Left: native 8x8 child-cell densities; gold outlines show the 2x2 fine-cell footprints of the four highest-ranked pooled 4x4 regions. Right: direct 4x4 densities; gold outlines show its four highest-ranked regions. Correlations are computed across the 16 aligned coarse regions using un-clipped archived values."
+    },
+    {
+      "figure": "V34B_F07_valid_09wo3ivnf9jot21qaxmb_safety_boots.png",
+      "target_id": "181c2d93-bac0-4cfe-8613-9c4e66ecc4fc",
+      "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+      "split": "valid",
+      "target_class": "Safety Boots",
+      "original_dimensions_px": [
+        736,
+        903
+      ],
+      "spearman_rho_recomputed": 0.6264705882352941,
+      "kendall_tau_b_recomputed": 0.55,
+      "top4_direct_4x4_indices_row_major": [
+        5,
+        1,
+        6,
+        10
+      ],
+      "top4_pooled_8x8_indices_row_major": [
+        5,
+        10,
+        1,
+        4
+      ],
+      "top4_overlap_count": 3,
+      "top4_overlap_fraction": 0.75,
+      "figure_caption": "Paired signed sensitivity maps for Safety Boots in valid:09WO3iVNf9jOt21QAxmb. Left: native 8x8 child-cell densities; gold outlines show the 2x2 fine-cell footprints of the four highest-ranked pooled 4x4 regions. Right: direct 4x4 densities; gold outlines show its four highest-ranked regions. Correlations are computed across the 16 aligned coarse regions using un-clipped archived values."
+    },
+    {
+      "figure": "V34B_F08_valid_0abzmrjnd6i0ws6fh7qo_no_face_mask.png",
+      "target_id": "5d2a56b6-4b76-4206-afd0-51e1e4c28d8e",
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "split": "valid",
+      "target_class": "No Face Mask",
+      "original_dimensions_px": [
+        166,
+        236
+      ],
+      "spearman_rho_recomputed": 0.6323529411764706,
+      "kendall_tau_b_recomputed": 0.45,
+      "top4_direct_4x4_indices_row_major": [
+        10,
+        9,
+        5,
+        14
+      ],
+      "top4_pooled_8x8_indices_row_major": [
+        10,
+        9,
+        13,
+        14
+      ],
+      "top4_overlap_count": 3,
+      "top4_overlap_fraction": 0.75,
+      "figure_caption": "Paired signed sensitivity maps for No Face Mask in valid:0ABzMrjnd6I0Ws6FH7qo. Left: native 8x8 child-cell densities; gold outlines show the 2x2 fine-cell footprints of the four highest-ranked pooled 4x4 regions. Right: direct 4x4 densities; gold outlines show its four highest-ranked regions. Correlations are computed across the 16 aligned coarse regions using un-clipped archived values."
+    },
+    {
+      "figure": "V34B_F09_valid_0abzmrjnd6i0ws6fh7qo_safety_vests.png",
+      "target_id": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "split": "valid",
+      "target_class": "Safety Vests",
+      "original_dimensions_px": [
+        166,
+        236
+      ],
+      "spearman_rho_recomputed": 0.6794117647058824,
+      "kendall_tau_b_recomputed": 0.5333333333333333,
+      "top4_direct_4x4_indices_row_major": [
+        14,
+        15,
+        1,
+        0
+      ],
+      "top4_pooled_8x8_indices_row_major": [
+        14,
+        15,
+        10,
+        0
+      ],
+      "top4_overlap_count": 3,
+      "top4_overlap_fraction": 0.75,
+      "figure_caption": "Paired signed sensitivity maps for Safety Vests in valid:0ABzMrjnd6I0Ws6FH7qo. Left: native 8x8 child-cell densities; gold outlines show the 2x2 fine-cell footprints of the four highest-ranked pooled 4x4 regions. Right: direct 4x4 densities; gold outlines show its four highest-ranked regions. Correlations are computed across the 16 aligned coarse regions using un-clipped archived values."
+    },
+    {
+      "figure": "V34B_F10_valid_0agyjxe5lmocxyvulhs8_no_safety_boots.png",
+      "target_id": "8bdb1086-0226-4293-b70c-3a44efd763c5",
+      "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+      "split": "valid",
+      "target_class": "No Safety Boots",
+      "original_dimensions_px": [
+        736,
+        736
+      ],
+      "spearman_rho_recomputed": 0.4294117647058823,
+      "kendall_tau_b_recomputed": 0.31666666666666665,
+      "top4_direct_4x4_indices_row_major": [
+        9,
+        14,
+        5,
+        10
+      ],
+      "top4_pooled_8x8_indices_row_major": [
+        13,
+        14,
+        10,
+        9
+      ],
+      "top4_overlap_count": 3,
+      "top4_overlap_fraction": 0.75,
+      "figure_caption": "Paired signed sensitivity maps for No Safety Boots in valid:0aGYjxE5LmocXyvuLHs8. Left: native 8x8 child-cell densities; gold outlines show the 2x2 fine-cell footprints of the four highest-ranked pooled 4x4 regions. Right: direct 4x4 densities; gold outlines show its four highest-ranked regions. Correlations are computed across the 16 aligned coarse regions using un-clipped archived values."
+    }
+  ]
+}
