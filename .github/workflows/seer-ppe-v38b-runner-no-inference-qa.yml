@@ -1,0 +1,70 @@
+name: SEER-PPE V38B runner offline deterministic QA — ZERO INFERENCE
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - .github/workflows/seer-ppe-v38b-runner-no-inference-qa.yml
+      - research/seer-ppe/tools/run_v38b_xai.py
+      - research/seer-ppe/seer_ppe/progressive_xai.py
+      - research/seer-ppe/seer_ppe/detection_match.py
+      - research/seer-ppe/V38_B_FROZEN_CANDIDATE_SAMPLE_2026-11-23.json
+      - research/seer-ppe/V38_B_CURRENT_SOURCE_EXIF_AWARE_SHA256_PREFLIGHT_2026-11-23.json
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synthetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install only local scientific numeric dependencies (NO inference SDK, NO API KEY)
+        run: python -m pip install --disable-pip-version-check "numpy>=1.26,<3" "Pillow>=10,<13"
+      - name: Python syntax check (zero inference)
+        run: python -m py_compile research/seer-ppe/tools/run_v38b_xai.py
+      - name: Manifest, SOURCE-SHA and exact budget preflight (zero inference)
+        run: |
+          python research/seer-ppe/tools/run_v38b_xai.py --preflight --output "${RUNNER_TEMP}/no_inference.json"
+      - name: Full local mock predictor — both grid maps, blur ablation, 10 random orderings, curves and attempt cap
+        run: |
+          python research/seer-ppe/tools/run_v38b_xai.py --self-test --output "${RUNNER_TEMP}/mock.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import os
+          p=Path(os.environ['RUNNER_TEMP'])/'v38b_offline_self_test/v38b_mock_test_summary.json'
+          x=json.loads(p.read_text())
+          assert x['status']=='PASS_MOCK_FULL_XAI_2_TARGETS_WITHOUT_MODEL_CALLS'
+          assert x['mock_calls']==378 and x['mock_curves']==24
+          assert x['duplicate_ledger_rejected'] and x['failed_attempt_logged']
+          assert x['guard_rejects_fourth_of_three']
+          assert x['actual_hosted_model_calls']==0
+          print('V38B_NO_INFERENCE_RUNNER_SCIENTIFIC_QA_PASS')
+          PY
+      - name: Explicit refusal to execute paid inference without authorization
+        run: |
+          set +e
+          env -u ROBOFLOW_API_KEY python research/seer-ppe/tools/run_v38b_xai.py \
+            --execute --images-dir "${RUNNER_TEMP}/empty" \
+            --confirm-authorized-max-attempts 6000 \
+            --output "${RUNNER_TEMP}/must_refuse.json" \
+            1>"${RUNNER_TEMP}/denied.out" 2>"${RUNNER_TEMP}/denied.err"
+          status=$?
+          set -e
+          if [ "$status" -eq 0 ]; then echo "::error::Unauthorized execution not blocked!"; exit 1; fi
+          if ! grep -q "one-time authorization" "${RUNNER_TEMP}/denied.err"; then
+             echo "::error::Unexpected refusal reason (not explicit authorization check)."
+             exit 1
+          fi
+          test ! -e "${RUNNER_TEMP}/must_refuse.json.attempts.jsonl"
+          echo "V38B_UNAUTHORIZED_PAID_RUN_REFUSED_WITH_ZERO_MODEL_CALLS"
+      - name: Upload only synthetic mock numerical QA (never photographs or credentials)
+        uses: actions/upload-artifact@v4
+        with:
+          name: v38b-runner-zero-inference-synthetic-qa
+          path: "${{ runner.temp }}/v38b_offline_self_test/v38b_mock_test_summary.json"
+          retention-days: 60
