@@ -661,7 +661,13 @@ def self_test(output_dir):
     class SingleRequestSuccess:
         def __init__(self):self.calls=0
         def open(self,req,timeout):
+            import base64
             self.calls+=1
+            # Verify exactly ONE quality-95 JPEG image is sent as API base64.
+            wire=base64.b64decode(req.data,validate=True)
+            assert wire[:2]==b"\\xff\\xd8" or wire[:2]==bytes((255,216))
+            assert len(wire)<=15*1024*1024
+            assert req.get_method()=="POST"
             return MockResponse(req.full_url)
     success_http=SingleRequestSuccess()
     with patch.dict(os.environ,{"ROBOFLOW_API_KEY":"dummy_mock_key_no_real_auth"}):
