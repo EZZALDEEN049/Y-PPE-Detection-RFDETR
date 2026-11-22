@@ -1,5 +1,19 @@
 # Y-PPE Detection Research Repository
 
+
+## Y-PPE thesis-to-Q1 reassessment — 22 November 2026
+
+**Current progress estimate: 47%** toward a defensible Q1 empirical submission (weighted milestone estimate, not a publication probability). The master proposal is at v3.5.0 in the research project workspace. Q14 Option D is conditionally approved; Q15 Option C is approved and partially executed. Roboflow metadata confirms both the YOLOv11m and RF-DETR Small model tracks and ready dataset exports, but exact split identity, checkpoint access/exposure, and paired predictions are not yet verified. **E1/E2 are not passed; the empirical Q1 publication gate remains NO-GO.**
+
+- [Y-PPE Q1 progress hub](research/y-ppe-q1/README.md)
+- [Progress checkpoint and weighted 47% estimate](research/y-ppe-q1/PROGRESS_CHECKPOINT_2026-11-22.md)
+- [Q1–Q15 decision register](research/y-ppe-q1/DECISION_REGISTER_Q1_Q15.md)
+- [Roboflow and SEER-PPE evidence audit](research/y-ppe-q1/ROBOFLOW_SEER_EVIDENCE_AUDIT_2026-11-22.md)
+- [Updated YOLOv11m vs RF-DETR comparison protocol](docs/comparison_protocol.md)
+
+This Q1 reassessment track is separate from the SRAC-PPE and SEER-PPE research tracks below. Reused evidence is scope-limited; no result is transferred between tracks without exact source/version identity.
+
+
 > **Latest research — V27–V29; working manuscript v0.27 (22 November 2026):** [read the complete working paper](research/seer-ppe/MANUSCRIPT_MASTER.md) · [V27–V29 actual perturbation/timing report](research/seer-ppe/V27_V29_ACTUAL_XAI_AND_PERFORMANCE_REPORT_2026-11-22.md) · [latest checkpoint](research/seer-ppe/DUAL_TRACK_CHECKPOINT_2026-11-22_V29.md) · [editable Word v0.27](research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.27_2026-11-22.docx) (export requested; verify CI before use).
 
 > **V27:** 10 frozen target detections, 27 original-model passes, 9/10 target detections lost after Gaussian box blur; mean target drop 0.622325 vs control drop 0.008304. A5/A6 each used eight slots; no worker-safety superiority claim.
