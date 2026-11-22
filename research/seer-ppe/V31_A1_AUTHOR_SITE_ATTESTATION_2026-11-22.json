@@ -1,0 +1,64 @@
+{
+  "schema_version": "seer-ppe/v31-a1-author-site-attestation/v0.31a1",
+  "date": "2026-11-22",
+  "status": "AUTHOR_CHAT_ATTESTATION_RECORDED; SHARED_SITE_OVERLAP_CONFIRMED; BOTH_VALID_HARD_HOLDS_RETAINED",
+  "attestation_scope": "SITE_PROJECT_FAMILY_ONLY; NOT_SAME_FRAME_OR_CAPTURE_SESSION",
+  "verdict": "SHARED_CAPTURE_SESSION_OR_SITE",
+  "site_family_id": "site_school_22may_aseefrah",
+  "site_name_ar": "مدرسة 22 مايو – عصيفرة",
+  "reviewer_id": "dataset_author_chat_attestation",
+  "signed_date": "2026-11-22",
+  "response_verbatim": "نعم",
+  "evidence_ref": "evidence/AUTHOR_CHAT_ATTESTATION_SCHOOL_22_MAY_ASEEFRAH_2026-11-22.md",
+  "evidence_sha256": "326c7ad0347a86822768e4f1703045248247bc3014cd5ccb139148332cc07605",
+  "valid_members": [
+    {
+      "source_id": "0De0PEUDyeg9v1J3T6zr",
+      "original_filename": "IMG-20250416-WA0063.jpg",
+      "clean17_filename": "IMG-20250416-WA0063_jpg.rf.3b768e4170378e1d7b62499761f4c4d4.jpg",
+      "prior_bucket": "RETAIN_PREEXISTING_RESEARCH_HOLD",
+      "decision_status": "HARD_HOLD_STILL_BLOCKED"
+    },
+    {
+      "source_id": "NZu6Faj6evgINF1qFE0V",
+      "original_filename": "IMG-20250416-WA0051.jpg",
+      "clean17_filename": "IMG-20250416-WA0051_jpg.rf.bfde57b430ef46710f9d86cc5169e124.jpg",
+      "prior_bucket": "RETAIN_PREEXISTING_RESEARCH_HOLD",
+      "decision_status": "HARD_HOLD_STILL_BLOCKED"
+    }
+  ],
+  "train_members": [
+    {
+      "source_id": "KrfW3xD7Vvxy6r6wISkv",
+      "original_filename": "IMG-20250416-WA0067.jpg"
+    },
+    {
+      "source_id": "H1KOFc0NQZnWRHJNcHPc",
+      "original_filename": "IMG-20250416-WA0066(1).jpg"
+    }
+  ],
+  "author_scope": {
+    "confirms_same_project_site": true,
+    "permits_different_angles_or_times": true,
+    "same_original_frame_asserted": false,
+    "same_capture_session_asserted": false,
+    "capture_session_id": null,
+    "original_images_reopened_during_this_followup": false
+  },
+  "consequences": {
+    "shared_site_cross_split": true,
+    "valid_members_excluded_from_site_independent_scoring": true,
+    "prior_holds_released": 0,
+    "independent_source_attestations": 0,
+    "independent_source_eligible_valid_images": 0,
+    "worker_safety_scoring_ready": false,
+    "train_or_valid_split_changed": false,
+    "original_data_or_annotations_modified": false,
+    "roboflow_modified": false,
+    "model_inference_calls": 0,
+    "retraining": false,
+    "test_accessed": false
+  },
+  "integrity_note": "The SHA-256 pins the in-repository transcription of the direct chat response. It does not independently authenticate the author's identity or prove the truth of the statement.",
+  "next_step": "Continue with the other 9 P0 source-family cases; preserve both School 22 May Valid hard holds."
+}
