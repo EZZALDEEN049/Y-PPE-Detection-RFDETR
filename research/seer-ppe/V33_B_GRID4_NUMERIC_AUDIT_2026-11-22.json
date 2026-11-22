@@ -1,0 +1,441 @@
+{
+  "schema_version": "seer-ppe/v33b-grid4-independent-numeric-audit/v0.33b",
+  "status": "PASSED",
+  "audit_run_id": 45020503717,
+  "experiment_run_id": 45019831430,
+  "preflight_run_id": 45019722753,
+  "model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "grid": {
+    "rows": 4,
+    "cols": 4,
+    "fill_rgb": [
+      127,
+      127,
+      127
+    ],
+    "step_percent": 10
+  },
+  "source_population": {
+    "images": 8,
+    "train": 4,
+    "valid": 4,
+    "targets": 10
+  },
+  "call_accounting": {
+    "maximum": 496,
+    "attempted": 496,
+    "successful": 496,
+    "failed": 0,
+    "phase_counts": {
+      "gaussian_blur_endpoint": 8,
+      "grid4_single_cell_occlusion": 128,
+      "curve_intermediate": 360
+    },
+    "curve_contexts": 40,
+    "intermediate_calls_per_curve": 9,
+    "ledger_indices_contiguous": true,
+    "automatic_retries": false
+  },
+  "source_hash_audit": {
+    "matched_to_v30_bundle": 8,
+    "independent_source_hashes_available": false
+  },
+  "map_status": {
+    "rankable_4x4": 10,
+    "same_categorical_status_as_8x8": 10,
+    "warning": "Categorical rankability agreement is not a spatial saliency-map rank-correlation measure."
+  },
+  "curves": {
+    "saliency_deletion": {
+      "curves": 10,
+      "valid_auc": 9,
+      "null_auc": 1
+    },
+    "saliency_insertion": {
+      "curves": 10,
+      "valid_auc": 10,
+      "null_auc": 0
+    },
+    "random_deletion": {
+      "curves": 10,
+      "valid_auc": 10,
+      "null_auc": 0
+    },
+    "random_insertion": {
+      "curves": 10,
+      "valid_auc": 10,
+      "null_auc": 0
+    }
+  },
+  "auc_recomputation": {
+    "valid_auc_count": 39,
+    "total_curve_count": 40,
+    "max_absolute_error": 2.220446049250313e-16,
+    "ambiguous_points_not_imputed": [
+      {
+        "target_id": "181c2d93-bac0-4cfe-8613-9c4e66ecc4fc",
+        "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+        "target_class": "Safety Boots",
+        "ordering": "saliency",
+        "direction": "deletion",
+        "points": [
+          {
+            "direction": "deletion",
+            "ordering": "saliency",
+            "requested_fraction": 0.2,
+            "modified_fraction": 0.18743078626799556,
+            "target_confidence": null,
+            "normalized_score": null,
+            "match_status": "AMBIGUOUS",
+            "matched_iou": 0.5194739504299444
+          }
+        ]
+      }
+    ]
+  },
+  "saliency_vs_single_random": {
+    "deletion": {
+      "n": 9,
+      "mean": 0.16291461200845514,
+      "median": 0.018301122392974545,
+      "min": -0.062499542073115366,
+      "max": 0.7111137397451692,
+      "positive": 8,
+      "negative": 1,
+      "zero": 0,
+      "favorable_saliency_targets": 8,
+      "unfavorable_saliency_targets": 1,
+      "unscored_targets": 1,
+      "absolute_margin_below_0_01": 3,
+      "margin_above_0_05": 4,
+      "definition": "random minus saliency"
+    },
+    "insertion": {
+      "n": 10,
+      "mean": 0.22904539970989973,
+      "median": 0.1564178934765561,
+      "min": 0.0018381691941635747,
+      "max": 0.8750915750915751,
+      "positive": 10,
+      "negative": 0,
+      "zero": 0,
+      "favorable_saliency_targets": 10,
+      "unfavorable_saliency_targets": 0,
+      "unscored_targets": 0,
+      "absolute_margin_below_0_01": 1,
+      "margin_above_0_05": 8,
+      "definition": "saliency minus random"
+    }
+  },
+  "paired_grid_resolution_deltas": {
+    "saliency_deletion_auc_4x4_minus_8x8": {
+      "n": 9,
+      "mean": -0.021799034511464237,
+      "median": 0.013040094995225626,
+      "min": -0.45443304810677027,
+      "max": 0.2988683652859312,
+      "positive": 5,
+      "negative": 4,
+      "zero": 0
+    },
+    "saliency_insertion_auc_4x4_minus_8x8": {
+      "n": 10,
+      "mean": -0.017560107999175307,
+      "median": -0.0013648994264544023,
+      "min": -0.19228830156555532,
+      "max": 0.03980123379365197,
+      "positive": 4,
+      "negative": 6,
+      "zero": 0
+    },
+    "random_deletion_auc_4x4_minus_8x8": {
+      "n": 10,
+      "mean": -0.013424413461430806,
+      "median": 0.007614336881155842,
+      "min": -0.38956104109444023,
+      "max": 0.18878030882123886,
+      "positive": 5,
+      "negative": 5,
+      "zero": 0
+    },
+    "random_insertion_auc_4x4_minus_8x8": {
+      "n": 10,
+      "mean": -0.11198240368868237,
+      "median": -0.08025605260242186,
+      "min": -0.4997511816942838,
+      "max": 0.19254368067430627,
+      "positive": 1,
+      "negative": 9,
+      "zero": 0
+    }
+  },
+  "saliency_advantage_sign_agreement_4x4_vs_8x8": {
+    "deletion": {
+      "same_direction": 6,
+      "changed_direction": 3,
+      "not_comparable": 1
+    },
+    "insertion": {
+      "same_direction": 9,
+      "changed_direction": 1,
+      "not_comparable": 0
+    }
+  },
+  "A5_A6_overlap": {
+    "shared_target_count": 6,
+    "a5_unique_targets": [
+      {
+        "target_id": "35e4de96-de91-46a1-910f-89738f80e053",
+        "image_key": "train:C",
+        "target_class": "No Safety Boots"
+      },
+      {
+        "target_id": "5d2a56b6-4b76-4206-afd0-51e1e4c28d8e",
+        "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+        "target_class": "No Face Mask"
+      }
+    ],
+    "a6_unique_targets": [
+      {
+        "target_id": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+        "image_key": "train:C",
+        "target_class": "Face Masks"
+      },
+      {
+        "target_id": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+        "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+        "target_class": "Safety Vests"
+      }
+    ],
+    "shared_saliency_deletion_auc": {
+      "n": 5,
+      "mean": 0.4937730094692466
+    },
+    "shared_saliency_insertion_auc": {
+      "n": 6,
+      "mean": 0.9120885775729382
+    },
+    "arm_summary_as_recorded": {
+      "A5": {
+        "selected_target_count": 8,
+        "shared_target_count": 6,
+        "unique_target_count": 2,
+        "curve_complete_target_count": 7,
+        "saliency_deletion_auc_mean": 0.4875286088322904,
+        "saliency_insertion_auc_mean": 0.9220475481488636,
+        "random_deletion_auc_mean": 0.6770416308923413,
+        "random_insertion_auc_mean": 0.6720454535872565
+      },
+      "A6": {
+        "selected_target_count": 8,
+        "shared_target_count": 6,
+        "unique_target_count": 2,
+        "curve_complete_target_count": 7,
+        "saliency_deletion_auc_mean": 0.4151038296460682,
+        "saliency_insertion_auc_mean": 0.848435146456272,
+        "random_deletion_auc_mean": 0.6035698660461356,
+        "random_insertion_auc_mean": 0.6798049166373301
+      }
+    },
+    "policy_superiority_claim_supported": false
+  },
+  "per_target": [
+    {
+      "target_id": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+      "image_key": "train:A",
+      "target_class": "No Face Mask",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "map_status_4x4": "RANKABLE",
+      "map_status_8x8": "RANKABLE",
+      "saliency_deletion_auc_4x4": 0.8983848026653181,
+      "saliency_deletion_auc_8x8": 0.951079008494675,
+      "saliency_insertion_auc_4x4": 0.976894974435951,
+      "saliency_insertion_auc_8x8": 0.9912903171132185,
+      "random_deletion_auc_4x4": 0.9691336776768953,
+      "random_insertion_auc_4x4": 0.8843034964627519,
+      "saliency_favorable_vs_random_deletion": true,
+      "saliency_favorable_vs_random_insertion": true
+    },
+    {
+      "target_id": "1b2af685-6965-4986-9d35-258b036e5882",
+      "image_key": "train:B",
+      "target_class": "Gloves",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "map_status_4x4": "RANKABLE",
+      "map_status_8x8": "RANKABLE",
+      "saliency_deletion_auc_4x4": 0.0625,
+      "saliency_deletion_auc_8x8": 0.046715151515151515,
+      "saliency_insertion_auc_4x4": 0.6545515132903351,
+      "saliency_insertion_auc_8x8": 0.8468398148558904,
+      "random_deletion_auc_4x4": 0.4120572058177797,
+      "random_insertion_auc_4x4": 0.22577552079672464,
+      "saliency_favorable_vs_random_deletion": true,
+      "saliency_favorable_vs_random_insertion": true
+    },
+    {
+      "target_id": "35e4de96-de91-46a1-910f-89738f80e053",
+      "image_key": "train:C",
+      "target_class": "No Safety Boots",
+      "arms": [
+        "A5"
+      ],
+      "map_status_4x4": "RANKABLE",
+      "map_status_8x8": "RANKABLE",
+      "saliency_deletion_auc_4x4": 0.062454212454212454,
+      "saliency_deletion_auc_8x8": 0.046886446886446886,
+      "saliency_insertion_auc_4x4": 0.9375457875457875,
+      "saliency_insertion_auc_8x8": 0.9307863934490398,
+      "random_deletion_auc_4x4": 0.06254578754578755,
+      "random_insertion_auc_4x4": 0.062454212454212454,
+      "saliency_favorable_vs_random_deletion": true,
+      "saliency_favorable_vs_random_insertion": true
+    },
+    {
+      "target_id": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+      "image_key": "train:C",
+      "target_class": "Face Masks",
+      "arms": [
+        "A6"
+      ],
+      "map_status_4x4": "RANKABLE",
+      "map_status_8x8": "RANKABLE",
+      "saliency_deletion_auc_4x4": 0.062454212454212454,
+      "saliency_deletion_auc_8x8": 0.04684065934065934,
+      "saliency_insertion_auc_4x4": 0.4565025654681751,
+      "saliency_insertion_auc_8x8": 0.43188490219390385,
+      "random_deletion_auc_4x4": 0.06254578754578755,
+      "random_insertion_auc_4x4": 0.23625825648826196,
+      "saliency_favorable_vs_random_deletion": true,
+      "saliency_favorable_vs_random_insertion": true
+    },
+    {
+      "target_id": "7a101411-15e7-457a-842a-0e61be4f1f11",
+      "image_key": "train:D",
+      "target_class": "Hard Hat",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "map_status_4x4": "RANKABLE",
+      "map_status_8x8": "RANKABLE",
+      "saliency_deletion_auc_4x4": 0.9967201053994342,
+      "saliency_deletion_auc_8x8": 0.9969452043637402,
+      "saliency_insertion_auc_4x4": 0.9988445224891525,
+      "saliency_insertion_auc_8x8": 0.9990761691252433,
+      "random_deletion_auc_4x4": 0.9985469854710247,
+      "random_insertion_auc_4x4": 0.9970063532949889,
+      "saliency_favorable_vs_random_deletion": true,
+      "saliency_favorable_vs_random_insertion": true
+    },
+    {
+      "target_id": "e67b5082-bdc0-4143-8a98-9dd8524f868d",
+      "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+      "target_class": "No Gloves",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "map_status_4x4": "RANKABLE",
+      "map_status_8x8": "RANKABLE",
+      "saliency_deletion_auc_4x4": 0.2225360331945876,
+      "saliency_deletion_auc_8x8": 0.27024961834465655,
+      "saliency_insertion_auc_4x4": 0.9882540943562033,
+      "saliency_insertion_auc_8x8": 0.9907522465730212,
+      "random_deletion_auc_4x4": 0.9336497729397568,
+      "random_insertion_auc_4x4": 0.9529800361733989,
+      "saliency_favorable_vs_random_deletion": true,
+      "saliency_favorable_vs_random_insertion": true
+    },
+    {
+      "target_id": "181c2d93-bac0-4cfe-8613-9c4e66ecc4fc",
+      "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+      "target_class": "Safety Boots",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "map_status_4x4": "RANKABLE",
+      "map_status_8x8": "RANKABLE",
+      "saliency_deletion_auc_4x4": null,
+      "saliency_deletion_auc_8x8": 0.046926910299003324,
+      "saliency_insertion_auc_4x4": 0.9363799439544714,
+      "saliency_insertion_auc_8x8": 0.9516922625743391,
+      "random_deletion_auc_4x4": 0.4749933102550613,
+      "random_insertion_auc_4x4": 0.6921345415774163,
+      "saliency_favorable_vs_random_deletion": null,
+      "saliency_favorable_vs_random_insertion": true
+    },
+    {
+      "target_id": "5d2a56b6-4b76-4206-afd0-51e1e4c28d8e",
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "target_class": "No Face Mask",
+      "arms": [
+        "A5"
+      ],
+      "map_status_4x4": "RANKABLE",
+      "map_status_8x8": "RANKABLE",
+      "saliency_deletion_auc_4x4": 0.8813810020255861,
+      "saliency_deletion_auc_8x8": 0.8683409070303605,
+      "saliency_insertion_auc_4x4": 0.9663031322074915,
+      "saliency_insertion_auc_8x8": 0.9653164195355508,
+      "random_deletion_auc_4x4": 0.8996821244185607,
+      "random_insertion_auc_4x4": 0.8999825487516049,
+      "saliency_favorable_vs_random_deletion": true,
+      "saliency_favorable_vs_random_insertion": true
+    },
+    {
+      "target_id": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "target_class": "Safety Vests",
+      "arms": [
+        "A6"
+      ],
+      "map_status_4x4": "RANKABLE",
+      "map_status_8x8": "RANKABLE",
+      "saliency_deletion_auc_4x4": 0.3744075477220309,
+      "saliency_deletion_auc_8x8": 0.07553918243609967,
+      "saliency_insertion_auc_4x4": 0.8584471407443719,
+      "saliency_insertion_auc_8x8": 0.8814874628571373,
+      "random_deletion_auc_4x4": 0.3119080056489155,
+      "random_insertion_auc_4x4": 0.7882542091181445,
+      "saliency_favorable_vs_random_deletion": false,
+      "saliency_favorable_vs_random_insertion": true
+    },
+    {
+      "target_id": "8bdb1086-0226-4293-b70c-3a44efd763c5",
+      "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+      "target_class": "No Safety Boots",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "map_status_4x4": "RANKABLE",
+      "map_status_8x8": "RANKABLE",
+      "saliency_deletion_auc_4x4": 0.28872410608689353,
+      "saliency_deletion_auc_8x8": 0.7431571541936638,
+      "saliency_insertion_auc_4x4": 0.9176064169115163,
+      "saliency_insertion_auc_8x8": 0.8778051831178644,
+      "random_deletion_auc_4x4": 0.6657241830138639,
+      "random_insertion_auc_4x4": 0.6617269191869539,
+      "saliency_favorable_vs_random_deletion": true,
+      "saliency_favorable_vs_random_insertion": true
+    }
+  ],
+  "interpretation_boundary": "Descriptive within-target resolution robustness on eight development-exposed images; not causal faithfulness, independent generalization, a randomized test, worker compliance, or evidence of A5/A6 policy superiority.",
+  "guardrails": {
+    "no_test_accessed": true,
+    "no_retraining": true,
+    "original_images_annotations_splits_unchanged": true,
+    "source_independence_verified": false,
+    "worker_compliance_measured": false,
+    "worker_safety_scoring_ready": false,
+    "causal_faithfulness_proven": false,
+    "claims_are_descriptive_only": true
+  }
+}
