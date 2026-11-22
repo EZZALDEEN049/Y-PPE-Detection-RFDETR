@@ -197,7 +197,7 @@ This checkpoint does not claim:
 The uploaded 13-page first manuscript draft v0.1 was inspected and reviewed against master proposal v3.5.0, Q15 evidence, the supplied prior papers, and targeted publisher-level literature records.
 
 **Artifacts produced in the conversation**
-- Revised working manuscript: `Y_PPE_Q1_First_Manuscript_Draft_v0.2.docx` (approximately 5,700 words; 7 tables).
+- Revised working manuscript: `Y_PPE_Q1_First_Manuscript_Draft_v0.2.docx` (approximately 6,355 words including tables; 7 tables).
 - Internal review report: `Y_PPE_v0.1_Internal_Peer_Review_Report.docx`.
 - Repository review record: `MANUSCRIPT_PEER_REVIEW_v0.1_2026-11-22.md`.
 - Repository revision log: `MANUSCRIPT_REVISION_LOG_v0.2_2026-11-22.md`.
