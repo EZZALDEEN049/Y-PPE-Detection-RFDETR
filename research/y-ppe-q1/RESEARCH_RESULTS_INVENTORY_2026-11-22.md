@@ -73,4 +73,4 @@ The executable audit scripts, configuration, and workflow are in the same `stage
 
 ## 8. Entry point
 
-Start with `README.md` and then open `SESSION_HANDOFF_2026-11-22_v0.4.md`. This inventory is the complete repository map as verified on 22 November 2026.
+Start with `README.md` and then open `SESSION_HANDOFF_2026-11-22_v0.5.md`. Use `SESSION_HANDOFF_2026-11-22_v0.4.md` for the detailed E1/E2 evidence record. This inventory is the complete repository map as verified on 22 November 2026.
