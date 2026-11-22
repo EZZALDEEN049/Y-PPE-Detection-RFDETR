@@ -71,3 +71,43 @@ jobs:
                   print('ROBOFLOW_BILLING_PROBE_'+kind.upper()+': READ_FAILED',type(exc).__name__)
           print('ROBOFLOW_BILLING_PROBE_COMPLETE; NO ACCOUNT VALUES, SECRETS, OR MODEL CALLS LOGGED')
           PY
+      - name: Read-only standard serverless usage check and plan over-quota flag
+        env:
+          ROBOFLOW_API_KEY: ${{ secrets.ROBOFLOW_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os
+          import contextlib
+          import io
+          from urllib.parse import urlencode
+          from urllib.request import Request, urlopen
+          from urllib.error import HTTPError, URLError
+          key=os.environ.get('ROBOFLOW_API_KEY')
+          if not key:
+              print('RF_BILLING_QUOTA_CHECK_SECRET: UNAVAILABLE')
+              raise SystemExit(0)
+          try:
+              from roboflow.adapters import rfapi
+              with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+                  p=rfapi.get_plan_info(key)
+              flag=p.get('over_quota')
+              print('RF_BILLING_QUOTA_CHECK_OVER_QUOTA:',str(flag) if isinstance(flag,bool) else 'UNKNOWN')
+          except Exception as e:
+              print('RF_BILLING_QUOTA_CHECK_PLAN: FAILED',type(e).__name__)
+          url='https://api.roboflow.com/serverless/usage-check?'+urlencode({'api_key':key,'nocache':'true'})
+          try:
+              with urlopen(Request(url, headers={'User-Agent':'SEER-PPE-V38B-ReadOnly-Billing/1.0'}),timeout=30) as response:
+                  status=response.status
+                  import json
+                  payload=json.loads(response.read(50000))
+              under_cap=payload.get('underCap')
+              print('RF_BILLING_SERVERLESS_USAGE_CHECK_HTTP:',status)
+              print('RF_BILLING_SERVERLESS_UNDER_CAP:',str(under_cap) if isinstance(under_cap,bool) else 'UNKNOWN')
+          except HTTPError as e:
+              print('RF_BILLING_SERVERLESS_USAGE_CHECK_HTTP:',e.code)
+              print('RF_BILLING_SERVERLESS_UNDER_CAP: UNKNOWN')
+          except Exception as e:
+              print('RF_BILLING_SERVERLESS_USAGE_CHECK: FAILED',type(e).__name__)
+          print('WARNING: THESE QUOTA FLAGS DO NOT STATE AVAILABLE CREDIT BALANCE, FLEX BILLING CONFIGURATION, OR AFFORDABILITY OF 6000 CALLS')
+          print('NO MODEL INFERENCE EXECUTED')
+          PY
