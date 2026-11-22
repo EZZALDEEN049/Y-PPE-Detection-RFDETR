@@ -1,0 +1,317 @@
+{
+  "schema_version": "seer-ppe/v35a-read-only-numeric-reconciliation/v0.35a",
+  "audit_date": "2026-11-22",
+  "audit_scope": "V26 through V34-B; numerical and artifact cross-check against committed primary ledgers and current MANUSCRIPT_MASTER.md",
+  "overall_status": "PASS_WITH_METADATA_AND_ARTIFACT_WARNINGS",
+  "numeric_status": "PASS",
+  "execution_constraints": {
+    "new_model_inference_calls": 0,
+    "retraining": false,
+    "test_split_accessed": false,
+    "original_images_modified": false,
+    "original_annotations_modified": false,
+    "dataset_splits_modified": false
+  },
+  "source_git_blob_shas": {
+    "V26_VALID_CURRENT_SOURCE_459_NUMERIC_SUMMARY.json": "662689a45f7276e8a48284175f9fc14dd207cee5",
+    "ACTUAL_CURRENT_SOURCE_ORIGINAL_VALID_459_CLASS_BBOX_METRICS_V26.json": "5602a8652ff988be0d510cf1215b399702551efb",
+    "V27_ACTUAL_TARGETED_OCCLUSION_RESULTS_2026-11-22.json": "efcb19a05dfb57470ea2ff1774f40b55fb8b29b6",
+    "V27_A5_A6_COMPARISON_2026-11-22.json": "b45590dbef0e789eb31051de02835a8af6cbc7f8",
+    "V28_ACTUAL_TARGET_BOX_DELETION_INSERTION_RESULTS_2026-11-22.json": "41dcc5fd884e586055bc318103845fad78ecf226",
+    "V28_A5_A6_DELETION_INSERTION_COMPARISON_2026-11-22.json": "ce11098b4532e2c01656cd58a61450750535800b",
+    "V29_ACTUAL_HOSTED_INFERENCE_TIMING_RESULTS_2026-11-22.json": "49895bd1e106dc232c54ef8c7ce627d7c330f65a",
+    "V30_ACTUAL_PROGRESSIVE_XAI_RESULTS_2026-11-22.json": "729088f829bcdddcfbc4df5483be88399cccf605",
+    "V30_INDEPENDENT_NUMERIC_AUDIT_2026-11-22.json": "b15be14837a7ea0dbdfac8d22801918964325f57",
+    "V33_A5_A6_NUMERIC_ROBUSTNESS_2026-11-22.json": "a3fd361a3d531c2765a4234fe22c593352e40d53",
+    "V33_B_GRID4_ACTUAL_RESULTS_2026-11-22.json": "31d4523d5fd434dc43610ad00cf9ab3339a9910f",
+    "V33_B_GRID4_NUMERIC_AUDIT_2026-11-22.json": "535f963f2f7c5e66ebda90fa5841fb13405b50b2",
+    "V34A_SPATIAL_MAP_ALIGNMENT_RANK_CORRELATION_2026-11-22.json": "0b1ce69853b275baafe9e0abc1474a29dbd84b69",
+    "V34B_FIGURES_MANIFEST_2026-11-22.json": "ae20ff86694f099524a82c63fd2741305e7bb6ae",
+    "MANUSCRIPT_MASTER.md": "3d5098461e907f6a1e84691aa2f49d2e8863a33e"
+  },
+  "checks": {
+    "V26": {
+      "status": "PASS",
+      "full_detail_sha256_expected": "4f350874a049019fc26c9970576f33208f10805868ae2d616daac676b60bb76d",
+      "full_detail_sha256_recomputed": "4f350874a049019fc26c9970576f33208f10805868ae2d616daac676b60bb76d",
+      "sha256_match": true,
+      "source_rows": 459,
+      "unique_source_ids": 459,
+      "all_rows_valid_split": true,
+      "development_exposed_rows": 459,
+      "prior_V23_exposed_rows": 5,
+      "independently_verified_source_rows": 0,
+      "cohorts": {
+        "M0": {
+          "images": 459,
+          "GT": 3471,
+          "predictions": 4103,
+          "assisted_GT": 729,
+          "TP": 3297,
+          "FP": 806,
+          "FN": 174,
+          "precision": 0.803558,
+          "recall": 0.94987,
+          "F1": 0.87061,
+          "per_class_count": 17,
+          "missing_source_ids": 0
+        },
+        "M1": {
+          "images": 448,
+          "GT": 3433,
+          "predictions": 4063,
+          "assisted_GT": 725,
+          "TP": 3261,
+          "FP": 802,
+          "FN": 172,
+          "precision": 0.802609,
+          "recall": 0.949898,
+          "F1": 0.870064,
+          "per_class_count": 17,
+          "missing_source_ids": 0
+        },
+        "M2": {
+          "images": 367,
+          "GT": 3049,
+          "predictions": 3618,
+          "assisted_GT": 655,
+          "TP": 2894,
+          "FP": 724,
+          "FN": 155,
+          "precision": 0.799889,
+          "recall": 0.949164,
+          "F1": 0.868157,
+          "per_class_count": 17,
+          "missing_source_ids": 0
+        }
+      },
+      "per_source_aggregate_matches_M0": true,
+      "all_17_class_rows_match_compact_summary": true,
+      "max_precision_recall_f1_formula_error": 4.416804865e-7,
+      "sensitivities": {
+        "remove_13_historical_current_GT_count_mismatch_images": {
+          "images": 446,
+          "GT": 3152,
+          "predictions": 3680,
+          "TP": 3022,
+          "FP": 658,
+          "FN": 130,
+          "F1": 0.88466
+        },
+        "remove_5_V23_pilot_images_from_M0": {
+          "images": 454,
+          "GT": 3448,
+          "predictions": 4080,
+          "TP": 3275,
+          "FP": 805,
+          "FN": 173,
+          "F1": 0.870085
+        },
+        "remove_5_V23_pilot_images_from_M2": {
+          "images": 362,
+          "GT": 3026,
+          "predictions": 3595,
+          "TP": 2872,
+          "FP": 723,
+          "FN": 154,
+          "F1": 0.867543
+        }
+      },
+      "manuscript_cohort_and_17_class_tables_match": true
+    },
+    "V27": {
+      "status": "NUMERIC_PASS_METADATA_WARNING",
+      "workflows_completed": 10,
+      "workflows_errored": 0,
+      "model_calls": 27,
+      "target_detections_lost": 9,
+      "target_count": 10,
+      "mean_target_confidence_drop": 0.6223251983523369,
+      "mean_control_confidence_drop": 0.00830356138093131,
+      "mean_specificity_margin": 0.6160053121192115,
+      "A5_A6_slots_each": 8,
+      "shared_targets": 6,
+      "A5_mean_target_drop": 0.641018,
+      "A6_mean_target_drop": 0.621806,
+      "timestamp": {
+        "started_at_utc": "2026-11-22T00:29:00Z",
+        "finished_at_utc": "2026-11-21T21:35:46.679Z",
+        "chronological_order_valid": false,
+        "freeze_spec_commit_utc": "2026-11-21T21:25:03Z",
+        "result_file_commit_utc": "2026-11-21T21:35:48Z",
+        "interpretation": "The start timestamp is later than the finish timestamp. It may be a UTC+03 local clock value mislabeled as UTC; converting 00:29 local to UTC would imply 2026-11-21T21:29:00Z, but this inferred correction is not authoritative and the raw record was not edited."
+      }
+    },
+    "V28": {
+      "status": "PASS",
+      "archived_repeat_calls": 30,
+      "first_attempt_calls_without_persisted_outputs": 30,
+      "total_actual_calls": 60,
+      "deletion_lost": 10,
+      "insertion_retained": 7,
+      "mean_deletion_confidence_drop": 0.7167211517691612,
+      "mean_insertion_confidence": 0.6302999556064606,
+      "mean_insertion_confidence_delta": -0.08642119616270065,
+      "mean_insertion_sufficiency_ratio": 0.7045319399592492,
+      "first_attempt_outputs_used_in_analysis": 0
+    },
+    "V29": {
+      "status": "PASS",
+      "completed_calls": 10,
+      "mean_request_roundtrip_ms_recomputed": 1520.6,
+      "mean_request_roundtrip_ms_reported": 1520.6,
+      "median_request_roundtrip_ms_recomputed": 1469,
+      "median_request_roundtrip_ms_reported": 1469,
+      "min_ms": 1383,
+      "max_ms": 1835,
+      "provider_inference_time_available": false,
+      "interpretation": "Request round-trip only; not pure model latency."
+    },
+    "V27_to_V29": {
+      "status": "PASS",
+      "total_actual_model_calls": 97,
+      "archived_numeric_or_timing_records": 67,
+      "V28_unarchived_first_attempt_calls": 30
+    },
+    "V30": {
+      "status": "PASS",
+      "baseline_calls": 8,
+      "additional_calls": 1060,
+      "total_calls": 1068,
+      "unique_targets": 10,
+      "unique_source_images": 8,
+      "rankable_maps": 10,
+      "cell_trials": 640,
+      "lost_cell_outcomes": 26,
+      "progressive_curves": 60,
+      "valid_AUCs": 60,
+      "blocked_curves": 0,
+      "independent_audit_status": "PASS_NUMERIC_INTEGRITY_ONLY",
+      "independently_recomputed_max_AUC_absolute_error": 2.220446049250313e-16,
+      "map_trial_max_absolute_difference": 0,
+      "A5_A6": {
+        "slots_each": 8,
+        "shared_targets": 6,
+        "A5_saliency_deletion_AUC": 0.4962875501409622,
+        "A5_saliency_insertion_AUC": 0.9441948507930209,
+        "A6_saliency_deletion_AUC": 0.3971816111234561,
+        "A6_saliency_insertion_AUC": 0.8713535448013272
+      }
+    },
+    "V33_A": {
+      "status": "PASS",
+      "additional_model_calls": 0,
+      "source_V30_blob_matches": true,
+      "recomputed_AUC_count": 60,
+      "max_AUC_absolute_error": 2.220446049250313e-16,
+      "A5_A6_shared_targets": 6,
+      "saliency_favorable_targets": {
+        "deletion": 8,
+        "insertion": 9,
+        "total": 10
+      },
+      "conditional_balanced_reassignment": {
+        "deletion_tail_fraction": 0.6666666666666666,
+        "insertion_tail_fraction": 0.3333333333333333
+      },
+      "leave_one_image_out_insertion_advantage_sign_reversals": 1,
+      "interpretation": "Post-hoc descriptive composition and robustness diagnostics; not a policy superiority test."
+    },
+    "V33_B": {
+      "status": "PASS",
+      "source_images": 8,
+      "targets": 10,
+      "grid": "4x4",
+      "cell_trials": 160,
+      "lost_cell_outcomes": 17,
+      "calls_attempted": 496,
+      "calls_successful": 496,
+      "calls_failed": 0,
+      "curves": 40,
+      "valid_AUCs": 39,
+      "null_AUCs": 1,
+      "ambiguous_point_not_imputed": true,
+      "max_AUC_absolute_error": 2.220446049250313e-16,
+      "saliency_vs_random_sign_agreement": {
+        "deletion": "6/9 comparable",
+        "insertion": "9/10"
+      },
+      "A5_A6": {
+        "slots_each": 8,
+        "shared_targets": 6,
+        "A5_deletion_AUC_mean": 0.4875286088322904,
+        "A5_deletion_valid_n": 7,
+        "A5_insertion_AUC_mean": 0.9220475481488636,
+        "A5_insertion_valid_n": 8,
+        "A6_deletion_AUC_mean": 0.4151038296460682,
+        "A6_deletion_valid_n": 7,
+        "A6_insertion_AUC_mean": 0.848435146456272,
+        "A6_insertion_valid_n": 8
+      },
+      "shared_target_means": {
+        "saliency_deletion_AUC": 0.4937730094692466,
+        "valid_n": 5,
+        "saliency_insertion_AUC": 0.9120885775729382,
+        "valid_n_insertion": 6
+      },
+      "map_trial_max_absolute_difference": 0
+    },
+    "V34_A": {
+      "status": "PASS",
+      "targets": 10,
+      "unique_images": 8,
+      "spearman_rho_mean": 0.541565901847459,
+      "spearman_rho_median": 0.565645229411251,
+      "kendall_tau_b_mean": 0.4238764616398565,
+      "kendall_tau_b_median": 0.43839098923270936,
+      "top4_region_overlap_mean": 0.65,
+      "all_target_spearman_positive": true,
+      "zero_overlap_targets": 1,
+      "map_trial_max_absolute_difference": 0,
+      "area_partition_max_absolute_error": 6.938893903907228e-18,
+      "new_model_calls": 0
+    },
+    "V34_B": {
+      "status": "PASS_NUMERIC_FIGURE_RECONCILIATION",
+      "target_figures": 10,
+      "summary_figures": 1,
+      "multipage_pdf_pages_reported": 11,
+      "metrics_csv_present": true,
+      "provenance_manifest_present": true,
+      "report_present": true,
+      "all_10_manifest_target_metrics_match_V34A": true,
+      "max_spearman_difference": 0,
+      "max_kendall_difference": 0,
+      "top4_overlap_mismatches": 0,
+      "duplicate_output_tree": {
+        "root": "figures/V34B_2026-11-22/",
+        "nested": "figures/V34B_2026-11-22/V34B_2026-11-22/",
+        "file_count_each": 15,
+        "identical_git_blobs": 14,
+        "pdf_git_blobs_differ": true,
+        "root_pdf_blob": "90c9385329b840c96239f5a8a7b93d91c53a1470",
+        "nested_pdf_blob": "e89154a6f5f16a0df3dd8d0fe664d43c02245b67"
+      }
+    }
+  },
+  "warnings": [
+    {
+      "id": "V27_TIMESTAMP_ORDER",
+      "severity": "metadata",
+      "detail": "V27 started_at_utc is later than finished_at_utc. Git history places the frozen protocol at 21:25:03Z and the result commit at 21:35:48Z. The raw record should remain unchanged until a primary execution log or explicit timezone correction is available."
+    },
+    {
+      "id": "V34B_DUPLICATE_OUTPUT_TREE",
+      "severity": "artifact_organization",
+      "detail": "The V34-B output set is present in both the expected folder and a same-named nested folder. Fourteen of fifteen matching file blobs are identical; the two PDF blobs differ. Select one canonical PDF/output tree before figure insertion and remove or archive the duplicate in a separately documented cleanup."
+    }
+  ],
+  "limitations": [
+    "M0/M1/M2 are development-exposed current-author-reference cohorts; M2 is not an independently acquired test cohort.",
+    "V27–V30/V33-A/V33-B/V34-A/V34-B do not establish worker-level compliance, task-mandate correctness, actual human-review efficacy, causal/external explanation faithfulness, independent-site generalization, or physical energy savings.",
+    "V29 timing is request round-trip, not pure detector latency.",
+    "The 30 V28 first-attempt calls had no persisted numeric outputs and are excluded from the numeric analysis while retained in actual-call accounting.",
+    "The single V33-B ambiguous deletion AUC remains null and is not imputed."
+  ],
+  "next_stage": "V35-B — choose the canonical V34-B output tree/PDF, then integrate the ten target figures and summary figure into the manuscript with numbered captions and in-text references."
+}
