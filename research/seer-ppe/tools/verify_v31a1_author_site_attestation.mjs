@@ -22,11 +22,13 @@ function audit(evidence,overlay,priority,ready,record){
   assert.ok(evidence.includes('IMG-20250416-WA0067.jpg'));
   assert.ok(evidence.includes('IMG-20250416-WA0066(1).jpg'));
   assert.equal(overlay.schema_version,'seer-ppe/source-family-human-attestation-overlay/v0.15');
-  assert.equal(overlay.decisions.length,2);
-  assert.deepEqual(overlay.decisions.map(x=>x.source_id).sort(),validIds.slice().sort());
+  assert.equal(overlay.decisions.length,3);
+  const siteDecisions=overlay.decisions.filter(x=>validIds.includes(x.source_id));
+  assert.equal(siteDecisions.length,2);
+  assert.deepEqual(siteDecisions.map(x=>x.source_id).sort(),validIds.slice().sort());
   assert.equal(overlay.scoring_authorized,false);
   assert.equal(overlay.test_source_ids_used,false);
-  for(const d of overlay.decisions){
+  for(const d of siteDecisions){
     const p=priority.review_packets.find(x=>x.source_id===d.source_id);
     assert.ok(p);
     assert.equal(d.source_original_filename,p.original_valid_filename);
@@ -63,8 +65,9 @@ function audit(evidence,overlay,priority,ready,record){
   assert.equal(record.consequences.independent_source_eligible_valid_images,0);
   assert.equal(record.consequences.test_accessed,false);
   assert.equal(record.consequences.model_inference_calls,0);
-  assert.equal(ready.human_source_family_attestations,2);
+  assert.equal(ready.human_source_family_attestations,3);
   assert.equal(ready.shared_site_attested_valid_sources,2);
+  assert.equal(ready.shared_scene_processed_valid_sources,1);
   assert.equal(ready.independently_signed_source_family_verdicts,0);
   assert.equal(ready.independent_source_eligible_valid_images,0);
   assert.equal(ready.true_worker_safety_scoring_ready,false);
