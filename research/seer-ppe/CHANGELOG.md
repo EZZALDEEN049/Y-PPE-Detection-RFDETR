@@ -135,7 +135,7 @@
 - Added `.github/workflows/seer-ppe-v33b-authorized-once.yml`, an ephemeral cloud workflow that can only run after a separate authorization JSON is committed with the exact one-time authorization commit message.
 - The workflow downloads only the frozen eight Train/Valid originals, performs zero-call SHA/target preflight, checks `ROBOFLOW_API_KEY` without exposing it, and runs the separate 4x4 runner under the fixed 496-call cap.
 - A successful numeric result or a failed partial call ledger is archived to the research branch and blocks duplicate paid execution. Raw images and credentials are not committed or uploaded.
-- No authorization JSON has been created; the cloud workflow has not been triggered and V33-B remains unexecuted.
+- At this preauthorization handoff point, no authorization JSON had yet been created and V33-B had not yet executed; the later successful preflight, one-time authorization and completed run are recorded in the V33-B execution entry below.
 
 - Added `.github/workflows/seer-ppe-v33b-preflight.yml`, a separate no-secret/no-inference cloud preflight that validates the exact eight-image V30 bundle, ten targets and 496-call plan before any budget authorization.
 
@@ -150,3 +150,14 @@
 - Added [actual results JSON](V33_B_GRID4_ACTUAL_RESULTS_2026-11-22.json), [interpretive report](V33_B_GRID4_ACTUAL_RESULTS_REPORT_2026-11-22.md), [independent numeric audit JSON](V33_B_GRID4_NUMERIC_AUDIT_2026-11-22.json), and [read-only audit script](tools/audit_v33b_grid4_xai.py). [Engineering CI 45020503717](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45020503717) passed; maximum AUC recomputation error was 2.22×10⁻¹⁶.
 - Updated the canonical manuscript to **v0.34** with Methods 3.25, Results 4.26, Discussion 5.11 and Appendix V. The prospective protocol now records the completed execution and supersedes its earlier pre-run status statements.
 - No Test access, retraining, image/annotation/split changes, worker-compliance scoring, causal-faithfulness claim, human-review efficacy, energy measurement or A5/A6 superiority claim.
+
+
+## V34-A — offline spatial map alignment and rank correlation completed — 2026-11-22 (manuscript v0.35)
+
+- Aligned the ten frozen V30 8×8 and V33-B 4×4 signed gray-occlusion sensitivity maps by exact original-pixel bounds. Each coarse 4×4 region was matched to its four 8×8 child cells using the same floor-based pixel partition.
+- Primary comparison used signed score drop per exact cell-area fraction; the four fine-cell values were area-weighted into the coarse region. Negative values were retained. Spearman used average ranks for ties; Kendall tau-b used tie correction.
+- Results across ten targets: mean Spearman **0.5416** (median 0.5656; range 0.2295–0.6794), mean Kendall tau-b **0.4239** (median 0.4384; range 0.1514–0.5500). All ten target coefficients were positive. Mean top-four region overlap was **65%**; one Train C Face Masks target had zero top-four overlap (rho 0.230, tau-b 0.151).
+- Geometry/integrity: 10/10 target IDs matched; all 20 maps rankable; map/trial maximum difference zero; max 4×4/four-child area partition discrepancy 6.94e-18; no null cell scores. The 26 V30 and 17 V33-B LOST outcomes remained numeric under the frozen zero-score rule.
+- **Zero new model inference calls**, no Test access, no retraining, and no changes to images, annotations or splits. Results are descriptive only and do not establish causal faithfulness, external explanation truth, worker compliance, A5/A6 superiority or independent-site generalization.
+- Added [V34-A aligned-map JSON](V34A_SPATIAL_MAP_ALIGNMENT_RANK_CORRELATION_2026-11-22.json), [report](V34A_SPATIAL_MAP_ALIGNMENT_RANK_CORRELATION_REPORT_2026-11-22.md), [offline analyzer](tools/analyze_v34a_spatial_map_alignment.py) and [synthetic tests](tests/test_v34a_spatial_map_alignment.py). Engineering CI [45022078145](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45022078145) passed.
+- Updated canonical manuscript to **v0.35** with Methods 3.26, Results 4.27, Discussion 5.12 and Appendix W. The remaining paper work is paired heatmap figures, final numeric/reference reconciliation and editable Word export.
