@@ -1,0 +1,86 @@
+{
+  "schema_version": "seer-ppe/v32-image-level-detection-xai-scope/v0.32",
+  "date": "2026-11-22",
+  "author_selected_path": "PATH_1_IMAGE_LEVEL_PPE_DETECTION_AND_PERTURBATION_BASED_XAI_ONLY",
+  "canonical_manuscript": "MANUSCRIPT_MASTER.md",
+  "manuscript_version": "v0.32",
+  "protocol": "PROTOCOL_MASTER.md",
+  "protocol_version": "v0.8",
+  "in_scope": [
+    "image_level_17_class_PPE_object_detection",
+    "target_specific_black_box_perturbation_sensitivity",
+    "progressive_deletion_insertion_AUC",
+    "selective_detection_target_prioritization_under_matched_XAI_call_budgets",
+    "hosted_request_round_trip_and_actual_model_call_accounting"
+  ],
+  "primary_detection_cohort": {
+    "M0": 459,
+    "M1": 448,
+    "M2": 367,
+    "TP": 3297,
+    "FP": 806,
+    "FN": 174,
+    "micro_F1": 0.87061
+  },
+  "v27": {
+    "targets": 10,
+    "target_detections_lost": 9,
+    "mean_target_confidence_drop": 0.622325,
+    "mean_control_confidence_drop": 0.008304
+  },
+  "v28": {
+    "targets": 10,
+    "black_fill_deletions_lost": 10,
+    "target_only_insertions_retained": 7
+  },
+  "v29": {
+    "hosted_calls": 10,
+    "mean_request_round_trip_seconds": 1.5206,
+    "median_request_round_trip_seconds": 1.469,
+    "internal_model_latency_measured": false
+  },
+  "v30": {
+    "images": 8,
+    "targets": 10,
+    "model_calls": 1068,
+    "target_cell_outcomes": 640,
+    "progressive_curves": 60,
+    "auc_count": 60,
+    "A5_deletion_auc": 0.496288,
+    "A5_insertion_auc": 0.944195,
+    "A6_deletion_auc": 0.397182,
+    "A6_insertion_auc": 0.871354,
+    "shared_target_slots": 6,
+    "comparison_claim": "DESCRIPTIVE_ONLY_DEVELOPMENT_EXPOSED_OVERLAPPING_SAMPLE"
+  },
+  "out_of_scope": [
+    "worker_level_Person_PPE_gold",
+    "person_to_equipment_ownership_accuracy",
+    "task_site_PPE_mandates",
+    "worker_compliance_or_violation_labels",
+    "worker_false_clearance_or_safety_risk_reduction",
+    "actual_human_review_efficacy",
+    "acquisition_independent_or_external_site_generalization",
+    "process_memory_and_physical_Joules",
+    "causal_or_externally_grounded_explanation_faithfulness"
+  ],
+  "existing_person_ppe_pilot": "ARCHIVED_EXPLORATORY_ENGINEERING_ARTIFACT_ONLY; MISSING_CELLS_NOT_IMPUTED_OR_SCORED",
+  "source_overlap_controls": "PRESERVE_M0_M1_M2_AND_KNOWN_HOLDS; DO_NOT_CLAIM_SOURCE_INDEPENDENCE",
+  "immutable_constraints": {
+    "original_model_unchanged": true,
+    "images_labels_splits_unchanged": true,
+    "retraining": false,
+    "protected_test_tuning_or_access": false,
+    "repeat_full_corpus_review": false
+  },
+  "worker_safety_scoring_ready": false,
+  "worker_safety_gate_is_current_manuscript_blocker": false,
+  "next_work": [
+    "XAI perturbation robustness",
+    "expanded matched-budget A5/A6 target comparison",
+    "results and figures reconciliation",
+    "reference and editorial completion",
+    "editable Word export"
+  ],
+  "status": "AUTHOR_SCOPE_DECISION_RECORDED; MANUSCRIPT_AND_PROTOCOL_UPDATED"
+}
