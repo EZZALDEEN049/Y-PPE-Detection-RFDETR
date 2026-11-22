@@ -160,4 +160,16 @@
 - Geometry/integrity: 10/10 target IDs matched; all 20 maps rankable; map/trial maximum difference zero; max 4×4/four-child area partition discrepancy 6.94e-18; no null cell scores. The 26 V30 and 17 V33-B LOST outcomes remained numeric under the frozen zero-score rule.
 - **Zero new model inference calls**, no Test access, no retraining, and no changes to images, annotations or splits. Results are descriptive only and do not establish causal faithfulness, external explanation truth, worker compliance, A5/A6 superiority or independent-site generalization.
 - Added [V34-A aligned-map JSON](V34A_SPATIAL_MAP_ALIGNMENT_RANK_CORRELATION_2026-11-22.json), [report](V34A_SPATIAL_MAP_ALIGNMENT_RANK_CORRELATION_REPORT_2026-11-22.md), [offline analyzer](tools/analyze_v34a_spatial_map_alignment.py) and [synthetic tests](tests/test_v34a_spatial_map_alignment.py). Engineering CI [45022533089](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45022533089) passed.
-- Updated canonical manuscript to **v0.35** with Methods 3.26, Results 4.27, Discussion 5.12 and Appendix W. The remaining paper work is paired heatmap figures, final numeric/reference reconciliation and editable Word export.
+- Updated canonical manuscript to **v0.35** with Methods 3.26, Results 4.27, Discussion 5.12 and Appendix W. The remaining paper work is final numeric/reference reconciliation and editable Word export.
+
+
+## V34-B — data-derived scientific figures completed — 22 November 2026 (manuscript v0.36)
+
+- Generated ten paired 8×8/4×4 target heatmaps and one summary chart directly from the V34-A archived aligned maps; no synthetic/illustrative heatmap values were used.
+- Left panels reconstruct all 64 native 8×8 fine-cell signed score-drop densities. Right panels show the direct 4×4 map. Gold outlines show the four highest-ranked pooled 4×4 footprints (as 2×2 blocks on the fine map) and the four direct 4×4 regions.
+- One shared symmetric diverging scale centered at zero: **±15.470900859749108**, the 97.5th percentile of absolute values across 800 displayed cells. **17/800 (2.125%)** are saturated for display only; rank ordering and all metrics use un-clipped values.
+- Independently recomputed Spearman rho, Kendall tau-b, both top-four sets and overlap for all ten targets; all matched the V34-A archive. Two synthetic tests passed.
+- Aggregate values remain mean Spearman **0.5416**, mean Kendall tau-b **0.4239**, mean top-four overlap **65%**. Train C Face Masks remains lowest (rho 0.2295; tau-b 0.1514; overlap 0/4).
+- Outputs committed under [figures/V34B_2026-11-22/](figures/V34B_2026-11-22/): ten PNGs, summary PNG, 11-page PDF, CSV, JSON manifest and generation report. Reproducible [renderer](tools/render_v34b_scientific_figures.py) and [synthetic tests](tests/test_v34b_scientific_figures.py) are committed.
+- Engineering CI [45024788647](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45024788647) passed, including figure generation, artifact upload and commit of generated figure files to the research branch.
+- Zero new detector calls; no Test access, retraining, or dataset/annotation/split mutation. Updated manuscript to **v0.36** (Methods 3.27, Results 4.28, Discussion 5.13, Appendix X). Remaining paper work is final numeric/reference reconciliation and editable Word export.
