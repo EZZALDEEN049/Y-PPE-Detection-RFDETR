@@ -49,8 +49,17 @@
         "original_filename": "IMG-20250416-WA0063.jpg",
         "risk_bucket": "RETAIN_PREEXISTING_RESEARCH_HOLD",
         "currently_eligible_for_independent_scoring": false,
-        "human_source_family_attestation": "UNSIGNED",
-        "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
+        "human_source_family_attestation": "AUTHOR_ATTESTED_SHARED_SITE_WITH_TRAIN",
+        "action": "PRESERVE_HARD_HOLD; AUTHOR_CONFIRMED_SHARED_SITE_WITH_TRAIN; EXCLUDE_FROM_SITE_INDEPENDENT_VALIDATION",
+        "human_source_family_relationship_verdict": "SHARED_CAPTURE_SESSION_OR_SITE",
+        "human_acquisition_site_id": "site_school_22may_aseefrah",
+        "human_capture_session_id": null,
+        "human_source_family_id": "site_school_22may_aseefrah",
+        "human_train_source_family_overlap_verdict": "SHARED_SITE_FAMILY_WITH_TRAIN",
+        "human_reviewer_id": "dataset_author_chat_attestation",
+        "human_signed_date": "2026-11-22",
+        "human_source_evidence_file": "evidence/AUTHOR_CHAT_ATTESTATION_SCHOOL_22_MAY_ASEEFRAH_2026-11-22.md",
+        "human_evidence_sha256": "326c7ad0347a86822768e4f1703045248247bc3014cd5ccb139148332cc07605"
       },
       {
         "valid_source_id": "f8Lh7cHa3XXXsl88xpDt",
@@ -81,8 +90,17 @@
         "original_filename": "IMG-20250416-WA0051.jpg",
         "risk_bucket": "RETAIN_PREEXISTING_RESEARCH_HOLD",
         "currently_eligible_for_independent_scoring": false,
-        "human_source_family_attestation": "UNSIGNED",
-        "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
+        "human_source_family_attestation": "AUTHOR_ATTESTED_SHARED_SITE_WITH_TRAIN",
+        "action": "PRESERVE_HARD_HOLD; AUTHOR_CONFIRMED_SHARED_SITE_WITH_TRAIN; EXCLUDE_FROM_SITE_INDEPENDENT_VALIDATION",
+        "human_source_family_relationship_verdict": "SHARED_CAPTURE_SESSION_OR_SITE",
+        "human_acquisition_site_id": "site_school_22may_aseefrah",
+        "human_capture_session_id": null,
+        "human_source_family_id": "site_school_22may_aseefrah",
+        "human_train_source_family_overlap_verdict": "SHARED_SITE_FAMILY_WITH_TRAIN",
+        "human_reviewer_id": "dataset_author_chat_attestation",
+        "human_signed_date": "2026-11-22",
+        "human_source_evidence_file": "evidence/AUTHOR_CHAT_ATTESTATION_SCHOOL_22_MAY_ASEEFRAH_2026-11-22.md",
+        "human_evidence_sha256": "326c7ad0347a86822768e4f1703045248247bc3014cd5ccb139148332cc07605"
       },
       {
         "valid_source_id": "orMUSm4hS7KXI9Ew0jCz",
@@ -133,7 +151,7 @@
         "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
       }
     ],
-    "status": "UNSIGNED; EXISTING TECHNICAL EVIDENCE ONLY; NO RELEASE OR SCIENTIFIC SCORING"
+    "status": "2_OF_11_AUTHOR_ATTESTED_SHARED_SITE_WITH_TRAIN; 9_OF_11_PRIORITY_CASES_REMAIN_UNSIGNED_OR_UNRESOLVED; ALL_11_EXCLUDED_FROM_INDEPENDENT_SCORING"
   },
   "policy_decision_rules": {
     "image_quality_acceptance_does_not_prove_source_family_independence": true,
@@ -149,7 +167,7 @@
     {
       "id": "V31-A",
       "name": "Reconcile pre-existing 11 P0 source-family evidence packets and source-group identifiers",
-      "state": "11_OF_11_EXISTING_TECHNICAL_PACKETS_RECONCILED; HUMAN_ACQUISITION_AND_SOURCE_FAMILY_SIGNOFF_PENDING",
+      "state": "2_OF_11_AUTHOR_ATTESTED_SHARED_SITE_WITH_TRAIN; 9_OF_11_REMAIN_UNRESOLVED; ALL_5_HISTORICAL_HOLDS_AND_6_TECHNICAL_QUARANTINES_PRESERVED",
       "cannot_auto_sign": true
     },
     {
@@ -185,7 +203,7 @@
     "live": "research/seer-ppe/PERSON_PPE_LIVE_READINESS_2026-11-21_V01.json",
     "v30": "research/seer-ppe/V30_INDEPENDENT_NUMERIC_AUDIT_2026-11-22.json"
   },
-  "description": "Machine-checked administrative readiness snapshot compiled from existing saved source and human records and the audited V30 pilot. No new human consent or judgment implied.",
+  "description": "Machine-checked administrative readiness snapshot compiled from existing saved source and human records, audited V30 pilot, and two author chat attestations confirming a shared Train-Valid named site. These two non-independent verdicts do not clear holds, create independent Valid sources, or imply completed Valid worker/PPE gold.",
   "v31a_reconciliation": {
     "status": "PASS_V31A_EVIDENCE_RECONCILIATION_ONLY",
     "dossier_json": "V31_A_SOURCE_LINEAGE_RECONCILIATION_2026-11-22.json",
@@ -218,5 +236,30 @@
     "model_inference_calls": 0,
     "test_accessed": false,
     "scientific_scoring_eligibility_changed": 0
+  },
+  "human_source_family_attestations": 2,
+  "shared_site_attested_valid_sources": 2,
+  "v31a1_author_attestation": {
+    "status": "TWO_VALID_SOURCE_CASES_ATTESTED_SHARED_SITE_WITH_TRAIN; HARD_HOLDS_RETAINED",
+    "evidence_ref": "evidence/AUTHOR_CHAT_ATTESTATION_SCHOOL_22_MAY_ASEEFRAH_2026-11-22.md",
+    "evidence_sha256": "326c7ad0347a86822768e4f1703045248247bc3014cd5ccb139148332cc07605",
+    "valid_source_ids": [
+      "0De0PEUDyeg9v1J3T6zr",
+      "NZu6Faj6evgINF1qFE0V"
+    ],
+    "train_source_ids": [
+      "KrfW3xD7Vvxy6r6wISkv",
+      "H1KOFc0NQZnWRHJNcHPc"
+    ],
+    "verdict": "SHARED_CAPTURE_SESSION_OR_SITE",
+    "site_family_id": "site_school_22may_aseefrah",
+    "capture_session_id": null,
+    "reviewer_id": "dataset_author_chat_attestation",
+    "signed_date": "2026-11-22",
+    "human_source_family_attestations": 2,
+    "independent_source_attestations": 0,
+    "historical_holds_preserved": 2,
+    "scientific_scoring_eligible": 0,
+    "note": "Author confirms same project/site despite different times or angles; no same-frame or same-session claim."
   }
 }
