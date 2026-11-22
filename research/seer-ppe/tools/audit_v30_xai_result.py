@@ -160,6 +160,8 @@ def audit_results(manifest, result):
                 ambiguous = True
                 if cell.get("status") != "AMBIGUOUS":
                     fail(f"Missing grid score without ambiguous status: {tid}")
+                if grid[pos[0]][pos[1]] is not None:
+                    fail(f"Ambiguous grid cell must have an explicit missing score: {tid}")
                 continue
             drop = numeric(drop, f"{tid} cell confidence-drop", low=-1, high=1)
             after = numeric(cell.get("score_after"), f"{tid} occlusion score", low=0, high=1)
@@ -226,7 +228,8 @@ def audit_results(manifest, result):
             for direction in DIRECTIONS:
                 values = [auc_by_target[t["target_id"]][(order, direction)] for t in selected]
                 values = [v for v in values if v is not None]
-                name = f"{order}_{direction}_auc_mean"
+                order_field = "inverse" if order == "inverse_saliency" else order
+                name = f"{order_field}_{direction}_auc_mean"
                 result_mean = stat.get(name)
                 mean = sum(values) / len(values) if values else None
                 if (mean is None) != (result_mean is None):
@@ -278,9 +281,20 @@ def main():
     try:
         manifest = json.loads(args.manifest.read_text(encoding="utf-8"),
                               parse_constant=lambda x: fail(f"Non-standard numeric constant {x}"))
+        # The ongoing V30 runner may emit literal NaN for a deliberately
+        # AMBIGUOUS map cell. Preserve it as a missing/null value; do not
+        # impute a confidence or calculate AUC for that cell.
+        encoding_notes = []
+        def parse_legacy_nonfinite(token):
+            if token != "NaN":
+                fail(f"Non-standard numeric constant {token}")
+            encoding_notes.append("Legacy NaN normalized to null; rankability/AUC still fail closed")
+            return None
         result = json.loads(args.results.read_text(encoding="utf-8"),
-                            parse_constant=lambda x: fail(f"Non-standard numeric constant {x}"))
+                            parse_constant=parse_legacy_nonfinite)
         report = audit_results(manifest, result)
+        report["legacy_nonstandard_nan_cells_normalized"] = len(encoding_notes)
+        report["encoding_warning"] = (encoding_notes[0] if encoding_notes else None)
     except (OSError, ValueError, TypeError, KeyError) as exc:
         raise SystemExit(f"V30 numeric audit FAILED (no model calls made): {exc}") from exc
     args.output.parent.mkdir(parents=True, exist_ok=True)
