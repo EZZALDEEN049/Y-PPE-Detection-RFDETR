@@ -187,20 +187,20 @@
     },
     {
       "id": "V31-C",
-      "name": "Complete valid worker-to-six-PPE reference and relevant task-mandate evidence with human signatures on eligible subset",
-      "state": "0_SIGNED_VALID_CASES",
+      "name": "Historical Person–PPE pilot retained for future optional worker-safety research only",
+      "state": "OUT_OF_SCOPE_UNDER_V32; ZERO_SIGNED_VALID_CASES_RECORDED_HONESTLY; NOT_A_CURRENT_MANUSCRIPT_BLOCKER",
       "cannot_auto_sign": true
     },
     {
       "id": "V31-D",
-      "name": "Preserve Train B four unentered human visual fields and unsigned D zero-person coverage as non-scoring pilot limitations",
-      "state": "DOCUMENTED_PENDING_NO_NEW_HUMAN_DECISIONS",
+      "name": "Preserve incomplete Train pilot fields as historical non-scoring limitations",
+      "state": "ARCHIVED_AS_EXPLORATORY; MISSING_FIELDS_NOT_IMPUTED; NOT_A_CURRENT_MANUSCRIPT_BLOCKER",
       "cannot_auto_sign": true
     },
     {
       "id": "V31-E",
-      "name": "Only then freeze strictly eligible worker-safety cohort and plan actual review and stronger selective comparator under measured cost",
-      "state": "BLOCKED_BY_V31_A_TO_C",
+      "name": "Future optional worker-safety study requires a separate scope decision and protocol",
+      "state": "NOT_PART_OF_V32_CURRENT_PAPER; NO_ACTION_REQUIRED_FOR_CURRENT_MANUSCRIPT",
       "cannot_auto_sign": true
     }
   ],
@@ -212,7 +212,7 @@
     "live": "research/seer-ppe/PERSON_PPE_LIVE_READINESS_2026-11-21_V01.json",
     "v30": "research/seer-ppe/V30_INDEPENDENT_NUMERIC_AUDIT_2026-11-22.json"
   },
-  "description": "V31 readiness now incorporates V30 audited development-exposed XAI, three author-attested non-independent cross-split source relationships (two shared-site and one shared-scene-with-processing), and a dataset-level author attestation describing multi-project/multi-location collection in Yemen with completed original curation. Per-image worksite IDs and repeated full-corpus review are not required for internal image-level detection; credible cross-split overlap holds remain. None of these attestations creates independent-source clearance or Valid worker/PPE gold.",
+  "description": "V31 records source-family and worker-reference readiness without fabricating independence or worker-level gold. V32 author-selected scope narrows the current manuscript to image-level PPE detection and perturbation-based XAI. The strict worker-safety scoring flag remains false but is explicitly not a blocker; existing Person–PPE pilot records remain exploratory only. Source-overlap M0/M1/M2 controls and all known cross-split holds remain preserved.",
   "v31a_reconciliation": {
     "status": "PASS_V31A_EVIDENCE_RECONCILIATION_ONLY",
     "dossier_json": "V31_A_SOURCE_LINEAGE_RECONCILIATION_2026-11-22.json",
@@ -323,5 +323,32 @@
     "additional_model_calls": 0,
     "test_accessed": false,
     "original_data_modified": false
+  },
+  "v32_scope_decision": {
+    "status": "AUTHOR_SELECTED_PATH_1_IMAGE_LEVEL_DETECTION_AND_PERTURBATION_XAI_ONLY",
+    "decision_date": "2026-11-22",
+    "decision_file": "V32_IMAGE_LEVEL_DETECTION_XAI_SCOPE_DECISION_2026-11-22.md",
+    "machine_record": "V32_IMAGE_LEVEL_DETECTION_XAI_SCOPE_DECISION_2026-11-22.json",
+    "manuscript_version": "v0.32",
+    "protocol_version": "v0.8",
+    "worker_level_person_ppe_endpoint_in_scope": false,
+    "worker_level_compliance_scoring_required_for_current_manuscript": false,
+    "person_ppe_gold_required_for_current_manuscript": false,
+    "task_site_mandate_reference_required_for_current_manuscript": false,
+    "actual_human_review_efficacy_required_for_current_manuscript": false,
+    "physical_energy_or_joules_required_for_current_manuscript": false,
+    "worker_safety_scoring_ready_remains_false": true,
+    "worker_safety_gate_is_current_manuscript_blocker": false,
+    "existing_person_ppe_pilot": "ARCHIVED_EXPLORATORY_ONLY; NO_MISSING_CELLS_IMPUTED",
+    "source_overlap_sensitivity_remains_required": true,
+    "external_or_site_independent_generalization_claim_supported": false,
+    "explanation_claim_class": "PERTURBATION_SENSITIVITY_ONLY_NOT_EXTERNALLY_GROUNDED_CAUSAL_FAITHFULNESS",
+    "current_remaining_work": [
+      "EXPLANATION_PERTURBATION_ROBUSTNESS",
+      "EXPANDED_MATCHED_BUDGET_A5_A6_TARGET_COMPARISON",
+      "RESULTS_TABLE_FIGURE_RECONCILIATION",
+      "REFERENCES_AND_EDITING",
+      "WORD_EXPORT"
+    ]
   }
 }
