@@ -65,7 +65,7 @@ function audit(evidence,record,ready,manuscript,protocol,curator){
   assert.ok(manuscript.includes('M2=367'));
   assert.ok(manuscript.includes('rather than a documented probability sample of all Yemeni worksites'));
   assert.ok(protocol.includes('do not estimate national prevalence'));
-  assert.ok(protocol.includes('a named worksite/project ID for every image is **not required**'));
+  assert.ok(protocol.includes('named worksite/project ID for every image is **not required**'));
   assert.ok(protocol.includes('do not repeat full-corpus review'));
   assert.ok(curator.includes('Do not ask the owner to repeat image review'));
   assert.ok(curator.includes('multi-project, multi-location collection in Yemen'));
