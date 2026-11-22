@@ -58,3 +58,5 @@ Until these gates pass, **V33-B remains an unexecuted prospective protocol**. V3
 - The workflow downloads only the eight frozen V30 originals to an ephemeral GitHub Actions runner, performs zero-call SHA/target preflight, checks the repository secret `ROBOFLOW_API_KEY` without printing it, and then runs the gated 496-call runner.
 - A successful numeric result or a failed partial call ledger is committed back to the research branch; either artifact blocks duplicate execution. Raw images and credentials are never uploaded or committed.
 - **No authorization record currently exists, so this workflow has not been triggered and has not spent any calls.**
+
+- A separate zero-inference workflow, `.github/workflows/seer-ppe-v33b-preflight.yml`, downloads the same eight originals on an ephemeral runner and validates hashes/targets/budget without requiring `ROBOFLOW_API_KEY`. It uploads numeric readiness evidence only; this preflight is not a paid experiment.
