@@ -138,3 +138,15 @@
 - No authorization JSON has been created; the cloud workflow has not been triggered and V33-B remains unexecuted.
 
 - Added `.github/workflows/seer-ppe-v33b-preflight.yml`, a separate no-secret/no-inference cloud preflight that validates the exact eight-image V30 bundle, ten targets and 496-call plan before any budget authorization.
+
+
+## V33-B — actual 4×4 grid-resolution experiment completed — 2026-11-22 (manuscript v0.34)
+
+- The author explicitly authorized one execution with a hard maximum of 496 additional hosted inference calls. Read-only preflight [45019722753](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45019722753) passed first: eight Train/Valid originals downloaded, all eight SHA-256 values matched the V30 cloud-runner bundle, all ten frozen targets passed, zero model calls made.
+- The one-time paid cloud run [45019831430](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45019831430) succeeded on attempt 1: **496/496 calls successful, zero failed, zero retries** (8 blur endpoints + 128 4×4 cell occlusions + 360 curve-intermediate calls).
+- Ten 4×4 maps were rankable; 40 eleven-point curves were executed and 39 AUCs were valid. One saliency-deletion AUC was correctly left null due to an ambiguous target match; no imputation was made.
+- Saliency favored one deterministic random ordering in 8/9 scorable deletion curves and 10/10 insertion curves. Saliency-advantage sign agreement between 4×4 and 8×8 was 6/9 comparable deletion targets and 9/10 insertion targets; 10/10 categorical map-rankability statuses matched, which is not spatial map-rank correlation.
+- A5 and A6 each retain eight selected slots, six shared and two unique. Shared targets reuse identical target-level curves; all-slot means are composition-dependent and do not establish policy superiority.
+- Added [actual results JSON](V33_B_GRID4_ACTUAL_RESULTS_2026-11-22.json), [interpretive report](V33_B_GRID4_ACTUAL_RESULTS_REPORT_2026-11-22.md), [independent numeric audit JSON](V33_B_GRID4_NUMERIC_AUDIT_2026-11-22.json), and [read-only audit script](tools/audit_v33b_grid4_xai.py). [Engineering CI 45020503717](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45020503717) passed; maximum AUC recomputation error was 2.22×10⁻¹⁶.
+- Updated the canonical manuscript to **v0.34** with Methods 3.25, Results 4.26, Discussion 5.11 and Appendix V. The prospective protocol now records the completed execution and supersedes its earlier pre-run status statements.
+- No Test access, retraining, image/annotation/split changes, worker-compliance scoring, causal-faithfulness claim, human-review efficacy, energy measurement or A5/A6 superiority claim.
