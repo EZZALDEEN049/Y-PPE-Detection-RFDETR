@@ -185,3 +185,15 @@
 - Added author-confirmation gates for ethics/consent, funding, competing interests and author contributions. The target journal is not yet selected, so final style/length requirements remain open.
 - Zero new model calls; no Test access, retraining, image/annotation/split mutation or original-model changes.
 - Added [V35-C report](V35_C_LITERATURE_AND_EDITORIAL_AUDIT_REPORT_2026-11-22.md) and [machine-readable audit](V35_C_LITERATURE_AND_EDITORIAL_AUDIT_2026-11-22.json).
+
+
+## V35-D — editable Word manuscript export and automated QA — 22 November 2026
+
+- Generated and archived the complete **v0.38 editable Word manuscript** at `exports/SEER_PPE_Research_Manuscript_v0.38_2026-11-22.docx` (2,825,912 bytes; 455 paragraphs; 16 tables; 218,183 extracted text characters).
+- Verified **11/11 embedded figures**, DOCX ZIP integrity and key scientific content.
+- LibreOffice rendered the DOCX to a 96-page PDF; PDF text smoke checks and first-page preview generation passed. The QA PDF was temporary and was not archived.
+- Updated the Word workflow to use the current manuscript, resolve figure paths, validate current content and archive only on the triggering research branch.
+- Successful CI: Word export [45033306609](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45033306609), source/reference gates [45033306627](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45033306627), unit tests [45033306726](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45033306726).
+- Zero new model calls; no retraining, Test access, source-image/annotation/split mutation or model changes.
+- V35-E remains for human visual inspection, main-paper/supplement split after journal selection, duplicate-PDF reconciliation, the unresolved V27 timestamp and author/journal declarations.
+- Added [V35-D QA report](V35_D_WORD_EXPORT_QA_REPORT_2026-11-22.md) and [machine-readable export record](V35_D_WORD_EXPORT_QA_2026-11-22.json).
