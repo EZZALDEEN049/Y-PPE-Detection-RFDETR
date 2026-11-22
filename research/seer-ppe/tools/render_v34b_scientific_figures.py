@@ -190,23 +190,38 @@ def render_summary(prepared: list[dict], output_path: Path):
     overlaps = [x["overlap"] for x in prepared]
     order = np.argsort(rhos)
     y = np.arange(len(order))
-    fig, ax = plt.subplots(figsize=(11.8, 7.0))
+
+    fig = plt.figure(figsize=(12.2, 7.2))
+    grid = fig.add_gridspec(1, 2, width_ratios=[0.84, 0.16], wspace=0.03)
+    ax = fig.add_subplot(grid[0, 0])
+    ax_overlap = fig.add_subplot(grid[0, 1], sharey=ax)
+
     ax.barh(y - 0.18, np.asarray(rhos)[order], height=0.34, label="Spearman ρ")
     ax.barh(y + 0.18, np.asarray(taus)[order], height=0.34, label="Kendall τ-b")
     ax.set_yticks(y, labels=np.asarray(labels)[order])
-    ax.set_xlim(-0.05, 1.08)
+    ax.set_xlim(-0.03, 0.74)
+    ax.set_ylim(-0.65, len(order) - 0.35)
     ax.set_xlabel("Rank-correlation coefficient")
-    ax.set_title("V34-B | spatial rank agreement across ten frozen targets", fontsize=15, fontweight="bold")
+    ax.set_title("Spatial rank correlation by frozen target", fontsize=14, fontweight="bold")
     ax.grid(axis="x", alpha=0.25)
     ax.legend(loc="lower right")
+
+    ax_overlap.set_xlim(0, 1)
+    ax_overlap.set_ylim(ax.get_ylim())
+    ax_overlap.set_title("Top-4\nshared", fontsize=10, fontweight="bold")
+    ax_overlap.tick_params(left=False, labelleft=False, bottom=False, labelbottom=False)
+    for spine in ax_overlap.spines.values():
+        spine.set_visible(False)
     for yi, idx in enumerate(order):
-        ax.text(1.015, yi, f'Top-4 {overlaps[idx]}/4', va="center", fontsize=8.5)
+        ax_overlap.text(0.02, yi, f'{overlaps[idx]}/4', va="center", ha="left", fontsize=9)
+
+    fig.suptitle("V34-B | spatial rank agreement across ten frozen targets",
+                 fontsize=16, fontweight="bold", y=0.99)
     fig.text(0.5, 0.015, "Descriptive target-level comparisons; eight source images, ten targets. "
              "No inferential p-values or external-generalization claim.", ha="center", fontsize=8.5)
-    fig.tight_layout(rect=(0, 0.045, 1, 1))
+    fig.tight_layout(rect=(0, 0.045, 1, 0.96))
     fig.savefig(output_path, dpi=300, bbox_inches="tight", facecolor="white")
     return fig
-
 
 def main():
     parser = argparse.ArgumentParser()
