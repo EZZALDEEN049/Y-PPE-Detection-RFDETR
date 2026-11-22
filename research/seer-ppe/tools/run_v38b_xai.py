@@ -114,6 +114,10 @@ def validate_manifest(manifest, identity):
     assert manifest["budget"]["actual_new_model_calls_in_this_freeze"]==0
     assert len(manifest["random_progressive_target_ids_12_different_images"])==12
     assert len(manifest["alternative_fill_image_ids_8"])==8
+    by_first={im["source_id"]:next(t for t in manifest["targets"] if t["source_id"]==im["source_id"])["target_id"]
+              for im in manifest["images"]}
+    assert [by_first[im["source_id"]] for im in manifest["images"][:12]]==manifest["random_progressive_target_ids_12_different_images"]
+    assert [im["source_id"] for im in manifest["images"][:8]]==manifest["alternative_fill_image_ids_8"]
     assert manifest["selection_guards"]["protected_test"]=="NOT_ACCESSED"
     return {r["source_id"]:r for r in identity["current_source_image_sha256"]}
 
@@ -606,8 +610,17 @@ def main():
     identity=load(SOURCE_QA)
     valid=validate_manifest(manifest,identity)
     if args.preflight:
+        checked=0
+        if args.images_dir is not None:
+            # Optional stronger zero-inference gate: verify all 24 downloaded
+            # originals with the very same canonical EXIF-aware decoder.
+            for img in manifest["images"]:
+                source_id=img["source_id"]
+                read_image(args.images_dir/(source_id+".jpg"),valid[source_id])
+                checked+=1
         print(json.dumps({"status":"READY_READONLY_MANIFEST_QA",
                           "images":len(valid),"targets":48,
+                          "images_with_canonical_rgb_sha_verified":checked,
                           "attempted_hosted_calls":0,
                           "planned_call_max":INTENDED_MAX,
                           "hard_attempted_cap":MAX_CALLS,
