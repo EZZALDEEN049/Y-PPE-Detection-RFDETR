@@ -203,6 +203,7 @@ def analyze_target(target8: dict, target4: dict, image: dict) -> tuple[dict, dic
             coarse_drop, coarse_area, coarse_status = check_trial(
                 target4, coarse_trial, 4, 4, height, width
             )
+            top, bottom, left, right = cell_bounds(height, width, 4, 4, row, col)
             if coarse_status == "LOST":
                 lost4 += 1
             coarse_map_value = float(map4[row][col])
