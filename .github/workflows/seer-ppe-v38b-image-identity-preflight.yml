@@ -78,11 +78,16 @@ jobs:
           retention-days: 90
           if-no-files-found: warn
       - name: Archive current-source SHA evidence and protocol audit on research branch
+        if: ${{ always() }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           dest=research/seer-ppe/V38_B_CURRENT_SOURCE_READONLY_SHA256_PREFLIGHT_2026-11-23.json
+          if [ ! -s "${RUNNER_TEMP}/v38b_image_readonly.json" ]; then
+            echo "No complete 24-image read-only audit JSON was produced."
+            exit 0
+          fi
           cp "${RUNNER_TEMP}/v38b_image_readonly.json" "/tmp/$(basename "$dest")"
           for attempt in 1 2 3; do
             git fetch origin "$GITHUB_REF_NAME"
