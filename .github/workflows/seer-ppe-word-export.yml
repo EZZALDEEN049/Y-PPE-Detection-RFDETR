@@ -1,4 +1,4 @@
-name: SEER-PPE v0.40 manuscript editable Word export and QA
+name: SEER-PPE v0.41 manuscript editable Word export and QA
 on:
   push:
     paths:
@@ -107,109 +107,33 @@ jobs:
 
           jobs=[
             (base/'MANUSCRIPT_MASTER.md',
-             out/'SEER_PPE_Research_Manuscript_v0.40_2026-11-22.docx',
-             'SEER-PPE Research Manuscript v0.40')
+             out/'SEER_PPE_Research_Manuscript_v0.41_2026-11-22.docx',
+             'SEER-PPE Research Manuscript v0.41')
           ]
           for source,target,subject in jobs:
               assert source.exists() and len(source.read_text(encoding='utf8'))>15000,source
               pypandoc.convert_file(str(source),to='docx',format='markdown',
                   outputfile=str(target),
                   extra_args=['--standalone',
-                              '--resource-path=research/seer-ppe',
-                              '--reference-doc='+str(refpath)])
+                              '--resource-path=research/seer-ppe'])
               d=Document(target)
-              # Pandoc emits tables at 50% width by default in this reference template.
-              # Expand every editable table to the full printable width and keep headers readable.
-              usable_twips=9520
-              for table in d.tables:
-                  ncols=len(table.columns)
-                  if ncols>=9: first=2000
-                  elif ncols>=7: first=2500
-                  elif ncols>=6: first=2700
-                  elif ncols==5: first=3000
-                  elif ncols==4: first=3200
-                  elif ncols==3: first=3500
-                  elif ncols==2: first=3600
-                  else: first=usable_twips
-                  if ncols>1:
-                      rest=(usable_twips-first)//(ncols-1)
-                      widths=[first]+[rest]*(ncols-1)
-                      widths[-1]=usable_twips-sum(widths[:-1])
-                  else:
-                      widths=[usable_twips]
-                  table.style='Table Grid'
-                  table.alignment=WD_TABLE_ALIGNMENT.CENTER
-                  table.autofit=False
-                  tblPr=table._tbl.tblPr
-                  tblW=tblPr.find(qn('w:tblW'))
-                  if tblW is None:
-                      tblW=OxmlElement('w:tblW')
-                      tblPr.append(tblW)
-                  tblW.set(qn('w:w'),'5000')
-                  tblW.set(qn('w:type'),'pct')
-                  tblLayout=tblPr.find(qn('w:tblLayout'))
-                  if tblLayout is None:
-                      tblLayout=OxmlElement('w:tblLayout')
-                      tblPr.append(tblLayout)
-                  tblLayout.set(qn('w:type'),'fixed')
-                  for j,gridcol in enumerate(table._tbl.tblGrid.gridCol_lst):
-                      gridcol.set(qn('w:w'),str(widths[j]))
-                      table.columns[j].width=Inches(widths[j]/1440)
-                  fontsize=7.5 if ncols>=9 else 8 if ncols>=7 else 8.5 if ncols>=5 else 9
-                  for ri,row in enumerate(table.rows):
-                      trPr=row._tr.get_or_add_trPr()
-                      if trPr.find(qn('w:cantSplit')) is None:
-                          trPr.append(OxmlElement('w:cantSplit'))
-                      if ri==0 and trPr.find(qn('w:tblHeader')) is None:
-                          hdr=OxmlElement('w:tblHeader')
-                          hdr.set(qn('w:val'),'true')
-                          trPr.append(hdr)
-                      for j,cell in enumerate(row.cells):
-                          cell.width=Inches(widths[j]/1440)
-                          cell.vertical_alignment=WD_CELL_VERTICAL_ALIGNMENT.CENTER
-                          tcPr=cell._tc.get_or_add_tcPr()
-                          tcW=tcPr.find(qn('w:tcW'))
-                          if tcW is None:
-                              tcW=OxmlElement('w:tcW')
-                              tcPr.append(tcW)
-                          tcW.set(qn('w:w'),str(widths[j]))
-                          tcW.set(qn('w:type'),'dxa')
-                          tcMar=tcPr.find(qn('w:tcMar'))
-                          if tcMar is None:
-                              tcMar=OxmlElement('w:tcMar')
-                              tcPr.append(tcMar)
-                          for side in ('top','start','bottom','end'):
-                              margin=tcMar.find(qn('w:'+side))
-                              if margin is None:
-                                  margin=OxmlElement('w:'+side)
-                                  tcMar.append(margin)
-                              margin.set(qn('w:w'),'45')
-                              margin.set(qn('w:type'),'dxa')
-                          for para in cell.paragraphs:
-                              para.paragraph_format.space_after=Pt(0)
-                              para.paragraph_format.line_spacing=1.0
-                              if j>0:
-                                  para.alignment=WD_ALIGN_PARAGRAPH.CENTER
-                              for run in para.runs:
-                                  run.font.size=Pt(fontsize)
-                                  if ri==0:
-                                      run.bold=True
+              # Keep Pandoc's native Word table structures intact; do not rewrite tblGrid/tcW.
               d.core_properties.author='Ezzaldeen Al-Tayar'
               d.core_properties.title=subject
               d.core_properties.subject='Academic research working draft and reproducibility handoff'
               d.save(target)
               assert target.stat().st_size>15000,target
               print(f'GENERATED {target} | bytes={target.stat().st_size} | paragraphs={len(d.paragraphs)} | tables={len(d.tables)}')
-          print('SEER_PPE_V040_EDITABLE_MANUSCRIPT_GENERATED_FROM_SOURCE_MARKDOWN')
+          print('SEER_PPE_V041_EDITABLE_MANUSCRIPT_GENERATED_FROM_SOURCE_MARKDOWN')
           PY
-      - name: Verify v0.40 Word structure, all source content and embedded figures
+      - name: Verify v0.41 Word structure, all source content and embedded figures
         run: |
           python - <<'PY'
           from pathlib import Path
           from docx import Document
           import zipfile
           b=Path('research/seer-ppe/exports')
-          manuscript=b/'SEER_PPE_Research_Manuscript_v0.40_2026-11-22.docx'
+          manuscript=b/'SEER_PPE_Research_Manuscript_v0.41_2026-11-22.docx'
           assert manuscript.exists() and manuscript.stat().st_size>15000
           with zipfile.ZipFile(manuscript) as z:
               assert z.testzip() is None
@@ -217,13 +141,12 @@ jobs:
               assert len(media)==11, (len(media), media)
               print('DOCX_EMBEDDED_FIGURES_OK',len(media))
           d=Document(manuscript)
-          from docx.oxml.ns import qn
-          for i,t in enumerate(d.tables):
-              tw=t._tbl.tblPr.find(qn('w:tblW'))
-              assert tw is not None and tw.get(qn('w:w'))=='5000' and tw.get(qn('w:type'))=='pct',(i,tw.xml if tw is not None else None)
-              widths=[int(g.get(qn('w:w'))) for g in t._tbl.tblGrid.gridCol_lst]
-              assert sum(widths)==9520,(i,widths,sum(widths))
-          print('DOCX_TABLE_WIDTHS_OK',len(d.tables),'tables at 100% printable width')
+          assert len(d.tables)==16, len(d.tables)
+          nonempty_cells=sum(1 for t in d.tables for row in t.rows for cell in row.cells if cell.text.strip())
+          assert nonempty_cells>60, nonempty_cells
+          assert 'Current Valid source annotation cohort' in d.tables[4].rows[0].cells[0].text
+          assert 'Original class name' in d.tables[5].rows[0].cells[0].text
+          print('DOCX_NATIVE_TABLE_CONTENT_OK',len(d.tables),'tables',nonempty_cells,'nonempty cells')
           mt='\\n'.join(p.text for p in d.paragraphs)+'\\n'+'\\n'.join(' '.join(c.text for c in row.cells) for t in d.tables for row in t.rows)
           assert len(mt)>20000, len(mt)
           for value in (
@@ -237,7 +160,7 @@ jobs:
               assert value in mt, value
           print('DOCX_CONTENT_OK',len(mt),'chars',len(d.tables),'tables')
           PY
-      - name: Render v0.40 Word manuscript to PDF and check key content
+      - name: Render v0.41 Word manuscript to PDF and check key content
         run: |
           set -euo pipefail
           if ! command -v libreoffice >/dev/null 2>&1; then
@@ -245,8 +168,8 @@ jobs:
             sudo apt-get install -y -qq libreoffice-writer poppler-utils >/dev/null
           fi
           mkdir -p /tmp/seer_ppe_word_render
-          libreoffice -env:UserInstallation=file:///tmp/lo_seer_ppe_word_export --headless --convert-to pdf --outdir /tmp/seer_ppe_word_render research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.40_2026-11-22.docx
-          pdf=/tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.40_2026-11-22.pdf
+          libreoffice -env:UserInstallation=file:///tmp/lo_seer_ppe_word_export --headless --convert-to pdf --outdir /tmp/seer_ppe_word_render research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.41_2026-11-22.docx
+          pdf=/tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.41_2026-11-22.pdf
           test -s "$pdf"
           pdfinfo "$pdf" | grep Pages
           pdftotext -layout "$pdf" /tmp/seer_ppe_word_render/manuscript.txt
@@ -265,28 +188,28 @@ jobs:
           pdftoppm -f "$pages" -l "$pages" -scale-to 1000 -png -singlefile "$pdf" /tmp/seer_ppe_word_render/last_page
           test -s /tmp/seer_ppe_word_render/middle_page.png
           test -s /tmp/seer_ppe_word_render/last_page.png
-          echo 'SEER_PPE_V040_DOCX_PDF_TEXT_AND_THREE_PAGE_PREVIEW_QA_PASS'
+          echo 'SEER_PPE_V041_DOCX_PDF_TEXT_AND_THREE_PAGE_PREVIEW_QA_PASS'
       - name: Upload temporary PDF and page previews for V35-E visual inspection
         uses: actions/upload-artifact@v4
         with:
-          name: seer-ppe-v040-render-qa
+          name: seer-ppe-v041-render-qa
           path: |
-            /tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.40_2026-11-22.pdf
-            research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.40_2026-11-22.docx
+            /tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.41_2026-11-22.pdf
+            research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.41_2026-11-22.docx
             /tmp/seer_ppe_word_render/first_page.png
             /tmp/seer_ppe_word_render/middle_page.png
             /tmp/seer_ppe_word_render/last_page.png
           if-no-files-found: error
           retention-days: 7
-      - name: Archive editable v0.40 Word manuscript on the current research branch
+      - name: Archive editable v0.41 Word manuscript on the current research branch
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.40_2026-11-22.docx
+          git add research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.41_2026-11-22.docx
           git diff --cached --quiet && exit 0
-          git commit -m 'docs(seer-ppe): archive editable Word manuscript v0.40'
+          git commit -m 'docs(seer-ppe): archive editable Word manuscript v0.41'
           git fetch origin "$GITHUB_REF_NAME"
           git rebase "origin/$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"
