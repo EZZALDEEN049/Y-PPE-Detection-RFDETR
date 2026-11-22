@@ -173,7 +173,24 @@ jobs:
           grep -q 'Figure 11' /tmp/seer_ppe_word_render/manuscript.txt
           pdftoppm -f 1 -l 1 -scale-to 1000 -png -singlefile "$pdf" /tmp/seer_ppe_word_render/first_page
           test -s /tmp/seer_ppe_word_render/first_page.png
-          echo 'SEER_PPE_V038_DOCX_PDF_TEXT_AND_FIRST_PAGE_QA_PASS'
+          pages=$(pdfinfo "$pdf" | awk '/^Pages:/ {print $2}')
+          middle=$(( (pages + 1) / 2 ))
+          pdftoppm -f "$middle" -l "$middle" -scale-to 1000 -png -singlefile "$pdf" /tmp/seer_ppe_word_render/middle_page
+          pdftoppm -f "$pages" -l "$pages" -scale-to 1000 -png -singlefile "$pdf" /tmp/seer_ppe_word_render/last_page
+          test -s /tmp/seer_ppe_word_render/middle_page.png
+          test -s /tmp/seer_ppe_word_render/last_page.png
+          echo 'SEER_PPE_V038_DOCX_PDF_TEXT_AND_THREE_PAGE_PREVIEW_QA_PASS'
+      - name: Upload temporary PDF and page previews for V35-E visual inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: seer-ppe-v038-render-qa
+          path: |
+            /tmp/seer_ppe_word_render/SEER_PPE_Research_Manuscript_v0.38_2026-11-22.pdf
+            /tmp/seer_ppe_word_render/first_page.png
+            /tmp/seer_ppe_word_render/middle_page.png
+            /tmp/seer_ppe_word_render/last_page.png
+          if-no-files-found: error
+          retention-days: 7
       - name: Archive editable v0.38 Word manuscript on the current research branch
         shell: bash
         run: |
