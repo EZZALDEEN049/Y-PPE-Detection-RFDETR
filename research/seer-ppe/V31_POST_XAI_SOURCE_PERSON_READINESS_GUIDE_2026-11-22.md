@@ -40,7 +40,7 @@ These are prospective signatures, **not declarations that the researcher must re
 ## Next bounded work packages
 
 1. **V31-A — source P0 decision preparation:** reconcile existing Train–Valid comparison/evidence pointers and acquisition-family IDs for the 11 frozen high-overlap source IDs. Maintain current holds/quarantines until a human evidence-based family verdict exists.
-2. **V31-B — full-scoring-cohort eligibility:** populate the existing separate signed source-family overlay, *only from authentic source records*. Avoid assuming all 367 unflagged images are independent. Re-run the unchanged V15 gate after truly signed records exist.
+2. **V31-B — full-scoring-cohort eligibility:** continue the existing source-family overlay from authentic source records. Two Valid images now have a signed non-independent shared-site verdict; this does not qualify them for scoring. The remaining 457 Valid images still need an evidence-based source-family decision, and the 5+6 guarded cases remain blocked. Avoid assuming any unflagged images are independent.
 3. **V31-C — human reference:** on a legitimately selected and eligible Valid subset, obtain the existing protocol's signed person coverage, wearer-item associations, per-PPE visibility and applicable task-policy records. Keep `POLICY_UNKNOWN` or `UNKNOWN` where justified.
 4. **V31-D — Train pilot administrative gaps:** retain the four unentered B fields and unsigned D zero-person coverage as missing until individually signed by the researcher; they are **not** a substitute for Valid scoring gold.
 5. **V31-E — future comparison after gates:** freeze a separate source-eligible worker-outcome cohort and compare a strong selective A2/A6-style policy against A5 under matched review demand, actual detector/XAI calls and verified safety constraints. Physical Joules only if instrumented. **Do not reuse protected Test for threshold development.**
@@ -63,3 +63,12 @@ The prior visual record shows Valid `IMG-20250416-WA0063.jpg` and `IMG-20250416-
 ### V31-A status boundary
 
 **11/11 technical packets reconciled; 5 historical holds and 6 technical quarantines preserved; 33 pair records checked; 0 new human attestations; 0 releases; 0 newly eligible scoring images.** This work does not certify source independence. The next necessary input is the author's specific acquisition/site/session knowledge for unresolved pairs, recorded transparently as an actual human attestation rather than inferred from image metrics. No model calls, Test access, original image reopening, dataset writes or repeated general image review occurred.
+
+
+## V31-A1 — author confirms the shared School 22 May site (22 November 2026)
+
+The dataset author answered **“نعم”** to the specific question whether Valid `IMG-20250416-WA0063.jpg` and `IMG-20250416-WA0051.jpg`, together with Train `IMG-20250416-WA0067.jpg` and `IMG-20250416-WA0066(1).jpg`, belong to the same **مدرسة 22 مايو – عصيفرة** construction project/site, even if photographed at different times or angles.
+
+This is recorded as `SHARED_CAPTURE_SESSION_OR_SITE`, site-family ID `site_school_22may_aseefrah`, for the two Valid members. It is a site/project-family decision only: no same-frame or same-capture-session claim is made, and no session ID is invented. The exact chat response is preserved in [the author evidence record](evidence/AUTHOR_CHAT_ATTESTATION_SCHOOL_22_MAY_ASEEFRAH_2026-11-22.md), SHA-256 `326c7ad0347a86822768e4f1703045248247bc3014cd5ccb139148332cc07605`. The two per-image decisions are in [the V31-A1 machine record](V31_A1_AUTHOR_SITE_ATTESTATION_2026-11-22.json) and [human-readable report](V31_A1_AUTHOR_SITE_ATTESTATION_2026-11-22.md).
+
+**Result:** 2 of the 11 P0 Valid cases now have author-attested shared-site verdicts; both remain hard-held because Train contains the same site. The other 3 historical holds and all 6 technical quarantines remain blocked. There are **0 independent-source attestations, 0 newly eligible Valid images, and 0 signed Valid Person–PPE gold cases**. The cohort remains `scoring_ready=false`. [V31-A1 validator](tools/verify_v31a1_author_site_attestation.mjs) checks the evidence SHA and rejects mutations that would invent a capture session, erase Train overlap, or release a hold.
