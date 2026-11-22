@@ -80,3 +80,20 @@
 - Updated the live V31 ledger, added [V31-A1 report](V31_A1_AUTHOR_SITE_ATTESTATION_2026-11-22.md) and [machine record](V31_A1_AUTHOR_SITE_ATTESTATION_2026-11-22.json), and added a SHA-pinned fail-closed validator with mutation tests. The source/reference CI dynamically recompiles the current 459-row audit rather than relying on the earlier pre-attestation snapshot.
 - [V31-A1 source/reference CI #44968818900](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44968818900) passed the dynamic source audit and SHA/mutation checks; [public engineering CI #44968818901](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44968818901) passed.
 - No photo reopened, model inference, retraining, Test access, split/annotation edits, or Roboflow mutation.
+
+
+## V31-A2 — author confirms WA0026/WA0079 shared scene with modifications/processing — 2026-11-22
+
+- The author clarified that Valid `IMG-20250416-WA0026.jpg` and Train `IMG-20250416-WA0079.jpg` are not the same presented image but depict the same scene with changes/processing.
+- Recorded the distinct `SHARED_SCENE_WITH_MODIFICATIONS_OR_PROCESSING` verdict; no byte identity, exact original frame, crop chain, site ID or capture session is inferred.
+- Preserved WA0026's pre-existing hard hold and zero independent-source eligibility. Updated the source-family overlay, P0 packet, readiness ledger and compiler enum; added a SHA-pinned evidence record and fail-closed mutation verifier in CI.
+- No image reopened, model inference, retraining, Test access, source-split change, annotation edit or Roboflow mutation.
+
+## V31-A3 — aggregate multi-project provenance and completed original curation accepted — 2026-11-22
+
+- The author states that the corpus was assembled across multiple projects and work locations in Yemen associated with civil-society organization projects, for PPE/occupational-safety analysis and solution development.
+- Accepted the original image selection/review and dataset curation as completed during preparation, consistent with the V18 author-curator policy. **Per-image worksite/project IDs are not required for the internal image-level detection endpoint; no repeat full-corpus visual review is required.**
+- Updated the canonical manuscript, PROTOCOL_MASTER, V18 curation policy, V31 readiness guide, README/START HERE and readiness ledger. The corpus is described at aggregate provenance level; the absence of a complete per-image site/session register remains disclosed.
+- Kept cross-split leakage controls separate: two Valid images remain held for shared School 22 May site family; WA0026 remains held for the author-confirmed shared scene with Train WA0079; eight other P0 cases remain unresolved. No hold is released and no independent multi-site generalization is claimed.
+- Added [V31-A3 machine record](V31_A3_DATASET_LEVEL_ACQUISITION_CURATION_2026-11-22.json), [methodology decision](V31_A3_DATASET_LEVEL_ACQUISITION_CURATION_2026-11-22.md), [SHA-pinned author evidence](evidence/AUTHOR_DATASET_LEVEL_ACQUISITION_AND_PRIOR_CURATION_2026-11-22.md), and a fail-closed CI verifier with mutation tests.
+- Internal image-level detection analysis continues with exact Source-ID/label/prediction joins and M0=459, M1=448, M2=367 overlap-risk sensitivity cohorts; these are not independent-site cohorts. Worker-level safety and signed Valid Person–PPE gold remain separately gated.
