@@ -113,6 +113,18 @@ def static_preflight():
     assert m["selection_guards"]["protected_test"] == "NOT_ACCESSED"
     images, targets = m["images"], m["targets"]
     assert len(images) == 24 and len(targets) == 48
+    # Synthetic EXIF orientation=6 test: image content is never an imported photograph.
+    from PIL import Image, ImageOps
+    import io
+    synthetic = Image.new("RGB", (11, 7), color=(42, 84, 126))
+    exif = synthetic.getexif()
+    exif[274] = 6
+    buf = io.BytesIO()
+    synthetic.save(buf, format="JPEG", exif=exif)
+    with Image.open(io.BytesIO(buf.getvalue())) as rotated:
+        assert rotated.size == (11, 7) and rotated.getexif().get(274) == 6
+        assert ImageOps.exif_transpose(rotated).size == (7, 11)
+
     assert all(x["image_key"] == "valid:" + x["source_id"] for x in images)
     ids = [x["source_id"] for x in images]
     assert len(ids) == len(set(ids)) == 24
@@ -309,12 +321,15 @@ def main():
         different_sha_count = len({x["new_current_source_raw_sha256"] for x in image_rows})
         mismatch_rows = [x for x in image_rows if not x["matches_v26_dimensions"]]
         audit.update({
-            "status": ("PASS_24_CURRENT_SOURCE_IMAGE_BYTES_AND_STATIC_PROTOCOL"
-                       if not mismatch_rows and different_sha_count == 24
+            "status": ("PASS_24_CURRENT_SOURCE_IMAGE_BYTES_EXIF_NORMALIZED_AND_STATIC_PROTOCOL"
+                       if all(x["matches_v26_dimensions_after_exif"] for x in image_rows)
+                       and different_sha_count == 24
                        else "HOLD_CURRENT_SOURCE_IMAGE_IDENTITY_MISMATCH"),
             "current_source_images_retrieved_readonly": 24,
             "current_source_images_exact_dimension_matches": 24 - len(mismatch_rows),
             "current_source_images_exif_corrected_matches": sum(x["matches_v26_dimensions_after_exif"] for x in image_rows),
+            "exif_transpose_required_image_count": sum(not x["matches_v26_dimensions"] and x["matches_v26_dimensions_after_exif"] for x in image_rows),
+            "mandatory_future_decode_rule": "Pillow.ImageOps.exif_transpose BEFORE RGB conversion and resizing; preserve the observed 24 canonical RGB SHA-256 values",
             "current_source_images_distinct_raw_sha256": different_sha_count,
             "current_source_mismatch_image_ids": [x["source_id"] for x in mismatch_rows],
             "current_source_image_sha256": image_rows,
