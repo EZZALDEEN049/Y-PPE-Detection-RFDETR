@@ -149,7 +149,7 @@
     {
       "id": "V31-A",
       "name": "Reconcile pre-existing 11 P0 source-family evidence packets and source-group identifiers",
-      "state": "EVIDENCE_EXISTING_HUMAN_SIGNOFF_PENDING",
+      "state": "11_OF_11_EXISTING_TECHNICAL_PACKETS_RECONCILED; HUMAN_ACQUISITION_AND_SOURCE_FAMILY_SIGNOFF_PENDING",
       "cannot_auto_sign": true
     },
     {
@@ -185,5 +185,38 @@
     "live": "research/seer-ppe/PERSON_PPE_LIVE_READINESS_2026-11-21_V01.json",
     "v30": "research/seer-ppe/V30_INDEPENDENT_NUMERIC_AUDIT_2026-11-22.json"
   },
-  "description": "Machine-checked administrative readiness snapshot compiled from existing saved source and human records and the audited V30 pilot. No new human consent or judgment implied."
+  "description": "Machine-checked administrative readiness snapshot compiled from existing saved source and human records and the audited V30 pilot. No new human consent or judgment implied.",
+  "v31a_reconciliation": {
+    "status": "PASS_V31A_EVIDENCE_RECONCILIATION_ONLY",
+    "dossier_json": "V31_A_SOURCE_LINEAGE_RECONCILIATION_2026-11-22.json",
+    "dossier_report": "V31_A_SOURCE_LINEAGE_RECONCILIATION_2026-11-22.md",
+    "verifier": "tools/verify_v31a_source_reconciliation.mjs",
+    "source_readiness_ci_run": 44967406330,
+    "public_engineering_ci_run": 44967406346,
+    "cases_reconciled": 11,
+    "preexisting_holds_preserved": 5,
+    "technical_quarantines_preserved": 6,
+    "archived_train_valid_candidate_pair_records": 33,
+    "confirmed_school_22may_valid_sources": [
+      "0De0PEUDyeg9v1J3T6zr",
+      "NZu6Faj6evgINF1qFE0V"
+    ],
+    "confirmed_school_22may_train_sources": [
+      "KrfW3xD7Vvxy6r6wISkv",
+      "H1KOFc0NQZnWRHJNcHPc"
+    ],
+    "distinct_named_site_valid_source": "yeEvdkqXtNgsj7PZFDvI",
+    "distinct_named_site_id": "site_school_shahid_alalafi",
+    "unresolved_wa0026_train_wa0079_alignment": {
+      "ssim": 0.9324,
+      "orb_good_matches": 756,
+      "orb_inliers": 751
+    },
+    "human_source_family_signoffs_added": 0,
+    "holds_or_quarantines_released": 0,
+    "images_reopened": 0,
+    "model_inference_calls": 0,
+    "test_accessed": false,
+    "scientific_scoring_eligibility_changed": 0
+  }
 }
