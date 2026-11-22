@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'research/seer-ppe/**'
+      - '.github/workflows/seer-ppe-unit-tests.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -26,3 +27,6 @@ jobs:
           PYTHONPATH=. python -m unittest discover -s tests -p 'test_phase3.py' -v
           PYTHONPATH=. python -m unittest discover -s tests -p 'test_phase5.py' -v
           PYTHONPATH=. python -m unittest discover -s tests -p 'test_phase6.py' -v
+          PYTHONPATH=. python -m unittest discover -s tests -p 'test_v30_progressive_xai.py' -v
+          PYTHONPATH=. python -m unittest discover -s tests -p 'test_v30_result_audit.py' -v
+          python -m py_compile seer_ppe/progressive_xai.py tools/run_v30_progressive_xai.py tools/audit_v30_xai_result.py

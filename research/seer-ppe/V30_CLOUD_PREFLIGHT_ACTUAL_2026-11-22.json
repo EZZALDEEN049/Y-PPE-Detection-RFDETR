@@ -1,0 +1,101 @@
+{
+  "schema_version": "seer-ppe/v30-cloud-infrastructure-preflight/v0.30",
+  "date": "2026-11-22",
+  "status": "SUCCESS",
+  "execution": "GitHub-hosted Linux runner; no researcher-local computer work",
+  "run_id": 44962342687,
+  "run_url": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44962342687",
+  "artifact_id": 14729164212,
+  "artifact_name": "v30-cloud-numeric-evidence",
+  "source_images_expected": 8,
+  "source_images_downloaded": 8,
+  "train_images": 4,
+  "valid_images": 4,
+  "test_images_accessed": 0,
+  "target_count_frozen": 10,
+  "frozen_baseline_record": "V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json",
+  "dry_run_status": "DRY_RUN_INPUTS_VALID",
+  "local_image_bundle_preflight_status": "LOCAL_IMAGE_BUNDLE_VALIDATED_AGAINST_CONNECTOR_BASELINE",
+  "original_image_file_hashes": [
+    {
+      "image_key": "train:A",
+      "asset_id": "0jRe8fpRDE5fLgAJrYvT",
+      "filename": "image_604.jpg",
+      "split": "train",
+      "width": 1000,
+      "height": 667,
+      "sha256": "e862fb1f66a0a2a830c7b87d430468149e32fd7cb4deba299d750495d588458b"
+    },
+    {
+      "image_key": "train:B",
+      "asset_id": "0xxsYWiz1FZBYERolu4z",
+      "filename": "000760.jpg",
+      "split": "train",
+      "width": 500,
+      "height": 330,
+      "sha256": "a1c2bf6f362f569edd9f4b6b6c0bf0b54bd3a3251568b40830070aafe3a75e03"
+    },
+    {
+      "image_key": "train:C",
+      "asset_id": "0jGu9euJp1MbvkLtfBcs",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "split": "train",
+      "width": 2048,
+      "height": 1365,
+      "sha256": "13c14bcd3790a003bd3e18ebbe603214f71ac1e4066f147cde62c87039521997"
+    },
+    {
+      "image_key": "train:D",
+      "asset_id": "0oVmRAxL0SM1PWqZCNyM",
+      "filename": "h1.jpg",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "sha256": "2c0b51b46e2fcedf1a4457bd61a3db4b0f3453ea7422d6a1ae4c9132b2ecc9c0"
+    },
+    {
+      "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+      "asset_id": "07BnOpgFJyNaOhuzvh5i",
+      "filename": "image_1282.jpg",
+      "split": "valid",
+      "width": 1000,
+      "height": 667,
+      "sha256": "0dbdf870fb70d8936b4e7219489c73b8fe003e17803a0f917efbef484d655012"
+    },
+    {
+      "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+      "asset_id": "09WO3iVNf9jOt21QAxmb",
+      "filename": "c1e5a26df8225afb5be5beceae128ad5.jpg",
+      "split": "valid",
+      "width": 736,
+      "height": 903,
+      "sha256": "615cdd602e41edc1853871d7e7bef8e6fafe023760151726cf058da4b0041e95"
+    },
+    {
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "asset_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "filename": "imagem40.jpg",
+      "split": "valid",
+      "width": 166,
+      "height": 236,
+      "sha256": "e21d082ae16c13cff2c41d2ac8200f32d57998097f8371503ed3a51de70d9021"
+    },
+    {
+      "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+      "asset_id": "0aGYjxE5LmocXyvuLHs8",
+      "filename": "a16ea468abd845e68ea9ccbbe4f9762e.jpg",
+      "split": "valid",
+      "width": 736,
+      "height": 736,
+      "sha256": "fd77cbf1f8f06abd744f9cf93f6a2fca005ef5b9398408839cdc3f7c34f13895"
+    }
+  ],
+  "source_image_bytes_committed": false,
+  "source_image_bytes_uploaded_as_artifacts": false,
+  "actual_model_calls_in_cloud_preflight": 0,
+  "actual_v30_model_calls_total_so_far": 8,
+  "progressive_xai_inference_calls": 0,
+  "planned_remaining_model_calls_max": 1060,
+  "limitation": "Hashes are of original bytes fetched from frozen Asset Library URLs; there was no independent upstream source SHA256 to compare. Dimensions, frozen IDs and split were checked; the images were not uploaded to this GitHub repository.",
+  "next_gate": "GitHub Actions workflow_dispatch on main with repository secret ROBOFLOW_API_KEY, run_progressive=true and confirm_budget=1068. This full run requires deliberate authorization and may incur Roboflow charges."
+}

@@ -1,0 +1,117 @@
+name: SEER-PPE V30 post-run numeric audit and archive
+
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - .github/workflows/seer-ppe-v30-postrun-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: seer-ppe-v30-postrun-audit
+  cancel-in-progress: false
+
+jobs:
+  audit_actual_numeric_evidence:
+    name: Verify completed 1068-call V30 artifact, with zero model calls
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Download exact completed V30 run artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "${RUNNER_TEMP}/v30_result"
+          gh run download 44964287536 --repo "${GITHUB_REPOSITORY}" \
+            --name v30-authorized-cloud-numeric-evidence \
+            --dir "${RUNNER_TEMP}/v30_result"
+          test -s "${RUNNER_TEMP}/v30_result/v30_numeric_results.json"
+          test -s "${RUNNER_TEMP}/v30_result/v30_image_sha256.json"
+          test -s "${RUNNER_TEMP}/v30_result/v30_local_preflight.json"
+          find "${RUNNER_TEMP}/v30_result" -maxdepth 1 -type f -printf '%f\n'
+      - name: Independent fail-closed numeric audit and source-hash comparison
+        run: |
+          set -euo pipefail
+          python research/seer-ppe/tools/audit_v30_xai_result.py \
+            --results "${RUNNER_TEMP}/v30_result/v30_numeric_results.json" \
+            --output "${RUNNER_TEMP}/v30_result/v30_independent_numeric_audit.json"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          root=Path('research/seer-ppe')
+          bundle=Path(os.environ['RUNNER_TEMP']) / 'v30_result'
+          cloud=json.loads((root/'V30_CLOUD_PREFLIGHT_ACTUAL_2026-11-22.json').read_text(encoding='utf-8'))
+          hashes=json.loads((bundle/'v30_image_sha256.json').read_text(encoding='utf-8'))
+          results=json.loads((bundle/'v30_numeric_results.json').read_text(encoding='utf-8'))
+          audit=json.loads((bundle/'v30_independent_numeric_audit.json').read_text(encoding='utf-8'))
+          expected={x['image_key']: x['sha256'] for x in cloud['original_image_file_hashes']}
+          assert cloud['status']=='SUCCESS' and len(expected)==8
+          assert len(hashes['source_images'])==8
+          for key, sha in expected.items():
+              assert results['baseline_images'][key]['local_file_sha256']==sha
+              assert hashes['source_images'][key]['sha256']==sha
+          assert audit['audit_status']=='PASS_NUMERIC_INTEGRITY_ONLY'
+          assert audit['unique_targets']==10
+          assert audit['rankable_curve_targets']==10
+          assert audit['additional_actual_model_calls']==1060
+          assert audit['v30_total_model_calls']==1068
+          assert results['total_v30_model_inference_calls']==1068
+          assert results['baseline_preflight_model_calls_already_executed']==8
+          assert results['constraints']['no_test_accessed'] is True
+          print('Independent actual numeric AUC, 8 source hashes, 10 targets and exact 1068-call ledger PASS.')
+          PY
+      - name: Preserve numeric-only evidence and independent audit in research branch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          root=Path('research/seer-ppe')
+          bundle=Path(os.environ['RUNNER_TEMP'])/'v30_result'
+          src=bundle/'v30_numeric_results.json'
+          evidence=src.read_bytes()
+          # No raw image bytes, API keys, URL-bearing source file, or Test images.
+          assert len(evidence)<5_000_000
+          assert b'ROBOFLOW_API_KEY' not in evidence
+          assert b'api_key' not in evidence.lower()
+          root.joinpath('V30_ACTUAL_PROGRESSIVE_XAI_RESULTS_2026-11-22.json').write_bytes(evidence)
+          report=json.loads((bundle/'v30_independent_numeric_audit.json').read_text(encoding='utf-8'))
+          report['source_run_id']=44964287536
+          report['source_artifact_id']=14731745397
+          report['source_artifact_zip_sha256']='101213ea67da3e5659425f7486d18e3e0b3928c4e3979b43788b32d0a5d60b24'
+          report['original_eight_image_sha256_match_cloud_preflight']=True
+          report['retrained_model']=False
+          report['no_test_accessed']=True
+          root.joinpath('V30_INDEPENDENT_NUMERIC_AUDIT_2026-11-22.json').write_text(
+              json.dumps(report,ensure_ascii=False,indent=2,allow_nan=False)+'\n',encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/seer-ppe/V30_ACTUAL_PROGRESSIVE_XAI_RESULTS_2026-11-22.json \
+                  research/seer-ppe/V30_INDEPENDENT_NUMERIC_AUDIT_2026-11-22.json
+          git commit -m "Archive independently audited V30 actual XAI numeric results (no new inference)"
+          git push origin HEAD:research/v30-progressive-xai-2026-11-22
+      - name: Upload permanent-audit backup as short-lived Actions artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: v30-postrun-audit-evidence
+          path: |
+            ${{ runner.temp }}/v30_result/v30_numeric_results.json
+            ${{ runner.temp }}/v30_result/v30_independent_numeric_audit.json
+          if-no-files-found: warn
+          retention-days: 30

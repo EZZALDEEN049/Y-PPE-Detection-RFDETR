@@ -1,0 +1,385 @@
+{
+  "schema_version": "seer-ppe/v30-frozen-progressive-xai-targets/v0.30",
+  "frozen_date": "2026-11-22",
+  "parent_v27_target_manifest": "V27_FROZEN_TARGETS_2026-11-21.json",
+  "parent_v28_baseline_ledger": "V28_ACTUAL_TARGET_BOX_DELETION_INSERTION_RESULTS_2026-11-22.json",
+  "model_id": "altayyar-0oflt-lafos-qqauz/2",
+  "source_project": "softyyemen/altayyar-0oflt-lafos-qqauz",
+  "inference_settings": {
+    "confidence": 0.2,
+    "overlap": 0.5,
+    "endpoint": "serverless hosted direct model inference",
+    "workflow_sinks_invoked": false
+  },
+  "source_images": [
+    {
+      "image_key": "train:A",
+      "asset_id": "0jRe8fpRDE5fLgAJrYvT",
+      "source_id": null,
+      "split": "train",
+      "filename": "image_604.jpg",
+      "image_width": 1000,
+      "image_height": 667
+    },
+    {
+      "image_key": "train:B",
+      "asset_id": "0xxsYWiz1FZBYERolu4z",
+      "source_id": null,
+      "split": "train",
+      "filename": "000760.jpg",
+      "image_width": 500,
+      "image_height": 330
+    },
+    {
+      "image_key": "train:C",
+      "asset_id": "0jGu9euJp1MbvkLtfBcs",
+      "source_id": null,
+      "split": "train",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "image_width": 2048,
+      "image_height": 1365
+    },
+    {
+      "image_key": "train:D",
+      "asset_id": "0oVmRAxL0SM1PWqZCNyM",
+      "source_id": null,
+      "split": "train",
+      "filename": "h1.jpg",
+      "image_width": 1000,
+      "image_height": 1000
+    },
+    {
+      "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+      "asset_id": "07BnOpgFJyNaOhuzvh5i",
+      "source_id": "07BnOpgFJyNaOhuzvh5i",
+      "split": "valid",
+      "filename": "image_1282.jpg",
+      "image_width": 1000,
+      "image_height": 667
+    },
+    {
+      "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+      "asset_id": "09WO3iVNf9jOt21QAxmb",
+      "source_id": "09WO3iVNf9jOt21QAxmb",
+      "split": "valid",
+      "filename": "c1e5a26df8225afb5be5beceae128ad5.jpg",
+      "image_width": 736,
+      "image_height": 903
+    },
+    {
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "asset_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "source_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "split": "valid",
+      "filename": "imagem40.jpg",
+      "image_width": 166,
+      "image_height": 236
+    },
+    {
+      "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+      "asset_id": "0aGYjxE5LmocXyvuLHs8",
+      "source_id": "0aGYjxE5LmocXyvuLHs8",
+      "split": "valid",
+      "filename": "a16ea468abd845e68ea9ccbbe4f9762e.jpg",
+      "image_width": 736,
+      "image_height": 736
+    }
+  ],
+  "targets": [
+    {
+      "image_key": "train:A",
+      "asset_id": "0jRe8fpRDE5fLgAJrYvT",
+      "source_id": null,
+      "split": "train",
+      "filename": "image_604.jpg",
+      "image_width": 1000,
+      "image_height": 667,
+      "target_id": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+      "target_class": "No Face Mask",
+      "bbox_center_xywh": {
+        "x": 475.5,
+        "y": 353.5,
+        "width": 207,
+        "height": 143
+      },
+      "frozen_baseline_confidence": 0.8801664710044861,
+      "arms": [
+        "A5",
+        "A6"
+      ]
+    },
+    {
+      "image_key": "train:B",
+      "asset_id": "0xxsYWiz1FZBYERolu4z",
+      "source_id": null,
+      "split": "train",
+      "filename": "000760.jpg",
+      "image_width": 500,
+      "image_height": 330,
+      "target_id": "1b2af685-6965-4986-9d35-258b036e5882",
+      "target_class": "Gloves",
+      "bbox_center_xywh": {
+        "x": 356,
+        "y": 169,
+        "width": 12,
+        "height": 14
+      },
+      "frozen_baseline_confidence": 0.3109840154647827,
+      "arms": [
+        "A5",
+        "A6"
+      ]
+    },
+    {
+      "image_key": "train:C",
+      "asset_id": "0jGu9euJp1MbvkLtfBcs",
+      "source_id": null,
+      "split": "train",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "image_width": 2048,
+      "image_height": 1365,
+      "target_id": "35e4de96-de91-46a1-910f-89738f80e053",
+      "target_class": "No Safety Boots",
+      "bbox_center_xywh": {
+        "x": 608.5,
+        "y": 731,
+        "width": 35,
+        "height": 20
+      },
+      "frozen_baseline_confidence": 0.3506709635257721,
+      "arms": [
+        "A5"
+      ]
+    },
+    {
+      "image_key": "train:C",
+      "asset_id": "0jGu9euJp1MbvkLtfBcs",
+      "source_id": null,
+      "split": "train",
+      "filename": "Kathiah Gets a Chance03.jpg",
+      "image_width": 2048,
+      "image_height": 1365,
+      "target_id": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+      "target_class": "Face Masks",
+      "bbox_center_xywh": {
+        "x": 591,
+        "y": 549,
+        "width": 22,
+        "height": 14
+      },
+      "frozen_baseline_confidence": 0.24226410686969757,
+      "arms": [
+        "A6"
+      ]
+    },
+    {
+      "image_key": "train:D",
+      "asset_id": "0oVmRAxL0SM1PWqZCNyM",
+      "source_id": null,
+      "split": "train",
+      "filename": "h1.jpg",
+      "image_width": 1000,
+      "image_height": 1000,
+      "target_id": "7a101411-15e7-457a-842a-0e61be4f1f11",
+      "target_class": "Hard Hat",
+      "bbox_center_xywh": {
+        "x": 512.5,
+        "y": 334,
+        "width": 963,
+        "height": 662
+      },
+      "frozen_baseline_confidence": 0.9647238850593567,
+      "arms": [
+        "A5",
+        "A6"
+      ]
+    },
+    {
+      "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+      "asset_id": "07BnOpgFJyNaOhuzvh5i",
+      "source_id": "07BnOpgFJyNaOhuzvh5i",
+      "split": "valid",
+      "filename": "image_1282.jpg",
+      "image_width": 1000,
+      "image_height": 667,
+      "target_id": "e67b5082-bdc0-4143-8a98-9dd8524f868d",
+      "target_class": "No Gloves",
+      "bbox_center_xywh": {
+        "x": 498,
+        "y": 449,
+        "width": 66,
+        "height": 74
+      },
+      "frozen_baseline_confidence": 0.8351004123687744,
+      "arms": [
+        "A5",
+        "A6"
+      ]
+    },
+    {
+      "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+      "asset_id": "09WO3iVNf9jOt21QAxmb",
+      "source_id": "09WO3iVNf9jOt21QAxmb",
+      "split": "valid",
+      "filename": "c1e5a26df8225afb5be5beceae128ad5.jpg",
+      "image_width": 736,
+      "image_height": 903,
+      "target_id": "181c2d93-bac0-4cfe-8613-9c4e66ecc4fc",
+      "target_class": "Safety Boots",
+      "bbox_center_xywh": {
+        "x": 261.5,
+        "y": 415.5,
+        "width": 211,
+        "height": 135
+      },
+      "frozen_baseline_confidence": 0.912612795829773,
+      "arms": [
+        "A5",
+        "A6"
+      ]
+    },
+    {
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "asset_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "source_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "split": "valid",
+      "filename": "imagem40.jpg",
+      "image_width": 166,
+      "image_height": 236,
+      "target_id": "5d2a56b6-4b76-4206-afd0-51e1e4c28d8e",
+      "target_class": "No Face Mask",
+      "bbox_center_xywh": {
+        "x": 87,
+        "y": 163.5,
+        "width": 70,
+        "height": 43
+      },
+      "frozen_baseline_confidence": 0.8981361985206604,
+      "arms": [
+        "A5"
+      ]
+    },
+    {
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "asset_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "source_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "split": "valid",
+      "filename": "imagem40.jpg",
+      "image_width": 166,
+      "image_height": 236,
+      "target_id": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+      "target_class": "Safety Vests",
+      "bbox_center_xywh": {
+        "x": 97,
+        "y": 212.5,
+        "width": 138,
+        "height": 47
+      },
+      "frozen_baseline_confidence": 0.8528399467468262,
+      "arms": [
+        "A6"
+      ]
+    },
+    {
+      "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+      "asset_id": "0aGYjxE5LmocXyvuLHs8",
+      "source_id": "0aGYjxE5LmocXyvuLHs8",
+      "split": "valid",
+      "filename": "a16ea468abd845e68ea9ccbbe4f9762e.jpg",
+      "image_width": 736,
+      "image_height": 736,
+      "target_id": "8bdb1086-0226-4293-b70c-3a44efd763c5",
+      "target_class": "No Safety Boots",
+      "bbox_center_xywh": {
+        "x": 294,
+        "y": 488.5,
+        "width": 244,
+        "height": 483
+      },
+      "frozen_baseline_confidence": 0.9197127223014832,
+      "arms": [
+        "A5",
+        "A6"
+      ]
+    }
+  ],
+  "explainer": {
+    "method": "target-specific 8x8 grid occlusion sensitivity",
+    "grid_rows": 8,
+    "grid_cols": 8,
+    "cell_count": 64,
+    "map_fill_rgb": [
+      127,
+      127,
+      127
+    ],
+    "importance": "frozen target confidence minus confidence after single-cell occlusion",
+    "lost_target_score": 0,
+    "ambiguous_match": "invalid/NaN; do not impute",
+    "target_match": "same exact class, unique match, original-box IoU >= 0.50",
+    "ambiguity_iou_margin": 0.03,
+    "ranking": "descending positive confidence drop; row-major tie break",
+    "random_control": "one deterministic permutation seeded from SHA-256(target_id)",
+    "inverse_control": "reverse saliency ranking"
+  },
+  "curves": {
+    "directions": [
+      "deletion",
+      "insertion"
+    ],
+    "orderings": [
+      "saliency",
+      "random",
+      "inverse_saliency"
+    ],
+    "step_percent": 10,
+    "fractions": [
+      0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1
+    ],
+    "baseline": "Gaussian-blurred image; sigma=max(3 px, round(1% of the shorter image edge))",
+    "deletion": "replace top-ranked cells in original image with blurred-baseline pixels",
+    "insertion": "start from blurred baseline and restore top-ranked cells from original image",
+    "score": "same-class matched target confidence; zero only when the target detection is absent",
+    "normalization": "clip confidence / verified baseline confidence to [0,1] for AUC; preserve raw confidence",
+    "auc": "trapezoidal integration over actual modified pixel-area fraction",
+    "interpretation": "lower deletion AUC and higher insertion AUC are better; compare against random and inverse controls"
+  },
+  "budget": {
+    "unique_targets": 10,
+    "source_images": 8,
+    "baseline_model_calls": 8,
+    "blurred_endpoint_model_calls": 8,
+    "grid_occlusion_model_calls": 512,
+    "progressive_curve_intermediate_model_calls": 540,
+    "planned_total_model_calls": 1068,
+    "target_slots_A5": 8,
+    "target_slots_A6": 8,
+    "shared_targets": 6,
+    "unique_A5_targets": 2,
+    "unique_A6_targets": 2,
+    "shared_target_results_reused_across_arms": true,
+    "fixed_model_calls": 528,
+    "curve_calls_per_eligible_target": 54,
+    "planned_total_model_calls_max": 1068
+  },
+  "constraints": {
+    "development_exposed_sample": true,
+    "source_independence_verified": false,
+    "no_test_accessed": true,
+    "original_model_or_data_modified": false,
+    "worker_compliance_measured": false,
+    "human_review_dispatched": false,
+    "strict_worker_safety_scoring_ready": false
+  },
+  "source_image_exclusion_note": "The ninth V27 development image had no A5/A6 selected PPE target and is excluded from target-specific V30 curves; no new target is selected."
+}

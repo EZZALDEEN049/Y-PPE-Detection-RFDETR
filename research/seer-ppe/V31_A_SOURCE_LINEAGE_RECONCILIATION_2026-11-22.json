@@ -1,0 +1,1009 @@
+{
+  "schema_version": "seer-ppe/v31-a-source-lineage-reconciliation/v0.31a",
+  "date": "2026-11-22",
+  "purpose": "READ_ONLY_RECONCILIATION_OF_EXISTING_TRAIN_VALID_EVIDENCE_FOR_11_P0_CASES; NOT_A_HUMAN_SOURCE_FAMILY_ADJUDICATION",
+  "source_files": {
+    "priority_packet": "SOURCE_FAMILY_EVIDENCE_PRIORITY_11_2026-11-21_V15.json",
+    "direct_pair_measurements": "ORIGINAL_99_VALID_SOURCE_FAMILY_PAIRS_2026-11-21_V14.json",
+    "quarantine_matrix": "VALIDATION_TECHNICAL_QUARANTINE_V14.json",
+    "prior_visual_triage": "VISUAL_SOURCE_FAMILY_ADJUDICATION_2026-11-18_V01.json"
+  },
+  "totals": {
+    "cases": 11,
+    "preexisting_holds": 5,
+    "technical_quarantines": 6,
+    "train_valid_pair_records": 33
+  },
+  "findings": {
+    "school_22may_shared_site_valid_cases": [
+      "0De0PEUDyeg9v1J3T6zr",
+      "NZu6Faj6evgINF1qFE0V"
+    ],
+    "school_22may_train_members": [
+      "KrfW3xD7Vvxy6r6wISkv",
+      "H1KOFc0NQZnWRHJNcHPc"
+    ],
+    "distinct_named_site_valid_case": "yeEvdkqXtNgsj7PZFDvI",
+    "distinct_named_site": "site_school_shahid_alalafi",
+    "key_correction": "WA0026 (School Shahid Al-Alafi) must not be grouped with School 22 May–Aseefrah solely because of WA filename stem. Its high alignment to Train WA0079 remains an independent unresolved image/source-lineage issue.",
+    "strongest_technical_same_frame_candidates": [
+      "HRYvLu8UFRgGlQQoJN7G",
+      "TBsuPnS1fL27ZV03VWqm",
+      "orMUSm4hS7KXI9Ew0jCz",
+      "jeB2NmucImurFBeFkyIz",
+      "yeEvdkqXtNgsj7PZFDvI"
+    ],
+    "weak_or_ambiguous_feature_support": [
+      "V7nP50xtllhmv7ex0OZf",
+      "SlMNfdbpvClsUZin1RcK",
+      "f8Lh7cHa3XXXsl88xpDt"
+    ],
+    "raw_byte_identical_pairs_among_11": 0,
+    "interpretation_limit": "Raw-byte inequality does not prove source independence; high pixel/keypoint similarity does not alone prove shared capture site/session. Acquisition lineage remains a human evidence question."
+  },
+  "constraints": {
+    "original_images_reopened": false,
+    "source_image_reinspection_requested": false,
+    "model_inference_calls": 0,
+    "retraining": false,
+    "test_opened": false,
+    "source_split_or_label_changes": false,
+    "prior_holds_preserved": true,
+    "technical_quarantines_preserved": true,
+    "human_verdicts_created": 0,
+    "scoring_eligibility_changed": 0
+  },
+  "cases": [
+    {
+      "valid_source_id": "yeEvdkqXtNgsj7PZFDvI",
+      "original_valid_filename": "IMG-20250416-WA0026.jpg",
+      "clean17_valid_filename": "IMG-20250416-WA0026_jpg.rf.a3294f67d828b9a7fd892bc2820063c9.jpg",
+      "prior_status": "RETAIN_PREEXISTING_RESEARCH_HOLD",
+      "prior_hard_hold": true,
+      "nearest_train_source_id": "xyKCHH49Xr7oCONLC9nN",
+      "nearest_train_filename": "IMG-20250416-WA0079.jpg",
+      "compared_train_candidate_count": 3,
+      "prior_packet_strongest_ssim": 0.9324,
+      "technical_tier": "HIGH_PIXEL_AND_FEATURE_ALIGNMENT_WITH_SITE_LABEL_CONFLICT",
+      "preliminary_interpretation": "Prior visual record identifies WA0026 as School Shahid Al-Alafi, explicitly different from School 22 May–Aseefrah. Do not assign it to the 22 May site family by filename stem. However, its Train candidate WA0079 has SSIM 0.93240 and 751 ORB inliers, so image-content/source relation remains unresolved and the historical hold must remain.",
+      "prior_visual_site_record": {
+        "site_id": "site_school_shahid_alalafi",
+        "site_evidence": "VISIBLE_IMAGE_TEXT_SCHOOL_NAME",
+        "site_review": "CONFIRMED_DIFFERENT_NAMED_SITE",
+        "visual_summary": "Masonry work and visible text مدرسة الشهيد العلفي, distinct from 22 May School."
+      },
+      "confirmed_site_family_evidence": null,
+      "all_direct_v14_train_candidate_pairs": [
+        {
+          "train_source_id": "H1KOFc0NQZnWRHJNcHPc",
+          "train_filename": "IMG-20250416-WA0066(1).jpg",
+          "gray_ssim": 0.15631,
+          "rgb_mae": 0.23232,
+          "embedding_cosine": 0.865431,
+          "orb_good_matches": 4,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            1920,
+            2560
+          ],
+          "train_export_dimensions": [
+            1080,
+            794
+          ]
+        },
+        {
+          "train_source_id": "LGXoBOUgMV27ByDkOJxk",
+          "train_filename": "IMG-20250416-WA0054.jpg",
+          "gray_ssim": 0.15831,
+          "rgb_mae": 0.22531,
+          "embedding_cosine": 0.864294,
+          "orb_good_matches": 5,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            1920,
+            2560
+          ],
+          "train_export_dimensions": [
+            809,
+            1080
+          ]
+        },
+        {
+          "train_source_id": "xyKCHH49Xr7oCONLC9nN",
+          "train_filename": "IMG-20250416-WA0079.jpg",
+          "gray_ssim": 0.9324,
+          "rgb_mae": 0.01974,
+          "embedding_cosine": 0.881212,
+          "orb_good_matches": 756,
+          "orb_inliers": 751,
+          "raw_bytes_identical": false,
+          "technical_assessment": "HIGH_AUTOMATED_EVIDENCE_NOT_FINAL_PHOTO_IDENTITY",
+          "original_dimensions": [
+            1920,
+            2560
+          ],
+          "train_export_dimensions": [
+            960,
+            1280
+          ]
+        }
+      ],
+      "author_or_reviewer_information_required": "Author/source record must reconcile whether WA0026 and WA0079 derive from the same original frame, crop/export, project or acquisition source; clarify the distinct named site.",
+      "current_human_source_family_verdict": null,
+      "current_human_acquisition_site_id": null,
+      "current_human_capture_session_id": null,
+      "current_human_source_family_id": null,
+      "current_human_reviewer_id": null,
+      "current_human_signoff_date": null,
+      "current_human_evidence_sha256": null,
+      "scoring_eligibility": false,
+      "hold_or_quarantine_release_authorized": false
+    },
+    {
+      "valid_source_id": "jeB2NmucImurFBeFkyIz",
+      "original_valid_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+      "clean17_valid_filename": "d3febe75f2cb4cb5875ff430dcdb2b95_jpg.rf.86474858e6ac90c8d93f9b80651655d6.jpg",
+      "prior_status": "RETAIN_PREEXISTING_RESEARCH_HOLD",
+      "prior_hard_hold": true,
+      "nearest_train_source_id": "Cvh5UIGM4gTaPhriIh4Y",
+      "nearest_train_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+      "compared_train_candidate_count": 3,
+      "prior_packet_strongest_ssim": 0.90125,
+      "technical_tier": "HIGH_PIXEL_AND_FEATURE_ALIGNMENT",
+      "preliminary_interpretation": "Valid and Train files share the exact original filename; direct comparison SSIM 0.90125 with 26 ORB inliers. Raw bytes differ, so exact byte duplication is not established, but a same-frame/derivative relationship is plausible.",
+      "prior_visual_site_record": null,
+      "confirmed_site_family_evidence": null,
+      "all_direct_v14_train_candidate_pairs": [
+        {
+          "train_source_id": "Cvh5UIGM4gTaPhriIh4Y",
+          "train_filename": "d3febe75f2cb4cb5875ff430dcdb2b95.jpg",
+          "gray_ssim": 0.90125,
+          "rgb_mae": 0.01867,
+          "embedding_cosine": 0.896492,
+          "orb_good_matches": 34,
+          "orb_inliers": 26,
+          "raw_bytes_identical": false,
+          "technical_assessment": "HIGH_AUTOMATED_EVIDENCE_NOT_FINAL_PHOTO_IDENTITY",
+          "original_dimensions": [
+            640,
+            640
+          ],
+          "train_export_dimensions": [
+            640,
+            640
+          ]
+        },
+        {
+          "train_source_id": "JfEnhjYX5LHYwPcbvlAm",
+          "train_filename": "dd280f1a1eca4a03846ac5c173a1cd27.jpg",
+          "gray_ssim": 0.44244,
+          "rgb_mae": 0.22373,
+          "embedding_cosine": 0.784117,
+          "orb_good_matches": 2,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            640,
+            640
+          ],
+          "train_export_dimensions": [
+            640,
+            640
+          ]
+        },
+        {
+          "train_source_id": "NAzs8sLreuFWQeOYDa2w",
+          "train_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+          "gray_ssim": 0.1784,
+          "rgb_mae": 0.32808,
+          "embedding_cosine": 0.787,
+          "orb_good_matches": 7,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            640,
+            640
+          ],
+          "train_export_dimensions": [
+            640,
+            640
+          ]
+        }
+      ],
+      "author_or_reviewer_information_required": "Confirm original capture lineage and whether Valid file is a crop, resize, re-export or separate capture from the Train source.",
+      "current_human_source_family_verdict": null,
+      "current_human_acquisition_site_id": null,
+      "current_human_capture_session_id": null,
+      "current_human_source_family_id": null,
+      "current_human_reviewer_id": null,
+      "current_human_signoff_date": null,
+      "current_human_evidence_sha256": null,
+      "scoring_eligibility": false,
+      "hold_or_quarantine_release_authorized": false
+    },
+    {
+      "valid_source_id": "qBtfzUgi6Mpg3A5TE0ln",
+      "original_valid_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+      "clean17_valid_filename": "cf8fc8d6c849430e927fd6fa13b6ba79_jpg.rf.97c4a7c0557f0e5ad49f031c13064de5.jpg",
+      "prior_status": "RETAIN_PREEXISTING_RESEARCH_HOLD",
+      "prior_hard_hold": true,
+      "nearest_train_source_id": "NAzs8sLreuFWQeOYDa2w",
+      "nearest_train_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+      "compared_train_candidate_count": 3,
+      "prior_packet_strongest_ssim": 0.82136,
+      "technical_tier": "STRONG_FEATURE_AND_EMBEDDING_ALIGNMENT_MODERATE_SSIM",
+      "preliminary_interpretation": "Same original filename across splits; SSIM 0.82136, embedding cosine 0.980171, ORB 538/538 inliers. The V14 classifier did not label this pair a same-frame high-pixel candidate; the strong feature alignment still justifies the pre-existing hold, without claiming a duplicate.",
+      "prior_visual_site_record": null,
+      "confirmed_site_family_evidence": null,
+      "all_direct_v14_train_candidate_pairs": [
+        {
+          "train_source_id": "83RJ7YNPo3wWJZFGw3Ah",
+          "train_filename": "6818bc47bfb64c1aab652e80a2a2a8b8.jpg",
+          "gray_ssim": 0.17888,
+          "rgb_mae": 0.255,
+          "embedding_cosine": 0.741217,
+          "orb_good_matches": 2,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            640,
+            640
+          ],
+          "train_export_dimensions": [
+            640,
+            640
+          ]
+        },
+        {
+          "train_source_id": "NAzs8sLreuFWQeOYDa2w",
+          "train_filename": "cf8fc8d6c849430e927fd6fa13b6ba79.jpg",
+          "gray_ssim": 0.82136,
+          "rgb_mae": 0.03601,
+          "embedding_cosine": 0.980171,
+          "orb_good_matches": 538,
+          "orb_inliers": 538,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            640,
+            640
+          ],
+          "train_export_dimensions": [
+            640,
+            640
+          ]
+        },
+        {
+          "train_source_id": "gnbAKN1ga4t7AIXYrZPQ",
+          "train_filename": "9e0af5a2364f4e34bd44e030716d2840.jpg",
+          "gray_ssim": 0.15661,
+          "rgb_mae": 0.32542,
+          "embedding_cosine": 0.76238,
+          "orb_good_matches": 2,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            640,
+            640
+          ],
+          "train_export_dimensions": [
+            640,
+            640
+          ]
+        }
+      ],
+      "author_or_reviewer_information_required": "Confirm whether both files trace to the same original capture or common image asset; preserve the historical hold pending evidence.",
+      "current_human_source_family_verdict": null,
+      "current_human_acquisition_site_id": null,
+      "current_human_capture_session_id": null,
+      "current_human_source_family_id": null,
+      "current_human_reviewer_id": null,
+      "current_human_signoff_date": null,
+      "current_human_evidence_sha256": null,
+      "scoring_eligibility": false,
+      "hold_or_quarantine_release_authorized": false
+    },
+    {
+      "valid_source_id": "0De0PEUDyeg9v1J3T6zr",
+      "original_valid_filename": "IMG-20250416-WA0063.jpg",
+      "clean17_valid_filename": "IMG-20250416-WA0063_jpg.rf.3b768e4170378e1d7b62499761f4c4d4.jpg",
+      "prior_status": "RETAIN_PREEXISTING_RESEARCH_HOLD",
+      "prior_hard_hold": true,
+      "nearest_train_source_id": "KrfW3xD7Vvxy6r6wISkv",
+      "nearest_train_filename": "IMG-20250416-WA0067.jpg",
+      "compared_train_candidate_count": 3,
+      "prior_packet_strongest_ssim": 0.28551,
+      "technical_tier": "NAMED_SITE_CROSS_SPLIT_CONFIRMED",
+      "preliminary_interpretation": "Valid WA0063 and Train WA0067/WA0066 share the visible named site School 22 May–Aseefrah. Existing site-family hold is supported. The pair is not an exact-pixel duplicate; site-level overlap is the issue.",
+      "prior_visual_site_record": {
+        "site_id": "site_school_22may_aseefrah",
+        "site_evidence": "VISIBLE_IMAGE_TEXT_SCHOOL_NAME",
+        "site_review": "CONFIRMED_NAME_MATCH",
+        "visual_summary": "Scaffolded block building, one worker on upper level; printed project/site caption."
+      },
+      "confirmed_site_family_evidence": {
+        "site_id": "site_school_22may_aseefrah",
+        "site_review": "CONFIRMED_NAME_MATCH",
+        "evidence": "VISIBLE_IMAGE_TEXT_SCHOOL_NAME",
+        "reviewer_class": "AI_VISUAL_TRIAGE_NOT_INDEPENDENT_HUMAN_REVIEW",
+        "interpretation": "Same named worksite appears in Train and Valid; different views do not prove separate source families."
+      },
+      "all_direct_v14_train_candidate_pairs": [
+        {
+          "train_source_id": "FZOVAaPg6OZlAJa2gTzE",
+          "train_filename": "IMG-20250416-WA0062.jpg",
+          "gray_ssim": 0.20869,
+          "rgb_mae": 0.25575,
+          "embedding_cosine": 0.82678,
+          "orb_good_matches": 17,
+          "orb_inliers": 8,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            1080,
+            810
+          ],
+          "train_export_dimensions": [
+            1080,
+            810
+          ]
+        },
+        {
+          "train_source_id": "H1KOFc0NQZnWRHJNcHPc",
+          "train_filename": "IMG-20250416-WA0066(1).jpg",
+          "gray_ssim": 0.26684,
+          "rgb_mae": 0.22252,
+          "embedding_cosine": 0.834018,
+          "orb_good_matches": 18,
+          "orb_inliers": 14,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            1080,
+            810
+          ],
+          "train_export_dimensions": [
+            1080,
+            794
+          ]
+        },
+        {
+          "train_source_id": "KrfW3xD7Vvxy6r6wISkv",
+          "train_filename": "IMG-20250416-WA0067.jpg",
+          "gray_ssim": 0.28551,
+          "rgb_mae": 0.24436,
+          "embedding_cosine": 0.906803,
+          "orb_good_matches": 12,
+          "orb_inliers": 7,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            1080,
+            810
+          ],
+          "train_export_dimensions": [
+            1078,
+            811
+          ]
+        }
+      ],
+      "author_or_reviewer_information_required": "Author confirms whether these images belong to the same acquisition/site family; keep held regardless of view/time differences.",
+      "current_human_source_family_verdict": null,
+      "current_human_acquisition_site_id": null,
+      "current_human_capture_session_id": null,
+      "current_human_source_family_id": null,
+      "current_human_reviewer_id": null,
+      "current_human_signoff_date": null,
+      "current_human_evidence_sha256": null,
+      "scoring_eligibility": false,
+      "hold_or_quarantine_release_authorized": false
+    },
+    {
+      "valid_source_id": "NZu6Faj6evgINF1qFE0V",
+      "original_valid_filename": "IMG-20250416-WA0051.jpg",
+      "clean17_valid_filename": "IMG-20250416-WA0051_jpg.rf.bfde57b430ef46710f9d86cc5169e124.jpg",
+      "prior_status": "RETAIN_PREEXISTING_RESEARCH_HOLD",
+      "prior_hard_hold": true,
+      "nearest_train_source_id": "KrfW3xD7Vvxy6r6wISkv",
+      "nearest_train_filename": "IMG-20250416-WA0067.jpg",
+      "compared_train_candidate_count": 5,
+      "prior_packet_strongest_ssim": 0.26785,
+      "technical_tier": "NAMED_SITE_CROSS_SPLIT_CONFIRMED",
+      "preliminary_interpretation": "Valid WA0051 and Train WA0067/WA0066 share the visible named site School 22 May–Aseefrah. Existing site-family hold is supported.",
+      "prior_visual_site_record": {
+        "site_id": "site_school_22may_aseefrah",
+        "site_evidence": "VISIBLE_IMAGE_TEXT_SCHOOL_NAME",
+        "site_review": "CONFIRMED_NAME_MATCH",
+        "visual_summary": "Construction close-up with project/site caption naming 22 May School – Aseefrah."
+      },
+      "confirmed_site_family_evidence": {
+        "site_id": "site_school_22may_aseefrah",
+        "site_review": "CONFIRMED_NAME_MATCH",
+        "evidence": "VISIBLE_IMAGE_TEXT_SCHOOL_NAME",
+        "reviewer_class": "AI_VISUAL_TRIAGE_NOT_INDEPENDENT_HUMAN_REVIEW",
+        "interpretation": "Same named worksite appears in Train and Valid; different views do not prove separate source families."
+      },
+      "all_direct_v14_train_candidate_pairs": [
+        {
+          "train_source_id": "FZOVAaPg6OZlAJa2gTzE",
+          "train_filename": "IMG-20250416-WA0062.jpg",
+          "gray_ssim": 0.18873,
+          "rgb_mae": 0.24373,
+          "embedding_cosine": 0.82863,
+          "orb_good_matches": 15,
+          "orb_inliers": 8,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            1080,
+            810
+          ],
+          "train_export_dimensions": [
+            1080,
+            810
+          ]
+        },
+        {
+          "train_source_id": "H1KOFc0NQZnWRHJNcHPc",
+          "train_filename": "IMG-20250416-WA0066(1).jpg",
+          "gray_ssim": 0.21637,
+          "rgb_mae": 0.21857,
+          "embedding_cosine": null,
+          "orb_good_matches": 27,
+          "orb_inliers": 18,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            1080,
+            810
+          ],
+          "train_export_dimensions": [
+            1080,
+            794
+          ]
+        },
+        {
+          "train_source_id": "IZHbVWAvlAPhZd53dpz7",
+          "train_filename": "IMG-20250416-WA0053.jpg",
+          "gray_ssim": 0.22438,
+          "rgb_mae": 0.23435,
+          "embedding_cosine": 0.820652,
+          "orb_good_matches": 4,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            1080,
+            810
+          ],
+          "train_export_dimensions": [
+            1027,
+            1080
+          ]
+        },
+        {
+          "train_source_id": "KrfW3xD7Vvxy6r6wISkv",
+          "train_filename": "IMG-20250416-WA0067.jpg",
+          "gray_ssim": 0.26785,
+          "rgb_mae": 0.214,
+          "embedding_cosine": null,
+          "orb_good_matches": 11,
+          "orb_inliers": 9,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            1080,
+            810
+          ],
+          "train_export_dimensions": [
+            1078,
+            811
+          ]
+        },
+        {
+          "train_source_id": "vfwrerLlt3psnrSl2EZA",
+          "train_filename": "125182753_5333001493392670_6503923738393063554_n.jpg",
+          "gray_ssim": 0.17465,
+          "rgb_mae": 0.20785,
+          "embedding_cosine": 0.831894,
+          "orb_good_matches": 3,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            1080,
+            810
+          ],
+          "train_export_dimensions": [
+            720,
+            960
+          ]
+        }
+      ],
+      "author_or_reviewer_information_required": "Author confirms whether these images belong to the same acquisition/site family; keep held regardless of view/time differences.",
+      "current_human_source_family_verdict": null,
+      "current_human_acquisition_site_id": null,
+      "current_human_capture_session_id": null,
+      "current_human_source_family_id": null,
+      "current_human_reviewer_id": null,
+      "current_human_signoff_date": null,
+      "current_human_evidence_sha256": null,
+      "scoring_eligibility": false,
+      "hold_or_quarantine_release_authorized": false
+    },
+    {
+      "valid_source_id": "HRYvLu8UFRgGlQQoJN7G",
+      "original_valid_filename": "Safety-Glasses-Toolbox-Talk.jpg",
+      "clean17_valid_filename": "Safety-Glasses-Toolbox-Talk_jpg.rf.c372e1b2f5dc62c25afd60314e91223a.jpg",
+      "prior_status": "TECHNICAL_OVERLAP_QUARANTINE_PENDING_REVIEW",
+      "prior_hard_hold": false,
+      "nearest_train_source_id": "nhXMHxaCM0f7kNLOKU8Z",
+      "nearest_train_filename": "image_719.jpg",
+      "compared_train_candidate_count": 3,
+      "prior_packet_strongest_ssim": 0.99757,
+      "technical_tier": "VERY_HIGH_PIXEL_AND_FEATURE_ALIGNMENT",
+      "preliminary_interpretation": "Valid Safety-Glasses-Toolbox-Talk and Train image_719 have SSIM 0.99757, MAE 0.00226 and 780/780 ORB inliers. Raw bytes differ but the images are extremely closely aligned; derivative/same-frame is a strong technical hypothesis, not an acquisition attestation.",
+      "prior_visual_site_record": null,
+      "confirmed_site_family_evidence": null,
+      "all_direct_v14_train_candidate_pairs": [
+        {
+          "train_source_id": "2GX4zgqbVnbY5u1DZPga",
+          "train_filename": "image_780.jpg",
+          "gray_ssim": 0.44991,
+          "rgb_mae": 0.26624,
+          "embedding_cosine": 0.940281,
+          "orb_good_matches": 22,
+          "orb_inliers": 7,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            1200,
+            800
+          ],
+          "train_export_dimensions": [
+            768,
+            492
+          ]
+        },
+        {
+          "train_source_id": "gPFsVpmsZNe3r3gpZiLR",
+          "train_filename": "worker wearing mask_380.jpg",
+          "gray_ssim": 0.37114,
+          "rgb_mae": 0.26215,
+          "embedding_cosine": 0.944866,
+          "orb_good_matches": 5,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            1200,
+            800
+          ],
+          "train_export_dimensions": [
+            643,
+            338
+          ]
+        },
+        {
+          "train_source_id": "nhXMHxaCM0f7kNLOKU8Z",
+          "train_filename": "image_719.jpg",
+          "gray_ssim": 0.99757,
+          "rgb_mae": 0.00226,
+          "embedding_cosine": 0.998663,
+          "orb_good_matches": 780,
+          "orb_inliers": 780,
+          "raw_bytes_identical": false,
+          "technical_assessment": "HIGH_AUTOMATED_EVIDENCE_NOT_FINAL_PHOTO_IDENTITY",
+          "original_dimensions": [
+            1200,
+            800
+          ],
+          "train_export_dimensions": [
+            1200,
+            800
+          ]
+        }
+      ],
+      "author_or_reviewer_information_required": "Confirm whether one is a resized/recompressed/annotated derivative of the other or whether a separate original capture exists.",
+      "current_human_source_family_verdict": null,
+      "current_human_acquisition_site_id": null,
+      "current_human_capture_session_id": null,
+      "current_human_source_family_id": null,
+      "current_human_reviewer_id": null,
+      "current_human_signoff_date": null,
+      "current_human_evidence_sha256": null,
+      "scoring_eligibility": false,
+      "hold_or_quarantine_release_authorized": false
+    },
+    {
+      "valid_source_id": "TBsuPnS1fL27ZV03VWqm",
+      "original_valid_filename": "image_153-1-.jpg",
+      "clean17_valid_filename": "image_153-1-_jpg.rf.7b1ae44805b6563b108c5dc606fa1e5c.jpg",
+      "prior_status": "TECHNICAL_OVERLAP_QUARANTINE_PENDING_REVIEW",
+      "prior_hard_hold": false,
+      "nearest_train_source_id": "zDkY0VBVHxe1BRvK4FZO",
+      "nearest_train_filename": "image_153.jpg",
+      "compared_train_candidate_count": 4,
+      "prior_packet_strongest_ssim": 0.98378,
+      "technical_tier": "VERY_HIGH_PIXEL_AND_FEATURE_ALIGNMENT",
+      "preliminary_interpretation": "Valid image_153-1- and Train image_153 have SSIM 0.98378 and 771/775 ORB inliers; differing dimensions (640×640 vs 640×480) are compatible with crop/resize derivative, but do not establish capture history.",
+      "prior_visual_site_record": null,
+      "confirmed_site_family_evidence": null,
+      "all_direct_v14_train_candidate_pairs": [
+        {
+          "train_source_id": "FSquN9Caaj56UBFJsU44",
+          "train_filename": "image_166.jpg",
+          "gray_ssim": 0.84194,
+          "rgb_mae": 0.05196,
+          "embedding_cosine": null,
+          "orb_good_matches": 356,
+          "orb_inliers": 340,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            640,
+            640
+          ],
+          "train_export_dimensions": [
+            640,
+            640
+          ]
+        },
+        {
+          "train_source_id": "ZihgdSDzUxIyCGxW1y2d",
+          "train_filename": "image_166.jpg",
+          "gray_ssim": 0.83983,
+          "rgb_mae": 0.05321,
+          "embedding_cosine": null,
+          "orb_good_matches": 365,
+          "orb_inliers": 345,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            640,
+            640
+          ],
+          "train_export_dimensions": [
+            640,
+            480
+          ]
+        },
+        {
+          "train_source_id": "ZyQvbdPdlVkXiVfmEP6o",
+          "train_filename": "image_168.jpg",
+          "gray_ssim": 0.81904,
+          "rgb_mae": 0.06019,
+          "embedding_cosine": null,
+          "orb_good_matches": 258,
+          "orb_inliers": 251,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            640,
+            640
+          ],
+          "train_export_dimensions": [
+            640,
+            640
+          ]
+        },
+        {
+          "train_source_id": "zDkY0VBVHxe1BRvK4FZO",
+          "train_filename": "image_153.jpg",
+          "gray_ssim": 0.98378,
+          "rgb_mae": 0.00906,
+          "embedding_cosine": null,
+          "orb_good_matches": 775,
+          "orb_inliers": 771,
+          "raw_bytes_identical": false,
+          "technical_assessment": "HIGH_AUTOMATED_EVIDENCE_NOT_FINAL_PHOTO_IDENTITY",
+          "original_dimensions": [
+            640,
+            640
+          ],
+          "train_export_dimensions": [
+            640,
+            480
+          ]
+        }
+      ],
+      "author_or_reviewer_information_required": "Confirm source lineage and whether this is one underlying image with crop/export changes or a separate capture.",
+      "current_human_source_family_verdict": null,
+      "current_human_acquisition_site_id": null,
+      "current_human_capture_session_id": null,
+      "current_human_source_family_id": null,
+      "current_human_reviewer_id": null,
+      "current_human_signoff_date": null,
+      "current_human_evidence_sha256": null,
+      "scoring_eligibility": false,
+      "hold_or_quarantine_release_authorized": false
+    },
+    {
+      "valid_source_id": "orMUSm4hS7KXI9Ew0jCz",
+      "original_valid_filename": "h20.jpg",
+      "clean17_valid_filename": "h20_jpg.rf.dbb5576ec2bba16b3cc7bbd3566f74b1.jpg",
+      "prior_status": "TECHNICAL_OVERLAP_QUARANTINE_PENDING_REVIEW",
+      "prior_hard_hold": false,
+      "nearest_train_source_id": "Qg2Bi6E8AQc5aacor77R",
+      "nearest_train_filename": "h2.jpg",
+      "compared_train_candidate_count": 2,
+      "prior_packet_strongest_ssim": 0.95548,
+      "technical_tier": "HIGH_PIXEL_AND_FEATURE_ALIGNMENT",
+      "preliminary_interpretation": "Valid h20 and Train h2 have SSIM 0.95548 and 321/350 ORB inliers; dimensions differ (225×225 vs 800×800), consistent with possible resize/crop derivative. No raw-byte identity.",
+      "prior_visual_site_record": null,
+      "confirmed_site_family_evidence": null,
+      "all_direct_v14_train_candidate_pairs": [
+        {
+          "train_source_id": "Qg2Bi6E8AQc5aacor77R",
+          "train_filename": "h2.jpg",
+          "gray_ssim": 0.95548,
+          "rgb_mae": 0.00747,
+          "embedding_cosine": null,
+          "orb_good_matches": 350,
+          "orb_inliers": 321,
+          "raw_bytes_identical": false,
+          "technical_assessment": "HIGH_AUTOMATED_EVIDENCE_NOT_FINAL_PHOTO_IDENTITY",
+          "original_dimensions": [
+            225,
+            225
+          ],
+          "train_export_dimensions": [
+            800,
+            800
+          ]
+        },
+        {
+          "train_source_id": "rvCpXGasu8UDrfMTenx7",
+          "train_filename": "h126.jpg",
+          "gray_ssim": 0.8363,
+          "rgb_mae": 0.17473,
+          "embedding_cosine": null,
+          "orb_good_matches": 10,
+          "orb_inliers": 4,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            225,
+            225
+          ],
+          "train_export_dimensions": [
+            960,
+            1034
+          ]
+        }
+      ],
+      "author_or_reviewer_information_required": "Confirm whether both originate from the same source frame/asset or separate captures.",
+      "current_human_source_family_verdict": null,
+      "current_human_acquisition_site_id": null,
+      "current_human_capture_session_id": null,
+      "current_human_source_family_id": null,
+      "current_human_reviewer_id": null,
+      "current_human_signoff_date": null,
+      "current_human_evidence_sha256": null,
+      "scoring_eligibility": false,
+      "hold_or_quarantine_release_authorized": false
+    },
+    {
+      "valid_source_id": "V7nP50xtllhmv7ex0OZf",
+      "original_valid_filename": "v141.jpg",
+      "clean17_valid_filename": "v141_jpg.rf.69f5e8cd7e1d0738ae19cb649b413354.jpg",
+      "prior_status": "TECHNICAL_OVERLAP_QUARANTINE_PENDING_REVIEW",
+      "prior_hard_hold": false,
+      "nearest_train_source_id": "AebELdylN9ohxXmzz6u9",
+      "nearest_train_filename": "v139.jpg",
+      "compared_train_candidate_count": 3,
+      "prior_packet_strongest_ssim": 0.93731,
+      "technical_tier": "HIGH_SS​​IM_WITH_WEAK_KEYPOINT_CORROBORATION",
+      "preliminary_interpretation": "Three Train candidates have SSIM 0.91955–0.93731 and high embeddings for two, but ORB inliers are 0 across the three comparisons. This is a similarity signal with weak geometric feature corroboration; it does not establish same frame or same site.",
+      "prior_visual_site_record": null,
+      "confirmed_site_family_evidence": null,
+      "all_direct_v14_train_candidate_pairs": [
+        {
+          "train_source_id": "783nS3Yp14VaNm3ACvfO",
+          "train_filename": "v147.jpg",
+          "gray_ssim": 0.91955,
+          "rgb_mae": 0.02319,
+          "embedding_cosine": 0.942047,
+          "orb_good_matches": 0,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            700,
+            700
+          ],
+          "train_export_dimensions": [
+            700,
+            700
+          ]
+        },
+        {
+          "train_source_id": "8vE1Ov0KTilzHRh7gtpq",
+          "train_filename": "v140.jpg",
+          "gray_ssim": 0.93482,
+          "rgb_mae": 0.01907,
+          "embedding_cosine": 0.990562,
+          "orb_good_matches": 7,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            700,
+            700
+          ],
+          "train_export_dimensions": [
+            700,
+            700
+          ]
+        },
+        {
+          "train_source_id": "AebELdylN9ohxXmzz6u9",
+          "train_filename": "v139.jpg",
+          "gray_ssim": 0.93731,
+          "rgb_mae": 0.02077,
+          "embedding_cosine": 0.950947,
+          "orb_good_matches": 1,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            700,
+            700
+          ],
+          "train_export_dimensions": [
+            700,
+            700
+          ]
+        }
+      ],
+      "author_or_reviewer_information_required": "Clarify whether v141 and Train v139/v138-family images share an acquisition source, site or capture session.",
+      "current_human_source_family_verdict": null,
+      "current_human_acquisition_site_id": null,
+      "current_human_capture_session_id": null,
+      "current_human_source_family_id": null,
+      "current_human_reviewer_id": null,
+      "current_human_signoff_date": null,
+      "current_human_evidence_sha256": null,
+      "scoring_eligibility": false,
+      "hold_or_quarantine_release_authorized": false
+    },
+    {
+      "valid_source_id": "SlMNfdbpvClsUZin1RcK",
+      "original_valid_filename": "v150.jpg",
+      "clean17_valid_filename": "v150_jpg.rf.52e695f5a7020756479b43e72a30b334.jpg",
+      "prior_status": "TECHNICAL_OVERLAP_QUARANTINE_PENDING_REVIEW",
+      "prior_hard_hold": false,
+      "nearest_train_source_id": "RXPMol7W1P613i0j9iJz",
+      "nearest_train_filename": "v149.jpg",
+      "compared_train_candidate_count": 3,
+      "prior_packet_strongest_ssim": 0.92751,
+      "technical_tier": "HIGH_SS​​IM_WITH_LIMITED_KEYPOINT_CORROBORATION",
+      "preliminary_interpretation": "Valid v150 has two high-SSIM Train neighbors (0.92534 and 0.92751); strongest pair v149 has 13 good matches and 6 inliers, while the other has 7/0. This is weaker than the very-high alignment cases and remains unresolved.",
+      "prior_visual_site_record": null,
+      "confirmed_site_family_evidence": null,
+      "all_direct_v14_train_candidate_pairs": [
+        {
+          "train_source_id": "8vE1Ov0KTilzHRh7gtpq",
+          "train_filename": "v140.jpg",
+          "gray_ssim": 0.92534,
+          "rgb_mae": 0.03122,
+          "embedding_cosine": 0.873933,
+          "orb_good_matches": 7,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            700,
+            700
+          ],
+          "train_export_dimensions": [
+            700,
+            700
+          ]
+        },
+        {
+          "train_source_id": "RXPMol7W1P613i0j9iJz",
+          "train_filename": "v149.jpg",
+          "gray_ssim": 0.92751,
+          "rgb_mae": 0.02002,
+          "embedding_cosine": 0.965398,
+          "orb_good_matches": 13,
+          "orb_inliers": 6,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            700,
+            700
+          ],
+          "train_export_dimensions": [
+            700,
+            700
+          ]
+        },
+        {
+          "train_source_id": "ks10Zg9NzO3ystW1YNm4",
+          "train_filename": "v45.jpg",
+          "gray_ssim": 0.89124,
+          "rgb_mae": 0.05759,
+          "embedding_cosine": 0.871199,
+          "orb_good_matches": 3,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            700,
+            700
+          ],
+          "train_export_dimensions": [
+            800,
+            800
+          ]
+        }
+      ],
+      "author_or_reviewer_information_required": "Clarify whether v150/v149 and other nearby frames belong to the same video, capture sequence or source family.",
+      "current_human_source_family_verdict": null,
+      "current_human_acquisition_site_id": null,
+      "current_human_capture_session_id": null,
+      "current_human_source_family_id": null,
+      "current_human_reviewer_id": null,
+      "current_human_signoff_date": null,
+      "current_human_evidence_sha256": null,
+      "scoring_eligibility": false,
+      "hold_or_quarantine_release_authorized": false
+    },
+    {
+      "valid_source_id": "f8Lh7cHa3XXXsl88xpDt",
+      "original_valid_filename": "v9.jpg",
+      "clean17_valid_filename": "v9_jpg.rf.cc225e3c17aa73418825b01df0d30962.jpg",
+      "prior_status": "TECHNICAL_OVERLAP_QUARANTINE_PENDING_REVIEW",
+      "prior_hard_hold": false,
+      "nearest_train_source_id": "SLZOoYkDhOJhKRpgb4UR",
+      "nearest_train_filename": "v31.jpg",
+      "compared_train_candidate_count": 1,
+      "prior_packet_strongest_ssim": 0.90881,
+      "technical_tier": "BORDERLINE_HIGH_SS​​IM_WEAK_KEYPOINT_CORROBORATION",
+      "preliminary_interpretation": "Valid v9 vs Train v31 has SSIM 0.90881, but only 5 ORB matches and 0 inliers (dHash Hamming 8). This is a borderline image-similarity flag, not convincing same-frame evidence by itself; still quarantined pending source/session clarification.",
+      "prior_visual_site_record": null,
+      "confirmed_site_family_evidence": null,
+      "all_direct_v14_train_candidate_pairs": [
+        {
+          "train_source_id": "SLZOoYkDhOJhKRpgb4UR",
+          "train_filename": "v31.jpg",
+          "gray_ssim": 0.90881,
+          "rgb_mae": 0.03638,
+          "embedding_cosine": null,
+          "orb_good_matches": 5,
+          "orb_inliers": 0,
+          "raw_bytes_identical": false,
+          "technical_assessment": "FURTHER_REVIEW_NEEDED",
+          "original_dimensions": [
+            225,
+            225
+          ],
+          "train_export_dimensions": [
+            800,
+            800
+          ]
+        }
+      ],
+      "author_or_reviewer_information_required": "Clarify whether v9 and v31 come from same video/source series or unrelated images; no automatic release from weak feature evidence.",
+      "current_human_source_family_verdict": null,
+      "current_human_acquisition_site_id": null,
+      "current_human_capture_session_id": null,
+      "current_human_source_family_id": null,
+      "current_human_reviewer_id": null,
+      "current_human_signoff_date": null,
+      "current_human_evidence_sha256": null,
+      "scoring_eligibility": false,
+      "hold_or_quarantine_release_authorized": false
+    }
+  ]
+}

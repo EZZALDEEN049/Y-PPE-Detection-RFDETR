@@ -28,3 +28,36 @@
 - Added target-preserving black-box occlusion XAI skeleton and instrumented hardware capability probe; increased synthetic unit test pass count to 56.
 - Updated master manuscript Methods/Results to include only verified descriptive data results, with risk, XAI and energy outcomes explicitly unmeasured.
 - Did not solicit human reviews, modify any source labels or datasets, start training, or assert regulatory compliance or energy savings.
+
+
+## v0.7 — 2026-11-22
+- Froze V30 target-specific progressive XAI protocol and ten-target manifest, reusing V27/V28 target IDs and archived baseline geometry without target reselection.
+- Added 8×8 single-cell occlusion maps, progressive deletion/insertion curves, random and inverse-saliency controls, and trapezoidal AUC implementation.
+- Added a guarded local RF-DETR hosted-inference runner with an explicit 1,068-call confirmation requirement; local source images are not committed.
+- Added nine synthetic V30 tests and CI coverage. All nine passed locally; Python syntax compilation passed. Unrankable target maps and ambiguous blurred endpoints fail closed with explicit null curves.
+- Actual V30 model calls remain zero pending the local image bundle and Roboflow API key. Manuscript remains v0.27; no progressive XAI or worker-safety efficacy result is claimed.
+
+
+## v0.8 — 2026-11-22
+- Retrieved and verified the eight exact V30 source assets in the connected Roboflow workspace: four Train and four Valid, with frozen filenames, asset IDs and dimensions.
+- Executed eight real hosted RF-DETR baseline calls at confidence 0.20 / overlap 0.50; all ten frozen target boxes and confidence values reproduced exactly.
+- Archived inference IDs, target detection IDs, prediction counts and timings in `V30_BASELINE_PREFLIGHT_ACTUAL_2026-11-22.json`; no raw image bytes or credentials committed.
+- Updated the V30 runner to reuse the completed baseline record and avoid eight duplicate calls. Total budget remains 1,068, with at most 1,060 additional calls.
+- Progressive occlusion, deletion/insertion curves and AUC remain unexecuted; local image SHA-256 verification and full-run execution are still pending. Manuscript remains v0.27.
+
+## v0.9 — 2026-11-22
+- Created cloud-only V30 GitHub Actions workflow and read-only frozen-image downloader; raw images stay on an ephemeral hosted runner, never in GitHub commits or artifacts.
+- [Cloud run 44962342687](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44962342687) succeeded: fetched all 8 original Roboflow sources, checked filenames/splits/asset IDs/dimensions, computed SHA-256 hashes, and passed dry-run and local-bundle preflight.
+- Archived a numeric-only cloud preflight ledger: `V30_CLOUD_PREFLIGHT_ACTUAL_2026-11-22.json`. No cloud perturbation inference was triggered; V30 remains 8/1,068 model calls.
+- Actual progressive XAI remains an explicit user-authorized manual Actions run, requiring `ROBOFLOW_API_KEY` as a repository secret and approval of the remaining 1,060-call maximum. No local workstation setup needed.
+
+## V30 actual complete and V31 evidence readiness — 2026-11-22 (manuscript v0.30)
+
+- Researchers explicitly authorized a one-time hosted V30 XAI run. [Run 44964287536](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44964287536) succeeded with 1,060 new model calls; together with eight baseline calls the frozen total is **1,068**. Earlier infrastructure/runner failures did not perform additional V30 inference.
+- Original images 8/8; frozen targets 10/10; 8×8 single-cell occlusion outcomes 640 (from 512 shared image-cell calls); 60 progressive deletion/insertion curves with eleven points and independently validated trapezoidal AUC. All ten maps rankable, zero AUC blocked. Six fully blurred targets LOST, four MATCHED.
+- The [complete actual V30 numeric file](V30_ACTUAL_PROGRESSIVE_XAI_RESULTS_2026-11-22.json) and [independent numeric audit](V30_INDEPENDENT_NUMERIC_AUDIT_2026-11-22.json) are permanently archived. [Audit run 44965260120](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44965260120) PASS with zero new model calls and matched eight-image SHA-256 preflight.
+- Actual descriptive mean A5 saliency deletion/insertion AUC **0.496288/0.944195**; mean A6 **0.397182/0.871354**. Six of eight target slots are shared, so no independent-arm or worker-safety superiority is claimed.
+- Updated canonical manuscript to **v0.30** (Methods 3.24, Results 4.24, Discussion 5.10, Appendix U), retaining strict no-source-independence, no-person-gold, no-energy and no-Test claim boundaries. Aligned manuscript-version CI guards with current manuscript.
+- Compiled [V31 source/person readiness ledger](V31_SOURCE_PERSON_SAFETY_READINESS_2026-11-22.json) and [evidence handoff guide](V31_POST_XAI_SOURCE_PERSON_READINESS_GUIDE_2026-11-22.md) from current read-only source/valid human signing overlays: 5 historical holds + 6 technical quarantines + 81 other flagged unsigned + 367 unflagged but unsigned; **0/459 independently signed valid-source families**, **0 signed Valid worker references**. Existing 19 Train person-equipment links and 38/42 saved visual states preserved.
+- Added [V31 fail-closed validator](tools/verify_v31_post_xai_readiness.mjs) and mutation self-tests to source-reference readiness CI; [verified pass](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/44965651906). No new human decisions, full image rereview, workflow Eval writes, original-image bytes or source-split edits.
+- Disabled optional additional V30 model inference in the general cloud workflow and added explicit completed-evidence refusal in the historic one-time workflow. New future paid experiments require a *new* frozen protocol and distinct authorization.

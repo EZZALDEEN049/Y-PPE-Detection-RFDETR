@@ -1,0 +1,82 @@
+{
+  "audit_schema": "seer-ppe/v30-independent-numeric-audit/v1",
+  "audit_status": "PASS_NUMERIC_INTEGRITY_ONLY",
+  "unique_targets": 10,
+  "frozen_source_images": 8,
+  "train_images": 4,
+  "valid_images": 4,
+  "test_images": 0,
+  "rankable_curve_targets": 10,
+  "blocked_curve_targets": [],
+  "additional_actual_model_calls": 1060,
+  "v30_total_model_calls": 1068,
+  "a5_a6": {
+    "A5": {
+      "selected_target_slots": 8,
+      "shared_target_slots": 6,
+      "unique_target_slots": 2,
+      "valid_auc_counts": {
+        "saliency_deletion": 8,
+        "saliency_insertion": 8,
+        "random_deletion": 8,
+        "random_insertion": 8,
+        "inverse_saliency_deletion": 8,
+        "inverse_saliency_insertion": 8
+      },
+      "mean_auc_by_ordering": {
+        "saliency_deletion": 0.4962875501409622,
+        "saliency_insertion": 0.9441948507930209,
+        "random_deletion": 0.6358362952580824,
+        "random_insertion": 0.800164191313153,
+        "inverse_saliency_deletion": 0.9441948507930209,
+        "inverse_saliency_insertion": 0.4962875501409622
+      }
+    },
+    "A6": {
+      "selected_target_slots": 8,
+      "shared_target_slots": 6,
+      "unique_target_slots": 2,
+      "valid_auc_counts": {
+        "saliency_deletion": 8,
+        "saliency_insertion": 8,
+        "random_deletion": 8,
+        "random_insertion": 8,
+        "inverse_saliency_deletion": 8,
+        "inverse_saliency_insertion": 8
+      },
+      "mean_auc_by_ordering": {
+        "saliency_deletion": 0.3971816111234561,
+        "saliency_insertion": 0.8713535448013272,
+        "random_deletion": 0.6192749318821726,
+        "random_insertion": 0.7527728844857058,
+        "inverse_saliency_deletion": 0.8713535448013272,
+        "inverse_saliency_insertion": 0.3971816111234562
+      }
+    }
+  },
+  "shared_target_ids": [
+    "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+    "1b2af685-6965-4986-9d35-258b036e5882",
+    "7a101411-15e7-457a-842a-0e61be4f1f11",
+    "e67b5082-bdc0-4143-8a98-9dd8524f868d",
+    "181c2d93-bac0-4cfe-8613-9c4e66ecc4fc",
+    "8bdb1086-0226-4293-b70c-3a44efd763c5"
+  ],
+  "a5_unique_target_ids": [
+    "35e4de96-de91-46a1-910f-89738f80e053",
+    "5d2a56b6-4b76-4206-afd0-51e1e4c28d8e"
+  ],
+  "a6_unique_target_ids": [
+    "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+    "0b0df3fa-0c6e-4528-a822-969fd4d8f026"
+  ],
+  "claim_boundary": "Development-exposed descriptive frozen-target occlusion experiment only. A5 and A6 share six of eight selected targets and are not independent groups. No source-independent generalization, person-level compliance, energy, or real-world safety efficacy conclusion follows.",
+  "legacy_nonstandard_nan_cells_normalized": 0,
+  "encoding_warning": null,
+  "source_run_id": 44964287536,
+  "source_artifact_id": 14731745397,
+  "source_artifact_zip_sha256": "101213ea67da3e5659425f7486d18e3e0b3928c4e3979b43788b32d0a5d60b24",
+  "original_eight_image_sha256_match_cloud_preflight": true,
+  "retrained_model": false,
+  "no_test_accessed": true
+}

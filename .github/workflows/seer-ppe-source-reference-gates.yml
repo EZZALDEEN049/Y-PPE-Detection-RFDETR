@@ -194,6 +194,14 @@ jobs:
         run: |
           node research/seer-ppe/tools/validate_v15_priority_11_source_packets.mjs --self-test
           node research/seer-ppe/tools/validate_v15_priority_11_source_packets.mjs --verify
+      - name: Verify V31-A 11-case Train-Valid source lineage reconciliation
+        run: |
+          node research/seer-ppe/tools/verify_v31a_source_reconciliation.mjs --self-test
+          node research/seer-ppe/tools/verify_v31a_source_reconciliation.mjs --verify
+      - name: Verify V31 completed V30 XAI does not falsely open source/person safety gate
+        run: |
+          node research/seer-ppe/tools/verify_v31_post_xai_readiness.mjs --self-test
+          node research/seer-ppe/tools/verify_v31_post_xai_readiness.mjs --verify
       - name: Verify V16 actual Roboflow Train-only predictions and abstention engineering regression
         run: |
           node research/seer-ppe/tools/review_real_train_detection_geometry_v16.mjs --self-test
@@ -238,7 +246,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text()
-          for phrase in ('**Working manuscript v0.26', '### 3.17 Actual original-source',
+          for phrase in ('**Working manuscript v0.30', '### 3.17 Actual original-source',
                          '### 4.17 Current author-curated', '## 5. Discussion',
                          '## Appendix N.', '3,471', '3,049', '729',
                          '0.885018', '0.880754', '13'):
@@ -256,7 +264,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text()
-          for phrase in ('**Working manuscript v0.26','### 3.18 Frozen five-image',
+          for phrase in ('**Working manuscript v0.30','### 3.18 Frozen five-image',
                          '### 4.18 Actual fixed original RF-DETR','## Appendix O.',
                          'TP=22, FP=1, FN=1','0.956522'):
               assert phrase in m, phrase
@@ -269,7 +277,7 @@ jobs:
           from pathlib import Path
           m=Path('research/seer-ppe/MANUSCRIPT_MASTER.md').read_text(encoding='utf8')
           q=Path('research/seer-ppe/V24_VERIFIED_2024_2026_RELATED_WORK_NOVELTY_BOUNDARY.md').read_text(encoding='utf8')
-          for phrase in ('**Working manuscript v0.26','### 2.2 Closest methodological',
+          for phrase in ('**Working manuscript v0.30','### 2.2 Closest methodological',
                          '### 2.3 Provisional, falsifiable', '## Selected verified references',
                          '## Appendix P.', 'Selective Explanations',
                          '10.52202/079017-1765','10.3389/fbuil.2026.1976288',
@@ -294,7 +302,7 @@ jobs:
           root=Path('research/seer-ppe')
           m=(root/'MANUSCRIPT_MASTER.md').read_text()
           d=json.loads((root/'ACTUAL_A0_A2_A5_PAIRED_OFFLINE_ROUTING_V25.json').read_text())
-          for phrase in ('**Working manuscript v0.26','### 3.19 V25 paired',
+          for phrase in ('**Working manuscript v0.30','### 3.19 V25 paired',
                          '### 4.19 Actually executed A2/A5', '### 5.7 Routing implementation',
                          '## Appendix Q.', '59 typed PPE', '3/9', '51 typed cues'):
               assert phrase in m, phrase
@@ -331,7 +339,7 @@ jobs:
           assert len(m0['per_class'])==17
           assert not v['SEER_safety_XAI_energy_superiority_evaluated']
           assert not v['protected_test_used']
-          for phrase in ('**Working manuscript v0.26','### 3.20 Executed all-459',
+          for phrase in ('**Working manuscript v0.30','### 3.20 Executed all-459',
                          '### 4.20 Newly measured full current-author-reference',
                          '### 5.8 Implications','## Appendix R.',
                          '3,297','806','174','0.870610','NOT_FROZEN'):
