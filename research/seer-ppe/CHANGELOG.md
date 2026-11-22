@@ -128,3 +128,11 @@
 - Added write-ahead per-call logging to a partial JSON ledger, including failed attempts, and disabled automatic retries. No source images, API credentials, annotations, model weights or Test data are written to the repository.
 - Added synthetic regression tests in `tests/test_v33b_grid4_xai.py` for the 4x4 partition, ambiguous-cell handling, curve point/call counts, deterministic random ordering and budget arithmetic; included them in the public engineering CI workflow.
 - **Execution remains NOT STARTED.** No V33-B hosted inference calls, Roboflow mutations, retraining, Test access or manuscript performance claims were made by this implementation-only step. The 496-call cap still requires separate author authorization.
+
+
+## V33-B cloud handoff — 2026-11-22
+
+- Added `.github/workflows/seer-ppe-v33b-authorized-once.yml`, an ephemeral cloud workflow that can only run after a separate authorization JSON is committed with the exact one-time authorization commit message.
+- The workflow downloads only the frozen eight Train/Valid originals, performs zero-call SHA/target preflight, checks `ROBOFLOW_API_KEY` without exposing it, and runs the separate 4x4 runner under the fixed 496-call cap.
+- A successful numeric result or a failed partial call ledger is archived to the research branch and blocks duplicate paid execution. Raw images and credentials are not committed or uploaded.
+- No authorization JSON has been created; the cloud workflow has not been triggered and V33-B remains unexecuted.
