@@ -10,6 +10,10 @@ on:
       - research/seer-ppe/submissions/results-in-engineering/RINENG_HIGHLIGHTS_V36_v0.1_2026-11-23.md
   workflow_dispatch:
 
+concurrency:
+  group: rineng-v36-editorial-build
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
@@ -155,16 +159,33 @@ jobs:
             /tmp/rineng_v36_render/*-middle.png
             /tmp/rineng_v36_render/*-last.png
           retention-days: 30
-      - name: Archive generated editable Word files on research branch
+      - name: Archive generated editable Word files without binary rebase conflicts
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/seer-ppe/exports/RINENG_V36_Manuscript_v0.2_2026-11-23.docx research/seer-ppe/exports/RINENG_V36_Supplement_v0.1_2026-11-23.docx research/seer-ppe/exports/RINENG_V36_Highlights_v0.1_2026-11-23.docx
-          if git diff --cached --quiet; then
-            echo "RINENG_V36_DOCX_ALREADY_ARCHIVED"
-          else
+          paths=(
+            research/seer-ppe/exports/RINENG_V36_Manuscript_v0.2_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V36_Supplement_v0.1_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V36_Highlights_v0.1_2026-11-23.docx
+          )
+          temp_dir=$(mktemp -d)
+          for f in "${paths[@]}"; do cp "$f" "$temp_dir/$(basename "$f")"; done
+          for attempt in 1 2 3; do
+            git fetch origin "$GITHUB_REF_NAME"
+            git reset --hard "origin/$GITHUB_REF_NAME"
+            for f in "${paths[@]}"; do cp "$temp_dir/$(basename "$f")" "$f"; done
+            git add "${paths[@]}"
+            if git diff --cached --quiet; then
+              echo "RINENG_V36_CURRENT_DOCX_ALREADY_ARCHIVED"
+              exit 0
+            fi
             git commit -m "Archive V36 Results in Engineering editable editorial Word package"
-            git pull --rebase origin "$GITHUB_REF_NAME"
-            git push origin "HEAD:$GITHUB_REF_NAME"
-          fi
+            if git push origin "HEAD:$GITHUB_REF_NAME"; then
+              echo "RINENG_V36_CURRENT_DOCX_ARCHIVE_PASS"
+              exit 0
+            fi
+            echo "Concurrent archive update observed; retrying against latest branch"
+          done
+          echo "RINENG_V36_ARCHIVE_FAILED_AFTER_RETRIES" >&2
+          exit 1
