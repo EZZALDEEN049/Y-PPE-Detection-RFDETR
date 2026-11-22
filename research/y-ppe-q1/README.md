@@ -13,7 +13,12 @@
 - [Machine-readable project state](PROJECT_STATE_2026-11-22.json)
 - [Internal peer review of manuscript v0.1](MANUSCRIPT_PEER_REVIEW_v0.1_2026-11-22.md)
 - [Manuscript v0.2 revision log](MANUSCRIPT_REVISION_LOG_v0.2_2026-11-22.md)
-- [Latest session handoff — complete E1/E2 status v0.4](SESSION_HANDOFF_2026-11-22_v0.4.md)
+- [Latest session handoff — complete repository inventory v0.5](SESSION_HANDOFF_2026-11-22_v0.5.md)
+- [Complete research results inventory](RESEARCH_RESULTS_INVENTORY_2026-11-22.md)
+- [Canonical master proposal v3.5.0 — archived text](source_documents/MASTER_PROPOSAL_v3.5.0.md)
+- [Journal manuscript scaffold v0.1](source_documents/JOURNAL_MANUSCRIPT_SCAFFOLD_v0.1.md)
+- [Research tracker v2.6.0 — extracted workbook](source_documents/Y_PPE_Research_Tracker_v2.6.0_EXTRACTED.md)
+- [Previous session handoff — complete E1/E2 status v0.4](SESSION_HANDOFF_2026-11-22_v0.4.md)
 - [Historical COCO export retrieval status](E1_HISTORICAL_COCO_EXPORT_RETRIEVAL_2026-11-22.md)
 - [Previous session handoff — E1 continuation v0.3](SESSION_HANDOFF_2026-11-22_v0.3.md)
 - [Current Roboflow dataset parity](Y_PPE_CURRENT_DATASET_PARITY_2026-11-22.json)
@@ -24,7 +29,7 @@
 
 ## Latest saved session
 
-The latest session consolidated all verified evidence into `SESSION_HANDOFF_2026-11-22_v0.4.md`. Both exact historical COCO exports (YOLO v1 and RF-DETR v2) are ready on Roboflow, but the archive download was blocked by the active environment's DNS/network restriction. No ZIP hashes or archive inspection have been completed. E1 and E2 remain NOT PASSED; E3 remains NOT STARTED; publication remains NO-GO. Temporary signed URLs, credentials, raw data, model weights and unpublished DOCX binaries are intentionally not committed.
+The latest session consolidated the complete repository inventory into `RESEARCH_RESULTS_INVENTORY_2026-11-22.md` and `SESSION_HANDOFF_2026-11-22_v0.5.md`. The canonical proposal v3.5.0 text, manuscript scaffold v0.1, and all ten extracted tabs of tracker v2.6.0 are archived under `source_documents/`. The original DOCX/XLSX binaries remain in the connected Library; the full 5,081-word manuscript DOCX previously mentioned in conversation was not found in the accessible Library/Project search and has not been recreated. Both exact historical COCO exports (YOLO v1 and RF-DETR v2) are ready on Roboflow, but the archive download was blocked by the active environment's DNS/network restriction. No ZIP hashes or archive inspection have been completed. E1 and E2 remain NOT PASSED; E3 remains NOT STARTED; publication remains NO-GO.
 
 ## Scope separation
 

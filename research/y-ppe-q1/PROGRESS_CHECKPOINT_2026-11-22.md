@@ -268,3 +268,14 @@ A complete handoff was created at `SESSION_HANDOFF_2026-11-22_v0.4.md`. It conso
 The exact historical COCO exports are ready on Roboflow (YOLO v1 and RF-DETR v2), but no archive bytes were retrieved because the active environment could not resolve `app.roboflow.com`. Consequently no ZIP hashes or historical archive content audit exists yet. Temporary signed URLs are not stored in GitHub. The user must upload both historical COCO ZIPs to the active conversation.
 
 No gate status changed: E1 NOT PASSED; E2 NOT PASSED; E3 NOT STARTED; Q1 publication NO-GO. The Research Hold remains binding.
+
+
+## 15. Complete results inventory and source-document archival — 22 November 2026
+
+A repository-wide inventory was created at `RESEARCH_RESULTS_INVENTORY_2026-11-22.md`. The canonical master proposal v3.5.0 text, methods-only journal manuscript scaffold v0.1, and extracted contents of all ten tabs of the historical Y-PPE Research Tracker v2.6.0 were copied from the connected Library into `source_documents/`.
+
+Earlier Y-PPE Stage-2 audits under `cross_domain_reliability/stage2_data_audit/results/` are cross-referenced in the inventory as historical/supporting records; they are not treated as proof that current Q1 E1 has passed.
+
+The original proposal DOCX and tracker XLSX binaries remain in the connected Library; their text/extracted contents are archived in GitHub. A search of the accessible Library/Project sources did not locate the previously described 5,081-word manuscript DOCX. It has not been reconstructed from the scaffold or falsely marked as archived. If the researcher wants that exact Word artifact in GitHub, the original file must be uploaded.
+
+No empirical gate changed: E1 NOT PASSED; E2 NOT PASSED; E3 NOT STARTED; publication NO-GO. Project progress remains 48.75% (49% rounded).

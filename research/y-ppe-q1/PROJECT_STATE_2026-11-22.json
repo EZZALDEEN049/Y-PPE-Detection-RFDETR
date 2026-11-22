@@ -143,12 +143,22 @@
     "original_generated_png": "Delivered as a conversation attachment; not committed as a binary repository asset",
     "current_dataset_parity": "research/y-ppe-q1/Y_PPE_CURRENT_DATASET_PARITY_2026-11-22.json",
     "seer_v13_source_overlap_transfer": "research/y-ppe-q1/Y_PPE_SEER_V13_SOURCE_OVERLAP_TRANSFER_2026-11-22.json",
-    "latest_handoff": "research/y-ppe-q1/SESSION_HANDOFF_2026-11-22_v0.4.md",
+    "latest_handoff": "research/y-ppe-q1/SESSION_HANDOFF_2026-11-22_v0.5.md",
     "current_dataset_parity_and_source_mapping_committed": true,
     "historical_coco_export_retrieval_note": "research/y-ppe-q1/E1_HISTORICAL_COCO_EXPORT_RETRIEVAL_2026-11-22.md",
     "latest_readme": "research/y-ppe-q1/README.md",
-    "complete_evidence_handoff_v0_4": true
+    "complete_evidence_handoff_v0_4": true,
+    "complete_research_results_inventory": "research/y-ppe-q1/RESEARCH_RESULTS_INVENTORY_2026-11-22.md",
+    "canonical_proposal_markdown": "research/y-ppe-q1/source_documents/MASTER_PROPOSAL_v3.5.0.md",
+    "manuscript_scaffold_v0_1": "research/y-ppe-q1/source_documents/JOURNAL_MANUSCRIPT_SCAFFOLD_v0.1.md",
+    "tracker_v2_6_extracted": "research/y-ppe-q1/source_documents/Y_PPE_Research_Tracker_v2.6.0_EXTRACTED.md",
+    "source_documents_archived_from_library": true,
+    "original_proposal_docx_and_tracker_xlsx_remain_in_library": true,
+    "full_5081_word_manuscript_docx_found_in_accessible_library_search": false,
+    "full_5081_word_manuscript_docx_recreated": false
   },
   "next_working_step": "Download both historical COCO ZIP archives (YOLO v1 and RF-DETR v2) from their ready Roboflow exports and upload them to the active conversation; then hash, inspect, and compare exact per-split image membership and raw image bytes.",
-  "progress_estimate_change": "Increased from 47.75% to 48.75% because current-version metadata parity and SEER V13 source-overlap mapping were verified; no empirical gate passed."
+  "progress_estimate_change": "Increased from 47.75% to 48.75% because current-version metadata parity and SEER V13 source-overlap mapping were verified; no empirical gate passed.",
+  "repository_inventory_date": "2026-11-22",
+  "repository_inventory_scope": "All current Y-PPE Q1 track records plus cross-referenced earlier Y-PPE stage-2 audits in the same repository. Separate SEER-PPE and SRAC-PPE studies are not merged into the Y-PPE Q1 evidence base."
 }
