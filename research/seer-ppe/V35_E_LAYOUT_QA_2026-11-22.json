@@ -1,0 +1,67 @@
+{
+  "stage": "V35-E",
+  "date": "2026-11-22",
+  "status": "PASS_WITH_OPEN_SUBMISSION_GATES",
+  "branch": "research/v30-progressive-xai-2026-11-22",
+  "archive_commit": "1ca9aed51b554677702d3b4c5a903ddc3ca76e7d",
+  "deliverables": {
+    "main": {
+      "version": "v0.43",
+      "pages": 62,
+      "tables": 16,
+      "figures": 1,
+      "docx": "exports/SEER_PPE_Research_Manuscript_v0.43_2026-11-22.docx",
+      "bytes": 320061
+    },
+    "supplementary": {
+      "version": "v0.43",
+      "pages": 34,
+      "tables": 2,
+      "figures": 10,
+      "docx": "exports/SEER_PPE_Supplementary_Material_v0.43_2026-11-22.docx",
+      "bytes": 2505530
+    },
+    "combined": {
+      "pages": 96,
+      "tables": 18,
+      "figures": 11
+    }
+  },
+  "checks": {
+    "main_docx_zip_integrity": "PASS",
+    "supplementary_docx_zip_integrity": "PASS",
+    "main_embedded_images": 1,
+    "supplementary_embedded_images": 10,
+    "no_low_text_pages": true,
+    "first_middle_last_main_preview": "PASS",
+    "first_last_supplement_preview": "PASS",
+    "key_v26_tables_visual_review": "PASS_WITH_MINOR_WRAP",
+    "empty_toc_removed": true,
+    "word_export_ci": "PASS",
+    "source_reference_gates": "PASS",
+    "synthetic_unit_tests": "PASS"
+  },
+  "ci_runs": {
+    "word_export": 45038161463,
+    "source_reference_gates": 45038166451,
+    "unit_tests": 45037976977
+  },
+  "artifact_id": 14760248670,
+  "no_new_model_inference": true,
+  "no_retraining": true,
+  "no_test_access": true,
+  "warnings": [
+    "V27 start/end chronology warning unresolved",
+    "V34-B nested duplicate PDF has a different hash"
+  ],
+  "open_gates": [
+    "ethics approval/exemption and consent/privacy basis",
+    "funding statement",
+    "competing-interest statement",
+    "author-contribution statement",
+    "official IEEE author/order verification for two eSmarTA 2026 references",
+    "target journal selection and journal-specific length/style compliance",
+    "move internal reference-audit note and neutralize remaining V-stage headings",
+    "resolve or formally retain V27 timestamp and V34-B duplicate-PDF warnings"
+  ]
+}
