@@ -33,13 +33,13 @@ function audit(dossier,priority,pairs,visual){
     assert.equal(c.all_direct_v14_train_candidate_pairs.length,sourcePairs.length);
     assert.equal(c.compared_train_candidate_count,sourcePairs.length);
     const mapped=c.all_direct_v14_train_candidate_pairs.map(x=>({
-      train_source_id:x.train_id,train_filename:x.train_filename,
-      gray_ssim:x.gray_ssim,rgb_mae:x.rgb_mean_absolute_error,
-      embedding_cosine:x.original_embedding_cosine,
+      train_source_id:x.train_source_id,train_filename:x.train_filename,
+      gray_ssim:x.gray_ssim,rgb_mae:x.rgb_mae,
+      embedding_cosine:x.embedding_cosine,
       orb_good_matches:x.orb_good_matches,orb_inliers:x.orb_inliers,
-      raw_bytes_identical:x.raw_source_bytes_identical,
-      technical_assessment:x.technical_content_consistency,
-      original_dimensions:x.original_dimensions,train_export_dimensions:x.export_dimensions
+      raw_bytes_identical:x.raw_bytes_identical,
+      technical_assessment:x.technical_assessment,
+      original_dimensions:x.original_dimensions,train_export_dimensions:x.train_export_dimensions
     }));
     assert.ok(same(mapped,sourcePairs.map(x=>({
       train_source_id:x.train_id,train_filename:x.original_train_filename,
