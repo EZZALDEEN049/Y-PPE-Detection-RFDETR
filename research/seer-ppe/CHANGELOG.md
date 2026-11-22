@@ -193,7 +193,15 @@
 - Verified **11/11 embedded figures**, DOCX ZIP integrity and key scientific content.
 - LibreOffice rendered the DOCX to a 96-page PDF; PDF text smoke checks and first-page preview generation passed. The QA PDF was temporary and was not archived.
 - Updated the Word workflow to use the current manuscript, resolve figure paths, validate current content and archive only on the triggering research branch.
-- Successful CI: Word export [45033306609](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45033306609), source/reference gates [45033306627](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45033306627), unit tests [45033306726](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45033306726).
+- Final verification rerun: Word export and 96-page PDF/render-preview QA [45034033339](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45034033339), source/reference gates [45034033034](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45034033034), public synthetic tests [45034033098](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45034033098); all passed. The render bundle (PDF + first/middle/last page previews) is retained as [Actions artifact 14759055979](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45034033339/artifacts/14759055979). Final archive commit: cbc65acf87f70d06ad6f1930516ce00d2e4f6dc0.
 - Zero new model calls; no retraining, Test access, source-image/annotation/split mutation or model changes.
 - V35-E remains for human visual inspection, main-paper/supplement split after journal selection, duplicate-PDF reconciliation, the unresolved V27 timestamp and author/journal declarations.
 - Added [V35-D QA report](V35_D_WORD_EXPORT_QA_REPORT_2026-11-22.md) and [machine-readable export record](V35_D_WORD_EXPORT_QA_2026-11-22.json).
+
+
+### V35-D final verification rerun — 22 November 2026
+
+- Re-ran the complete Word export and final QA after workflow corrections. [Run 45034033339](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45034033339) passed: editable DOCX generation, DOCX content/ZIP validation, 11 embedded figures, 96-page LibreOffice PDF rendering, PDF text checks, first/middle/last page preview generation, Actions artifact upload and branch archive.
+- Final [source/reference gate run 45034033034](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45034033034) passed, including V22–V26 checks; final [public synthetic test run 45034033098](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45034033098) passed.
+- Render bundle retained in [GitHub Actions artifact 14759055979](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45034033339/artifacts/14759055979). Final manuscript archive commit is cbc65acf87f70d06ad6f1930516ce00d2e4f6dc0.
+- Earlier failed runs remain in Actions history as audit evidence; they were corrected and superseded by the successful final rerun.
