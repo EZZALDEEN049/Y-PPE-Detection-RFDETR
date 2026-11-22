@@ -104,8 +104,9 @@ function audit(source, sig, validHuman, trainHuman, trainLive, v30, ready) {
   assert.equal(ready.true_worker_safety_scoring_ready, false);
   assert.equal(ready.independent_source_eligible_valid_images, 0);
   assert.equal(ready.independently_signed_source_family_verdicts, 0);
-  assert.equal(ready.human_source_family_attestations, 2);
+  assert.equal(ready.human_source_family_attestations, 3);
   assert.equal(ready.shared_site_attested_valid_sources, 2);
+  assert.equal(ready.shared_scene_processed_valid_sources, 1);
   assert.equal(ready.signed_valid_human_worker_references, 0);
   assert.equal(ready.original_valid_source_images, 468);
   assert.equal(ready.clean17_valid_mapped_images, 459);
