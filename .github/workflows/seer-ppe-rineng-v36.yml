@@ -1,0 +1,170 @@
+name: SEER-PPE Results in Engineering V36 Word and PDF QA
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - .github/workflows/seer-ppe-rineng-v36.yml
+      - research/seer-ppe/submissions/results-in-engineering/RINENG_MANUSCRIPT_V36_v0.2_2026-11-23.md
+      - research/seer-ppe/submissions/results-in-engineering/RINENG_SUPPLEMENT_V36_S1_v0.1_2026-11-23.md
+      - research/seer-ppe/submissions/results-in-engineering/RINENG_HIGHLIGHTS_V36_v0.1_2026-11-23.md
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rineng-v36-editorial-word:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install editable Word converters
+        run: python -m pip install --disable-pip-version-check pypandoc_binary python-docx
+      - name: Generate manuscript, supplement and highlights DOCX
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from docx import Document
+          from docx.shared import Inches, Pt
+          from docx.enum.text import WD_ALIGN_PARAGRAPH
+          from docx.oxml import OxmlElement
+          from docx.oxml.ns import qn
+          from docx.enum.table import WD_TABLE_ALIGNMENT
+          import pypandoc
+          base=Path('research/seer-ppe')
+          journal=base/'submissions/results-in-engineering'
+          exports=base/'exports'
+          exports.mkdir(exist_ok=True)
+          jobs=[
+            (journal/'RINENG_MANUSCRIPT_V36_v0.2_2026-11-23.md', exports/'RINENG_V36_Manuscript_v0.2_2026-11-23.docx',3,1),
+            (journal/'RINENG_SUPPLEMENT_V36_S1_v0.1_2026-11-23.md', exports/'RINENG_V36_Supplement_v0.1_2026-11-23.docx',2,10),
+            (journal/'RINENG_HIGHLIGHTS_V36_v0.1_2026-11-23.md', exports/'RINENG_V36_Highlights_v0.1_2026-11-23.docx',0,0),
+          ]
+          for source,target,tables,images in jobs:
+            assert source.is_file(),str(source)
+            pypandoc.convert_file(str(source),to='docx',format='markdown',outputfile=str(target),
+              extra_args=['--standalone','--resource-path='+str(journal)+':'+str(base)])
+            d=Document(target)
+            sec=d.sections[0]
+            sec.page_width=Inches(8.27)
+            sec.page_height=Inches(11.69)
+            sec.left_margin=Inches(.85)
+            sec.right_margin=Inches(.85)
+            sec.top_margin=Inches(.8)
+            sec.bottom_margin=Inches(.7)
+            normal=d.styles['Normal']
+            normal.font.name='Liberation Serif'
+            normal.font.size=Pt(10.5)
+            normal.paragraph_format.space_after=Pt(5)
+            normal.paragraph_format.line_spacing=1.12
+            for idx,size in [(1,15),(2,12),(3,11)]:
+              st=d.styles['Heading '+str(idx)]
+              st.font.name='Liberation Sans'
+              st.font.size=Pt(size)
+              st.font.bold=True
+              st.paragraph_format.space_before=Pt(10)
+              st.paragraph_format.space_after=Pt(5)
+              st.paragraph_format.keep_with_next=True
+            for t in d.tables:
+              t.alignment=WD_TABLE_ALIGNMENT.CENTER
+              for row in t.rows:
+                for cell in row.cells:
+                  for p in cell.paragraphs:
+                    for run in p.runs:
+                      run.font.size=Pt(8.5)
+              for cell in t.rows[0].cells:
+                for p in cell.paragraphs:
+                  for run in p.runs:
+                    run.bold=True
+            # Keep genuinely editable native Word tables and images.
+            d.core_properties.title=source.stem
+            d.core_properties.subject='Editorial research submission draft; author confirmation required'
+            d.save(target)
+            assert len(d.tables)==tables,(target,len(d.tables),tables)
+            import zipfile
+            with zipfile.ZipFile(target) as z:
+              assert z.testzip() is None,target
+              media=[x for x in z.namelist() if x.startswith('word/media/') and not x.endswith('/')]
+            assert len(media)==images,(target,len(media),images)
+            assert target.stat().st_size>7000,target
+            print('V36_DOCX_OK',target, 'bytes',target.stat().st_size,
+              'tables',len(d.tables),'media',len(media),'paragraphs',len(d.paragraphs))
+          md=(journal/'RINENG_MANUSCRIPT_V36_v0.2_2026-11-23.md').read_text(encoding='utf8')
+          assert md.count('## References')==1
+          assert md.index('## Declaration of generative AI')<md.index('## References')
+          assert '8/10 deletion' in md and '9/10 insertion' in md
+          assert '0.5416' in md and '0.4239' in md and '65%' in md
+          assert 'AUTHOR CONFIRMATION REQUIRED' in md
+          assert md.count('![')==1
+          supp=(journal/'RINENG_SUPPLEMENT_V36_S1_v0.1_2026-11-23.md').read_text(encoding='utf8')
+          assert supp.count('![](')==10
+          assert all(('Figure S'+str(i)) in supp for i in range(1,11))
+          highlights=(journal/'RINENG_HIGHLIGHTS_V36_v0.1_2026-11-23.md').read_text(encoding='utf8')
+          bullets=[line[2:] for line in highlights.splitlines() if line.startswith('- ')]
+          assert 3<=len(bullets)<=5 and all(len(x)<=85 for x in bullets),[(x,len(x)) for x in bullets]
+          print('V36_TEXT_EVIDENCE_AND_HIGHLIGHTS_OK')
+          PY
+      - name: Render and validate manuscript PDF and supplement PDF
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice-writer poppler-utils >/dev/null
+          mkdir -p /tmp/rineng_v36_render
+          for d in research/seer-ppe/exports/RINENG_V36_Manuscript_v0.2_2026-11-23.docx research/seer-ppe/exports/RINENG_V36_Supplement_v0.1_2026-11-23.docx; do
+            libreoffice -env:UserInstallation=file:///tmp/lo_rineng_v36 --headless --convert-to pdf --outdir /tmp/rineng_v36_render "$d"
+          done
+          main=/tmp/rineng_v36_render/RINENG_V36_Manuscript_v0.2_2026-11-23.pdf
+          supp=/tmp/rineng_v36_render/RINENG_V36_Supplement_v0.1_2026-11-23.pdf
+          test -s "$main" && test -s "$supp"
+          pdftotext -layout "$main" /tmp/rineng_v36_render/main_text.txt
+          pdftotext -layout "$supp" /tmp/rineng_v36_render/supp_text.txt
+          grep -q 'Target-matched' /tmp/rineng_v36_render/main_text.txt
+          grep -q '0.8706' /tmp/rineng_v36_render/main_text.txt
+          grep -q '0.5416' /tmp/rineng_v36_render/main_text.txt
+          grep -q '0.4239' /tmp/rineng_v36_render/main_text.txt
+          grep -q 'References' /tmp/rineng_v36_render/main_text.txt
+          grep -q 'Figure S10' /tmp/rineng_v36_render/supp_text.txt
+          grep -q 'Figure S1' /tmp/rineng_v36_render/supp_text.txt
+          for name in RINENG_V36_Manuscript_v0.2_2026-11-23 RINENG_V36_Supplement_v0.1_2026-11-23; do
+            pdf="/tmp/rineng_v36_render/$name.pdf"
+            pages=$(pdfinfo "$pdf" | awk '/^Pages:/ {print $2}')
+            test "$pages" -ge 2
+            echo "V36_PDF_PAGECOUNT $name $pages"
+            pdftoppm -f 1 -l 1 -scale-to 1100 -png -singlefile "$pdf" "/tmp/rineng_v36_render/$name-first"
+            middle=$(( (pages + 1) / 2 ))
+            pdftoppm -f "$middle" -l "$middle" -scale-to 1100 -png -singlefile "$pdf" "/tmp/rineng_v36_render/$name-middle"
+            pdftoppm -f "$pages" -l "$pages" -scale-to 1100 -png -singlefile "$pdf" "/tmp/rineng_v36_render/$name-last"
+          done
+          echo 'RINENG_V36_WORD_AND_PDF_QA_PASS'
+      - name: Upload rendered PDFs and representative page previews
+        uses: actions/upload-artifact@v4
+        with:
+          name: rineng-v36-editorial-render-qa
+          path: |
+            research/seer-ppe/exports/RINENG_V36_Manuscript_v0.2_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V36_Supplement_v0.1_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V36_Highlights_v0.1_2026-11-23.docx
+            /tmp/rineng_v36_render/*.pdf
+            /tmp/rineng_v36_render/*-first.png
+            /tmp/rineng_v36_render/*-middle.png
+            /tmp/rineng_v36_render/*-last.png
+          retention-days: 30
+      - name: Archive generated editable Word files on research branch
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/seer-ppe/exports/RINENG_V36_Manuscript_v0.2_2026-11-23.docx research/seer-ppe/exports/RINENG_V36_Supplement_v0.1_2026-11-23.docx research/seer-ppe/exports/RINENG_V36_Highlights_v0.1_2026-11-23.docx
+          if git diff --cached --quiet; then
+            echo "RINENG_V36_DOCX_ALREADY_ARCHIVED"
+          else
+            git commit -m "Archive V36 Results in Engineering editable editorial Word package"
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
