@@ -46,3 +46,11 @@
 ## Progress estimate
 
 The weighted project estimate is adjusted conservatively from 47.25% to **47.75% (48% rounded)** because manuscript preparation and internal review advanced. No empirical gate was passed; the percentage is project-management progress, not probability of acceptance or scientific validation.
+
+
+## Latest session asset update — 22 November 2026
+
+- Added `assets/Y_PPE_Research_Icon.svg`, a square vector rendition for the Y-PPE research file icon. It depicts the compliant/violation distinction, the two detector tracks (RF-DETR Small and YOLOv11m), and the FNR/FPPI/reliability evaluation focus.
+- Added `SESSION_HANDOFF_2026-11-22_v0.2.md` and linked it from the project README.
+- The original generated PNG icon and the two DOCX deliverables remain conversation attachments; the public repository stores the SVG icon and public-safe review/revision records, not the full unpublished Word binaries.
+- No empirical experiment was run and no E1/E2/E3 gate changed. The weighted project estimate remains 47.75% (48% rounded); publication remains NO-GO.

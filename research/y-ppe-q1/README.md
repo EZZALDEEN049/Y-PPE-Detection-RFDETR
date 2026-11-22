@@ -13,7 +13,13 @@
 - [Machine-readable project state](PROJECT_STATE_2026-11-22.json)
 - [Internal peer review of manuscript v0.1](MANUSCRIPT_PEER_REVIEW_v0.1_2026-11-22.md)
 - [Manuscript v0.2 revision log](MANUSCRIPT_REVISION_LOG_v0.2_2026-11-22.md)
+- [Latest session handoff — manuscript v0.2 and icon](SESSION_HANDOFF_2026-11-22_v0.2.md)
+- [Research icon (SVG)](assets/Y_PPE_Research_Icon.svg)
 - [Repository-level YOLOv11m vs RF-DETR comparison protocol](../../docs/comparison_protocol.md)
+
+## Latest saved session
+
+The latest session adds the v0.2 manuscript/review handoff and a square vector icon for the research file. The editable Word manuscript and internal review report were delivered as conversation attachments; the public repository stores the public-safe review/revision records rather than the full unpublished manuscript binaries. The generated PNG icon remains a conversation attachment; an SVG vector rendition is committed under `assets/`.
 
 ## Scope separation
 

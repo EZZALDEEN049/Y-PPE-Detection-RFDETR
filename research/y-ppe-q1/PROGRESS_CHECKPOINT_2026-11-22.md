@@ -211,3 +211,17 @@ The manuscript also records the prior comparison paper's Validation/Test metric 
 **No new experiment was performed:** no training, inference, annotation, Test modification, paired model evaluation, or independent test result was produced during manuscript review.
 
 **Progress estimate:** 47.75% weighted (48% rounded), adjusted only for manuscript preparation and review. This is project-management progress, not probability of acceptance or evidence completion.
+
+
+## 11. Latest session handoff — icon and repository synchronization (22 November 2026)
+
+The current working deliverables are:
+- `Y_PPE_Q1_First_Manuscript_Draft_v0.2.docx` — revised internal working manuscript, approximately 6,355 words including tables.
+- `Y_PPE_v0.1_Internal_Peer_Review_Report.docx` — internal reviewer report with a Major Revision / NO-GO recommendation.
+- `assets/Y_PPE_Research_Icon.svg` — repository-native square vector icon for the research file, illustrating PPE-compliant versus PPE-violation detection, RF-DETR Small versus YOLOv11m, and FNR/FPPI/reliability.
+
+The Word files remain conversation attachments and are not committed as binary files in the public repository. The original generated PNG icon was also delivered as a conversation attachment; the SVG rendition is the repository-stored visual asset. No raw images, labels, model weights, temporary export URLs, credentials, or private prediction identities were added.
+
+**Research status is unchanged:** weighted progress remains 47.75% (48% rounded); E1 not passed; E2 not passed; E3 not started for an admissible common test; Q1 publication gate NO-GO. Manuscript editing and icon creation do not pass an empirical gate.
+
+**Next action:** complete the E1 source/export audit, including exact split membership for both model tracks, the 46 dHash candidate adjudication, Test-byte audit, and class/box-convention reconciliation. Proceed to E2 only after E1 acceptance.

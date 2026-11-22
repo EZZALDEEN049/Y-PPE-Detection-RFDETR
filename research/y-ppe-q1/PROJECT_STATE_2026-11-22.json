@@ -85,5 +85,15 @@
     "Generate paired predictions on an eligible common roster",
     "Select Q5 thresholds on Validation only and evaluate on admissible held-out data"
   ],
-  "repository_folder": "research/y-ppe-q1/"
+  "repository_folder": "research/y-ppe-q1/",
+  "last_session_update": "2026-11-22",
+  "latest_saved_artifacts": {
+    "manuscript_v0_2": "Y_PPE_Q1_First_Manuscript_Draft_v0.2.docx",
+    "internal_review_report": "Y_PPE_v0.1_Internal_Peer_Review_Report.docx",
+    "manuscript_binary_committed_to_public_repo": false,
+    "review_and_revision_records_committed": true,
+    "research_icon_svg": "research/y-ppe-q1/assets/Y_PPE_Research_Icon.svg",
+    "original_generated_png": "Delivered as a conversation attachment; not committed as a binary repository asset"
+  },
+  "next_working_step": "Complete E1 by obtaining both authorized Roboflow exports, hashing and comparing Train/Validation/Test membership, adjudicating the 46 dHash candidates, and reconciling the class taxonomy before attempting E2."
 }
