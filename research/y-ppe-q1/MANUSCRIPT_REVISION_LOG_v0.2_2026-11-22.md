@@ -7,7 +7,7 @@
 
 ## Artifacts created
 
-- `Y_PPE_Q1_First_Manuscript_Draft_v0.2.docx` — revised working manuscript (approximately 5,700 words; 7 tables).
+- `Y_PPE_Q1_First_Manuscript_Draft_v0.2.docx` — revised working manuscript (approximately 6,355 words including tables; 7 tables).
 - `Y_PPE_v0.1_Internal_Peer_Review_Report.docx` — internal scientific review report.
 - This repository folder stores the review and change record; the Word files were delivered as conversation attachments and are not committed as binary files in this update.
 
