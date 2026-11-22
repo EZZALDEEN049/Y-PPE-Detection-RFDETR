@@ -1,0 +1,127 @@
+{
+  "schema_version": "y-ppe/current-dataset-parity/v0.1",
+  "audit_date": "2026-11-22",
+  "scope": "Current raw dataset versions only; not a verification of the historical model-training versions.",
+  "current_versions": {
+    "yolo": {
+      "project_id": "master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh",
+      "version": 2,
+      "images": 2327,
+      "splits": {
+        "train": 1625,
+        "valid": 468,
+        "test": 234
+      },
+      "trainings": [],
+      "export_format": "coco",
+      "export_ready": true
+    },
+    "rfdetr": {
+      "project_id": "softyyemen/altayyar-0oflt-lafos-qqauz",
+      "version": 3,
+      "images": 2327,
+      "splits": {
+        "train": 1625,
+        "valid": 468,
+        "test": 234
+      },
+      "trainings": [],
+      "export_format": "coco",
+      "export_ready": true
+    }
+  },
+  "historical_model_training_versions": {
+    "yolo": {
+      "project_id": "master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh",
+      "version": 1,
+      "model_id": "altayyar-0oflt-lafos-qqauz-ty5nh/1",
+      "architecture": "yolov11m",
+      "training_id": "nKL5CfN5VpO91BXCrmq3/1/training/0",
+      "status": "finished",
+      "images": 5577,
+      "splits": {
+        "train": 4875,
+        "valid": 468,
+        "test": 234
+      },
+      "augmentation": {
+        "image_versions": 3,
+        "mosaic": true
+      },
+      "export_format": "coco",
+      "export_ready": true,
+      "training_detail_access": "trainings_get blocked by connected-workspace boundary; public version metadata confirms finished status"
+    },
+    "rfdetr": {
+      "project_id": "softyyemen/altayyar-0oflt-lafos-qqauz",
+      "version": 2,
+      "model_id": "altayyar-0oflt-lafos-qqauz/2",
+      "architecture": "rfdetr-small",
+      "training_id": "CznUs9fXTpbyRFbcRZDR/2/training/0",
+      "status": "finished",
+      "images": 5577,
+      "splits": {
+        "train": 4875,
+        "valid": 468,
+        "test": 234
+      },
+      "augmentation": {
+        "image_versions": 3,
+        "mosaic": true
+      },
+      "export_format": "coco",
+      "export_ready": true
+    }
+  },
+  "shared_preprocessing": {
+    "auto_orient": true,
+    "resize": {
+      "mode": "stretch",
+      "width": 640,
+      "height": 640
+    }
+  },
+  "current_dataset_metadata_comparison": {
+    "rows_each": 2327,
+    "unique_filenames_each": 2233,
+    "repeated_filename_groups": 64,
+    "cross_workspace_image_id_intersection": 0,
+    "comparison_key": [
+      "filename",
+      "split",
+      "width",
+      "height",
+      "annotation_count",
+      "per_class_annotation_counts"
+    ],
+    "duplicate_aware_filename_group_mismatches": 0,
+    "interpretation": "Metadata-level parity only. Roboflow image IDs differ across workspace copies; zero ID intersection is not evidence of different image content and does not prove byte identity."
+  },
+  "annotation_geometry_validation": {
+    "paired_images_checked": 19,
+    "exact_geometry_matches": 19,
+    "composition": "13 stratified examples across Train/Validation/Test plus 6 duplicate-filename ambiguities resolved by exact saved annotation geometry",
+    "interpretation": "Sampled annotation equivalence only; not an exhaustive 2,327-image geometry audit."
+  },
+  "comparison_fork": {
+    "project_id": "softyyemen/altayyar-0oflt-lafos-qqauz-ty5nh-b1in5",
+    "source_project_id": "master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh",
+    "purpose": "Read-only metadata and annotation comparison copy; not used for training or evaluation",
+    "dataset_versions": [],
+    "note": "No model or inference was run and the original public project was not modified."
+  },
+  "exports": {
+    "historical_training_version_exports_ready": true,
+    "current_version_exports_ready": true,
+    "archives_downloaded": false,
+    "sha256_manifests_generated": false,
+    "temporary_signed_urls_stored": false
+  },
+  "gate_status": {
+    "E1": "NOT_PASSED",
+    "reason": "Historical training-version archives remain uninspected; exact original image bytes and full Train/Validation/Test membership are not hashed; source-family/site/session independence remains unsigned.",
+    "E2": "NOT_PASSED",
+    "E3": "NOT_STARTED_FOR_NEW_ADMISSIBLE_COMMON_TEST",
+    "publication": "NO_GO"
+  }
+}

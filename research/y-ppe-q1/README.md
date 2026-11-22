@@ -2,8 +2,8 @@
 
 **Canonical proposal:** Version 3.5.0 (22 November 2026), maintained in the research project workspace.  
 **GitHub role:** public-safe progress, decision, and evidence checkpoint; not a mirror of the unpublished full manuscript or raw data.  
-**Current estimated progress toward a defensible Q1 empirical submission:** **48%** (weighted milestone estimate; see checkpoint for calculation and limitations).  
-**Current status:** protocol development substantially advanced; Q15 model/data retrieval is partially executed; the paired evaluation and publication gates remain unmet.
+**Current estimated progress toward a defensible Q1 empirical submission:** **49%** (weighted milestone estimate; see checkpoint for calculation and limitations).  
+**Current status:** protocol development substantially advanced; Q15 model/data retrieval and current-version metadata parity are partially advanced; E1/E2/E3 and publication gates remain unmet.
 
 ## Start here
 
@@ -13,13 +13,16 @@
 - [Machine-readable project state](PROJECT_STATE_2026-11-22.json)
 - [Internal peer review of manuscript v0.1](MANUSCRIPT_PEER_REVIEW_v0.1_2026-11-22.md)
 - [Manuscript v0.2 revision log](MANUSCRIPT_REVISION_LOG_v0.2_2026-11-22.md)
-- [Latest session handoff — manuscript v0.2 and icon](SESSION_HANDOFF_2026-11-22_v0.2.md)
+- [Latest session handoff — E1 continuation v0.3](SESSION_HANDOFF_2026-11-22_v0.3.md)
+- [Current Roboflow dataset parity](Y_PPE_CURRENT_DATASET_PARITY_2026-11-22.json)
+- [SEER V13 source-overlap transfer to Y-PPE](Y_PPE_SEER_V13_SOURCE_OVERLAP_TRANSFER_2026-11-22.json)
+- [Previous session handoff — manuscript v0.2 and icon](SESSION_HANDOFF_2026-11-22_v0.2.md)
 - [Research icon (SVG)](assets/Y_PPE_Research_Icon.svg)
 - [Repository-level YOLOv11m vs RF-DETR comparison protocol](../../docs/comparison_protocol.md)
 
 ## Latest saved session
 
-The latest session adds the v0.2 manuscript/review handoff and a square vector icon for the research file. The editable Word manuscript and internal review report were delivered as conversation attachments; the public repository stores the public-safe review/revision records rather than the full unpublished manuscript binaries. The generated PNG icon remains a conversation attachment; an SVG vector rendition is committed under `assets/`.
+The latest session adds current-version cross-project dataset parity evidence, a transfer record for SEER-PPE V13 source-overlap candidates, and a new E1 handoff. The current metadata comparison does not replace the required historical training-version byte-hash audit. The editable Word manuscript and internal review report remain conversation attachments; the repository stores public-safe review records and the SVG research icon, not the unpublished DOCX binaries.
 
 ## Scope separation
 

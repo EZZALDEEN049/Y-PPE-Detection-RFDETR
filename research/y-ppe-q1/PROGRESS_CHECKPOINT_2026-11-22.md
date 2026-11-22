@@ -225,3 +225,28 @@ The Word files remain conversation attachments and are not committed as binary f
 **Research status is unchanged:** weighted progress remains 47.75% (48% rounded); E1 not passed; E2 not passed; E3 not started for an admissible common test; Q1 publication gate NO-GO. Manuscript editing and icon creation do not pass an empirical gate.
 
 **Next action:** complete the E1 source/export audit, including exact split membership for both model tracks, the 46 dHash candidate adjudication, Test-byte audit, and class/box-convention reconciliation. Proceed to E2 only after E1 acceptance.
+
+
+## 12. E1 continuation — current dataset parity and source-overlap reconciliation (22 November 2026)
+
+### 12.1 Current-version cross-project comparison
+The latest raw dataset versions (YOLO-linked v2 and RF-DETR-linked v3) were compared through a read-only Roboflow fork of the public YOLO project. Both contain 2,327 images (1,625/468/234) and 17 classes. Across all 2,327 records per project, duplicate-aware filename grouping found 2,233 unique filenames, 64 repeated-filename groups, and zero differences in the multiset of filename, split, width/height, annotation count, and per-class annotation-count signatures. Nineteen paired annotation-geometry checks matched exactly (13 split-stratified samples plus six duplicate-name ambiguity resolutions).
+
+This is strong metadata/annotation parity evidence for the **current** raw versions, not a byte-level hash audit. The two workspace copies use different image IDs; ID inequality is not evidence of image-content inequality.
+
+### 12.2 Historical model-training versions identified
+The exact model-linked versions are:
+- YOLOv11m: project version 1, model `altayyar-0oflt-lafos-qqauz-ty5nh/1`, finished training; 5,577 generated images (4,875/468/234).
+- RF-DETR Small: project version 2, model `altayyar-0oflt-lafos-qqauz/2`, finished training; 5,577 generated images (4,875/468/234).
+
+The current raw versions are YOLO v2 and RF-DETR v3, each 2,327 images (1,625/468/234) and with no linked training run. Both historical versions record three image versions plus Mosaic. All four version exports were marked ready in COCO format, but none of the four ZIP archives was downloaded or hashed. The exact historical model-training membership is therefore still unverified.
+
+### 12.3 V13 source-overlap evidence mapped to the current source roster
+The SEER V13 source manifest is for RF-DETR project version 3 and covers Train/Validation only (2,093 images; no Test bytes). The 50 cross-split pairs include 46 dHash-close pairs and four named-site pairs. Seven are high automated same-frame candidates; 43 remain independence-unresolved; zero pairs have identical raw bytes. All 76 unique source IDs used in the pair list exist in the RF-DETR v3 manifest, all 76 saved annotations are valid, and all 76 dimensions match the manifest. All 50 valid-side filenames occur in current Validation and all 50 train-side filenames occur in current Train. This is a filename/split transfer, not proof of byte identity across the YOLO copy.
+
+The four named-site pairs identify School 22 May – Aseefrah across Train and Validation. The two Valid images remain held for any site-independent evaluation until human source-family/site signoff. V15 records zero human source-family signoffs and `scoring_ready=false`.
+
+### 12.4 Updated progress and gate decision
+The weighted project estimate advances conservatively from 47.75% to **48.75% (49% rounded)** to reflect the current-version cross-project parity audit and the source-overlap mapping. This is project-management progress only. No empirical gate passed: E1 remains NOT PASSED, E2 NOT PASSED, E3 NOT STARTED, and publication remains NO-GO.
+
+**Next action:** obtain the exact historical COCO exports for YOLO project v1 and RF-DETR project v2. The current v2/v3 exports are not substitutes. After both archives are available, create per-split SHA-256 manifests, compare exact membership and image content across the two training tracks, inspect Test bytes, and reconcile source-family/site candidates before E1 can be accepted.

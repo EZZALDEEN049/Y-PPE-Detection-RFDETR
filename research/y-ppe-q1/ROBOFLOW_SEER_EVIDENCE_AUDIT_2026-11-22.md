@@ -100,3 +100,63 @@ This table is post hoc, RF-only, and based on Validation outputs. Sparse cells a
 **Still required:** downloaded and hashed YOLO/RF dataset exports; exact split identity; definitive mapping of SEER source IDs to the Q1 source roster; complete class/box convention reconciliation; accessible checkpoint/training provenance; predictions for both models on the same admissible images; Q5 validation-only threshold selection; and an eligible independent evaluation partition.
 
 **Decision:** Q15 Option C is partially executed. E1 and E2 are not passed. The Q1 empirical publication gate remains NO-GO.
+
+
+## 8. Direct comparison of the current Roboflow dataset versions — 22 November 2026
+
+A public copy of the YOLO-linked project was forked into the connected Roboflow workspace solely to enable read-only cross-project metadata and annotation comparison:
+- Original public project: `master-fylfq/altayyar-0oflt-lafos-qqauz-ty5nh`.
+- Comparison copy: `softyyemen/altayyar-0oflt-lafos-qqauz-ty5nh-b1in5`.
+- The original public project was not modified. The fork has no generated dataset versions and was not used for training or inference.
+
+The current raw dataset versions are YOLO-linked v2 and RF-DETR-linked v3. Each exposes 2,327 images with Train/Valid/Test counts of 1,625/468/234 and 17 classes.
+
+A duplicate-aware comparison of all 2,327 records per current project found:
+- 2,233 unique filenames in each project;
+- 64 filename groups containing repeated names;
+- zero mismatches between the two projects' filename-group multisets when compared on filename, split, image width/height, annotation count, and per-class annotation counts;
+- 19 paired annotation-geometry checks with exact matches (13 stratified examples across Train/Validation/Test plus six duplicate-filename ambiguities resolved using saved geometry).
+
+The source IDs differ between the two workspace copies. This is expected for separate workspace copies and is not evidence of different image content. Conversely, filename/metadata parity and sampled geometry matches do **not** prove that all 2,327 raw image byte streams are identical. No full binary hash comparison was completed.
+
+Machine-readable record: [current dataset parity JSON](Y_PPE_CURRENT_DATASET_PARITY_2026-11-22.json).
+
+## 9. Important version chronology correction — model-training versions versus current versions
+
+The model-linked historical versions are not the same version numbers as the latest current raw datasets:
+
+| Track | Historical model-training version | Current raw version | Historical version images/splits | Current version images/splits |
+|---|---:|---:|---|---|
+| YOLOv11m | v1 | v2 | 5,577; 4,875/468/234 | 2,327; 1,625/468/234 |
+| RF-DETR Small | v2 | v3 | 5,577; 4,875/468/234 | 2,327; 1,625/468/234 |
+
+Both historical training versions record three image versions plus Mosaic augmentation. Their preprocessing records Auto-Orient and stretch resize to 640×640. The current v2/v3 versions have no linked training runs and no augmentation metadata. The 5,577 historical count must not be mistaken for 5,577 unique raw source images; the 4,875 Train count reflects the generated training-version content.
+
+COCO export requests returned ready=true for all four versions (YOLO v1/v2 and RF-DETR v2/v3). However, the ZIP archives were not downloaded or locally inspected in this environment, and no SHA-256 manifests were generated. Temporary signed export URLs are intentionally not stored. The YOLO training-detail endpoint remains restricted by the cross-workspace Roboflow permission boundary; public version metadata still confirms its finished status and model ID.
+
+**Consequence:** current-version parity does not establish the exact membership of the two historical model-training versions. The historical training-version archives remain the priority evidence needed to close the split-identity component of E1.
+
+## 10. SEER-PPE V13 cross-split evidence mapped to the current Y-PPE source roster
+
+The V13 source manifest identifies the RF-DETR current project v3 and covers 2,093 Train/Validation sources (1,625 Train and 468 Validation; no Test bytes). The 50 V13 cross-split pairs comprise 46 earlier dHash-close pairs plus four named-site pairs. Direct pixel comparison recorded seven high automated same-frame candidates, 43 non-high pairs whose acquisition independence remains unresolved, and zero raw-byte-identical pairs.
+
+A read-only reconciliation established:
+- all 76 unique source IDs used in the 50 pairs exist in the RF-DETR v3 source manifest;
+- all 76 saved annotation records were returned and marked valid;
+- all 76 image dimensions agree with the source manifest;
+- all 50 valid-side filenames are present in the current Y-PPE Validation split, and all 50 train-side filenames are present in the current Y-PPE Train split;
+- the seven high automated candidates are therefore present by filename/split in the current Y-PPE source roster, but exact raw-byte identity across the YOLO workspace copy has not been established;
+- six duplicate-filename ambiguities were resolved by exact saved annotation geometry. This does not replace a binary image hash.
+
+The four School 22 May – Aseefrah pairs are named-site overlap evidence. The two Valid images in this named site remain ineligible for a site-independent claim until the required source-family/site review is signed. The V15 attestation overlay remains empty: zero human source-family signoffs, zero signed independence attestations, and scoring_ready=false.
+
+Machine-readable record: [V13 source-overlap transfer JSON](Y_PPE_SEER_V13_SOURCE_OVERLAP_TRANSFER_2026-11-22.json).
+
+## 11. Updated gate assessment and next action
+
+- E1 remains **NOT PASSED**. Current-version metadata parity is now supported, and the V13 source-overlap candidates are mapped to the current RF source roster, but the historical training-version archives remain uninspected, raw Train/Valid/Test hashes are not available, Test bytes have not been audited, and source-family/site/session independence remains unsigned.
+- E2 remains **NOT PASSED**. Neither model's exact checkpoint binary and complete exposure history has been authenticated for a common eligible evaluation roster.
+- E3 remains **NOT STARTED** for a new admissible paired test.
+- Q1 publication remains **NO-GO**.
+
+The next required input is the two historical model-training-version COCO archives: YOLO project version 1 and RF-DETR project version 2. They must be downloaded from their respective public Roboflow project pages and uploaded into the controlled working session. Do not substitute the current YOLO v2 or RF-DETR v3 exports. Do not publish the temporary signed export URLs.
