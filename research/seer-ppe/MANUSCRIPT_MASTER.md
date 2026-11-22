@@ -6,7 +6,7 @@
 Taiz, Yemen  
 **Corresponding author:** azzaltayyar@gmail.com
 
-**Working manuscript v0.30 — updated 22 November 2026**  
+**Working manuscript v0.31 — updated 22 November 2026**  
 **Article class:** original empirical research candidate | **Status:** Methods draft; **NOT a validated empirical article or Q1-ready**  
 **Data constraint:** original Y-PPE only; existing Y-PPE only, the verified hosted 17-class ALTAYYAR RF-DETR Small model v2, and a local original checkpoint that remains to be independently loaded/inspected.  
 **Draft integrity statement:** original-model detection, target-box perturbation, V30 target-matched progressive occlusion/deletion/insertion curves and hosted request round-trip have been measured on development-exposed samples; independent/external explanation faithfulness, worker-safety efficacy, process memory and physical energy remain unmeasured. Do not cite the old model's 96.22% historical mAP@50 as a new SEER-PPE achievement.
