@@ -10,7 +10,7 @@ The researcher states that image review and curation were completed during the o
 
 ## Why this is academically appropriate
 
-The study investigates PPE object detection and the development of evidence-grounded occupational-safety decision support. It does not estimate site-specific prevalence, compare named projects or organizations, or claim a representative probability sample of all Yemeni worksites. Consequently, named site/project identity is not a necessary per-image analytical variable.
+The study investigates PPE object detection and the development of evidence-grounded occupational-safety decision support. It does not estimate site-specific prevalence, compare named projects or organizations, or claim a representative probability sample of all Yemeni worksites. Consequently, named site/project identity is not a necessary per-image analytical variable. The corpus is an author-curated applied dataset, not a documented probability sample of all Yemeni worksites or civil-society projects; multi-project diversity must not be translated into national prevalence estimates or independent site-level generalization.
 
 The correct disclosure is aggregate provenance, single-curator curation, and the limits of source-family metadata. Do not invent per-image project IDs or claim that every image comes from an independent site.
 
