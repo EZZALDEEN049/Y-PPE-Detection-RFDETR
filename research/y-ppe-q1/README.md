@@ -10,6 +10,7 @@
 - [Progress checkpoint — 22 November 2026](PROGRESS_CHECKPOINT_2026-11-22.md)
 - [Decision register Q1–Q15](DECISION_REGISTER_Q1_Q15.md)
 - [Roboflow and SEER-PPE evidence audit](ROBOFLOW_SEER_EVIDENCE_AUDIT_2026-11-22.md)
+- [Machine-readable project state](PROJECT_STATE_2026-11-22.json)
 - [Repository-level YOLOv11m vs RF-DETR comparison protocol](../../docs/comparison_protocol.md)
 
 ## Scope separation
