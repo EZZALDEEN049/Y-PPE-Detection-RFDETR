@@ -1,4 +1,14 @@
-# SEER-PPE cumulative research progress — v0.9 (updated 2026-11-21)
+# SEER-PPE cumulative research progress — v0.10 (updated 2026-11-22)
+
+
+## V32 author-selected scope decision — 22 November 2026
+
+- The author selected Path 1: the current thesis paper is limited to image-level PPE detection, target-specific black-box perturbation sensitivity and selective explanation/inspection prioritization.
+- Worker-level Person–PPE gold, task/site mandates, compliance/violation labels, false-clearance, actual review efficacy, external/site-independent generalization and physical Joules are out of scope and are not completion blockers. The strict worker-safety flag remains `scoring_ready=false`, accurately reflecting the absence of worker-level gold.
+- Existing Person–PPE pilot artifacts remain exploratory only; missing fields are not imputed or scored. Source-overlap M0/M1/M2 sensitivity and all known cross-split holds remain preserved.
+- Canonical manuscript updated to v0.32; protocol updated to v0.8. See [V32 decision](V32_IMAGE_LEVEL_DETECTION_XAI_SCOPE_DECISION_2026-11-22.md) and [machine record](V32_IMAGE_LEVEL_DETECTION_XAI_SCOPE_DECISION_2026-11-22.json).
+- Remaining work: explanation robustness, expanded matched-budget A5/A6-style target comparison, results/figures reconciliation, reference verification and Word export.
+- No new model calls, retraining, Test access, image reinspection or data/annotation/split changes were made for V32.
 
 ## V31 continuation update — 22 November 2026
 
