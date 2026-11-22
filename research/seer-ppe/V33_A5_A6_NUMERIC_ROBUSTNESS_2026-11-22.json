@@ -1,0 +1,566 @@
+{
+  "schema_version": "seer-ppe/v33-existing-v30-numeric-robustness/v0.33",
+  "analysis_date": "2026-11-22",
+  "status": "ACTUAL_V30_NUMERIC_POSTHOC_ANALYSIS_COMPLETED_NO_NEW_INFERENCE",
+  "source_v30_result_file": "V30_ACTUAL_PROGRESSIVE_XAI_RESULTS_2026-11-22.json",
+  "source_v30_git_blob_sha": "729088f829bcdddcfbc4df5483be88399cccf605",
+  "design": {
+    "images": 8,
+    "unique_targets": 10,
+    "A5_target_slots": 8,
+    "A6_target_slots": 8,
+    "shared_targets": 6,
+    "unique_targets_per_arm": 2,
+    "actual_v30_model_calls": 1068,
+    "additional_v33_model_calls": 0,
+    "analysis_type": "exploratory_posthoc_numeric_reanalysis",
+    "fixed_random_control_per_target": 1,
+    "development_exposed": true
+  },
+  "means": {
+    "all_targets": {
+      "saliency_deletion_auc": 0.40926802429044573,
+      "saliency_insertion_auc": 0.8866931171395208,
+      "random_deletion_auc": 0.5925030974947741,
+      "random_insertion_auc": 0.7520700131191281,
+      "deletion_advantage": 0.1832350732043284,
+      "insertion_advantage": 0.13462310402039263,
+      "early30_deletion_advantage": 0.3547813727539878,
+      "early30_insertion_advantage": 0.2827599431637632,
+      "blurred_to_baseline_ratio": 0.33514066473075194
+    },
+    "shared_targets": {
+      "saliency_deletion_auc": 0.509178841201815,
+      "saliency_insertion_auc": 0.9429093322265961,
+      "random_deletion_auc": 0.6859764736957166,
+      "random_insertion_auc": 0.8171327458665978,
+      "deletion_advantage": 0.17679763249390149,
+      "insertion_advantage": 0.1257765863599984,
+      "early30_deletion_advantage": 0.3948803961989162,
+      "early30_insertion_advantage": 0.15393078479285147,
+      "blurred_to_baseline_ratio": 0.44904263141063777
+    },
+    "A5_selected": {
+      "saliency_deletion_auc": 0.4962875501409622,
+      "saliency_insertion_auc": 0.9441948507930209,
+      "random_deletion_auc": 0.6358362952580824,
+      "random_insertion_auc": 0.800164191313153,
+      "deletion_advantage": 0.13954874511712018,
+      "insertion_advantage": 0.14403065947986804,
+      "early30_deletion_advantage": 0.30094294206703454,
+      "early30_insertion_advantage": 0.21135418974439285,
+      "blurred_to_baseline_ratio": 0.41892583091343993
+    },
+    "A6_selected": {
+      "saliency_deletion_auc": 0.3971816111234561,
+      "saliency_insertion_auc": 0.8713535448013272,
+      "random_deletion_auc": 0.6192749318821726,
+      "random_insertion_auc": 0.7527728844857058,
+      "deletion_advantage": 0.22209332075871646,
+      "insertion_advantage": 0.1185806603156216,
+      "early30_deletion_advantage": 0.43869407102463737,
+      "early30_insertion_advantage": 0.25754382780494967,
+      "blurred_to_baseline_ratio": 0.33678197355797834
+    },
+    "A5_only": {
+      "saliency_deletion_auc": 0.4576136769584037,
+      "saliency_insertion_auc": 0.9480514064922954,
+      "random_deletion_auc": 0.48541575994517994,
+      "random_insertion_auc": 0.7492585276528184,
+      "deletion_advantage": 0.027802082986776278,
+      "insertion_advantage": 0.19879287883947688,
+      "early30_deletion_advantage": 0.019130579671389647,
+      "early30_insertion_advantage": 0.38362440459901714,
+      "blurred_to_baseline_ratio": 0.3285754294218463
+    },
+    "A6_only": {
+      "saliency_deletion_auc": 0.061189920888379504,
+      "saliency_insertion_auc": 0.6566861825255206,
+      "random_deletion_auc": 0.41917030644154085,
+      "random_insertion_auc": 0.5596933003430293,
+      "deletion_advantage": 0.35798038555316136,
+      "insertion_advantage": 0.09699288218249125,
+      "early30_deletion_advantage": 0.5701350955018009,
+      "early30_insertion_advantage": 0.5683829568412442,
+      "blurred_to_baseline_ratio": 0
+    }
+  },
+  "control_diagnostics": {
+    "full_deletion_advantage_positive": 8,
+    "full_deletion_advantage_zero": 1,
+    "full_insertion_advantage_positive": 9,
+    "early30_deletion_advantage_positive": 8,
+    "early30_insertion_advantage_positive": 8,
+    "blurred_baseline_ratio_ge_0_8": 3,
+    "blurred_baseline_ratio_ge_0_9": 1,
+    "blurred_baseline_ratio_zero": 6,
+    "max_auc_recalc_abs_error": 2.220446049250313e-16,
+    "max_nominal_vs_actual_auc_abs_difference": 0.004747901401022769,
+    "max_inverse_AUC_algebraic_identity_abs_error": 1.1102230246251565e-16,
+    "inverse_is_independent_random_control": false
+  },
+  "conditional_balanced_reassignment": {
+    "saliency_deletion_auc": {
+      "observed_A5_minus_A6": 0.09910593901750606,
+      "conditional_assignments": 6,
+      "conditional_two_sided_tail_fraction": 0.6666666666666666,
+      "min": -0.10626912290491924,
+      "max": 0.10626912290491924,
+      "note": "Conditional six-way reassignment of only four unmatched targets with six shared targets fixed; not a sampling-based p-value or superiority test."
+    },
+    "saliency_insertion_auc": {
+      "observed_A5_minus_A6": 0.0728413059916937,
+      "conditional_assignments": 6,
+      "conditional_two_sided_tail_fraction": 0.3333333333333333,
+      "min": -0.0728413059916937,
+      "max": 0.0728413059916937,
+      "note": "Conditional six-way reassignment of only four unmatched targets with six shared targets fixed; not a sampling-based p-value or superiority test."
+    },
+    "deletion_advantage": {
+      "observed_A5_minus_A6": -0.08254457564159627,
+      "conditional_assignments": 6,
+      "conditional_two_sided_tail_fraction": 0.3333333333333333,
+      "min": -0.08254457564159627,
+      "max": 0.08254457564159627,
+      "note": "Conditional six-way reassignment of only four unmatched targets with six shared targets fixed; not a sampling-based p-value or superiority test."
+    },
+    "insertion_advantage": {
+      "observed_A5_minus_A6": 0.02544999916424641,
+      "conditional_assignments": 6,
+      "conditional_two_sided_tail_fraction": 0.6666666666666666,
+      "min": -0.08964304317296863,
+      "max": 0.08964304317296863,
+      "note": "Conditional six-way reassignment of only four unmatched targets with six shared targets fixed; not a sampling-based p-value or superiority test."
+    }
+  },
+  "leave_one_source_image_out": {
+    "saliency_deletion_auc": {
+      "minimum": 0.000006541077969657305,
+      "maximum": 0.11326393030572124,
+      "sign_reversals_from_full_sample": 0,
+      "by_image": [
+        {
+          "image_key": "train:A",
+          "A5_minus_A6": 0.11326393030572118
+        },
+        {
+          "image_key": "train:B",
+          "A5_minus_A6": 0.11326393030572124
+        },
+        {
+          "image_key": "train:C",
+          "A5_minus_A6": 0.11325738922775158
+        },
+        {
+          "image_key": "train:D",
+          "A5_minus_A6": 0.11326393030572118
+        },
+        {
+          "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+          "A5_minus_A6": 0.11326393030572118
+        },
+        {
+          "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+          "A5_minus_A6": 0.11326393030572118
+        },
+        {
+          "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+          "A5_minus_A6": 0.000006541077969657305
+        },
+        {
+          "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+          "A5_minus_A6": 0.11326393030572124
+        }
+      ]
+    },
+    "saliency_insertion_auc": {
+      "minimum": 0.011975565239773278,
+      "maximum": 0.08324720684764997,
+      "sign_reversals_from_full_sample": 0,
+      "by_image": [
+        {
+          "image_key": "train:A",
+          "A5_minus_A6": 0.08324720684764986
+        },
+        {
+          "image_key": "train:B",
+          "A5_minus_A6": 0.08324720684764997
+        },
+        {
+          "image_key": "train:C",
+          "A5_minus_A6": 0.011975565239773278
+        },
+        {
+          "image_key": "train:D",
+          "A5_minus_A6": 0.08324720684764997
+        },
+        {
+          "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+          "A5_minus_A6": 0.08324720684764997
+        },
+        {
+          "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+          "A5_minus_A6": 0.08324720684764997
+        },
+        {
+          "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+          "A5_minus_A6": 0.07127164160787658
+        },
+        {
+          "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+          "A5_minus_A6": 0.08324720684764997
+        }
+      ]
+    },
+    "deletion_advantage": {
+      "minimum": -0.09433665787611006,
+      "maximum": -0.012861558114152377,
+      "sign_reversals_from_full_sample": 0,
+      "by_image": [
+        {
+          "image_key": "train:A",
+          "A5_minus_A6": -0.09433665787611006
+        },
+        {
+          "image_key": "train:B",
+          "A5_minus_A6": -0.09433665787611004
+        },
+        {
+          "image_key": "train:C",
+          "A5_minus_A6": -0.08147509976195769
+        },
+        {
+          "image_key": "train:D",
+          "A5_minus_A6": -0.09433665787611004
+        },
+        {
+          "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+          "A5_minus_A6": -0.09433665787611
+        },
+        {
+          "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+          "A5_minus_A6": -0.09433665787611001
+        },
+        {
+          "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+          "A5_minus_A6": -0.012861558114152377
+        },
+        {
+          "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+          "A5_minus_A6": -0.09433665787611004
+        }
+      ]
+    },
+    "insertion_advantage": {
+      "minimum": -0.036681739433555544,
+      "maximum": 0.0657674527641229,
+      "sign_reversals_from_full_sample": 1,
+      "by_image": [
+        {
+          "image_key": "train:A",
+          "A5_minus_A6": 0.02908571333056731
+        },
+        {
+          "image_key": "train:B",
+          "A5_minus_A6": 0.029085713330567323
+        },
+        {
+          "image_key": "train:C",
+          "A5_minus_A6": -0.036681739433555544
+        },
+        {
+          "image_key": "train:D",
+          "A5_minus_A6": 0.029085713330567337
+        },
+        {
+          "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+          "A5_minus_A6": 0.029085713330567337
+        },
+        {
+          "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+          "A5_minus_A6": 0.029085713330567295
+        },
+        {
+          "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+          "A5_minus_A6": 0.0657674527641229
+        },
+        {
+          "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+          "A5_minus_A6": 0.029085713330567364
+        }
+      ]
+    }
+  },
+  "per_target": [
+    {
+      "target_id": "367eb0dd-45f3-4d62-9425-4e70a8d087f0",
+      "image_key": "train:A",
+      "source_asset_id": "0jRe8fpRDE5fLgAJrYvT",
+      "split": "train",
+      "target_class": "No Face Mask",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "baseline_confidence": 0.8801664710044861,
+      "blurred_endpoint_confidence": 0.7811183929443359,
+      "blurred_to_baseline_ratio": 0.8874666539534141,
+      "saliency_deletion_auc": 0.951079008494675,
+      "saliency_insertion_auc": 0.9912903171132185,
+      "random_deletion_auc": 0.9171438305893571,
+      "random_insertion_auc": 0.9807231821893448,
+      "inverse_deletion_auc": 0.9912903171132186,
+      "inverse_insertion_auc": 0.951079008494675,
+      "deletion_advantage": -0.03393517790531786,
+      "insertion_advantage": 0.010567134923873622,
+      "early30_deletion_advantage": -0.018035562211713763,
+      "early30_insertion_advantage": 0.02040544826855728,
+      "max_auc_recalc_abs_error": 1.1102230246251565e-16,
+      "max_nominal_vs_actual_auc_abs_difference": 0.00035505525161660945
+    },
+    {
+      "target_id": "1b2af685-6965-4986-9d35-258b036e5882",
+      "image_key": "train:B",
+      "source_asset_id": "0xxsYWiz1FZBYERolu4z",
+      "split": "train",
+      "target_class": "Gloves",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "baseline_confidence": 0.3109840154647827,
+      "blurred_endpoint_confidence": 0,
+      "blurred_to_baseline_ratio": 0,
+      "saliency_deletion_auc": 0.046715151515151515,
+      "saliency_insertion_auc": 0.8468398148558904,
+      "random_deletion_auc": 0.35176666666666667,
+      "random_insertion_auc": 0.28986794027497537,
+      "inverse_deletion_auc": 0.8468398148558904,
+      "inverse_insertion_auc": 0.04671515151515154,
+      "deletion_advantage": 0.3050515151515152,
+      "insertion_advantage": 0.5569718745809151,
+      "early30_deletion_advantage": 0.8441847954343907,
+      "early30_insertion_advantage": 0.5054848484848484,
+      "max_auc_recalc_abs_error": 1.1102230246251565e-16,
+      "max_nominal_vs_actual_auc_abs_difference": 0.0032848484848484877
+    },
+    {
+      "target_id": "35e4de96-de91-46a1-910f-89738f80e053",
+      "image_key": "train:C",
+      "source_asset_id": "0jGu9euJp1MbvkLtfBcs",
+      "split": "train",
+      "target_class": "No Safety Boots",
+      "arms": [
+        "A5"
+      ],
+      "baseline_confidence": 0.3506709635257721,
+      "blurred_endpoint_confidence": 0,
+      "blurred_to_baseline_ratio": 0,
+      "saliency_deletion_auc": 0.046886446886446886,
+      "saliency_insertion_auc": 0.9307863934490398,
+      "random_deletion_auc": 0.046886446886446886,
+      "random_insertion_auc": 0.5622053941484962,
+      "inverse_deletion_auc": 0.9307863934490397,
+      "inverse_insertion_auc": 0.046886446886446886,
+      "deletion_advantage": 0,
+      "insertion_advantage": 0.36858099930054355,
+      "early30_deletion_advantage": 0,
+      "early30_insertion_advantage": 0.7275247570895875,
+      "max_auc_recalc_abs_error": 1.1102230246251565e-16,
+      "max_nominal_vs_actual_auc_abs_difference": 0.0031135531135531164
+    },
+    {
+      "target_id": "aadb7fb8-811c-4993-aa2d-3ec266263b9a",
+      "image_key": "train:C",
+      "source_asset_id": "0jGu9euJp1MbvkLtfBcs",
+      "split": "train",
+      "target_class": "Face Masks",
+      "arms": [
+        "A6"
+      ],
+      "baseline_confidence": 0.24226410686969757,
+      "blurred_endpoint_confidence": 0,
+      "blurred_to_baseline_ratio": 0,
+      "saliency_deletion_auc": 0.04684065934065934,
+      "saliency_insertion_auc": 0.43188490219390385,
+      "random_deletion_auc": 0.136871566139726,
+      "random_insertion_auc": 0.5236760722422205,
+      "inverse_deletion_auc": 0.4318849021939038,
+      "inverse_insertion_auc": 0.04684065934065934,
+      "deletion_advantage": 0.09003090679906667,
+      "insertion_advantage": -0.0917911700483166,
+      "early30_deletion_advantage": 0.3001030226635556,
+      "early30_insertion_advantage": 0.8135894303844181,
+      "max_auc_recalc_abs_error": 0,
+      "max_nominal_vs_actual_auc_abs_difference": 0.003250418843528946
+    },
+    {
+      "target_id": "7a101411-15e7-457a-842a-0e61be4f1f11",
+      "image_key": "train:D",
+      "source_asset_id": "0oVmRAxL0SM1PWqZCNyM",
+      "split": "train",
+      "target_class": "Hard Hat",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "baseline_confidence": 0.9647238850593567,
+      "blurred_endpoint_confidence": 0.9592962265014648,
+      "blurred_to_baseline_ratio": 0.9943738735591087,
+      "saliency_deletion_auc": 0.9969452043637402,
+      "saliency_insertion_auc": 0.9990761691252433,
+      "random_deletion_auc": 0.9989776523680537,
+      "random_insertion_auc": 0.9986191411519754,
+      "inverse_deletion_auc": 0.9990761691252433,
+      "inverse_insertion_auc": 0.9969452043637402,
+      "deletion_advantage": 0.0020324480043134585,
+      "insertion_advantage": 0.00045702797326796496,
+      "early30_deletion_advantage": 0.00010038205927920263,
+      "early30_insertion_advantage": -0.0018758595940461253,
+      "max_auc_recalc_abs_error": 1.1102230246251565e-16,
+      "max_nominal_vs_actual_auc_abs_difference": 0.00001853669292684046
+    },
+    {
+      "target_id": "e67b5082-bdc0-4143-8a98-9dd8524f868d",
+      "image_key": "valid:07BnOpgFJyNaOhuzvh5i",
+      "source_asset_id": "07BnOpgFJyNaOhuzvh5i",
+      "split": "valid",
+      "target_class": "No Gloves",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "baseline_confidence": 0.8351004123687744,
+      "blurred_endpoint_confidence": 0.6784483194351196,
+      "blurred_to_baseline_ratio": 0.8124152609513042,
+      "saliency_deletion_auc": 0.27024961834465655,
+      "saliency_insertion_auc": 0.9907522465730212,
+      "random_deletion_auc": 0.8174997239559043,
+      "random_insertion_auc": 0.9555943438487341,
+      "inverse_deletion_auc": 0.9907522465730212,
+      "inverse_insertion_auc": 0.2702496183446566,
+      "deletion_advantage": 0.5472501056112478,
+      "insertion_advantage": 0.03515790272428709,
+      "early30_deletion_advantage": 0.8401522174221244,
+      "early30_insertion_advantage": 0.0634864622533643,
+      "max_auc_recalc_abs_error": 0,
+      "max_nominal_vs_actual_auc_abs_difference": 0.004747901401022769
+    },
+    {
+      "target_id": "181c2d93-bac0-4cfe-8613-9c4e66ecc4fc",
+      "image_key": "valid:09WO3iVNf9jOt21QAxmb",
+      "source_asset_id": "09WO3iVNf9jOt21QAxmb",
+      "split": "valid",
+      "target_class": "Safety Boots",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "baseline_confidence": 0.912612795829773,
+      "blurred_endpoint_confidence": 0,
+      "blurred_to_baseline_ratio": 0,
+      "saliency_deletion_auc": 0.046926910299003324,
+      "saliency_insertion_auc": 0.9516922625743391,
+      "random_deletion_auc": 0.28621300143382244,
+      "random_insertion_auc": 0.8330521897275566,
+      "inverse_deletion_auc": 0.951692262574339,
+      "inverse_insertion_auc": 0.04692691029900331,
+      "deletion_advantage": 0.23928609113481913,
+      "insertion_advantage": 0.11864007284678257,
+      "early30_deletion_advantage": 0.6691717780414541,
+      "early30_insertion_advantage": 0.3610708247886445,
+      "max_auc_recalc_abs_error": 1.1102230246251565e-16,
+      "max_nominal_vs_actual_auc_abs_difference": 0.0030730897009966784
+    },
+    {
+      "target_id": "5d2a56b6-4b76-4206-afd0-51e1e4c28d8e",
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "source_asset_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "split": "valid",
+      "target_class": "No Face Mask",
+      "arms": [
+        "A5"
+      ],
+      "baseline_confidence": 0.8981361985206604,
+      "blurred_endpoint_confidence": 0.5902109742164612,
+      "blurred_to_baseline_ratio": 0.6571508588436926,
+      "saliency_deletion_auc": 0.8683409070303605,
+      "saliency_insertion_auc": 0.9653164195355508,
+      "random_deletion_auc": 0.923945073003913,
+      "random_insertion_auc": 0.9363116611571406,
+      "inverse_deletion_auc": 0.9653164195355509,
+      "inverse_insertion_auc": 0.8683409070303605,
+      "deletion_advantage": 0.055604165973552555,
+      "insertion_advantage": 0.02900475837841021,
+      "early30_deletion_advantage": 0.038261159342779294,
+      "early30_insertion_advantage": 0.03972405210844676,
+      "max_auc_recalc_abs_error": 2.220446049250313e-16,
+      "max_nominal_vs_actual_auc_abs_difference": 0.0009503910219071932
+    },
+    {
+      "target_id": "0b0df3fa-0c6e-4528-a822-969fd4d8f026",
+      "image_key": "valid:0ABzMrjnd6I0Ws6FH7qo",
+      "source_asset_id": "0ABzMrjnd6I0Ws6FH7qo",
+      "split": "valid",
+      "target_class": "Safety Vests",
+      "arms": [
+        "A6"
+      ],
+      "baseline_confidence": 0.8528399467468262,
+      "blurred_endpoint_confidence": 0,
+      "blurred_to_baseline_ratio": 0,
+      "saliency_deletion_auc": 0.07553918243609967,
+      "saliency_insertion_auc": 0.8814874628571373,
+      "random_deletion_auc": 0.7014690467433558,
+      "random_insertion_auc": 0.5957105284438382,
+      "inverse_deletion_auc": 0.8814874628571373,
+      "inverse_insertion_auc": 0.07553918243609964,
+      "deletion_advantage": 0.6259298643072561,
+      "insertion_advantage": 0.2857769344132991,
+      "early30_deletion_advantage": 0.8401671683400461,
+      "early30_insertion_advantage": 0.32317648329807014,
+      "max_auc_recalc_abs_error": 0,
+      "max_nominal_vs_actual_auc_abs_difference": 0.0026777829245009377
+    },
+    {
+      "target_id": "8bdb1086-0226-4293-b70c-3a44efd763c5",
+      "image_key": "valid:0aGYjxE5LmocXyvuLHs8",
+      "source_asset_id": "0aGYjxE5LmocXyvuLHs8",
+      "split": "valid",
+      "target_class": "No Safety Boots",
+      "arms": [
+        "A5",
+        "A6"
+      ],
+      "baseline_confidence": 0.9197127223014832,
+      "blurred_endpoint_confidence": 0,
+      "blurred_to_baseline_ratio": 0,
+      "saliency_deletion_auc": 0.7431571541936638,
+      "saliency_insertion_auc": 0.8778051831178644,
+      "random_deletion_auc": 0.7442579671604952,
+      "random_insertion_auc": 0.8449396780070004,
+      "inverse_deletion_auc": 0.8778051831178644,
+      "inverse_insertion_auc": 0.7431571541936637,
+      "deletion_advantage": 0.0011008129668313993,
+      "insertion_advantage": 0.032865505110863946,
+      "early30_deletion_advantage": 0.03370876644796228,
+      "early30_insertion_advantage": -0.02498701544425963,
+      "max_auc_recalc_abs_error": 2.220446049250313e-16,
+      "max_nominal_vs_actual_auc_abs_difference": 0.0021337301458584923
+    }
+  ],
+  "interpretation": {
+    "what_is_supported": "descriptive detector perturbation sensitivity and differences in selected-target composition under a matched XAI-call budget",
+    "what_is_not_supported": "A5 or A6 produces a better explanation for the same shared target, statistically significant selection superiority, causal explanation faithfulness, independent generalization, Person-PPE worker compliance or energy savings",
+    "key_mechanism": "For six shared target IDs, the V30 explanation results were computed once and reused in both arms. Aggregate A5-A6 differences come entirely from the four nonshared target choices.",
+    "inverse_control_caveat": "Inverse-saliency deletion and saliency insertion AUCs (and converse) are complementary by image-masking construction; inverse is not an independent control.",
+    "random_control_caveat": "One deterministic random permutation per target; no random-seed stability claim.",
+    "conditional_permutation_caveat": "Six-way reassignment is a conditional diagnostic over the four observed nonshared targets, not a valid randomized-trial inference."
+  },
+  "constraints": {
+    "retraining": false,
+    "no_test_accessed": true,
+    "images_annotations_splits_unchanged": true,
+    "worker_safety_scoring_ready": false
+  }
+}
