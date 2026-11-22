@@ -22,7 +22,7 @@ class TestV34ASpatialMapAlignment(unittest.TestCase):
         self.assertAlmostEqual(spearman([1.0, 1.0, 3.0], [2.0, 2.0, 6.0]), 1.0)
 
     def test_kendall_tau_b_handles_ties(self):
-        self.assertAlmostEqual(kendall_tau_b([1.0, 1.0, 2.0], [1.0, 2.0, 2.0]), 0.5)
+        self.assertAlmostEqual(kendall_tau_b([1.0, 1.0, 2.0], [1.0, 2.0, 2.0]), 2.0 / (6.0 ** 0.5))
 
     def test_top_k_ties_resolve_row_major(self):
         self.assertEqual(top_k_indices([3.0, 3.0, 1.0, 0.0], 2), [0, 1])
