@@ -3,9 +3,9 @@
   "audit_date": "2026-11-22",
   "branch": "research/v30-progressive-xai-2026-11-22",
   "manuscript_version": "v0.38",
-  "status": "PASS",
+  "status": "PASS_FINAL_RERUN",
   "deliverable": "research/seer-ppe/exports/SEER_PPE_Research_Manuscript_v0.38_2026-11-22.docx",
-  "archive_commit": "75dcc2e8ec0abcc1ecb042b6868684865ca1abb9",
+  "archive_commit": "cbc65acf87f70d06ad6f1930516ce00d2e4f6dc0",
   "metrics": {
     "bytes": 2825912,
     "paragraphs": 455,
@@ -19,12 +19,17 @@
     "key_content": "PASS",
     "embedded_figures": "11/11 PASS",
     "pdf_text_smoke": "PASS",
-    "first_page_preview": "PASS"
+    "first_page_preview": "PASS",
+    "pdf_render": "PASS — 96 pages",
+    "three_page_previews": "PASS — first, middle, last"
   },
   "ci_runs": {
-    "word_export": 45033306609,
-    "source_reference_gates": 45033306627,
-    "unit_tests": 45033306726
+    "word_export": 45034033339,
+    "source_reference_gates": 45034033034,
+    "unit_tests": 45034033098,
+    "historical_word_export": 45033306609,
+    "historical_source_reference_gates": 45033306627,
+    "historical_unit_tests": 45033306726
   },
   "pdf_archived": false,
   "integrity": {
@@ -43,5 +48,18 @@
     "resolve V27 timestamp only if original execution evidence is recovered",
     "confirm ethics/consent, funding, competing interests, author contributions",
     "confirm official IEEE author metadata for two eSmarTA 2026 publications"
-  ]
+  ],
+  "qa_artifact": {
+    "name": "seer-ppe-v038-render-qa",
+    "artifact_id": 14759055979,
+    "url": "https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45034033339/artifacts/14759055979",
+    "contents": [
+      "96-page rendered PDF",
+      "first-page PNG",
+      "middle-page PNG",
+      "last-page PNG",
+      "editable DOCX copy from successful run"
+    ]
+  },
+  "pdf_qa_artifact_retained": true
 }
