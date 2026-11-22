@@ -172,27 +172,71 @@ class JournaledPredictor:
 
 
 def hosted_provider():
+    """Strict one-POST-per-invocation transport: NO SDK/internal retries.
+
+    Uses documented Serverless model endpoint and percent-valued confidence/
+    overlap settings. Never prints URL, credentials, raw images, response or
+    network exception messages. Network errors abort the run; no retry.
+    """
+    import base64
+    from io import BytesIO
+    from urllib.parse import urlencode
+    from urllib.error import HTTPError, URLError
+    from urllib.request import HTTPRedirectHandler, Request, build_opener
+
     key=os.environ.get("ROBOFLOW_API_KEY")
     if not key:
         raise RuntimeError("ROBOFLOW_API_KEY is absent; refusing hosted inference")
-    from inference_sdk import InferenceConfiguration, InferenceHTTPClient
-    settings=InferenceConfiguration(api_key_transport="header",
-                                     confidence_threshold=CONFIDENCE,
-                                     iou_threshold=OVERLAP)
-    client=InferenceHTTPClient(api_url="https://serverless.roboflow.com",api_key=key)
-    client.configure(settings)
+    class NoRedirect(HTTPRedirectHandler):
+        def redirect_request(self,request,fp,code,msg,headers,newurl):
+            return None
+    opener=build_opener(NoRedirect())
+    endpoint="https://serverless.roboflow.com/"+MODEL
+    # The Hosted API REST endpoint uses percentage units (20 and 50), not SDK
+    # fractional settings (0.20 and 0.50).
+    private_url=endpoint+"?"+urlencode({
+        "api_key":key,"confidence":20,"overlap":50
+    })
 
     def infer_one(pixels):
-        with tempfile.NamedTemporaryFile(suffix=".png") as temp:
-            Image.fromarray(pixels).save(temp.name,format="PNG")
-            reply=client.infer(temp.name,model_id=MODEL)
-        if not isinstance(reply,dict) or not isinstance(reply.get("predictions"),list):
-            raise RuntimeError("hosted response was not a predictions list")
+        rgb=np.asarray(pixels,dtype=np.uint8)
+        if rgb.ndim!=3 or rgb.shape[2]!=3:
+            raise ValueError("Only a single RGB image per hosted call is allowed")
+        container=BytesIO()
+        Image.fromarray(rgb).save(container,format="PNG")
+        png=container.getvalue()
+        if not (0<len(png)<=15*1024*1024):
+            raise ValueError("PNG payload exceeds strict size limit; refusing model call")
+        encoded=base64.b64encode(png)
+        req=Request(private_url,data=encoded,
+                    headers={
+                        "Content-Type":"application/x-www-form-urlencoded",
+                        "User-Agent":"SEER-PPE-V38B-one-call-no-retry/1.0",
+                        "Accept":"application/json"
+                    },method="POST")
+        try:
+            # urllib's standard transport does not retry HTTP errors; redirects
+            # are explicitly refused to prevent credential forwarding.
+            with opener.open(req,timeout=120) as reply:
+                if reply.status!=200 or reply.geturl().split("?")[0]!=endpoint:
+                    raise RuntimeError("Unexpected hosted inference origin or status")
+                body=reply.read(6*1024*1024+1)
+                if len(body)>6*1024*1024:
+                    raise RuntimeError("Hosted response exceeds size limit")
+            result=json.loads(body)
+        except HTTPError as exc:
+            raise RuntimeError("Hosted inference HTTP status "+str(exc.code)+"; no retry") from None
+        except URLError as exc:
+            raise RuntimeError("Hosted inference transport unavailable; no retry") from None
+        except Exception as exc:
+            raise RuntimeError("Hosted inference transport or decode failed: "+type(exc).__name__) from None
+        if not isinstance(result,dict) or not isinstance(result.get("predictions"),list):
+            raise RuntimeError("Hosted response was not a predictions list")
         return [Detection(str(p.get("class") or p.get("class_name")),
                           float(p["x"]),float(p["y"]),
                           float(p["width"]),float(p["height"]),
                           float(p["confidence"]))
-                for p in reply["predictions"]]
+                for p in result["predictions"]]
     return infer_one
 
 
