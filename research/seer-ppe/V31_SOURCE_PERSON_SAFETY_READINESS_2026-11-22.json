@@ -147,11 +147,20 @@
         "original_filename": "IMG-20250416-WA0026.jpg",
         "risk_bucket": "RETAIN_PREEXISTING_RESEARCH_HOLD",
         "currently_eligible_for_independent_scoring": false,
-        "human_source_family_attestation": "UNSIGNED",
-        "action": "PRESERVE_HOLD_AND_REVIEW_EXISTING_LINEAGE_EVIDENCE; DO_NOT_AUTOMATICALLY_RELEASE"
+        "human_source_family_attestation": "AUTHOR_ATTESTED_SHARED_SCENE_WITH_MODIFICATIONS_OR_PROCESSING",
+        "action": "PRESERVE_HARD_HOLD; AUTHOR_CONFIRMED_SHARED_SCENE_WITH_MODIFICATIONS_OR_PROCESSING; EXCLUDE_FROM_SOURCE_INDEPENDENT_VALIDATION",
+        "human_source_family_relationship_verdict": "SHARED_SCENE_WITH_MODIFICATIONS_OR_PROCESSING",
+        "human_acquisition_site_id": null,
+        "human_capture_session_id": null,
+        "human_source_family_id": "scene_wa0026_wa0079_modified_processed",
+        "human_train_source_family_overlap_verdict": "SHARED_SCENE_WITH_TRAIN_MODIFIED_OR_PROCESSED",
+        "human_reviewer_id": "dataset_author_chat_attestation",
+        "human_signed_date": "2026-11-22",
+        "human_source_evidence_file": "evidence/AUTHOR_CHAT_ATTESTATION_WA0026_WA0079_SHARED_SCENE_2026-11-22.md",
+        "human_evidence_sha256": "d75d626a38c65c3b81c74b7619e5ceae38fb38d30de2d910dea76129d9c706d7"
       }
     ],
-    "status": "2_OF_11_AUTHOR_ATTESTED_SHARED_SITE_WITH_TRAIN; 9_OF_11_PRIORITY_CASES_REMAIN_UNSIGNED_OR_UNRESOLVED; ALL_11_EXCLUDED_FROM_INDEPENDENT_SCORING"
+    "status": "3_OF_11_AUTHOR_ATTESTED_NON_INDEPENDENT_SHARED_SCENE_OR_SITE_RELATIONSHIPS; 8_OF_11_P0_CASES_REMAIN_UNSIGNED_OR_UNRESOLVED; ALL_11_EXCLUDED_FROM_INDEPENDENT_SCORING"
   },
   "policy_decision_rules": {
     "image_quality_acceptance_does_not_prove_source_family_independence": true,
@@ -167,13 +176,13 @@
     {
       "id": "V31-A",
       "name": "Reconcile pre-existing 11 P0 source-family evidence packets and source-group identifiers",
-      "state": "2_OF_11_AUTHOR_ATTESTED_SHARED_SITE_WITH_TRAIN; 9_OF_11_REMAIN_UNRESOLVED; ALL_5_HISTORICAL_HOLDS_AND_6_TECHNICAL_QUARANTINES_PRESERVED",
+      "state": "3_OF_11_AUTHOR_ATTESTED_NON_INDEPENDENT_SHARED_SCENE_OR_SITE_RELATIONSHIPS; 8_OF_11_REMAIN_UNRESOLVED; ALL_5_HISTORICAL_HOLDS_AND_6_TECHNICAL_QUARANTINES_PRESERVED",
       "cannot_auto_sign": true
     },
     {
       "id": "V31-B",
       "name": "Build source family signed evidence overlay from actual recorded capture/lineage evidence, not image-quality acceptance",
-      "state": "0_OF_459_SIGNED",
+      "state": "3_OF_459_HAVE_SIGNED_NON_INDEPENDENT_SOURCE_RELATIONSHIPS; 0_INDEPENDENT_APPROVALS",
       "cannot_auto_sign": true
     },
     {
@@ -203,7 +212,7 @@
     "live": "research/seer-ppe/PERSON_PPE_LIVE_READINESS_2026-11-21_V01.json",
     "v30": "research/seer-ppe/V30_INDEPENDENT_NUMERIC_AUDIT_2026-11-22.json"
   },
-  "description": "Machine-checked administrative readiness snapshot compiled from existing saved source and human records, audited V30 pilot, and two author chat attestations confirming a shared Train-Valid named site. These two non-independent verdicts do not clear holds, create independent Valid sources, or imply completed Valid worker/PPE gold.",
+  "description": "Machine-checked administrative readiness snapshot compiled from existing saved source and human records, audited V30 pilot, two author chat attestations confirming shared School 22 May–Aseefrah site, and one author attestation confirming shared WA0026/WA0079 scene content with modifications/processing. All three are non-independent verdicts and preserve the affected Valid hard holds; they do not clear holds, create independent Valid sources, or imply completed Valid worker/PPE gold.",
   "v31a_reconciliation": {
     "status": "PASS_V31A_EVIDENCE_RECONCILIATION_ONLY",
     "dossier_json": "V31_A_SOURCE_LINEAGE_RECONCILIATION_2026-11-22.json",
@@ -237,7 +246,7 @@
     "test_accessed": false,
     "scientific_scoring_eligibility_changed": 0
   },
-  "human_source_family_attestations": 2,
+  "human_source_family_attestations": 3,
   "shared_site_attested_valid_sources": 2,
   "v31a1_author_attestation": {
     "status": "TWO_VALID_SOURCE_CASES_ATTESTED_SHARED_SITE_WITH_TRAIN; HARD_HOLDS_RETAINED",
@@ -261,5 +270,28 @@
     "historical_holds_preserved": 2,
     "scientific_scoring_eligible": 0,
     "note": "Author confirms same project/site despite different times or angles; no same-frame or same-session claim."
+  },
+  "shared_scene_processed_valid_sources": 1,
+  "v31a2_author_shared_scene": {
+    "status": "AUTHOR_CONFIRMED_SHARED_SCENE_WITH_MODIFICATIONS_OR_PROCESSING; WA0026_HARD_HOLD_RETAINED",
+    "evidence_ref": "evidence/AUTHOR_CHAT_ATTESTATION_WA0026_WA0079_SHARED_SCENE_2026-11-22.md",
+    "evidence_sha256": "d75d626a38c65c3b81c74b7619e5ceae38fb38d30de2d910dea76129d9c706d7",
+    "valid_source_id": "yeEvdkqXtNgsj7PZFDvI",
+    "valid_filename": "IMG-20250416-WA0026.jpg",
+    "train_source_id": "xyKCHH49Xr7oCONLC9nN",
+    "train_filename": "IMG-20250416-WA0079.jpg",
+    "verdict": "SHARED_SCENE_WITH_MODIFICATIONS_OR_PROCESSING",
+    "scene_family_id": "scene_wa0026_wa0079_modified_processed",
+    "reviewer_id": "dataset_author_chat_attestation",
+    "signed_date": "2026-11-22",
+    "acquisition_site_id": null,
+    "capture_session_id": null,
+    "exact_frame_identity_asserted": false,
+    "byte_identity_asserted": false,
+    "human_source_family_attestations": 1,
+    "independent_source_attestations": 0,
+    "historical_holds_preserved": 1,
+    "scientific_scoring_eligible": 0,
+    "note": "Author clarifies that this is not the same presented image but the same scene with changes and processing. No exact frame, crop chain, site or capture session is inferred."
   }
 }
