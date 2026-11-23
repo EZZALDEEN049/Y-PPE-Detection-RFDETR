@@ -1,0 +1,11 @@
+{
+  "schema_version": "seer-ppe/v38b-one-time-execution-closure/v1",
+  "github_run_id": "45085935253",
+  "authorization_consumed": true,
+  "no_automatic_retry": true,
+  "raw_photos_archived": false,
+  "status": "COMPLETED",
+  "images_processed": 24,
+  "calls_attempted": 4984,
+  "calls_succeeded": 4984
+}
