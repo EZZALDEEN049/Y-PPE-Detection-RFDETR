@@ -1,0 +1,198 @@
+name: SEER-PPE V39-R1 second-round editorial review pack (NO inference)
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - .github/workflows/seer-ppe-v39r1-second-review-qa.yml
+      - research/seer-ppe/submissions/results-in-engineering/RINENG_MANUSCRIPT_V39_R1_REVIEWED_DRAFT_2026-11-23.md
+      - research/seer-ppe/submissions/results-in-engineering/RINENG_SUPPLEMENT_V39_R1_S2_REVISED_2026-11-23.md
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: seer-ppe-v39r1-editorial-pack
+  cancel-in-progress: false
+jobs:
+  second-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install no-model document rendering and inspection dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check pypandoc_binary 'python-docx>=1.1,<2' 'PyMuPDF>=1.24,<2' 'Pillow>=10,<13'
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice-writer poppler-utils >/dev/null
+      - name: Convert journal manuscript, S1 and revised S2 to editable Word with tables kept together
+        run: |
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          import pypandoc
+          from docx import Document
+          from docx.oxml import OxmlElement
+          from docx.oxml.ns import qn
+          from docx.enum.section import WD_ORIENT
+          from docx.shared import Inches,Pt
+          root=Path('research/seer-ppe').resolve()
+          sub=root/'submissions/results-in-engineering'
+          exp=root/'exports'
+          exp.mkdir(exist_ok=True)
+          ref=exp/'RINENG_V38C_Manuscript_v0.3_2026-11-23.docx'
+          jobs=[
+           ('RINENG_MANUSCRIPT_V39_R1_REVIEWED_DRAFT_2026-11-23.md','RINENG_V39_R1_Manuscript_Review_Only_UNSIGNED.docx',False),
+           ('RINENG_SUPPLEMENT_V36_S1_v0.1_2026-11-23.md','RINENG_V39_R1_Supplement_S1_Review_Only.docx',True),
+           ('RINENG_SUPPLEMENT_V39_R1_S2_REVISED_2026-11-23.md','RINENG_V39_R1_Supplement_S2_Review_Only.docx',True),
+          ]
+          for src,out,landscape in jobs:
+           target=exp/out
+           pypandoc.convert_file(str(sub/src),'docx',format='markdown',outputfile=str(target),
+             extra_args=['--standalone','--reference-doc='+str(ref),'--resource-path='+str(sub)+':'+str(root)])
+           d=Document(target)
+           for table in d.tables:
+            for i,row in enumerate(table.rows):
+             trPr=row._tr.get_or_add_trPr()
+             if not trPr.xpath('./w:cantSplit'):trPr.append(OxmlElement('w:cantSplit'))
+             if i==0 and not trPr.xpath('./w:tblHeader'):
+              x=OxmlElement('w:tblHeader');x.set(qn('w:val'),'true');trPr.append(x)
+             if landscape:
+              for cell in row.cells:
+               for paragraph in cell.paragraphs:
+                paragraph.paragraph_format.space_after=Pt(0)
+                for run in paragraph.runs: run.font.size=Pt(8.1)
+           if landscape:
+            for sec in d.sections:
+             sec.orientation=WD_ORIENT.LANDSCAPE
+             sec.page_width=Inches(11.69);sec.page_height=Inches(8.27)
+             sec.left_margin=sec.right_margin=Inches(.57)
+             sec.top_margin=sec.bottom_margin=Inches(.60)
+           else:
+            for par in d.paragraphs:
+             if par.text.startswith('3.6. Enlarged 48-target diagnostic replication'):
+              par.paragraph_format.page_break_before=True
+              par.paragraph_format.keep_with_next=True
+            # Ensure caption is one per figure; two versions are a technical failure.
+            for num in (1,2,3):
+             captions=[p for p in d.paragraphs if p.text.startswith('Figure '+str(num)+'.')]
+             assert len(captions)==1,('Duplicate Figure caption',num,len(captions))
+           d.save(target)
+           d=Document(target)
+           if 'Manuscript' in out:
+            assert len(d.tables)>=6 and len(d.inline_shapes)==3,(len(d.tables),len(d.inline_shapes))
+            txt='\n'.join(x.text for x in d.paragraphs)
+            for token in ('0.6873','0.5147','0.8118','0.640997','0.664868','Andrés'):
+             # script MD uses 0.6410/0.6649, so only exact first 4 are required
+             if token in ('0.640997','0.664868'):continue
+             assert token in txt,token
+            assert '[AUTHOR' in txt, 'Author declarations must remain unsigned'
+           if 'S1' in out:
+            assert len(d.inline_shapes)==10,('S1 figures missing',len(d.inline_shapes))
+           if 'S2' in out:
+            assert len(d.tables)>=6 and 'No Safety Boots' in '\n'.join(c.text for tb in d.tables for row in tb.rows for c in row.cells)
+           print('V39R1_EDITABLE_WORD_PASS',out,'tables',len(d.tables),'figures',len(d.inline_shapes),'size',target.stat().st_size)
+          PY
+      - name: PDF render and independently inspect table 4 page integrity, caption counts and S1/S2
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/v39r1_pdf
+          for f in research/seer-ppe/exports/RINENG_V39_R1_{Manuscript,Supplement}*.docx;do
+             libreoffice -env:UserInstallation=file:///tmp/v39r1_lo --headless --convert-to pdf --outdir /tmp/v39r1_pdf "$f"
+          done
+          python - <<'PY'
+          from pathlib import Path
+          import fitz
+          folder=Path('/tmp/v39r1_pdf')
+          files=list(folder.glob('*.pdf'))
+          assert len(files)==3,len(files)
+          for p in files:
+           doc=fitz.open(p)
+           text='\n'.join(x.get_text() for x in doc)
+           assert len(doc)>0 and len(text)>2000
+           for page in doc:
+            assert page.rect.width>0 and page.rect.height>0
+           if 'Manuscript' in p.name:
+            indexes=[]
+            for i,page in enumerate(doc):
+             text=page.get_text()
+             if 'Frozen image / target set' in text: indexes.append(('first',i+1))
+             if 'Successful hosted model attempts' in text: indexes.append(('last',i+1))
+            assert len(indexes)==2 and indexes[0][1]==indexes[1][1],('Table 4 still split:',indexes)
+            txt='\n'.join(x.get_text() for x in doc)
+            assert '0.6490' in txt and '0.5197' in txt
+           if 'S1' in p.name:
+            images=sum(len(page.get_images()) for page in doc)
+            assert images>=10,('S1 PDF image count',images)
+           if 'S2' in p.name:
+            assert 'No Safety Boots' in text and '0.7763' in text
+           print('V39R1_PDF_RENDER_QA_PASS',p.name,'pages',len(doc))
+          PY
+      - name: Complete REVIEW-ONLY package including original Figure 1 and S1-S10
+        run: |
+          python - <<'PY'
+          import json, shutil,zipfile
+          from pathlib import Path
+          root=Path('research/seer-ppe')
+          sub=root/'submissions/results-in-engineering'
+          exp=root/'exports'
+          srcs=[
+             exp/'RINENG_V39_R1_Manuscript_Review_Only_UNSIGNED.docx',
+             exp/'RINENG_V39_R1_Supplement_S1_Review_Only.docx',
+             exp/'RINENG_V39_R1_Supplement_S2_Review_Only.docx',
+             exp/'RINENG_V38C_Cover_Letter_Draft_2026-11-23.docx',
+             exp/'RINENG_V38C_Highlights_2026-11-23.docx',
+             exp/'RINENG_V37_Title_Page_Author_Verification_2026-11-23.docx',
+             sub/'V39_AUTHOR_CERTIFICATION_AND_ETHICS_WORKSHEET_UNSIGNED_2026-11-23.md',
+             root/'V39_RINENG_SIMULATED_EDITORIAL_AND_PEER_REVIEW_COMMITTEE_2026-11-23.md',
+             root/'V39_R1_SECONDARY_STATS_AND_V26_PER_CLASS_VALIDATED_2026-11-23.md',
+          ]
+          for num in range(1,4):srcs.append(sub/'artwork'/('Figure_'+str(num)+'.png'))
+          for num in range(1,11):srcs.append(sub/'artwork'/('Figure_S'+str(num)+'.png'))
+          assert len(srcs)==22
+          for src in srcs:assert src.is_file() and src.stat().st_size>100,(str(src))
+          output=exp/'RINENG_V39_R1_REVIEW_ONLY_NOT_SUBMITTED_PACKAGE_2026-11-23.zip'
+          with zipfile.ZipFile(output,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as f:
+           for path in srcs:
+            f.write(path,'EditorialReviewOnly/'+path.name)
+           f.writestr('EditorialReviewOnly/READ_ME_FIRST.txt',
+             'This is a research-author editorial REVIEW package, NOT an authorized journal submission. '
+             'Author ethics, funding, CRediT, conflict-of-interest, image publication rights, final originality and AI disclosures remain unsigned. '
+             'Contains derived scientific figures/heatmaps only; source photography rights and public link exposure must still be checked. '
+             'S1 original and all 10 supporting figures plus Figure 1 are included to fix earlier package omission.')
+          with zipfile.ZipFile(output) as f:
+           assert f.testzip() is None
+           assert len(f.namelist())==23
+          print('V39R1_REVIEW_PACKAGE_INCLUDES_S1_FIG1_AND_ALL_10_SUPP_FIGURES',output.stat().st_size)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v39r1-second-review-revised-word-pdf-full-review-package
+          path: |
+            research/seer-ppe/exports/RINENG_V39_R1_*.docx
+            research/seer-ppe/exports/RINENG_V39_R1_*.zip
+            /tmp/v39r1_pdf/*.pdf
+          retention-days: 90
+      - name: Archive generated Word and review-only ZIP in research branch
+        run: |
+          set -euo pipefail
+          tmp=$(mktemp -d)
+          cp research/seer-ppe/exports/RINENG_V39_R1_*.docx "$tmp/"
+          cp research/seer-ppe/exports/RINENG_V39_R1_*.zip "$tmp/"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for pass in 1 2 3;do
+            git fetch origin "$GITHUB_REF_NAME"
+            git reset --hard "origin/$GITHUB_REF_NAME"
+            cp "$tmp"/RINENG_V39_R1_* research/seer-ppe/exports/
+            git add research/seer-ppe/exports/RINENG_V39_R1_*
+            if git diff --cached --quiet;then echo V39R1_ALREADY_ARCHIVED;exit 0;fi
+            git commit -m "Archive V39-R1 revised manuscript, S1/S2 and complete unsent review package"
+            if git push origin "HEAD:$GITHUB_REF_NAME";then echo V39R1_REVIEW_ARTIFACT_ARCHIVE_PASS;exit 0;fi
+          done
+          exit 1
