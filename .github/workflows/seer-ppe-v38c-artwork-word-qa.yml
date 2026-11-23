@@ -91,6 +91,33 @@ jobs:
                   args=['--standalone','--reference-doc='+str(reference),'--resource-path='+str(inputs)+':'+str(root)]
                   pypandoc.convert_file(source,format='markdown',to='docx',outputfile=str(output),extra_args=args)
                   d=Document(output)
+                  if 'Supplement' in dest:
+                      from docx.enum.section import WD_ORIENT
+                      from docx.shared import Inches,Pt
+                      from docx.oxml import OxmlElement
+                      from docx.oxml.ns import qn
+                      for sec in d.sections:
+                          sec.orientation=WD_ORIENT.LANDSCAPE
+                          sec.page_width=Inches(11.69)
+                          sec.page_height=Inches(8.27)
+                          sec.left_margin=sec.right_margin=Inches(.57)
+                          sec.top_margin=sec.bottom_margin=Inches(.62)
+                      for table in d.tables:
+                          table.autofit=True
+                          if table.rows:
+                              trpr=table.rows[0]._tr.get_or_add_trPr()
+                              if not any(x.tag==qn('w:tblHeader') for x in trpr):
+                                  header=OxmlElement('w:tblHeader')
+                                  header.set(qn('w:val'),'true')
+                                  trpr.append(header)
+                          for row in table.rows:
+                              for cell in row.cells:
+                                  for paragraph in cell.paragraphs:
+                                      paragraph.paragraph_format.space_after=Pt(0)
+                                      for run in paragraph.runs:
+                                          run.font.size=Pt(8.3)
+                      d.save(output)
+                      d=Document(output)
                   assert len(d.tables)>=min_tables,(dest,len(d.tables))
                   assert len(d.inline_shapes)>=min_images,(dest,len(d.inline_shapes))
                   assert 'Cross-Resolution Consistency' in '\n'.join(x.text for x in d.paragraphs)
