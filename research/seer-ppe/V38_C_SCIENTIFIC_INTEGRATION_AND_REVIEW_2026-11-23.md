@@ -41,3 +41,14 @@ A new **V38-C v0.3 scientific manuscript** is saved under `submissions/results-i
 
 **Original result evidence:** https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45085935253  
 **Independent numerical audit:** https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45088345895
+
+## 5. V38-C final derived-artifact QA outcome
+
+The completed [V38-C GitHub Actions Word/artwork pipeline](https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45089949225) returned success and committed the **exact-data 300-dpi Figure 2 and Figure 3**, the updated editable 13-page manuscript Word file, the 5-page landscape-A4 Supplement S2 Word file, the separate editable cover-letter draft, and the **five separate editable Highlights bullets** (all under 85 characters including spaces).
+
+The source DOCX files were rendered to PDF and visually reviewed using whole-document page contact sheets. Independent PDF block-boundary checks found **zero text boxes outside either document's page boundaries** (13 A4 portrait manuscript pages and 5 A4 landscape supplement pages). Manuscript contains **five editable tables and three figures** in the verified conversion. The landscape supplement retains table editability and repeating first-row headers. This is a technical/editorial layout review and does **not** replace the author's final review of all proof pages and institutional/permission declarations.
+
+The reference and manuscript version cited in Section 3 include the independently verified 2024 Andrés et al. target-journal paper. Source V26–V37 data and the full V38-B JSON/JSONL evidence were not modified during these build steps.
+
+**Stage V38-C:** Scientific numbers/graphics/editorial drafts prepared and technically reviewed. **Journal submission is still NOT performed**, and the author-approval/privacy/originality gates remain open.
+
