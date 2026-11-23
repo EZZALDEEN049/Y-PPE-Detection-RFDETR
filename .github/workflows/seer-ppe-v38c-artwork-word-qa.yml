@@ -60,7 +60,7 @@ jobs:
           for token in ('0.6490','0.5197','66.67%','0.6508','0.6943','0.4811','−0.2132','264','4,984'):
               assert token in manuscript,token
           assert supplement.count('| T') >= 48
-          assert 'the same detector' in manuscript
+          assert 'unchanged hosted RF-DETR Small checkpoint' in manuscript
           assert 'independent-site' in manuscript.lower() or 'independent site' in manuscript.lower()
           print('V38C_TEXT_NUMERIC_AND_250_WORD_ABSTRACT_QA_PASS')
           PY
