@@ -86,6 +86,13 @@ jobs:
            d=Document(target)
            if 'Manuscript' in out:
             assert len(d.tables)>=6 and len(d.inline_shapes)==3,(len(d.tables),len(d.inline_shapes))
+            # The equations must be native editable Word math, not raw TeX
+            # strings leaking into the rendered PDF.
+            from zipfile import ZipFile
+            with ZipFile(target) as archive:
+             wordxml=archive.read('word/document.xml').decode('utf8')
+             assert '<m:oMath' in wordxml, 'No native Word equations generated'
+             assert '\\Delta' not in wordxml and '\\frac' not in wordxml, 'Raw LaTeX leaked into Word'
             txt='\n'.join(x.text for x in d.paragraphs)
             for token in ('0.6873','0.5147','0.8118','0.640997','0.664868','Andrés'):
              # script MD uses 0.6410/0.6649, so only exact first 4 are required
