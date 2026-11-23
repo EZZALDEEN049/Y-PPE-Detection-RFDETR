@@ -1,0 +1,283 @@
+# Cross-Resolution Consistency of Target-Matched Perturbation Sensitivity Maps for Personal Protective Equipment Detection
+
+**Authors:** Ezzaldeen Al-Tayar  
+**Affiliation:** Faculty of Engineering and Information Technology, Taiz University, Taiz, Yemen  
+**Corresponding author:** azzaltayyar@gmail.com
+
+## Abstract
+
+**Background.** Perturbation-based explanations of personal protective equipment (PPE) detections may change with spatial resolution and occlusion design. **Objective.** We quantified cross-resolution agreement of target-matched sensitivity maps from an unchanged RF-DETR Small detector. **Methods.** Detection was assessed on 459 development-exposed original validation images. A historical exploratory experiment compared 8×8 and 4×4 maps for ten detections in eight images. A separate, prospectively frozen extension tested 48 detections across 24 validation images using signed, area-normalized cell responses. Spearman correlation, Kendall tau-b and top-four region overlap quantified agreement. Eight images received a blur-fill operator control; a twelve-target subset was assigned saliency and ten seeded random-order comparisons. **Results.** Detection micro-F1 was 0.8706. In the extension, 45/48 targets produced estimable cross-resolution coefficients; mean Spearman correlation was 0.6490, mean Kendall tau-b 0.5197 and mean top-four overlap 66.7%. Image-balanced Spearman correlation was 0.6508, with a descriptive image-resampling interval of 0.595–0.704. In 14 valid paired operator comparisons, mean Spearman correlation was 0.6943 under gray fill and 0.4811 under blur fill. Eleven of twelve curve-selected targets yielded 264 valid deletion/insertion AUCs; saliency rankings produced more favorable AUCs than the mean of ten random rankings for all eleven scorable targets in each direction. **Conclusions.** Cross-resolution consistency is measurable but varies by target and occlusion operator. Results characterize perturbation responses, not independently verified explanation fidelity, site generalization or worker-level safety compliance.
+
+**Keywords:** personal protective equipment; RF-DETR; explainable artificial intelligence; perturbation sensitivity; spatial robustness; object detection
+
+## 1. Introduction
+
+Visual screening of protective helmets, vests, gloves, masks and safety footwear can assist engineering inspection in complex construction environments. However, the mere detection of an equipment-class label is not a statement about whether a specific worker is equipped as required for their assigned task. Object-detector predictions may also appear visually plausible without establishing what image evidence determines the model's score.
+
+The Y-PPE research programme previously reported an RF-DETR-based detector and a conceptual XAI/PPE decision-support framework (Al-Tayar et al., 2025a, 2025b). Subsequent studies examined BIM integration and detector comparison (Al-Tayar et al., 2026a, 2026b). These antecedents are cited as prior work, **not** represented as new detector-training, model architecture, worker-compliance or BIM experiments in the present article. RF-DETR is an established detector architecture (Robinson et al., 2026).
+
+Existing research on selective explanations shows that explanation quality and computation must be considered jointly (Paes et al., 2024). Context-aware PPE systems can include person–item associations, symbolic rules and second-stage verification (Bouguessa et al., 2026; Yi et al., 2026; Vaghani, 2026). Qualitative and quantitative analysis of PPE-specific visual explanations has also appeared (Di Renzo et al., 2026). Hence, neither a PPE detector, an explanation heatmap, nor the idea of selective verification is itself a novel claim here.
+
+Black-box explanation evaluation builds on meaningful perturbation (Fong and Vedaldi, 2017), randomized input sampling (Petsiuk et al., 2018), and model-randomization sanity checks (Adebayo et al., 2018). Hooker et al. (2019) illustrate why explanation methods require quantitative benchmarking rather than visual plausibility alone. A recent systematic overview of PPE computer-vision work (Barlybayev et al., 2026) highlights limitations of current deployment and validation evidence. We use these antecedents to operationalize transparent target-response diagnostics rather than claim attribution ground truth.
+
+This study instead asks a tightly bounded empirical question: **When the detector, target instances and source images remain fixed, how consistent are target-matched occlusion-response rankings at 8×8 versus 4×4 spatial resolutions?** An exploratory frozen-target study and a subsequently preregistered, larger diagnostic replication are reported **separately** because source selection and image transport differ. We combine a current-reference detection audit with instance-matched perturbation curves, exact spatial registration and perturbation-operator controls. Our contributions are:
+
+1. An auditable 459-image current-label object-detection evaluation of the unchanged 17-class model, including predeclared metadata-risk cohort sensitivities.
+2. A frozen-target, black-box perturbation protocol and numerical AUC checks for ten selected detections with explicit random and inverse ordering comparators, including null/ambiguous-target handling.
+3. Exact-pixel alignment of paired 8×8 and 4×4 sensitivity maps, producing signed, area-normalized rank correlations and top-region agreement with reproducible image-derived figures.
+4. A separately frozen 48-target, 24-image diagnostic extension with image-balanced resampling uncertainty, ten seeded random-rank baselines, two occlusion-fill operators, explicit missing-result accounting and a pre-request 6,000-call hard cap.
+
+These contributions concern detector behavior under specified perturbations. They do **not** demonstrate that the explanation is a causal mask, that a PPE object belongs to a given person, that a worker is compliant, or that an intervention reduces occupational risk.
+
+## 2. Materials and methods
+
+### 2.1. Data and fixed detector
+
+The author-curated source corpus has 2,327 images and 16,520 object annotations, while its Clean17 research derivative has 2,288 images. The study uses the existing 17-class RF-DETR Small checkpoint (Roboflow identifier `altayyar-0oflt-lafos-qqauz/2`) without updating parameters, classes or annotation files. Earlier detector benchmark results are background rather than new outcomes. The study's present original-source validation cohort is formed from 459 identified images with 3,471 contemporary author-curated ground-truth objects. Ground-truth labels stem from a single-curator reference and may retain model-assisted annotation provenance.
+
+All image/annotation splits and the protected Test boundary were preserved. The current Validation cohort originates from data exposed to earlier model-development activity and may contain source-family relationships across splits. Accordingly, metrics are **internal object-level diagnostic evaluations**, not evidence of independent construction-site generalization.
+
+### 2.2. Detection endpoint and sensitivity cohorts
+
+The 459 original-source images were inferred afresh by the unchanged hosted model at confidence threshold 0.20 and provider overlap setting 0.50. Predictions were mapped to original image coordinates and matched greedily, in descending confidence order with deterministic tie-breaks, to the highest-IoU *unused reference box of the same class* at IoU ≥0.50. Unmatched predictions and annotations were counted as false positives and false negatives, respectively. Precision, recall and F1 use pooled box counts, not per-image averages. We separately report M0 (all 459), M1 (448, removing an initial source-risk subset) and M2 (367, removing additional metadata flags). M2 is **not independently proven free of leakage**.
+
+### 2.3. Frozen target selection for perturbation tests
+
+The perturbation programme used ten prespecified target detections in eight original images (four Train and four Valid), all previously development-exposed. Two images contribute more than one target. The targeted instance was matched after each perturbation to its original bounding box by same class and IoU ≥0.50; absent matches received zero score under the frozen convention. Ambiguous same-class matches close in IoU were flagged rather than assigned an invented score. The original threshold and overlap settings remained fixed. Target responses cannot be treated as independent site-level observations.
+
+A5 and A6 are selective *target-selection arms*: each selected eight target slots, **six of which are the same physical target detections**; the remaining two in each arm differ. Their selected-slot averages therefore cannot be treated as paired randomized intervention effects or as a fair global algorithm comparison.
+
+### 2.4. Single-step target perturbation
+
+Under the archived Gaussian experiment, a target-box blur was compared with its unperturbed baseline, plus a prespecified control box where available. In a separate black-fill experiment, the target region was removed from the original image or alone retained against a black background. The latter is a *single-step sufficiency* probe and not a progressive insertion-AUC experiment. The original model was never retrained and no Test split was used in these tests.
+
+### 2.5. 8×8 cell occlusion and progressive deletion/insertion
+
+An 8×8 grid was formed over each original source image, with exact floor-derived pixel bounds. One cell at a time was replaced by neutral gray RGB(127,127,127), and detector outputs were shared among targets within an image. Target sensitivity was computed as unperturbed confidence minus matched perturbed target confidence. Values could be negative and were not set to zero for spatial analysis.
+
+For each rankable target, the grid cell order was (i) descending observed sensitivity, (ii) one reproducible SHA-256-target-ID-seeded random permutation and (iii) the inverse-sensitivity ranking. Deletion successively replaced image areas with a Gaussian-blurred version; insertion progressively restored original pixels into the blurred image. Both directions used eleven cumulative points (0–100% of cells). Score was normalized to the target's unperturbed confidence and clipped to [0,1] according to the frozen curve protocol; trapezoidal AUC used *actual pixel-area fractions*, not nominal fractions. Lower deletion AUC and higher insertion AUC were defined as favorable *perturbation responses*, not verified explanation truth.
+
+The archived 8×8 accounting records 1,068 model calls: eight original baselines, eight blurred endpoints, 512 image-cell calls and 540 intermediate progressive-curve calls. The 512 cell calls yielded 640 target-cell records because multiple targets share images. All ten maps were rankable and all 60 planned AUCs were numerically available.
+
+### 2.6. Paired 4×4 robustness and spatial registration
+
+The exact ten targets and eight source-image identities were reused for a 4×4 analysis without resampling targets or repeating original baselines. This follow-up used 496 hosted detector calls (eight new blur endpoints, 128 cell calls, 360 intermediate curve calls). It generated 40 curves (saliency and seeded-random order, each in deletion and insertion directions); 39 AUCs were valid. A target's 4×4 saliency-deletion curve was invalidated by an ambiguous match at the second deletion point, and its AUC was left **null**, not imputed.
+
+Each 4×4 region was matched by exact pixel coordinates to the corresponding four 8×8 subregions. Signed score drop was divided by its cell's original-image pixel-area fraction. The four fine values were pooled as an area-weighted mean and compared with the directly occluded coarse region's normalized value. Over the sixteen aligned regions per target, Spearman ρ (Spearman, 1904; average ranks for ties), Kendall τ-b (Kendall, 1938; tie-aware) and overlap of the four top-ranked regions were computed. Top-four ranking ties were resolved row-major; negative sensitivities remained in the comparisons. Spatial coefficients are descriptive summaries on dependent cells and targets; no cell-level independence test was performed.
+
+### 2.7. Auditing, compute accounting and reporting
+
+The numerical archives include fixed target IDs, per-image source hashes from the archived execution environment, per-region score records, trapezoidal curve points and summary calculations. Independent checking scripts reproduced target identifiers, AUCs, cell-area geometry and rank coefficients. This establishes **numeric reproducibility of the saved experiment**, not independent verification of image provenance, image rights, person–PPE labels or explanatory causality. Hosted API wall-clock request time was recorded separately and is not presented as model runtime, hardware latency, physical energy or carbon emissions.
+
+### 2.8. Prospective V38-B replication and perturbation-operator control
+
+Following the exploratory experiment, a **distinct V38-B protocol** was frozen before additional model calls. Archived predictions and same-class current-author annotations from 459 original-source Validation records were screened using baseline confidence ≥0.55, box width/height ≥16 pixels, relative area ≥0.03%, and class-exact IoU ≥0.50. A deterministic, hash-tie-broken selection algorithm chose **48 exact detection IDs in 24 distinct source images** (two different PPE categories per image) from an eligible pool, covering **11 categories** with four or five selected targets per category. Targets previously used in the exploratory V30 cohort or flagged V23 pilot were excluded from this extension. This selection used the earlier detector's outputs and is **not independently sampled**; all 24 images were development-exposed Validation, and field-site-family independence is unverified.
+
+The same unchanged hosted RF-DETR Small checkpoint and confidence/overlap settings (0.20/0.50) were used. Original image identity was checked against new raw and orientation-corrected RGB hashes, with EXIF orientation applied before constructing pixel masks; one image required orientation correction. The extension transmitted **all** baselines, perturbations and progressive masks as JPEG quality 95 with 4:4:4 chroma rather than the earlier PNG-based setup. This fixed lossy wire format was recorded before live execution after an unperturbed PNG size-limit preflight. Because image encoding and sample selection differed, historical V34 and prospective V38-B estimates are **not pooled or interpreted as paired improvements**.
+
+Each of the 24 images contributed 64 independent one-cell 8×8 and 16 one-cell 4×4 neutral-gray (RGB 127) occlusions shared across its two targets. Response was original matched-target confidence minus perturbed matched-target confidence; negative changes were retained. Absent target matches were zero-scored under the frozen convention; ambiguous same-class matches were marked undefined rather than imputed. For each coarse region, we compared the directly measured coarse signed response divided by the region's exact pixel-area fraction with the **sum of the four corresponding fine-cell signed responses divided by that same coarse-region area fraction**. This sum-of-responses analysis preserves the V34A normalized-density convention; it must not be interpreted as physical equivalence of single-cell and joint multi-cell occlusion. Tie-aware Spearman rho and Kendall tau-b used sixteen registered regions per target; deterministic row-major tie-breaking defined overlap of the top four signed-density regions.
+
+For a prespecified set of **12 targets from 12 different images**, 8×8 deletion and insertion orders included sensitivity sorting and ten independent SHA-256-seeded random permutations per target. A 4×4 sensitivity order was also tested. Eleven equally spaced cumulative percentages produced area-aware AUC, where **lower deletion and higher insertion AUC** are favorable *within-protocol* responses. Endpoints were shared, and each sequence used nine intermediate hosted calls. A target was not replaced after any map or matching failure. On a separate fixed subset of eight images (16 selected targets), one-cell occlusions were repeated with Gaussian-blurred fill; gray-fill versus blur-fill comparisons were reported only when **both** paired maps were valid.
+
+A journaled one-time executor recorded the model attempt index on disk **before** each remote call, used a single HTTPS request without automatic retries, and enforced a hard upper bound of 6,000 attempted calls. All 4,984 recorded attempts succeeded; request accounting, 48 frozen IDs and all intermediate outputs were independently rechecked against the immutable stored ledger. Inferential uncertainty was summarized exploratorily using 5,000 deterministic bootstrap resamples of **image-level averages**, not pretending that two targets or sixteen regions per image were independent studies. Resulting percentile ranges are **descriptive within a purposively selected, development-exposed cohort**, not independent-site population confidence intervals.
+
+## 3. Results
+
+### 3.1. Detection evaluation on original-source validation images
+
+All 459 image IDs and inference records were successfully joined to the current reference. The detector produced 4,103 boxes against 3,471 annotations, resulting in 3,297 true positives, 806 false positives and 174 false negatives on the M0 cohort. The complete 17-class distribution and the original per-image matching ledger are archived in the reproducibility material.
+
+| Cohort | Study size | TP / FP / FN | Micro precision / recall / F1 |
+|:--|:--|:--|:--|
+| M0 | 459 images; 3,471 GT; 4,103 predictions | 3,297 / 806 / 174 | 0.8036 / 0.9499 / 0.8706 |
+| M1 | 448 images; 3,433 GT; 4,063 predictions | 3,261 / 802 / 172 | 0.8026 / 0.9499 / 0.8701 |
+| M2 | 367 images; 3,049 GT; 3,618 predictions | 2,894 / 724 / 155 | 0.7999 / 0.9492 / 0.8682 |
+
+*Table 1. Prespecified current-source Validation cohorts and class-exact IoU≥0.50 results. M1 and M2 are metadata-based sensitivity groups, not independently acquired test cohorts.*
+
+The relatively small change across these cohort definitions indicates limited movement under the specified filtering rules; it does not prove that scene-level dependence or model-development exposure is absent.
+
+### 3.2. Single-step perturbation responses
+
+Gaussian blur of the ten frozen target boxes led to loss of the matched target in **9/10** cases under the frozen class/IoU matching rule. Black-fill target-box deletion led to **10/10** losses, while target-only insertion retained the matched detection in **7/10** cases. The other three insertion failures involved the three smallest target boxes, but the sample is too small to identify a general causal size relation. These probes quantify sensitivity of selected detector outputs, not occupation-specific risk or visual explanation correctness.
+
+### 3.3. Progressive deletion/insertion results and random comparator
+
+The 8×8 experiment yielded ten rankable maps and 60 valid eleven-point progressive curves. Aggregate arm-selected AUCs appear in Table 2.
+
+| Arm (eight target slots) | Deletion AUC (saliency / random) ↓ | Insertion AUC (saliency / random) ↑ | Favorable saliency slots (D / I) |
+|:--|:--|:--|:--|
+| A5 | 0.496288 / 0.635836 | 0.944195 / 0.800164 | 6/8 / 8/8 |
+| A6 | 0.397182 / 0.619275 | 0.871354 / 0.752773 | 7/8 / 7/8 |
+
+*Table 2. Descriptive target-selection-arm AUCs. The six common targets are reused, so arm means do not identify selection-policy superiority.*
+
+Across the ten **unique** targets, the saliency order was favorable relative to the **single fixed random order** for **8/10 deletion targets** (one tie and one unfavorable) and **9/10 insertion targets**. These observed favorable directions do **not** justify a claim of superiority to a distribution of random baselines, to other attribution methods or to actual human explanations. The inverse ordering is deterministically related to the sensitivity order and is not an independent comparator. The overlap of target IDs between A5 and A6 and the heterogeneity of deletion/insertion directions prevent identification of one superior selective strategy.
+
+### 3.4. Repeating target perturbations at 4×4 resolution
+
+All ten targets produced rankable 4×4 maps. Of 40 planned curves, 39 AUCs were valid; one ambiguous saliency-deletion target was not scored. The saliency order was favorable to its single seeded-random comparator in **8/9 scorable deletion cases** and **10/10 insertion cases**. The saliency-minus-random advantage changed direction between spatial resolutions for three of nine deletion comparisons and one of ten insertion comparisons. The signed 4×4-minus-8×8 saliency AUC difference was mean −0.021799 for the nine valid deletion pairs, and mean −0.017560 for ten insertion pairs. This is partial, direction-dependent robustness, not invariant causal explanation performance.
+
+### 3.5. Direct 8×8-to-4×4 spatial alignment
+
+All ten exact-target map pairs passed identity, area partition and value-conservation checks. Each comparison was made over sixteen registered coarse regions, using both directly computed coarse sensitivity and the area-weighted 8×8 sensitivity aggregation.
+
+| Target-level spatial summary | Value |
+|:--|--:|
+| Number of frozen targets / original images | 10 / 8 |
+| Mean Spearman ρ | 0.5416 |
+| Median Spearman ρ | 0.5656 |
+| Range of Spearman ρ | 0.2295–0.6794 |
+| Mean Kendall τ-b | 0.4239 |
+| Median Kendall τ-b | 0.4384 |
+| Mean top-four region overlap | 2.6 of 4 = 65% |
+| Targets with 3/4 overlap | 8 |
+| Targets with 2/4 overlap | 1 |
+| Targets with 0/4 overlap | 1 |
+
+*Table 3. Exact-pixel aligned map agreement; values are descriptive, with no independent-site statistical inference.*
+
+The most discrepant target, Train C Face Masks, had approximately ρ=0.2295, τ-b=0.1514 and **zero** shared top-four regions. The nonzero mean correlation therefore does not support treating the 8×8 and 4×4 explanations as spatially interchangeable.
+
+![Figure 1. Spatial alignment across ten frozen targets.](../../figures/V34B_2026-11-22/V34B_SPATIAL_AGREEMENT_SUMMARY_2026-11-22.png)
+
+*Figure 1. Target-level Spearman ρ, Kendall τ-b and overlap of the four highest signed-sensitivity regions when the same original detections are analyzed at 8×8 and 4×4 resolution. Map values are derived from archived score-drop ledgers, not human-labeled attribution ground truth. Ten corresponding paired heatmaps are available as Supplementary Figures S1–S10.*
+
+### 3.6. Enlarged 48-target diagnostic replication (V38-B)
+
+The one-time prospective extension completed **24/24 images and 48/48 fixed targets**, under the original detector checkpoint, with **4,984 successful attempted model-image requests** and no provider failures, retraining or Test access. All image IDs, target IDs and the sequential write-ahead call ledger were independently checked. Three target maps contained ambiguous same-class matching regions; **45/48** yielded estimable paired spatial statistics. Their missing rank coefficients were not zero-imputed and the targets were not replaced.
+
+| V38-B endpoint | Result | Denominator / interpretation |
+|:--|--:|:--|
+| Frozen image / target set | 24 images / 48 targets | All retained, development-exposed Valid |
+| Rankable cross-resolution target maps | 45 | 3/48 undefined for ambiguous regions |
+| Target-weighted mean Spearman rho | **0.6490** | 45 estimable targets |
+| Image-balanced mean Spearman rho | **0.6508** | 24 image-level aggregates |
+| Exploratory 95% image-resampling interval for rho | **0.595–0.704** | 5,000 resamples; descriptive, not site-population CI |
+| Target-weighted mean Kendall tau-b | **0.5197** | 45 estimable targets |
+| Mean top-four overlap | **2.667 of 4 (66.67%)** | 45 estimable targets |
+| Zero top-four overlap | **0** | Within the 45 estimable extension targets only |
+| Successful hosted model attempts | **4,984/4,984** | Author-approved hard ceiling 6,000 |
+
+*Table 4. Independent analysis of frozen V38-B execution. The 48-target selected cohort and the earlier ten-target cohort use different image selections and transport encodings; values are not combined. Missing coefficients remain null.*
+
+The three non-estimable target maps came from the categories **No Safety Vest** (one ambiguous 8×8 response), **Safety Vests** (four ambiguous 8×8 and four ambiguous 4×4 responses), and **Hard Hat** (two ambiguous responses at each grid). Their presence was prespecified in the selection manifest and their exclusion from numeric rank averaging is a consequence of the matching protocol, not a discretionary image removal. Individual target rows, ambiguity statuses and original exact match data remain available in the numeric supplement.
+
+![Figure 2. V38-B target-level agreement distributions.](../../figures/V38C_2026-11-23/Figure_2_V38C_Target_Consistency.png)
+
+*Figure 2. Cross-resolution signed-density rank agreement for 45 estimable detections in the 48-target development-exposed Validation extension. The distribution and category summaries are descriptive. Three ambiguity-flagged detections remain in the study denominator but have undefined correlation scores.*
+
+### 3.7. Fixed alternative-occlusion and repeated-random controls
+
+Among the eight preregistered blur-fill images (16 targets), **15** supplied valid blur-fill map correlations and **14** had estimable results **under both** blur-fill and gray-fill. In these 14 *paired* cases, the mean rho was **0.6943** under neutral gray occlusion versus **0.4811** under Gaussian-blur fill, giving a descriptive mean paired difference (blur minus gray) of **−0.2132**; ten of the fourteen paired values were lower under blur fill and four higher. The unpaired 15-target blur-fill mean was 0.5088 and should **not** be subtracted from the 45-target gray-fill mean. This sensitivity to the replacement operator is a measured methodological limitation, not an alternative-explainer benchmark.
+
+One of the twelve prespecified progressive-curve targets was blocked because its 8×8 map contained an ambiguous region; **eleven targets** yielded **264/264 numerically valid** AUC curves (11 targets × 24 curves). In these eleven targets, the sensitivity-ranked sequence had more favorable deletion AUC than the *mean of ten seeded random orders* for 11/11 targets, and more favorable insertion AUC for 11/11. The mean saliency-minus-random-mean AUC difference was **−0.4084 for deletion** (lower is favorable) and **+0.3720 for insertion** (higher is favorable). These comparisons reuse the same target responses to construct and evaluate the ranking, so they do not establish an independent attribution-faithfulness benchmark or superiority to a published XAI algorithm.
+
+| V38-B control / outcome | Result | Relevant denominator |
+|:--|:--|:--|
+| Valid gray/blur paired map rankings | 14 / 16 | Eight selected images, two targets each |
+| Paired mean rho, gray → blur | 0.6943 → 0.4811 | Same 14 targets |
+| Paired mean rho difference, blur − gray | −0.2132 | Descriptive; no causal attribution |
+| Targets with lower rho under blur | 10 / 14 | Four targets increased |
+| Valid progressive-curve target sets | 11 / 12 | One blocked, not substituted |
+| Valid deletion/insertion AUC curves | 264 / 264 run | 24 sequences × 11 targets |
+| Saliency favorable to mean of ten random orders | 11/11 deletion; 11/11 insertion | AUCs on the same frozen target set |
+| Mean AUC difference, saliency − random mean | −0.4084 deletion; +0.3720 insertion | Favorable direction differs |
+
+*Table 5. Operator-ablation and repeated random-order diagnostics. These are perturbation-protocol measurements with dependence between a ranking and its measurement; no claim of causal saliency correctness or method-wide superiority follows.*
+
+![Figure 3. V38-B operator and randomized-order controls.](../../figures/V38C_2026-11-23/Figure_3_V38C_Operator_and_Random_Controls.png)
+
+*Figure 3. Within-target difference between Gaussian-blur and neutral-gray cross-grid Spearman agreement for 14 valid paired operator checks (left) and saliency minus the mean of ten seeded random AUCs for 11 scorable targets in deletion and insertion directions (right). A lower deletion AUC and higher insertion AUC are favorable under this protocol. Descriptive patterns do not establish independent attribution correctness.*
+
+## 4. Discussion
+
+### 4.1. Engineering value of the measured evidence
+
+The study's engineering contribution is not another claimed PPE detector architecture. It is a reproducible evaluation demonstrating why a single attractive heatmap may be insufficient evidence for the reliability of a deployed computer-vision screening result. Even when the detector and target are unchanged, the occlusion granularity affects local evidence rankings. The 65% mean top-four overlap is informative as a descriptive test of sensitivity, but an individual target with zero overlap can matter in inspection practice because a reviewer may be directed to entirely different image regions.
+
+The object-level F1 of 0.8706 characterizes performance against the **current** annotated reference at a fixed box-matching rule. It cannot be equated to a worker-compliance accuracy, an out-of-sample safety efficacy score or the historical published Roboflow mAP benchmark. The current annotations are single-curator and the original validation sources are not proven acquisition independent, limiting conclusions about generalization.
+
+The saliency-derived ordering produced favorable measured deletion/insertion responses relative to one fixed seeded random ordering for most of the selected targets. This is evidence of sensitivity under *that specific protocol*, but not a license to assert clinical/regulatory-grade explanation faithfulness, model reliance on semantically correct features or improvement over repeated random baselines. Target-matching ambiguity at 4×4 was handled as a missing endpoint rather than falsely scored as success or failure.
+
+### 4.2. What the larger replication adds—and does not prove
+
+The 48-target extension increases the number of studied PPE classes, images and detection instances while retaining a fixed detector and explicit per-image score accounting. Among the 45 estimable maps, mean cross-grid Spearman rho was 0.6490 and top-four overlap was 66.7%; three prespecified targets were non-estimable after ambiguity detection. This gives stronger **descriptive coverage** of resolution-dependent responses than the initial ten targets, but the apparent higher mean rho cannot be interpreted as an experimental improvement over V34. The sample, selected target distributions and JPEG compression protocol differ. No external-site acquisition-independence claim is supported.
+
+The matched operator comparison provides an additional caution: the gray-to-blur change decreased average cross-resolution rho by 0.2132 among 14 paired cases. Apparent spatial "stability" therefore depends on **how perturbations are inserted into an image**, not only on the grid size. Gaussian blur and gray replacement introduce different out-of-distribution image content and boundary artifacts. The paired differences motivate operator-robustness reporting rather than selecting a single attractive heatmap. The positive random-order AUC margins are a valid internal check that ranked regions modulate the measured detector response; they are not proof that those regions are semantically or causally correct. The 24 selected images still share development exposure and may not represent independent construction sites.
+
+### 4.3. Why no A5–A6 winner is reported
+
+A5 and A6 each contain eight target slots, with **six identical target detections**. The observed arm-average differences therefore depend on which two arm-specific targets each selector includes. A5 has higher mean insertion AUC and A6 lower deletion AUC in 8×8, making a blanket dominance claim unjustifiable. The study does not execute a worker-level false-clearance intervention, controlled human-review trial or source-independent field deployment, so selective routing remains a framework hypothesis rather than a proven safety-improving policy.
+
+### 4.4. Methodological boundaries and future tests
+
+The original exploratory experiment was deliberately bounded to ten targets in eight images; V38-B expands diagnostic coverage to 48 prespecified detections in 24 development-exposed Validation images and adds ten random rankings and an operator control. Nevertheless, the study lacks a truly acquisition-independent site-level cohort, a human-labeled explanation-reference standard, a comparable D-RISE/D-MFPP runtime arm, an independent multimethod faithfulness experiment, and outcome-linked human safety verification. The 24-image bootstrap interval remains exploratory; a genuinely independent-source design with source-clustered uncertainty is still necessary for population generalization. Source-image permissions and identifiable-worker constraints may limit raw-image redistribution and must be disclosed without claiming rights not established by the authors.
+
+The measured hosted request round-trip reflects networking and service overhead, not detector compute latency or electrical energy consumption. No worker-to-equipment ownership reference or task-specific PPE requirement was evaluated, and no safety outcome was measured. Accordingly, the present paper must not be described as validating a real-time safety-enforcement product.
+
+## 5. Conclusion
+
+The unchanged 17-class PPE detector achieved micro-F1=0.8706 on 459 current-source, development-exposed Validation images at class-exact IoU≥0.50. The historical ten-target 8×8/4×4 study had mean Spearman ρ=0.5416 and 65% top-four overlap, including a zero-overlap target. A separately frozen 24-image, 48-target diagnostic extension yielded 45 estimable map pairs (mean Spearman ρ=0.6490; Kendall tau-b=0.5197; top-four overlap 66.7%) and retained three ambiguity-flagged, unscorable targets. In 14 paired cases, changing neutral-gray to blur-filled perturbations decreased the average cross-resolution rho by 0.2132, indicating **both spatial grid and occlusion operator dependence**. Eleven targets yielded favorable internal saliency-vs-ten-random AUC margins but not an independent attribution-faithfulness benchmark. The defensible result is a reproducible quantitative diagnosis of *conditional, target-specific sensitivity-map consistency*; no independent-site generalization, explanation causal truth, worker-level PPE compliance or safety benefit has been demonstrated.
+
+## Declarations and availability
+
+**Ethics, identifiable-worker imagery and permissions:** [AUTHOR MUST DOCUMENT the appropriate institutional determination/approval or exemption and the lawful privacy/consent/permission basis for any identifiable worker images or figure disclosures. No committee approval or blanket consent is asserted.]
+
+**Funding:** [AUTHOR TO CONFIRM actual source(s), grant numbers, or a truthful no-specific-funding statement.]
+
+**Declaration of competing interests:** [AUTHOR TO CONFIRM the truthful statement, using Elsevier's current form where required.]
+
+**Author contributions (CRediT):** [AUTHOR TO CONFIRM actual contributions and final approved author order; do not infer solely from the present author block.]
+
+**Data availability:** The numerical outcomes, derived summary figures, algorithms and audits are stored in the research repository `EZZALDEEN049/Y-PPE-Detection-RFDETR`. Raw source photographs and personal/source identifiers are **not** asserted to be publicly redistributable. [AUTHOR TO CONFIRM exactly which files, versions, access restrictions and permissions can lawfully be disclosed, and provide a persistent versioned public link if permitted.]
+
+**Code availability:** The archived numerical analysis and synthetic checks are referenced in the same research repository; [AUTHOR/EDITOR TO VERIFY actual public access, reproducible dependencies and immutable version at submission].
+
+**Declaration of generative AI use in manuscript preparation:** [AUTHOR MUST DISCLOSE any qualifying use as required by Elsevier's current policies; this editorial draft was prepared with ChatGPT assistance and must undergo human review and validation of every statement.]
+
+**Prior dissemination and originality:** Previous 2025/2026 PPE/RF-DETR and XAI publications by the research group are cited as prior work. This manuscript reports the archived newly executed original-source validation and perturbation/spatial robustness measurements rather than re-publishing earlier detector-training claims. [AUTHOR MUST VERIFY all related papers, abstracts, preprints and non-overlap with existing publications, and approve the final originality statement.]
+
+## Supplementary material
+
+Supplementary File S1 preserves the **historical** ten-target signed-sensitivity alignments and ten data-derived paired-grid maps (Figures S1–S10). A new **Supplementary File S2 (V38-C)** summarizes the separately frozen 48-target extension, the three ambiguous-map outcomes, 11-class subgroups, 14 matched operator controls and the 11-target randomized-curve experiment, with a reproducible reference to the immutable execution and audit ledgers. The archived 34-page dossier is a separate research audit record, not a journal supplementary file. The V38-C extension remains a separate development-exposed study and is not pooled with S1.
+
+## Declaration of generative AI and AI-assisted technologies in the manuscript preparation process
+
+During preparation of this manuscript, OpenAI ChatGPT was used to assist with restructuring and language drafting based on the authors' archived research outputs and analyses. **[AUTHOR CONFIRMATION REQUIRED: review, validate, edit and personally approve this entire statement and the resulting manuscript before submission. The author(s) retain full responsibility for the final content.]** This editorial assistance did not generate new detector observations or modify the archived data.
+
+## References
+
+Adebayo, J., Gilmer, J., Muelly, M., Goodfellow, I., Hardt, M., & Kim, B. (2018). Sanity checks for saliency maps. *Advances in Neural Information Processing Systems, 31*. https://proceedings.neurips.cc/paper/2018/hash/294a8ed24b1ad22ec2e7efea049b8737-Abstract.html
+
+Al-Tayar, E., Saeed, M. A., & Saif, A. (2025a). AI-driven RF-DETR decision system for real-time PPE monitoring in Yemen's development projects. In *2025 International Conference on Decision Aid Sciences and Applications (DASA)* (pp. 204–208). IEEE. https://doi.org/10.1109/DASA68193.2025.11499131
+
+Al-Tayar, E., Al-Azazi, S. A., & Saeed, M. A. (2025b). X-RF-DETR: A framework for explainable and trustworthy PPE decision support. In *2025 International Conference on Decision Aid Sciences and Applications (DASA)* (pp. 1048–1052). IEEE. https://doi.org/10.1109/DASA68193.2025.11498849
+
+Al-Tayar, E., Al-Azazi, S. A., Ali, A., & Alawag, A. M. (2026a). BIM-integrated explainable vision for real-time PPE safety in Yemen's construction sector. In *2026 6th International Conference on Emerging Smart Technologies and Applications (eSmarTA)*. IEEE. https://doi.org/10.1109/ESMARTA70636.2026.11652079
+
+Al-Tayar, E., Al-Azazi, S. A., Saeed, M. A., Ali, A., & Hassan, A. (2026b). PPE detection in Yemeni construction sites: YOLOv11m vs. RF-DETRs. In *2026 6th International Conference on Emerging Smart Technologies and Applications (eSmarTA)*. IEEE. https://doi.org/10.1109/ESMARTA70636.2026.11652190
+
+Barlybayev, A., Milosz, M., Amangeldy, N., Li, G., Razakhova, B., Tazhib, A., Nazyrova, A., & Lamasheva, Z. (2026). Systematic review of computer-vision technologies for personal protective equipment compliance monitoring. *Computers, 15*(6), 388. https://doi.org/10.3390/computers15060388
+
+Bouguessa, A., Bekki, I., Daoud, M. A., & Mostefaoui, S. A. M. (2026). A hybrid perception–reasoning architecture for context-aware personal protective equipment compliance assessment. *Engineering Applications of Artificial Intelligence, 181*, 115725. https://doi.org/10.1016/j.engappai.2026.115725
+
+Di Renzo, M., Niro, F., Agnello, P., Petyx, M., Martinelli, F., Cesarelli, M., Santone, A., & Mercaldo, F. (2026). On vision transformer explainability for personal protective equipment detection: A qualitative and quantitative analysis. *Journal of Imaging, 12*(5), 195. https://doi.org/10.3390/jimaging12050195
+
+Fong, R. C., & Vedaldi, A. (2017). Interpretable explanations of black boxes by meaningful perturbation. In *Proceedings of the IEEE International Conference on Computer Vision (ICCV)*. IEEE. https://doi.org/10.1109/ICCV.2017.371
+
+Hooker, S., Erhan, D., Kindermans, P.-J., & Kim, B. (2019). A benchmark for interpretability methods in deep neural networks. *Advances in Neural Information Processing Systems, 32*, 9737–9748. https://proceedings.neurips.cc/paper/2019/hash/fe4b8556000d0f0cae99daa5c5c5a410-Abstract.html
+
+Kendall, M. G. (1938). A new measure of rank correlation. *Biometrika, 30*(1–2), 81–93. https://doi.org/10.1093/biomet/30.1-2.81
+
+Paes, L. M., Wei, D., & Calmon, F. P. (2024). Selective explanations. *Advances in Neural Information Processing Systems, 37*, 55562–55590. https://doi.org/10.52202/079017-1765
+
+Petsiuk, V., Das, A., & Saenko, K. (2018). RISE: Randomized input sampling for explanation of black-box models. In *British Machine Vision Conference (BMVC)*. https://arxiv.org/abs/1806.07421
+
+Robinson, I., Robicheaux, P., Popov, M., Ramanan, D., & Peri, N. (2026). RF-DETR: Neural architecture search for real-time detection transformers. In *International Conference on Learning Representations (ICLR)*. https://arxiv.org/abs/2511.09554
+
+Spearman, C. (1904). The proof and measurement of association between two things. *The American Journal of Psychology, 15*(1), 72–101. https://doi.org/10.2307/1412159
+
+Vaghani, B. V. B. (2026). Construction safety AI that knows what it doesn't see: A Sentry–Judge hybrid for PPE absence detection. *Frontiers in Built Environment, 12*, Article 1976288. https://doi.org/10.3389/fbuil.2026.1976288
+
+Yi, W., Xu, W., & Tan, Y. (2026). Regulation-aligned PPE compliance assessment for work-at-height using visual relationships and scene graph reasoning. *Advanced Engineering Informatics, 74*, Article 104612. https://doi.org/10.1016/j.aei.2026.104612
