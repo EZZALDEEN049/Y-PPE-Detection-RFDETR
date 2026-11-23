@@ -1,0 +1,140 @@
+name: SEER-PPE V39 author-signoff package and zero-inference journal-readiness QA
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - .github/workflows/seer-ppe-v39-author-signoff-qa.yml
+      - research/seer-ppe/submissions/results-in-engineering/RINENG_MANUSCRIPT_V39_AUTHOR_SIGNOFF_DRAFT_2026-11-23.md
+      - research/seer-ppe/submissions/results-in-engineering/V39_AUTHOR_CERTIFICATION_AND_ETHICS_WORKSHEET_UNSIGNED_2026-11-23.md
+      - research/seer-ppe/V39_RESULTS_IN_ENGINEERING_PRE_SUBMISSION_READINESS_AUDIT_2026-11-23.md
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: seer-ppe-v39-signoff-zero-inference
+  cancel-in-progress: false
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install editable Word and offline PDF rendering tools ONLY
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check "python-docx>=1.1,<2" pypandoc_binary
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice-writer poppler-utils >/dev/null
+      - name: QA V39 scientific headings, title, bibliography, author pending gates and immutable V38B result pointer
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,re
+          root=Path('research/seer-ppe')
+          src=root/'submissions/results-in-engineering/RINENG_MANUSCRIPT_V39_AUTHOR_SIGNOFF_DRAFT_2026-11-23.md'
+          text=src.read_text()
+          abstract=text.split('## Abstract\n\n',1)[1].split('**Keywords:**',1)[0]
+          assert len(abstract.replace('**','').split())==219
+          assert text.startswith('# Cross-Resolution Consistency of Target-Matched')
+          assert text.count('## Declaration of generative AI and AI-assisted technologies in the manuscript preparation process')==1
+          assert 'OpenAI ChatGPT provided assistance with research-code drafting' in text
+          assert 'public GitHub research branch' in text
+          assert 'source-raw and EXIF-canonical RGB fingerprints' in text
+          assert '[AUTHOR' in text
+          assert text.count('Table 4.')==1 and text.count('Table 5.')==1
+          refs=text.split('## References\n\n',1)[1].strip().split('\n\n')
+          assert len(refs)==18 and sum('https://doi.org/' in x for x in refs)==14
+          assert '10.1016/j.rineng.2024.103498' in text
+          assert text.count('![Figure ')>=3
+          for p in [
+            root/'submissions/results-in-engineering/V39_AUTHOR_CERTIFICATION_AND_ETHICS_WORKSHEET_UNSIGNED_2026-11-23.md',
+            root/'V39_RESULTS_IN_ENGINEERING_PRE_SUBMISSION_READINESS_AUDIT_2026-11-23.md',
+          ]:
+            assert p.exists() and p.stat().st_size>4000
+          summ=json.loads((root/'outputs/v38b_authorized_2026-11-23/V38_B_FINAL_NUMERICAL_RESULTS_SUMMARY_2026-11-23.json').read_text())
+          assert summ['status']=='AUDITED_COMPLETE_REAL_INFERENCE'
+          assert summ['attempted_model_calls']==4984 and summ['targets_processed']==48
+          print('V39_TEXT_DOI_DECLARATION_AND_FROZEN_NUMERIC_QA_PASS')
+          PY
+      - name: Create three editable V39 Word deliverables (not signed/submitted)
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import pypandoc
+          from docx import Document
+          root=Path('research/seer-ppe').resolve()
+          sub=root/'submissions/results-in-engineering'
+          exports=root/'exports'
+          exports.mkdir(exist_ok=True)
+          reference=exports/'RINENG_V38C_Manuscript_v0.3_2026-11-23.docx'
+          targets=[
+            (sub/'RINENG_MANUSCRIPT_V39_AUTHOR_SIGNOFF_DRAFT_2026-11-23.md','RINENG_V39_Manuscript_Author_Signoff_Draft_2026-11-23.docx',5,3),
+            (sub/'V39_AUTHOR_CERTIFICATION_AND_ETHICS_WORKSHEET_UNSIGNED_2026-11-23.md','RINENG_V39_Author_Declarations_Ethics_Worksheet_UNSIGNED_2026-11-23.docx',2,0),
+            (root/'V39_RESULTS_IN_ENGINEERING_PRE_SUBMISSION_READINESS_AUDIT_2026-11-23.md','RINENG_V39_PreSubmission_Readiness_Audit_2026-11-23.docx',1,0)
+          ]
+          for source,name,min_tables,min_images in targets:
+            out=exports/name
+            pypandoc.convert_file(str(source),'docx',format='markdown',
+                outputfile=str(out),
+                extra_args=['--standalone','--reference-doc='+str(reference),'--resource-path='+str(sub)+':'+str(root)])
+            d=Document(out)
+            assert len(d.tables)>=min_tables,(name,len(d.tables))
+            assert len(d.inline_shapes)>=min_images,(name,len(d.inline_shapes))
+            assert out.stat().st_size>14000
+            if 'Manuscript' in name:
+              t='\n'.join(p.text for p in d.paragraphs)
+              assert t.count('Declaration of generative AI and AI-assisted technologies in the manuscript preparation process')==1
+              assert 'OpenAI ChatGPT provided assistance with research-code drafting' in t
+              assert '[AUTHOR' in t
+            print('V39_EDITABLE_WORD_QUALITY_PASS',name,len(d.tables),len(d.inline_shapes),out.stat().st_size)
+          PY
+      - name: PDF proof of V39 manuscript and declaration worksheet
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/v39_pdf
+          for f in research/seer-ppe/exports/RINENG_V39_Manuscript_Author_Signoff_Draft_2026-11-23.docx research/seer-ppe/exports/RINENG_V39_Author_Declarations_Ethics_Worksheet_UNSIGNED_2026-11-23.docx; do
+            libreoffice -env:UserInstallation=file:///tmp/v39_lo --headless --convert-to pdf --outdir /tmp/v39_pdf "$f"
+          done
+          test -s /tmp/v39_pdf/RINENG_V39_Manuscript_Author_Signoff_Draft_2026-11-23.pdf
+          pdftotext -layout /tmp/v39_pdf/RINENG_V39_Manuscript_Author_Signoff_Draft_2026-11-23.pdf /tmp/v39_manu.txt
+          grep -q '0.6490' /tmp/v39_manu.txt
+          grep -q '0.5197' /tmp/v39_manu.txt
+          grep -q 'OpenAI ChatGPT' /tmp/v39_manu.txt
+          echo 'V39_PDF_PROOF_NUMERIC_DISCLOSURE_QA_PASS'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v39-unsigned-editorial-review-word-and-pdf-proofs
+          path: |
+            research/seer-ppe/exports/RINENG_V39_Manuscript_Author_Signoff_Draft_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V39_Author_Declarations_Ethics_Worksheet_UNSIGNED_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V39_PreSubmission_Readiness_Audit_2026-11-23.docx
+            /tmp/v39_pdf/*.pdf
+          retention-days: 90
+      - name: Archive new editorial-only Word outputs in research branch
+        run: |
+          set -euo pipefail
+          tmp=$(mktemp -d)
+          names=(
+            RINENG_V39_Manuscript_Author_Signoff_Draft_2026-11-23.docx
+            RINENG_V39_Author_Declarations_Ethics_Worksheet_UNSIGNED_2026-11-23.docx
+            RINENG_V39_PreSubmission_Readiness_Audit_2026-11-23.docx
+          )
+          for name in "${names[@]}"; do cp "research/seer-ppe/exports/$name" "$tmp/$name";done
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for pass in 1 2 3;do
+            git fetch origin "$GITHUB_REF_NAME"
+            git reset --hard "origin/$GITHUB_REF_NAME"
+            for name in "${names[@]}";do cp "$tmp/$name" "research/seer-ppe/exports/$name";done
+            git add research/seer-ppe/exports/RINENG_V39_*.docx
+            if git diff --cached --quiet;then echo 'V39_ALREADY_ARCHIVED';exit 0;fi
+            git commit -m "Publish unsigned V39 manuscript, ethics worksheet and readiness audit Word review outputs"
+            if git push origin "HEAD:$GITHUB_REF_NAME";then echo 'V39_UNSIGNED_DOCX_ARCHIVED';exit 0;fi
+          done
+          exit 1
