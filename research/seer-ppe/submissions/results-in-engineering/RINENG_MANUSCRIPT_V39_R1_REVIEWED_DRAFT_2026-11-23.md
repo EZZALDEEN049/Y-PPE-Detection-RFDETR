@@ -93,19 +93,19 @@ The same unchanged hosted RF-DETR Small checkpoint and confidence/overlap settin
 Each of the 24 images contributed 64 independent one-cell 8×8 and 16 one-cell 4×4 neutral-gray (RGB 127) occlusions shared across its two targets. Response was original matched-target confidence minus perturbed matched-target confidence; negative changes were retained. Absent target matches were zero-scored under the frozen convention; ambiguous same-class matches were marked undefined rather than imputed. For each coarse region, we compared the directly measured coarse signed response divided by the region's exact pixel-area fraction with the **sum of the four corresponding fine-cell signed responses divided by that same coarse-region area fraction**. This sum-of-responses analysis preserves the V34A normalized-density convention; it must not be interpreted as physical equivalence of single-cell and joint multi-cell occlusion. Tie-aware Spearman rho and Kendall tau-b used sixteen registered regions per target; deterministic row-major tie-breaking defined overlap of the top four signed-density regions.
 
 
-For transparent implementation, write \(s_0(t)\) for the baseline target-matched score and \(s_{c}^{(g)}(t)\) for its score after individually occluding cell \(c\) of grid \(g\). The signed response is
+For transparent implementation, write $s_0(t)$ for the baseline target-matched score and $s_{c}^{(g)}(t)$ for its score after individually occluding cell $c$ of grid $g$. The signed response is
 
-\[
+$
 \Delta^{(g)}_{c}(t)=s_0(t)-s^{(g)}_{c}(t).
-\]
+$
 
-If \(a_c\) is the exact coarse-cell pixel count and \(a_{\mathrm{img}}\) is image pixel count, define \(A_c=a_c/a_{\mathrm{img}}\). A coarse 4×4 region \(c\) corresponds to a set \(\mathcal C(c)\) of four exactly registered 8×8 cells. The *two distinct measurements* compared are
+If $a_c$ is the exact coarse-cell pixel count and $a_{\mathrm{img}}$ is image pixel count, define $A_c=a_c/a_{\mathrm{img}}$. A coarse 4×4 region $c$ corresponds to a set $\mathcal C(c)$ of four exactly registered 8×8 cells. The *two distinct measurements* compared are
 
-\[
+$
 S^{(4)}_c(t)=\frac{\Delta^{(4)}_c(t)}{A_c},
 \qquad
 S^{(8\to4)}_c(t)=\frac{\sum_{j\in\mathcal C(c)}\Delta^{(8)}_j(t)}{A_c}.
-\]
+$
 
 The second expression equals the area-weighted average of fine-cell density values when child-cell areas partition the coarse area exactly; it is **not** a physically equivalent joint four-cell perturbation. Sixteen signed region pairs per target are ranked using average ranks for ties; Spearman rho, Kendall tau-b and top-four overlap quantify this *conditional perturbation-response agreement*. Missing/ambiguous matched target scores remain undefined. Coarse occlusion may induce nonlinear response interactions that no algebraic area normalization removes.
 
