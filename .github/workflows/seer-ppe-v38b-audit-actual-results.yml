@@ -1,0 +1,67 @@
+name: SEER-PPE V38B post-inference independent numerical audit (no model calls)
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - .github/workflows/seer-ppe-v38b-audit-actual-results.yml
+      - research/seer-ppe/tools/analyze_v38b_completed_results.py
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: seer-ppe-v38b-independent-results-audit
+  cancel-in-progress: false
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Independent numerical and journal-ledger analysis of archived completed data
+        run: |
+          set -euo pipefail
+          python research/seer-ppe/tools/analyze_v38b_completed_results.py > /tmp/v38b_summary_stdout.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('research/seer-ppe/outputs/v38b_authorized_2026-11-23/V38_B_FINAL_NUMERICAL_RESULTS_SUMMARY_2026-11-23.json')
+          a=json.loads(p.read_text())
+          assert a['status']=='AUDITED_COMPLETE_REAL_INFERENCE'
+          assert a['images_processed']==24 and a['targets_processed']==48
+          assert a['attempted_model_calls']==a['succeeded_model_calls']==4984
+          assert len(a['individual_target_numeric_rows'])==48
+          print('V38B_INDEPENDENT_RESULTS_AND_LEDGER_INTEGRITY_QA_PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v38b-audited-48-target-numerical-summary
+          path: research/seer-ppe/outputs/v38b_authorized_2026-11-23/V38_B_FINAL_NUMERICAL_RESULTS_SUMMARY_2026-11-23.json
+          retention-days: 90
+      - name: Save independent numerical summary to research branch only
+        run: |
+          set -euo pipefail
+          p=research/seer-ppe/outputs/v38b_authorized_2026-11-23/V38_B_FINAL_NUMERICAL_RESULTS_SUMMARY_2026-11-23.json
+          cp "$p" /tmp/v38b_exact_audited_results.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3; do
+            git fetch origin "$GITHUB_REF_NAME"
+            git reset --hard "origin/$GITHUB_REF_NAME"
+            if git ls-files --error-unmatch "$p" >/dev/null 2>&1; then
+              cmp "$p" /tmp/v38b_exact_audited_results.json
+              echo "V38B_AUDITED_SUMMARY_ALREADY_ARCHIVED_EQUAL"
+              exit 0
+            fi
+            cp /tmp/v38b_exact_audited_results.json "$p"
+            git add "$p"
+            git commit -m "Audit completed V38B real 4984-call, 24-image, 48-target XAI results and ledger"
+            if git push origin "HEAD:$GITHUB_REF_NAME";then
+              echo "V38B_AUDITED_SUMMARY_COMMITTED"
+              exit 0
+            fi
+          done
+          exit 1
