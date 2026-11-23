@@ -1,0 +1,161 @@
+name: SEER-PPE V38C reproducible scientific artwork and editable Word package
+on:
+  push:
+    branches:
+      - research/v30-progressive-xai-2026-11-22
+    paths:
+      - .github/workflows/seer-ppe-v38c-artwork-word-qa.yml
+      - research/seer-ppe/tools/render_v38c_figures.py
+      - research/seer-ppe/submissions/results-in-engineering/RINENG_MANUSCRIPT_V38C_v0.3_2026-11-23.md
+      - research/seer-ppe/submissions/results-in-engineering/RINENG_SUPPLEMENT_V38C_S2_v0.1_2026-11-23.md
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: seer-ppe-v38c-artwork-and-manuscript
+  cancel-in-progress: false
+jobs:
+  release-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install numerical charts, editable Word, Pandoc and PDF inspection tools
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check "matplotlib>=3.7,<4" "numpy>=1.26,<3" "Pillow>=10,<13" "python-docx>=1.1,<2" pypandoc_binary
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice-writer poppler-utils >/dev/null
+      - name: Generate exact-data standalone journal artwork Figures 2 and 3
+        run: |
+          set -euo pipefail
+          python research/seer-ppe/tools/render_v38c_figures.py
+          test -s research/seer-ppe/submissions/results-in-engineering/artwork/Figure_2.png
+          test -s research/seer-ppe/submissions/results-in-engineering/artwork/Figure_3.png
+      - name: Check 48-target numerical results against scientific manuscript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          base=Path('research/seer-ppe')
+          summary=json.loads((base/'outputs/v38b_authorized_2026-11-23/V38_B_FINAL_NUMERICAL_RESULTS_SUMMARY_2026-11-23.json').read_text())
+          manuscript=(base/'submissions/results-in-engineering/RINENG_MANUSCRIPT_V38C_v0.3_2026-11-23.md').read_text()
+          supplement=(base/'submissions/results-in-engineering/RINENG_SUPPLEMENT_V38C_S2_v0.1_2026-11-23.md').read_text()
+          original=(base/'submissions/results-in-engineering/RINENG_MANUSCRIPT_V37_TITLE_APPROVED_2026-11-23.md').read_text()
+          assert summary['status']=='AUDITED_COMPLETE_REAL_INFERENCE'
+          assert summary['targets_processed']==48 and summary['images_processed']==24
+          assert summary['attempted_model_calls']==summary['succeeded_model_calls']==4984
+          assert summary['target_status_counts']=={'AVAILABLE':45,'AMBIGUOUS_REGION':3}
+          assert manuscript.startswith(original.splitlines()[0])
+          abstract=manuscript.split('## Abstract\n',1)[1].split('**Keywords:**',1)[0]
+          assert len(abstract.replace('**','').split())<=250
+          assert manuscript.count('Table 4.')==1 and manuscript.count('Table 5.')==1
+          for figure in ('Figure_2_V38C_Target_Consistency.png','Figure_3_V38C_Operator_and_Random_Controls.png'):
+              assert figure in manuscript
+          for token in ('0.6490','0.5197','66.67%','0.6508','0.6943','0.4811','−0.2132','264','4,984'):
+              assert token in manuscript,token
+          assert supplement.count('| T') >= 48
+          assert 'the same detector' in manuscript
+          assert 'independent-site' in manuscript.lower() or 'independent site' in manuscript.lower()
+          print('V38C_TEXT_NUMERIC_AND_250_WORD_ABSTRACT_QA_PASS')
+          PY
+      - name: Create manuscript and supplementary editable Word documents with inline artwork
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import os,pypandoc,zipfile
+          from docx import Document
+          root=Path('research/seer-ppe').resolve()
+          inputs=root/'submissions/results-in-engineering'
+          exports=root/'exports'
+          exports.mkdir(exist_ok=True)
+          reference=exports/'RINENG_V36_Manuscript_v0.2_2026-11-23.docx'
+          assert reference.is_file()
+          docs=[
+            ('RINENG_MANUSCRIPT_V38C_v0.3_2026-11-23.md','RINENG_V38C_Manuscript_v0.3_2026-11-23.docx',5,3),
+            ('RINENG_SUPPLEMENT_V38C_S2_v0.1_2026-11-23.md','RINENG_V38C_Supplement_S2_v0.1_2026-11-23.docx',4,0),
+          ]
+          prev=os.getcwd()
+          os.chdir(inputs)
+          try:
+              for source,dest,min_tables,min_images in docs:
+                  output=exports/dest
+                  args=['--standalone','--reference-doc='+str(reference),'--resource-path='+str(inputs)+':'+str(root)]
+                  pypandoc.convert_file(source,format='markdown',to='docx',outputfile=str(output),extra_args=args)
+                  d=Document(output)
+                  assert len(d.tables)>=min_tables,(dest,len(d.tables))
+                  assert len(d.inline_shapes)>=min_images,(dest,len(d.inline_shapes))
+                  assert 'Cross-Resolution Consistency' in '\n'.join(x.text for x in d.paragraphs)
+                  with zipfile.ZipFile(output) as z:
+                      assert z.testzip() is None
+                  assert output.stat().st_size>50000 if min_images else output.stat().st_size>15000
+                  print('V38C_EDITABLE_WORD_STRUCTURE_PASS',dest,'tables',len(d.tables),'images',len(d.inline_shapes),'bytes',output.stat().st_size)
+          finally:
+              os.chdir(prev)
+          PY
+      - name: Render PDF proof and check scientific figures survived Word conversion
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/v38c_pdf /tmp/v38c_visual
+          for f in research/seer-ppe/exports/RINENG_V38C_Manuscript_v0.3_2026-11-23.docx research/seer-ppe/exports/RINENG_V38C_Supplement_S2_v0.1_2026-11-23.docx; do
+            libreoffice -env:UserInstallation=file:///tmp/lo_v38c_word --headless --convert-to pdf --outdir /tmp/v38c_pdf "$f"
+          done
+          for f in /tmp/v38c_pdf/*.pdf;do
+            test -s "$f"
+            pdfinfo "$f" | grep '^Pages:'
+          done
+          pdftotext -layout /tmp/v38c_pdf/RINENG_V38C_Manuscript_v0.3_2026-11-23.pdf /tmp/v38c_pdf/manuscript_text.txt
+          grep -q "0.6490" /tmp/v38c_pdf/manuscript_text.txt
+          grep -q "0.5197" /tmp/v38c_pdf/manuscript_text.txt
+          grep -q "0.6508" /tmp/v38c_pdf/manuscript_text.txt
+          grep -q "Figure 3" /tmp/v38c_pdf/manuscript_text.txt
+          pdftoppm -f 1 -l 3 -scale-to 1300 -png /tmp/v38c_pdf/RINENG_V38C_Manuscript_v0.3_2026-11-23.pdf /tmp/v38c_visual/manuscript >/dev/null 2>&1
+          echo 'V38C_PDF_RENDER_TEXT_AND_FIRST_THREE_VISUAL_PROOFS_PASS'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v38c-figures-editable-word-and-page-proofs
+          path: |
+            research/seer-ppe/submissions/results-in-engineering/artwork/Figure_2.png
+            research/seer-ppe/submissions/results-in-engineering/artwork/Figure_3.png
+            research/seer-ppe/exports/RINENG_V38C_Manuscript_v0.3_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V38C_Supplement_S2_v0.1_2026-11-23.docx
+            /tmp/v38c_visual/*.png
+            /tmp/v38c_pdf/*.pdf
+          retention-days: 90
+      - name: Archive only derived figures and editable Word, never original dataset
+        run: |
+          set -euo pipefail
+          stage=$(mktemp -d)
+          paths=(
+             research/seer-ppe/figures/V38C_2026-11-23/Figure_2_V38C_Target_Consistency.png
+             research/seer-ppe/figures/V38C_2026-11-23/Figure_3_V38C_Operator_and_Random_Controls.png
+             research/seer-ppe/submissions/results-in-engineering/artwork/Figure_2.png
+             research/seer-ppe/submissions/results-in-engineering/artwork/Figure_3.png
+             research/seer-ppe/exports/RINENG_V38C_Manuscript_v0.3_2026-11-23.docx
+             research/seer-ppe/exports/RINENG_V38C_Supplement_S2_v0.1_2026-11-23.docx
+          )
+          for path in "${paths[@]}"; do cp "$path" "$stage/$(basename "$path")"; done
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3; do
+            git fetch origin "$GITHUB_REF_NAME"
+            git reset --hard "origin/$GITHUB_REF_NAME"
+            for path in "${paths[@]}"; do
+              mkdir -p "$(dirname "$path")"
+              cp "$stage/$(basename "$path")" "$path"
+            done
+            git add "${paths[@]}"
+            if git diff --cached --quiet;then echo 'V38C_ALL_DERIVED_ARTIFACTS_ALREADY_ARCHIVED';exit 0;fi
+            git commit -m "Archive V38C audited Figure 2/3 and editable 48-target RINENG Word package"
+            if git push origin "HEAD:$GITHUB_REF_NAME";then
+              echo 'V38C_WORD_AND_ARTWORK_ARCHIVE_PASS'
+              exit 0
+            fi
+          done
+          exit 1
