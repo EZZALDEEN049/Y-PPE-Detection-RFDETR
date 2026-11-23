@@ -8,6 +8,8 @@ on:
       - research/seer-ppe/tools/render_v38c_figures.py
       - research/seer-ppe/submissions/results-in-engineering/RINENG_MANUSCRIPT_V38C_v0.3_2026-11-23.md
       - research/seer-ppe/submissions/results-in-engineering/RINENG_SUPPLEMENT_V38C_S2_v0.1_2026-11-23.md
+      - research/seer-ppe/submissions/results-in-engineering/RINENG_COVER_LETTER_V38C_DRAFT_2026-11-23.md
+      - research/seer-ppe/submissions/results-in-engineering/RINENG_HIGHLIGHTS_V38C_2026-11-23.md
   workflow_dispatch:
 permissions:
   contents: write
@@ -99,6 +101,35 @@ jobs:
           finally:
               os.chdir(prev)
           PY
+      - name: Produce separately editable V38C cover letter and five journal Highlights bullets
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import pypandoc
+          from docx import Document
+          root=Path('research/seer-ppe').resolve()
+          inputs=root/'submissions/results-in-engineering'
+          exports=root/'exports'
+          def convert(src,dest):
+              out=exports/dest
+              pypandoc.convert_file(str(inputs/src),format='markdown',to='docx',
+                                    outputfile=str(out),extra_args=['--standalone'])
+              doc=Document(out)
+              assert out.stat().st_size>7000
+              return doc,out
+          doc,cover=convert('RINENG_COVER_LETTER_V38C_DRAFT_2026-11-23.md',
+                            'RINENG_V38C_Cover_Letter_Draft_2026-11-23.docx')
+          assert '0.6490' in '\n'.join(p.text for p in doc.paragraphs)
+          assert '4,984' in '\n'.join(p.text for p in doc.paragraphs)
+          highlights=(inputs/'RINENG_HIGHLIGHTS_V38C_2026-11-23.md').read_text()
+          bullets=[line[2:] for line in highlights.splitlines() if line.startswith('- ')]
+          assert 3<=len(bullets)<=5 and all(len(x)<=85 for x in bullets)
+          doc,hl=convert('RINENG_HIGHLIGHTS_V38C_2026-11-23.md',
+                         'RINENG_V38C_Highlights_2026-11-23.docx')
+          combined='\n'.join(p.text for p in doc.paragraphs)
+          assert all(x in combined for x in bullets)
+          print('V38C_EDITABLE_COVER_AND_HIGHLIGHTS_QA_PASS',len(bullets),max(map(len,bullets)),cover.stat().st_size,hl.stat().st_size)
+          PY
       - name: Render PDF proof and check scientific figures survived Word conversion
         run: |
           set -euo pipefail
@@ -125,6 +156,8 @@ jobs:
             research/seer-ppe/submissions/results-in-engineering/artwork/Figure_3.png
             research/seer-ppe/exports/RINENG_V38C_Manuscript_v0.3_2026-11-23.docx
             research/seer-ppe/exports/RINENG_V38C_Supplement_S2_v0.1_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V38C_Cover_Letter_Draft_2026-11-23.docx
+            research/seer-ppe/exports/RINENG_V38C_Highlights_2026-11-23.docx
             /tmp/v38c_visual/*.png
             /tmp/v38c_pdf/*.pdf
           retention-days: 90
@@ -139,6 +172,8 @@ jobs:
              research/seer-ppe/submissions/results-in-engineering/artwork/Figure_3.png
              research/seer-ppe/exports/RINENG_V38C_Manuscript_v0.3_2026-11-23.docx
              research/seer-ppe/exports/RINENG_V38C_Supplement_S2_v0.1_2026-11-23.docx
+             research/seer-ppe/exports/RINENG_V38C_Cover_Letter_Draft_2026-11-23.docx
+             research/seer-ppe/exports/RINENG_V38C_Highlights_2026-11-23.docx
           )
           for path in "${paths[@]}"; do cp "$path" "$stage/$(basename "$path")"; done
           git config user.name "github-actions[bot]"
