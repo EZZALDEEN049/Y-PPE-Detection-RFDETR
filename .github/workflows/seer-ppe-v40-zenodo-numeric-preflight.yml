@@ -1,0 +1,22 @@
+name: V40 Zenodo numerical archive preflight (no deposit)
+on:
+  push:
+    branches: [research/v30-progressive-xai-2026-11-22]
+    paths: [.github/workflows/seer-ppe-v40-zenodo-numeric-preflight.yml, research/seer-ppe/tools/preflight_v40_zenodo_numeric_archive.py]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  numeric-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Offline numerical reproduction and field allowlist
+        run: python research/seer-ppe/tools/preflight_v40_zenodo_numeric_archive.py --output-dir "$RUNNER_TEMP/zenodo_numeric_preview"
+      - name: Remove temporary preview
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/zenodo_numeric_preview"
