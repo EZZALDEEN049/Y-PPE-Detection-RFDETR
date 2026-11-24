@@ -14,22 +14,22 @@
 | ID | Requirement | Current status | Evidence/action and remaining condition |
 |:--|:--|:--|:--|
 | 01 | Journal scope | SOURCE VERIFIED | Engineering diagnostic use case; journal has directly related industrial object-detection XAI paper DOI 10.1016/j.rineng.2024.103498. Suitability does not imply acceptance. |
-| 02 | Article type | PORTAL CHECK | Recommend full original research paper; published precedent uses Research paper label. Verify exact selectable type at submission. |
+| 02 | Article type | PORTAL CHECK | Sole author delegated selection; recommend Original Research Paper. Verify exact selectable portal label. |
 | 03 | Scientific title | SOURCE VERIFIED | Retained author-approved informative full title; no unclear abbreviation. |
-| 04 | Final title page | AUTHOR PENDING | New V40 working title-page source prepared; no final author/affiliation certification. |
-| 05 | Author names/order | AUTHOR PENDING | Existing provisional single-name block retained; confirm complete eligible roster/order and approvals. |
-| 06 | Affiliations | AUTHOR PENDING | Existing faculty/university/city/country retained; verify institutional English spelling and full mailing address. |
-| 07 | Correspondence | AUTHOR PENDING | Existing provisional author/email retained; confirm correspondence identity, email and address. |
-| 08 | ORCID | PORTAL/AUTHOR CHECK | ORCID login supported by portal; author identifier and mandatory field status not verified. |
+| 04 | Final title page | SOURCE UPDATED / PROOF PENDING | Author confirmed sole roster, affiliation, correspondence and ORCID. P.O. Box 6803 corroborated by WHED and published correspondence; confirm mailing address and inspect final Word title page. |
+| 05 | Author names/order | AUTHOR CONFIRMED | Ezzaldeen Al-Tayar, sole author as explicitly stated on 2026-11-24; final authorship eligibility and rights for reused collaborative materials still require check. |
+| 06 | Affiliations | AUTHOR CONFIRMED / POSTAL CHECK | Faculty of Engineering and Information Technology, Taiz University, Taiz, Yemen confirmed. P.O. Box 6803 corroborated by IAU WHED and published correspondence, pending final author proof. |
+| 07 | Correspondence | AUTHOR CONFIRMED | Sole author is corresponding author; existing email explicitly confirmed. |
+| 08 | ORCID | AUTHOR CONFIRMED / PORTAL CHECK | Author supplied ORCID 0009-0003-9506-6669; ISO 7064 MOD 11-2 checksum valid. Account ownership/authentication and mandatory portal field not independently verified. |
 | 09 | Abstract length | SOURCE VERIFIED | 225 whitespace-separated words including headings, excluding keywords; within archived author-provided ≤250 limit. Recount actual final DOCX. |
 | 10 | Abstract content | SOURCE VERIFIED / CORRECTED | Defined AUC, clarified internal detection and initial study; objective/method/results/conclusion present, no bibliographic citations, unchanged numerical endpoints. |
 | 11 | Keywords | SOURCE VERIFIED | Six terms: personal protective equipment; RF-DETR; explainable artificial intelligence; perturbation sensitivity; spatial robustness; object detection. |
 | 12 | Highlights count | SOURCE VERIFIED / CORRECTED | Five revised standalone editable-source bullets. |
 | 13 | Highlights length | SOURCE VERIFIED / CORRECTED | 77/69/72/76/77 characters excluding list marker; each ≤85 according to archived guide excerpt; confirm final exported text. |
-| 14 | Graphical abstract | GUIDE CHECK | No verified requirement from complete current guide. If needed, author-prepared compliant non-generative diagram based on actual data; do not invent requirement or produce unapproved art. |
+| 14 | Graphical abstract | POLICY VERIFIED / ARTWORK PENDING | Author authorizes preparation in accordance with policy. Elsevier general requirements: 1328 × 531 px minimum, 300 dpi, separate file, dedicated professional/scientific illustration tool, no general-purpose generative image tool. Journal-specific requirement remains unknown; no graphic created. |
 | 15 | Article structure | SOURCE VERIFIED | Abstract, keywords, Introduction, Materials and methods, Results, Discussion, Conclusion, declarations, supplement, AI statement, References; numbered sections 1–5. |
 | 16 | Research gap | SOURCE VERIFIED | Bounded cross-grid matched-target rank agreement and fill-operator dependence, distinguished from published D-MFPP; no unsupported universal novelty assertion. |
-| 17 | Scientific originality | AUTHOR PENDING | Prior-work scope matrix explicitly captioned and cited. Author/rights overlap audit against full prior works remains necessary; no certification. |
+| 17 | Scientific originality | AUTHOR CONFIRMED / PARTIAL OVERLAP AUDIT | Author confirms new cross-grid results and no concurrent submission. Three prior full texts inspected; Y-PPE 2,327 images/16,520 labels reuse explicitly disclosed. No same 8×8/4×4 endpoint found in these texts; 2025 decision-system full text and exact rights/text/figure overlap still pending. |
 | 18 | Detailed methodology | SOURCE VERIFIED / CORRECTED | Added exact archived same-class IoU ≥0.50, ambiguity margin ≤0.03, baseline drift gate >0.08, Gaussian radius formula, prespecified equal-image primary endpoint. Verified against V38-B protocol and executable runner/gaussian_blur_baseline implementation. Public preregistration not asserted; use prospectively specified. |
 | 19 | Original numerical results | PARTIAL | Recomputed from stored S2 rounded target rows: 48 total, 45 estimable, mean rho 0.648988889, mean tau 0.519737778, mean overlap 0.666666667, and micro-F1 0.870609982 from archived TP/FP/FN. No new full raw-ledger audit claimed. Prior immutable audits retained. |
 | 20 | Statistical analysis | PARTIAL | S2 median 0.6873 and 11/45 <0.50 reproduced from displayed rows; image bootstrap/LOIO and paired operator reported against frozen secondary-statistics report. No fresh raw bootstrap computation. Explicit descriptive clustered inference and missingness. |
@@ -40,7 +40,7 @@
 | 25 | Word/page count | PARTIAL | Working Markdown has 6,666 whitespace-separated tokens, including tables, Markdown, declarations and references; not a Word count. Final document page and actual word count pending. |
 | 26 | Tables | PARTIAL / SOURCE CORRECTED | Six sequential captions and in-text citations, all Markdown data rows preserved; final native Word tables, border/shading, caption placement, non-splitting and page rendering still require new QA. Former results Tables 1–5 now Tables 2–6; prior Table 4 becomes Table 5, so update old QA rules for intact extension table. |
 
-**Interpretation:** SOURCE VERIFIED means the source-level check is complete, not a certification that the final DOCX or current complete journal guide has passed. 12 source-verified/corrected (01,03,09–13,15,16,18,21,22), 4 partial (19,20,25,26), 10 author/portal/guide/export gates pending. No overall compliance percentage or acceptance probability is claimed.
+**Interpretation:** SOURCE VERIFIED means the source-level check is complete, not a certification that the final DOCX or current complete journal guide has passed. 12 previously source-verified/corrected (01,03,09–13,15,16,18,21,22); author confirmations now recorded for 05–08, with the postal/portal checks retained; 17 remains partial. No final document certification. No overall compliance percentage or acceptance probability is claimed.
 
 ## Actual changed source files
 
@@ -51,3 +51,6 @@
 - `RINENG_TITLE_PAGE_V40_WORKING_UNSIGNED_2026-11-24.md` — candidate only, explicit ORCID gate.
 
 **Scientific lock:** RF-DETR Small checkpoint, 459 validation images, 24 extension images/48 targets/45 estimable, 4,984 successful calls, all numerical table rows and historical source archives unchanged. No actual journal submission or Zenodo deposit. Next batches extend this register, and clean final packages are issued only after the user requests them and required gates are resolved.
+
+## Author update, 2026-11-24
+Sole author confirms name, affiliation, corresponding author/email, ORCID, no previous publication of the present cross-grid XAI results and no prior journal submission of this manuscript. Delegates article type selection and authorizes policy-compliant graphical abstract preparation. No authorization to submit. Full rights, ethics, funding, conflicts, CRediT, AI signoff and final proof remain open. See V40_AUTHOR_METADATA_AND_PRIOR_WORK_AUDIT_2026-11-24.md.
