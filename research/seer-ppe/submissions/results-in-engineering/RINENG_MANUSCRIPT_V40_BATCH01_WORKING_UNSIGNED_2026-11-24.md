@@ -57,17 +57,17 @@ All image/annotation splits and the protected Test boundary were preserved. The 
 
 The 459 original-source images were inferred afresh by the unchanged hosted model at confidence threshold 0.20 and provider overlap setting 0.50. Predictions were mapped to original image coordinates and matched greedily, in descending confidence order with deterministic tie-breaks, to the highest-IoU *unused reference box of the same class* at IoU ≥0.50. Unmatched predictions and annotations were counted as false positives and false negatives, respectively. Precision, recall and F1 use pooled box counts, not per-image averages. With TP, FP and FN denoting true positives, false positives and false negatives, respectively, the pooled metrics are
 
-$
+$$
 P=\frac{TP}{TP+FP}.\qquad (1)
-$
+$$
 
-$
+$$
 R=\frac{TP}{TP+FN}.\qquad (2)
-$
+$$
 
-$
+$$
 F_1=\frac{2PR}{P+R}=\frac{2TP}{2TP+FP+FN}.\qquad (3)
-$
+$$
 
 We separately report M0 (all 459), M1 (448, removing an initial source-risk subset) and M2 (367, removing additional metadata flags). M2 is **not independently proven free of leakage**.
 
@@ -120,9 +120,9 @@ If $a_c$ is the exact coarse-cell pixel count and $a_{\mathrm{img}}$ is image pi
 
 $$
 S^{(4)}_c(t)=\frac{\Delta^{(4)}_c(t)}{A_c}.\qquad (5)
-$
+$$
 
-$
+$$
 S^{(8\to4)}_c(t)=\frac{\sum_{j\in\mathcal C(c)}\Delta^{(8)}_j(t)}{A_c}.\qquad (6)
 $$
 
@@ -132,10 +132,10 @@ For a prespecified set of **12 targets from 12 different images**, 8×8 deletion
 
 A journaled one-time executor recorded the model attempt index on disk **before** each remote call, used a single HTTPS request without automatic retries, and enforced a hard upper bound of 6,000 attempted calls. All 4,984 recorded attempts succeeded; request accounting, 48 frozen IDs and all intermediate outputs were independently rechecked against the immutable stored ledger. The prespecified primary summary was the equal-image mean Spearman correlation; the target-weighted mean was also reported. Descriptive uncertainty was summarized using 5,000 deterministic bootstrap resamples of **image-level averages**, not pretending that two targets or sixteen regions per image were independent studies. Resulting percentile ranges are **descriptive within a purposively selected, development-exposed cohort**, not independent-site population confidence intervals. The analysis has 24 image clusters, 48 selected target instances and repeated within-target perturbation records; the 4,984 hosted requests measure computation, not independent statistical observations. Sample size was fixed by the purposive diagnostic design and call budget, not a formal population power calculation. No null-hypothesis significance test is used to claim population generalization. As a secondary mathematical sensitivity analysis, let V denote estimable targets, N=48 the frozen denominator, and m=3 the undefined coefficients. If each undefined coefficient could be assigned any hypothetical value in [−1,1], the target-weighted mean of the completed set is bounded by
 
-$
+$$
 \bar{\rho}_{\min}=\frac{\sum_{i\in V}\rho_i-m}{N},\qquad
 \bar{\rho}_{\max}=\frac{\sum_{i\in V}\rho_i+m}{N}.\qquad (7)
-$
+$$
 
 These are range-based hypothetical completion bounds for the target-weighted mean only, not a confidence interval, imputation, proof that a coefficient exists for an ambiguous map, or a replacement for the primary equal-image analysis.
 
