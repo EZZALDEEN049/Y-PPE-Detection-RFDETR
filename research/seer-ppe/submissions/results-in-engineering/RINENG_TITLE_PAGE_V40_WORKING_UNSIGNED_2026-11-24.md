@@ -10,4 +10,4 @@
 *Email: azzaltayyar@gmail.com*  
 *ORCID: https://orcid.org/0009-0003-9506-6669*
 
-<!-- WORKING SOURCE: author-confirmed sole authorship, affiliation, correspondence and ORCID supplied on 2026-11-24. ORCID checksum is valid; account ownership and Editorial Manager linkage are not independently verified. The current university-level postal address is provisional: an official faculty document lists a different faculty-level P.O. Box. Author must confirm the correct mailing address, verify the final author roster against contributions to this specific article, and approve portal metadata and the final proof. No submission authorization. -->
+<!-- WORKING SOURCE: Author confirms sole authorship eligibility for this article, personal ORCID ownership and an Editorial Manager account with the previously approved email. ORCID linkage/live account verification not performed. Postal address remains provisional; question unanswered. Final author proof and explicit submission authorization pending. -->
