@@ -2,7 +2,7 @@ name: V40-R5 offline vector artwork preflight (no submission)
 on:
   push:
     branches: [research/v30-progressive-xai-2026-11-22]
-    paths: [.github/workflows/seer-ppe-v40-r5-artwork-qa.yml]
+    paths: [.github/workflows/seer-ppe-v40-r5-artwork-qa.yml, research/seer-ppe/tools/render_v40_r5_publication_figures.py]
   workflow_dispatch:
 permissions:
   contents: write
