@@ -1,0 +1,76 @@
+{
+  "status": "INTERNAL_NUMERIC_PREFLIGHT_PASS_NOT_RELEASE_CLEARED",
+  "files": {
+    "aligned_density.csv": {
+      "sha256": "75acb057a34f846c7a1f440495f13734cc554c4f65b4d561c0cdad7a5c5af607",
+      "rows": 960
+    },
+    "auc_results.csv": {
+      "sha256": "88d5007bd16fd40fe9c4942dd100bba7c5c2442994d26d0f0920556dabc58c0a",
+      "rows": 264
+    },
+    "curve_points.csv": {
+      "sha256": "de418dbcc65e20af49ed38f57c384afd2adf6a6f47b2d04b1cf32adab7b71d24",
+      "rows": 2904
+    },
+    "historical_aligned_density.csv": {
+      "sha256": "60597816d3c26f5163de2670274406893d3455746b7bef555eebda168734cf79",
+      "rows": 160
+    },
+    "historical_spatial_agreement.csv": {
+      "sha256": "6c052375f536c87af6451952215811da4924b8e37e5d871368ee4881d4200eb5",
+      "rows": 10
+    },
+    "inference_ledger.jsonl": {
+      "sha256": "0959fc94a5c096bf3f6150e4f2b6601ac21622abded6916b889e14d2b93d07c8",
+      "rows": 9968
+    },
+    "operator_comparison.csv": {
+      "sha256": "ae0a99f40162ce4260bba4f865fac87880f9df5fdfc5b52fc9985f7c473d2638",
+      "rows": 16
+    },
+    "perturbation_scores.csv": {
+      "sha256": "8f480324b796f3c0752e80c9052935fadc60db44739e5117ea0a23539bfd7e45",
+      "rows": 5120
+    },
+    "spatial_agreement.csv": {
+      "sha256": "ae66e81910cada181ef2784c20651694385f3bebd8a5cb20df13ea91685d2570",
+      "rows": 48
+    },
+    "target_manifest.csv": {
+      "sha256": "7a469ce25267555c264eef0ce416e10ce2c563abd70066edca2b3b0fd3a4288a",
+      "rows": 48
+    },
+    "validation_class_metrics.csv": {
+      "sha256": "447d5817b8951b86d9ec31dfbde68f5ae19632fd1bd965fd86349078238d0d75",
+      "rows": 51
+    },
+    "validation_metrics.csv": {
+      "sha256": "8bee4fc4d925f94be636ca03e7cce549e81399fe1e8bd66b4c34c883abab2758",
+      "rows": 459
+    }
+  },
+  "validation_images": 459,
+  "extension_targets": 48,
+  "image_clusters": 24,
+  "valid_rho": 45,
+  "paired_operator": 14,
+  "curve_auc": 264,
+  "curve_points": 2904,
+  "map_cells": 5120,
+  "ledger_events": {
+    "ATTEMPT_RESERVED": 4984,
+    "ATTEMPT_SUCCEEDED": 4984
+  },
+  "historical_targets": 10,
+  "numeric_reproduction": "PASS",
+  "new_model_calls": 0,
+  "public_release": false,
+  "workflow_run": 45324237587,
+  "workflow_job": 138209846471,
+  "source_commit": "11b6e4fce004b72c2ef76b517dcc61450cb8ebe0",
+  "python_version": "3.11.18",
+  "temporary_preview_deleted": true,
+  "archive_deposit": null,
+  "doi": null
+}
