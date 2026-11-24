@@ -58,8 +58,18 @@ All image/annotation splits and the protected Test boundary were preserved. The 
 The 459 original-source images were inferred afresh by the unchanged hosted model at confidence threshold 0.20 and provider overlap setting 0.50. Predictions were mapped to original image coordinates and matched greedily, in descending confidence order with deterministic tie-breaks, to the highest-IoU *unused reference box of the same class* at IoU ≥0.50. Unmatched predictions and annotations were counted as false positives and false negatives, respectively. Precision, recall and F1 use pooled box counts, not per-image averages. With TP, FP and FN denoting true positives, false positives and false negatives, respectively, the pooled metrics are
 
 $
-P=\frac{TP}{TP+FP},\qquad R=\frac{TP}{TP+FN},\qquad F_1=\frac{2TP}{2TP+FP+FN}.
-$ We separately report M0 (all 459), M1 (448, removing an initial source-risk subset) and M2 (367, removing additional metadata flags). M2 is **not independently proven free of leakage**.
+P=\frac{TP}{TP+FP}.\qquad (1)
+$
+
+$
+R=\frac{TP}{TP+FN}.\qquad (2)
+$
+
+$
+F_1=\frac{2PR}{P+R}=\frac{2TP}{2TP+FP+FN}.\qquad (3)
+$
+
+We separately report M0 (all 459), M1 (448, removing an initial source-risk subset) and M2 (367, removing additional metadata flags). M2 is **not independently proven free of leakage**.
 
 ### 2.3. Frozen target selection for perturbation tests
 
@@ -103,22 +113,31 @@ Each of the 24 images contributed 64 independent one-cell 8×8 and 16 one-cell 4
 For transparent implementation, write $s_0(t)$ for the baseline target-matched score and $s_{c}^{(g)}(t)$ for its score after individually occluding cell $c$ of grid $g$. The signed response is
 
 $$
-\Delta^{(g)}_{c}(t)=s_0(t)-s^{(g)}_{c}(t).
+\Delta^{(g)}_{c}(t)=s_0(t)-s^{(g)}_{c}(t).\qquad (4)
 $$
 
 If $a_c$ is the exact coarse-cell pixel count and $a_{\mathrm{img}}$ is image pixel count, define $A_c=a_c/a_{\mathrm{img}}$. A coarse 4×4 region $c$ corresponds to a set $\mathcal C(c)$ of four exactly registered 8×8 cells. The *two distinct measurements* compared are
 
 $$
-S^{(4)}_c(t)=\frac{\Delta^{(4)}_c(t)}{A_c},
-\qquad
-S^{(8\to4)}_c(t)=\frac{\sum_{j\in\mathcal C(c)}\Delta^{(8)}_j(t)}{A_c}.
+S^{(4)}_c(t)=\frac{\Delta^{(4)}_c(t)}{A_c}.\qquad (5)
+$
+
+$
+S^{(8\to4)}_c(t)=\frac{\sum_{j\in\mathcal C(c)}\Delta^{(8)}_j(t)}{A_c}.\qquad (6)
 $$
 
 The second expression equals the area-weighted average of fine-cell density values when child-cell areas partition the coarse area exactly; it is **not** a physically equivalent joint four-cell perturbation. Sixteen signed region pairs per target are ranked using average ranks for ties; Spearman rho, Kendall tau-b and top-four overlap quantify this *conditional perturbation-response agreement*. Missing/ambiguous matched target scores remain undefined. Coarse occlusion may induce nonlinear response interactions that no algebraic area normalization removes.
 
 For a prespecified set of **12 targets from 12 different images**, 8×8 deletion and insertion orders included sensitivity sorting and ten independent SHA-256-seeded random permutations per target. A 4×4 sensitivity order was also tested. Eleven equally spaced cumulative percentages produced area-aware AUC, where **lower deletion and higher insertion AUC** are favorable *within-protocol* responses. Endpoints were shared, and each sequence used nine intermediate hosted calls. A target was not replaced after any map or matching failure. On a separate fixed subset of eight images (16 selected targets), one-cell occlusions were repeated with Gaussian-blurred fill (Gaussian radius in pixels: max(3, round(0.01 × min(image width, image height), 3)), shared across both grids); gray-fill versus blur-fill comparisons were reported only when **both** paired maps were valid.
 
-A journaled one-time executor recorded the model attempt index on disk **before** each remote call, used a single HTTPS request without automatic retries, and enforced a hard upper bound of 6,000 attempted calls. All 4,984 recorded attempts succeeded; request accounting, 48 frozen IDs and all intermediate outputs were independently rechecked against the immutable stored ledger. The prespecified primary summary was the equal-image mean Spearman correlation; the target-weighted mean was also reported. Descriptive uncertainty was summarized using 5,000 deterministic bootstrap resamples of **image-level averages**, not pretending that two targets or sixteen regions per image were independent studies. Resulting percentile ranges are **descriptive within a purposively selected, development-exposed cohort**, not independent-site population confidence intervals.
+A journaled one-time executor recorded the model attempt index on disk **before** each remote call, used a single HTTPS request without automatic retries, and enforced a hard upper bound of 6,000 attempted calls. All 4,984 recorded attempts succeeded; request accounting, 48 frozen IDs and all intermediate outputs were independently rechecked against the immutable stored ledger. The prespecified primary summary was the equal-image mean Spearman correlation; the target-weighted mean was also reported. Descriptive uncertainty was summarized using 5,000 deterministic bootstrap resamples of **image-level averages**, not pretending that two targets or sixteen regions per image were independent studies. Resulting percentile ranges are **descriptive within a purposively selected, development-exposed cohort**, not independent-site population confidence intervals. The analysis has 24 image clusters, 48 selected target instances and repeated within-target perturbation records; the 4,984 hosted requests measure computation, not independent statistical observations. Sample size was fixed by the purposive diagnostic design and call budget, not a formal population power calculation. No null-hypothesis significance test is used to claim population generalization. As a secondary mathematical sensitivity analysis, let V denote estimable targets, N=48 the frozen denominator, and m=3 the undefined coefficients. If each undefined coefficient could be assigned any hypothetical value in [−1,1], the target-weighted mean of the completed set is bounded by
+
+$
+\bar{\rho}_{\min}=\frac{\sum_{i\in V}\rho_i-m}{N},\qquad
+\bar{\rho}_{\max}=\frac{\sum_{i\in V}\rho_i+m}{N}.\qquad (7)
+$
+
+These are range-based hypothetical completion bounds for the target-weighted mean only, not a confidence interval, imputation, proof that a coefficient exists for an ambiguous map, or a replacement for the primary equal-image analysis.
 
 ## 3. Results
 
@@ -200,7 +219,7 @@ The one-time prospective extension completed **24/24 images and 48/48 fixed targ
 
 The three non-estimable target maps came from the categories **No Safety Vest** (one ambiguous 8×8 response), **Safety Vests** (four ambiguous 8×8 and four ambiguous 4×4 responses), and **Hard Hat** (two ambiguous responses at each grid). Their presence was prespecified in the selection manifest and their exclusion from numeric rank averaging is a consequence of the matching protocol, not a discretionary image removal. Individual target rows, ambiguity statuses and original exact match data remain available in the numeric supplement. Figure 2 displays the extension's descriptive target and category distributions.
 
-**Distributional and clustered sensitivity check.** Across the 45 valid rho values, the median was **0.6873**, with Q1–Q3 **0.5147–0.8118**, observed range **−0.0176–0.9265**, and **11/45 values <0.50** (descriptive threshold, not a prespecified failure rule). The unweighted mean recomputed after excluding each source image in turn (all targets from that image) ranged from **0.6410 to 0.6649** over 24 iterations. This leave-one-image-out range assesses the influence of individual selected images; it is **not** a confidence interval for new project sites. Three non-estimable map pairs could be nonrandom missingness, so the reported 45-target mean applies conditionally to cases with identifiable target responses.
+**Distributional and clustered sensitivity check.** Across the 45 valid rho values, the median was **0.6873**, with Q1–Q3 **0.5147–0.8118**, observed range **−0.0176–0.9265**, and **11/45 values <0.50** (descriptive threshold, not a prespecified failure rule). The unweighted mean recomputed after excluding each source image in turn (all targets from that image) ranged from **0.6410 to 0.6649** over 24 iterations. This leave-one-image-out range assesses the influence of individual selected images; it is **not** a confidence interval for new project sites. Three non-estimable map pairs could be nonrandom missingness, so the reported 45-target mean applies conditionally to cases with identifiable target responses. Applying Eq. (7) to all 48 frozen targets yields hypothetical completion bounds **0.5459–0.6709** using the unrounded 45-target mean (0.6489788814589973). The primary reported estimates and undefined statuses remain unchanged. The bounds do not establish a population interval or resolve target identity.
 
 ![Figure 2. Cross-resolution signed-density rank agreement for 45 estimable detections in the 48-target development-exposed Validation extension. The distribution and category summaries are descriptive. Three ambiguity-flagged detections remain in the study denominator but have undefined correlation scores.](../../figures/V38C_2026-11-23/Figure_2_V38C_Target_Consistency.png)
 
@@ -257,7 +276,7 @@ A5 and A6 each contain eight target slots, with **six identical target detection
 
 ### 4.4. Methodological boundaries and future tests
 
-The original exploratory experiment was deliberately bounded to ten targets in eight images; V38-B expands diagnostic coverage to 48 prespecified detections in 24 development-exposed Validation images and adds ten random rankings and an operator control. Nevertheless, the study lacks a truly acquisition-independent site-level cohort, a human-labeled explanation-reference standard, a comparable D-RISE/D-MFPP runtime arm, an independent multimethod faithfulness experiment, and outcome-linked human safety verification. The 24-image bootstrap interval remains exploratory; a genuinely independent-source design with source-clustered uncertainty is still necessary for population generalization. Source-image permissions and identifiable-worker constraints may limit raw-image redistribution and must be disclosed without claiming rights not established by the authors.
+The original exploratory experiment was deliberately bounded to ten targets in eight images; V38-B expands diagnostic coverage to 48 prespecified detections in 24 development-exposed Validation images and adds ten random rankings and an operator control. Nevertheless, the study lacks a truly acquisition-independent site-level cohort, a human-labeled explanation-reference standard, a comparable D-RISE/D-MFPP runtime arm, an independent multimethod faithfulness experiment, and outcome-linked human safety verification. The 24-image bootstrap interval remains exploratory; the secondary missing-coefficient bounds are not a confidence interval. No formal power analysis was used for this purposive diagnostic experiment; a genuinely independent-source design with source-clustered uncertainty is still necessary for population generalization. Source-image permissions and identifiable-worker constraints may limit raw-image redistribution and must be disclosed without claiming rights not established by the authors.
 
 The study isolates grid resolution within a single fixed RF-DETR Small checkpoint, rather than estimating architecture-independent behavior. Its conclusions cannot be transferred to other checkpoints, YOLO detectors, deployment settings or resolutions without additional controlled tests. Only two grid sizes were evaluated; neither monotonicity across resolutions nor an optimal grid size is established. The observed cross-grid and gray/blur contrasts do not isolate JPEG compression effects, because the historical and extension cohorts also differ in selection. The progressive curves use a related perturbation mechanism to the one used to construct the sensitivity ranking, so their advantage over random orders is an internal response diagnostic rather than an independent faithfulness measure. No human explanation annotations or expert localization ground truth were collected; agreement between maps does not establish their correctness. A zero target score denotes the absence of a qualifying matched detection under the fixed inference-output and IoU thresholds. It does not necessarily indicate a zero internal model response or complete absence of visual evidence for the target. Threshold censoring, displacement or class changes, and provider output filtering may all contribute to LOST outcomes; the archived outputs cannot distinguish these mechanisms or recover below-threshold scores. A lower-threshold replay would require a prospectively controlled new experiment. The versioned hosted checkpoint identifier documents the model used, but neither downloadable weights nor immutable future availability of the provider endpoint, preprocessing or runtime is established. The archived numerical analysis can be repeated offline; end-to-end inference reproducibility remains conditional on access to the original model and environment.
 
