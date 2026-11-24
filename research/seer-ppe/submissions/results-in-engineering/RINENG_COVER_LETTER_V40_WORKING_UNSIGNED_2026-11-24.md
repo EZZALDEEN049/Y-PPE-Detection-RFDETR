@@ -27,4 +27,6 @@ Corresponding author: azzaltayyar@gmail.com
 
 ---
 
+The author has deposited a reproducibility archive in Zenodo (version v1, https://doi.org/10.5281/zenodo.24489644). The intended archive supports offline numerical recomputation and figure regeneration from derived data; full hosted inference reproducibility is not asserted. Deposited-file correspondence and license scope are being verified before submission.
+
 **Internal release gate — remove before submission:** Author-confirmed funding, competing interests, contribution roles, author's account of photography agreement and organizational non-objection and AI-disclosure authorization are recorded in the manuscript. Author now confirms sole-author eligibility, prior-resource reuse rights, no additional related publications or prior dissemination of current results, and the provider's no-role statement. Institutional ethics determination (including absent guardian permissions where applicable), research-use consent applicability and documented permission scope, approved archive/license checks, figure reuse review, final AI-assisted content review, postal/portal verification and final author approval remain pending. No submission authorization granted.
