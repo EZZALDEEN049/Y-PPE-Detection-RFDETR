@@ -1,0 +1,111 @@
+name: V40-R3 internal document proof QA (offline; no release package)
+on:
+  push:
+    branches: [research/v30-progressive-xai-2026-11-22]
+    paths: [.github/workflows/seer-ppe-v40-r3-proof-qa.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Offline dependencies
+        run: |
+          pip install pypandoc_binary python-docx pymupdf cairosvg
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice-writer fonts-liberation >/dev/null
+      - name: Reproduce exact cluster analysis and internal proof
+        run: |
+          set -euo pipefail
+          python research/seer-ppe/submissions/results-in-engineering/reviewer03_reproducibility/reproduce_cluster_sensitivity.py
+          python - <<'PY'
+          import re, zipfile, subprocess
+          from pathlib import Path
+          import fitz, pypandoc, cairosvg
+          from docx import Document
+          from docx.shared import Inches, Pt
+          from docx.enum.section import WD_ORIENT
+          root=Path("research/seer-ppe").resolve()
+          sub=root/"submissions/results-in-engineering"
+          out=Path("/tmp/v40_r3_internal_proof");out.mkdir()
+          raster=out/"raster";raster.mkdir()
+          # Reuse the privacy-safe vector PDFs from the verified previous internal candidate.
+          # Do not extract raw photos or internal declarations into any public archive.
+          with zipfile.ZipFile(root/"exports/RINENG_V40_PRE_SUBMISSION_CANDIDATE_HOLD.zip") as z:
+              names=[n for n in z.namelist() if re.fullmatch(r"01_Candidate_Submission/Figures/Figure_(?:[123]|S(?:10|[1-9]))\.pdf",n)]
+              assert len(names)==13, names
+              for n in names:
+                  with fitz.open(stream=z.read(n),filetype="pdf") as pdf:
+                      pdf[0].get_pixmap(dpi=500,alpha=False).save(raster/(Path(n).stem+".png"))
+          cairosvg.svg2png(url=str(sub/"artwork-publication/Figure_4_Proposed_Workflow.svg"),write_to=str(raster/"Figure_4.png"),output_width=2500)
+          ref=root/"exports/RINENG_V38C_Manuscript_v0.3_2026-11-23.docx"
+          jobs=[
+           ("RINENG_MANUSCRIPT_V40_BATCH01_WORKING_UNSIGNED_2026-11-24.md","Manuscript_INTERNAL.docx",False),
+           ("RINENG_SUPPLEMENT_V40_S1_WORKING_UNSIGNED_2026-11-24.md","S1_INTERNAL.docx",True),
+           ("RINENG_SUPPLEMENT_V40_S2_WORKING_UNSIGNED_2026-11-24.md","S2_INTERNAL.docx",True),
+          ]
+          for src,name,landscape in jobs:
+              text=(sub/src).read_text(encoding="utf8")
+              if not landscape:
+                  blocks=re.findall(r"^\$\$\n[\s\S]*?\n\$\$$",text,re.M)
+                  assert len(blocks)==7 and all(f"({i+1})" in b for i,b in enumerate(blocks)),blocks
+                  assert not re.search(r"^\$$",text,re.M)
+                  text=re.sub(r"!\[(Figure ([123])\.[^\]]+)\]\([^)]+\)",lambda m:f"![{m.group(1)}]({raster}/Figure_{m.group(2)}.png)",text)
+                  text=text.replace("![](artwork-publication/Figure_4_Proposed_Workflow.svg)",f"![]({raster}/Figure_4.png)")
+              if src.startswith("RINENG_SUPPLEMENT_V40_S1"):
+                  text=re.sub(r"!\[\]\(artwork-publication/(Figure_S\d+)\.pdf\)",lambda m:f"![]({raster}/{m.group(1)}.png)",text)
+              path=out/name
+              pypandoc.convert_text(text,"docx",format="markdown+tex_math_dollars",outputfile=str(path),extra_args=["--standalone","--reference-doc="+str(ref),"--resource-path="+str(sub)+":"+str(root)])
+              doc=Document(path)
+              for sec in doc.sections:
+                  sec.page_width=Inches(11.69 if landscape else 8.27)
+                  sec.page_height=Inches(8.27 if landscape else 11.69)
+                  sec.orientation=WD_ORIENT.LANDSCAPE if landscape else WD_ORIENT.PORTRAIT
+                  sec.left_margin=sec.right_margin=Inches(.7 if landscape else .85)
+                  sec.top_margin=sec.bottom_margin=Inches(.75)
+              for t in doc.tables:
+                  for row in t.rows:
+                      for cell in row.cells:
+                          for p in cell.paragraphs:
+                              for run in p.runs:
+                                  if landscape:run.font.size=Pt(9)
+              doc.save(path)
+              subprocess.run(["python",str(root/"tools/v40_word_export_qa.py"),str(path)]+([] if landscape else ["--main"]),check=True)
+              print("EDITABLE_WORD",name,len(doc.tables),len(doc.inline_shapes))
+          PY
+          mkdir -p /tmp/v40_r3_internal_proof/pdf
+          libreoffice -env:UserInstallation=file:///tmp/v40r3_lo --headless --convert-to pdf --outdir /tmp/v40_r3_internal_proof/pdf /tmp/v40_r3_internal_proof/*.docx
+          python - <<'PY'
+          from pathlib import Path
+          import re, json, fitz
+          root=Path("/tmp/v40_r3_internal_proof/pdf")
+          assert len(list(root.glob("*.pdf")))==3
+          for p in root.glob("*.pdf"):
+              with fitz.open(p) as pdf:
+                  txt=" ".join(page.get_text() for page in pdf)
+                  assert len(pdf)>0 and len(txt)>1000
+                  print("PDF_PROOF",p.name,"pages",len(pdf),"word_tokens",len(txt.split()))
+                  if p.name.startswith("Manuscript"):
+                      for token in ["0.6490","0.5459","0.6709","0.8706","Figure 4."]:
+                          assert token in txt,token
+                      assert "P=,R=" not in txt.replace(" ","")
+                      # Report actual page positions of table captions for visual QA.
+                      for i,pg in enumerate(pdf,1):
+                          t=pg.get_text()
+                          captions=re.findall(r"Table [456]\. [^\n]+",t)
+                          if captions: print("TABLE_CAPTION_PAGE",i,captions)
+          print("INTERNAL_PROOF_STRUCTURAL_PASS; visual and final release checks still required")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: V40-R3-INTERNAL-QA-NOT-SUBMISSION
+          path: |
+            /tmp/v40_r3_internal_proof/*_INTERNAL.docx
+            /tmp/v40_r3_internal_proof/pdf/*.pdf
+          retention-days: 14
