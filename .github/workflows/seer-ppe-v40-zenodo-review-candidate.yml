@@ -1,0 +1,29 @@
+name: V40 Zenodo review candidate (author download, no deposit)
+on:
+  push:
+    branches: [research/v30-progressive-xai-2026-11-22]
+    paths: [.github/workflows/seer-ppe-v40-zenodo-review-candidate.yml, research/seer-ppe/tools/build_v40_zenodo_review_candidate.py]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install numpy matplotlib cairosvg
+      - name: Generate and test numerical archive and all figure scripts
+        run: python research/seer-ppe/tools/build_v40_zenodo_review_candidate.py --output-dir "$RUNNER_TEMP/zenodo_review"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PPE_Cross_Resolution_Zenodo_REVIEW_CANDIDATE
+          path: ${{ runner.temp }}/zenodo_review/PPE_Cross_Resolution_Zenodo_REVIEW_CANDIDATE.zip
+          retention-days: 7
+          if-no-files-found: error
+      - name: Remove staging data
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/zenodo_review"
