@@ -57,65 +57,65 @@ The following 17-class box counts are the current single-curator reference for t
 
 All ten figures (Figures S1–S10) derive from the frozen and numerically audited V34-A aligned maps. Left panel: native 8×8 fine-cell signed density, with the fine-cell footprints of top four pooled regions marked. Right panel: direct 4×4 signed density, with its top four marked. The same diverging color scale applies to all ten figures. No figure is a true worker–PPE compliance assessment, learned causal explanation or independently annotated ground-truth saliency map.
 
-### Figure S1
+### Supplementary Figure S1
 
 ![](artwork-publication/Figure_S1.pdf)
 
 **Supplementary Figure S1.** Paired signed detector-response sensitivity maps for the **No Face Mask** target in Train image A. Spearman ρ=0.5471; Kendall τ-b=0.4167; top-four region overlap=3/4 (75%).
 
-### Figure S2
+### Supplementary Figure S2
 
 ![](artwork-publication/Figure_S2.pdf)
 
 **Supplementary Figure S2.** Paired signed detector-response sensitivity maps for the **Gloves** target in Train image B. Spearman ρ=0.6019; Kendall τ-b=0.5272; top-four region overlap=3/4 (75%).
 
-### Figure S3
+### Supplementary Figure S3
 
 ![](artwork-publication/Figure_S3.pdf)
 
 **Supplementary Figure S3.** Paired signed detector-response sensitivity maps for the **No Safety Boots** target in Train image C. Spearman ρ=0.5548; Kendall τ-b=0.4268; top-four region overlap=3/4 (75%).
 
-### Figure S4
+### Supplementary Figure S4
 
 ![](artwork-publication/Figure_S4.pdf)
 
 **Supplementary Figure S4.** Paired signed detector-response sensitivity maps for the **Face Masks** target in Train image C. Spearman ρ=0.2295; Kendall τ-b=0.1514; top-four region overlap=0/4 (0%). This is the lowest-agreement target in the ten-target sample.
 
-### Figure S5
+### Supplementary Figure S5
 
 ![](artwork-publication/Figure_S5.pdf)
 
 **Supplementary Figure S5.** Paired signed detector-response sensitivity maps for the **Hard Hat** target in Train image D. Spearman ρ=0.5765; Kendall τ-b=0.4667; top-four region overlap=2/4 (50%).
 
-### Figure S6
+### Supplementary Figure S6
 
 ![](artwork-publication/Figure_S6.pdf)
 
-**Supplementary Figure S6.** Paired signed detector-response sensitivity maps for the **No Gloves** target in Valid image Historical image V01. Spearman ρ=0.5382; Kendall τ-b=0.4000; top-four region overlap=3/4 (75%).
+**Supplementary Figure S6.** Paired signed detector-response sensitivity maps for the **No Gloves** target in Validation image V01. Spearman ρ=0.5382; Kendall τ-b=0.4000; top-four region overlap=3/4 (75%).
 
-### Figure S7
+### Supplementary Figure S7
 
 ![](artwork-publication/Figure_S7.pdf)
 
-**Supplementary Figure S7.** Paired signed detector-response sensitivity maps for the **Safety Boots** target in Valid image Historical image V02. Spearman ρ=0.6265; Kendall τ-b=0.5500; top-four region overlap=3/4 (75%).
+**Supplementary Figure S7.** Paired signed detector-response sensitivity maps for the **Safety Boots** target in Validation image V02. Spearman ρ=0.6265; Kendall τ-b=0.5500; top-four region overlap=3/4 (75%).
 
-### Figure S8
+### Supplementary Figure S8
 
 ![](artwork-publication/Figure_S8.pdf)
 
-**Supplementary Figure S8.** Paired signed detector-response sensitivity maps for the **No Face Mask** target in Valid image Historical image V03. Spearman ρ=0.6324; Kendall τ-b=0.4500; top-four region overlap=3/4 (75%).
+**Supplementary Figure S8.** Paired signed detector-response sensitivity maps for the **No Face Mask** target in Validation image V03. Spearman ρ=0.6324; Kendall τ-b=0.4500; top-four region overlap=3/4 (75%).
 
-### Figure S9
+### Supplementary Figure S9
 
 ![](artwork-publication/Figure_S9.pdf)
 
-**Supplementary Figure S9.** Paired signed detector-response sensitivity maps for the **Safety Vests** target in Valid image Historical image V03. Spearman ρ=0.6794; Kendall τ-b=0.5333; top-four region overlap=3/4 (75%).
+**Supplementary Figure S9.** Paired signed detector-response sensitivity maps for the **Safety Vests** target in Validation image V03. Spearman ρ=0.6794; Kendall τ-b=0.5333; top-four region overlap=3/4 (75%).
 
-### Figure S10
+### Supplementary Figure S10
 
 ![](artwork-publication/Figure_S10.pdf)
 
-**Supplementary Figure S10.** Paired signed detector-response sensitivity maps for the **No Safety Boots** target in Valid image Historical image V04. Spearman ρ=0.4294; Kendall τ-b=0.3167; top-four region overlap=3/4 (75%).
+**Supplementary Figure S10.** Paired signed detector-response sensitivity maps for the **No Safety Boots** target in Validation image V04. Spearman ρ=0.4294; Kendall τ-b=0.3167; top-four region overlap=3/4 (75%).
 
 ## S1.5. Archived research record pointers and missing-data handling
 
