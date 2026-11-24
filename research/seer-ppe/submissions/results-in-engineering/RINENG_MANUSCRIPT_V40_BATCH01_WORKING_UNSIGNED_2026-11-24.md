@@ -55,7 +55,11 @@ All image/annotation splits and the protected Test boundary were preserved. The 
 
 ### 2.2. Detection endpoint and sensitivity cohorts
 
-The 459 original-source images were inferred afresh by the unchanged hosted model at confidence threshold 0.20 and provider overlap setting 0.50. Predictions were mapped to original image coordinates and matched greedily, in descending confidence order with deterministic tie-breaks, to the highest-IoU *unused reference box of the same class* at IoU ≥0.50. Unmatched predictions and annotations were counted as false positives and false negatives, respectively. Precision, recall and F1 use pooled box counts, not per-image averages. We separately report M0 (all 459), M1 (448, removing an initial source-risk subset) and M2 (367, removing additional metadata flags). M2 is **not independently proven free of leakage**.
+The 459 original-source images were inferred afresh by the unchanged hosted model at confidence threshold 0.20 and provider overlap setting 0.50. Predictions were mapped to original image coordinates and matched greedily, in descending confidence order with deterministic tie-breaks, to the highest-IoU *unused reference box of the same class* at IoU ≥0.50. Unmatched predictions and annotations were counted as false positives and false negatives, respectively. Precision, recall and F1 use pooled box counts, not per-image averages. With TP, FP and FN denoting true positives, false positives and false negatives, respectively, the pooled metrics are
+
+$
+P=\frac{TP}{TP+FP},\qquad R=\frac{TP}{TP+FN},\qquad F_1=\frac{2TP}{2TP+FP+FN}.
+$ We separately report M0 (all 459), M1 (448, removing an initial source-risk subset) and M2 (367, removing additional metadata flags). M2 is **not independently proven free of leakage**.
 
 ### 2.3. Frozen target selection for perturbation tests
 
@@ -85,7 +89,7 @@ Each 4×4 region was matched by exact pixel coordinates to the corresponding fou
 
 The numerical archives include fixed target IDs, per-image source identity records, per-region score records, trapezoidal curve points and summary calculations. The V38-B extension additionally preserved new source-raw and EXIF-canonical RGB fingerprints; original historical V26 raw-byte hashes were not available for retrospective byte equality. Independent checking scripts reproduced target identifiers, AUCs, cell-area geometry and rank coefficients. This establishes **numeric reproducibility of the saved experiment**, not independent verification of photographic publication rights, person–PPE labels or explanatory causality. Hosted API round-trip time includes service and network overhead and is not presented as detector-only runtime, energy use or carbon emissions.
 
-OpenAI ChatGPT provided assistance with research-code drafting and refinement, reproducibility checks, literature organization and the preparation of data-derived plotting scripts and manuscript text. The executable numerical programs and figures were tied to the saved experiment and verified through documented tests, and no figures were fabricated from generative image synthesis. This assistance is disclosed here because code and visualization support form part of the research workflow; it does not replace the authors' responsibility to independently assess and approve the methods and interpretation. **[AUTHOR TO VERIFY: precise tool-use record, scientific oversight and final text before submission.]**
+OpenAI ChatGPT provided assistance with research-code drafting and refinement, reproducibility checks, literature organization and the preparation of data-derived plotting scripts and manuscript text. The numerical analyses use Python, NumPy and SciPy, the inference runner uses Pillow for image handling, and the figures are generated with Matplotlib from the archived numerical values. The executable scripts, input records, deterministic selection and random-seed conventions—not chatbot output—define the numerical reproduction procedure. [AUTHOR TO VERIFY: exact AI model/version or usage dates where documented and final software environment.] The executable numerical programs and figures were tied to the saved experiment and verified through documented tests, and no figures were fabricated from generative image synthesis. This assistance is disclosed here because code and visualization support form part of the research workflow; it does not replace the author's responsibility to independently assess and approve the methods and interpretation. **[AUTHOR TO VERIFY: precise tool-use record, scientific oversight and final text before submission.]**
 
 ### 2.8. Prospective V38-B replication and perturbation-operator control
 
@@ -172,7 +176,7 @@ All ten exact-target map pairs passed identity, area partition and value-conserv
 
 *Table 4. Exact-pixel aligned map agreement; values are descriptive, with no independent-site statistical inference.*
 
-The most discrepant target, Train C Face Masks, had approximately ρ=0.2295, τ-b=0.1514 and **zero** shared top-four regions. The nonzero mean correlation therefore does not support treating the 8×8 and 4×4 explanations as spatially interchangeable.
+Figure 1 summarizes the ten historical target comparisons. The most discrepant target, historical target H04 (Face Masks), had approximately ρ=0.2295, τ-b=0.1514 and **zero** shared top-four regions. The nonzero mean correlation therefore does not support treating the 8×8 and 4×4 explanations as spatially interchangeable.
 
 ![Figure 1. Target-level Spearman ρ, Kendall τ-b and overlap of the four highest signed-sensitivity regions when the same original detections are analyzed at 8×8 and 4×4 resolution. Map values are derived from archived score-drop ledgers, not human-labeled attribution ground truth. Ten corresponding paired heatmaps are available as Supplementary Figures S1–S10.](../../figures/V34B_2026-11-22/V34B_SPATIAL_AGREEMENT_SUMMARY_2026-11-22.png)
 
@@ -194,7 +198,7 @@ The one-time prospective extension completed **24/24 images and 48/48 fixed targ
 
 *Table 5. Independent analysis of frozen V38-B execution. The 48-target selected cohort and the earlier ten-target cohort use different image selections and transport encodings; values are not combined. Missing coefficients remain null.*
 
-The three non-estimable target maps came from the categories **No Safety Vest** (one ambiguous 8×8 response), **Safety Vests** (four ambiguous 8×8 and four ambiguous 4×4 responses), and **Hard Hat** (two ambiguous responses at each grid). Their presence was prespecified in the selection manifest and their exclusion from numeric rank averaging is a consequence of the matching protocol, not a discretionary image removal. Individual target rows, ambiguity statuses and original exact match data remain available in the numeric supplement.
+The three non-estimable target maps came from the categories **No Safety Vest** (one ambiguous 8×8 response), **Safety Vests** (four ambiguous 8×8 and four ambiguous 4×4 responses), and **Hard Hat** (two ambiguous responses at each grid). Their presence was prespecified in the selection manifest and their exclusion from numeric rank averaging is a consequence of the matching protocol, not a discretionary image removal. Individual target rows, ambiguity statuses and original exact match data remain available in the numeric supplement. Figure 2 displays the extension's descriptive target and category distributions.
 
 **Distributional and clustered sensitivity check.** Across the 45 valid rho values, the median was **0.6873**, with Q1–Q3 **0.5147–0.8118**, observed range **−0.0176–0.9265**, and **11/45 values <0.50** (descriptive threshold, not a prespecified failure rule). The unweighted mean recomputed after excluding each source image in turn (all targets from that image) ranged from **0.6410 to 0.6649** over 24 iterations. This leave-one-image-out range assesses the influence of individual selected images; it is **not** a confidence interval for new project sites. Three non-estimable map pairs could be nonrandom missingness, so the reported 45-target mean applies conditionally to cases with identifiable target responses.
 
@@ -206,7 +210,7 @@ Among the eight prespecified blur-fill images (16 targets), **15** supplied vali
 
 **Paired-operator distribution.** In these 14 valid paired targets spanning eight images, the median within-target change (blur rho minus gray rho) was **−0.1765**. Recomputing the paired mean after removing all observations from one image at a time produced **−0.2480 to −0.1787** across the eight image-cluster deletions; this is descriptive sensitivity analysis, not an external-project confidence interval. Image clustering and the different valid denominators for 14 paired, 15 blur-valid and 45 overall gray-valid targets are retained.
 
-One of the twelve prespecified progressive-curve targets was blocked because its 8×8 map contained an ambiguous region; **eleven targets** yielded **264/264 numerically valid** AUC curves (11 targets × 24 curves). In these eleven targets, the sensitivity-ranked sequence had more favorable deletion AUC than the *mean of ten seeded random orders* for 11/11 targets, and more favorable insertion AUC for 11/11. The mean saliency-minus-random-mean AUC difference was **−0.4084 for deletion** (lower is favorable) and **+0.3720 for insertion** (higher is favorable). These comparisons reuse the same target responses to construct and evaluate the ranking, so they do not establish an independent attribution-faithfulness benchmark or superiority to a published XAI algorithm. Table 6 summarizes the operator and random-order controls.
+One of the twelve prespecified progressive-curve targets was blocked because its 8×8 map contained an ambiguous region; **eleven targets** yielded **264/264 numerically valid** AUC curves (11 targets × 24 curves). In these eleven targets, the sensitivity-ranked sequence had more favorable deletion AUC than the *mean of ten seeded random orders* for 11/11 targets, and more favorable insertion AUC for 11/11. The mean saliency-minus-random-mean AUC difference was **−0.4084 for deletion** (lower is favorable) and **+0.3720 for insertion** (higher is favorable). These comparisons reuse the same target responses to construct and evaluate the ranking, so they do not establish an independent attribution-faithfulness benchmark or superiority to a published XAI algorithm. Table 6 summarizes the operator and random-order controls; Figure 3 visualizes these paired differences and curve contrasts.
 
 | V38-B control / outcome | Result | Relevant denominator |
 |:--|:--|:--|
@@ -259,11 +263,13 @@ The unchanged 17-class PPE detector achieved micro-F1=0.8706 on 459 current-sour
 
 **Ethics, identifiable-worker imagery and permissions:** [AUTHOR MUST DOCUMENT the appropriate institutional determination/approval or exemption and the lawful privacy/consent/permission basis for any identifiable worker images or figure disclosures. No committee approval or blanket consent is asserted.]
 
-**Funding:** [AUTHOR TO CONFIRM actual source(s), grant numbers, or a truthful no-specific-funding statement.]
+**Funding:** [AUTHOR TO CONFIRM grant/sponsor status and any in-kind computational support, including the nature of Roboflow research-plan credits.]
+
+**Acknowledgments:** [AUTHOR TO CONFIRM whether acknowledgment of non-author contributions or platform support is appropriate; omit this section if none.]
 
 **Declaration of competing interests:** [AUTHOR TO CONFIRM the truthful statement, using Elsevier's current form where required.]
 
-**Author contributions (CRediT):** [AUTHOR TO CONFIRM actual contributions and final approved author order; do not infer solely from the present author block.]
+**Author contributions (CRediT):** Ezzaldeen Al-Tayar: [AUTHOR TO CONFIRM the applicable roles based on actual contributions, including contributions from prior collaborative work where relevant.]
 
 **Data availability:** The numerical results, code, derived figures and inference-attempt audit records are currently accessible in a public GitHub research branch at https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/tree/research/v30-progressive-xai-2026-11-22 . This includes image identifiers and reproducibility metadata. **No permission to redistribute the original field photographs is asserted by this statement.** Access to any original photographs through third-party image-hosting links and the permitted scope of disclosure must be audited prior to release. **[AUTHOR TO CONFIRM: image/subject rights, any restricted material, and an immutable tagged release or archival DOI suitable for submission.]**
 
@@ -273,11 +279,11 @@ The unchanged 17-class PPE detector achieved micro-F1=0.8706 on 459 current-sour
 
 ## Supplementary material
 
-Supplementary File S1 preserves the **historical** ten-target signed-sensitivity alignments and ten data-derived paired-grid maps (Figures S1–S10). A new **Supplementary File S2 (V38-C)** summarizes the separately frozen 48-target extension, the three ambiguous-map outcomes, 11-class subgroups, 14 matched operator controls and the 11-target randomized-curve experiment, with a reproducible reference to the immutable execution and audit ledgers. The archived 34-page dossier is a separate research audit record, not a journal supplementary file. The V38-C extension remains a separate development-exposed study and is not pooled with S1.
+Supplementary File S1 preserves the **historical** ten-target signed-sensitivity alignments and ten data-derived paired-grid maps (Figures S1–S10). **Supplementary File S2** summarizes the separately frozen 48-target extension, the three ambiguous-map outcomes, 11-class subgroups, 14 matched operator controls and the 11-target randomized-curve experiment, with a reproducible reference to the immutable execution and audit ledgers. The extension remains a separate development-exposed study and is not pooled with S1.
 
 ## Declaration of generative AI and AI-assisted technologies in the manuscript preparation process
 
-During the preparation of this work, OpenAI ChatGPT was used to support manuscript organization, language drafting and editing, literature-reference checks, research-code drafting and data-derived figure scripting based on the authors' experimental archives. Generated draft text, code and visualizations were subject to reproducible numerical and document-quality checks, but those checks do not replace authors' independent scientific judgment. No primary research photos were created or edited with generative-image tools for this manuscript. **[AUTHOR SIGN-OFF REQUIRED: confirm the full scope of tool use, review and edit all AI-assisted material, and take full responsibility for the article's contents before submission.]**
+During the preparation of this work, OpenAI ChatGPT was used to support manuscript organization, language drafting and editing, literature-reference checks, research-code drafting and data-derived figure scripting based on the author's experimental archives. Generated draft text, code and visualizations were subject to reproducible numerical and document-quality checks, but those checks do not replace the author's independent scientific judgment. No primary research photos were created or edited with generative-image tools for this manuscript. **[AUTHOR SIGN-OFF REQUIRED: confirm the full scope of tool use, review and edit all AI-assisted material, and take full responsibility for the article's contents before submission.]**
 
 ## References
 
