@@ -1,0 +1,168 @@
+name: RINENG V40 pre-submission candidate (offline only)
+on:
+  push:
+    branches: [research/v30-progressive-xai-2026-11-22]
+    paths: [.github/workflows/seer-ppe-v40-candidate.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Offline dependencies
+        run: |
+          pip install pypandoc_binary python-docx numpy scipy matplotlib pillow pymupdf
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice-writer >/dev/null
+      - name: Build editable candidate files and derived artwork
+        run: |
+          python - <<'PY'
+          import re, sys, json, shutil, zipfile
+          from pathlib import Path
+          import matplotlib
+          matplotlib.use('Agg')
+          import matplotlib.pyplot as plt
+          import numpy as np
+          import fitz
+          import pypandoc
+          from copy import deepcopy
+          from docx import Document
+          from docx.shared import Inches, Pt
+          from docx.enum.section import WD_ORIENT
+          from docx.oxml import OxmlElement
+          from docx.oxml.ns import qn
+          root=Path('research/seer-ppe').resolve()
+          sub=root/'submissions/results-in-engineering'
+          sys.path[:0]=[str(root),str(root/'tools')]
+          import render_v34b_scientific_figures as old
+          import render_v38c_figures as ext
+          out=Path('/tmp/rineng_v40').resolve()
+          docs=out/'01_Candidate_Submission'; docs.mkdir(parents=True)
+          art=docs/'Figures';art.mkdir()
+          internal=out/'02_Internal_Release_Checks';internal.mkdir()
+          original=old.validate_and_prepare(json.loads(old.SOURCE_DEFAULT.read_text(encoding='utf8')))
+          safe=deepcopy(original)
+          for i,x in enumerate(safe,1):
+              x['meta']['target_id']=f'H{i:02d}'
+              x['meta']['image_key']=f'image:H{i:02d}'
+          for a,b in zip(original,safe):
+              for key in ('fine','direct','pooled'):
+                  assert np.array_equal(a[key],b[key])
+              for key in ('rho_recomputed','tau_recomputed','overlap'):
+                  assert a[key]==b[key]
+          scale=float(np.percentile(np.abs(np.concatenate([np.concatenate([x['fine'].ravel(),x['direct'].ravel()]) for x in safe])),old.SCALE_PERCENTILE,method='linear'))
+          plt.close(old.render_summary(safe,art/'Figure_1.pdf'))
+          for i,item in enumerate(safe,1):
+              plt.close(old.render_target(item,scale,art/f'Figure_S{i}.pdf'))
+          ext.setup()
+          def save(fig,name,number):
+              fig.savefig(art/f'Figure_{number}.pdf',bbox_inches='tight',dpi=500)
+              plt.close(fig)
+          ext.save=save
+          d=json.loads(ext.SRC.read_text(encoding='utf8'))
+          assert d['targets_processed']==48 and d['attempted_model_calls']==4984
+          ext.make_agreement(d);ext.make_controls(d)
+          assert len(list(art.glob('*.pdf')))==13
+          raster=out/'raster';raster.mkdir()
+          for p in art.glob('*.pdf'):
+              with fitz.open(p) as pdf:
+                  assert len(pdf)==1
+                  page=pdf[0]
+                  page.get_pixmap(dpi=500,alpha=False).save(raster/(p.stem+'.png'))
+                  for a in original:
+                      for key in ('image_key','target_id'):
+                          assert a['meta'][key] not in page.get_text()
+          jobs=[
+           ('RINENG_MANUSCRIPT_V40_BATCH01_WORKING_UNSIGNED_2026-11-24.md','01_Manuscript.docx',False),
+           ('RINENG_TITLE_PAGE_V40_WORKING_UNSIGNED_2026-11-24.md','02_Title_Page.docx',False),
+           ('RINENG_COVER_LETTER_V40_WORKING_UNSIGNED_2026-11-24.md','03_Cover_Letter.docx',False),
+           ('RINENG_Highlights_V40_WORKING_2026-11-24.md','04_Highlights.docx',False),
+           ('RINENG_SUPPLEMENT_V40_S1_WORKING_UNSIGNED_2026-11-24.md','05_Supplement_S1.docx',True),
+           ('RINENG_SUPPLEMENT_V40_S2_WORKING_UNSIGNED_2026-11-24.md','06_Supplement_S2.docx',True),
+          ]
+          ref=root/'exports/RINENG_V38C_Manuscript_v0.3_2026-11-23.docx'
+          for src,dest,landscape in jobs:
+              text=(sub/src).read_text(encoding='utf8')
+              if dest=='01_Manuscript.docx':
+                  def main_fig(m):
+                      cap=m.group(1)
+                      n=re.match(r'Figure (\d+)',cap).group(1)
+                      return f'![{cap}]({raster}/Figure_{n}.png)'
+                  text=re.sub(r'!\[(Figure [^\]]+)\]\([^)]+\)',main_fig,text)
+              if 'Supplement_S1' in dest:
+                  text=re.sub(r'!\[\]\(artwork-publication/(Figure_S\d+)\.pdf\)',lambda m:f'![]({raster}/{m.group(1)}.png)',text)
+              # Preserve pending decisions in the candidate, not fabricated declarations.
+              path=docs/dest
+              pypandoc.convert_text(text,'docx',format='markdown',outputfile=str(path),extra_args=['--standalone','--reference-doc='+str(ref),'--resource-path='+str(sub)+':'+str(root)])
+              doc=Document(path)
+              for sec in doc.sections:
+                  if landscape:
+                      sec.orientation=WD_ORIENT.LANDSCAPE;sec.page_width=Inches(11.69);sec.page_height=Inches(8.27)
+                  sec.left_margin=sec.right_margin=Inches(.7 if landscape else .85)
+                  sec.top_margin=sec.bottom_margin=Inches(.75)
+              for table in doc.tables:
+                  for i,row in enumerate(table.rows):
+                      tr=row._tr.get_or_add_trPr()
+                      tr.append(OxmlElement('w:cantSplit'))
+                      if i==0:tr.append(OxmlElement('w:tblHeader'))
+                      if landscape:
+                          for cell in row.cells:
+                              for p in cell.paragraphs:
+                                  p.paragraph_format.space_after=Pt(0)
+                                  for run in p.runs:run.font.size=Pt(9)
+              if dest=='01_Manuscript.docx':
+                  assert len(doc.inline_shapes)==3 and len(doc.tables)>=6
+                  for p in doc.paragraphs:
+                      if p.text.startswith('3.6. Enlarged 48-target'):
+                          p.paragraph_format.page_break_before=True
+                          p.paragraph_format.keep_with_next=True
+              if 'Supplement_S1' in dest: assert len(doc.inline_shapes)==10
+              doc.save(path)
+              print(dest,len(doc.tables),len(doc.inline_shapes))
+          for name in ['V40_CUMULATIVE_COMPLIANCE_MATRIX_2026-11-24.md','V40_BATCH02_AUTHOR_DECLARATIONS_AND_ETHICS_ROUTE_2026-11-24.md','V40_AUTHOR_METADATA_AND_PRIOR_WORK_AUDIT_2026-11-24.md']:
+              shutil.copyfile(sub/name,internal/name)
+          (out/'READ_ME_FIRST.txt').write_text('V40 CANDIDATE — NOT AUTHORIZED FOR SUBMISSION. Pending: actual institutional ethics determination, organization/third-party permissions, approved data/code archive and actual DOI, final author review and portal requirements. Graphical abstract not generated; confirm requirement and use author-created scientific illustration. Candidate includes visible release gates. Do not submit until resolved. No new model inference.\n',encoding='utf8')
+          PY
+      - name: Render candidate documents and verify content
+        run: |
+          mkdir -p /tmp/rineng_v40/02_Internal_Release_Checks/PDF_proofs
+          libreoffice -env:UserInstallation=file:///tmp/v40_lo --headless --convert-to pdf --outdir /tmp/rineng_v40/02_Internal_Release_Checks/PDF_proofs /tmp/rineng_v40/01_Candidate_Submission/*.docx
+          python - <<'PY'
+          from pathlib import Path
+          import fitz,zipfile,json
+          p=Path('/tmp/rineng_v40')
+          pdfs=list((p/'02_Internal_Release_Checks/PDF_proofs').glob('*.pdf'))
+          assert len(pdfs)==6,len(pdfs)
+          qa={}
+          for f in pdfs:
+              with fitz.open(f) as doc:
+                  text='\n'.join(x.get_text() for x in doc)
+                  assert len(doc)>0 and len(text)>50
+                  qa[f.name]={'pages':len(doc),'characters':len(text)}
+                  if 'Manuscript' in f.name:
+                      for v in ('0.6490','0.5197','0.8706'): assert v in text,v
+              print(f.name,qa[f.name])
+          (p/'02_Internal_Release_Checks/automated_QA.json').write_text(json.dumps(qa,indent=2))
+          dest=Path('research/seer-ppe/exports/RINENG_V40_PRE_SUBMISSION_CANDIDATE_HOLD.zip')
+          with zipfile.ZipFile(dest,'w',zipfile.ZIP_DEFLATED) as z:
+              for f in p.rglob('*'):
+                  if f.is_file() and 'raster' not in f.relative_to(p).parts:z.write(f,f.relative_to(p))
+          with zipfile.ZipFile(dest) as z:assert z.testzip() is None;print('ZIP_OK',len(z.namelist()),dest.stat().st_size)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: RINENG-V40-CANDIDATE-HOLD
+          path: research/seer-ppe/exports/RINENG_V40_PRE_SUBMISSION_CANDIDATE_HOLD.zip
+      - name: Archive verified candidate ZIP
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/seer-ppe/exports/RINENG_V40_PRE_SUBMISSION_CANDIDATE_HOLD.zip
+          git commit -m "Archive V40 pre-submission candidate (ethics and release hold)"
+          git push origin "HEAD:$GITHUB_REF_NAME"
