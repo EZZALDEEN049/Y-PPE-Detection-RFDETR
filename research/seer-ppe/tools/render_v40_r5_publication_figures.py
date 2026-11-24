@@ -50,7 +50,7 @@ def historical_figures(items, out):
     ax.barh(y+.18,tau[order],height=.32,color=GOLD,label="Kendall τ-b")
     ax.set(yticks=y,yticklabels=np.array(labels)[order],xlim=(0,1),xlabel="Rank correlation")
     ax.grid(axis="x",alpha=.2);ax.set_axisbelow(True)
-    ax.legend(loc="upper right",bbox_to_anchor=(1,.99),frameon=False)
+    ax.legend(loc="lower right",bbox_to_anchor=(1,1.005),ncol=2,frameon=False)
     for yi,i in enumerate(order):ax.text(1.025,yi,f"{ov[i]}/4",va="center",fontsize=8,clip_on=False)
     ax.text(1.025,1.035,"Top 4",transform=ax.transAxes,fontsize=8,ha="left")
     fig.text(.02,.965,"Historical ten-target spatial agreement",weight="bold",va="top",fontsize=10)
@@ -72,6 +72,7 @@ def historical_figures(items, out):
         for j in x["top_direct"]:
             row,col=divmod(j,4);axes[1].add_patch(Rectangle((col,row),1,1,fill=False,edgecolor="#CF8E00",linewidth=1.6))
         cbax=fig.add_axes([.20,.21,.60,.035]);cb=fig.colorbar(mesh,cax=cbax,orientation="horizontal",extend="both")
+        cb.solids.set_rasterized(False)
         cb.set_label("Signed score-drop density (drop / exact area fraction)")
         fig.text(.5,.115,f'Spearman ρ = {x["rho_recomputed"]:.4f}    Kendall τ-b = {x["tau_recomputed"]:.4f}    Top-four = {x["overlap"]}/4',ha="center",fontsize=9,weight="bold")
         fig.text(.5,.060,"Gold outlines: four highest-ranked aligned regions. Shared color scale;",ha="center",fontsize=8)
