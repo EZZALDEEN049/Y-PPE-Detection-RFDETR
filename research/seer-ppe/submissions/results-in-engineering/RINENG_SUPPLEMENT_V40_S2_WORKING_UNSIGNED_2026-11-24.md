@@ -6,7 +6,7 @@
 
 ## S2.1. Fixed study and reproducibility
 
-The separate, prospectively specified V38-B extension evaluated **48 exact detections in 24 original Validation images**, covering **11 PPE classes**, using frozen RF-DETR Small (model ID altayyar-0oflt-lafos-qqauz/2). The images are development-exposed, not an acquisition-independent field sample. Models, ground-truth annotations, and Test images were not changed or used. All extension images were transmitted as JPEG quality 95 with 4:4:4 chroma after EXIF orientation correction. This differs from the historical ten-target PNG-based setup and prevents meaningful pooling of raw cohorts as if paired.
+The separate, prospectively specified V38-B extension evaluated **48 exact detections in 24 original Validation images**, covering **11 PPE classes**, using frozen RF-DETR Small (model ID altayyar-0oflt-lafos-qqauz/2). The images are development-exposed, not an acquisition-independent field sample. The frozen candidate record screened 459 historical Validation images, yielding 225 eligible images before the balanced 24-image selection. The selected archived V26 confidences were 0.5959–0.9325 (median 0.8463); class-exact reference IoUs were 0.5267–0.9464 (median 0.7889). These descriptors are conditional on the eligibility filters, not representative of all detector outcomes. Models, ground-truth annotations, and Test images were not changed or used. All extension images were transmitted as JPEG quality 95 with 4:4:4 chroma after EXIF orientation correction. This differs from the historical ten-target PNG-based setup and prevents meaningful pooling of raw cohorts as if paired.
 
 The one-time run completed **4,984 real model-image calls, all successful**, and all 24 images. An append-only journal confirms 4,984 contiguous ATTEMPT_RESERVED entries and 4,984 corresponding ATTEMPT_SUCCEEDED entries, with no failed attempts. The budget was at most 6,000 attempted calls. Original run: https://github.com/EZZALDEEN049/Y-PPE-Detection-RFDETR/actions/runs/45085935253
 
@@ -29,6 +29,8 @@ Full raw output and call-ledger files remain immutable in the research branch, a
 The image-bootstrap percentiles are **descriptive uncertainty summaries**, not independently validated source-population confidence intervals; images were purposively selected, and multiple targets share source images.
 
 ## S2.3. Individual outcomes including the three missing values
+
+The archived gray-fill maps contain 45 LOST outcomes out of 3,072 fine-grid target-cell records and 52 out of 768 coarse-grid target-cell records; ambiguous outcomes numbered 7 and 6. LOST is an operational zero under fixed output and IoU thresholds, not zero internal response; ambiguous scores remain undefined. Counts are descriptive and do not identify the reason for a non-match. Random-order curves are internal diagnostics, not independent explanation ground truth or published-method comparisons.
 
 | Target | PPE category | Paired-map status | Spearman rho | Kendall tau-b | Top-four overlap | Ambiguous fine cells | Ambiguous coarse cells | Progressive curves |
 |:--|:--|:--|--:|--:|--:|--:|--:|:--|
