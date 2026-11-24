@@ -1,8 +1,9 @@
 # Cross-Resolution Consistency of Target-Matched Perturbation Sensitivity Maps for Personal Protective Equipment Detection
 
-**Authors:** Ezzaldeen Al-Tayar  
+**Author:** Ezzaldeen Al-Tayar  
 **Affiliation:** Faculty of Engineering and Information Technology, Taiz University, Taiz, Yemen  
-**Corresponding author:** azzaltayyar@gmail.com
+**Corresponding author:** Ezzaldeen Al-Tayar (azzaltayyar@gmail.com)  
+**ORCID:** https://orcid.org/0009-0003-9506-6669
 
 ## Abstract
 
@@ -25,15 +26,15 @@ Black-box explanation evaluation builds on meaningful perturbation (Fong and Ved
 | Reference and year | Main previously reported scope | Distinction in the present study |
 |:--|:--|:--|
 | Al-Tayar et al. (2025a) | RF-DETR-assisted PPE monitoring/decision system | No new detector-training claim; tests *current-author validation* plus instance-matched perturbation response |
-| Al-Tayar et al. (2025b) | Conceptual explainable RF-DETR PPE decision-support framework | Supplies archived numeric 8×8↔4×4 spatial-rank agreement and explicit missing-identity accounting, not merely a proposed XAI framework |
+| Al-Tayar et al. (2025b) | Explainable RF-DETR decision-support framework with a preliminary 300-image public-PPE comparison and illustrative XAI case study | Supplies archived numeric 8×8↔4×4 spatial-rank agreement and explicit missing-identity accounting, not merely a proposed XAI framework |
 | Al-Tayar et al. (2026a) | BIM-integrated PPE safety vision | No new BIM integration or task-level compliance validation; focuses on detector response maps |
-| Al-Tayar et al. (2026b) | YOLOv11m versus RF-DETR detector comparison | Holds RF-DETR Small fixed; does not recompare model architectures |
+| Al-Tayar et al. (2026b) | YOLOv11m versus RF-DETR detector comparison using the previously reported 2,327-image Y-PPE source corpus | Holds RF-DETR Small fixed; does not recompare model architectures |
 | Andrés et al. (2024), D-MFPP | Model-agnostic explanations of object detectors, including perturbation benchmarking | No claim of D-MFPP superiority; tests signed cross-grid *matched-instance rank consistency* and gray/blur operator dependence |
 | Present study (V34A/V38-B) | Frozen 10-target exploratory study plus separate 48-target extension | Primary descriptive endpoint: 16-region signed-density rank agreement, three undefined maps retained, and prespecified operator/random-order controls |
 
 *Table 1. Scope of related publications and the distinct empirical contribution of the present study. The comparison concerns reported study focus, not a direct performance benchmark.*
 
-We do not present earlier datasets or architectures as a newly developed model, and this matrix is not a substitute for a final authorship/rights overlap assessment.
+The original Y-PPE source corpus (2,327 images and 16,520 annotations) was described in the earlier detector comparison (Al-Tayar et al., 2026b). It is reused here as a research resource, not claimed as a new dataset. The current-reference 459-image diagnostic evaluation and target-matched cross-grid analyses address different endpoints from that earlier architecture comparison. We do not present earlier datasets or architectures as a newly developed model, and this matrix is not a substitute for a final authorship/rights overlap assessment.
 
 This study instead asks a tightly bounded empirical question: **When the detector, target instances and source images remain fixed, how consistent are target-matched occlusion-response rankings at 8×8 versus 4×4 spatial resolutions?** An exploratory frozen-target study and a subsequently prospectively specified, larger diagnostic replication are reported **separately** because source selection and image transport differ. We combine a current-reference detection audit with instance-matched perturbation curves, exact spatial registration and perturbation-operator controls. Our contributions are:
 
@@ -268,7 +269,7 @@ The unchanged 17-class PPE detector achieved micro-F1=0.8706 on 459 current-sour
 
 **Code availability:** The analysis and synthetic/preflight scripts are available in the public research branch linked above. The detector was accessed as an unchanged hosted Roboflow checkpoint; a locally distributable copy of its weights is **not claimed**. **[AUTHOR TO VERIFY: final code license, dependency versions and permanent commit/tag for readers.]**
 
-**Prior dissemination and originality:** Previous 2025/2026 PPE/RF-DETR and XAI publications by the research group are cited as prior work. This manuscript reports the archived newly executed original-source validation and perturbation/spatial robustness measurements rather than re-publishing earlier detector-training claims. [AUTHOR MUST VERIFY all related papers, abstracts, preprints and non-overlap with existing publications, and approve the final originality statement.]
+**Prior dissemination and originality:** Previous 2025/2026 PPE/RF-DETR and XAI publications by the research group are cited as prior work. This manuscript reports the archived newly executed original-source validation and perturbation/spatial robustness measurements rather than re-publishing earlier detector-training claims. The sole author confirms that the current 8×8/4×4 XAI results have not been published previously and that this manuscript has not been submitted to another journal. [FINAL CHECK REQUIRED: full-text overlap and reuse rights for all prior publications, including the remaining 2025 RF-DETR decision-system article; author to approve final statement.]
 
 ## Supplementary material
 
