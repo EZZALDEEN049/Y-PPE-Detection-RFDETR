@@ -16,7 +16,7 @@ from docx.shared import Pt
 def add_page_number(sec):
     p=sec.footer.paragraphs[0]
     p.alignment=WD_ALIGN_PARAGRAPH.CENTER
-    if not p._p.xpath('.//w:instrText'):
+    if not p._p.xpath('.//w:instrText | .//w:fldSimple'):
         run=p.add_run()
         field=OxmlElement("w:fldSimple")
         field.set(qn("w:instr"),"PAGE")
