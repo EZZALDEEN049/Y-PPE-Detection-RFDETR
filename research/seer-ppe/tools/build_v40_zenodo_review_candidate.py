@@ -196,7 +196,17 @@ CSV headers are field names. Empty cells are missing, not zero. IDs V001–V459 
 """,encoding="utf8")
     # Dependency pins for this reproduction environment, not original hosted inference.
     import importlib.metadata as md
-    names=["numpy","matplotlib","cairosvg","contourpy","cycler","fonttools","kiwisolver","packaging","pillow","pyparsing","python-dateutil","six","cairocffi","cffi","cssselect2","defusedxml","tinycss2","webencodings","pycparser"]
+    from packaging.requirements import Requirement
+    names=set()
+    todo=["numpy","matplotlib","cairosvg"]
+    while todo:
+        name=todo.pop()
+        if name.lower() in names:continue
+        names.add(name.lower())
+        for spec in md.requires(name) or []:
+            req=Requirement(spec)
+            if req.marker is None or req.marker.evaluate({"extra":""}):todo.append(req.name)
+    names=sorted(names)
     (dest/"requirements.txt").write_text("# Tested offline figure recreation dependencies; not historical hosted environment\n"+"".join(f"{k}=={md.version(k)}\n" for k in names),encoding="utf8")
     def hashes():
         fs=sorted(p for p in dest.rglob("*") if p.is_file() and p.name!="SHA256SUMS.txt")
