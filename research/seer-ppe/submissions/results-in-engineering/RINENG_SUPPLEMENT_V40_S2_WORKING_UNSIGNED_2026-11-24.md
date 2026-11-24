@@ -2,7 +2,7 @@
 
 **Article:** Cross-Resolution Consistency of Target-Matched Perturbation Sensitivity Maps for Personal Protective Equipment Detection
 
-**Target journal:** Results in Engineering. **Study status:** Completed, independently audited and preserved, but author/editorial publication sign-off remains pending.
+**Target journal:** Results in Engineering.
 
 ## S2.1. Fixed study and reproducibility
 
@@ -162,7 +162,7 @@ A leave-one-original-image-out diagnostic, excluding *all* detections from one i
 
 The Gaussian-blur minus neutral-gray rho difference was defined only on the **14 paired valid targets from eight images**. Its median was **−0.176471**. Recomputing its mean after deleting one of the eight images and all target observations from it yielded **−0.248039 to −0.178659**. It would be inappropriate to use 14 targets as 14 independent construction-site observations.
 
-Three primary targets remained undefined because of same-class target-identity matching ambiguity. The missingness may correlate with crowding and visual complexity; no zero imputation or replacement target was used. Figure 2 displays individual valid cases and undefined marks.
+Three primary targets remained undefined because of same-class target-identity matching ambiguity. The missingness may correlate with crowding and visual complexity; no zero imputation or replacement target was used. Figure 2 in the main article displays individual valid cases and undefined marks.
 
 ## S2.10. Original-source Validation class-by-class detection performance (V26)
 
