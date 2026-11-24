@@ -1,0 +1,32 @@
+name: V40-R5 offline vector artwork preflight (no submission)
+on:
+  push:
+    branches: [research/v30-progressive-xai-2026-11-22]
+    paths: [.github/workflows/seer-ppe-v40-r5-artwork-qa.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install numpy scipy matplotlib pymupdf pillow cairosvg
+      - name: Render and check 14 figures from frozen numerical sources
+        run: python research/seer-ppe/tools/render_v40_r5_publication_figures.py --output-dir research/seer-ppe/submissions/results-in-engineering/artwork-publication/r5
+      - name: Save individual internal figure candidates and QA evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/seer-ppe/submissions/results-in-engineering/artwork-publication/r5
+          git commit -m "V40 R5: save offline vector figure candidates and structural QA"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: V40-R5-FIGURE-QA-INTERNAL
+          path: research/seer-ppe/submissions/results-in-engineering/artwork-publication/r5
+          retention-days: 14
