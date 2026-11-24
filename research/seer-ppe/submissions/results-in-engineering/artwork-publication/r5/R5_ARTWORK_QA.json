@@ -31,7 +31,7 @@
       "height_mm": 99.06,
       "text_min_pt": 8.0,
       "vector_only": true,
-      "sha256": "e26ae831634ad7a213bb228717633ea36f188c6011f27aea6c18b50f34e9ecfd",
+      "sha256": "978144921374c0e30905ad32c46eb31a4bee4aad206a671b73eaf5dd0d18f6a5",
       "privacy_text_scan": "PASS"
     },
     {
@@ -40,7 +40,7 @@
       "height_mm": 172.72,
       "text_min_pt": 8.0,
       "vector_only": true,
-      "sha256": "4e446f48b79fac7937258a1b066c35e4cf8ed4ea7479984f75fa5ae23ee0010b",
+      "sha256": "8e665e5c5c8b4041c72c3ede73fb2f9b74f20eb363944523573daa3243db6117",
       "privacy_text_scan": "PASS"
     },
     {
@@ -49,7 +49,7 @@
       "height_mm": 99.06,
       "text_min_pt": 8.0,
       "vector_only": true,
-      "sha256": "18945efa1a1842222abb7ffe75b633a4855a05013dd69afa97ae30f8a913475b",
+      "sha256": "e485c3b497f88daa76e87e2cf7ca34f0b548e84668f77d492580aaefbf0f1624",
       "privacy_text_scan": "PASS"
     },
     {
@@ -58,97 +58,97 @@
       "height_mm": 165.6,
       "text_min_pt": 6.63,
       "vector_only": true,
-      "sha256": "c12481ca440635d9e28910fd4e5ba5efaf5d3e8145241142dea4612a38509ed8",
+      "sha256": "5377f8e86956d38478af36110921b8a51b238f50f8c830580ed99fc208140eae",
       "privacy_text_scan": "PASS"
     },
     {
       "file": "Figure_S1.pdf",
       "width_mm": 180.0,
-      "height_mm": 110.49,
+      "height_mm": 127.0,
       "text_min_pt": 8.0,
       "vector_only": true,
-      "sha256": "22c0b4c58360a106d449d042992f2313549d0bdd99087039fba1bfbc0536a377",
+      "sha256": "a99b27ca0dcf85566a5234ebf1a895d89e0b0a552dba72fb9a6960481645af55",
       "privacy_text_scan": "PASS"
     },
     {
       "file": "Figure_S2.pdf",
       "width_mm": 180.0,
-      "height_mm": 110.49,
+      "height_mm": 127.0,
       "text_min_pt": 8.0,
       "vector_only": true,
-      "sha256": "0b776ca2e6bf4bdcbd67ce98d4be335a56c5f3a09807a7c465f71d64c6ea8475",
+      "sha256": "61249a72a2a36525d0ebd7ec262945ec5c44f0c34ba0a4ccdeb3ab562eb3260c",
       "privacy_text_scan": "PASS"
     },
     {
       "file": "Figure_S3.pdf",
       "width_mm": 180.0,
-      "height_mm": 110.49,
+      "height_mm": 127.0,
       "text_min_pt": 8.0,
       "vector_only": true,
-      "sha256": "d9051f73656f4abed262cccfdad7e1b5a65fca8ce4c9e690a5904194f4b78a37",
+      "sha256": "3ed9b1c9c8402187196335f38d1b13e9cd6b7d824eabff54b42bf626f2862e4c",
       "privacy_text_scan": "PASS"
     },
     {
       "file": "Figure_S4.pdf",
       "width_mm": 180.0,
-      "height_mm": 110.49,
+      "height_mm": 127.0,
       "text_min_pt": 8.0,
       "vector_only": true,
-      "sha256": "fcd1b7e0df3cc0b714030f18e1cfe0c8e9f63da434ac5b48bd131144135e8226",
+      "sha256": "c7e346cd5a3f7da0b85f9b8d796df013f9a4404f7d324720a679fb293dd4243a",
       "privacy_text_scan": "PASS"
     },
     {
       "file": "Figure_S5.pdf",
       "width_mm": 180.0,
-      "height_mm": 110.49,
+      "height_mm": 127.0,
       "text_min_pt": 8.0,
       "vector_only": true,
-      "sha256": "b06e8bae6663b0dcf368db33e3f2e4aed4cac3fc0760b74dac230bdbfa2d4952",
+      "sha256": "32b75cb37ac2c446b492f4958e616fff1a7d4d5635be9b984134b67f8e85cf72",
       "privacy_text_scan": "PASS"
     },
     {
       "file": "Figure_S6.pdf",
       "width_mm": 180.0,
-      "height_mm": 110.49,
+      "height_mm": 127.0,
       "text_min_pt": 8.0,
       "vector_only": true,
-      "sha256": "4621888e8fa7cf4fa967360b9b631d6c01980139bcd020705b22ca95581928f5",
+      "sha256": "27cc634c8c58490e3ad9c130e543033c4d9d3d5bfd1ef216aeba399a22279af5",
       "privacy_text_scan": "PASS"
     },
     {
       "file": "Figure_S7.pdf",
       "width_mm": 180.0,
-      "height_mm": 110.49,
+      "height_mm": 127.0,
       "text_min_pt": 8.0,
       "vector_only": true,
-      "sha256": "6279d35dd5510d50fc293641caa0a170430cd9bd4e0e1df9492c83c5dbc95540",
+      "sha256": "0fabf729542df5be1443b36cbc556fc4f9cb804c99c88fdcd0df58826574084f",
       "privacy_text_scan": "PASS"
     },
     {
       "file": "Figure_S8.pdf",
       "width_mm": 180.0,
-      "height_mm": 110.49,
+      "height_mm": 127.0,
       "text_min_pt": 8.0,
       "vector_only": true,
-      "sha256": "6a070fed1195ad1c2527150c409b58b175d4a21a536a55cb12883a0e79890ea5",
+      "sha256": "3e61d5553cca331ab53a30c854d10c98afed577ed514603125fe7ce33f2827d7",
       "privacy_text_scan": "PASS"
     },
     {
       "file": "Figure_S9.pdf",
       "width_mm": 180.0,
-      "height_mm": 110.49,
+      "height_mm": 127.0,
       "text_min_pt": 8.0,
       "vector_only": true,
-      "sha256": "e128963b559c20a58217fb407e26e32c4b3fb5b7a152fab227a196631b0a9d4c",
+      "sha256": "599ba83181d3ba49a4ec05888c0ad686b017b977933e565a201cbe14e6efdf2a",
       "privacy_text_scan": "PASS"
     },
     {
       "file": "Figure_S10.pdf",
       "width_mm": 180.0,
-      "height_mm": 110.49,
+      "height_mm": 127.0,
       "text_min_pt": 8.0,
       "vector_only": true,
-      "sha256": "4888602d0a214e0f3e618206ade4dc1a0228c9fb3d0cc9497c3f913c5e27045c",
+      "sha256": "38f079afba12a2ed17e7ab83b6bf09a656984f442eb8da4990fe2c68622cb06d",
       "privacy_text_scan": "PASS"
     }
   ],
