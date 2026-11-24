@@ -27,4 +27,4 @@ Corresponding author: azzaltayyar@gmail.com
 
 ---
 
-**Internal release gate — remove before submission:** Full-text prior-work and reuse-rights review, ethics, publication permissions, funding, competing interests, contribution roles, AI review and final author approval remain pending. No submission authorization granted.
+**Internal release gate — remove before submission:** Author-confirmed funding, competing interests, contribution roles, image/person permission attestation and AI-disclosure authorization are recorded in the manuscript. Institutional ethics determination, organization/third-party rights scope, permitted archive, full-text prior-work review, final AI-assisted content review and final author approval remain pending. No submission authorization granted.
