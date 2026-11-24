@@ -1,4 +1,4 @@
-# V40 cumulative compliance register — batch 01 (items 01–26)
+# V40 cumulative compliance register — batches 01–02 (items 01–56)
 
 **Date:** 2026-11-24. **Target:** Results in Engineering. **State:** working source revisions only; not approved for submission. No new inference, retraining, dataset changes or new experimental claims.
 
@@ -54,3 +54,40 @@
 
 ## Author update, 2026-11-24
 Sole author confirms name, affiliation, corresponding author/email, ORCID, no previous publication of the present cross-grid XAI results and no prior journal submission of this manuscript. Delegates article type selection and authorizes policy-compliant graphical abstract preparation. No authorization to submit. Full rights, ethics, funding, conflicts, CRediT, AI signoff and final proof remain open. See V40_AUTHOR_METADATA_AND_PRIOR_WORK_AUDIT_2026-11-24.md.
+
+## Batch 02 — items 27–56 (2026-11-24)
+
+| ID | Requirement | Current status | Evidence/action and remaining condition |
+|:--|:--|:--|:--|
+| 27 | Figure numbering | SOURCE CORRECTED | Main Figures 1–3 now explicitly cited; S1 Figures S1–S10 cited. Final native rendering and artwork aliases must be verified. |
+| 28 | Artwork resolution/dimensions | BINARY HEADER VERIFIED / RE-EXPORT PENDING | All 13 actual GitHub PNG headers inspected; nominal 300 dpi. Figure 1 3970×2174; Figure 2 3784×1564; Figure 3 3784×1474; S1–S10 each 3377×2255. Elsevier general guidance 300 halftone, 500 combination, 1000 bitmapped line art; prefer vector output for plots and check effective resolution at publication size. Do not assert all are compliant merely because 300 dpi. |
+| 29 | Artwork publication rights | PARTIAL / AUTHOR PENDING | Historic renderer verified to plot numerical grids, not raw photos; however embeds target and source IDs. New offline candidate renderer created for pseudonymous PDF outputs; not executed or visually inspected. Confirm rights and privacy; review all 13 new final artworks. |
+| 30 | Equations/symbols | SOURCE CORRECTED | Defined pooled P/R/F1 using TP/FP/FN; existing signed score/area-normalization equations retained. Native Word equation and visual QA pending. |
+| 31 | Citations/references | PARTIAL | 17 bibliography entries inspected; author–date form retained, 4 prior works transparently cited. Need complete citation-to-reference mapping, final publisher metadata and exact guide style. |
+| 32 | DOI validity | TITLE/IDENTIFIER SCREEN PASS | 13 DOI strings matched indexed records/titles in public search (publisher or bibliographic records); remaining four works have conference/archive URLs. Not a complete live resolver/metadata audit; check final authors, year, pages and links. |
+| 33 | English language | PARTIAL / SOURCE CORRECTED | Adjusted sole-author declarations, consistency and cover letter; full final copyediting and author proof remain. |
+| 34 | Supplement S1 | SOURCE CORRECTED / EXPORT PENDING | Unified section numbering, title, citations and replaced raw Validation image IDs with aliases in prose/table. Numerical columns preserved. Planned artwork-publication PDF links require renderer execution and inspection. |
+| 35 | Supplement S2 | SOURCE VERIFIED / EXPORT PENDING | Updated terminology and removed internal status line; all numeric table rows identical. 48-target, 45 estimable and 17-class tables retained. |
+| 36 | Data availability | AUTHOR / RELEASE PENDING | Recommend rights-cleared derived data, numeric ledgers and documentation; original field images remain subject to permissions. No Zenodo record or DOI created; no unrestricted photo release asserted. |
+| 37 | Code availability | PARTIAL | Existing analysis, renderer, runner and requirements files verified. Root listing showed no LICENSE filename. License, exact environment and sanitization must be resolved before public archival. |
+| 38 | Reproducibility | PARTIAL | Stored V34-B audit and scripts and V38-B pipeline inspected. Earlier numeric cross-check retained. New candidate renderer not run; no independent full rerun or additional inference. |
+| 39 | Fixed repository version | TECHNICAL PIN VERIFIED / RELEASE PENDING | Commit d76ebc595cff628f21231b45dab51170dc82b405 verified by reading V38-B runner at that commit. This is a stable technical source snapshot, not a rights-approved final release or Zenodo DOI. |
+| 40 | Ethical approval/exemption | INSTITUTION / AUTHOR PENDING | Require actual institutional determination applicable to research use of images of people. Never invent approval/exemption. |
+| 41 | Privacy of persons | PARTIAL / AUTHOR PENDING | Removed raw source IDs from S1 text; existing artwork and archived links/metadata still need privacy audit and rights clearance. |
+| 42 | Organization/project permissions | AUTHOR PENDING | Verify relevant NGO/site/contract permissions and disclosure limits; capture ownership is distinct from permission to publish. |
+| 43 | Funding/in-kind support | AUTHOR PENDING | Confirm funding/grant or lack thereof and actual nature of Roboflow research-plan credits. |
+| 44 | Competing interests | AUTHOR PENDING | Truthful declaration and official form if required. |
+| 45 | Acknowledgments | AUTHOR PENDING | Prepared placeholder; acknowledge actual non-author contributions/platform support or omit if none. |
+| 46 | CRediT | AUTHOR PENDING | Sole author confirmed; actual contribution roles require author confirmation and eligibility of any other contributors. |
+| 47 | AI disclosure | SOURCE CORRECTED / AUTHOR PENDING | Separate disclosure before References, sole-author wording; actual final human review and responsibility not certified. |
+| 48 | AI in research | SOURCE CORRECTED / AUTHOR PENDING | Methods distinguishes code drafting, plotting, Python/NumPy/SciPy/Pillow/Matplotlib and archived algorithms; exact AI tool/version record, software environment and author validation still open. |
+| 49 | Prior publication overlap | PARTIAL | Previous three full-text comparison and fourth abstract audit retained; no same cross-grid endpoint found in three texts; source corpus reused and explicitly cited. Remaining full text, thesis/reuse rights and exact similarity open. |
+| 50 | Concurrent submission | AUTHOR CONFIRMED | Sole author explicitly confirmed no previous journal submission of this manuscript; recorded in manuscript/cover letter. Reconfirm at submission. |
+| 51 | Cover letter | SOURCE CORRECTED / AUTHOR PENDING | New V40 letter aligned with sole author, study limits, distinct contribution and author-confirmed exclusivity. Final proof and outstanding declarations needed. |
+| 52 | Submission file formats | GENERAL POLICY VERIFIED / PORTAL PENDING | Editable manuscript DOCX, editable highlights, separate suitable artwork and supplements proposed; full journal-specific guide/slots and exported files still unverified. |
+| 53 | Anonymization policy | GUIDE CHECK | Third-party summary reports single-anonymized review; not treated as official confirmation. Verify live guide/portal; retain named title-page source pending instructions. |
+| 54 | Editorial Manager requirements | PORTAL CHECK | Actual logged-in journal submission fields not accessed; verify selectable article type, author fields, declarations, file slots, data/AI statements and generated proof before submission. |
+| 55 | Final author approval | AUTHOR PENDING | No final proof review, ethics/rights/financial/AI approval or express authorization to submit. |
+| 56 | Post-acceptance production | NOT APPLICABLE NOW | No acceptance or submission; proofing/license/production requirements apply later. |
+
+**Batch 02 source modifications:** working main manuscript, S1, S2, and new V40 cover letter; candidate offline artwork renderer `research/seer-ppe/tools/render_v40_publication_artwork_candidate.py` saved but not executed. S1 figure links are planned outputs, not validated existing files. No final DOCX/PDF/package or DOI deposit. All numerical results preserved. Artwork evidence and references: see V40_BATCH02_TECHNICAL_EVIDENCE_2026-11-24.md. Existing source audits remain unchanged; final document formatting, full guide and logged-in portal checks remain outstanding.
