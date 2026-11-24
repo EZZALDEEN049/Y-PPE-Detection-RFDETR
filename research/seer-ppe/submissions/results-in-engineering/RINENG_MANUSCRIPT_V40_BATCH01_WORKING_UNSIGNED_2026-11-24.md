@@ -197,7 +197,7 @@ All ten exact-target map pairs passed identity, area partition and value-conserv
 
 Figure 1 summarizes the ten historical target comparisons. The most discrepant target, historical target H04 (Face Masks), had approximately ρ=0.2295, τ-b=0.1514 and **zero** shared top-four regions. The nonzero mean correlation therefore does not support treating the 8×8 and 4×4 explanations as spatially interchangeable.
 
-![Figure 1. Target-level Spearman ρ, Kendall τ-b and overlap of the four highest signed-sensitivity regions when the same original detections are analyzed at 8×8 and 4×4 resolution. Map values are derived from archived score-drop ledgers, not human-labeled attribution ground truth. Ten corresponding paired heatmaps are available as Supplementary Figures S1–S10.](../../figures/V34B_2026-11-22/V34B_SPATIAL_AGREEMENT_SUMMARY_2026-11-22.png)
+![Figure 1. Target-level Spearman ρ, Kendall τ-b and overlap of the four highest signed-sensitivity regions when the same original detections are analyzed at 8×8 and 4×4 resolution. Map values are derived from archived score-drop ledgers, not human-labeled attribution ground truth. Ten corresponding paired heatmaps are available as Supplementary Figures S1–S10.](artwork-publication/r5/Figure_1.pdf)
 
 ### 3.6. Enlarged 48-target diagnostic replication (V38-B)
 
@@ -221,7 +221,7 @@ The three non-estimable target maps came from the categories **No Safety Vest** 
 
 **Distributional and clustered sensitivity check.** Across the 45 valid rho values, the median was **0.6873**, with Q1–Q3 **0.5147–0.8118**, observed range **−0.0176–0.9265**, and **11/45 values <0.50** (descriptive threshold, not a prespecified failure rule). The unweighted mean recomputed after excluding each source image in turn (all targets from that image) ranged from **0.6410 to 0.6649** over 24 iterations. This leave-one-image-out range assesses the influence of individual selected images; it is **not** a confidence interval for new project sites. Three non-estimable map pairs could be nonrandom missingness, so the reported 45-target mean applies conditionally to cases with identifiable target responses. Applying Eq. (7) to all 48 frozen targets yields hypothetical completion bounds **0.5459–0.6709** using the unrounded 45-target mean (0.6489788814589973). The primary reported estimates and undefined statuses remain unchanged. The bounds do not establish a population interval or resolve target identity.
 
-![Figure 2. Cross-resolution signed-density rank agreement for 45 estimable detections in the 48-target development-exposed Validation extension. The distribution and category summaries are descriptive. Three ambiguity-flagged detections remain in the study denominator but have undefined correlation scores.](../../figures/V38C_2026-11-23/Figure_2_V38C_Target_Consistency.png)
+![Figure 2. Cross-resolution signed-density rank agreement for 45 estimable detections in the 48-target development-exposed Validation extension. The distribution and category summaries are descriptive. Three ambiguity-flagged detections (T05, T30 and T47) remain in the study denominator; crosses in the separate undefined-status strip are not numerical correlation values. Class bars show observed ranges, not confidence intervals.](artwork-publication/r5/Figure_2.pdf)
 
 The archived gray-fill map records contain 45 LOST target-cell outcomes among 3,072 fine-grid records (1.46%) and 52 among 768 coarse-grid records (6.77%); ambiguous outcomes numbered 7 and 6, respectively. These are dependent target-cell records (48 targets × 64 or 16 cells), not independent trials or counts of distinct images. The contrast is descriptive: the larger coarse masks and fixed output/matching thresholds may jointly influence the frequency of non-matches, and it cannot isolate threshold effects from changes in detector response.
 
@@ -246,7 +246,7 @@ One of the twelve prespecified progressive-curve targets was blocked because its
 
 *Table 6. Operator-ablation and repeated random-order diagnostics. These are perturbation-protocol measurements with dependence between a ranking and its measurement; no claim of causal saliency correctness or method-wide superiority follows.*
 
-![Figure 3. Within-target difference between Gaussian-blur and neutral-gray cross-grid Spearman agreement for 14 valid paired operator checks (left) and saliency minus the mean of ten seeded random AUCs for 11 scorable targets in deletion and insertion directions (right). A lower deletion AUC and higher insertion AUC are favorable under this protocol. Descriptive patterns do not establish independent attribution correctness.](../../figures/V38C_2026-11-23/Figure_3_V38C_Operator_and_Random_Controls.png)
+![Figure 3. Paired Gaussian-blur versus neutral-gray cross-grid Spearman agreement for 14 valid paired operator checks (left; dashed line denotes equality) and saliency minus the mean of ten seeded random AUCs for 11 scorable targets in deletion and insertion directions (right). A lower deletion AUC and higher insertion AUC are favorable under this protocol. Descriptive patterns do not establish independent attribution correctness.](artwork-publication/r5/Figure_3.pdf)
 
 ## 4. Discussion
 
@@ -260,7 +260,7 @@ The historical exploration used one frozen random ordering per target; the subse
 
 **Practical engineering interpretation (not a validated intervention).** A safety reviewer using a visual heatmap to prioritize human inspection should treat a change in high-ranked image regions across plausible grid/fill settings as a *stability warning*, rather than assuming one displayed map identifies a true failure cause. A conservative workflow would compare at least two parameterizations, document changed regions, and defer any person-specific PPE compliance judgment to context-appropriate human/occupational review. Figure 4 places the measured cross-grid diagnostic within a proposed human-supervised inspection workflow. Ineligible, missing or ambiguous detections require further review rather than an inferred absence of PPE. For eligible detections, cross-grid and fill-operator agreement can be documented as a diagnostic signal, not a compliance clearance. No validated agreement cutoff or automated decision rule is proposed. All paths require a qualified human safety assessment of person–equipment association, task-specific requirements, visibility, site rules and equipment suitability before any intervention or clearance; this assessment was not tested. We have **not** measured how this proposed workflow affects inspection time, injury rates, acceptance decisions or site-level outcomes.
 
-![](artwork-publication/Figure_4_Proposed_Workflow.svg)
+![](artwork-publication/r5/Figure_4.pdf)
 
 *Figure 4. Proposed human-supervised PPE inspection workflow showing the position of the studied target-matched map-consistency diagnostic. Conceptual illustration only; the complete workflow, decision thresholds, human-review performance and safety outcomes were not validated. Draft vector schematic prepared with OpenAI ChatGPT (GPT-6.2) assistance; final author review and approval pending.*
 
