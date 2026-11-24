@@ -10,4 +10,4 @@
 *Email: azzaltayyar@gmail.com*  
 *ORCID: https://orcid.org/0009-0003-9506-6669*
 
-<!-- WORKING SOURCE: sole authorship, listed affiliation, correspondence and ORCID supplied/confirmed by author on 2026-11-24. P.O. Box 6803 is corroborated by the IAU WHED directory and published university correspondence; confirm this is the correct mailing address for the faculty at final proof. Verify portal metadata, eligibility of authorship for this article in light of previous collaborative work, and final proof before submission. No final submission authorization. -->
+<!-- WORKING SOURCE: author-confirmed sole authorship, affiliation, correspondence and ORCID supplied on 2026-11-24. ORCID checksum is valid; account ownership and Editorial Manager linkage are not independently verified. The current university-level postal address is provisional: an official faculty document lists a different faculty-level P.O. Box. Author must confirm the correct mailing address, verify the final author roster against contributions to this specific article, and approve portal metadata and the final proof. No submission authorization. -->
