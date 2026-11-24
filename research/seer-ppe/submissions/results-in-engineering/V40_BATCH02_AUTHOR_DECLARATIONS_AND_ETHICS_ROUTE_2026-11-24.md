@@ -4,7 +4,7 @@ Status: author responses incorporated in working sources; not approved for journ
 
 ## Author responses
 - Publication permissions for photographs and depicted persons: author attests they exist; documents and scope have not been independently inspected. No assertion that all permissions are written or authorize dataset redistribution.
-- Funding: self-funded, no specific research grant; free research plan or granted Roboflow credits (in-kind computational support); exact arrangement and provider role not separately confirmed.
+- Funding: self-funded, no specific research grant. The author-supplied account screenshot confirms a Roboflow Research Plan with 50 monthly included credits for the 1 Nov–1 Dec 2026 cycle; 2.49 credits were shown as used, with zero prepaid balance and zero estimated Flex usage. This supports describing the hosted inference access as non-cash platform/computational support, not a cash grant. Provider role beyond hosting the inference service is not independently documented.
 - Competing interests: none known, according to author; disclose support in the appropriate publisher declaration form.
 - Acknowledgments: none requested; section omitted.
 - CRediT: Conceptualization, Formal analysis, Investigation, Methodology, Software, Validation, Visualization, Resources, Project administration, Writing – original draft, Writing – review & editing. Only these 11 roles selected. No Data curation, Supervision, or Funding acquisition inferred.
