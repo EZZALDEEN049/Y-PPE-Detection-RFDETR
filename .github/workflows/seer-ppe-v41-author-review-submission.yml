@@ -1,0 +1,33 @@
+name: V41 clean submission-format author review (no journal submission)
+on:
+  push:
+    branches: [research/v30-progressive-xai-2026-11-22]
+    paths: [.github/workflows/seer-ppe-v41-author-review-submission.yml, research/seer-ppe/tools/build_v41_author_review_submission.py]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Offline document dependencies
+        run: |
+          pip install pypandoc_binary python-docx pymupdf
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice-writer fonts-liberation >/dev/null
+      - name: Build and validate author review files
+        run: python research/seer-ppe/tools/build_v41_author_review_submission.py "$RUNNER_TEMP/v41_review"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: RINENG_V41_Submission_Format_AUTHOR_REVIEW
+          path: ${{ runner.temp }}/v41_review/RINENG_V41_Submission_Format_AUTHOR_REVIEW.zip
+          retention-days: 14
+          if-no-files-found: error
+      - name: Clean temporary files
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/v41_review"
