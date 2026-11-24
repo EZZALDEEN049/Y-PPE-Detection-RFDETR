@@ -28,6 +28,8 @@ Full raw output and call-ledger files remain immutable in the research branch, a
 
 The image-bootstrap percentiles are **descriptive uncertainty summaries**, not independently validated source-population confidence intervals; images were purposively selected, and multiple targets share source images.
 
+The 24 image groups, rather than the 4,984 repeated hosted requests, are the cluster resampling units. For the 48 frozen targets, the three undefined coefficients are T05, T30 and T47. Hypothetically allowing each to range from −1 to +1 bounds the target-weighted completed-set mean at 0.5459177013678099–0.6709177013678099. This is a mathematical sensitivity range, not imputation, a population confidence interval, or a correction to the primary equal-image mean.
+
 ## S2.3. Individual outcomes including the three missing values
 
 The archived gray-fill maps contain 45 LOST outcomes out of 3,072 fine-grid target-cell records and 52 out of 768 coarse-grid target-cell records; ambiguous outcomes numbered 7 and 6. LOST is an operational zero under fixed output and IoU thresholds, not zero internal response; ambiguous scores remain undefined. Counts are descriptive and do not identify the reason for a non-match. Random-order curves are internal diagnostics, not independent explanation ground truth or published-method comparisons.
@@ -193,3 +195,23 @@ The following values are copied without retraining or re-running RF-DETR from th
 Total: **TP=3297, FP=806, FN=174**, micro precision **0.803558**, recall **0.949870**, F1 **0.870610**. Class F1 ranges from **0.776256 (No Safety Boots)** to **0.937811 (Hard Hat)**. These metrics describe frozen detections against the current single-curator author labels and cannot establish worker-level PPE compliance accuracy. Exact counts reproduce all 17 class F1 values and the unweighted macro-F1 of 0.8678. The Child category consists of 31 reference boxes across 22 images, not necessarily 31 distinct individuals; no verified ages, worker status or child-labor determination can be inferred from the class label. Child is not among the 11 V38-B target categories. No identifying photographs, individual records or consent documents are included in this supplement.
 
 **Source integrity:** Calculated only from archived V38-B audited numeric rows and V26 \`M0.per_class\`. The exact analytic record, \`research/seer-ppe/V39_R1_SECONDARY_STATS_AND_V26_PER_CLASS_VALIDATED_2026-11-23.md\`, is version-controlled. No new hosted inference was required.
+
+## S2.11. Cluster grouping and offline secondary analysis
+
+Each selected image contributed two distinct target categories. The publication-data candidate contains 48 full-precision rows with pseudonymous T01–T48 and I01–I24 group labels, no source IDs. Its group labels preserve membership and archive order for the descriptive image bootstrap, leave-one-image-out calculation and category counts. The deterministic bootstrap uses Python random.Random with the string seed `seer-ppe/v38b-image-block-bootstrap-2026-11-23`, 5,000 image-level resamples, and sorted indices floor(0.025×4999) and floor(0.975×4999). The target-weighted leave-one-image-out analysis drops all targets of one image before taking the mean. These are distinct summaries. The actual archive DOI and final privacy/license clearance are pending.
+
+| Category | Distinct selected images | Selected targets | Estimable rho |
+|:--|--:|--:|--:|
+| Face Masks | 4 | 4 | 4 |
+| Gloves | 4 | 4 | 4 |
+| Goggles | 5 | 5 | 5 |
+| Hard Hat | 5 | 5 | 4 |
+| No Face Mask | 5 | 5 | 5 |
+| No Gloves | 5 | 5 | 5 |
+| No Hard Hat | 4 | 4 | 4 |
+| No Safety Boots | 4 | 4 | 4 |
+| No Safety Vest | 4 | 4 | 3 |
+| Safety Boots | 4 | 4 | 4 |
+| Safety Vests | 4 | 4 | 3 |
+
+Image counts overlap between categories; do not sum them as distinct images. There are 24 unique image groups overall.
