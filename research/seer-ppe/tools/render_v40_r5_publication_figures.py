@@ -56,8 +56,8 @@ def historical_figures(items, out):
     fig.text(.02,.965,"Historical ten-target spatial agreement",weight="bold",va="top",fontsize=10)
     save(fig,out/"Figure_1.pdf")
     for i,x in enumerate(items):
-        fig,axes=plt.subplots(1,2,figsize=(W,4.35))
-        fig.subplots_adjust(left=.095,right=.965,top=.78,bottom=.31,wspace=.28)
+        fig,axes=plt.subplots(1,2,figsize=(W,5.0))
+        fig.subplots_adjust(left=.095,right=.965,top=.85,bottom=.36,wspace=.28)
         fig.text(.5,.95,f'H{i+1:02d} • {alias(x["meta"],i)} • {x["meta"]["target_class"]}',ha="center",weight="bold",fontsize=11)
         norm=TwoSlopeNorm(vmin=-scale,vcenter=0,vmax=scale)
         for ax,n,values,title in [(axes[0],8,x["fine"],"A. Native 8×8"),(axes[1],4,x["direct"],"B. Direct 4×4")]:
@@ -71,10 +71,10 @@ def historical_figures(items, out):
             row,col=divmod(j,4);axes[0].add_patch(Rectangle((2*col,2*row),2,2,fill=False,edgecolor="#CF8E00",linewidth=1.6))
         for j in x["top_direct"]:
             row,col=divmod(j,4);axes[1].add_patch(Rectangle((col,row),1,1,fill=False,edgecolor="#CF8E00",linewidth=1.6))
-        cbax=fig.add_axes([.20,.21,.60,.035]);cb=fig.colorbar(mesh,cax=cbax,orientation="horizontal",extend="both")
+        cbax=fig.add_axes([.20,.235,.60,.035]);cb=fig.colorbar(mesh,cax=cbax,orientation="horizontal",extend="both")
         cb.solids.set_rasterized(False)
         cb.set_label("Signed score-drop density (drop / exact area fraction)")
-        fig.text(.5,.115,f'Spearman ρ = {x["rho_recomputed"]:.4f}    Kendall τ-b = {x["tau_recomputed"]:.4f}    Top-four = {x["overlap"]}/4',ha="center",fontsize=9,weight="bold")
+        fig.text(.5,.110,f'Spearman ρ = {x["rho_recomputed"]:.4f}    Kendall τ-b = {x["tau_recomputed"]:.4f}    Top-four = {x["overlap"]}/4',ha="center",fontsize=9,weight="bold")
         fig.text(.5,.060,"Gold outlines: four highest-ranked aligned regions. Shared color scale;",ha="center",fontsize=8)
         fig.text(.5,.032,"clipping is display-only; all metrics use original numeric values.",ha="center",fontsize=8)
         save(fig,out/f"Figure_S{i+1}.pdf")
@@ -92,7 +92,8 @@ def extension_figures(d,out):
     ax=fig.add_subplot(gs[0]);ax.scatter([i for i,_ in valid],[r["rho"] for _,r in valid],s=17,c=BLUE)
     ax.axhline(mean,color=GOLD,ls="--",lw=1.1,label=f"Available target mean: {mean:.3f}")
     ax.axhline(0,color=GRAY,lw=.6);ax.set(xlim=(0,49),ylim=(-.10,1),ylabel="Spearman ρ",xticks=[1,8,16,24,32,40,48],title="A. Individual target rank agreement")
-    ax.grid(axis="y",alpha=.18);ax.legend(frameon=False,loc="lower right")
+    ax.grid(axis="y",alpha=.18);ax.tick_params(labelbottom=False)
+    ax.set_title(f"A. Individual target rank agreement (dashed: mean {mean:.3f})")
     strip=fig.add_subplot(gs[1]);strip.set(xlim=(0,49),ylim=(0,1),xticks=[1,8,16,24,32,40,48],yticks=[])
     strip.scatter(missing,[.55]*3,marker="x",s=26,color="#A34842");strip.set_ylabel("Undefined",rotation=0,labelpad=26,va="center")
     strip.set_xlabel("Preselected target index (1–48)");strip.spines["left"].set_visible(False)
@@ -117,9 +118,9 @@ def extension_figures(d,out):
     for g,vals,color in [(0,delete,GOLD),(1,insert,BLUE)]:
         jitter=np.array([((i*7)%11-5)/45 for i in range(11)])
         ax.scatter(g+jitter,vals,s=23,c=color);v=statistics.mean(vals);ax.hlines(v,g-.18,g+.18,color="#222",lw=1.7)
-        ax.text(g,v+(.055 if g else -.065),f"{v:+.3f}",ha="center",fontsize=8)
     ax.axhline(0,lw=.7,color=GRAY);ax.set(xlim=(-.45,1.45),ylim=(-.72,.72),xticks=[0,1],xticklabels=["Deletion\n(lower better)","Insertion\n(higher better)"],ylabel="Ranked AUC − mean random AUC",title="B. Internal order control (n=11)")
     ax.grid(axis="y",alpha=.15)
+    ax.text(.025,.97,f"Mean deletion: {statistics.mean(delete):+.3f}\nMean insertion: {statistics.mean(insert):+.3f}",transform=ax.transAxes,va="top",fontsize=8)
     fig.text(.5,.04,"Random-order comparison is an internal response diagnostic, not independent fidelity.",ha="center",fontsize=8)
     save(fig,out/"Figure_3.pdf")
     return {"extension_targets":48,"estimable":45,"undefined_indices":missing,"mean_rho":mean,"paired":14,
